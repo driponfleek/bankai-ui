@@ -1,0 +1,112 @@
+{
+	"name": "@epr0t0type/bankai-ui",
+	"private": true,
+	"devDependencies": {
+		"@babel/cli": "^7.12.17",
+		"@babel/core": "^7.12.17",
+		"@danielyearwood/eslint-config": "^1.0.1",
+		"@danielyearwood/prettier-config": "^1.0.0",
+		"@danielyearwood/react-unit-test-utils": "0.0.1",
+		"@danielyearwood/stylelint-config": "^1.0.0",
+		"@rollup/plugin-commonjs": "19.0.1",
+		"@rollup/plugin-node-resolve": "13.0.4",
+		"autoprefixer": "10.2.4",
+		"cross-env": "7.0.3",
+		"eslint": "7.20.0",
+		"eslint-plugin-filenames": "1.3.2",
+		"eslint-plugin-import": "2.22.1",
+		"eslint-plugin-jest": "24.1.5",
+		"eslint-plugin-jsx-a11y": "6.4.1",
+		"eslint-plugin-no-null": "1.0.2",
+		"eslint-plugin-prettier": "3.3.1",
+		"eslint-plugin-react": "^7.22.0",
+		"husky": "5.1.0",
+		"jest": "26.6.3",
+		"jest-environment-jsdom-global": "2.0.4",
+		"lerna": "3.22.1",
+		"lint-staged": "10.5.4",
+		"postcss": "8.2.6",
+		"postcss-import": "14.0.0",
+		"postcss-reporter": "7.0.2",
+		"postcss-url": "10.1.1",
+		"rollup": "2.39.0",
+		"rollup-plugin-babel": "4.4.0",
+		"rollup-plugin-peer-deps-external": "2.2.4",
+		"rollup-plugin-postcss": "4.0.0",
+		"rollup-plugin-terser": "7.0.2",
+		"rollup-plugin-visualizer": "4.2.0",
+		"rxjs-compat": "6.6.3"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"jest": {
+		"coverageThreshold": {
+			"./packages/components/**/*.js": {
+				"branches": 90,
+				"functions": 90,
+				"lines": 90,
+				"statements": 90
+			}
+		},
+		"collectCoverageFrom": [
+			"**/src/*.js"
+		],
+		"coveragePathIgnorePatterns": [
+			"/constants",
+			"/const",
+			"/dist",
+			"node_modules/(?!@fluid)",
+			"/mock-data",
+			"./packages/storybook",
+			"./packages/lib",
+			"rollup.config.js",
+			"./packages/*/index.js",
+			"./packages/*/rollup.config.js"
+		],
+		"moduleNameMapper": {
+			"\\.(less|css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+			"^react-dnd$": "react-dnd/dist/cjs"
+		},
+		"roots": [
+			"packages",
+			"__mocks__"
+		],
+		"setupFiles": [
+			"<rootDir>/scripts/jest/setup.js"
+		],
+		"testEnvironment": "jest-environment-jsdom-global",
+		"transformIgnorePatterns": [
+			"node_modules/(?!@fluid)"
+		],
+		"verbose": false
+	},
+	"lint-staged": {
+		"packages/**/*.js": [
+			"prettier --write",
+			"eslint --fix --ignore-pattern '**/public/**' --ignore-pattern '**/build/**' --ignore-pattern '**/dist/**'",
+			"yarn test:related packages/"
+		],
+		"packages/**/*.scss": [
+			"stylelint --fix --ignore-pattern '**/public/**' --ignore-pattern '**/build/**'"
+		]
+	},
+	"scripts": {
+		"bootstrap": "yarn run lerna bootstrap",
+		"build": "yarn run lerna run build --concurrency 3",
+		"build:clean": "yarn run lerna run pre:build --parallel",
+		"gitversion": "git --version",
+		"gitstatus": "git status",
+		"whereami": "ls -ltrah",
+		"lerna-version": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna version --conventional-commits --yes",
+		"lint:js": "eslint packages --fix --ignore-pattern '**/node_modules/**' --ignore-pattern '**/public/**' --ignore-pattern '**/build/**' --ignore-pattern '**/dist/**'",
+		"lint:scss": "stylelint \"**/*.scss\" --fix",
+		"test": "cross-env NODE_ENV=test jest",
+		"test:related": "cross-env NODE_ENV=test jest --findRelatedTests"
+	},
+	"workspaces": [
+		"packages/**"
+	]
+}
