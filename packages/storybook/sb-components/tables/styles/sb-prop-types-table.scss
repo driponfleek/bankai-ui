@@ -28,7 +28,6 @@
 
     &__prop-desc-text {
         @include bankai-max-line-width(1.2rem);
-        // color: $fluid-global-gray-darker;
         font-size: 1.2rem;
         line-height: $bankai-lineheight;
         margin: 0;
@@ -36,7 +35,6 @@
 
     &__default-val-cell,
     &__prop-type {
-        // color: $fluid-global-gray-darker;
         font-family: 'Operator Mono', 'Fira Code Retina', 'Fira Code', FiraCode-Retina, 'Andale Mono', 'Lucida Console', Consolas, Monaco, monospace;
     }
 

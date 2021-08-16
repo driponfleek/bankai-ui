@@ -58,7 +58,7 @@
 			"/constants",
 			"/const",
 			"/dist",
-			"node_modules/(?!@fluid)",
+			"node_modules/(?!@epr0t0type)",
 			"/mock-data",
 			"./packages/storybook",
 			"./packages/lib",
@@ -79,7 +79,7 @@
 		],
 		"testEnvironment": "jest-environment-jsdom-global",
 		"transformIgnorePatterns": [
-			"node_modules/(?!@fluid)"
+			"node_modules/(?!@epr0t0type)"
 		],
 		"verbose": false
 	},
