@@ -2,8 +2,8 @@
 	"name": "@epr0t0type/bankai-ui",
 	"private": true,
 	"devDependencies": {
-		"@babel/cli": "^7.12.17",
-		"@babel/core": "^7.12.17",
+		"@babel/cli": "7.12.17",
+		"@babel/core": "7.12.17",
 		"@danielyearwood/eslint-config": "^1.0.1",
 		"@danielyearwood/prettier-config": "^1.0.0",
 		"@danielyearwood/react-unit-test-utils": "0.0.1",

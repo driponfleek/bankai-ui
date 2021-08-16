@@ -1,0 +1,18 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "sideEffects": [
+        "**/*.css",
+        "**/*.scss",
+        "*.css.js",
+        "*.scss.js"
+    ],
+    "description": "Theme Defaults and Generators for Apps",
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@epr0t0type/bankai-ui-theme-utils",
+    "version": "0.0.0",
+    "dependencies": {
+        "@epr0t0type/bankai-ui-style-utils": "0.0.0",
+        "normalize.css": "8.0.1"
+    }
+}

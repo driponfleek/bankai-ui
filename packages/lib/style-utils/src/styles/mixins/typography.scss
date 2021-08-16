@@ -1,0 +1,55 @@
+@import '../vars/typography.scss';
+
+@use 'sass:math';
+
+@mixin bankai-max-line-width($font-size: $bankai-primary-text-size, $lineheight: $bankai-lineheight) {
+    $divForm: #{$font-size} / #{$lineheight};
+    // max-width: calc(70 * (#{$font-size} / #{$bankai-lineheight})); // max characters * (font-size / line-height)
+    max-width: calc(70 * #{$divForm}); // max characters * (font-size / line-height)
+    // max-width: calc(70 * math.div(#{$font-size},)); // max characters * (font-size / line-height)
+}
+// calc(70 * (3.98131rem / (2px + 2ex + 2px)))
+
+@mixin bankai-heading-font-shared() {
+    box-sizing: border-box;
+    font-family: var(--bankai-heading-font, $bankai-heading-font);
+    font-style: var(--bankai-heading-font-style, $bankai-heading-font-style);
+    font-weight: var(--bankai-heading-font-weight, $bankai-heading-font-weight);
+    line-height: $bankai-heading-lineheight;
+    margin: 0;
+}
+
+@mixin bankai-body-font-shared() {
+    font-family: var(--bankai-body-font, $bankai-body-font);
+    line-height: $bankai-lineheight;
+}
+
+@mixin bankai-h1() {
+    @include bankai-heading-font-shared();
+    @include bankai-max-line-width($bankai-h1-font-size, $bankai-heading-lineheight);
+    font-size: $bankai-h1-font-size;
+}
+
+@mixin bankai-h2() {
+    @include bankai-heading-font-shared();
+    @include bankai-max-line-width($bankai-h2-font-size, $bankai-heading-lineheight);
+    font-size: $bankai-h2-font-size;
+}
+
+@mixin bankai-h3() {
+    @include bankai-heading-font-shared();
+    @include bankai-max-line-width($bankai-h3-font-size, $bankai-heading-lineheight);
+    font-size: $bankai-h3-font-size;
+}
+
+@mixin bankai-h4() {
+    @include bankai-heading-font-shared();
+    @include bankai-max-line-width($bankai-h4-font-size, $bankai-heading-lineheight);
+    font-size: $bankai-h4-font-size;
+}
+
+@mixin bankai-h5() {
+    @include bankai-heading-font-shared();
+    @include bankai-max-line-width($bankai-h5-font-size, $bankai-heading-lineheight);
+    font-size: $bankai-h5-font-size;
+}

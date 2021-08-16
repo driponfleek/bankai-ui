@@ -1,0 +1,52 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-sb-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    &__th {
+        padding: 1rem 1.5rem;
+    }
+
+    &__th,
+    &__td {
+        box-sizing: border-box;
+        text-align: left;
+
+        &--center {
+            text-align: center;
+        }
+    }
+
+    &__td {
+        padding: 1.5rem;
+    }
+
+    &__tr {
+        &--alt .storybook-table__td {
+            background-color: $bankai-gray-90;
+        }
+
+        &:last-child {
+            .storybook-table__td {
+                &:first-child {
+                    border-radius: 0 0 0 2px;
+                }
+
+                &:last-child {
+                    border-radius: 0 0 2px 0;
+                }
+            }
+        }
+    }
+
+    &__tbody {
+        border-radius: 3px;
+        box-shadow: rgba($bankai-black, 0.1) 0 1px 3px 1px, rgba($bankai-black, 0.067) 0 0 0 1px;
+    }
+}

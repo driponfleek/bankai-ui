@@ -1,0 +1,24 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
+@import '../vars/colors.scss';
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include bankai-body-font-shared();
+    color: var(--bankai-text-color, $bankai-text-color);
+    font-size: $bankai-type-base-size;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}

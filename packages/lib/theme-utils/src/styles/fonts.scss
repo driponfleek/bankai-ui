@@ -1,0 +1,72 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+
+// ========================================================
+// Paths
+// ========================================================
+$bankai-heading-font-path: '@epr0t0type/bankai-ui-theme-utils/src/media/fonts/exo' !default;
+$bankai-body-font-path: '@epr0t0type/bankai-ui-theme-utils/src/media/fonts/titillium-web' !default;
+
+// ========================================================
+// Heading Font
+// ========================================================
+@font-face {
+    font-family: $bankai-heading-font-name;
+    src: url('#{$bankai-heading-font-path}/Exo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $bankai-heading-font-name;
+    src: url('#{$bankai-heading-font-path}/Exo-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $bankai-heading-font-name;
+    src: url('#{$bankai-heading-font-path}/Exo-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $bankai-heading-font-name;
+    src: url('#{$bankai-heading-font-path}/Exo-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+// ========================================================
+// Body Font
+// ========================================================
+@font-face {
+    font-family: $bankai-body-font-name;
+    src: url('#{$bankai-body-font-path}/TitilliumWeb-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $bankai-body-font-name;
+    src: url('#{$bankai-body-font-path}/TitilliumWeb-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $bankai-body-font-name;
+    src: url('#{$bankai-body-font-path}/TitilliumWeb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $bankai-body-font-name;
+    src: url('#{$bankai-body-font-path}/TitilliumWeb-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}

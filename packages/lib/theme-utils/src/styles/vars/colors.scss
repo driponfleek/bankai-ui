@@ -1,0 +1,49 @@
+// ========================================================
+// !!! BEGIN DO NOT USE !!!
+// These are here simply for making it easier to assign
+// the same values to multiple variables at once.
+// They are subject to change, so do not use
+// them directly.
+// ========================================================
+$black: #000;
+$gray-10: #151b1e;
+$gray-20: #29363d;
+$gray-30: #3e515b;
+$gray-40: #536c79;
+$gray-50: #678898;
+$gray-60: #869fac;
+$gray-70: #a4b7c1;
+$gray-80: #c2cfd6;
+$gray-90: #e1e7ea;
+$gray-95: #f0f3f5;
+$white: #fff;
+// ========================================================
+// !!! END DO NOT USE !!!
+// ========================================================
+
+// ========================================================
+// The colors below are okay to use in your components
+// ========================================================
+// Main Colors
+$bankai-primary-color: #0277bd;
+$bankai-secondary-color: #bd4802;
+// Accent Colors
+$bankai-accent-color-1: #00838f;
+$bankai-accent-color-2: #8f0083;
+$bankai-accent-color-3: #838f00;
+// Neutral Colors
+$bankai-black: $black;
+$bankai-gray-10: $gray-10;
+$bankai-gray-20: $gray-20;
+$bankai-gray-30: $gray-30;
+$bankai-gray-40: $gray-40;
+$bankai-gray-50: $gray-50;
+$bankai-gray-60: $gray-60;
+$bankai-gray-70: $gray-70;
+$bankai-gray-80: $gray-80;
+$bankai-gray-90: $gray-90;
+$bankai-white: $white;
+// Typography
+$bankai-text-color: $bankai-black;
+$bankai-text-color-alt: $bankai-gray-30;
+$bankai-link-color: #1565c0;

@@ -1,0 +1,51 @@
+//========================================================
+// Dependencies
+//========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-sb-proptypes-table {
+    .bankai-icon-check {
+        // color: $bankai-success-color;
+        font-size: 1.8rem;
+    }
+
+    &__prop-required-header,
+    &__prop-required {
+        width: 95px;
+    }
+
+    &__prop-type-header,
+    &__prop-type {
+        width: 100px;
+    }
+
+    &__prop-name {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__prop-desc-text {
+        @include bankai-max-line-width(1.2rem);
+        // color: $fluid-global-gray-darker;
+        font-size: 1.2rem;
+        line-height: $bankai-lineheight;
+        margin: 0;
+    }
+
+    &__default-val-cell,
+    &__prop-type {
+        // color: $fluid-global-gray-darker;
+        font-family: 'Operator Mono', 'Fira Code Retina', 'Fira Code', FiraCode-Retina, 'Andale Mono', 'Lucida Console', Consolas, Monaco, monospace;
+    }
+
+    &__prop-deprecated-lbl {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    &__prop-deprecated-text {
+        display: block;
+    }
+}

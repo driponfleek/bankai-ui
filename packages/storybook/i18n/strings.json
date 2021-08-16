@@ -1,0 +1,47 @@
+{
+    "bankaiUI": {
+        "categories": {
+            "components": "Components",
+            "introduction": "Introduction",
+            "libsUtils": "Libraries & Utilities",
+            "styleGuide": "Style Guide"
+        },
+        "designSystemName": "Bankai UI",
+        "propsTable": {
+            "default": "Default",
+            "propDesc": "Property/Description",
+            "propType": "PropType",
+            "required": "Required"
+        },
+        "shared": {
+            "deprecated": "DEPRECATED"
+        },
+        "stories": {
+            "components": {
+                "buttons": {
+                    "button": {
+                        "title": "Button"
+                    },
+                    "categoryTitle": "Buttons"
+                },
+                "formElements": {
+                    "categoryTitle": "Form Elements",
+                    "textarea": {
+                        "title": "Textarea"
+                    },
+                    "textInput": {
+                        "title": "Text Input"
+                    }
+                }
+            },
+            "intro": {
+                "categoryTitle": "Overview",
+                "welcome": {
+                    "title": "Weclome to Bankai UI"
+                }
+            },
+            "libsUtils": "",
+            "styleGuide": {}
+        }
+    }
+}
