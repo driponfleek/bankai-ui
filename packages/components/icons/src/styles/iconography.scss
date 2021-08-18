@@ -1,0 +1,757 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import './icon-vars.scss';
+
+@font-face {
+    font-family: '#{$bankai-icon-font-family}';
+    src:
+        url('#{$bankai-icon-font-path}/#{$bankai-icon-font-family}.ttf?9hopal') format('truetype'),
+        url('#{$bankai-icon-font-path}/#{$bankai-icon-font-family}.woff?9hopal') format('woff'),
+        url('#{$bankai-icon-font-path}/#{$bankai-icon-font-family}.svg?9hopal##{$bankai-icon-font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^='bankai-icon-'],
+[class*=' bankai-icon-'] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: '#{$bankai-icon-font-family}' !important; // stylelint-disable-line declaration-no-important
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.bankai-icon-copy {
+    &::before {
+        content: $bankai-icon-copy;
+    }
+}
+
+.bankai-icon-trash-2 {
+    &::before {
+        content: $bankai-icon-trash-2;
+    }
+}
+
+.bankai-icon-log-in {
+    &::before {
+        content: $bankai-icon-log-in;
+    }
+}
+
+.bankai-icon-log-out {
+    &::before {
+        content: $bankai-icon-log-out;
+    }
+}
+
+.bankai-icon-maximize-2 {
+    &::before {
+        content: $bankai-icon-maximize-2;
+    }
+}
+
+.bankai-icon-minimize-2 {
+    &::before {
+        content: $bankai-icon-minimize-2;
+    }
+}
+
+.bankai-icon-settings {
+    &::before {
+        content: $bankai-icon-settings;
+    }
+}
+
+.bankai-icon-user {
+    &::before {
+        content: $bankai-icon-user;
+    }
+}
+
+.bankai-icon-user-plus {
+    &::before {
+        content: $bankai-icon-user-plus;
+    }
+}
+
+.bankai-icon-user-x {
+    &::before {
+        content: $bankai-icon-user-x;
+    }
+}
+
+.bankai-icon-users {
+    &::before {
+        content: $bankai-icon-users;
+    }
+}
+
+.bankai-icon-upload-cloud {
+    &::before {
+        content: $bankai-icon-upload-cloud;
+    }
+}
+
+.bankai-icon-filter {
+    &::before {
+        content: $bankai-icon-filter;
+    }
+}
+
+.bankai-icon-align-center {
+    &::before {
+        content: $bankai-icon-align-center;
+    }
+}
+
+.bankai-icon-align-justify {
+    &::before {
+        content: $bankai-icon-align-justify;
+    }
+}
+
+.bankai-icon-align-left {
+    &::before {
+        content: $bankai-icon-align-left;
+    }
+}
+
+.bankai-icon-align-right {
+    &::before {
+        content: $bankai-icon-align-right;
+    }
+}
+
+.bankai-icon-android {
+    &::before {
+        content: $bankai-icon-android;
+    }
+}
+
+.bankai-icon-apple {
+    &::before {
+        content: $bankai-icon-apple;
+    }
+}
+
+.bankai-icon-arrow-down {
+    &::before {
+        content: $bankai-icon-arrow-down;
+    }
+}
+
+.bankai-icon-arrow-left {
+    &::before {
+        content: $bankai-icon-arrow-left;
+    }
+}
+
+.bankai-icon-arrow-right {
+    &::before {
+        content: $bankai-icon-arrow-right;
+    }
+}
+
+.bankai-icon-arrow-up {
+    &::before {
+        content: $bankai-icon-arrow-up;
+    }
+}
+
+.bankai-icon-arrows-fullscreen {
+    &::before {
+        content: $bankai-icon-arrows-fullscreen;
+    }
+}
+
+.bankai-icon-attachment {
+    &::before {
+        content: $bankai-icon-attachment;
+    }
+}
+
+.bankai-icon-background-color {
+    &::before {
+        content: $bankai-icon-background-color;
+    }
+}
+
+.bankai-icon-bar-chart {
+    &::before {
+        content: $bankai-icon-bar-chart;
+    }
+}
+
+.bankai-icon-bell-off {
+    &::before {
+        content: $bankai-icon-bell-off;
+    }
+}
+
+.bankai-icon-bell {
+    &::before {
+        content: $bankai-icon-bell;
+    }
+}
+
+.bankai-icon-bold {
+    &::before {
+        content: $bankai-icon-bold;
+    }
+}
+
+.bankai-icon-calendar {
+    &::before {
+        content: $bankai-icon-calendar;
+    }
+}
+
+.bankai-icon-camera {
+    &::before {
+        content: $bankai-icon-camera;
+    }
+}
+
+.bankai-icon-check {
+    &::before {
+        content: $bankai-icon-check;
+    }
+}
+
+.bankai-icon-chevron-down {
+    &::before {
+        content: $bankai-icon-chevron-down;
+    }
+}
+
+.bankai-icon-chevron-left {
+    &::before {
+        content: $bankai-icon-chevron-left;
+    }
+}
+
+.bankai-icon-chevron-right {
+    &::before {
+        content: $bankai-icon-chevron-right;
+    }
+}
+
+.bankai-icon-chevron-up {
+    &::before {
+        content: $bankai-icon-chevron-up;
+    }
+}
+
+.bankai-icon-chevrons-down {
+    &::before {
+        content: $bankai-icon-chevrons-down;
+    }
+}
+
+.bankai-icon-chevrons-left {
+    &::before {
+        content: $bankai-icon-chevrons-left;
+    }
+}
+
+.bankai-icon-chevrons-right {
+    &::before {
+        content: $bankai-icon-chevrons-right;
+    }
+}
+
+.bankai-icon-chevrons-up {
+    &::before {
+        content: $bankai-icon-chevrons-up;
+    }
+}
+
+.bankai-icon-clear-format {
+    &::before {
+        content: $bankai-icon-clear-format;
+    }
+}
+
+.bankai-icon-clock {
+    &::before {
+        content: $bankai-icon-clock;
+    }
+}
+
+.bankai-icon-close-circle {
+    &::before {
+        content: $bankai-icon-close-circle;
+    }
+}
+
+.bankai-icon-close {
+    &::before {
+        content: $bankai-icon-close;
+    }
+}
+
+.bankai-icon-cloud {
+    &::before {
+        content: $bankai-icon-cloud;
+    }
+}
+
+.bankai-icon-color {
+    &::before {
+        content: $bankai-icon-color;
+    }
+}
+
+.bankai-icon-credit-card {
+    &::before {
+        content: $bankai-icon-credit-card;
+    }
+}
+
+.bankai-icon-crop {
+    &::before {
+        content: $bankai-icon-crop;
+    }
+}
+
+.bankai-icon-dashboard {
+    &::before {
+        content: $bankai-icon-dashboard;
+    }
+}
+
+.bankai-icon-discord {
+    &::before {
+        content: $bankai-icon-discord;
+    }
+}
+
+.bankai-icon-eye-close {
+    &::before {
+        content: $bankai-icon-eye-close;
+    }
+}
+
+.bankai-icon-eye {
+    &::before {
+        content: $bankai-icon-eye;
+    }
+}
+
+.bankai-icon-facebook {
+    &::before {
+        content: $bankai-icon-facebook;
+    }
+}
+
+.bankai-icon-flag {
+    &::before {
+        content: $bankai-icon-flag;
+    }
+}
+
+.bankai-icon-folder-open {
+    &::before {
+        content: $bankai-icon-folder-open;
+    }
+}
+
+.bankai-icon-folder-zip {
+    &::before {
+        content: $bankai-icon-folder-zip;
+    }
+}
+
+.bankai-icon-folder {
+    &::before {
+        content: $bankai-icon-folder;
+    }
+}
+
+.bankai-icon-gamepad-retro {
+    &::before {
+        content: $bankai-icon-gamepad-retro;
+    }
+}
+
+.bankai-icon-header {
+    &::before {
+        content: $bankai-icon-header;
+    }
+}
+
+.bankai-icon-help {
+    &::before {
+        content: $bankai-icon-help;
+    }
+}
+
+.bankai-icon-home {
+    &::before {
+        content: $bankai-icon-home;
+    }
+}
+
+.bankai-icon-id-card {
+    &::before {
+        content: $bankai-icon-id-card;
+    }
+}
+
+.bankai-icon-indent {
+    &::before {
+        content: $bankai-icon-indent;
+    }
+}
+
+.bankai-icon-info {
+    &::before {
+        content: $bankai-icon-info;
+    }
+}
+
+.bankai-icon-instagram {
+    &::before {
+        content: $bankai-icon-instagram;
+    }
+}
+
+.bankai-icon-italic {
+    &::before {
+        content: $bankai-icon-italic;
+    }
+}
+
+.bankai-icon-link {
+    &::before {
+        content: $bankai-icon-link;
+    }
+}
+
+.bankai-icon-linkedin {
+    &::before {
+        content: $bankai-icon-linkedin;
+    }
+}
+
+.bankai-icon-map-marker {
+    &::before {
+        content: $bankai-icon-map-marker;
+    }
+}
+
+.bankai-icon-map {
+    &::before {
+        content: $bankai-icon-map;
+    }
+}
+
+.bankai-icon-message {
+    &::before {
+        content: $bankai-icon-message;
+    }
+}
+
+.bankai-icon-minus-circle {
+    &::before {
+        content: $bankai-icon-minus-circle;
+    }
+}
+
+.bankai-icon-movie {
+    &::before {
+        content: $bankai-icon-movie;
+    }
+}
+
+.bankai-icon-music {
+    &::before {
+        content: $bankai-icon-music;
+    }
+}
+
+.bankai-icon-newspaper {
+    &::before {
+        content: $bankai-icon-newspaper;
+    }
+}
+
+.bankai-icon-opera {
+    &::before {
+        content: $bankai-icon-opera;
+    }
+}
+
+.bankai-icon-padlock-open {
+    &::before {
+        content: $bankai-icon-padlock-open;
+    }
+}
+
+.bankai-icon-padlock {
+    &::before {
+        content: $bankai-icon-padlock;
+    }
+}
+
+.bankai-icon-paper-plane {
+    &::before {
+        content: $bankai-icon-paper-plane;
+    }
+}
+
+.bankai-icon-pencil {
+    &::before {
+        content: $bankai-icon-pencil;
+    }
+}
+
+.bankai-icon-phone {
+    &::before {
+        content: $bankai-icon-phone;
+    }
+}
+
+.bankai-icon-picture {
+    &::before {
+        content: $bankai-icon-picture;
+    }
+}
+
+.bankai-icon-pinterest {
+    &::before {
+        content: $bankai-icon-pinterest;
+    }
+}
+
+.bankai-icon-plus-circle {
+    &::before {
+        content: $bankai-icon-plus-circle;
+    }
+}
+
+.bankai-icon-power {
+    &::before {
+        content: $bankai-icon-power;
+    }
+}
+
+.bankai-icon-printer {
+    &::before {
+        content: $bankai-icon-printer;
+    }
+}
+
+.bankai-icon-redo {
+    &::before {
+        content: $bankai-icon-redo;
+    }
+}
+
+.bankai-icon-refresh {
+    &::before {
+        content: $bankai-icon-refresh;
+    }
+}
+
+.bankai-icon-repeat {
+    &::before {
+        content: $bankai-icon-repeat;
+    }
+}
+
+.bankai-icon-save {
+    &::before {
+        content: $bankai-icon-save;
+    }
+}
+
+.bankai-icon-scissors {
+    &::before {
+        content: $bankai-icon-scissors;
+    }
+}
+
+.bankai-icon-screen {
+    &::before {
+        content: $bankai-icon-screen;
+    }
+}
+
+.bankai-icon-search-minus {
+    &::before {
+        content: $bankai-icon-search-minus;
+    }
+}
+
+.bankai-icon-search-plus {
+    &::before {
+        content: $bankai-icon-search-plus;
+    }
+}
+
+.bankai-icon-search {
+    &::before {
+        content: $bankai-icon-search;
+    }
+}
+
+.bankai-icon-settings-alt {
+    &::before {
+        content: $bankai-icon-settings-alt;
+    }
+}
+
+.bankai-icon-share-alt {
+    &::before {
+        content: $bankai-icon-share-alt;
+    }
+}
+
+.bankai-icon-shopping-cart {
+    &::before {
+        content: $bankai-icon-shopping-cart;
+    }
+}
+
+.bankai-icon-shuffle {
+    &::before {
+        content: $bankai-icon-shuffle;
+    }
+}
+
+.bankai-icon-star-full {
+    &::before {
+        content: $bankai-icon-star-full;
+    }
+}
+
+.bankai-icon-star-half {
+    &::before {
+        content: $bankai-icon-star-half;
+    }
+}
+
+.bankai-icon-star {
+    &::before {
+        content: $bankai-icon-star;
+    }
+}
+
+.bankai-icon-stop-sign {
+    &::before {
+        content: $bankai-icon-stop-sign;
+    }
+}
+
+.bankai-icon-subscript {
+    &::before {
+        content: $bankai-icon-subscript;
+    }
+}
+
+.bankai-icon-superscript {
+    &::before {
+        content: $bankai-icon-superscript;
+    }
+}
+
+.bankai-icon-tablet {
+    &::before {
+        content: $bankai-icon-tablet;
+    }
+}
+
+.bankai-icon-task-list {
+    &::before {
+        content: $bankai-icon-task-list;
+    }
+}
+
+.bankai-icon-triangle-danger {
+    &::before {
+        content: $bankai-icon-triangle-danger;
+    }
+}
+
+.bankai-icon-twitch {
+    &::before {
+        content: $bankai-icon-twitch;
+    }
+}
+
+.bankai-icon-twitter {
+    &::before {
+        content: $bankai-icon-twitter;
+    }
+}
+
+.bankai-icon-underline {
+    &::before {
+        content: $bankai-icon-underline;
+    }
+}
+
+.bankai-icon-undo {
+    &::before {
+        content: $bankai-icon-undo;
+    }
+}
+
+.bankai-icon-unindent {
+    &::before {
+        content: $bankai-icon-unindent;
+    }
+}
+
+.bankai-icon-unordered-list {
+    &::before {
+        content: $bankai-icon-unordered-list;
+    }
+}
+
+.bankai-icon-volume-down {
+    &::before {
+        content: $bankai-icon-volume-down;
+    }
+}
+
+.bankai-icon-volume-mute {
+    &::before {
+        content: $bankai-icon-volume-mute;
+    }
+}
+
+.bankai-icon-volume-up {
+    &::before {
+        content: $bankai-icon-volume-up;
+    }
+}
+
+.bankai-icon-volume {
+    &::before {
+        content: $bankai-icon-volume;
+    }
+}
+
+.bankai-icon-write {
+    &::before {
+        content: $bankai-icon-write;
+    }
+}
+
+.bankai-icon-youtube {
+    &::before {
+        content: $bankai-icon-youtube;
+    }
+}

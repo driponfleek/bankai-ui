@@ -6,15 +6,15 @@
 // them directly.
 // ========================================================
 $black: #000;
-$gray-10: #151b1e;
-$gray-20: #29363d;
-$gray-30: #3e515b;
-$gray-40: #536c79;
-$gray-50: #678898;
-$gray-60: #869fac;
-$gray-70: #a4b7c1;
-$gray-80: #c2cfd6;
-$gray-90: #e1e7ea;
+$gray-10: #17191c;
+$gray-20: #2e3138;
+$gray-30: #464a53;
+$gray-40: #5d636f;
+$gray-50: #747c8b;
+$gray-60: #9096a2;
+$gray-70: #acb0b9;
+$gray-80: #c7cad1;
+$gray-90: #e3e5e8;
 $gray-95: #f0f3f5;
 $white: #fff;
 // ========================================================
@@ -43,6 +43,10 @@ $bankai-gray-70: $gray-70;
 $bankai-gray-80: $gray-80;
 $bankai-gray-90: $gray-90;
 $bankai-white: $white;
+// Status Colors
+$bankai-affirmative-color: #7cb342;
+$bankai-error-color: #b71c1c;
+$bankai-cautionary-color: #fbc02d;
 // Typography
 $bankai-text-color: $bankai-black;
 $bankai-text-color-alt: $bankai-gray-30;

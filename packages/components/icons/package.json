@@ -1,0 +1,14 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "sideEffects": [
+        "**/*.css",
+        "**/*.scss",
+        "*.css.js",
+        "*.scss.js"
+    ],
+    "license": "MIT",
+    "main": "dist/index.cjs.min.js",
+    "name": "@epr0t0type/bankai-ui-icons",
+    "scripts": {},
+    "version": "0.0.0"
+}

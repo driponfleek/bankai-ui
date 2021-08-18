@@ -1,4 +1,15 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+@import '../../mixins/mixins.scss';
+
 .bankai-sb-section {
+    @include bankai-glass-mixin();
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 1.5rem;
+
     .bankai-sb-section-title.heading--h2 {
         margin-bottom: 15px;
     }

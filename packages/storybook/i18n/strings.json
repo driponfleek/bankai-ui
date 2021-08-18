@@ -41,7 +41,16 @@
                 }
             },
             "libsUtils": "",
-            "styleGuide": {}
+            "styleGuide": {
+                "iconography": {
+                    "categoryTitle": "Iconography",
+                    "icons": {
+                        "title": "Icons",
+                        "clickToCopy": "Click To Copy CSS Class",
+                        "copiedToClipboard": "Copied to Clipboard!"
+                    }
+                }
+            }
         }
     }
 }

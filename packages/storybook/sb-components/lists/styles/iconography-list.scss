@@ -1,0 +1,14 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+
+.bankai-sb-iconography-list {
+    @include flex-row;
+    flex-wrap: wrap;
+
+    &-item {
+        margin: 10px;
+    }
+}

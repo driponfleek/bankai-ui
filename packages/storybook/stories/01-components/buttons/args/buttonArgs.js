@@ -33,7 +33,6 @@ export const argTypes = {
         control: {
             type: 'select',
         },
-        defaultValue: 'button',
         description: 'Use to set the HTML button type attribute.',
         name: 'type',
         options: ['button', 'submit'],
@@ -49,7 +48,6 @@ export const argTypes = {
         control: {
             type: 'boolean',
         },
-        defaultValue: false,
         description:
             'Use to render a busy state for the button when it has been interacted with and the UI needs time to perform the action triggerd by interacting with the button.',
         table: {

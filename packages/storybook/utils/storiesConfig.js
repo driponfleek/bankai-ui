@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { withInfo } from '@storybook/addon-info';
-import withInfoConfig from './infoConfig';
+// import { withInfo } from '@storybook/addon-info';
+// import withInfoConfig from './infoConfig';
 import strings from '../i18n/strings.json';
 
 const { bankaiUI: locale } = strings;

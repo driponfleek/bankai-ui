@@ -1,11 +1,15 @@
-//========================================================
+// ========================================================
 // Dependencies
-//========================================================
+// ========================================================
 @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-sb-component-preview {
-    border-radius: 15px;
-    box-shadow: rgba($bankai-black, 0.1) 0 1px 3px 1px;
+    background-color: rgba($white, 0.25);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba($white, 0.3);
+    border-radius: 10px;
+    box-shadow: rgba($bankai-black, 0.1) 0 1px 1px 1px;
+    box-sizing: border-box;
     padding: 1.5rem;
 
     &--light-bg {
