@@ -7,8 +7,10 @@
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
 @import '../../mixins/mixins.scss';
 
+// stylelint-disable-next-line selector-max-id
 html,
-body {
+body,
+#root {
     height: 100%;
     padding: 0;
     box-sizing: border-box;
@@ -19,17 +21,17 @@ body {
 // }
 
 // stylelint-disable-next-line selector-max-id
-#root {
-    // min-height: 100%;
-    flex: 1 1 auto;
-}
+// #root {
+//     flex: 1 1 auto;
+// }
 
 .sb-show-main.sb-main-padded {
-    @include flex-column;
+    // @include flex-column;
     padding: 0;
 }
 
 .bankai-sb-layout {
+    @include bankai-scroll-y;
     height: 100%;
     background: radial-gradient(circle, $gray-95 0%, $gray-70 100%);
     // background: linear-gradient(90deg, rgba(240, 243, 245, 1) 0%, rgba(0, 212, 255, 1) 100%);

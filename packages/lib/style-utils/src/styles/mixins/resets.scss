@@ -1,17 +1,17 @@
-@mixin list-reset() {
+@mixin bankai-list-reset() {
     list-style-type: none;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-@mixin button-reset() {
+@mixin bankai-button-reset() {
     background-color: transparent;
     border-width: 0;
     box-sizing: border-box;
     padding: 0;
 }
 
-@mixin focus-state-reset() {
+@mixin bankai-focus-state-reset() {
     outline: none;
 }

@@ -4,6 +4,7 @@ import { Button } from '@epr0t0type/bankai-ui-buttons';
 import ComponentPreview from '../../../../sb-components/content/ComponentPreview';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
+import Paragraph from '../../../../sb-components/content/Paragraph';
 import strings from '../../../../i18n/strings.json';
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
 
@@ -58,6 +59,9 @@ class ButtonGuide extends PureComponent {
                 <ComponentPreview shouldCheckA11Y>
                     <Button {...props} />
                 </ComponentPreview>
+                <Paragraph>
+                    Use buttons when you want to direct users to take an action in your UI.
+                </Paragraph>
             </StorySection>
         );
     }

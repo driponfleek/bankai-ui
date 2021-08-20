@@ -1,0 +1,53 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~css-vars/css-vars.scss';
+@import './vars/colors.scss';
+@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/buttons.scss';
+@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+// @import '@epr0t0type/bankai-ui-style-utils';
+// @import '';
+
+// Needed to make Native CSS Custom Props work
+$css-vars-use-native: true;
+
+// $bankai-btn-border-radius: 20px;
+
+:root {
+    @include css-vars((
+        // ========================================================
+        // Globals
+        // ========================================================
+        --bankai-btn-border-radius: $bankai-btn-border-radius,
+        // ========================================================
+        // Primary
+        // ========================================================
+        --bankai-btn-primary-default-bg-color: $bankai-btn-primary-default-bg-color,
+        --bankai-btn-primary-default-text-color: $bankai-btn-primary-default-text-color,
+        --bankai-btn-primary-hover-bg-color: $bankai-btn-primary-hover-bg-color,
+        --bankai-btn-primary-hover-text-color: $bankai-btn-primary-hover-text-color,
+        // ========================================================
+        // Secondary
+        // ========================================================
+        --bankai-btn-secondary-default-bg-color: $bankai-btn-secondary-default-bg-color,
+        --bankai-btn-secondary-default-text-color: $bankai-btn-secondary-default-text-color,
+        --bankai-btn-secondary-hover-bg-color: $bankai-btn-secondary-hover-bg-color,
+        --bankai-btn-secondary-hover-text-color: $bankai-btn-secondary-hover-text-color,
+        // ========================================================
+        // Destructive
+        // ========================================================
+        --bankai-btn-secondary-default-bg-color: $bankai-btn-secondary-default-bg-color,
+        --bankai-btn-secondary-default-text-color: $bankai-btn-secondary-default-text-color,
+        --bankai-btn-secondary-hover-bg-color: $bankai-btn-secondary-hover-bg-color,
+        --bankai-btn-secondary-hover-text-color: $bankai-btn-secondary-hover-text-color,
+        // ========================================================
+        // Secondary Destructive
+        // ========================================================
+        --bankai-btn-secondary-destructive-default-bg-color: $bankai-btn-secondary-destructive-default-bg-color,
+        --bankai-btn-secondary-destructive-default-border-color: $bankai-btn-secondary-destructive-default-border-color,
+        --bankai-btn-secondary-destructive-default-text-color: $bankai-btn-secondary-destructive-default-text-color,
+        --bankai-btn-secondary-destructive-hover-bg-color: $bankai-btn-secondary-destructive-hover-bg-color,
+        --bankai-btn-secondary-destructive-hover-border-color: $bankai-btn-secondary-destructive-hover-border-color,
+        --bankai-btn-secondary-destructive-hover-text-color: $bankai-btn-secondary-destructive-hover-text-color,
+    ));
+}

@@ -5,7 +5,7 @@
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
 
 .bankai-sb-iconography-list {
-    @include flex-row;
+    @include bankai-flex-row;
     flex-wrap: wrap;
 
     &-item {

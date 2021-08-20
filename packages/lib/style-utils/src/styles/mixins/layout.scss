@@ -1,36 +1,36 @@
-@mixin flex-row() {
+@mixin bankai-flex-row() {
     display: flex;
     flex-direction: row;
 }
 
-@mixin flex-row-reverse() {
+@mixin bankai-flex-row-reverse() {
     display: flex;
     flex-direction: row-reverse;
 }
 
-@mixin flex-column() {
+@mixin bankai-flex-column() {
     display: flex;
     flex-direction: column;
 }
 
-@mixin flex-column-reverse() {
+@mixin bankai-flex-column-reverse() {
     display: flex;
     flex-direction: column-reverse;
 }
 
-@mixin scroll-x() {
+@mixin bankai-scroll-x() {
     overflow-y: hidden;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 
-@mixin scroll-y() {
+@mixin bankai-scroll-y() {
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
-@mixin scroll-all() {
+@mixin bankai-scroll-all() {
     overflow-y: auto;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

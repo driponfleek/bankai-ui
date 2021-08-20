@@ -7153,6 +7153,11 @@ css-tree@^1.1.2:
     mdn-data "2.0.14"
     source-map "^0.6.1"
 
+css-vars@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/css-vars/-/css-vars-2.3.0.tgz#ea302c3cf00804513048df38f424213f987d32e8"
+  integrity sha512-AGvTsGrZJqyxQ15YuifOb1Bp3pjjYeawdljPxfqQpoUful+xJ4RYDlbuaAnTVoB98DLLWJ65/hIf84Ys7NbxQw==
+
 css-what@^3.2.1:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-3.4.2.tgz#ea7026fcb01777edbde52124e21f327e7ae950e4"

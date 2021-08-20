@@ -7,7 +7,7 @@
 @import '../../mixins//mixins.scss';
 
 .bankai-sb-iconography-list-item {
-    @include button-reset;
+    @include bankai-button-reset;
     @include bankai-glass-mixin;
     width: 180px;
     box-sizing: border-box;
@@ -32,7 +32,7 @@
     }
 
     &__icon-safe-area {
-        @include flex-row;
+        @include bankai-flex-row;
         width: 4.5rem;
         height: 4.5rem;
         margin: auto;
@@ -43,13 +43,14 @@
     }
 
     &__text {
+        // color: $bankai-gray-30;
         text-align: center;
         margin: auto;
     }
 
     &__icon-container,
     &__text-container {
-        @include flex-row;
+        @include bankai-flex-row;
     }
 
     &__icon-container + &__text-container {

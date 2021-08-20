@@ -3,7 +3,7 @@
 // https://storybook.js.org/docs/react/api/argtypes
 export const args = {
     // contextCls: '',
-    iconCls: '',
+    iconCls: 'bankai-icon-plus-circle',
     text: 'Button Text',
     type: 'button',
     isBusy: false,

@@ -47,7 +47,7 @@ class Button extends PureComponent {
                 type={type}
                 onClick={this.handleClick}
             >
-                <span className={`${this.baseCls}__content`}>
+                <span className={`${this.baseCls}__content-container`}>
                     {!children && this.renderMain()}
                     {children}
                 </span>
@@ -76,13 +76,23 @@ class Button extends PureComponent {
             [busyIconCls]: shouldRenderBusyIcon,
         };
 
-        return <span className={cx(baseIconCls, iconClsToUse)} />;
+        return (
+            <span className={`${baseIconCls}-container`}>
+                <span className={`${baseIconCls}-safe-space`}>
+                    <span className={cx(baseIconCls, iconClsToUse)} />
+                </span>
+            </span>
+        );
     }
 
     renderText() {
         const { text } = this.props;
 
-        return <span className={`${this.baseCls}__text`}>{text}</span>;
+        return (
+            <span className={`${this.baseCls}__text-container`}>
+                <span className={`${this.baseCls}__text`}>{text}</span>
+            </span>
+        );
     }
 
     handleClick = (e) => {

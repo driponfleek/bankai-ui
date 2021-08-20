@@ -25,12 +25,12 @@ $white: #fff;
 // The colors below are okay to use in your components
 // ========================================================
 // Main Colors
-$bankai-primary-color: #0277bd;
-$bankai-secondary-color: #bd4802;
+$bankai-primary-color: #8f0083;
+$bankai-secondary-color: #367c96;
 // Accent Colors
-$bankai-accent-color-1: #00838f;
-$bankai-accent-color-2: #8f0083;
-$bankai-accent-color-3: #838f00;
+$bankai-accent-color-1: #f1bfff;
+// $bankai-accent-color-2: #8f0083;
+// $bankai-accent-color-3: #838f00;
 // Neutral Colors
 $bankai-black: $black;
 $bankai-gray-10: $gray-10;
@@ -47,7 +47,46 @@ $bankai-white: $white;
 $bankai-affirmative-color: #7cb342;
 $bankai-error-color: #b71c1c;
 $bankai-cautionary-color: #fbc02d;
+// Informative Colors
+$bankai-destructive-color: $bankai-error-color;
+$bankai-info-color: #4d4dff;
 // Typography
 $bankai-text-color: $bankai-black;
 $bankai-text-color-alt: $bankai-gray-30;
-$bankai-link-color: #1565c0;
+$bankai-link-color: #176ec4;
+// Primary Button
+$bankai-btn-primary-default-bg-color: $bankai-primary-color;
+$bankai-btn-primary-default-text-color: $bankai-white;
+$bankai-btn-primary-hover-bg-color: #33002f;
+$bankai-btn-primary-hover-text-color: $bankai-white;
+// Secondary Button
+$bankai-btn-secondary-default-bg-color: $bankai-secondary-color;
+$bankai-btn-secondary-default-text-color: $bankai-white;
+$bankai-btn-secondary-hover-bg-color: #1b3e4b;
+$bankai-btn-secondary-hover-text-color: $bankai-white;
+// Destructive Button
+$bankai-btn-primary-default-bg-color: $bankai-primary-color;
+$bankai-btn-primary-default-text-color: $bankai-white;
+$bankai-btn-primary-hover-bg-color: #33002f;
+$bankai-btn-primary-hover-text-color: $bankai-white;
+// Secondary Destructive Button
+$bankai-btn-secondary-default-bg-color: $bankai-secondary-color;
+$bankai-btn-secondary-default-text-color: $bankai-white;
+$bankai-btn-secondary-hover-bg-color: #1b3e4b;
+$bankai-btn-secondary-hover-text-color: $bankai-white;
+// Destructive Destructive Button
+$bankai-btn-destructive-default-bg-color: $bankai-destructive-color;
+$bankai-btn-destructive-default-text-color: $bankai-white;
+$bankai-btn-destructive-hover-bg-color: #580e0e;
+$bankai-btn-destructive-hover-text-color: $bankai-white;
+// Secondary Destructive Button
+// $bankai-btn-secondary-destructive-default-bg-color: $bankai-white;
+$bankai-btn-secondary-destructive-default-bg-color: #f1a7a7;
+// $bankai-btn-secondary-destructive-default-text-color: $bankai-destructive-color;
+$bankai-btn-secondary-destructive-default-text-color: $bankai-black;
+$bankai-btn-secondary-destructive-default-border-color: $bankai-btn-secondary-destructive-default-text-color;
+// $bankai-btn-secondary-destructive-hover-bg-color: $bankai-white;
+$bankai-btn-secondary-destructive-hover-bg-color: #b01c1c;
+// $bankai-btn-secondary-destructive-hover-text-color: #580e0e;
+$bankai-btn-secondary-destructive-hover-text-color: $bankai-white;
+$bankai-btn-secondary-destructive-hover-border-color: $bankai-btn-secondary-destructive-hover-text-color;

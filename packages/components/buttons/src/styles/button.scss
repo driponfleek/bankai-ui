@@ -1,9 +1,149 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@import '@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
+@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
+@import '@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/buttons.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 
-.component-1 {
-    display: flex;
-    padding: 3rem;
-    margin: 0;
+.bankai-button {
+    @include bankai-button-reset;
+    border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
+    background: white;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    // box-shadow: 0 0 1px rgba($bankai-black, 0.5);
+
+    &:disabled {
+        opacity: $bankai-disabled-opacity;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    &__content-container {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+    }
+
+    &__icon-container {
+        flex: 0 0 auto;
+    }
+
+    &__text-container {
+        line-height: $bankai-lineheight;
+    }
+
+    &__text-container,
+    &__icon-container {
+        vertical-align: middle;
+        display: inline-block;
+        padding: 0.5rem;
+    }
+
+    &__icon-safe-space {
+        @include bankai-flex-row;
+        flex: 0 0 auto;
+        width: 2rem;
+    }
+
+    &__icon {
+        font-size: 2rem;
+        margin: auto;
+        flex: 0 0 auto;
+    }
+
+    @media (hover: hover) {
+        &:not(:disabled):hover {
+            cursor: pointer;
+        }
+    }
+
+    &--primary {
+        color: var(--bankai-btn-primary-default-text-color, $bankai-btn-primary-default-text-color);
+        background-color: var(--bankai-btn-primary-default-bg-color, $bankai-btn-primary-default-bg-color);
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                color: var(--bankai-btn-primary-hover-text-color, $bankai-btn-primary-hover-text-color);
+                background-color: var(--bankai-btn-primary-hover-bg-color, $bankai-btn-primary-hover-bg-color);
+            }
+        }
+    }
+
+    &--primary,
+    &--secondary,
+    &--destructive {
+        &:active {
+            box-shadow: inset 0 0 10px rgba($bankai-black, 0.5);
+        }
+    }
+
+    &--secondary:not(&--destructive) {
+        color: var(--bankai-btn-secondary-default-text-color, $bankai-btn-secondary-default-text-color);
+        background-color: var(--bankai-btn-secondary-default-bg-color, $bankai-btn-secondary-default-bg-color);
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                color: var(--bankai-btn-secondary-hover-text-color, $bankai-btn-secondary-hover-text-color);
+                background-color: var(--bankai-btn-secondary-hover-bg-color, $bankai-btn-secondary-hover-bg-color);
+            }
+        }
+    }
+
+    &--destructive:not(&--secondary) {
+        color: var(--bankai-btn-destructive-default-text-color, $bankai-btn-destructive-default-text-color);
+        background-color: var(--bankai-btn-destructive-default-bg-color, $bankai-btn-destructive-default-bg-color);
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                color: var(--bankai-btn-destructive-hover-text-color, $bankai-btn-destructive-hover-text-color);
+                background-color: var(--bankai-btn-destructive-hover-bg-color, $bankai-btn-destructive-hover-bg-color);
+            }
+        }
+    }
+
+    &--secondary:is(&--destructive) {
+        color: var(--bankai-btn-secondary-destructive-default-text-color, $bankai-btn-secondary-destructive-default-text-color);
+        background-color: var(--bankai-btn-secondary-destructive-default-bg-color, $bankai-btn-secondary-destructive-default-bg-color);
+
+        @media (hover: hover) {
+            &:not(:disabled):hover {
+                color: var(--bankai-btn-secondary-destructive-hover-text-color, $bankai-btn-secondary-destructive-hover-text-color);
+                background-color: var(--bankai-btn-secondary-destructive-hover-bg-color, $bankai-btn-secondary-destructive-hover-bg-color);
+            }
+        }
+    }
+
+    &--link {
+        color: $bankai-link-color;
+        background-color: transparent;
+
+        @media (hover: hover) {
+            &:hover .bankai-button__text {
+                text-decoration: underline;
+            }
+        }
+
+        .bankai-button__content-container,
+        .bankai-button__text-container,
+        .bankai-button__icon-container {
+            padding: 0;
+        }
+
+        .bankai-button__icon-safe-space {
+            width: initial;
+        }
+
+        .bankai-button__icon {
+            font-size: inherit;
+        }
+
+        .bankai-button__icon-container + .bankai-button__text-container {
+            margin-left: 4px;
+        }
+    }
 }
