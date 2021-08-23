@@ -1423,15 +1423,6 @@
   dependencies:
     prettier "2.2.1"
 
-"@danielyearwood/react-unit-test-utils@0.0.1", "@danielyearwood/react-unit-test-utils@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@danielyearwood/react-unit-test-utils/0.0.1/6745f9c083cc6910262e8c191d652dc9a39247c73bc348a6e7dd17d62758c18f#2c4bcfca5673475fb5c9a5fb18f75fd0e5923319"
-  integrity sha512-EEQhs2PrOSVtpRPmVB+kmZh+3FvsnPVDKYVgHcSzHjj1Xedz6IDT6VNLa3hQgNfXZQ6CgLcJzgKlUbYm1NW/IQ==
-  dependencies:
-    create-react-class "15.7.0"
-    react-scripts "4.0.1"
-    react-test-renderer "17.0.1"
-
 "@danielyearwood/stylelint-config@^1.0.0":
   version "1.0.0"
   resolved "https://npm.pkg.github.com/download/@danielyearwood/stylelint-config/1.0.0/c0db714463053ac5751a8095c0f4cf748388371805f9bdfb0a9dcd6a09e041c6#5c0c7472bb3df91be1579ef38f57aa078006d17b"
@@ -7153,7 +7144,7 @@ css-tree@^1.1.2:
     mdn-data "2.0.14"
     source-map "^0.6.1"
 
-css-vars@^2.3.0:
+css-vars@2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/css-vars/-/css-vars-2.3.0.tgz#ea302c3cf00804513048df38f424213f987d32e8"
   integrity sha512-AGvTsGrZJqyxQ15YuifOb1Bp3pjjYeawdljPxfqQpoUful+xJ4RYDlbuaAnTVoB98DLLWJ65/hIf84Ys7NbxQw==
@@ -15178,7 +15169,7 @@ react-clientside-effect@^1.2.5:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
-react-colorful@^5.1.2:
+react-colorful@5.3.0, react-colorful@^5.1.2:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.3.0.tgz#bcbae49c1affa9ab9a3c8063398c5948419296bd"
   integrity sha512-zWE5E88zmjPXFhv6mGnRZqKin9s5vip1O3IIGynY9EhZxN8MATUxZkT3e/9OwTEm4DjQBXc6PFWP6AetY+Px+A==
@@ -15538,6 +15529,13 @@ react-textarea-autosize@^8.3.0:
     "@babel/runtime" "^7.10.2"
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
+
+react-toggle@4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/react-toggle/-/react-toggle-4.1.2.tgz#b00500832f925ad524356d909821821ae39f6c52"
+  integrity sha512-4Ohw31TuYQdhWfA6qlKafeXx3IOH7t4ZHhmRdwsm1fQREwOBGxJT+I22sgHqR/w8JRdk+AeMCJXPImEFSrNXow==
+  dependencies:
+    classnames "^2.2.5"
 
 react@^16.8.3:
   version "16.14.0"
@@ -17848,6 +17846,11 @@ tiny-emitter@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
   integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
+
+tinycolor2@1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.2.tgz#3f6a4d1071ad07676d7fa472e1fac40a719d8803"
+  integrity sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==
 
 tmp@^0.0.33:
   version "0.0.33"

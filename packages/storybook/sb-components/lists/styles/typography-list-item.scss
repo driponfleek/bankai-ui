@@ -1,0 +1,45 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
+// @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+@import '../../mixins/mixins.scss';
+
+.bankai-sb-typography-list-item {
+    @include bankai-glass-mixin;
+    width: 140px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 1rem;
+
+    &__category {
+        font-style: italic;
+        font-size: $bankai-footnote-text-size;
+    }
+
+    &__example {
+        font-size: 5rem;
+        line-height: 1;
+    }
+
+    &__category,
+    &__font-family-name {
+        color: $bankai-text-color-alt;
+    }
+
+    &__category,
+    &__example,
+    &__font-family-name {
+        display: block;
+    }
+
+    &--exo .bankai-sb-typography-list-item__example {
+        font-family: $bankai-heading-font;
+    }
+
+    &--titillium-web .bankai-sb-typography-list-item__example {
+        font-family: $bankai-body-font;
+    }
+}

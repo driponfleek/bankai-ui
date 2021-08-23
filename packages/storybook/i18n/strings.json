@@ -49,6 +49,12 @@
                         "clickToCopy": "Click To Copy CSS Class",
                         "copiedToClipboard": "Copied to Clipboard!"
                     }
+                },
+                "typography": {
+                    "categoryTitle": "Typography",
+                    "typographySystem": {
+                        "title": "Typography System"
+                    }
                 }
             }
         }

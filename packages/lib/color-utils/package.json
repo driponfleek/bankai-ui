@@ -1,0 +1,18 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "dependencies": {
+        "tinycolor2": "1.4.2"
+    },
+    "description": "Utilities for Management Colors",
+    "devDependencies": {},
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@epr0t0type/bankai-ui-color-utils",
+    "sideEffects": [
+        "**/*.css",
+        "**/*.scss",
+        "*.css.js",
+        "*.scss.js"
+    ],
+    "version": "0.0.0"
+}

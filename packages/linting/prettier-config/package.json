@@ -1,0 +1,14 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "dependencies": {
+        "prettier": "2.2.1"
+    },
+    "description": "Bankai Prettier conifigs",
+    "keywords": [
+        "prettier-config"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@epr0t0type/bankai-ui-prettier-config",
+    "version": "0.0.0"
+}

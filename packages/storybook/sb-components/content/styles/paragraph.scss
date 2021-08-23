@@ -3,9 +3,7 @@
 // ========================================================
 // @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
 
 .storybook-paragraph {
-    @include bankai-max-line-width($bankai-type-base-size);
-    line-height: $bankai-lineheight;
+    @include bankai-max-line-width();
 }

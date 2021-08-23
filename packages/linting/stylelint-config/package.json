@@ -1,0 +1,15 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "dependencies": {
+        "stylelint": "13.8.0",
+        "stylelint-config-standard": "20.0.0"
+    },
+    "description": "Bankai Stylelint conifigs",
+    "keywords": [
+        "stylelint-config"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@epr0t0type/bankai-ui-stylelint-config",
+    "version": "0.0.0"
+}

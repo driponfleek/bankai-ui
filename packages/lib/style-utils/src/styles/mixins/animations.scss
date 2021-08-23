@@ -7,7 +7,7 @@
     100% { transform: rotate(360deg); }
 }
 
-@mixin rotate-infinite() {
+@mixin bankai-rotate-infinite() {
     animation-name: rotate360;
     animation-duration: 1000ms;
     animation-iteration-count: infinite;

@@ -7,7 +7,7 @@
         "*.scss.js"
     ],
     "devDependencies": {
-        "@danielyearwood/react-unit-test-utils": "^0.0.1"
+        "@epr0t0type/bankai-ui-react-unit-test-utils": "^0.0.0"
     },
     "license": "MIT",
     "main": "dist/index.cjs.min.js",

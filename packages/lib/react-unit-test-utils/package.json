@@ -1,0 +1,17 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "dependencies": {
+        "create-react-class": "15.7.0",
+        "react-scripts": "4.0.1",
+        "react-test-renderer": "17.0.1"
+    },
+    "description": "Bankai Library of helper utilities for unit testing applications with React framework",
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@epr0t0type/bankai-ui-react-unit-test-utils",
+    "peerDependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
+    },
+    "version": "0.0.0"
+}

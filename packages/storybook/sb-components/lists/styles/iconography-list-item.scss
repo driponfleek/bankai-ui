@@ -4,7 +4,7 @@
 @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
-@import '../../mixins//mixins.scss';
+@import '../../mixins/mixins.scss';
 
 .bankai-sb-iconography-list-item {
     @include bankai-button-reset;

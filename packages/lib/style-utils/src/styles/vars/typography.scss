@@ -17,6 +17,8 @@ $bankai-h4-font-size: $bankai-h5-font-size * $bankai-type-size-ratio;
 $bankai-h3-font-size: $bankai-h4-font-size * $bankai-type-size-ratio;
 $bankai-h2-font-size: $bankai-h3-font-size * $bankai-type-size-ratio;
 $bankai-h1-font-size: $bankai-h2-font-size * $bankai-type-size-ratio;
+$bankai-sub-text-size: $bankai-type-base-size / $bankai-type-size-ratio;
+$bankai-footnote-text-size: $bankai-sub-text-size / $bankai-type-size-ratio;
 
 // Line Height
 $bankai-lineheight: 1.5;

@@ -24,11 +24,14 @@
     },
     "dependencies": {
         "@epr0t0type/bankai-ui-buttons": "^0.0.0",
+        "@epr0t0type/bankai-ui-color-utils": "^0.0.0",
+        "@epr0t0type/bankai-ui-form-elements": "^0.0.0",
         "@epr0t0type/bankai-ui-icons": "^0.0.0",
         "@epr0t0type/bankai-ui-style-utils": "^0.0.0",
         "@epr0t0type/bankai-ui-theme-utils": "^0.0.0",
         "@epr0t0type/bankai-ui-typography": "^0.0.0",
         "classnames": "2.3.1",
+        "css-vars": "2.3.0",
         "react-syntax-highlighter": "15.4.4",
         "uuid": "8.3.2"
     },

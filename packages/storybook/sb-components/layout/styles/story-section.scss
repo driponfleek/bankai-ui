@@ -10,7 +10,11 @@
     border-radius: 15px;
     padding: 1.5rem;
 
-    .bankai-sb-section-title.heading--h2 {
-        margin-bottom: 15px;
+    .bankai-sb-section-title + * {
+        margin-top: 15px;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
     }
 }

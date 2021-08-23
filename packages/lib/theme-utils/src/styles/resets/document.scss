@@ -12,8 +12,9 @@ html {
 body {
     @include bankai-body-font-shared();
     color: var(--bankai-text-color, $bankai-text-color);
-    font-size: $bankai-type-base-size;
+    font-size: var(--bankai-type-base-size, $bankai-type-base-size);
     -webkit-font-smoothing: antialiased;
+    line-height: $bankai-lineheight;
 }
 
 html,

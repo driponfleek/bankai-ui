@@ -1,0 +1,31 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-sb-typography-system-guide {
+    .bankai-sb-typography-list + .bankai-sb-section {
+        margin-top: 15px;
+    }
+
+    .bankai-sb-component-preview {
+        .bankai-heading + .bankai-heading {
+            margin-top: 15px;
+        }
+    }
+
+    &__sub-text {
+        font-size: $bankai-sub-text-size;
+    }
+
+    &__footnote {
+        font-size: $bankai-footnote-text-size;
+    }
+
+    &__sub-text,
+    &__footnote {
+        color: $bankai-text-color-alt;
+    }
+}

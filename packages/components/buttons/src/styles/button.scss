@@ -1,28 +1,23 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
-@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
-@import '@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
-@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
-@import '@epr0t0type/bankai-ui-style-utils/src/styles/vars/buttons.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/buttons.scss';
 @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-button {
     @include bankai-button-reset;
+    @include bankai-focus-state-halo;
+    @include bankai-hover-state;
+    @include bankai-disabled-state;
     border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
     background: white;
     box-sizing: border-box;
     border: 1px solid transparent;
-    // box-shadow: 0 0 1px rgba($bankai-black, 0.5);
-
-    &:disabled {
-        opacity: $bankai-disabled-opacity;
-
-        &:hover {
-            cursor: not-allowed;
-        }
-    }
 
     &__content-container {
         display: inline-block;
@@ -39,6 +34,7 @@
 
     &__text-container,
     &__icon-container {
+        user-select: none;
         vertical-align: middle;
         display: inline-block;
         padding: 0.5rem;
@@ -56,15 +52,13 @@
         flex: 0 0 auto;
     }
 
-    @media (hover: hover) {
-        &:not(:disabled):hover {
-            cursor: pointer;
-        }
-    }
-
     &--primary {
         color: var(--bankai-btn-primary-default-text-color, $bankai-btn-primary-default-text-color);
         background-color: var(--bankai-btn-primary-default-bg-color, $bankai-btn-primary-default-bg-color);
+
+        &:focus {
+            @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+        }
 
         @media (hover: hover) {
             &:not(:disabled):hover {
@@ -74,47 +68,66 @@
         }
     }
 
-    &--primary,
-    &--secondary,
-    &--destructive {
-        &:active {
-            box-shadow: inset 0 0 10px rgba($bankai-black, 0.5);
-        }
-    }
-
-    &--secondary:not(&--destructive) {
+    &--secondary {
         color: var(--bankai-btn-secondary-default-text-color, $bankai-btn-secondary-default-text-color);
         background-color: var(--bankai-btn-secondary-default-bg-color, $bankai-btn-secondary-default-bg-color);
+        border-color: var(--bankai-btn-secondary-default-border-color, $bankai-btn-secondary-default-border-color);
+
+        &:focus {
+            @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+        }
 
         @media (hover: hover) {
             &:not(:disabled):hover {
                 color: var(--bankai-btn-secondary-hover-text-color, $bankai-btn-secondary-hover-text-color);
                 background-color: var(--bankai-btn-secondary-hover-bg-color, $bankai-btn-secondary-hover-bg-color);
+                border-color: var(--bankai-btn-secondary-hover-border-color, $bankai-btn-secondary-hover-border-color);
             }
         }
     }
 
-    &--destructive:not(&--secondary) {
-        color: var(--bankai-btn-destructive-default-text-color, $bankai-btn-destructive-default-text-color);
-        background-color: var(--bankai-btn-destructive-default-bg-color, $bankai-btn-destructive-default-bg-color);
+    &--primary-destructive {
+        color: var(--bankai-btn-primary-destructive-default-text-color, $bankai-btn-primary-destructive-default-text-color);
+        background-color: var(--bankai-btn-primary-destructive-default-bg-color, $bankai-btn-primary-destructive-default-bg-color);
+
+        &:focus {
+            @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-destructive-focus-halo-color, rgba($bankai-btn-primary-destructive-default-bg-color, 0.4)));
+        }
 
         @media (hover: hover) {
             &:not(:disabled):hover {
-                color: var(--bankai-btn-destructive-hover-text-color, $bankai-btn-destructive-hover-text-color);
-                background-color: var(--bankai-btn-destructive-hover-bg-color, $bankai-btn-destructive-hover-bg-color);
+                color: var(--bankai-btn-primary-destructive-hover-text-color, $bankai-btn-primary-destructive-hover-text-color);
+                background-color: var(--bankai-btn-primary-destructive-hover-bg-color, $bankai-btn-primary-destructive-hover-bg-color);
             }
         }
     }
 
-    &--secondary:is(&--destructive) {
+    &--secondary-destructive {
         color: var(--bankai-btn-secondary-destructive-default-text-color, $bankai-btn-secondary-destructive-default-text-color);
         background-color: var(--bankai-btn-secondary-destructive-default-bg-color, $bankai-btn-secondary-destructive-default-bg-color);
+        border-color: var(--bankai-btn-secondary-destructive-default-border-color, $bankai-btn-secondary-destructive-default-border-color);
+
+        &:focus {
+            @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-destructive-focus-halo-color, rgba($bankai-btn-secondary-destructive-default-bg-color, 0.4)));
+        }
 
         @media (hover: hover) {
             &:not(:disabled):hover {
                 color: var(--bankai-btn-secondary-destructive-hover-text-color, $bankai-btn-secondary-destructive-hover-text-color);
                 background-color: var(--bankai-btn-secondary-destructive-hover-bg-color, $bankai-btn-secondary-destructive-hover-bg-color);
+                border-color: var(--bankai-btn-secondary-destructive-hover-border-color, $bankai-btn-secondary-destructive-hover-border-color);
             }
+        }
+    }
+
+    // stylelint-disable no-descending-specificity
+    &--primary,
+    &--secondary,
+    &--destructive,
+    &--primary-destructive,
+    &--secondary-destructive {
+        &:active {
+            transform: scale(0.95);
         }
     }
 
