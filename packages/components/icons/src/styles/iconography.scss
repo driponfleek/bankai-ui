@@ -30,6 +30,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.bankai-icon-spinner {
+    &::before {
+        content: $bankai-icon-spinner;
+    }
+}
+
 .bankai-icon-copy {
     &::before {
         content: $bankai-icon-copy;

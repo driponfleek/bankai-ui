@@ -4,12 +4,12 @@
         "stylelint": "13.8.0",
         "stylelint-config-standard": "20.0.0"
     },
-    "description": "Bankai Stylelint conifigs",
+    "description": "Envisioned Prototype stylelint configs",
     "keywords": [
         "stylelint-config"
     ],
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/bankai-ui-stylelint-config",
+    "name": "@epr0t0type/stylelint-config",
     "version": "0.0.0"
 }

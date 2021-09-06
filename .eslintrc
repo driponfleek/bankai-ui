@@ -5,7 +5,7 @@
         "jest/globals": true
     },
     "extends": [
-        "@danielyearwood/eslint-config/src/reactLintConfig",
+        "@epr0t0type/eslint-config/src/reactLintConfig",
         "plugin:prettier/recommended"
     ],
     "plugins": [

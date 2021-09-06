@@ -26,6 +26,7 @@ class ButtonGuide extends PureComponent {
         isLink: false,
         isPrimary: false,
         isSecondary: false,
+        shouldAnimateBusyIcon: true,
     };
 
     static propTypes = {
@@ -40,6 +41,7 @@ class ButtonGuide extends PureComponent {
         isLink: PropTypes.bool,
         isPrimary: PropTypes.bool,
         isSecondary: PropTypes.bool,
+        shouldAnimateBusyIcon: PropTypes.bool,
         data: PropTypes.object,
         onClick: PropTypes.func,
     };

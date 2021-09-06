@@ -11,8 +11,8 @@
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
-        "*.css.js",
-        "*.scss.js"
+        "**/*.css.js",
+        "**/*.scss.js"
     ],
     "version": "0.0.0"
 }

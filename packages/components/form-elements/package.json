@@ -24,8 +24,8 @@
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
-        "*.css.js",
-        "*.scss.js"
+        "**/*.css.js",
+        "**/*.scss.js"
     ],
     "scripts": {
         "build": "yarn run pre:build && rollup -c",

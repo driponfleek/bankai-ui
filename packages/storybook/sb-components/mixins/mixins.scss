@@ -5,7 +5,8 @@
 
 @mixin bankai-glass-mixin($bg-color: $white, $blur: 2px, $box-shadow: rgba($bankai-black, 0.1) 0 1px 3px 1px) {
     background-color: rgba($bg-color, 0.4);
-    backdrop-filter: blur($blur) saturate(180%);
+    // TODO: See if there's another way to do glassmorphism. This hurts performance big time.
+    // backdrop-filter: blur($blur) saturate(180%);
     border: 1px solid rgba($bg-color, 0.18);
     box-shadow: $box-shadow;
 }

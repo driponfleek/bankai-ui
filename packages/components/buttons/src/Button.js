@@ -7,12 +7,14 @@ import './styles/button.scss';
 
 class Button extends PureComponent {
     static defaultProps = {
+        busyIconCls: 'bankai-icon-spinner',
         type: 'button',
         isDestructive: false,
         isDisabled: false,
         isLink: false,
         isPrimary: false,
         isSecondary: false,
+        shouldAnimateBusyIcon: true,
         onClick: () => Promise.resolve(),
     };
 
@@ -28,6 +30,7 @@ class Button extends PureComponent {
         isLink: PropTypes.bool,
         isPrimary: PropTypes.bool,
         isSecondary: PropTypes.bool,
+        shouldAnimateBusyIcon: PropTypes.bool,
         data: PropTypes.object,
         onClick: PropTypes.func,
     };
@@ -98,7 +101,7 @@ class Button extends PureComponent {
     handleClick = (e) => {
         const { onClick, data } = this.props;
 
-        onClick({ e, data });
+        onClick({ e, ...(data && { data }) });
     };
 
     getShouldRenderIcon() {
@@ -108,9 +111,18 @@ class Button extends PureComponent {
     }
 
     getModCls() {
-        const { isPrimary, isSecondary, isLink, isDestructive } = this.props;
+        const {
+            isPrimary,
+            isSecondary,
+            isLink,
+            isBusy,
+            isDestructive,
+            shouldAnimateBusyIcon,
+        } = this.props;
 
         return {
+            [`${this.baseCls}--animate-busy`]: !isLink && shouldAnimateBusyIcon,
+            [`${this.baseCls}--busy`]: !isLink && isBusy,
             [`${this.baseCls}--primary`]:
                 !isLink && !isSecondary && !isDestructive && isPrimary,
             [`${this.baseCls}--secondary`]:
@@ -139,6 +151,7 @@ class Button extends PureComponent {
             isLink,
             isPrimary,
             isSecondary,
+            shouldAnimateBusyIcon,
             data,
             onClick,
             children,

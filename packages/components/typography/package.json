@@ -3,8 +3,8 @@
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
-        "*.css.js",
-        "*.scss.js"
+        "**/*.css.js",
+        "**/*.scss.js"
     ],
     "devDependencies": {
         "@epr0t0type/bankai-ui-react-unit-test-utils": "^0.0.0"

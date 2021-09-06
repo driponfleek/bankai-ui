@@ -11,17 +11,35 @@
     }
 
     .bankai-sb-component-preview {
+        // ========================================================
+        // Headings
+        // ========================================================
+        --bankai-h5-font-size: calc(var(--bankai-type-base-size) * var(--bankai-type-size-ratio));
+        --bankai-h4-font-size: calc(var(--bankai-h5-font-size) * var(--bankai-type-size-ratio));
+        --bankai-h3-font-size: calc(var(--bankai-h4-font-size) * var(--bankai-type-size-ratio));
+        --bankai-h2-font-size: calc(var(--bankai-h3-font-size) * var(--bankai-type-size-ratio));
+        --bankai-h1-font-size: calc(var(--bankai-h2-font-size) * var(--bankai-type-size-ratio));
+        // ========================================================
+        // Body
+        // ========================================================
+        --bankai-sub-text-size: calc(var(--bankai-type-base-size, $bankai-type-base-size) / var(--bankai-type-size-ratio, $bankai-type-size-ratio));
+        --bankai-footnote-text-size: calc(var(--bankai-sub-text-size, $bankai-sub-text-size) / var(--bankai-type-size-ratio, $bankai-type-size-ratio));
+
         .bankai-heading + .bankai-heading {
             margin-top: 15px;
         }
     }
 
+    &__paragraph {
+        font-size: var(--bankai-type-base-size, $bankai-type-base-size);
+    }
+
     &__sub-text {
-        font-size: $bankai-sub-text-size;
+        font-size: var(--bankai-sub-text-size, $bankai-sub-text-size);
     }
 
     &__footnote {
-        font-size: $bankai-footnote-text-size;
+        font-size: var(--bankai-footnote-text-size, $bankai-footnote-text-size);
     }
 
     &__sub-text,

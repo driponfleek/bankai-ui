@@ -1,19 +1,21 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
-@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 @import '../../mixins/mixins.scss';
 
 .bankai-sb-iconography-list-item {
     @include bankai-button-reset;
     @include bankai-glass-mixin;
+    @include bankai-focus-state-halo;
     width: 180px;
     box-sizing: border-box;
     border-radius: 15px;
     padding: 1rem;
-    transition: all 0.2s ease-in-out;
+    // transition: all 0.2s ease-in-out;
 
     @media (hover: hover) {
         &:hover {

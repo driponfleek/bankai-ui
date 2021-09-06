@@ -1,6 +1,6 @@
-import iconData from '../json/selection.json';
+import { selectionJSON } from '@epr0t0type/bankai-ui-icons';
 
-const { icons } = iconData;
+const { icons } = selectionJSON;
 const cssClsPrefix = 'bankai-icon';
 
 export default icons

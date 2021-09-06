@@ -3,8 +3,8 @@
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
-        "*.css.js",
-        "*.scss.js"
+        "**/*.css.js",
+        "**/*.scss.js"
     ],
     "description": "Theme Defaults and Generators for Apps",
     "license": "MIT",

@@ -21,6 +21,7 @@ export const storyConfig = (Story, config) => {
     // const ComposedStory = Story;
     const {
         hasA11Y = true,
+        hasActions = true,
         // hasInfo = true,
         shouldShowPanel = true,
         storyName,
@@ -49,6 +50,9 @@ export const storyConfig = (Story, config) => {
         a11y: {
             disable: !hasA11Y,
             element: '.bankai-sb-component-preview--check-a11y',
+        },
+        actions: {
+            disable: !hasActions,
         },
         // ...(notes && { notes }),
         // ...(hasInfo && { info: withInfoConfig.info }),

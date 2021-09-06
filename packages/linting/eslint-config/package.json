@@ -6,14 +6,14 @@
         "eslint-config-prettier": "7.1.0",
         "eslint-config-react": "1.1.7"
     },
-    "description": "Bankai ESLint conifigs",
+    "description": "Envisioned Prototype ESLint configs for JavaScript and React",
     "keywords": [
         "eslint",
         "eslintconfig"
     ],
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/bankai-ui-eslint-config",
+    "name": "@epr0t0type/eslint-config",
     "peerDependencies": {
         "@babel/core": "^7.12.10",
         "eslint": "^7.16.0",

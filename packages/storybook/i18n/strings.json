@@ -14,7 +14,11 @@
             "required": "Required"
         },
         "shared": {
-            "deprecated": "DEPRECATED"
+            "deprecated": "DEPRECATED",
+            "propDesc": {
+                "contextCls": "CSS class that can be used to namespace additional styling to a specific context. Helps to reduce possible CSS conflicts when only wanting to target the component in a given context.",
+                "isBusy": "Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component."
+            }
         },
         "stories": {
             "components": {

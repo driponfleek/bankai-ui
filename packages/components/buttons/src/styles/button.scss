@@ -1,12 +1,13 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/animations.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/buttons.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-button {
@@ -24,16 +25,13 @@
         padding: 0.5rem 1rem;
     }
 
-    &__icon-container {
-        flex: 0 0 auto;
-    }
-
     &__text-container {
         line-height: $bankai-lineheight;
     }
 
     &__text-container,
     &__icon-container {
+        box-sizing: border-box;
         user-select: none;
         vertical-align: middle;
         display: inline-block;
@@ -42,14 +40,22 @@
 
     &__icon-safe-space {
         @include bankai-flex-row;
-        flex: 0 0 auto;
         width: 2rem;
+        vertical-align: middle;
+        box-sizing: border-box;
     }
 
     &__icon {
+        @include bankai-flex-row;
+        vertical-align: middle;
         font-size: 2rem;
+        display: inline-block;
         margin: auto;
         flex: 0 0 auto;
+
+        &::before {
+            display: block;
+        }
     }
 
     &--primary {
@@ -157,6 +163,16 @@
 
         .bankai-button__icon-container + .bankai-button__text-container {
             margin-left: 4px;
+        }
+    }
+
+    &--animate-busy.bankai-button--busy {
+        .bankai-button__icon {
+            @include bankai-rotate-infinite;
+        }
+
+        .bankai-icon-spinner::before {
+            transform: translate3d(0.1px, -0.2px, 0);
         }
     }
 }

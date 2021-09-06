@@ -1406,31 +1406,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@danielyearwood/eslint-config@^1.0.1":
-  version "1.0.1"
-  resolved "https://npm.pkg.github.com/download/@danielyearwood/eslint-config/1.0.1/b295e4206a557d48b159c11339c83e7e08becf84fd0615a05a925b1974e44e64#5a097c5554a4d71e1b880db1df231a327b44d8b2"
-  integrity sha512-u6QIsG0fMrK7AIm7J8GAyEMin7PAuBJGZdYYwoZJnhcnfFtBYadE/ikiLcCAePFQQWihkZEGg/wAJar3LBzR4w==
-  dependencies:
-    babel-eslint "10.1.0"
-    eslint-config-airbnb "18.2.1"
-    eslint-config-prettier "7.1.0"
-    eslint-config-react "1.1.7"
-
-"@danielyearwood/prettier-config@^1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@danielyearwood/prettier-config/1.0.0/b13932d8af02d9305caefb473a8e1e786fdc2bdfe53052903c794924dbf68793#36a2381b5cdcf93fb1554efa0763849c4248f5f1"
-  integrity sha512-Iuo2QDtwFd+rQ0xCRIL6sbcJHrYv82gwFzZEm2pvESDmu0gO2emuZmU62kjObIhLcWcZb4HW5gkolDAQrNH/fQ==
-  dependencies:
-    prettier "2.2.1"
-
-"@danielyearwood/stylelint-config@^1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@danielyearwood/stylelint-config/1.0.0/c0db714463053ac5751a8095c0f4cf748388371805f9bdfb0a9dcd6a09e041c6#5c0c7472bb3df91be1579ef38f57aa078006d17b"
-  integrity sha512-K3FJMylxzo5jCfAlkcf+VSeS/6pSBYwGcAnsyxrxjxOqFZidrD/qOOVJOM8sS7gmniAGJkseYlLAe2MITvC0Og==
-  dependencies:
-    stylelint "13.8.0"
-    stylelint-config-standard "20.0.0"
-
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"

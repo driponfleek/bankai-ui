@@ -3,12 +3,12 @@
     "dependencies": {
         "prettier": "2.2.1"
     },
-    "description": "Bankai Prettier conifigs",
+    "description": "Envisioned Prototype Prettier configs",
     "keywords": [
         "prettier-config"
     ],
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/bankai-ui-prettier-config",
+    "name": "@epr0t0type/prettier-config",
     "version": "0.0.0"
 }

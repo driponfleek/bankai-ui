@@ -4,9 +4,9 @@
 	"devDependencies": {
 		"@babel/cli": "7.12.17",
 		"@babel/core": "7.12.17",
-		"@danielyearwood/eslint-config": "^1.0.1",
-		"@danielyearwood/prettier-config": "^1.0.0",
-		"@danielyearwood/stylelint-config": "^1.0.0",
+		"@epr0t0type/eslint-config": "^0.0.0",
+		"@epr0t0type/prettier-config": "^0.0.0",
+		"@epr0t0type/stylelint-config": "^0.0.0",
 		"@rollup/plugin-commonjs": "19.0.1",
 		"@rollup/plugin-node-resolve": "13.0.4",
 		"autoprefixer": "10.2.4",
