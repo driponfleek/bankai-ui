@@ -1,0 +1,16 @@
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-form-error-composer {
+    color: var(--bankai-form-inline-error-text-color, $bankai-form-inline-error-text-color);
+    font-size: var(--bankai-footnote-text-size);
+    display: block;
+
+    &__icon,
+    &__text {
+        vertical-align: middle;
+    }
+}

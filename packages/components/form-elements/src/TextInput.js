@@ -11,10 +11,10 @@ class TextInput extends PureComponent {
         isDisabled: false,
         isProtected: false,
         isReadOnly: false,
-        isRequired: false,
-        shouldAutoComplete: false,
+        shouldAutoComplete: true,
         shouldAutoFocus: false,
         shouldSpellCheck: false,
+        onChange: () => Promise.resolve(),
     };
 
     static propTypes = {
@@ -22,37 +22,28 @@ class TextInput extends PureComponent {
         id: PropTypes.string,
         name: PropTypes.string,
         placeholder: PropTypes.string,
-        maxLength: PropTypes.number,
         value: PropTypes.string,
         hasError: PropTypes.bool,
         isDisabled: PropTypes.bool,
         isProtected: PropTypes.bool,
         isReadOnly: PropTypes.bool,
-        isRequired: PropTypes.bool,
         shouldAutoComplete: PropTypes.bool,
         shouldAutoFocus: PropTypes.bool,
         shouldSpellCheck: PropTypes.bool,
+        onChange: PropTypes.func,
     };
 
     render() {
-        const { contextCls } = this.props;
+        const { contextCls, onChange } = this.props;
         const props = this.getProps();
-        const modCls = this.getModCls();
 
         return (
             <input
                 {...props}
-                className={cx(this.baseCls, modCls, contextCls)}
+                className={cx(this.baseCls, contextCls)}
+                onChange={onChange}
             />
         );
-    }
-
-    getModCls() {
-        const { hasError } = this.props;
-
-        return {
-            [`${this.baseCls}--error`]: hasError,
-        };
     }
 
     getProps() {
@@ -62,20 +53,21 @@ class TextInput extends PureComponent {
             isDisabled,
             isProtected,
             isReadOnly,
-            isRequired,
             shouldAutoComplete,
             shouldAutoFocus,
             shouldSpellCheck,
             ...rest
         } = this.props;
-        const props = { ...rest };
-        props.disabled = isDisabled;
-        props.protected = isProtected;
-        props.readOnly = isReadOnly;
-        props.required = isRequired;
-        props.autoComplete = shouldAutoComplete ? 'on' : 'off';
-        props.autoFocus = shouldAutoFocus;
-        props.spellCheck = shouldSpellCheck;
+        const props = {
+            ...rest,
+            autoComplete: !isProtected && shouldAutoComplete ? 'on' : 'off',
+            ...(hasError && { 'aria-invalid': hasError }),
+            ...(isDisabled && { disabled: isDisabled }),
+            ...(isReadOnly && { readOnly: isReadOnly }),
+            ...(shouldAutoFocus && { autoFocus: shouldAutoFocus }),
+            ...(shouldSpellCheck && { spellCheck: shouldSpellCheck }),
+            type: isProtected ? 'password' : 'text',
+        };
 
         return props;
     }

@@ -1,0 +1,15 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "description": "Utilities for Data Validation",
+    "devDependencies": {},
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@epr0t0type/bankai-ui-data-validation-utils",
+    "sideEffects": [
+        "**/*.css",
+        "**/*.scss",
+        "**/*.css.js",
+        "**/*.scss.js"
+    ],
+    "version": "0.0.0"
+}

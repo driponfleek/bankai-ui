@@ -79,7 +79,12 @@ $bankai-btn-secondary-destructive-hover-bg-color: #f8d3d3;
 $bankai-btn-secondary-destructive-hover-text-color: #b01c1c;
 $bankai-btn-secondary-destructive-hover-border-color: #b01c1c;
 // Forms
+$bankai-form-input-bg-color: $bankai-white;
+$bankai-form-input-border-color: $gray-60;
 $bankai-form-input-placeholder-text: $gray-40;
-$bankai-form-disabled-input-bg: $gray-90;
-$bankai-form-disabled-input-placeholder-text: $gray-40;
-$bankai-form-error-border-color: $bankai-error-color;
+$bankai-form-input-disabled-bg-color: $gray-90;
+$bankai-form-input-disabled-placeholder-text: $gray-40;
+$bankai-form-input-error-border-color: #b01c1c;
+$bankai-form-input-error-bg-color: #f8d3d3;
+$bankai-form-input-error-placeholder-text: #b01c1c;
+$bankai-form-inline-error-text-color: #b01c1c;

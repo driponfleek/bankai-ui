@@ -21,13 +21,13 @@ const { bankaiUI: locale } = strings;
 
 class TypographySystemGuide extends Component {
     static defaultProps = {
-        baseFont: 16,
-        ratio: 'minor third (1.2)',
+        baseTypeSize: 16,
+        typeScaleRatio: 'minor third (1.2)',
     };
 
     static propTypes = {
-        baseFont: PropTypes.number,
-        ratio: PropTypes.string,
+        baseTypeSize: PropTypes.number,
+        typeScaleRatio: PropTypes.string,
     };
 
     render() {
@@ -48,6 +48,10 @@ class TypographySystemGuide extends Component {
     }
 
     componentDidUpdate() {
+        this.handleUpdate();
+    }
+
+    componentDidMount() {
         this.handleUpdate();
     }
 
@@ -190,14 +194,14 @@ class TypographySystemGuide extends Component {
     };
 
     handleUpdate = () => {
-        const { baseFont, ratio } = this.props;
+        const { baseTypeSize, typeScaleRatio } = this.props;
         const containerId = `${this.baseCls}-examples`;
         const containerDOM = document.getElementById(containerId);
         // const containerDOM = document.getElementsByClassName(
         //     'bankai-sb-component-preview',
         // )[0];
-        const baseFontSize = `${baseFont / 10}rem`;
-        const ratioConst = ratio.replace(/( \(1.[0-9]*\))/, '');
+        const baseFontSize = `${baseTypeSize / 10}rem`;
+        const ratioConst = typeScaleRatio.replace(/( \(1.[0-9]*\))/, '');
         const ratioValue =
             TYPE_RATIOS[ratioConst.replace(' ', '_').toUpperCase()];
 

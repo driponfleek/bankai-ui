@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@epr0t0type/bankai-ui-buttons';
+import { Textarea } from '@epr0t0type/bankai-ui-form-elements';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -13,49 +13,43 @@ import strings from '../../../../i18n/strings.json';
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
 
 // Code Strings
-import { examplesCodeStr } from './codeStr/codeStrBtn';
+import { examplesCodeStr } from './codeStr/codeStrTextarea';
 
 // Styles
-import './styles/button-guide.scss';
+import './styles/textarea-guide.scss';
 
 const { bankaiUI: locale } = strings;
 
-class ButtonGuide extends PureComponent {
+class TextareaGuide extends PureComponent {
     static defaultProps = {
-        type: 'button',
-        isDestructive: false,
+        hasError: false,
         isDisabled: false,
-        isLink: false,
-        isPrimary: false,
-        isSecondary: false,
-        shouldAnimateBusyIcon: true,
+        isReadOnly: false,
+        shouldAutoFocus: false,
+        shouldSpellCheck: false,
     };
 
     static propTypes = {
-        busyIconCls: PropTypes.string,
         contextCls: PropTypes.string,
-        iconCls: PropTypes.string,
-        text: PropTypes.string,
-        type: PropTypes.string,
-        isBusy: PropTypes.bool,
-        isDestructive: PropTypes.bool,
+        id: PropTypes.string,
+        name: PropTypes.string,
+        placeholder: PropTypes.string,
+        value: PropTypes.string,
+        hasError: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        isLink: PropTypes.bool,
-        isPrimary: PropTypes.bool,
-        isSecondary: PropTypes.bool,
-        shouldAnimateBusyIcon: PropTypes.bool,
-        data: PropTypes.object,
-        onClick: PropTypes.func,
+        isReadOnly: PropTypes.bool,
+        shouldAutoFocus: PropTypes.bool,
+        shouldSpellCheck: PropTypes.bool,
     };
 
-    static displayName = locale.stories.components.buttons.button.title;
+    static displayName = locale.stories.components.formElements.textarea.title;
 
     render() {
         return (
             <StoryLayout
-                title={locale.stories.components.buttons.button.title}
+                title={locale.stories.components.formElements.textarea.title}
                 subTitle={getComponentsTitle(
-                    locale.stories.components.buttons.categoryTitle,
+                    locale.stories.components.formElements.categoryTitle,
                 )}
             >
                 {this.renderDemo()}
@@ -70,18 +64,19 @@ class ButtonGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Button {...props} />
+                    <Textarea {...props} aria-label="Demo Textarea" />
                 </ComponentPreview>
                 <Paragraph>
-                    Buttons allow users to take action in your UI. Well-formed
-                    buttons help users understand what action will be performed
-                    when they are interacted with.
+                    Use textareas to allow user input that requires more room
+                    than a text input would allow for.
                 </Paragraph>
             </StorySection>
         );
     }
 
     renderExamples = () => {
+        const placeholderText = 'Please enter a value...';
+
         return (
             <StorySection>
                 <SectionTitle>Examples</SectionTitle>
@@ -89,24 +84,26 @@ class ButtonGuide extends PureComponent {
                     contextCls={`${this.baseCls}__examples-preview`}
                     codeString={examplesCodeStr}
                 >
-                    <Button text="Primary Button" isPrimary />
-                    <Button text="Secondary Button" isSecondary />
-                    <Button
-                        text="Primary Destructive Button"
-                        isDestructive
-                        isPrimary
+                    <Textarea
+                        placeholder={placeholderText}
+                        aria-label="Demo Textarea"
                     />
-                    <Button
-                        text="Secondary Destructive Button"
-                        isDestructive
-                        isSecondary
+                    <Textarea
+                        placeholder={placeholderText}
+                        aria-label="Demo Disabled Textarea"
+                        isDisabled
+                    />
+                    <Textarea
+                        placeholder={placeholderText}
+                        aria-label="Demo Textarea That Has Error"
+                        hasError
                     />
                 </ComponentPreviewWithCodeBlock>
             </StorySection>
         );
     };
 
-    baseCls = 'bankai-sb-buttons-guide';
+    baseCls = 'bankai-sb-textarea-guide';
 }
 
-export default ButtonGuide;
+export default TextareaGuide;

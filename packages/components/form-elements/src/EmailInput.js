@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
-import './styles/textarea.scss';
+import './styles/text-input.scss';
 
-class Textarea extends PureComponent {
+class EmailInput extends PureComponent {
     static defaultProps = {
         hasError: false,
         isDisabled: false,
         isReadOnly: false,
+        isRequired: false,
+        shouldAutoComplete: true,
         shouldAutoFocus: false,
-        shouldSpellCheck: false,
-        onChange: () => Promise.resolve(),
     };
 
     static propTypes = {
@@ -20,26 +20,23 @@ class Textarea extends PureComponent {
         id: PropTypes.string,
         name: PropTypes.string,
         placeholder: PropTypes.string,
+        maxLength: PropTypes.number,
+        pattern: PropTypes.string,
         value: PropTypes.string,
         hasError: PropTypes.bool,
         isDisabled: PropTypes.bool,
         isReadOnly: PropTypes.bool,
+        isRequired: PropTypes.bool,
+        shouldAutoComplete: PropTypes.bool,
         shouldAutoFocus: PropTypes.bool,
-        shouldSpellCheck: PropTypes.bool,
-        onChange: PropTypes.func,
+        getIsValidEmail: PropTypes.func,
     };
 
     render() {
-        const { contextCls, onChange } = this.props;
+        const { contextCls } = this.props;
         const props = this.getProps();
 
-        return (
-            <textarea
-                {...props}
-                className={cx(this.baseCls, contextCls)}
-                onChange={onChange}
-            />
-        );
+        return <input {...props} className={cx(this.baseCls, contextCls)} />;
     }
 
     getProps() {
@@ -48,23 +45,27 @@ class Textarea extends PureComponent {
             hasError,
             isDisabled,
             isReadOnly,
+            isRequired,
+            pattern,
+            shouldAutoComplete,
             shouldAutoFocus,
-            shouldSpellCheck,
             ...rest
         } = this.props;
         const props = {
             ...rest,
+            autoComplete: shouldAutoComplete ? 'on' : 'off',
             ...(hasError && { 'aria-invalid': hasError }),
             ...(isDisabled && { disabled: isDisabled }),
             ...(isReadOnly && { readOnly: isReadOnly }),
+            ...(isRequired && { required: isRequired }),
             ...(shouldAutoFocus && { autoFocus: shouldAutoFocus }),
-            ...(shouldSpellCheck && { spellCheck: shouldSpellCheck }),
+            type: 'email',
         };
 
         return props;
     }
 
-    baseCls = 'bankai-textarea';
+    baseCls = 'bankai-email-input';
 }
 
-export default Textarea;
+export default EmailInput;

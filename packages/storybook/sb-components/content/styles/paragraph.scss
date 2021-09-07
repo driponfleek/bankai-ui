@@ -4,6 +4,6 @@
 // @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
 
-.storybook-paragraph {
+.bankai-sb-paragraph {
     @include bankai-max-line-width();
 }

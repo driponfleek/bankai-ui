@@ -3,6 +3,7 @@
 @use 'sass:math';
 
 @mixin bankai-max-line-width($lineheight: $bankai-lineheight) {
+    // stylelint-disable-next-line unit-blacklist
     $divForm: 1em / #{$lineheight};
     max-width: calc(70 * #{$divForm}); // max characters * (font-size / line-height)
 }

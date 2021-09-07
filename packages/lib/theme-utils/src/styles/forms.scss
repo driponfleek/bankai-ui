@@ -13,10 +13,19 @@ $css-vars-use-native: true;
         // ========================================================
         // Globals
         // ========================================================
-        --bankai-form-border-radius: $bankai-btn-border-radius,
+        --bankai-form-input-bg-color: $bankai-form-input-bg-color,
+        --bankai-form-input-border-color: $bankai-form-input-border-color,
+        --bankai-form-input-border-radius: $bankai-form-input-border-radius,
+        --bankai-form-input-placeholder-text: $bankai-form-input-placeholder-text,
+        --bankai-form-input-disabled-bg-color: $bankai-form-input-disabled-bg-color,
+        --bankai-form-input-disabled-placeholder-text: $bankai-form-input-disabled-placeholder-text,
         // ========================================================
         // Errors
         // ========================================================
-        --bankai-form-error-border-color: $bankai-form-error-border-color,
+        --bankai-form-input-error-bg-color: $bankai-form-input-error-bg-color,
+        --bankai-form-input-error-border-color: $bankai-form-input-error-border-color,
+        --bankai-form-input-error-placeholder-text: $bankai-form-input-error-placeholder-text,
+        --bankai-form-input-error-focus-halo-color: rgba($bankai-form-input-error-border-color, 0.4),
+        --bankai-form-inline-error-text-color: $bankai-form-inline-error-text-color,
     ));
 }

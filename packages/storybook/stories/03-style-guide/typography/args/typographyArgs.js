@@ -12,8 +12,8 @@ import {
 const TYPE_RATIO_NAMES = Object.keys(TYPE_RATIOS);
 
 export const args = {
-    baseFont: 16,
-    ratio: 'minor third (1.2)',
+    baseTypeSize: 16,
+    typeScaleRatio: 'minor third (1.2)',
 };
 
 export const argTypes = {
@@ -24,7 +24,7 @@ export const argTypes = {
             [CONTROL_OPS[CONTROL_OP_NAMES.MAX]]: 25,
             [CONTROL_OPS[CONTROL_OP_NAMES.STEP]]: 1,
         },
-        propName: 'baseFont',
+        propName: 'baseTypeSize',
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.RADIO],
@@ -34,6 +34,6 @@ export const argTypes = {
                     TYPE_RATIOS[NAME]
                 })`,
         ),
-        propName: 'ratio',
+        propName: 'typeScaleRatio',
     }),
 };

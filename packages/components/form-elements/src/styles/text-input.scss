@@ -1,15 +1,32 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/forms.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 @import './mixins.scss';
 
 .bankai-text-input {
+    @include bankai-focus-state-halo;
+    background-color: var(--bankai-form-input-bg-color, $bankai-form-input-bg-color);
     box-sizing: border-box;
     box-shadow: inset 0 1px 1px rgba($bankai-black, 0.075);
+    border: 1px solid var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+    border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);
+    line-height: $bankai-lineheight;
+    padding: 1rem;
 
     &[disabled] {
-        @include bankai-form-disabled-input;
+        @include bankai-form-input-disabled;
+    }
+
+    &[aria-invalid] {
+        @include bankai-form-input-error;
+    }
+
+    &::placeholder {
+        color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);
+        font-style: italic;
     }
 }

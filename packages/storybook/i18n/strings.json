@@ -17,7 +17,16 @@
             "deprecated": "DEPRECATED",
             "propDesc": {
                 "contextCls": "CSS class that can be used to namespace additional styling to a specific context. Helps to reduce possible CSS conflicts when only wanting to target the component in a given context.",
-                "isBusy": "Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component."
+                "formError": "Use to apply an error treatment to the form element.",
+                "formId": "Provide unique IDs to associate your form controls with labels to provide context for users using assistive technologies.",
+                "formIsReadOnly": "Use when the field only allows read access to prevent users from changing the value or interacting with the component.",
+                "formName": "Use to reference elements in a JavaScript, or to reference form data after a form is submitted.",
+                "formPlaceholder": "Use to provide extra information that is decidedly *not* vital to using the form control.",
+                "formValue": "Use to set the value.",
+                "isDisabled": "Use to disable the component.",
+                "isBusy": "Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.",
+                "shouldAutoComplete": "Enables autocomplete functionality for the component.",
+                "shouldSpellCheck": "Enable spell checking."
             }
         },
         "stories": {
