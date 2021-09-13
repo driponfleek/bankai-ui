@@ -1,0 +1,9 @@
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
+
+.bankai-form-label {
+    @include bankai-max-line-width();
+}

@@ -1,0 +1,6 @@
+export default {
+    INLINE_LEFT: 'INLINE_LEFT',
+    INLINE_RIGHT: 'INLINE_RIGHT',
+    STACKED: 'STACKED',
+    TOGGLE: 'TOGGLE',
+};

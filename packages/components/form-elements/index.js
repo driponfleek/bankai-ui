@@ -1,7 +1,9 @@
 export { default as ColorPicker } from './src/ColorPicker';
-export { default as HintComposer } from './src/HintComposer';
-export { default as LabelComposer } from './src/LabelComposer';
+export { default as FormControlHint } from './src/FormControlHint';
+export { default as FormFieldComposer } from './src/FormFieldComposer';
+export { default as FormLabel } from './src/FormLabel';
 export { default as EmailInput } from './src/EmailInput';
-export { default as ErrorComposer } from './src/ErrorComposer';
+export { default as InlineFormError } from './src/InlineFormError';
 export { default as Textarea } from './src/Textarea';
 export { default as TextInput } from './src/TextInput';
+export { default as FORM_FIELD_COMP_MODES } from './src/const/formFieldComposerModesConst';

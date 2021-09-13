@@ -1,0 +1,15 @@
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-form-control-hint {
+    @include bankai-max-line-width();
+    color: var(--bankai-text-color-alt, $bankai-text-color-alt);
+    font-size: var(--bankai-sub-text-size);
+    font-style: italic;
+    text-align: right;
+    display: block;
+}

@@ -3,6 +3,7 @@
 // ========================================================
 @import '~css-vars/css-vars.scss';
 @import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import './vars/colors.scss';
 
 // Needed to make Native CSS Custom Props work
 $css-vars-use-native: true;
@@ -14,6 +15,9 @@ $css-vars-use-native: true;
         // ========================================================
         --bankai-type-size-ratio: $bankai-type-size-ratio,
         --bankai-type-base-size: $bankai-type-base-size,
+        --bankai-text-color: $bankai-text-color,
+        --bankai-text-color-alt: $bankai-text-color-alt,
+        --bankai-link-color: $bankai-link-color,
         // ========================================================
         // Headings
         // ========================================================

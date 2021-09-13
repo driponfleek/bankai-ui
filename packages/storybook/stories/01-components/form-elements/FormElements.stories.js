@@ -9,5 +9,6 @@ export default {
     ),
 };
 
+export { default as FormFieldComposerStory } from './FormFieldComposerStory';
 export { default as TextareaStory } from './TextareaStory';
 export { default as TextInputStory } from './TextInputStory';

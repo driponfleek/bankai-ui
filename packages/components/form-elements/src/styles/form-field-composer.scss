@@ -1,0 +1,65 @@
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+
+.bankai-form-field-composer {
+    display: inline-block;
+    $bankai-form-label-control-space: 5px;
+    $bankai-form-control-hint-space: 2px;
+
+    &--is-stacked {
+        .bankai-form-field-composer__label-container + .bankai-form-field-composer__control-container {
+            margin-top: $bankai-form-label-control-space;
+        }
+
+        .bankai-form-field-composer__control-container + .bankai-form-field-composer__hints-container {
+            margin-top: $bankai-form-control-hint-space;
+        }
+    }
+
+    &--is-inline-left {
+        .bankai-form-field-composer__inner {
+            @include bankai-flex-row;
+        }
+
+        .bankai-form-field-composer__label-container {
+            text-align: right;
+        }
+
+        .bankai-form-field-composer__label-container + .bankai-form-field-composer__control-hint-container {
+            margin-left: 10px;
+        }
+    }
+
+    &--is-inline-right {
+        .bankai-form-field-composer__inner {
+            @include bankai-flex-row;
+        }
+
+        .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__label-container {
+            margin-left: 10px;
+        }
+    }
+
+    &--is-toggle {
+        // stylelint-disable-next-line no-descending-specificity
+        .bankai-form-field-composer__control-hint-container {
+            @include bankai-flex-row;
+        }
+
+        .bankai-form-field-composer__control-container + .bankai-form-field-composer__label-container {
+            margin-left: 10px;
+        }
+
+        .bankai-form-control-hint {
+            text-align: left;
+        }
+
+        .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__hints-container {
+            margin-top: $bankai-form-control-hint-space;
+        }
+    }
+}

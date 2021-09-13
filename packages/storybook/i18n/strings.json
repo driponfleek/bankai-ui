@@ -39,6 +39,9 @@
                 },
                 "formElements": {
                     "categoryTitle": "Form Elements",
+                    "formFieldComposer": {
+                        "title": "Form Field Composer"
+                    },
                     "textarea": {
                         "title": "Textarea"
                     },
