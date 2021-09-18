@@ -1,0 +1,87 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/animations.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/forms.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+@import './mixins.scss';
+@import './rw-styles.scss';
+
+.bankai-number-picker {
+    display: inline-block;
+
+    .rw-widget-picker {
+        @include bankai-flex-row;
+        border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);
+    }
+
+    &.rw-state-focus .rw-widget-picker {
+        @include bankai-rw-focus-state-halo;
+    }
+
+    .rw-number-picker-spinners {
+        width: 30px;
+        flex: 0 0 auto;
+    }
+
+    .rw-widget-input {
+        width: initial;
+        max-width: initial;
+        min-width: 1px;
+        line-height: $bankai-lineheight;
+        text-overflow: ellipsis;
+        padding: 1rem;
+        display: block;
+        flex: 0 1 auto;
+
+        &::placeholder {
+            color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);
+            font-style: italic;
+        }
+    }
+
+    .rw-picker-btn {
+        color: $bankai-text-color;
+        background-color: $bankai-white;
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: $bankai-gray-90;
+            }
+        }
+    }
+
+    .rw-widget-container,
+    .rw-number-picker-spinners {
+        border-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+    }
+
+    &.rw-state-disabled {
+        opacity: $bankai-disabled-opacity;
+        background-color: var(--bankai-form-input-disabled-bg-color, $bankai-form-input-disabled-bg-color);
+    }
+
+    &--error {
+        &.rw-state-focus .rw-widget-picker {
+            @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, rgba($bankai-form-input-error-border-color, 0.4)));
+        }
+
+        .rw-widget-container,
+        &.rw-state-focus .rw-widget-container,
+        .rw-number-picker-spinners {
+            border-color: var(--bankai-form-input-error-border-color, $bankai-form-input-error-border-color);
+        }
+
+        .rw-widget-input {
+            background-color: var(--bankai-form-input-error-bg-color, $bankai-form-input-error-bg-color);
+
+            &::placeholder {
+                color: var(--bankai-form-input-error-placeholder-text, $bankai-form-input-error-placeholder-text);
+            }
+        }
+    }
+}

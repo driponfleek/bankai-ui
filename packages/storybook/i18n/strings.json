@@ -39,8 +39,23 @@
                 },
                 "formElements": {
                     "categoryTitle": "Form Elements",
+                    "combobox": {
+                        "title": "Combobox"
+                    },
+                    "datePicker": {
+                        "title": "Date Picker"
+                    },
+                    "dropdown": {
+                        "title": "Dropdown"
+                    },
                     "formFieldComposer": {
                         "title": "Form Field Composer"
+                    },
+                    "multiselect": {
+                        "title": "Multiselect"
+                    },
+                    "numberPicker": {
+                        "title": "Number Picker"
                     },
                     "textarea": {
                         "title": "Textarea"

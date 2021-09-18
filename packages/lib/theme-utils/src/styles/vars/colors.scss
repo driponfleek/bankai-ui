@@ -25,12 +25,12 @@ $white: #fff;
 // The colors below are okay to use in your components
 // ========================================================
 // Main Colors
+$bankai-brand-color: #00aeff;
 $bankai-primary-color: #00aeff;
-$bankai-secondary-color: #367c96;
+$bankai-secondary-color: #7ab5cc;
 // Accent Colors
-$bankai-accent-color-1: #f1bfff;
-// $bankai-accent-color-2: #8f0083;
-// $bankai-accent-color-3: #838f00;
+$bankai-accent-color-1: #737a82;
+$bankai-accent-color-2: #283154;
 // Neutral Colors
 $bankai-black: $black;
 $bankai-gray-10: $gray-10;
@@ -42,17 +42,21 @@ $bankai-gray-60: $gray-60;
 $bankai-gray-70: $gray-70;
 $bankai-gray-80: $gray-80;
 $bankai-gray-90: $gray-90;
+$bankai-gray-95: $gray-95;
 $bankai-white: $white;
+// Canvas Colors
+$bankai-canvas-primary: $bankai-white;
+$bankai-canvas-alt: $bankai-gray-95;
 // Status Colors
 $bankai-affirmative-color: #7cb342;
-$bankai-error-color: #d22;
-$bankai-cautionary-color: #fbc02d;
+$bankai-error-color: #c33;
+$bankai-cautionary-color: #fbec2d;
 // Informative Colors
 $bankai-destructive-color: $bankai-error-color;
 $bankai-info-color: #4d4dff;
 // Typography
 $bankai-text-color: $bankai-black;
-$bankai-text-color-alt: $bankai-gray-30;
+$bankai-text-color-alt: $bankai-gray-40;
 $bankai-link-color: #176ec4;
 // Primary Button
 $bankai-btn-primary-default-bg-color: $bankai-primary-color;
@@ -61,30 +65,40 @@ $bankai-btn-primary-hover-bg-color: #004666;
 $bankai-btn-primary-hover-text-color: $bankai-white;
 // Secondary Button
 $bankai-btn-secondary-default-bg-color: $bankai-white;
-$bankai-btn-secondary-default-text-color: #006999;
-$bankai-btn-secondary-default-border-color: #006999;
-$bankai-btn-secondary-hover-bg-color: #ccefff;
-$bankai-btn-secondary-hover-text-color: #002333;
-$bankai-btn-secondary-hover-border-color: #002333;
+$bankai-btn-secondary-default-text-color: #367c96;
+$bankai-btn-secondary-default-border-color: $bankai-btn-secondary-default-text-color;
+$bankai-btn-secondary-hover-bg-color: #b4d7e4;
+$bankai-btn-secondary-hover-text-color: #1b3e4b;
+$bankai-btn-secondary-hover-border-color: $bankai-btn-secondary-hover-text-color;
 // Primary Destructive Button
 $bankai-btn-primary-destructive-default-bg-color: $bankai-destructive-color;
 $bankai-btn-primary-destructive-default-text-color: $bankai-white;
-$bankai-btn-primary-destructive-hover-bg-color: #841515;
+$bankai-btn-primary-destructive-hover-bg-color: #7a1f1f;
 $bankai-btn-primary-destructive-hover-text-color: $bankai-white;
 // Secondary Destructive Button
 $bankai-btn-secondary-destructive-default-bg-color: $bankai-white;
 $bankai-btn-secondary-destructive-default-text-color: $bankai-destructive-color;
 $bankai-btn-secondary-destructive-default-border-color: $bankai-btn-secondary-destructive-default-text-color;
-$bankai-btn-secondary-destructive-hover-bg-color: #f8d3d3;
-$bankai-btn-secondary-destructive-hover-text-color: #b01c1c;
-$bankai-btn-secondary-destructive-hover-border-color: #b01c1c;
+$bankai-btn-secondary-destructive-hover-bg-color: #ebadad;
+$bankai-btn-secondary-destructive-hover-text-color: #521414;
+$bankai-btn-secondary-destructive-hover-border-color: $bankai-btn-secondary-destructive-hover-text-color;
 // Forms
 $bankai-form-input-bg-color: $bankai-white;
-$bankai-form-input-border-color: $gray-60;
+$bankai-form-input-border-color: $gray-80;
 $bankai-form-input-placeholder-text: $gray-40;
 $bankai-form-input-disabled-bg-color: $gray-90;
 $bankai-form-input-disabled-placeholder-text: $gray-40;
-$bankai-form-input-error-border-color: #b01c1c;
-$bankai-form-input-error-bg-color: #f8d3d3;
-$bankai-form-input-error-placeholder-text: #b01c1c;
-$bankai-form-inline-error-text-color: #b01c1c;
+$bankai-form-input-error-border-color: $bankai-error-color;
+$bankai-form-input-error-bg-color: #f5d6d6;
+$bankai-form-input-error-placeholder-text: #a32929;
+$bankai-form-inline-error-text-color: $bankai-error-color;
+$bankai-form-menu-selected-state-bg-color: $bankai-primary-color;
+$bankai-form-menu-selected-state-text-color: $bankai-black;
+$bankai-form-menu-selected-state-focus-bg-color: #004666;
+$bankai-form-menu-selected-state-focus-text-color: $bankai-white;
+
+// NOT USED
+// $bankai-secondary-color: #367c96;
+// $bankai-accent-color-1: #f1bfff;
+// $bankai-error-color: #d22;
+// $bankai-cautionary-color: #fbc02d;

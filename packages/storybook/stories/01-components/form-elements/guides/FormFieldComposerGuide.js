@@ -82,10 +82,7 @@ class FormFieldComposerGuide extends PureComponent {
                         aria-label="Demo Form Field Composer"
                     />
                 </ComponentPreview>
-                <Paragraph>
-                    Use textareas to allow user input that requires more room
-                    than a text input would allow for.
-                </Paragraph>
+                <Paragraph>Coming soon</Paragraph>
             </StorySection>
         );
     }

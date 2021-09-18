@@ -27,5 +27,12 @@ $css-vars-use-native: true;
         --bankai-form-input-error-placeholder-text: $bankai-form-input-error-placeholder-text,
         --bankai-form-input-error-focus-halo-color: rgba($bankai-form-input-error-border-color, 0.4),
         --bankai-form-inline-error-text-color: $bankai-form-inline-error-text-color,
+        // ========================================================
+        // Menus
+        // ========================================================
+        --bankai-form-menu-selected-state-bg-color: $bankai-form-menu-selected-state-bg-color,
+        --bankai-form-menu-selected-state-text-color: $bankai-form-menu-selected-state-text-color,
+        --bankai-form-menu-selected-state-focus-bg-color: $bankai-form-menu-selected-state-focus-bg-color,
+        --bankai-form-menu-selected-state-focus-text-color: $bankai-form-menu-selected-state-focus-text-color,
     ));
 }

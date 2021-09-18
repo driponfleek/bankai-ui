@@ -1,14 +1,15 @@
 {
     "author": "dyearwood@envisionedprototype.com",
+    "description": "Bankai icons",
+    "license": "MIT",
+    "main": "dist/index.cjs.min.js",
+    "name": "@epr0t0type/bankai-ui-icons",
+    "scripts": {},
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
         "**/*.css.js",
         "**/*.scss.js"
     ],
-    "license": "MIT",
-    "main": "dist/index.cjs.min.js",
-    "name": "@epr0t0type/bankai-ui-icons",
-    "scripts": {},
     "version": "0.0.0"
 }

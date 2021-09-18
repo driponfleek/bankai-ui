@@ -1,6 +1,4 @@
 /* eslint-disable no-param-reassign */
-// import { withInfo } from '@storybook/addon-info';
-// import withInfoConfig from './infoConfig';
 import strings from '../i18n/strings.json';
 
 const { bankaiUI: locale } = strings;
@@ -22,10 +20,8 @@ export const storyConfig = (Story, config) => {
     const {
         hasA11Y = true,
         hasActions = true,
-        // hasInfo = true,
         shouldShowPanel = true,
         storyName,
-        // notes,
         args,
         argTypes,
     } = config || {};
@@ -54,13 +50,7 @@ export const storyConfig = (Story, config) => {
         actions: {
             disable: !hasActions,
         },
-        // ...(notes && { notes }),
-        // ...(hasInfo && { info: withInfoConfig.info }),
     };
-
-    // if (hasInfo) {
-    //     decorators.push(withInfo);
-    // }
 
     if (decorators.length > 0) {
         Story.decorators = decorators;

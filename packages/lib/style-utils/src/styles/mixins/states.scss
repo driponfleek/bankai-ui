@@ -9,6 +9,8 @@
 }
 
 @mixin bankai-focus-state-halo($color: rgba(0, 0, 0, 0.4)) {
+    transition: box-shadow 0.15s ease-in-out;
+
     &:focus {
         @include bankai-focus-state-reset;
         @include bankai-focus-state-box-shadow($color);
