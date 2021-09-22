@@ -49,12 +49,11 @@
         @include bankai-flex-row;
         vertical-align: middle;
         font-size: 2rem;
-        display: inline-block;
         margin: auto;
         flex: 0 0 auto;
 
-        &::before {
-            display: block;
+        .bankai-icon {
+            margin: auto;
         }
     }
 

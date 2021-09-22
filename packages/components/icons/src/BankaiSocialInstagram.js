@@ -1,0 +1,27 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { RiInstagramLine } from 'react-icons/ri';
+
+// Utils
+import classNameUtil from './utils/classNameUtil';
+
+// Constants
+import baseCls from './const/baseClsConst';
+
+const BankaiSocialInstagram = (props) => {
+    const { contextCls, className, ...rest } = props;
+
+    return (
+        <RiInstagramLine
+            {...rest}
+            className={classNameUtil(`${baseCls}-social-instagram`, className)}
+        />
+    );
+};
+
+BankaiSocialInstagram.propTypes = {
+    contextCls: PropTypes.string,
+    className: PropTypes.string,
+};
+
+export default BankaiSocialInstagram;

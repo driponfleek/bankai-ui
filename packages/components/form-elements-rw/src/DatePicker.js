@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import DateField from 'react-widgets/DatePicker';
+import { BankaiCalendarClear } from '@epr0t0type/bankai-ui-icons';
 
 // Localizer
 import { defaultFormats as dFormats } from './nls/RWDateLocalizer';
@@ -49,7 +50,6 @@ class DatePicker extends PureComponent {
         formats: PropTypes.object,
         inputProps: PropTypes.object,
         messages: PropTypes.object,
-        selectIcon: PropTypes.element,
         valueDisplayFormat: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.object,
@@ -67,6 +67,7 @@ class DatePicker extends PureComponent {
         onKeyPress: PropTypes.func,
         onSelect: PropTypes.func,
         onToggle: PropTypes.func,
+        renderSelectIcon: PropTypes.func,
     };
 
     render() {
@@ -80,7 +81,7 @@ class DatePicker extends PureComponent {
             <DateField
                 {...props}
                 className={cx(this.baseCls, modCls, contextCls)}
-                selectIcon={this.renderIcon()}
+                selectIcon={this.renderSelectIcon()}
                 onBlur={this.handleBlur}
                 onChange={this.handleChange}
                 onCurrentDateChange={this.handleCurrentDateChange}
@@ -93,18 +94,20 @@ class DatePicker extends PureComponent {
         );
     }
 
-    renderIcon = () => {
-        const { selectIcon } = this.props;
+    renderSelectIcon = () => {
+        const { renderSelectIcon } = this.props;
+        const selectIconRenderer =
+            renderSelectIcon || this.renderDefaultSelectIcon;
 
+        return selectIconRenderer();
+    };
+
+    renderDefaultSelectIcon = () => {
+        // BankaiCalendarClear
         return (
-            selectIcon || (
-                <span
-                    className={cx(
-                        `${this.baseCls}__select-icon`,
-                        'bankai-icon-calendar',
-                    )}
-                />
-            )
+            <span className={cx(`${this.baseCls}__select-icon`)}>
+                <BankaiCalendarClear />
+            </span>
         );
     };
 

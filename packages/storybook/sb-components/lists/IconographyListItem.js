@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { BankaiCheck } from '@epr0t0type/bankai-ui-icons';
 
 // Styles
 import './styles/iconography-list-item.scss';
@@ -14,8 +15,9 @@ class IconographyListItem extends PureComponent {
 
     static propTypes = {
         contextCls: PropTypes.string,
-        iconCls: PropTypes.string,
+        name: PropTypes.string,
         hasCopiedToClipboard: PropTypes.bool,
+        Icon: PropTypes.func,
         locale: PropTypes.shape({
             copyText: PropTypes.string,
             copiedText: PropTypes.string,
@@ -46,22 +48,24 @@ class IconographyListItem extends PureComponent {
     }
 
     renderIcon() {
-        const { iconCls, hasCopiedToClipboard } = this.props;
-        const icon = hasCopiedToClipboard ? 'bankai-icon-check' : iconCls;
+        const { hasCopiedToClipboard, Icon } = this.props;
+        const IconComp = hasCopiedToClipboard ? BankaiCheck : Icon;
 
         return (
             <span className={`${this.baseCls}__icon-container`}>
                 <span className={`${this.baseCls}__icon-safe-area`}>
-                    <span className={cx(`${this.baseCls}__icon`, icon)} />
+                    <span className={`${this.baseCls}__icon`}>
+                        <IconComp />
+                    </span>
                 </span>
             </span>
         );
     }
 
     renderText() {
-        const { locale, iconCls, hasCopiedToClipboard } = this.props;
+        const { locale, name, hasCopiedToClipboard } = this.props;
         const { copiedText } = locale;
-        const text = hasCopiedToClipboard ? copiedText : iconCls;
+        const text = hasCopiedToClipboard ? copiedText : name;
 
         return (
             <span className={`${this.baseCls}__text-container`}>
@@ -71,9 +75,9 @@ class IconographyListItem extends PureComponent {
     }
 
     handleClick = () => {
-        const { onClick, iconCls } = this.props;
+        const { onClick, name } = this.props;
 
-        onClick(iconCls);
+        onClick(name);
     };
 
     baseCls = 'bankai-sb-iconography-list-item';

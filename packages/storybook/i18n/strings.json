@@ -63,6 +63,14 @@
                     "textInput": {
                         "title": "Text Input"
                     }
+                },
+                "iconography": {
+                    "categoryTitle": "Iconography",
+                    "icons": {
+                        "title": "Icons",
+                        "clickToCopy": "Click To Copy CSS Class",
+                        "copiedToClipboard": "Copied to Clipboard!"
+                    }
                 }
             },
             "intro": {
@@ -73,14 +81,6 @@
             },
             "libsUtils": "",
             "styleGuide": {
-                "iconography": {
-                    "categoryTitle": "Iconography",
-                    "icons": {
-                        "title": "Icons",
-                        "clickToCopy": "Click To Copy CSS Class",
-                        "copiedToClipboard": "Copied to Clipboard!"
-                    }
-                },
                 "typography": {
                     "categoryTitle": "Typography",
                     "typographySystem": {

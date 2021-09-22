@@ -46,6 +46,8 @@ class ButtonGuide extends PureComponent {
         shouldAnimateBusyIcon: PropTypes.bool,
         data: PropTypes.object,
         onClick: PropTypes.func,
+        renderIcon: PropTypes.func,
+        renderBusyIcon: PropTypes.func,
     };
 
     static displayName = locale.stories.components.buttons.button.title;

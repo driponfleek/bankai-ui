@@ -1,6 +1,7 @@
 {
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
+        "@epr0t0type/bankai-ui-icons": "^0.0.0",
         "@epr0t0type/bankai-ui-style-utils": "^0.0.0",
         "@epr0t0type/bankai-ui-theme-utils": "^0.0.0"
     },

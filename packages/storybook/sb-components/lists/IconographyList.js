@@ -22,7 +22,7 @@ class IconographyList extends PureComponent {
     };
 
     state = {
-        iconClsCopiedToClipboard: undefined,
+        nameCopiedToClipboard: undefined,
     };
 
     render() {
@@ -30,33 +30,35 @@ class IconographyList extends PureComponent {
 
         return (
             <div className={cx('bankai-sb-iconography-list', contextCls)}>
-                {icons.map((iconCls) => this.renderListItem(iconCls))}
+                {icons.map((iconData) => this.renderListItem(iconData))}
             </div>
         );
     }
 
-    renderListItem(iconCls) {
+    renderListItem(iconData) {
         const { locale } = this.props;
-        const { iconClsCopiedToClipboard } = this.state;
+        const { nameCopiedToClipboard } = this.state;
+        const { Icon, name } = iconData;
 
         return (
             <IconographyListItem
-                key={iconCls}
-                iconCls={iconCls}
-                hasCopiedToClipboard={iconCls === iconClsCopiedToClipboard}
+                key={name}
+                name={name}
+                Icon={Icon}
+                hasCopiedToClipboard={name === nameCopiedToClipboard}
                 locale={locale}
                 onClick={this.handleIconClick}
             />
         );
     }
 
-    handleIconClick = (iconCls) => {
-        this.setState({ iconClsCopiedToClipboard: iconCls }, () => {
-            navigator.clipboard.writeText(iconCls);
+    handleIconClick = (name) => {
+        this.setState({ nameCopiedToClipboard: name }, () => {
+            navigator.clipboard.writeText(name);
             clearTimeout(this.handleIconClickTimeout);
 
             this.handleIconClickTimeout = setTimeout(() => {
-                this.setState({ iconClsCopiedToClipboard: undefined });
+                this.setState({ nameCopiedToClipboard: undefined });
             }, 1500);
         });
     };

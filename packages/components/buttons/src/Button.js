@@ -1,13 +1,13 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';
 
 // Styles
 import './styles/button.scss';
 
 class Button extends PureComponent {
     static defaultProps = {
-        busyIconCls: 'bankai-icon-spinner',
         type: 'button',
         isDestructive: false,
         isDisabled: false,
@@ -19,7 +19,6 @@ class Button extends PureComponent {
     };
 
     static propTypes = {
-        busyIconCls: PropTypes.string,
         contextCls: PropTypes.string,
         iconCls: PropTypes.string,
         text: PropTypes.string,
@@ -33,6 +32,8 @@ class Button extends PureComponent {
         shouldAnimateBusyIcon: PropTypes.bool,
         data: PropTypes.object,
         onClick: PropTypes.func,
+        renderIcon: PropTypes.func,
+        renderBusyIcon: PropTypes.func,
     };
 
     render() {
@@ -58,37 +59,40 @@ class Button extends PureComponent {
         );
     }
 
-    renderMain() {
+    renderMain = () => {
         const { text } = this.props;
-        const shouldRenderIcon = this.getShouldRenderIcon();
+        const shouldRenderBtnIcon = this.getShouldRenderBtnIcon();
+        const shouldRenderBusyIcon = this.getShouldRenderBusyIcon();
 
         return (
             <Fragment>
-                {shouldRenderIcon && this.renderIcon()}
+                {shouldRenderBtnIcon && this.renderIcon()}
+                {shouldRenderBusyIcon && this.renderIcon(shouldRenderBusyIcon)}
                 {!!text && this.renderText()}
             </Fragment>
         );
-    }
+    };
 
-    renderIcon() {
-        const { iconCls, busyIconCls, isBusy, isLink } = this.props;
+    renderIcon = (isBusyIcon) => {
+        const { renderBusyIcon, renderIcon } = this.props;
         const baseIconCls = `${this.baseCls}__icon`;
-        const shouldRenderBusyIcon = !isLink && isBusy;
-        const iconClsToUse = {
-            [iconCls]: !shouldRenderBusyIcon,
-            [busyIconCls]: shouldRenderBusyIcon,
-        };
+        const busyIconRenderer = renderBusyIcon || this.renderBusyIcon;
+        const iconRenderer = isBusyIcon ? busyIconRenderer : renderIcon;
 
         return (
             <span className={`${baseIconCls}-container`}>
                 <span className={`${baseIconCls}-safe-space`}>
-                    <span className={cx(baseIconCls, iconClsToUse)} />
+                    <span className={baseIconCls}>{iconRenderer()}</span>
                 </span>
             </span>
         );
-    }
+    };
 
-    renderText() {
+    renderBusyIcon = () => {
+        return <BankaiSpinner />;
+    };
+
+    renderText = () => {
         const { text } = this.props;
 
         return (
@@ -96,7 +100,7 @@ class Button extends PureComponent {
                 <span className={`${this.baseCls}__text`}>{text}</span>
             </span>
         );
-    }
+    };
 
     handleClick = (e) => {
         const { onClick, data } = this.props;
@@ -104,13 +108,19 @@ class Button extends PureComponent {
         onClick({ e, ...(data && { data }) });
     };
 
-    getShouldRenderIcon() {
-        const { isBusy, isLink, iconCls } = this.props;
+    getShouldRenderBtnIcon = () => {
+        const { isBusy, renderIcon } = this.props;
 
-        return (isBusy && !isLink) || !!iconCls;
-    }
+        return !isBusy && !!renderIcon;
+    };
 
-    getModCls() {
+    getShouldRenderBusyIcon = () => {
+        const { isBusy, isLink } = this.props;
+
+        return !isLink && isBusy;
+    };
+
+    getModCls = () => {
         const {
             isPrimary,
             isSecondary,
@@ -136,11 +146,10 @@ class Button extends PureComponent {
             [`${this.baseCls}--link-destructive`]:
                 !isPrimary && !isSecondary && isDestructive && isLink,
         };
-    }
+    };
 
     getProps = () => {
         const {
-            busyIconCls,
             contextCls,
             iconCls,
             text,
@@ -154,6 +163,8 @@ class Button extends PureComponent {
             shouldAnimateBusyIcon,
             data,
             onClick,
+            renderIcon,
+            renderBusyIcon,
             children,
             ...rest
         } = this.props;

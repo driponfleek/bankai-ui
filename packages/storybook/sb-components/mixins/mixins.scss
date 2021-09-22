@@ -3,10 +3,12 @@
 // ========================================================
 @import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
 
-@mixin bankai-glass-mixin($bg-color: $white, $blur: 2px, $box-shadow: rgba($bankai-black, 0.1) 0 1px 3px 1px) {
-    background-color: rgba($bg-color, 0.4);
-    // TODO: See if there's another way to do glassmorphism. This hurts performance big time.
-    // backdrop-filter: blur($blur) saturate(180%);
+@mixin bankai-glass-mixin($shouldApplyFilters: false, $bg-color: $bankai-white, $bg-opactiy: 0.4, $blur: 2px, $box-shadow: rgba($bankai-black, 0.1) 0 1px 3px 1px) {
+    background-color: rgba($bg-color, $bg-opactiy);
     border: 1px solid rgba($bg-color, 0.18);
     box-shadow: $box-shadow;
+
+    @if $shouldApplyFilters {
+        backdrop-filter: blur($blur) saturate(180%);
+    }
 }
