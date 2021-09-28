@@ -14,7 +14,7 @@ const BankaiEyeSlash = (props) => {
     return (
         <BsEyeSlash
             {...rest}
-            className={classNameUtil(`${baseCls}-eye-slash`, className)}
+            className={classNameUtil(`${baseCls}-eye-slash`, className, contextCls)}
         />
     );
 };

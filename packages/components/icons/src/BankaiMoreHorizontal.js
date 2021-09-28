@@ -14,7 +14,7 @@ const BankaiMoreHorizontal = (props) => {
     return (
         <BsThreeDots
             {...rest}
-            className={classNameUtil(`${baseCls}-more-horizontal`, className)}
+            className={classNameUtil(`${baseCls}-more-horizontal`, className, contextCls)}
         />
     );
 };

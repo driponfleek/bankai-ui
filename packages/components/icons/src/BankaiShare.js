@@ -14,7 +14,7 @@ const BankaiShare = (props) => {
     return (
         <IoShareSocialOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-share`, className)}
+            className={classNameUtil(`${baseCls}-share`, className, contextCls)}
         />
     );
 };

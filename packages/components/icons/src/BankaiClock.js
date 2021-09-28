@@ -14,7 +14,7 @@ const BankaiClock = (props) => {
     return (
         <BsClock
             {...rest}
-            className={classNameUtil(`${baseCls}-clock`, className)}
+            className={classNameUtil(`${baseCls}-clock`, className, contextCls)}
         />
     );
 };

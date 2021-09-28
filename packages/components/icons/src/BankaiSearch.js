@@ -14,7 +14,7 @@ const BankaiSearch = (props) => {
     return (
         <CgSearch
             {...rest}
-            className={classNameUtil(`${baseCls}-search`, className)}
+            className={classNameUtil(`${baseCls}-search`, className, contextCls)}
         />
     );
 };

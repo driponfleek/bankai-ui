@@ -23,7 +23,6 @@ export { default as BankaiCaretLeft } from './src/BankaiCaretLeft';
 export { default as BankaiCaretRight } from './src/BankaiCaretRight';
 export { default as BankaiCaretUp } from './src/BankaiCaretUp';
 export { default as BankaiChat } from './src/BankaiChat';
-export { default as BankaiCheck } from './src/BankaiCheck';
 export { default as BankaiCircleDash } from './src/BankaiCircleDash';
 export { default as BankaiCircleInfo } from './src/BankaiCircleInfo';
 export { default as BankaiCirclePlus } from './src/BankaiCirclePlus';
@@ -95,6 +94,9 @@ export { default as BankaiChevronRight } from './src/BankaiChevronRight';
 export { default as BankaiChevronUp } from './src/BankaiChevronUp';
 export { default as BankaiEdit } from './src/BankaiEdit';
 export { default as BankaiSave } from './src/BankaiSave';
+
+// Hero Icons
+export { default as BankaiCheck } from './src/BankaiCheck';
 
 // Ionicons 5
 export { default as BankaiBan } from './src/BankaiBan';

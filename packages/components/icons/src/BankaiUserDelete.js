@@ -14,7 +14,7 @@ const BankaiUserDelete = (props) => {
     return (
         <AiOutlineUserDelete
             {...rest}
-            className={classNameUtil(`${baseCls}-user-delete`, className)}
+            className={classNameUtil(`${baseCls}-user-delete`, className, contextCls)}
         />
     );
 };

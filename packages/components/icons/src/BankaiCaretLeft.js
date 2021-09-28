@@ -14,7 +14,7 @@ const BankaiCaretLeft = (props) => {
     return (
         <BsCaretLeftFill
             {...rest}
-            className={classNameUtil(`${baseCls}-caret-left`, className)}
+            className={classNameUtil(`${baseCls}-caret-left`, className, contextCls)}
         />
     );
 };

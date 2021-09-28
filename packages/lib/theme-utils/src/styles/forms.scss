@@ -34,5 +34,11 @@ $css-vars-use-native: true;
         --bankai-form-menu-selected-state-text-color: $bankai-form-menu-selected-state-text-color,
         --bankai-form-menu-selected-state-focus-bg-color: $bankai-form-menu-selected-state-focus-bg-color,
         --bankai-form-menu-selected-state-focus-text-color: $bankai-form-menu-selected-state-focus-text-color,
+        // ========================================================
+        // Checked States
+        // ========================================================
+        --bankai-form-checked-state-bg-color: $bankai-form-checked-state-bg-color,
+        --bankai-form-checked-state-icon-color: $bankai-form-checked-state-icon-color,
+        --bankai-form-checked-state-focus-halo-color: rgba($bankai-btn-primary-default-bg-color, 0.4),
     ));
 }

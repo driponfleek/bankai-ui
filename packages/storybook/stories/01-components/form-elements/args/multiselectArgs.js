@@ -24,7 +24,6 @@ export const args = {
     placeholder: 'Please select one...',
     textField: 'text',
     shouldAutoFocus: false,
-    shouldAutoSelectMatches: false,
     hasError: false,
     isBusy: false,
     isDefaultOpen: false,
@@ -33,9 +32,9 @@ export const args = {
     shouldDropUp: false,
     shouldFocustFirstItem: false,
     data: mockData,
-    onChange: () => Promise.resolve(),
-    onSelect: () => Promise.resolve(),
-    onToggle: () => Promise.resolve(),
+    // onChange: () => Promise.resolve(),
+    // onSelect: () => Promise.resolve(),
+    // onToggle: () => Promise.resolve(),
 };
 
 export const argTypes = {

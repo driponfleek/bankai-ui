@@ -14,7 +14,7 @@ const BankaiDash = (props) => {
     return (
         <BsDash
             {...rest}
-            className={classNameUtil(`${baseCls}-dash`, className)}
+            className={classNameUtil(`${baseCls}-dash`, className, contextCls)}
         />
     );
 };

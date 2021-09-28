@@ -15,7 +15,7 @@
     border: 1px solid var(--bankai-form-input-border-color, $bankai-form-input-border-color);
     border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);
     line-height: $bankai-lineheight;
-    padding: 1rem;
+    padding: 0.7rem 1rem;
 
     &[disabled] {
         @include bankai-form-input-disabled;

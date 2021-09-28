@@ -17,6 +17,7 @@ const BankaiTextNumberedList = (props) => {
             className={classNameUtil(
                 `${baseCls}-text-numbered-list`,
                 className,
+                contextCls,
             )}
         />
     );

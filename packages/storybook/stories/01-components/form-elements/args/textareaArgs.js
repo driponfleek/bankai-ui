@@ -22,7 +22,7 @@ export const args = {
     isReadOnly: false,
     shouldAutoFocus: false,
     shouldSpellCheck: false,
-    onChange: () => Promise.resolve(),
+    // onChange: () => Promise.resolve(),
 };
 
 export const argTypes = {

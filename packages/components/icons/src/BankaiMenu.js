@@ -14,7 +14,7 @@ const BankaiMenu = (props) => {
     return (
         <IoMenuOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-menu`, className)}
+            className={classNameUtil(`${baseCls}-menu`, className, contextCls)}
         />
     );
 };

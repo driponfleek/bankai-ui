@@ -14,7 +14,11 @@ const BankaiDeviceSmartphone = (props) => {
     return (
         <BsPhone
             {...rest}
-            className={classNameUtil(`${baseCls}-device-smartphone`, className)}
+            className={classNameUtil(
+                `${baseCls}-device-smartphone`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

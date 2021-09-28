@@ -14,7 +14,7 @@ const BankaiApple = (props) => {
     return (
         <AiFillApple
             {...rest}
-            className={classNameUtil(`${baseCls}-apple`, className)}
+            className={classNameUtil(`${baseCls}-apple`, className, contextCls)}
         />
     );
 };

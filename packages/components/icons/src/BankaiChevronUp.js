@@ -14,7 +14,11 @@ const BankaiChevronUp = (props) => {
     return (
         <FiChevronUp
             {...rest}
-            className={classNameUtil(`${baseCls}-chevron-up`, className)}
+            className={classNameUtil(
+                `${baseCls}-chevron-up`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

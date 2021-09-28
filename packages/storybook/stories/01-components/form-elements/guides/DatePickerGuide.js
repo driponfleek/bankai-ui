@@ -19,7 +19,7 @@ import { getComponentsTitle } from '../../../../utils/storiesConfig';
 // import { examplesCodeStr } from './codeStr/codeStrTextInput';
 
 // Styles
-import './styles/text-input-guide.scss';
+// import './styles/text-input-guide.scss';
 
 const { bankaiUI: locale } = strings;
 

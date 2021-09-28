@@ -13,7 +13,7 @@ const BankaiZipFile = (props) => {
 
     return (
         <BsFileZip
-            className={classNameUtil(`${baseCls}-zip-file`, className)}
+            className={classNameUtil(`${baseCls}-zip-file`, className, contextCls)}
             {...rest}
         />
     );

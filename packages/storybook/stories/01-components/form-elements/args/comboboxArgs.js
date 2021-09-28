@@ -33,9 +33,9 @@ export const args = {
     shouldDropUp: false,
     shouldFocustFirstItem: false,
     data: mockData,
-    onChange: () => Promise.resolve(),
-    onSelect: () => Promise.resolve(),
-    onToggle: () => Promise.resolve(),
+    // onChange: () => Promise.resolve(),
+    // onSelect: () => Promise.resolve(),
+    // onToggle: () => Promise.resolve(),
 };
 
 export const argTypes = {

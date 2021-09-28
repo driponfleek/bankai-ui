@@ -14,7 +14,7 @@ const BankaiTextH3 = (props) => {
     return (
         <BsTypeH3
             {...rest}
-            className={classNameUtil(`${baseCls}-text-h3`, className)}
+            className={classNameUtil(`${baseCls}-text-h3`, className, contextCls)}
         />
     );
 };

@@ -14,7 +14,11 @@ const BankaiZoomOut = (props) => {
     return (
         <CgZoomOut
             {...rest}
-            className={classNameUtil(`${baseCls}-zoom-out`, className)}
+            className={classNameUtil(
+                `${baseCls}-zoom-out`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

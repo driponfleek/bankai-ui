@@ -14,7 +14,11 @@ const BankaiDeviceLaptop = (props) => {
     return (
         <BsLaptop
             {...rest}
-            className={classNameUtil(`${baseCls}-device-laptop`, className)}
+            className={classNameUtil(
+                `${baseCls}-device-laptop`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

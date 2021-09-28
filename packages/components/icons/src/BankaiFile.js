@@ -14,7 +14,7 @@ const BankaiFile = (props) => {
     return (
         <BsFileEarmark
             {...rest}
-            className={classNameUtil(`${baseCls}-file`, className)}
+            className={classNameUtil(`${baseCls}-file`, className, contextCls)}
         />
     );
 };

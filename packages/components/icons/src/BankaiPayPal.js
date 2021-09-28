@@ -14,7 +14,7 @@ const BankaiPayPal = (props) => {
     return (
         <RiPaypalFill
             {...rest}
-            className={classNameUtil(`${baseCls}-paypal`, className)}
+            className={classNameUtil(`${baseCls}-paypal`, className, contextCls)}
         />
     );
 };

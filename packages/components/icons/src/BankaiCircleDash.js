@@ -14,7 +14,7 @@ const BankaiCircleDash = (props) => {
     return (
         <BsDashCircle
             {...rest}
-            className={classNameUtil(`${baseCls}-circle-dash`, className)}
+            className={classNameUtil(`${baseCls}-circle-dash`, className, contextCls)}
         />
     );
 };

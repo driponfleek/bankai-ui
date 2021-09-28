@@ -14,7 +14,7 @@ const BankaiYouTube = (props) => {
     return (
         <AiFillYoutube
             {...rest}
-            className={classNameUtil(`${baseCls}-text-subscript`, className)}
+            className={classNameUtil(`${baseCls}-text-subscript`, className, contextCls)}
         />
     );
 };

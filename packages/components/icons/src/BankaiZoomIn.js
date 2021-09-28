@@ -14,7 +14,7 @@ const BankaiZoomIn = (props) => {
     return (
         <CgZoomIn
             {...rest}
-            className={classNameUtil(`${baseCls}-zoom-in`, className)}
+            className={classNameUtil(`${baseCls}-zoom-in`, className, contextCls)}
         />
     );
 };

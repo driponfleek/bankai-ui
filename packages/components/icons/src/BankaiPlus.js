@@ -14,7 +14,7 @@ const BankaiPlus = (props) => {
     return (
         <BsPlus
             {...rest}
-            className={classNameUtil(`${baseCls}-plus`, className)}
+            className={classNameUtil(`${baseCls}-plus`, className, contextCls)}
         />
     );
 };

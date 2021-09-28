@@ -14,7 +14,7 @@ const BankaiPower = (props) => {
     return (
         <BsPower
             {...rest}
-            className={classNameUtil(`${baseCls}-power`, className)}
+            className={classNameUtil(`${baseCls}-power`, className, contextCls)}
         />
     );
 };

@@ -14,7 +14,7 @@ const BankaiUndo = (props) => {
     return (
         <IoArrowUndoOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-undo`, className)}
+            className={classNameUtil(`${baseCls}-undo`, className, contextCls)}
         />
     );
 };

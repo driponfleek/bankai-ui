@@ -14,7 +14,7 @@ const BankaiHome = (props) => {
     return (
         <BsHouse
             {...rest}
-            className={classNameUtil(`${baseCls}-home`, className)}
+            className={classNameUtil(`${baseCls}-home`, className, contextCls)}
         />
     );
 };

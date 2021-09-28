@@ -14,7 +14,7 @@ const BankaiImage = (props) => {
     return (
         <BsCardImage
             {...rest}
-            className={classNameUtil(`${baseCls}-image`, className)}
+            className={classNameUtil(`${baseCls}-image`, className, contextCls)}
         />
     );
 };

@@ -14,7 +14,11 @@ const BankaiSocialFacebook = (props) => {
     return (
         <RiFacebookFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-facebook`, className)}
+            className={classNameUtil(
+                `${baseCls}-social-facebook`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

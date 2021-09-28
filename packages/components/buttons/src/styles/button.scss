@@ -35,7 +35,7 @@
         user-select: none;
         vertical-align: middle;
         display: inline-block;
-        padding: 0.5rem;
+        padding: 0.2rem 0.5rem;
     }
 
     &__icon-safe-space {
@@ -165,8 +165,8 @@
         }
     }
 
-    &--animate-busy.bankai-button--busy {
-        .bankai-button__icon {
+    &--busy {
+        .bankai-icon-spinner {
             @include bankai-rotate-infinite;
         }
 

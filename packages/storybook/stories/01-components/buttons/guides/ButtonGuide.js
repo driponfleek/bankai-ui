@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@epr0t0type/bankai-ui-buttons';
+import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -18,32 +18,32 @@ import { examplesCodeStr } from './codeStr/codeStrBtn';
 // Styles
 import './styles/button-guide.scss';
 
+const {
+    LINK,
+    PRIMARY,
+    PRIMARY_DESTRUCTIVE,
+    SECONDARY,
+    SECONDARY_DESTRUCTIVE,
+} = BTN_VARIANTS;
+
 const { bankaiUI: locale } = strings;
 
 class ButtonGuide extends PureComponent {
     static defaultProps = {
         type: 'button',
-        isDestructive: false,
+        isBusy: false,
         isDisabled: false,
-        isLink: false,
-        isPrimary: false,
-        isSecondary: false,
-        shouldAnimateBusyIcon: true,
+        onClick: () => Promise.resolve(),
     };
 
     static propTypes = {
-        busyIconCls: PropTypes.string,
         contextCls: PropTypes.string,
         iconCls: PropTypes.string,
         text: PropTypes.string,
         type: PropTypes.string,
+        variant: PropTypes.string,
         isBusy: PropTypes.bool,
-        isDestructive: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        isLink: PropTypes.bool,
-        isPrimary: PropTypes.bool,
-        isSecondary: PropTypes.bool,
-        shouldAnimateBusyIcon: PropTypes.bool,
         data: PropTypes.object,
         onClick: PropTypes.func,
         renderIcon: PropTypes.func,
@@ -91,18 +91,18 @@ class ButtonGuide extends PureComponent {
                     contextCls={`${this.baseCls}__examples-preview`}
                     codeString={examplesCodeStr}
                 >
-                    <Button text="Primary Button" isPrimary />
-                    <Button text="Secondary Button" isSecondary />
+                    <Button text="Default Button" />
+                    <Button text="Primary Button" variant={PRIMARY} />
+                    <Button text="Secondary Button" variant={SECONDARY} />
                     <Button
                         text="Primary Destructive Button"
-                        isDestructive
-                        isPrimary
+                        variant={PRIMARY_DESTRUCTIVE}
                     />
                     <Button
                         text="Secondary Destructive Button"
-                        isDestructive
-                        isSecondary
+                        variant={SECONDARY_DESTRUCTIVE}
                     />
+                    <Button text="Button Styled as a Link" variant={LINK} />
                 </ComponentPreviewWithCodeBlock>
             </StorySection>
         );

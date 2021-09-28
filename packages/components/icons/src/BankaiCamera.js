@@ -14,7 +14,7 @@ const BankaiCamera = (props) => {
     return (
         <FiCamera
             {...rest}
-            className={classNameUtil(`${baseCls}-camera`, className)}
+            className={classNameUtil(`${baseCls}-camera`, className, contextCls)}
         />
     );
 };

@@ -14,7 +14,7 @@ const BankaiFilm = (props) => {
     return (
         <BsFilm
             {...rest}
-            className={classNameUtil(`${baseCls}-film`, className)}
+            className={classNameUtil(`${baseCls}-film`, className, contextCls)}
         />
     );
 };

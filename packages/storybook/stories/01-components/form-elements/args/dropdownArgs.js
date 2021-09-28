@@ -31,9 +31,9 @@ export const args = {
     isReadOnly: false,
     shouldDropUp: false,
     data: mockData,
-    onChange: () => Promise.resolve(),
-    onSelect: () => Promise.resolve(),
-    onToggle: () => Promise.resolve(),
+    // onChange: () => Promise.resolve(),
+    // onSelect: () => Promise.resolve(),
+    // onToggle: () => Promise.resolve(),
 };
 
 export const argTypes = {

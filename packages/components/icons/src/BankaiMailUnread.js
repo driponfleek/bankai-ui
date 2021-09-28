@@ -14,7 +14,11 @@ const BankaiMailUnread = (props) => {
     return (
         <IoMailUnreadOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-mail-unread`, className)}
+            className={classNameUtil(
+                `${baseCls}-mail-unread`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

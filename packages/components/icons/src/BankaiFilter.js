@@ -14,7 +14,7 @@ const BankaiFilter = (props) => {
     return (
         <IoFunnelOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-filter`, className)}
+            className={classNameUtil(`${baseCls}-filter`, className, contextCls)}
         />
     );
 };

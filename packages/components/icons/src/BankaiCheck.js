@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BsCheck } from 'react-icons/bs';
+import { HiCheck } from 'react-icons/hi';
 
 // Utils
 import classNameUtil from './utils/classNameUtil';
@@ -12,9 +12,9 @@ const BankaiCheck = (props) => {
     const { contextCls, className, ...rest } = props;
 
     return (
-        <BsCheck
+        <HiCheck
             {...rest}
-            className={classNameUtil(`${baseCls}-check`, className)}
+            className={classNameUtil(`${baseCls}-check`, className, contextCls)}
         />
     );
 };

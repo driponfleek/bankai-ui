@@ -14,7 +14,7 @@ const BankaiEdit = (props) => {
     return (
         <FiEdit2
             {...rest}
-            className={classNameUtil(`${baseCls}-edit`, className)}
+            className={classNameUtil(`${baseCls}-edit`, className, contextCls)}
         />
     );
 };

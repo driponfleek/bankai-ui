@@ -14,7 +14,11 @@ const BankaiTextBulletList = (props) => {
     return (
         <BsListUl
             {...rest}
-            className={classNameUtil(`${baseCls}-text-bullet-list`, className)}
+            className={classNameUtil(
+                `${baseCls}-text-bullet-list`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

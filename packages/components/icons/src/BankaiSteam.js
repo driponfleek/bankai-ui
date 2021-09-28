@@ -14,7 +14,7 @@ const BankaiSteam = (props) => {
     return (
         <RiSteamFill
             {...rest}
-            className={classNameUtil(`${baseCls}-text-steam`, className)}
+            className={classNameUtil(`${baseCls}-text-steam`, className, contextCls)}
         />
     );
 };

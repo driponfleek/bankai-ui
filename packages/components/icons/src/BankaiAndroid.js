@@ -14,7 +14,11 @@ const BankaiAndroid = (props) => {
     return (
         <AiFillAndroid
             {...rest}
-            className={classNameUtil(`${baseCls}-android`, className)}
+            className={classNameUtil(
+                `${baseCls}-android`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

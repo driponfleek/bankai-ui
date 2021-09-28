@@ -14,7 +14,11 @@ const BankaiArrowDown = (props) => {
     return (
         <BsArrowDown
             {...rest}
-            className={classNameUtil(`${baseCls}-arrow-down`, className)}
+            className={classNameUtil(
+                `${baseCls}-arrow-down`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

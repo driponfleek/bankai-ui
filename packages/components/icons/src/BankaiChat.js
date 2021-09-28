@@ -14,7 +14,7 @@ const BankaiChat = (props) => {
     return (
         <BsChat
             {...rest}
-            className={classNameUtil(`${baseCls}-chat`, className)}
+            className={classNameUtil(`${baseCls}-chat`, className, contextCls)}
         />
     );
 };

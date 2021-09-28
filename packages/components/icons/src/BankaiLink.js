@@ -14,7 +14,7 @@ const BankaiLink = (props) => {
     return (
         <BsLink45Deg
             {...rest}
-            className={classNameUtil(`${baseCls}-link`, className)}
+            className={classNameUtil(`${baseCls}-link`, className, contextCls)}
         />
     );
 };

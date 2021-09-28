@@ -14,7 +14,11 @@ const BankaiArrowUp = (props) => {
     return (
         <BsArrowUp
             {...rest}
-            className={classNameUtil(`${baseCls}-arrow-up`, className)}
+            className={classNameUtil(
+                `${baseCls}-arrow-up`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

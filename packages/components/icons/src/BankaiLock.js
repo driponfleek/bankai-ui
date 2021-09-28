@@ -14,7 +14,7 @@ const BankaiLock = (props) => {
     return (
         <BsLock
             {...rest}
-            className={classNameUtil(`${baseCls}-lock`, className)}
+            className={classNameUtil(`${baseCls}-lock`, className, contextCls)}
         />
     );
 };

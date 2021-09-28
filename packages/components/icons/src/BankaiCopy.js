@@ -14,7 +14,7 @@ const BankaiCopy = (props) => {
     return (
         <IoCopyOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-copy`, className)}
+            className={classNameUtil(`${baseCls}-copy`, className, contextCls)}
         />
     );
 };

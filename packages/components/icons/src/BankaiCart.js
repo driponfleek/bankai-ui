@@ -14,7 +14,7 @@ const BankaiCart = (props) => {
     return (
         <IoCartOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-cart`, className)}
+            className={classNameUtil(`${baseCls}-cart`, className, contextCls)}
         />
     );
 };

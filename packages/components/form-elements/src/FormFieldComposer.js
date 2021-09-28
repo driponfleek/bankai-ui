@@ -166,8 +166,10 @@ const withFormField = (Comp) =>
 
             return (
                 <div className={`${this.baseCls}__label-container`}>
-                    <FormLabel {...props} />
-                    {hasSubtext && this.renderSubText()}
+                    <div className={`${this.baseCls}__label-container-inner`}>
+                        <FormLabel {...props} />
+                        {hasSubtext && this.renderSubText()}
+                    </div>
                 </div>
             );
         };

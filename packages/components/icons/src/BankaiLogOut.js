@@ -14,7 +14,7 @@ const BankaiLogOut = (props) => {
     return (
         <IoLogOutOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-log-out`, className)}
+            className={classNameUtil(`${baseCls}-log-out`, className, contextCls)}
         />
     );
 };

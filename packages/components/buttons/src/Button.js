@@ -3,18 +3,25 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';
 
+// Constants
+import BTN_VARIANTS from './const/btnVariantsConst';
+
 // Styles
 import './styles/button.scss';
+
+const {
+    LINK,
+    PRIMARY,
+    PRIMARY_DESTRUCTIVE,
+    SECONDARY,
+    SECONDARY_DESTRUCTIVE,
+} = BTN_VARIANTS;
 
 class Button extends PureComponent {
     static defaultProps = {
         type: 'button',
-        isDestructive: false,
+        isBusy: false,
         isDisabled: false,
-        isLink: false,
-        isPrimary: false,
-        isSecondary: false,
-        shouldAnimateBusyIcon: true,
         onClick: () => Promise.resolve(),
     };
 
@@ -23,13 +30,9 @@ class Button extends PureComponent {
         iconCls: PropTypes.string,
         text: PropTypes.string,
         type: PropTypes.string,
+        variant: PropTypes.string,
         isBusy: PropTypes.bool,
-        isDestructive: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        isLink: PropTypes.bool,
-        isPrimary: PropTypes.bool,
-        isSecondary: PropTypes.bool,
-        shouldAnimateBusyIcon: PropTypes.bool,
         data: PropTypes.object,
         onClick: PropTypes.func,
         renderIcon: PropTypes.func,
@@ -108,6 +111,12 @@ class Button extends PureComponent {
         onClick({ e, ...(data && { data }) });
     };
 
+    getIsLink = () => {
+        const { variant } = this.props;
+
+        return variant === LINK;
+    };
+
     getShouldRenderBtnIcon = () => {
         const { isBusy, renderIcon } = this.props;
 
@@ -115,36 +124,23 @@ class Button extends PureComponent {
     };
 
     getShouldRenderBusyIcon = () => {
-        const { isBusy, isLink } = this.props;
+        const { isBusy } = this.props;
 
-        return !isLink && isBusy;
+        return !this.getIsLink() && isBusy;
     };
 
     getModCls = () => {
-        const {
-            isPrimary,
-            isSecondary,
-            isLink,
-            isBusy,
-            isDestructive,
-            shouldAnimateBusyIcon,
-        } = this.props;
+        const { variant, isBusy } = this.props;
 
         return {
-            [`${this.baseCls}--animate-busy`]: !isLink && shouldAnimateBusyIcon,
-            [`${this.baseCls}--busy`]: !isLink && isBusy,
-            [`${this.baseCls}--primary`]:
-                !isLink && !isSecondary && !isDestructive && isPrimary,
-            [`${this.baseCls}--secondary`]:
-                !isLink && !isPrimary && !isDestructive && isSecondary,
+            [`${this.baseCls}--busy`]: !this.getIsLink() && isBusy,
+            [`${this.baseCls}--primary`]: variant === PRIMARY,
+            [`${this.baseCls}--secondary`]: variant === SECONDARY,
             [`${this.baseCls}--primary-destructive`]:
-                !isLink && !isSecondary && isDestructive && isPrimary,
+                variant === PRIMARY_DESTRUCTIVE,
             [`${this.baseCls}--secondary-destructive`]:
-                !isLink && !isPrimary && isDestructive && isSecondary,
-            [`${this.baseCls}--link`]:
-                !isPrimary && !isSecondary && !isDestructive && isLink,
-            [`${this.baseCls}--link-destructive`]:
-                !isPrimary && !isSecondary && isDestructive && isLink,
+                variant === SECONDARY_DESTRUCTIVE,
+            [`${this.baseCls}--link`]: this.getIsLink(),
         };
     };
 
@@ -154,13 +150,9 @@ class Button extends PureComponent {
             iconCls,
             text,
             type,
+            variant,
             isBusy,
-            isDestructive,
             isDisabled,
-            isLink,
-            isPrimary,
-            isSecondary,
-            shouldAnimateBusyIcon,
             data,
             onClick,
             renderIcon,

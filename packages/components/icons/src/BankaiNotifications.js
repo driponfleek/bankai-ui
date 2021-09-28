@@ -14,7 +14,7 @@ const BankaiNotifications = (props) => {
     return (
         <IoNotificationsOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-notifications`, className)}
+            className={classNameUtil(`${baseCls}-notifications`, className, contextCls)}
         />
     );
 };

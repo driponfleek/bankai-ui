@@ -14,7 +14,7 @@ const BankaiBan = (props) => {
     return (
         <IoBanOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-ban`, className)}
+            className={classNameUtil(`${baseCls}-ban`, className, contextCls)}
         />
     );
 };

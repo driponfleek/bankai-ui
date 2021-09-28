@@ -2,7 +2,7 @@
     "env": {
         "browser": true,
         "node": true,
-        "jest/globals": true
+        "jest": true
     },
     "extends": [
         "@epr0t0type/eslint-config/src/reactLintConfig",

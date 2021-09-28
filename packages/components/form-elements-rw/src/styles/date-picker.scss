@@ -70,7 +70,7 @@
     .rw-widget-input {
         text-overflow: ellipsis;
         line-height: $bankai-lineheight;
-        padding: 1rem;
+        padding: 0.7rem 1rem;
 
         &::placeholder {
             color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);

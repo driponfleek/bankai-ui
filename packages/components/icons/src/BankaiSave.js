@@ -14,7 +14,7 @@ const BankaiSave = (props) => {
     return (
         <FiSave
             {...rest}
-            className={classNameUtil(`${baseCls}-save`, className)}
+            className={classNameUtil(`${baseCls}-save`, className, contextCls)}
         />
     );
 };

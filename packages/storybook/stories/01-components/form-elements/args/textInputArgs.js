@@ -24,7 +24,7 @@ export const args = {
     shouldAutoComplete: true,
     shouldAutoFocus: false,
     shouldSpellCheck: false,
-    onChange: () => Promise.resolve(),
+    // onChange: () => Promise.resolve(),
 };
 
 export const argTypes = {

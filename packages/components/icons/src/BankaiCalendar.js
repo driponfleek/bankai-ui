@@ -14,7 +14,7 @@ const BankaiCalendar = (props) => {
     return (
         <IoCalendarOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-calendar`, className)}
+            className={classNameUtil(`${baseCls}-calendar`, className, contextCls)}
         />
     );
 };

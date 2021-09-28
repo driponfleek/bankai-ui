@@ -14,7 +14,11 @@ const BankaiSocialDiscord = (props) => {
     return (
         <RiDiscordFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-discord`, className)}
+            className={classNameUtil(
+                `${baseCls}-social-discord`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

@@ -14,7 +14,7 @@ const BankaiFlag = (props) => {
     return (
         <BsFlag
             {...rest}
-            className={classNameUtil(`${baseCls}-flag`, className)}
+            className={classNameUtil(`${baseCls}-flag`, className, contextCls)}
         />
     );
 };

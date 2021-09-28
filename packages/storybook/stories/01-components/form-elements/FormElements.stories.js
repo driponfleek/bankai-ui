@@ -9,6 +9,7 @@ export default {
     ),
 };
 
+export { default as CheckboxStory } from './CheckboxStory';
 export { default as ComboboxStory } from './ComboboxStory';
 export { default as DatePickerStory } from './DatePickerStory';
 export { default as DropdownStory } from './DropdownStory';

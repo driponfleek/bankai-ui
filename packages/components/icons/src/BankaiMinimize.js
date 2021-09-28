@@ -14,7 +14,7 @@ const BankaiMinimize = (props) => {
     return (
         <BsFullscreenExit
             {...rest}
-            className={classNameUtil(`${baseCls}-minimize`, className)}
+            className={classNameUtil(`${baseCls}-minimize`, className, contextCls)}
         />
     );
 };

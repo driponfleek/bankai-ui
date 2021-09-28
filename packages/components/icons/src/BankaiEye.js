@@ -14,7 +14,7 @@ const BankaiEye = (props) => {
     return (
         <BsEye
             {...rest}
-            className={classNameUtil(`${baseCls}-eye`, className)}
+            className={classNameUtil(`${baseCls}-eye`, className, contextCls)}
         />
     );
 };

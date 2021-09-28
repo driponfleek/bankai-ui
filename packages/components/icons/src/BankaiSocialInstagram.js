@@ -14,7 +14,7 @@ const BankaiSocialInstagram = (props) => {
     return (
         <RiInstagramLine
             {...rest}
-            className={classNameUtil(`${baseCls}-social-instagram`, className)}
+            className={classNameUtil(`${baseCls}-social-instagram`, className, contextCls)}
         />
     );
 };

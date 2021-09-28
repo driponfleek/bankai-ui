@@ -14,7 +14,11 @@ const BankaiMailOpen = (props) => {
     return (
         <IoMailOpenOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-mail-open`, className)}
+            className={classNameUtil(
+                `${baseCls}-mail-open`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

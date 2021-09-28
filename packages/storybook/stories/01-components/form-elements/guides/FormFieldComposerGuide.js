@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
     TextInput,
+    Checkbox,
     FormFieldComposer,
     FORM_FIELD_COMP_MODES,
 } from '@epr0t0type/bankai-ui-form-elements';
@@ -20,11 +21,12 @@ import { getComponentsTitle } from '../../../../utils/storiesConfig';
 // import { examplesCodeStr } from './codeStr/codeStrTextarea';
 
 // Styles
-import './styles/textarea-guide.scss';
+// import './styles/textarea-guide.scss';
 
 const { bankaiUI: locale } = strings;
 const ComposedTextInput = FormFieldComposer(TextInput);
-const { STACKED } = FORM_FIELD_COMP_MODES;
+const ComposedCheckbox = FormFieldComposer(Checkbox);
+const { STACKED, TOGGLE } = FORM_FIELD_COMP_MODES;
 
 class FormFieldComposerGuide extends PureComponent {
     static defaultProps = {
@@ -73,11 +75,13 @@ class FormFieldComposerGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
+        const { mode } = props;
+        const DemoComp = mode === TOGGLE ? ComposedCheckbox : ComposedTextInput;
 
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <ComposedTextInput
+                    <DemoComp
                         {...props}
                         aria-label="Demo Form Field Composer"
                     />

@@ -27,7 +27,7 @@
 
     .rw-multiselect-input {
         line-height: $bankai-lineheight;
-        padding: 1rem;
+        padding: 0 1rem;
 
         &::placeholder {
             color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);
@@ -59,7 +59,7 @@
     }
 
     .rw-multiselect-taglist {
-        padding: 0.4rem;
+        padding: 0.2rem 0.4rem;
     }
 
     .rw-multiselect-tag {

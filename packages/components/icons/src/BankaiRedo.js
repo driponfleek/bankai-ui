@@ -14,7 +14,7 @@ const BankaiRedo = (props) => {
     return (
         <IoArrowRedoOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-redo`, className)}
+            className={classNameUtil(`${baseCls}-redo`, className, contextCls)}
         />
     );
 };

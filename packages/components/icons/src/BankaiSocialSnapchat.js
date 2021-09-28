@@ -14,7 +14,11 @@ const BankaiSocialSnapchat = (props) => {
     return (
         <RiSnapchatFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-snapchat`, className)}
+            className={classNameUtil(
+                `${baseCls}-social-snapchat`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

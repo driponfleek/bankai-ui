@@ -17,6 +17,7 @@ const BankaiTextIncreaseIndent = (props) => {
             className={classNameUtil(
                 `${baseCls}-text-increase-indent`,
                 className,
+                contextCls,
             )}
         />
     );

@@ -14,7 +14,7 @@ const BankaiMail = (props) => {
     return (
         <IoMailOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-mail`, className)}
+            className={classNameUtil(`${baseCls}-mail`, className, contextCls)}
         />
     );
 };

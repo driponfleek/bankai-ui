@@ -14,7 +14,7 @@ const BankaiCalendarClear = (props) => {
     return (
         <IoCalendarClearOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-calendar-clear`, className)}
+            className={classNameUtil(`${baseCls}-calendar-clear`, className, contextCls)}
         />
     );
 };

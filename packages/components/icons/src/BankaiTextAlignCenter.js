@@ -14,7 +14,11 @@ const BankaiTextAlignCenter = (props) => {
     return (
         <BsTextCenter
             {...rest}
-            className={classNameUtil(`${baseCls}-text-align-center`, className)}
+            className={classNameUtil(
+                `${baseCls}-text-align-center`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

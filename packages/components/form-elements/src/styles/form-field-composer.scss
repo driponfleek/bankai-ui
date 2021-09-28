@@ -26,7 +26,12 @@
         }
 
         .bankai-form-field-composer__label-container {
+            @include bankai-flex-row;
             text-align: right;
+        }
+
+        .bankai-form-label {
+            margin: auto 0;
         }
 
         .bankai-form-field-composer__label-container + .bankai-form-field-composer__control-hint-container {
@@ -37,6 +42,14 @@
     &--is-inline-right {
         .bankai-form-field-composer__inner {
             @include bankai-flex-row;
+        }
+
+        .bankai-form-field-composer__label-container {
+            @include bankai-flex-row;
+        }
+
+        .bankai-form-label {
+            margin: auto 0;
         }
 
         .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__label-container {

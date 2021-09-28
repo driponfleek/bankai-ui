@@ -14,7 +14,7 @@ const BankaiTrash = (props) => {
     return (
         <BsTrash
             {...rest}
-            className={classNameUtil(`${baseCls}-trash`, className)}
+            className={classNameUtil(`${baseCls}-trash`, className, contextCls)}
         />
     );
 };

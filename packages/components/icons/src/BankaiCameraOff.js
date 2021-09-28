@@ -14,7 +14,7 @@ const BankaiCameraOff = (props) => {
     return (
         <FiCameraOff
             {...rest}
-            className={classNameUtil(`${baseCls}-camera-off`, className)}
+            className={classNameUtil(`${baseCls}-camera-off`, className, contextCls)}
         />
     );
 };

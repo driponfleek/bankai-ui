@@ -14,7 +14,7 @@ const BankaiLogIn = (props) => {
     return (
         <IoLogInOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-log-in`, className)}
+            className={classNameUtil(`${baseCls}-log-in`, className, contextCls)}
         />
     );
 };

@@ -14,7 +14,7 @@ const BankaiStarHalf = (props) => {
     return (
         <BsStarHalf
             {...rest}
-            className={classNameUtil(`${baseCls}-star-half`, className)}
+            className={classNameUtil(`${baseCls}-star-half`, className, contextCls)}
         />
     );
 };

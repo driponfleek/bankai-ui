@@ -14,7 +14,7 @@ const BankaiCloud = (props) => {
     return (
         <BsCloud
             {...rest}
-            className={classNameUtil(`${baseCls}-cloud`, className)}
+            className={classNameUtil(`${baseCls}-cloud`, className, contextCls)}
         />
     );
 };

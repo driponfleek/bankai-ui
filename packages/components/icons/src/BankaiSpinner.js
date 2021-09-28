@@ -14,7 +14,11 @@ const BankaiSpinner = (props) => {
     return (
         <RiLoader5Fill
             {...rest}
-            className={classNameUtil(`${baseCls}-spinner`, className)}
+            className={classNameUtil(
+                `${baseCls}-spinner`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

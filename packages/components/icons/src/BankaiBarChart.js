@@ -14,7 +14,7 @@ const BankaiBarChart = (props) => {
     return (
         <FiBarChart
             {...rest}
-            className={classNameUtil(`${baseCls}-bar-chart`, className)}
+            className={classNameUtil(`${baseCls}-bar-chart`, className, contextCls)}
         />
     );
 };

@@ -14,7 +14,7 @@ const BankaiChevronRight = (props) => {
     return (
         <FiChevronRight
             {...rest}
-            className={classNameUtil(`${baseCls}-chevron-right`, className)}
+            className={classNameUtil(`${baseCls}-chevron-right`, className, contextCls)}
         />
     );
 };

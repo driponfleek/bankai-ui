@@ -13,12 +13,14 @@ const withIconContainer = (Icon) => {
         return (
             <Icon
                 {...rest}
-                className={cx(baseCls, iconCls, className, contextCls)}
+                className={cx(baseCls, className, iconCls, contextCls)}
             />
         );
     };
     wrapped.propTypes = {
+        className: PropTypes.string,
         contextCls: PropTypes.string,
+        iconClsSuffix: PropTypes.string,
     };
 
     return wrapped;

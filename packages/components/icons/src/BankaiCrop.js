@@ -14,7 +14,7 @@ const BankaiCrop = (props) => {
     return (
         <IoCropOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-crop`, className)}
+            className={classNameUtil(`${baseCls}-crop`, className, contextCls)}
         />
     );
 };

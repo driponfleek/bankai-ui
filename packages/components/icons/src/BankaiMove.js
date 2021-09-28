@@ -14,7 +14,7 @@ const BankaiMove = (props) => {
     return (
         <BsArrowsMove
             {...rest}
-            className={classNameUtil(`${baseCls}-move`, className)}
+            className={classNameUtil(`${baseCls}-move`, className, contextCls)}
         />
     );
 };

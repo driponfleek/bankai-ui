@@ -14,7 +14,7 @@ const BankaiTriangleAlert = (props) => {
     return (
         <BsExclamationTriangle
             {...rest}
-            className={classNameUtil(`${baseCls}-triangle-alert`, className)}
+            className={classNameUtil(`${baseCls}-triangle-alert`, className, contextCls)}
         />
     );
 };

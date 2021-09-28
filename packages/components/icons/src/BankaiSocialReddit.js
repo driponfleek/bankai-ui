@@ -14,7 +14,7 @@ const BankaiSocialReddit = (props) => {
     return (
         <RiRedditFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-reddit`, className)}
+            className={classNameUtil(`${baseCls}-social-reddit`, className, contextCls)}
         />
     );
 };

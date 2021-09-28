@@ -14,7 +14,7 @@ const BankaiSocialTwitch = (props) => {
     return (
         <RiTwitchFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-twitch`, className)}
+            className={classNameUtil(`${baseCls}-social-twitch`, className, contextCls)}
         />
     );
 };

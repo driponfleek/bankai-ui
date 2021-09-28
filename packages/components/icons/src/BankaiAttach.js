@@ -14,7 +14,7 @@ const BankaiAttach = (props) => {
     return (
         <AiOutlinePaperClip
             {...rest}
-            className={classNameUtil(`${baseCls}-attach`, className)}
+            className={classNameUtil(`${baseCls}-attach`, className, contextCls)}
         />
     );
 };

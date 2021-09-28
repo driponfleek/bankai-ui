@@ -14,7 +14,7 @@ const BankaiFolder = (props) => {
     return (
         <IoFolderOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-folder`, className)}
+            className={classNameUtil(`${baseCls}-folder`, className, contextCls)}
         />
     );
 };

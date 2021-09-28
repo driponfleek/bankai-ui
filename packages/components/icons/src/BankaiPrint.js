@@ -14,7 +14,7 @@ const BankaiPrint = (props) => {
     return (
         <IoPrintOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-print`, className)}
+            className={classNameUtil(`${baseCls}-print`, className, contextCls)}
         />
     );
 };

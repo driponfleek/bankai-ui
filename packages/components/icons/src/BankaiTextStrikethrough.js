@@ -17,6 +17,7 @@ const BankaiTextStrikethrough = (props) => {
             className={classNameUtil(
                 `${baseCls}-text-strikethrough`,
                 className,
+                contextCls,
             )}
         />
     );

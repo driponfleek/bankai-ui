@@ -17,6 +17,7 @@ const BankaiTextDecreaseIndent = (props) => {
             className={classNameUtil(
                 `${baseCls}-text-decrease-indent`,
                 className,
+                contextCls,
             )}
         />
     );

@@ -14,7 +14,7 @@ const BankaiDeviceTablet = (props) => {
     return (
         <BsTablet
             {...rest}
-            className={classNameUtil(`${baseCls}-device-tablet`, className)}
+            className={classNameUtil(`${baseCls}-device-tablet`, className, contextCls)}
         />
     );
 };

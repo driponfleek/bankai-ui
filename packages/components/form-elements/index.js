@@ -1,3 +1,4 @@
+export { default as Checkbox } from './src/Checkbox';
 export { default as ColorPicker } from './src/ColorPicker';
 export { default as FormControlHint } from './src/FormControlHint';
 export { default as FormFieldComposer } from './src/FormFieldComposer';
