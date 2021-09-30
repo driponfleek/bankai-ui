@@ -1,0 +1,74 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/forms.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+@import './mixins.scss';
+
+.bankai-radio {
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border-radius: 100%;
+    position: relative;
+    display: inline-block;
+
+    &__input {
+        opacity: 0;
+        z-index: 3;
+
+        &[disabled] {
+            cursor: not-allowed;
+        }
+    }
+
+    &__container {
+        @include bankai-flex-row;
+        background-color: $bankai-white;
+        box-sizing: border-box;
+        border: 1px solid var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        border-radius: 100%;
+        z-index: 1;
+    }
+
+    &__input,
+    &__container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__input:focus + &__container {
+        @include bankai-focus-state-box-shadow;
+    }
+
+    &__input:disabled + &__container {
+        @include bankai-form-input-disabled(false);
+    }
+
+    &__icon {
+        width: 17px;
+        height: 17px;
+        background-color: var(--bankai-form-checked-state-bg-color, $bankai-form-checked-state-bg-color);
+        border-radius: 100%;
+        margin: auto;
+        display: block;
+        flex: 0 0 auto;
+        // margin-top: 50%;
+        // margin-left: 50%;
+        // transform: translate3d(-50%, -50%, 0);
+        // position: absolute;
+        // z-index: 2;
+    }
+
+    &--checked {
+        .bankai-radio__input:focus + .bankai-radio__container {
+            @include bankai-focus-state-box-shadow(var(--bankai-form-checked-state-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+        }
+    }
+}

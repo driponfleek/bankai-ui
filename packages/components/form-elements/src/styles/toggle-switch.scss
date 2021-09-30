@@ -1,0 +1,90 @@
+//========================================================
+// Dependencies
+//========================================================
+@import '~react-toggle/style.css';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/animations.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-toggle-switch {
+    display: inline-block;
+    position: relative;
+
+    .react-toggle-thumb {
+        background-color: var(--bankai-toggle-switch-knob-color, $bankai-white);
+        border-color: $bankai-gray-30;
+    }
+
+    .react-toggle--focus .react-toggle-thumb {
+        @include bankai-focus-state-box-shadow;
+    }
+
+    .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+        box-shadow: 0 0 5px 5px rgba($bankai-black, 0.4);
+    }
+
+    &:hover .react-toggle-track {
+        background-color: $bankai-gray-20;
+    }
+
+    .react-toggle--disabled {
+        opacity: 1;
+    }
+
+    // stylelint-disable-next-line
+    .react-toggle-track,
+    .react-toggle--disabled:hover .react-toggle-track {
+        background-color: $bankai-gray-30;
+    }
+
+    // stylelint-disable-next-line
+    .react-toggle--checked .react-toggle-thumb {
+        background-color: var(--bankai-toggle-switch-on-knob-color, $bankai-white);
+        border-color: var(--bankai-toggle-switch-on-track-color, $bankai-affirmative-color);
+    }
+
+    // stylelint-disable-next-line
+    .react-toggle--checked .react-toggle-track,
+    .react-toggle--checked.react-toggle--disabled:hover .react-toggle-track {
+        background-color: var(--bankai-toggle-switch-on-track-color, $bankai-affirmative-color);
+    }
+
+    // stylelint-disable-next-line
+    &:hover .react-toggle--checked .react-toggle-track {
+        background-color: var(--bankai-toggle-switch-on-track-hover-color, darken($bankai-affirmative-color, 8%));
+    }
+
+    &__icon-busy {
+        @include bankai-rotate-infinite;
+        color: var(--bankai-toggle-switch-busy-icon-color, $bankai-white);
+        font-size: 2rem;
+        margin: 2px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .react-toggle--checked + &__icon-busy {
+        color: var(--bankai-toggle-switch-on-busy-icon-color, $bankai-black);
+        left: 0;
+    }
+
+    .react-toggle:not(.react-toggle--checked) + &__icon-busy {
+        right: 0;
+    }
+
+    // stylelint-disable-next-line
+    .react-toggle--checked.react-toggle--focus .react-toggle-thumb {
+        @include bankai-focus-state-box-shadow(var(--bankai-toggle-switch-on-focus-halo-color, rgba($bankai-affirmative-color, 0.4)));
+    }
+
+    .react-toggle--checked:active:not(.react-toggle--disabled) .react-toggle-thumb {
+        box-shadow: 0 0 5px 5px var(--bankai-toggle-switch-on-focus-halo-color, rgba($bankai-affirmative-color, 0.4));
+    }
+
+    &--is-disabled {
+        opacity: $bankai-disabled-opacity;
+    }
+}

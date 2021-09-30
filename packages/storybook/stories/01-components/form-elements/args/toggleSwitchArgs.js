@@ -18,9 +18,10 @@ import strings from '../../../../i18n/strings.json';
 const { bankaiUI: locale } = strings;
 
 export const args = {
-    isDisabled: false,
+    isBusy: true,
     isChecked: false,
-    isReadOnly: false,
+    isDefaultChecked: false,
+    isDisabled: false,
     // onChange: () => Promise.resolve(),
 };
 
@@ -59,6 +60,14 @@ export const argTypes = {
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
         defaultValue: 'false',
+        description:
+            'If `true` on initial render, the toggle is checked. If `false` on initial render, the toggle is unchecked. Use this if you want to treat the toggle as an uncontrolled component',
+        propName: 'isDefaultChecked',
+        propType: PROP_TYPES.BOOL,
+    }),
+    ...genArgType({
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+        defaultValue: 'false',
         description: locale.shared.propDesc.isDisabled,
         propName: 'isDisabled',
         propType: PROP_TYPES.BOOL,
@@ -66,17 +75,9 @@ export const argTypes = {
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
         defaultValue: 'false',
-        description: locale.shared.propDesc.formIsReadOnly,
-        propName: 'isReadOnly',
+        description: locale.shared.propDesc.isBusy,
+        propName: 'isBusy',
         propType: PROP_TYPES.BOOL,
-    }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
-        defaultValue: undefined,
-        description:
-            'Use to pass data back when the onChange handler is called.',
-        propName: 'data',
-        propType: PROP_TYPES.OBJECT,
     }),
     ...genArgType({
         action: 'changed',
@@ -88,7 +89,7 @@ export const argTypes = {
     }),
     ...genArgType({
         description: `Render function for rendering an alternative icon to the default one provided in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
-        propName: 'renderCheckedIcon',
+        propName: 'renderBusyIcon',
         propType: PROP_TYPES.FUNC,
     }),
 };

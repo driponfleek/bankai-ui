@@ -40,5 +40,16 @@ $css-vars-use-native: true;
         --bankai-form-checked-state-bg-color: $bankai-form-checked-state-bg-color,
         --bankai-form-checked-state-icon-color: $bankai-form-checked-state-icon-color,
         --bankai-form-checked-state-focus-halo-color: rgba($bankai-btn-primary-default-bg-color, 0.4),
+        // ========================================================
+        // Toggles
+        // ========================================================
+        --bankai-toggle-switch-knob-color: $bankai-white,
+        --bankai-toggle-switch-busy-icon-color: $bankai-white,
+        --bankai-toggle-switch-focus-halo-color: rgba($bankai-affirmative-color, 0.4),
+        --bankai-toggle-switch-on-knob-color: $bankai-white,
+        --bankai-toggle-switch-on-busy-icon-color: $bankai-black,
+        --bankai-toggle-switch-on-track-color: $bankai-affirmative-color,
+        --bankai-toggle-switch-on-track-hover-color: darken($bankai-affirmative-color, 8%),
+        --bankai-toggle-switch-on-focus-halo-color: rgba($bankai-affirmative-color, 0.4),
     ));
 }

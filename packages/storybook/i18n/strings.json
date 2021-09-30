@@ -61,11 +61,17 @@
                     "numberPicker": {
                         "title": "Number Picker"
                     },
+                    "radio": {
+                        "title": "Radio"
+                    },
                     "textarea": {
                         "title": "Textarea"
                     },
                     "textInput": {
                         "title": "Text Input"
+                    },
+                    "toggleSwitch": {
+                        "title": "Toggle Switch"
                     }
                 },
                 "iconography": {

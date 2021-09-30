@@ -16,5 +16,7 @@ export { default as DropdownStory } from './DropdownStory';
 export { default as FormFieldComposerStory } from './FormFieldComposerStory';
 export { default as MultiselectStory } from './MultiselectStory';
 export { default as NumberPickerStory } from './NumberPickerStory';
+export { default as RadioStory } from './RadioStory';
 export { default as TextareaStory } from './TextareaStory';
 export { default as TextInputStory } from './TextInputStory';
+export { default as ToggleSwitchStory } from './ToggleSwitchStory';
