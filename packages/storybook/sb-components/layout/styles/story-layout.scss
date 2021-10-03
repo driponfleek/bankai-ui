@@ -31,7 +31,7 @@ body,
 .bankai-sb-layout {
     @include bankai-scroll-y;
     height: 100%;
-    background: radial-gradient(circle, $gray-95 0%, $gray-70 100%);
+    background: radial-gradient(circle, $bankai-neutral-95 0%, $bankai-neutral-70 100%);
     box-sizing: border-box;
 
     &__header {
@@ -50,7 +50,7 @@ body,
     }
 
     &__header-subtitle {
-        color: $bankai-gray-30;
+        color: $bankai-neutral-30;
         font-style: italic;
         margin: 0;
     }

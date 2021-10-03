@@ -1,0 +1,13 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+
+.bankai-dropzone {
+    &__initial,
+    &__drag-accept,
+    &__drag-reject {
+        @include bankai-flex-column;
+        align-items: center;
+    }
+}

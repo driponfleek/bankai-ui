@@ -1,0 +1,242 @@
+//========================================================
+// Dependencies
+//========================================================
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/animations.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/buttons.scss';
+@import '~@epr0t0type/bankai-ui-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/forms.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-ui-buttons/src/styles/button.scss';
+
+.bankai-dnd-file-uploader {
+    &__inner {
+        @include bankai-flex-column;
+        min-height: 138px;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: var(--bankai-dnd-dropzone-border-radius, $bankai-form-input-border-radius);
+        border: 2px dashed var(--bankai-dnd-dropzone-border-color, $bankai-form-input-border-color);
+        padding: 1.5rem;
+    }
+
+    &__content-container {
+        @include bankai-flex-column;
+        margin: auto 0;
+    }
+
+    &__attachments-list {
+        @include bankai-list-reset;
+        @include bankai-flex-row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &-item {
+            @include bankai-flex-row;
+            min-width: 1px;
+            flex: 0 1 auto;
+            margin: 2px;
+        }
+
+        &-item-inner {
+            @include bankai-flex-row;
+            min-width: 1px;
+            background-color: var(--bankai-dnd-file-uploader-attachment-bg-color, $bankai-btn-primary-default-bg-color);
+            color: var(--bankai-dnd-file-uploader-attachment-text-color, $bankai-btn-primary-default-text-color);
+            border-radius: var(--bankai-dnd-file-uploader-attachment-border-radius, $bankai-btn-border-radius);
+            margin: 0 auto;
+            flex: 0 1 auto;
+        }
+    }
+
+    &__attachment-remove-btn {
+        color: inherit;
+        background-color: transparent;
+        border-radius: var(--bankai-dnd-file-uploader-attachment-border-radius, $bankai-btn-border-radius);
+
+        .bankai-button__content-container {
+            padding: 0.5rem;
+        }
+
+        .bankai-button__icon-safe-space {
+            width: 1.4rem;
+        }
+
+        .bankai-button__icon {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__title {
+        @include bankai-h4;
+        min-width: 1px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        flex: 1 1 auto;
+    }
+
+    &__attachment-file-name {
+        box-sizing: border-box;
+        padding-left: 1rem;
+        margin: auto 0;
+    }
+
+    &__icon-container + &__messaging-container,
+    &__title-container + &__msg-container,
+    &__attachments-list + &__msg-container {
+        margin-top: 5px;
+    }
+
+    &__icon-container-inner {
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        display: flex;
+    }
+
+    &__icon {
+        font-size: 3rem;
+        display: inline-block;
+        margin: auto;
+    }
+
+    &__msg {
+        line-height: $bankai-lineheight;
+        margin: 0;
+    }
+
+    &__browse-btn-container {
+        box-sizing: border-box;
+        display: inline-block;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__browse-btn {
+        @extend .bankai-button;
+        appearance: button;
+        display: inline-block;
+        // line-height: 1;
+
+        &.bankai-button--secondary {
+            @extend .bankai-button--secondary;
+        }
+    }
+
+    &__browse-input {
+        width: 100%;
+        box-sizing: border-box;
+        line-height: 1;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+
+        &:active + .bankai-button--secondary {
+            @extend .bankai-button--secondary:active;
+        }
+
+        &:not(:disabled):hover {
+            + .bankai-button--secondary {
+                @extend .bankai-button--secondary:hover;
+            }
+        }
+
+        &:focus + .bankai-button {
+            @extend .bankai-button--secondary:focus;
+        }
+
+        &:focus + .bankai-button--link {
+            @extend .bankai-button--link:focus;
+        }
+    }
+
+    &__msg--default {
+        .bankai-dnd-file-uploader__msg-text {
+            display: block;
+        }
+
+        .bankai-dnd-file-uploader__msg-text + .bankai-dnd-file-uploader__browse-btn-container {
+            margin-top: 5px;
+        }
+    }
+
+    &__remove-all-action {
+        &.bankai-button--link {
+            color: var(--bankai-btn-secondary-destructive-default-text-color, $bankai-btn-secondary-destructive-default-text-color);
+            user-select: none;
+
+            &.bankai-button--disabled:hover {
+                cursor: default;
+            }
+
+            &:focus {
+                @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-destructive-focus-halo-color, rgba($bankai-btn-secondary-destructive-default-text-color, 0.4)));
+            }
+        }
+    }
+
+    // Mod Classes
+    &--compact {
+        width: 160px;
+        height: 160px;
+        border-radius: 100%;
+
+        .bankai-dnd-file-uploader {
+            &__inner {
+                width: 160px;
+                height: 160px;
+                border-radius: 100%;
+            }
+
+            &__msg--default .bankai-dnd-file-uploader__msg-text {
+                display: initial;
+            }
+
+            &__msg--default .bankai-dnd-file-uploader__browse-btn-container {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &--disabled {
+        opacity: $bankai-disabled-opacity;
+    }
+
+    &--hover {
+        background-color: var(--bankai-affirmative-color, $bankai-affirmative-color);
+        border-color: var(--bankai-dnd-file-uploader-hover-state-border-color, darken($bankai-affirmative-color, 20%));
+    }
+
+    &--rejected {
+        background-color: var(--bankai-dnd-file-uploader-rejected-state-bg-color, $bankai-error-color);
+        color: var(--bankai-dnd-file-uploader-rejected-state-text-color, $bankai-white);
+        border-color: var(--bankai-dnd-file-uploader-rejected-state-border-color, darken($bankai-error-color, 20%));
+    }
+
+    &--busy {
+        .bankai-icon-spinner {
+            @include bankai-rotate-infinite;
+        }
+    }
+
+    &--default,
+    &--attachment,
+    &--busy {
+        background-color: var(--bankai-neutral-95, $bankai-neutral-95);
+    }
+}

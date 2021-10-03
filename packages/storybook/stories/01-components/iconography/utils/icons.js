@@ -122,6 +122,7 @@ import {
     BankaiUserAdd,
     BankaiUserDelete,
     BankaiUsers,
+    BankaiX,
     BankaiYouTube,
     BankaiZipFile,
     BankaiZoomIn,
@@ -624,6 +625,10 @@ export default [
     {
         Icon: BankaiZoomIn,
         name: 'BankaiZoomIn',
+    },
+    {
+        Icon: BankaiX,
+        name: 'BankaiX',
     },
     {
         Icon: BankaiYouTube,

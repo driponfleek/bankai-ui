@@ -49,7 +49,19 @@ $css-vars-use-native: true;
         --bankai-toggle-switch-on-knob-color: $bankai-white,
         --bankai-toggle-switch-on-busy-icon-color: $bankai-black,
         --bankai-toggle-switch-on-track-color: $bankai-affirmative-color,
-        --bankai-toggle-switch-on-track-hover-color: darken($bankai-affirmative-color, 8%),
+        --bankai-toggle-switch-on-track-hover-color: darken($bankai-affirmative-color, 10%),
         --bankai-toggle-switch-on-focus-halo-color: rgba($bankai-affirmative-color, 0.4),
+        // ========================================================
+        // File Uploader
+        // ========================================================
+        --bankai-dnd-file-uploader-attachment-bg-color: $bankai-btn-primary-default-bg-color,
+        --bankai-dnd-file-uploader-attachment-text-color: $bankai-btn-primary-default-text-color,
+        --bankai-dnd-file-uploader-attachment-border-radius: $bankai-btn-border-radius,
+        --bankai-dnd-file-uploader-hover-state-bg-color: var(--bankai-affirmative-color, $bankai-affirmative-color),
+        --bankai-dnd-file-uploader-hover-state-text-color: var(--bankai-text-color, $bankai-text-color),
+        --bankai-dnd-file-uploader-hover-state-border-color: darken($bankai-affirmative-color, 20%),
+        --bankai-dnd-file-uploader-rejected-state-bg-color: var(--bankai-error-color, $bankai-error-color),
+        --bankai-dnd-file-uploader-rejected-state-text-color: $bankai-white,
+        --bankai-dnd-file-uploader-rejected-state-border-color: darken($bankai-error-color, 20%),
     ));
 }

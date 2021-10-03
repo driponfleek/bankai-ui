@@ -49,6 +49,9 @@
                     "datePicker": {
                         "title": "Date Picker"
                     },
+                    "dndFileUploader": {
+                        "title": "Drag and Drop File Uploader"
+                    },
                     "dropdown": {
                         "title": "Dropdown"
                     },

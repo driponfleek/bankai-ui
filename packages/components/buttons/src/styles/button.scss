@@ -29,13 +29,20 @@
         line-height: $bankai-lineheight;
     }
 
+    &__icon-container {
+        vertical-align: middle;
+    }
+
     &__text-container,
     &__icon-container {
         box-sizing: border-box;
         user-select: none;
-        vertical-align: middle;
         display: inline-block;
         padding: 0.2rem 0.5rem;
+    }
+
+    &__icon-container + &__text-container {
+        vertical-align: middle;
     }
 
     &__icon-safe-space {
@@ -139,11 +146,17 @@
     &--link {
         color: $bankai-link-color;
         background-color: transparent;
+        border: none;
+        border-radius: 3px;
 
         @media (hover: hover) {
             &:hover .bankai-button__text {
                 text-decoration: underline;
             }
+        }
+
+        &:focus {
+            @include bankai-focus-state-box-shadow(var(--bankai-focus-halo-color, rgba($bankai-link-color, 0.4)));
         }
 
         .bankai-button__content-container,

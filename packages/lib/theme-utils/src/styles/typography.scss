@@ -17,7 +17,6 @@ $css-vars-use-native: true;
         --bankai-type-base-size: $bankai-type-base-size,
         --bankai-text-color: $bankai-text-color,
         --bankai-text-color-alt: $bankai-text-color-alt,
-        --bankai-link-color: $bankai-link-color,
         // ========================================================
         // Headings
         // ========================================================
@@ -34,5 +33,10 @@ $css-vars-use-native: true;
         // ========================================================
         --bankai-sub-text-size: calc(var(--bankai-type-base-size, $bankai-type-base-size) / var(--bankai-type-size-ratio, $bankai-type-size-ratio)),
         --bankai-footnote-text-size: calc(var(--bankai-sub-text-size, $bankai-sub-text-size) / var(--bankai-type-size-ratio, $bankai-type-size-ratio)),
+        // ========================================================
+        // Links
+        // ========================================================
+        --bankai-link-color: $bankai-link-color,
+        --bankai-focus-halo-color: rgba($bankai-link-color, 0.4),
     ));
 }

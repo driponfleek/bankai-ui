@@ -1,4 +1,4 @@
-// And Design Icons
+// Ant Design Icons
 export { default as BankaiAndroid } from './src/BankaiAndroid';
 export { default as BankaiApple } from './src/BankaiApple';
 export { default as BankaiAttach } from './src/BankaiAttach';
@@ -94,6 +94,7 @@ export { default as BankaiChevronRight } from './src/BankaiChevronRight';
 export { default as BankaiChevronUp } from './src/BankaiChevronUp';
 export { default as BankaiEdit } from './src/BankaiEdit';
 export { default as BankaiSave } from './src/BankaiSave';
+export { default as BankaiX } from './src/BankaiX';
 
 // Hero Icons
 export { default as BankaiCheck } from './src/BankaiCheck';

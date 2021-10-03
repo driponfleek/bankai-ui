@@ -6,16 +6,16 @@
 // them directly.
 // ========================================================
 $black: #000;
-$gray-10: #17191c;
-$gray-20: #2e3138;
-$gray-30: #464a53;
-$gray-40: #5d636f;
-$gray-50: #747c8b;
-$gray-60: #9096a2;
-$gray-70: #acb0b9;
-$gray-80: #c7cad1;
-$gray-90: #e3e5e8;
-$gray-95: #f0f3f5;
+$neutral-10: #17191c;
+$neutral-20: #2e3138;
+$neutral-30: #464a53;
+$neutral-40: #5d636f;
+$neutral-50: #747c8b;
+$neutral-60: #9096a2;
+$neutral-70: #acb0b9;
+$neutral-80: #c7cad1;
+$neutral-90: #e3e5e8;
+$neutral-95: #f0f3f5;
 $white: #fff;
 // ========================================================
 // !!! END DO NOT USE !!!
@@ -33,22 +33,22 @@ $bankai-accent-color-1: #737a82;
 $bankai-accent-color-2: #283154;
 // Neutral Colors
 $bankai-black: $black;
-$bankai-gray-10: $gray-10;
-$bankai-gray-20: $gray-20;
-$bankai-gray-30: $gray-30;
-$bankai-gray-40: $gray-40;
-$bankai-gray-50: $gray-50;
-$bankai-gray-60: $gray-60;
-$bankai-gray-70: $gray-70;
-$bankai-gray-80: $gray-80;
-$bankai-gray-90: $gray-90;
-$bankai-gray-95: $gray-95;
+$bankai-neutral-10: $neutral-10;
+$bankai-neutral-20: $neutral-20;
+$bankai-neutral-30: $neutral-30;
+$bankai-neutral-40: $neutral-40;
+$bankai-neutral-50: $neutral-50;
+$bankai-neutral-60: $neutral-60;
+$bankai-neutral-70: $neutral-70;
+$bankai-neutral-80: $neutral-80;
+$bankai-neutral-90: $neutral-90;
+$bankai-neutral-95: $neutral-95;
 $bankai-white: $white;
 // Canvas Colors
 $bankai-canvas-primary: $bankai-white;
-$bankai-canvas-alt: $bankai-gray-95;
+$bankai-canvas-alt: $bankai-neutral-95;
 // Status Colors
-$bankai-affirmative-color: #7cb342;
+$bankai-affirmative-color: #81ba45;
 $bankai-error-color: #c33;
 $bankai-cautionary-color: #fbec2d;
 // Informative Colors
@@ -56,7 +56,7 @@ $bankai-destructive-color: $bankai-error-color;
 $bankai-info-color: #4d4dff;
 // Typography
 $bankai-text-color: $bankai-black;
-$bankai-text-color-alt: $bankai-gray-40;
+$bankai-text-color-alt: $bankai-neutral-40;
 $bankai-link-color: #176ec4;
 // Primary Button
 $bankai-btn-primary-default-bg-color: $bankai-primary-color;
@@ -84,10 +84,10 @@ $bankai-btn-secondary-destructive-hover-text-color: #521414;
 $bankai-btn-secondary-destructive-hover-border-color: $bankai-btn-secondary-destructive-hover-text-color;
 // Forms
 $bankai-form-input-bg-color: $bankai-white;
-$bankai-form-input-border-color: $gray-80;
-$bankai-form-input-placeholder-text: $gray-40;
-$bankai-form-input-disabled-bg-color: $gray-90;
-$bankai-form-input-disabled-placeholder-text: $gray-40;
+$bankai-form-input-border-color: $bankai-neutral-80;
+$bankai-form-input-placeholder-text: $bankai-neutral-40;
+$bankai-form-input-disabled-bg-color: $bankai-neutral-90;
+$bankai-form-input-disabled-placeholder-text: $bankai-neutral-40;
 $bankai-form-input-error-border-color: $bankai-error-color;
 $bankai-form-input-error-bg-color: #f5d6d6;
 $bankai-form-input-error-placeholder-text: #a32929;
