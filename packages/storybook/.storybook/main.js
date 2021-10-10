@@ -10,7 +10,6 @@ const rootNodeModules = path.resolve('..', '..', 'node_modules', '@epr0t0type');
 
 module.exports = {
     addons: [
-        // '@storybook/addon-notes/register',
         {
             name: '@storybook/addon-essentials',
             options: {
@@ -20,6 +19,13 @@ module.exports = {
         '@storybook/addon-a11y',
         '@storybook/addon-links',
     ],
+    babel: async (options) => ({
+        ...options,
+        plugins: [
+            '@babel/plugin-proposal-class-properties',
+            '@babel/plugin-proposal-private-methods',
+        ],
+    }),
     stories: [
         '../stories/**/**/*.stories.@(js)',
     ],
