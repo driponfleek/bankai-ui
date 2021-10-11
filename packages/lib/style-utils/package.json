@@ -9,6 +9,6 @@
     "description": "SASS Utilities for Common Styling Patterns",
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/bankai-ui-style-utils",
+    "name": "@epr0t0type/bankai-lib-style-utils",
     "version": "0.0.0"
 }

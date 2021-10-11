@@ -5,7 +5,7 @@ import {
     // findRenderedDOMComponentWithClass,
     findAllElementsWithClassName,
     // simulateEvent,
-} from '@epr0t0type/bankai-ui-react-unit-test-utils';
+} from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import Dropzone from '../Dropzone';
 
 const identity = (el) => el;

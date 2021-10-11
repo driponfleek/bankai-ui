@@ -1,5 +1,5 @@
 // Rotate 360 degrees
-@keyframes rotate360 {
+@keyframes bankai-rotate-360 {
     0% { transform: rotate(0deg); }
     25% { transform: rotate(90deg); }
     50% { transform: rotate(180deg); }
@@ -7,10 +7,17 @@
     100% { transform: rotate(360deg); }
 }
 
+// Infinite Rotation
 @mixin bankai-rotate-infinite() {
-    animation-name: rotate360;
+    animation-name: bankai-rotate-360;
     animation-duration: 1000ms;
     animation-iteration-count: infinite;
     transform-origin: 50% 50%;
     animation-timing-function: linear;
+}
+
+// Fade In
+@keyframes bankai-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

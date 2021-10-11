@@ -1,18 +1,4 @@
-# Bankai Component Boilerplate
-Use this as the starting boilerplate for new components.
-
-> **NOTE:** Make a copy of this boilerplate and make changes in your copy. Do not modify the contents of the boilerplate directly.
-
-> **NOTE:** Make sure to remove `private: true` from the `package.json` so your package can be published.
-
-## README Template
-Below we've provided a starter template for component README files.
-
-MAKE SURE TO FIX THE PATH TO THE LICENSE FILE IF NEEDED!
-
----
-
-# @epr0t0type/bankai-ui-package-name
+# @epr0t0type/bankai-ui-form-elements-rw
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque, magna nec iaculis pellentesque, est nisi cursus libero, vel ultrices justo velit pulvinar mi. In pellentesque ex in gravida tempus. Duis at venenatis elit.
 
 ## Getting Started
@@ -23,8 +9,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-ui-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-ui-theme-utils": "^0.0.0",
+    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
+    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "16 - 17",
@@ -35,7 +21,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-yarn add @epr0t0type/bankai-ui-package-name
+yarn add @epr0t0type/bankai-ui-form-elements-rw
 ```
 
 ## Usage
@@ -44,14 +30,14 @@ yarn add @epr0t0type/bankai-ui-package-name
 For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-package-name';
+import { ComponentA } from '@epr0t0type/bankai-ui-form-elements-rw';
 ```
 
 ### Component B
 For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-package-name';
+import { ComponentB } from '@epr0t0type/bankai-ui-form-elements-rw';
 ```
 
 ## Built With
@@ -60,4 +46,4 @@ import { ComponentB } from '@epr0t0type/bankai-ui-package-name';
 * [third-party-dependency](https://github.com/author/link-to-third-party-dependency)
 
 ## License
-[MIT](../../LICENSE)
+[MIT](../../../LICENSE)

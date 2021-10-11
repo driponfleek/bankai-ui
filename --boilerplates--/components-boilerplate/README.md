@@ -8,8 +8,6 @@ Use this as the starting boilerplate for new components.
 ## README Template
 Below we've provided a starter template for component README files.
 
-MAKE SURE TO FIX THE PATH TO THE LICENSE FILE IF NEEDED!
-
 ---
 
 # @epr0t0type/bankai-ui-package-name
@@ -23,8 +21,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-ui-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-ui-theme-utils": "^0.0.0",
+    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
+    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "16 - 17",
@@ -60,4 +58,4 @@ import { ComponentB } from '@epr0t0type/bankai-ui-package-name';
 * [third-party-dependency](https://github.com/author/link-to-third-party-dependency)
 
 ## License
-[MIT](../../LICENSE)
+[MIT](../../../LICENSE)

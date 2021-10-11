@@ -6,7 +6,7 @@ import {
     findAllElementsWithClassName,
     simulateEvent,
     // simulateEvent,
-} from '@epr0t0type/bankai-ui-react-unit-test-utils';
+} from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import DnDFileUploader from '../DnDFileUploader';
 import { DND_FILE_UPLOADER_MODES as MODES } from '../const/dndFileUploaderConst';
 import {

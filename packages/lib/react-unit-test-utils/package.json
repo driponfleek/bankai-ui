@@ -8,7 +8,7 @@
     "description": "Bankai Library of helper utilities for unit testing applications with React framework",
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/bankai-ui-react-unit-test-utils",
+    "name": "@epr0t0type/bankai-lib-react-unit-test-utils",
     "peerDependencies": {
         "react": "^17.0.1",
         "react-dom": "^17.0.1"

@@ -32,6 +32,12 @@
         },
         "stories": {
             "components": {
+                "accordions": {
+                    "accordion": {
+                        "title": "Accordion"
+                    },
+                    "categoryTitle": "Accordions"
+                },
                 "buttons": {
                     "button": {
                         "title": "Button"

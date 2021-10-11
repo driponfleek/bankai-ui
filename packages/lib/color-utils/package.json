@@ -7,7 +7,7 @@
     "devDependencies": {},
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/bankai-ui-color-utils",
+    "name": "@epr0t0type/bankai-lib-color-utils",
     "sideEffects": [
         "**/*.css",
         "**/*.scss",

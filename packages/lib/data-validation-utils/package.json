@@ -4,7 +4,7 @@
     "devDependencies": {},
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/bankai-ui-data-validation-utils",
+    "name": "@epr0t0type/bankai-lib-data-validation-utils",
     "sideEffects": [
         "**/*.css",
         "**/*.scss",

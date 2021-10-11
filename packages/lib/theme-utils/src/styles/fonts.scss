@@ -1,13 +1,13 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-ui-style-utils/src/styles/vars/typography.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 
 // ========================================================
 // Paths
 // ========================================================
-$bankai-heading-font-path: '@epr0t0type/bankai-ui-theme-utils/src/media/fonts/exo' !default;
-$bankai-body-font-path: '@epr0t0type/bankai-ui-theme-utils/src/media/fonts/titillium-web' !default;
+$bankai-heading-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/exo' !default;
+$bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/titillium-web' !default;
 
 // ========================================================
 // Heading Font

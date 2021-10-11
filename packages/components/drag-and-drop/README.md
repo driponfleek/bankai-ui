@@ -9,8 +9,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-ui-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-ui-theme-utils": "^0.0.0",
+    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
+    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "16 - 17",
@@ -46,4 +46,4 @@ import { ComponentB } from '@epr0t0type/bankai-ui-drag-and-drop';
 * [react-dnd](https://github.com/react-dnd/react-dnd/)
 
 ## License
-[MIT](../../LICENSE)
+[MIT](../../../LICENSE)
