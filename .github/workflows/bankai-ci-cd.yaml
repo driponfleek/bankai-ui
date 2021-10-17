@@ -44,7 +44,7 @@ jobs:
       run: yarn publish-snapshot --legacyAuth=$GIT_AUTH_TOKEN --preid alpha.${{ steps.vars.outputs.sha_short }}
 
     - name: publish-release
-        yarn publish-release --legacyAuth=$GIT_AUTH_TOKEN
+      run: yarn publish-release --legacyAuth=$GIT_AUTH_TOKEN
 
 
     # Simply extracts the project version from the supplied pom.xml
