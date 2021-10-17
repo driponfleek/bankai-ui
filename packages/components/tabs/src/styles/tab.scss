@@ -1,0 +1,60 @@
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+// @import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
+// @import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+@import '@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-tab {
+    @include bankai-focus-state-halo;
+    box-sizing: border-box;
+    user-select: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--is-active:hover {
+            cursor: default;
+        }
+    }
+
+    &__icon-container {
+        // stylelint-disable-next-line
+        width: 1em;
+        // stylelint-disable-next-line
+        height: 1em;
+        line-height: 1;
+    }
+
+    &__icon-container,
+    &__text-container {
+        display: block;
+    }
+
+    &__icon-safe-space {
+        // stylelint-disable-next-line
+        width: 1em;
+        // stylelint-disable-next-line
+        height: 1em;
+        display: inline-block;
+    }
+
+    &__text {
+        line-height: $bankai-lineheight;
+    }
+
+    &--is-active:focus {
+        @include bankai-focus-state-box-shadow(var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4)));
+    }
+}

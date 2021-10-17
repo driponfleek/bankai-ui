@@ -98,6 +98,16 @@ $bankai-form-menu-selected-state-focus-bg-color: #004666;
 $bankai-form-menu-selected-state-focus-text-color: $bankai-white;
 $bankai-form-checked-state-bg-color: $bankai-primary-color;
 $bankai-form-checked-state-icon-color: $bankai-white;
+// Tabs
+$bankai-tabs-active-accent-color: $bankai-primary-color;
+$bankai-tabs-active-bg-color: $bankai-white;
+$bankai-tabs-active-text-color: darken($bankai-primary-color, 20%);
+$bankai-tabs-inactive-bg-color: $bankai-neutral-90;
+$bankai-tabs-inactive-text-color: $bankai-neutral-40;
+$bankai-tabs-inactive-hover-bg-color: $bankai-neutral-80;
+$bankai-tabs-inactive-hover-text-color: $bankai-neutral-10;
+$bankai-tabs-panel-bg-color: $bankai-white;
+$bankai-tabs-border-color: $bankai-neutral-80;
 
 // NOT USED
 // $bankai-secondary-color: #367c96;

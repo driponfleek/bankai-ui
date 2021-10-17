@@ -90,6 +90,12 @@
                         "clickToCopy": "Click To Copy CSS Class",
                         "copiedToClipboard": "Copied to Clipboard!"
                     }
+                },
+                "tabViews": {
+                    "categoryTitle": "Tab Views",
+                    "tabs": {
+                        "title": "Tabs"
+                    }
                 }
             },
             "intro": {

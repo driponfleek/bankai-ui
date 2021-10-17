@@ -1,0 +1,830 @@
+/* stylelint-disable no-descending-specificity */
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+// @import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
+// @import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+@import '@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-tabs {
+    $this: &;
+
+    // Mods
+    &--bar,
+    &--fill-up,
+    &--flip,
+    &--folder,
+    &--line-box,
+    &--overline,
+    &--overline-segmented,
+    &--pill,
+    &--pointer,
+    &--traditional,
+    &--traditional-gapped,
+    &--underline,
+    &--underline-segmented {
+        .bankai-tab {
+            color: var(--bankai-tabs-inactive-text-color, $bankai-tabs-inactive-text-color);
+            flex: 1;
+
+            &__content-inner {
+                margin: 0 auto;
+                gap: 5px;
+            }
+
+            &__content,
+            &__content-inner {
+                @include bankai-flex-row;
+            }
+
+            &__icon-container,
+            &__text-container {
+                margin: auto 0;
+            }
+
+            &__text {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &--fill-up,
+    &--folder,
+    &--overline,
+    &--overline-segmented,
+    &--underline,
+    &--underline-segmented {
+        .bankai-tab .bankai-tab__content-inner {
+            transform: translate3d(0, 5px, 0);
+        }
+    }
+
+    &--bar {
+        #{$this}__tabs-list-container {
+            background-color: var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+            padding: 5px;
+        }
+
+        .bankai-tabs-list {
+            gap: 5px;
+        }
+
+        .bankai-tab {
+            background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+            transform: scale(0.95);
+
+            &--is-active {
+                color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                transform: scale(1);
+            }
+        }
+    }
+
+    &--flip {
+        #{$this}__tabs-list-container {
+            background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+        }
+
+        .bankai-tab {
+            &__content {
+                position: relative;
+            }
+
+            &__content::after {
+                width: 100%;
+                height: 100%;
+                content: '';
+                transform: perspective(900px) rotate3d(1, 0, 0, 90deg);
+                transform-origin: 50% 100%;
+                perspective-origin: 50% 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &__content-inner {
+                position: inherit;
+                z-index: 1;
+            }
+
+            &--is-active {
+                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+
+                .bankai-tab__content::after {
+                    background-color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                    transform: perspective(900px) rotate3d(1, 0, 0, 0deg);
+                }
+            }
+        }
+    }
+
+    &--folder {
+        .bankai-tab:focus {
+            box-shadow: none;
+
+            .bankai-tab__content::after {
+                box-shadow: 0 0 0 3px rgba($bankai-black, 0.4);
+            }
+        }
+
+        .bankai-tab:not(.bankai-tab--is-active) {
+            @media (hover: hover) {
+                &:hover {
+                    color: var(--bankai-tabs-inactive-hover-text-color, $bankai-tabs-inactive-hover-text-color);
+
+                    .bankai-tab__content::after {
+                        background-color: var(--bankai-tabs-inactive-hover-bg-color, $bankai-tabs-inactive-hover-bg-color);
+                    }
+                }
+            }
+        }
+
+        .bankai-tab--is-active {
+            position: relative;
+            z-index: 1;
+
+            .bankai-tab__content-inner {
+                transform: translate3d(0, 0, 0);
+            }
+
+            &:focus .bankai-tab__content::after {
+                box-shadow: 0 0 0 3px var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4));
+            }
+
+            .bankai-tab__content {
+                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+
+                &::after {
+                    background-color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                }
+            }
+        }
+
+        .bankai-tab__content {
+            position: relative;
+
+            &::after {
+                content: '';
+                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+                border-radius: 10px 10px 0 0;
+                transform: perspective(5px) rotateX(0.75deg) translate3d(0, 1px, -0.09rem);
+                transform-origin: 0 0;
+                backface-visibility: hidden;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            &-inner {
+                position: inherit;
+                z-index: 1;
+            }
+        }
+    }
+
+    &--fill-up {
+        .bankai-tab {
+            &--is-active .bankai-tab__content-inner {
+                transform: translate3d(0, 0, 0);
+            }
+
+            &__content::after {
+                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                transform: translate3d(0, 100%, 0);
+            }
+        }
+    }
+
+    &--line-box {
+        .bankai-tabs-list {
+            gap: 10px;
+        }
+
+        .bankai-tab {
+            &__content::after {
+                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+                transform: translate3d(0, 100%, 0) translate3d(0, -3px, 0);
+            }
+
+            &--is-active .bankai-tab__content {
+                color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+
+                &::after {
+                    background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+
+            &:not(.bankai-tab--is-active) {
+                @media (hover: hover) {
+                    &:hover .bankai-tab__content {
+                        color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+
+                        &::after {
+                            background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &--fill-up,
+    &--line-box {
+        .bankai-tab__content {
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        .bankai-tab__content-inner {
+            position: inherit;
+            z-index: 1;
+        }
+
+        .bankai-tab--is-active .bankai-tab__content {
+            color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+
+            &::after {
+                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+
+    &--overline {
+        .bankai-tab__content::before {
+            border-radius: 0 0 2px 2px;
+        }
+    }
+
+    &--pill {
+        #{$this}__tabs-list-container {
+            background-color: $bankai-neutral-80;
+            border-radius: 40px;
+            box-shadow: inset 0 0 3px rgba($bankai-black, 0.25);
+            padding: 1rem 1.5rem;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .bankai-tabs-list {
+            @include bankai-flex-row;
+        }
+
+        .bankai-tab__content {
+            padding: 1rem 1.5rem;
+        }
+
+        .bankai-tab {
+            border-radius: 30px;
+
+            &--is-active {
+                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                background-color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                box-shadow: 0 0 3px rgba($bankai-black, 0.25);
+                transform: scale(1.05);
+
+                &:focus {
+                    @include bankai-focus-state-box-shadow(var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4)));
+                }
+            }
+        }
+
+        #{$this}__tabs-list-container + #{$this}__content-container {
+            margin-top: 15px;
+        }
+    }
+
+    &--pointer {
+        .bankai-tab {
+            &:not(.bankai-tab--is-active) {
+                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+
+                @media (hover: hover) {
+                    &:hover {
+                        background-color: var(--bankai-tabs-inactive-hover-bg-color, $bankai-tabs-inactive-hover-bg-color);
+                    }
+                }
+            }
+
+            &--is-active {
+                color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+
+                .bankai-tab__content::after {
+                    transform: translate3d(-50%, 0, 0);
+                    opacity: 1;
+                }
+            }
+
+            &__content {
+                position: relative;
+            }
+
+            &__content::after {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-width: 11px;
+                border-top-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                transform: translate3d(-50%, -50%, 0);
+                content: '';
+                opacity: 0;
+                pointer-events: none;
+                position: absolute;
+                top: 100%;
+                left: 50%;
+            }
+        }
+    }
+
+    &--underline {
+        .bankai-tab__content::after {
+            border-radius: 2px 2px 0 0;
+        }
+    }
+
+    &--overline,
+    &--underline {
+        .bankai-tab--is-active {
+            color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+        }
+    }
+
+    &--overline,
+    &--overline-segmented {
+        .bankai-tab {
+            &__content {
+                &::before {
+                    content: '';
+                    width: 100%;
+                    height: 3px;
+                    display: block;
+                    background-color: var(--bankai-tabs-active-accent-color, $bankai-tabs-active-accent-color);
+                    transform: translateY(-4px);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            &--is-active .bankai-tab__content::before {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &--underline,
+    &--underline-segmented {
+        .bankai-tab {
+            &__content {
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 3px;
+                    display: block;
+                    background-color: var(--bankai-tabs-active-accent-color, $bankai-tabs-active-accent-color);
+                    transform: translateY(4px);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+
+            &--is-active .bankai-tab__content::after {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &--overline-segmented,
+    &--underline-segmented {
+        .bankai-tab {
+            background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+            border: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+            border-right: none;
+
+            &:not(.bankai-tab--is-active) {
+                @media (hover: hover) {
+                    &:hover {
+                        background-color: var(--bankai-tabs-inactive-hover-bg-color, $bankai-tabs-inactive-hover-bg-color);
+                    }
+                }
+            }
+
+            &:last-child {
+                border-right: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+            }
+
+            &--is-active {
+                background-color: var(--bankai-tabs-panel-bg-color, $bankai-tabs-panel-bg-color);
+                z-index: 2;
+            }
+        }
+    }
+
+    &--overline-segmented {
+        .bankai-tab--is-active {
+            border-top-width: 0;
+            padding-bottom: 1px;
+        }
+    }
+
+    &--underline-segmented {
+        .bankai-tab--is-active {
+            border-bottom-width: 0;
+            padding-top: 1px;
+        }
+    }
+
+    &--overline,
+    &--overline-segmented,
+    &--underline,
+    &--underline-segmented {
+        .bankai-tab {
+            &--is-active {
+                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+
+                .bankai-tab__content-inner {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        .bankai-tab__content {
+            position: relative;
+            overflow: hidden;
+        }
+    }
+
+    &--traditional-gapped {
+        .bankai-tabs-list {
+            gap: 10px;
+        }
+    }
+
+    &--traditional,
+    &--traditional-gapped {
+        .bankai-tab {
+            border-radius: 10px 10px 0 0;
+
+            &:not(.bankai-tab--is-active) {
+                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+            }
+
+            &--is-active {
+                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                background-color: var(--bankai-tabs-panel-bg-color, $bankai-tabs-panel-bg-color);
+            }
+        }
+    }
+
+    &--bar,
+    &--fill-up,
+    &--flip,
+    &--folder,
+    &--line-box,
+    &--overline,
+    &--overline-segmented,
+    &--pointer,
+    &--traditional,
+    &--traditional-gapped,
+    &--underline,
+    &--underline-segmented {
+        .bankai-tab__content {
+            padding: 2rem 1.5rem;
+        }
+    }
+
+    &--bar,
+    &--fill-up,
+    &--flip,
+    &--overline,
+    &--overline-segmented,
+    &--pill,
+    &--pointer,
+    &--traditional,
+    &--traditional-gapped,
+    &--underline,
+    &--underline-segmented {
+        .bankai-tab:not(.bankai-tab--is-active) {
+            @media (hover: hover) {
+                &:hover {
+                    color: var(--bankai-tabs-inactive-hover-text-color, $bankai-tabs-inactive-hover-text-color);
+                    // color: $bankai-black;
+                }
+            }
+        }
+    }
+
+    &--bar,
+    &--folder,
+    &--flip,
+    &--overline-segmented,
+    &--traditional,
+    &--traditional-gapped,
+    &--underline-segmented {
+        .bankai-tab-panel {
+            background-color: var(--bankai-tabs-panel-bg-color, $bankai-tabs-panel-bg-color);
+        }
+    }
+
+    &--has-microinteractions {
+        &#{$this}--bar {
+            .bankai-tab {
+                transition: background-color 0.25s ease-in-out, transform 0.15s ease-in-out;
+            }
+        }
+
+        &#{$this}--flip {
+            .bankai-tab__content::after {
+                transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out;
+            }
+        }
+
+        &#{$this}--folder {
+            .bankai-tab__content::after {
+                transition: background-color 0.25s ease-in-out;
+            }
+        }
+
+        &#{$this}--pointer {
+            .bankai-tab {
+                &:not(.bankai-tab--is-active) {
+                    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+                }
+
+                &__content::after {
+                    transition: transform 0.25s ease-in-out;
+                }
+            }
+        }
+
+        &#{$this}--overline,
+        &#{$this}--underline {
+            .bankai-tab:not(.bankai-tab--is-active) {
+                .bankai-tab__content {
+                    transition: color 0.25s ease-in-out;
+                }
+            }
+        }
+
+        &#{$this}--overline,
+        &#{$this}--overline-segmented {
+            .bankai-tab__content::before {
+                transition: transform 0.15s ease-in-out;
+            }
+        }
+
+        &#{$this}--fill-up,
+        &#{$this}--folder,
+        &#{$this}--overline,
+        &#{$this}--overline-segmented,
+        &#{$this}--underline,
+        &#{$this}--underline-segmented {
+            .bankai-tab__content-inner {
+                transition: transform 0.15s ease-in-out;
+            }
+        }
+
+        &#{$this}--line-box,
+        &#{$this}--fill-up {
+            .bankai-tab {
+                @media (hover: hover) {
+                    &:hover {
+                        transition: color 0.25s ease-in-out;
+                    }
+                }
+
+                &__content::after {
+                    transition: background-color 0.25s linear, transform 0.25s ease-in-out;
+                }
+            }
+        }
+
+        &#{$this}--pill {
+            .bankai-tab {
+                transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
+            }
+        }
+    }
+
+    &--is-vertical-tabs {
+        @include bankai-flex-row;
+
+        #{$this} {
+            &__tabs-list-container {
+                flex: 0 0 auto;
+            }
+
+            &__content-container {
+                @include bankai-flex-column;
+                flex: 1 1 auto;
+
+                .bankai-tab-panel {
+                    flex: 1 1 auto;
+                }
+            }
+        }
+
+        .bankai-tabs-list {
+            // display: block;
+            @include bankai-flex-column;
+        }
+
+        &#{$this}--fill-up {
+            .bankai-tab {
+                &__content::after {
+                    transform: translate3d(101%, 0, 0);
+                }
+
+                &--is-active .bankai-tab__content::after {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        &#{$this}--flip {
+            .bankai-tab {
+                &__content::after {
+                    transform: perspective(900px) rotate3d(0, 1, 0, 90deg);
+                    transform-origin: 100% 50%;
+                }
+
+                &--is-active .bankai-tab__content::after {
+                    transform: perspective(900px) rotate3d(0, 1, 0, 0deg);
+                }
+            }
+        }
+
+        &#{$this}--folder {
+            .bankai-tab__content::after {
+                border-radius: 10px 0 0 10px;
+                transform: perspective(5px) rotateY(-0.58deg) translate3d(0, 0, -0.088rem);
+                transform-origin: 0 0;
+            }
+        }
+
+        &#{$this}--line-box {
+            .bankai-tab {
+                &__content::after {
+                    transform: translate3d(100%, 0, 0) translate3d(-3px, 0, 0);
+                }
+
+                &--is-active .bankai-tab__content::after {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        &#{$this}--pill {
+            #{$this}__tabs-list-container {
+                border-radius: 40px;
+                box-shadow: inset 0 0 3px rgba($bankai-black, 0.25);
+                padding: 1.5rem;
+                margin: 0 auto;
+                gap: 10px;
+            }
+            #{$this}__tabs-list-container + #{$this}__content-container {
+                margin-top: 0;
+                margin-left: 15px;
+            }
+        }
+
+        &#{$this}--pointer {
+            .bankai-tab {
+                &__content::after {
+                    border-left-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                    border-top-color: transparent;
+                    transform: translate3d(-50%, -50%, 0);
+                    top: 50%;
+                    left: 100%;
+                }
+
+                &--is-active .bankai-tab__content::after {
+                    transform: translate3d(0, -50%, 0);
+                }
+            }
+        }
+
+        &#{$this}--traditional,
+        &#{$this}--traditional-gapped {
+            .bankai-tab {
+                border-radius: 10px 0 0 10px;
+            }
+        }
+
+        &#{$this}--overline-segmented,
+        &#{$this}--underline-segmented {
+            .bankai-tab {
+                border: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+                border-top: none;
+                border-right: none;
+
+                &:first-child {
+                    border-top: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+                }
+            }
+        }
+
+        &#{$this}--overline,
+        &#{$this}--overline-segmented {
+            .bankai-tab {
+                &__content::before {
+                    width: 3px;
+                    height: 100%;
+                    transform: translate3d(-4px, 0, 0);
+                }
+
+                &--is-active .bankai-tab__content::before {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        &#{$this}--underline,
+        &#{$this}--underline-segmented {
+            .bankai-tab {
+                &__content::after {
+                    width: 3px;
+                    height: 100%;
+                    transform: translate3d(100%, 0, 0);
+                    top: 0;
+                    bottom: initial;
+                    left: initial;
+                    right: 0;
+                }
+
+                &--is-active .bankai-tab__content::after {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+
+        &#{$this}--overline,
+        &#{$this}--overline-segmented,
+        &#{$this}--underline,
+        &#{$this}--underline-segmented {
+            #{$this}__tabs-list-container,
+            .bankai-tab {
+                @include bankai-flex-column;
+            }
+
+            .bankai-tabs-list,
+            .bankai-tab__content {
+                flex: 1 1 auto;
+            }
+        }
+
+        &#{$this}--overline-segmented {
+            .bankai-tab--is-active {
+                border-left-width: 0;
+                padding-right: 1px;
+                padding-bottom: 0;
+            }
+        }
+
+        &#{$this}--underline-segmented {
+            .bankai-tab--is-active {
+                border-right-width: 0;
+                padding-top: 0;
+                padding-left: 1px;
+            }
+        }
+
+        &#{$this}--fill-up,
+        &#{$this}--folder,
+        &#{$this}--overline,
+        &#{$this}--overline-segmented,
+        &#{$this}--underline,
+        &#{$this}--underline-segmented {
+            .bankai-tab {
+                .bankai-tab__content-inner {
+                    transform: translate3d(5px, 0, 0);
+                }
+
+                &--is-active .bankai-tab__content-inner {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+    }
+}

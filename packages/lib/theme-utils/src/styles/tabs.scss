@@ -1,0 +1,23 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~css-vars/css-vars.scss';
+@import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
+@import './vars/colors.scss';
+
+// Needed to make Native CSS Custom Props work
+$css-vars-use-native: true;
+
+:root {
+    @include css-vars((
+        --bankai-tabs-active-accent-color: $bankai-tabs-active-accent-color,
+        --bankai-tabs-active-bg-color: $bankai-tabs-active-bg-color,
+        --bankai-tabs-active-text-color: $bankai-tabs-active-text-color,
+        --bankai-tabs-active-focus-halo-color: rgba($bankai-tabs-active-accent-color, 0.4),
+        --bankai-tabs-inactive-bg-color: $bankai-tabs-inactive-bg-color,
+        --bankai-tabs-inactive-text-color: $bankai-tabs-inactive-text-color,
+        --bankai-tabs-inactive-hover-bg-color: $bankai-tabs-inactive-hover-bg-color,
+        --bankai-tabs-inactive-hover-text-color: $bankai-tabs-inactive-hover-text-color,
+        --bankai-tabs-panel-bg-color: $bankai-tabs-panel-bg-color,
+    ));
+}

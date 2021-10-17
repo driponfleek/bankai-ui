@@ -15,8 +15,9 @@
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
     @include bankai-disabled-state;
+    $this: &;
     border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
-    background: white;
+    background: $bankai-white;
     box-sizing: border-box;
     border: 1px solid transparent;
 
@@ -150,7 +151,7 @@
         border-radius: 3px;
 
         @media (hover: hover) {
-            &:hover .bankai-button__text {
+            &:hover #{$this}__text {
                 text-decoration: underline;
             }
         }
@@ -159,21 +160,21 @@
             @include bankai-focus-state-box-shadow(var(--bankai-focus-halo-color, rgba($bankai-link-color, 0.4)));
         }
 
-        .bankai-button__content-container,
-        .bankai-button__text-container,
-        .bankai-button__icon-container {
+        #{$this}__content-container,
+        #{$this}__text-container,
+        #{$this}__icon-container {
             padding: 0;
         }
 
-        .bankai-button__icon-safe-space {
+        #{$this}__icon-safe-space {
             width: initial;
         }
 
-        .bankai-button__icon {
+        #{$this}__icon {
             font-size: inherit;
         }
 
-        .bankai-button__icon-container + .bankai-button__text-container {
+        #{$this}__icon-container + #{$this}__text-container {
             margin-left: 4px;
         }
     }

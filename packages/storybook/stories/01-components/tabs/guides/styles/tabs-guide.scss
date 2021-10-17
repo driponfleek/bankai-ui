@@ -1,0 +1,66 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-sb-tabs-guide {
+    .bankai-sb-tabs-guide-panel-content {
+        box-sizing: border-box;
+    }
+
+    .bankai-tabs {
+        &--fill-up,
+        &--line-box,
+        &--overline,
+        &--pointer,
+        &--underline {
+            .bankai-sb-tabs-guide-panel-content {
+                padding-top: 1.5rem;
+            }
+        }
+
+        &--bar,
+        &--flip,
+        &--folder,
+        &--overline-segmented,
+        &--pointer-outline,
+        &--traditional,
+        &--traditional-gapped,
+        &--underline-segmented {
+            .bankai-sb-tabs-guide-panel-content {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        &--bar,
+        &--overline-segmented,
+        &--underline-segmented {
+            .bankai-sb-tabs-guide-panel-content {
+                border: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+                border-top: none;
+            }
+        }
+
+        &--is-vertical-tabs {
+            &.bankai-tabs--fill-up,
+            &.bankai-tabs--line-box,
+            &.bankai-tabs--overline,
+            &.bankai-tabs--pointer,
+            &.bankai-tabs--underline {
+                .bankai-sb-tabs-guide-panel-content {
+                    padding-top: 0;
+                    padding-left: 1.5rem;
+                }
+            }
+        }
+    }
+    // &__examples-preview {
+    //     @include bankai-flex-row;
+    //     flex-wrap: wrap;
+
+    //     .bankai-button {
+    //         margin: 5px;
+    //         flex: 0 0 auto;
+    //     }
+    // }
+}
