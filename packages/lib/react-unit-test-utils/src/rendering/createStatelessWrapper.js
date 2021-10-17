@@ -11,6 +11,8 @@ const createReactClass = require('create-react-class');
 // *******************************************************
 const createStatelessWrapper = (Comp, props = {}) => {
     const El = React.createElement(Comp, props);
+
+    // eslint-disable-next-line
     const StatelessComp = createReactClass({
         render() {
             return El;

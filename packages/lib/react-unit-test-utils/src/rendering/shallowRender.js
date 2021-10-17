@@ -21,6 +21,7 @@ const shallowRender = (
 
     renderer.render(El);
 
+    // eslint-disable-next-line
     return getInstance ? renderer._instance : renderer.getRenderOutput();
 };
 
