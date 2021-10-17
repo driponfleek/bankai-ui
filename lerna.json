@@ -1,5 +1,15 @@
 {
+    "command": {
+        "publish": {
+            "allowBranch": "main",
+            "message": "chore(release): publish",
+            "registry": "https://npm.pkg.github.com/"
+        }
+    },
     "npmClient": "yarn",
+    "packages": [
+        "packages/*"
+    ],
     "useWorkspaces": true,
     "version": "independent"
 }

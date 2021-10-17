@@ -20,7 +20,14 @@
         "react": "16 - 17",
         "react-dom": "16 - 17"
     },
-    "private": true,
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/epr0t0type"
+    },
+    "repository": {
+        "directory": "packages/components/drag-and-drop",
+        "type": "git",
+        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
+    },
     "scripts": {
         "build": "yarn run pre:build && rollup -c",
         "pre:build": "../../../node_modules/.bin/rimraf dist/"

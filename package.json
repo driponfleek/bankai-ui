@@ -98,12 +98,14 @@
 		"build:clean": "yarn run lerna run pre:build --parallel",
 		"gitversion": "git --version",
 		"gitstatus": "git status",
-		"whereami": "ls -ltrah",
 		"lerna-version": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna version --conventional-commits --yes",
 		"lint:js": "eslint packages --fix --ignore-pattern '**/node_modules/**' --ignore-pattern '**/public/**' --ignore-pattern '**/build/**' --ignore-pattern '**/dist/**'",
 		"lint:scss": "stylelint \"**/*.scss\" --fix",
+		"publish-snapshot": "yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --no-push  --canary  --yes --force-publish",
+		"publish-release": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --conventional-commits --yes",
 		"test": "cross-env NODE_ENV=test jest",
-		"test:related": "cross-env NODE_ENV=test jest --findRelatedTests"
+		"test:related": "cross-env NODE_ENV=test jest --findRelatedTests",
+		"whereami": "ls -ltrah"
 	},
 	"workspaces": [
 		"packages/**"

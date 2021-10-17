@@ -1,0 +1,68 @@
+name: Bankai CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - features/*
+      - bugfix/*
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Type of build(release/snapshot)'
+        required: true
+        default: 'snapshot'
+
+env:
+  GIT_AUTH_TOKEN: '${{ secrets.GIT_AUTH_TOKEN }}'
+
+jobs:
+  setup-build-push:
+  name: Setup, Build and Push to Github
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    -run: |
+      yarn install --frozen-lockfile
+      yarn bootstrap -- -- -- --frozen-lockfile
+      yarn lint:js
+      yarn lint:scss
+      yarn test
+      run: yarn build
+    
+    -name: publish-snapshot
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      run: yarn publish-snapshot --legacyAuth=$GIT_AUTH_TOKEN --preid alpha.${{ steps.vars.outputs.sha_short }}
+
+    -name: publish-release
+        yarn publish-release --legacyAuth=$GIT_AUTH_TOKEN
+
+
+    # Simply extracts the project version from the supplied pom.xml
+    # NOTE: It does not use maven for this, to prevent unexpected failures/updates/side effects
+    - name: Get project version from package.json
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      id: get-version
+      shell: bash
+      run: |-
+        export VERSION=$(awk -F'"' '/"version": ".+"/{ print $4; exit; }' ./package.json)
+        echo "::set-output name=version::$VERSION"
+
+    - name: Show Version
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      run: |-
+        echo "${{steps.get-version.outputs.version}}"
+
+    # Output the fully specified location of the built image
+    - name: Output full image
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      shell: bash
+      run: echo ${{ steps.build-and-push.outputs.image-location }}
+

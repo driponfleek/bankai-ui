@@ -25,5 +25,13 @@
         "eslint-plugin-prettier": "^3.3.0",
         "eslint-plugin-react": "^7.21.5"
     },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/epr0t0type"
+    },
+    "repository": {
+        "directory": "packages/linting/eslint-config",
+        "type": "git",
+        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
+    },
     "version": "0.0.0"
 }

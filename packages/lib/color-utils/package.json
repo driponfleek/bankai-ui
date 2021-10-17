@@ -8,6 +8,15 @@
     "license": "MIT",
     "main": "index.js",
     "name": "@epr0t0type/bankai-lib-color-utils",
+    "private": true,
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/epr0t0type"
+    },
+    "repository": {
+        "directory": "packages/lib/color-utils",
+        "type": "git",
+        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
+    },
     "sideEffects": [
         "**/*.css",
         "**/*.scss",

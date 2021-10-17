@@ -13,5 +13,13 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1"
     },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/epr0t0type"
+    },
+    "repository": {
+        "directory": "packages/lib/react-unit-test-utils",
+        "type": "git",
+        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
+    },
     "version": "0.0.0"
 }
