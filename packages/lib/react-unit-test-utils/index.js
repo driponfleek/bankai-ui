@@ -16,7 +16,6 @@ const shallowRender = require('./src/rendering/shallowRender');
 // SIMULATING
 const simulateEvent = require('./src/simulating/simulateEvent');
 
-
 module.exports = {
     // FINDING
     findAllElementsWithClassName,

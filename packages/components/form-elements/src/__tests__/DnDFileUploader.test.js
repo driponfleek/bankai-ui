@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
     createWrapper,
-    findRenderedDOMComponentWithClass,
+    findRenderedDOMComponentWithClassName,
     findAllElementsWithClassName,
     simulateEvent,
     // simulateEvent,
@@ -224,7 +224,7 @@ describe('<DnDFileUploader />', () => {
             canUploadMultiple: true,
         };
         const wrapper = createWrapper(DnDFileUploader, props);
-        const removeAllBtn = findRenderedDOMComponentWithClass(
+        const removeAllBtn = findRenderedDOMComponentWithClassName(
             wrapper,
             `${wrapper.baseCls}__remove-all-action`,
         );
@@ -454,7 +454,7 @@ describe('<DnDFileUploader />', () => {
             localeShowAttachmentsState: { removeAttachmentARIALabel },
         } = locales;
         const wrapper = createWrapper(DnDFileUploader, props);
-        const removeFileBtn = findRenderedDOMComponentWithClass(
+        const removeFileBtn = findRenderedDOMComponentWithClassName(
             wrapper,
             `${wrapper.baseCls}__attachment-remove-btn`,
         );
@@ -470,7 +470,7 @@ describe('<DnDFileUploader />', () => {
             attachments: [mockFile],
         };
         const wrapper = createWrapper(DnDFileUploader, props);
-        const removeFileBtn = findRenderedDOMComponentWithClass(
+        const removeFileBtn = findRenderedDOMComponentWithClassName(
             wrapper,
             `${wrapper.baseCls}__attachment-remove-btn`,
         );
@@ -487,7 +487,7 @@ describe('<DnDFileUploader />', () => {
             isDisabled: true,
         };
         const wrapper = createWrapper(DnDFileUploader, props);
-        const removeAllBtn = findRenderedDOMComponentWithClass(
+        const removeAllBtn = findRenderedDOMComponentWithClassName(
             wrapper,
             `${wrapper.baseCls}__remove-all-action`,
         );

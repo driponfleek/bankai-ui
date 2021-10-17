@@ -67,7 +67,9 @@
 		],
 		"moduleNameMapper": {
 			"\\.(less|css|scss)$": "<rootDir>/__mocks__/styleMock.js",
-			"^react-dnd$": "react-dnd/dist/cjs"
+            "dnd-core": "dnd-core/dist/cjs",
+			"^react-dnd$": "react-dnd/dist/cjs",
+            "react-dnd-html5-backend": "react-dnd-html5-backend/dist/cjs"
 		},
 		"roots": [
 			"packages",

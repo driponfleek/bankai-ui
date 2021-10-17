@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
     createWrapper,
-    // findRenderedDOMComponentWithClass,
+    // findRenderedDOMComponentWithClassName,
     findAllElementsWithClassName,
     // simulateEvent,
 } from '@epr0t0type/bankai-lib-react-unit-test-utils';
