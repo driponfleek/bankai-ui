@@ -18,7 +18,7 @@ env:
 
 jobs:
   setup-build-push:
-    name: Setup, Build and Push to GCR
+    name: Setup, Build and Push to Github
     runs-on: ubuntu-latest
 
     steps:
