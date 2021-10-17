@@ -18,10 +18,10 @@ env:
 
 jobs:
   setup-build-push:
-  name: Setup, Build and Push to Github
-  runs-on: ubuntu-latest
+    name: Setup, Build and Push to GCR
+    runs-on: ubuntu-latest
 
-  steps:
+    steps:
     - name: Checkout
       uses: actions/checkout@v2
 
