@@ -36,12 +36,12 @@ jobs:
         yarn lint:scss
         yarn test
         yarn build
-    
-    -name: publish-snapshot
+
+    - name: publish-snapshot
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
       run: yarn publish-snapshot --legacyAuth=$GIT_AUTH_TOKEN --preid alpha.${{ steps.vars.outputs.sha_short }}
 
-    -name: publish-release
+    - name: publish-release
         yarn publish-release --legacyAuth=$GIT_AUTH_TOKEN
 
 
