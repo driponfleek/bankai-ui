@@ -29,13 +29,13 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14.x'
-    -run: |
-      yarn install --frozen-lockfile
-      yarn bootstrap -- -- -- --frozen-lockfile
-      yarn lint:js
-      yarn lint:scss
-      yarn test
-      run: yarn build
+    - run: |
+        yarn install --frozen-lockfile
+        yarn bootstrap -- -- -- --frozen-lockfile
+        yarn lint:js
+        yarn lint:scss
+        yarn test
+        yarn build
     
     -name: publish-snapshot
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
