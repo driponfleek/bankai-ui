@@ -49,8 +49,9 @@ jobs:
 
     - name: publish-snapshot
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
-      run: yarn gitstatus
-      run: yarn publish-snapshot --legacyAuth=${GIT_AUTH_TOKEN} --preid alpha.${{ steps.vars.outputs.sha_short }}
+      run: |
+        yarn gitstatus
+        yarn publish-snapshot --legacyAuth=${GIT_AUTH_TOKEN} --preid alpha.${{ steps.vars.outputs.sha_short }}
 
     - name: publish-release
       if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
