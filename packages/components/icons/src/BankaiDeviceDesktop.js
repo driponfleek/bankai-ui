@@ -14,7 +14,11 @@ const BankaiDeviceDesktop = (props) => {
     return (
         <BsDisplay
             {...rest}
-            className={classNameUtil(`${baseCls}-desktop`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-desktop`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

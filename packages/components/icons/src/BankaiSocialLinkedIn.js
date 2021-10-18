@@ -14,7 +14,11 @@ const BankaiSocialLinkedIn = (props) => {
     return (
         <RiLinkedinBoxFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-linkedin`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-social-linkedin`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

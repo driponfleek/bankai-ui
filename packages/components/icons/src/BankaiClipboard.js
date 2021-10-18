@@ -14,7 +14,11 @@ const BankaiClipboard = (props) => {
     return (
         <BsClipboard
             {...rest}
-            className={classNameUtil(`${baseCls}-clipboard`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-clipboard`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

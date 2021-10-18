@@ -14,7 +14,11 @@ const BankaiGrid3X3Gap = (props) => {
     return (
         <BsGrid3X3Gap
             {...rest}
-            className={classNameUtil(`${baseCls}-grid-3x3-gap`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-grid-3x3-gap`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

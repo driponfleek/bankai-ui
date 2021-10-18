@@ -14,7 +14,11 @@ const BankaiTextAlignRight = (props) => {
     return (
         <BsTextRight
             {...rest}
-            className={classNameUtil(`${baseCls}-text-align-right`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-text-align-right`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

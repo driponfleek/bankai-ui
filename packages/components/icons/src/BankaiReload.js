@@ -14,7 +14,11 @@ const BankaiReload = (props) => {
     return (
         <IoReloadOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-reload`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-reload`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

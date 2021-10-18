@@ -14,7 +14,11 @@ const BankaiCloudUpload = (props) => {
     return (
         <BsCloudUpload
             {...rest}
-            className={classNameUtil(`${baseCls}-cloud-upload`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-cloud-upload`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

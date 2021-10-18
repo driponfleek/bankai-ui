@@ -14,7 +14,11 @@ const BankaiTextItalic = (props) => {
     return (
         <BsTypeItalic
             {...rest}
-            className={classNameUtil(`${baseCls}-text-italic`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-text-italic`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

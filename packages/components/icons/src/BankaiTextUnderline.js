@@ -14,7 +14,11 @@ const BankaiTextUnderline = (props) => {
     return (
         <BsTypeUnderline
             {...rest}
-            className={classNameUtil(`${baseCls}-text-underline`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-text-underline`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

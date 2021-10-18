@@ -14,7 +14,11 @@ const BankaiMaximize = (props) => {
     return (
         <BsFullscreen
             {...rest}
-            className={classNameUtil(`${baseCls}-maximize`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-maximize`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

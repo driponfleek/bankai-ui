@@ -13,7 +13,11 @@ const BankaiCreditCard = (props) => {
 
     return (
         <BsCreditCard
-            className={classNameUtil(`${baseCls}-credit-card`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-credit-card`,
+                className,
+                contextCls,
+            )}
             {...rest}
         />
     );

@@ -14,7 +14,11 @@ const BankaiCloudDownload = (props) => {
     return (
         <BsCloudDownload
             {...rest}
-            className={classNameUtil(`${baseCls}-cloud-download`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-cloud-download`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

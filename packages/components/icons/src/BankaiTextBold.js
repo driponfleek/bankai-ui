@@ -14,7 +14,11 @@ const BankaiTextBold = (props) => {
     return (
         <BsTypeBold
             {...rest}
-            className={classNameUtil(`${baseCls}-text-bold`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-text-bold`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

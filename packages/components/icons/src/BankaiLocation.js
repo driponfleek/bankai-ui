@@ -14,7 +14,11 @@ const BankaiLocation = (props) => {
     return (
         <IoLocationOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-location`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-location`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

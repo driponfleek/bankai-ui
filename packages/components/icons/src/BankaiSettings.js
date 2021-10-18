@@ -14,7 +14,11 @@ const BankaiSettings = (props) => {
     return (
         <BsGear
             {...rest}
-            className={classNameUtil(`${baseCls}-settings`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-settings`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

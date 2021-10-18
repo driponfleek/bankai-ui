@@ -14,7 +14,11 @@ const BankaiSocialTwitter = (props) => {
     return (
         <RiTwitterFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-twitter`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-social-twitter`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

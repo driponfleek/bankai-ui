@@ -14,7 +14,11 @@ const BankaiScissors = (props) => {
     return (
         <AiOutlineScissor
             {...rest}
-            className={classNameUtil(`${baseCls}-scissors`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-scissors`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

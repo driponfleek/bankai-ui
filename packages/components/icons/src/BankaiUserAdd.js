@@ -14,7 +14,11 @@ const BankaiUserAdd = (props) => {
     return (
         <AiOutlineUserAdd
             {...rest}
-            className={classNameUtil(`${baseCls}-user-add`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-user-add`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

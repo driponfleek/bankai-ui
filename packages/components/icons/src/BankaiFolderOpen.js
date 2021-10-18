@@ -14,7 +14,11 @@ const BankaiFolderOpen = (props) => {
     return (
         <IoFolderOpenOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-folder-open`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-folder-open`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

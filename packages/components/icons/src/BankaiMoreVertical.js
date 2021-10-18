@@ -14,7 +14,11 @@ const BankaiMoreVertical = (props) => {
     return (
         <BsThreeDotsVertical
             {...rest}
-            className={classNameUtil(`${baseCls}-more-vertical`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-more-vertical`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

@@ -14,7 +14,11 @@ const BankaiStarFill = (props) => {
     return (
         <BsStarFill
             {...rest}
-            className={classNameUtil(`${baseCls}-star-fill`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-star-fill`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

@@ -14,7 +14,11 @@ const BankaiSocialPinterest = (props) => {
     return (
         <RiPinterestFill
             {...rest}
-            className={classNameUtil(`${baseCls}-social-pinterest`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-social-pinterest`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

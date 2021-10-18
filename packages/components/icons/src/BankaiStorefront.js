@@ -14,7 +14,11 @@ const BankaiStorefront = (props) => {
     return (
         <IoStorefrontOutline
             {...rest}
-            className={classNameUtil(`${baseCls}-storefront`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-storefront`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

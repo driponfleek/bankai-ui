@@ -14,7 +14,11 @@ const BankaiArrowRight = (props) => {
     return (
         <BsArrowRight
             {...rest}
-            className={classNameUtil(`${baseCls}-arrow-right`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-arrow-right`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

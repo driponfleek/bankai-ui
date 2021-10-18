@@ -14,7 +14,11 @@ const BankaiCircleX = (props) => {
     return (
         <BsXCircle
             {...rest}
-            className={classNameUtil(`${baseCls}-circle-x`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-circle-x`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

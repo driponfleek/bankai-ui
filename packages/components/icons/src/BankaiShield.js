@@ -14,7 +14,11 @@ const BankaiShield = (props) => {
     return (
         <BsShield
             {...rest}
-            className={classNameUtil(`${baseCls}-shield`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-shield`,
+                className,
+                contextCls,
+            )}
         />
     );
 };

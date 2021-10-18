@@ -14,7 +14,11 @@ const BankaiController = (props) => {
     return (
         <BsController
             {...rest}
-            className={classNameUtil(`${baseCls}-controller`, className, contextCls)}
+            className={classNameUtil(
+                `${baseCls}-controller`,
+                className,
+                contextCls,
+            )}
         />
     );
 };
