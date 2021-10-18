@@ -14,7 +14,7 @@ yarn add @epr0t0type/bankai-ui-icons
 In your application's global style sheet:
 
 ```
-@import '@epr0t0type/bankai-ui-icons/src/styles/iconography.scss';
+@import '~@epr0t0type/bankai-ui-icons/src/styles/iconography.scss';
 ```
 
 To show an icon:

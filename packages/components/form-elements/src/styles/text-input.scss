@@ -1,10 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
-@import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-@import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import './mixins.scss';
 
 .bankai-text-input {

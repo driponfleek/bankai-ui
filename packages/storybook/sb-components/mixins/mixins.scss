@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
 @mixin bankai-glass-mixin($shouldApplyFilters: false, $bg-color: $bankai-white, $bg-opactiy: 0.4, $blur: 2px, $box-shadow: rgba($bankai-black, 0.1) 0 1px 3px 1px) {
     background-color: rgba($bg-color, $bg-opactiy);

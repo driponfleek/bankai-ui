@@ -1,15 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-// @import '@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
-// @import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
-// @import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
-@import '@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-// @import '@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-accordion-item-heading {
     font-size: var(--bankai-h5-font-size, $bankai-h5-font-size);
