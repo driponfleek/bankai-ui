@@ -1,5 +1,6 @@
 .cache/
 coverage/
+dist/
 dist/*
 !dist/index.html
 node_modules/
@@ -14,3 +15,5 @@ storybook-static/
 .Trashes
 ehthumbs.db
 Thumbs.db
+stats.html
+stats.json
