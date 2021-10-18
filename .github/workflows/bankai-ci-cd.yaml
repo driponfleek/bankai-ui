@@ -27,6 +27,14 @@ jobs:
       with:
         fetch-depth: 0
 
+
+    - name: setup variables
+      id: vars
+      shell: bash
+      run: |
+        echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
     - name: Build Project
       uses: actions/setup-node@v2
       with:
@@ -41,11 +49,11 @@ jobs:
 
     - name: publish-snapshot
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
-      run: yarn publish-snapshot --legacyAuth=$GIT_AUTH_TOKEN --preid alpha.${{ steps.vars.outputs.sha_short }}
+      run: yarn publish-snapshot --legacyAuth=${GIT_AUTH_TOKEN} --preid alpha.${{ steps.vars.outputs.sha_short }}
 
     - name: publish-release
       if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
-      run: yarn publish-release --legacyAuth=$GIT_AUTH_TOKEN
+      run: yarn publish-release --legacyAuth=${GIT_AUTH_TOKEN}
 
 
     # Simply extracts the project version from the supplied pom.xml
