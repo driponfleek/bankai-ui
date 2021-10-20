@@ -42,7 +42,7 @@ jobs:
     - name: Create .npmrc
       uses: ferluisxd/create-npmrc@3
       with:
-          org_name: @epr0t0type
+          org_name: '@epr0t0type'
           env:
               AUTH_TOKEN: ${GIT_AUTH_TOKEN}
     - run: |
