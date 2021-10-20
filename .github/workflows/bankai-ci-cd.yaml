@@ -54,13 +54,13 @@ jobs:
     - name: publish-snapshot
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
       run: |
-        echo registry=https://npm.pkg.github.com/@epr0t0type >> .npmrc
+        echo registry=https://npm.pkg.github.com/epr0t0type >> .npmrc
         yarn publish-snapshot --legacyAuth=${GIT_AUTH_TOKEN} --preid alpha.${{ steps.vars.outputs.sha_short }}
 
     - name: publish-release
       if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
       run: |
-        echo registry=https://npm.pkg.github.com/@epr0t0type >> .npmrc
+        echo registry=https://npm.pkg.github.com/epr0t0type >> .npmrc
         yarn publish-release --legacyAuth=${GIT_AUTH_TOKEN}
 
 
