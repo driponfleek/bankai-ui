@@ -56,12 +56,16 @@ jobs:
       run: |
         echo registry=https://npm.pkg.github.com/epr0t0type >> .npmrc
         yarn publish-snapshot --legacyAuth=${{ secrets.GIT_AUTH_TOKEN }} --preid alpha.${{ steps.vars.outputs.sha_short }}
+      env:
+          NODE_AUTH_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
 
     - name: publish-release
       if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
       run: |
         echo registry=https://npm.pkg.github.com/epr0t0type >> .npmrc
         yarn publish-release --legacyAuth=${{ secrets.GIT_AUTH_TOKEN }}
+      env:
+          NODE_AUTH_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
 
 
     # Simply extracts the project version from the supplied pom.xml
