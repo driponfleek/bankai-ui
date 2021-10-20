@@ -1,6 +1,5 @@
 import React from 'react';
 import { BankaiUser } from '@epr0t0type/bankai-ui-icons';
-import { AVATAR_VARIANTS } from '@epr0t0type/bankai-ui-avatars';
 import { genArgType } from '../../../../utils/argTypesUtils';
 
 // Constants
