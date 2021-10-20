@@ -39,6 +39,8 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14.x'
+        registry-url: https://npm.pkg.github.com/
+        scope: '@epr0t0type'
     - run: |
         yarn install --frozen-lockfile
         yarn bootstrap -- -- -- --frozen-lockfile
@@ -46,6 +48,8 @@ jobs:
         yarn lint:scss
         yarn test
         yarn build
+      env:
+          NODE_AUTH_TOKEN: ${GIT_AUTH_TOKEN}
 
     - name: publish-snapshot
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')

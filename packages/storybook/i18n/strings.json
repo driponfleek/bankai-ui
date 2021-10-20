@@ -38,6 +38,15 @@
                     },
                     "categoryTitle": "Accordions"
                 },
+                "avatars": {
+                    "avatar": {
+                        "title": "Avatar"
+                    },
+                    "avatarGroup": {
+                        "title": "Avatar Group"
+                    },
+                    "categoryTitle": "Avatars"
+                },
                 "buttons": {
                     "button": {
                         "title": "Button"

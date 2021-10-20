@@ -23,6 +23,7 @@
         "style-loader": "2.0.0"
     },
     "dependencies": {
+        "@epr0t0type/bankai-ui-avatars": "^0.0.0",
         "@epr0t0type/bankai-lib-color-utils": "^0.0.0",
         "@epr0t0type/bankai-lib-date-time-utils": "^0.0.0",
         "@epr0t0type/bankai-lib-style-utils": "^0.0.0",

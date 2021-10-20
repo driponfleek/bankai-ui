@@ -98,6 +98,7 @@
 		"bootstrap": "yarn run lerna bootstrap",
 		"build": "yarn run lerna run build --concurrency 3",
 		"build:clean": "yarn run lerna run pre:build --parallel",
+		"fresh-start": "lerna clean && rm -rf node_modules && lerna bootstrap",
 		"gitversion": "git --version",
 		"gitstatus": "git status",
 		"lerna-version": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna version --conventional-commits --yes",

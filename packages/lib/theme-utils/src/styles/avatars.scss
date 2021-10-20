@@ -1,0 +1,16 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~css-vars/css-vars.scss';
+@import './vars/colors.scss';
+
+// Needed to make Native CSS Custom Props work
+$css-vars-use-native: true;
+
+:root {
+    @include css-vars((
+        --bankai-avatar-bg-color: $bankai-avatar-bg-color,
+        --bankai-avatar-border-color: $bankai-avatar-border-color,
+        --bankai-avatar-text-color: $bankai-avatar-text-color,
+    ));
+}

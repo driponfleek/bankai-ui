@@ -1,0 +1,45 @@
+/* stylelint-disable unit-blacklist */
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-avatar {
+    @include bankai-flex-row;
+    width: 1em;
+    height: 1em;
+    color: var(--bankai-avatar-text-color, $bankai-avatar-text-color);
+    background-color: var(--bankai-avatar-bg-color, $bankai-avatar-bg-color);
+    // width: calc(1em + 1.27272727272em);
+    // height: calc(1em + 1.27272727272em);
+    box-sizing: border-box;
+    font-size: 50px;
+    text-align: center;
+
+    &__inner {
+        // width: 1em;
+        height: 1em;
+        font-size: calc(1em * 0.44);
+        line-height: 1;
+        display: block;
+        margin: auto;
+    }
+
+    &--img {
+        background-position: center;
+        background-size: cover;
+    }
+
+    &--circle {
+        border-radius: 100%;
+    }
+
+    &--rounded-square {
+        border-radius: calc(1em * 0.1);
+    }
+
+    &--has-border {
+        border: 0.04em solid var(--bankai-avatar-border-color, $bankai-avatar-border-color);
+    }
+}
