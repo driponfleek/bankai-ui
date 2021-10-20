@@ -14,7 +14,7 @@ on:
         default: 'snapshot'
 
 env:
-  GIT_AUTH_TOKEN: '${{ secrets.GIT_AUTH_TOKEN }}'
+  GIT_AUTH_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
 
 jobs:
   setup-build-push:
@@ -39,12 +39,8 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14.x'
-    - name: Create .npmrc
-      uses: ferluisxd/create-npmrc@3
-      with:
-        org_name: '@epr0t0type'
-        env:
-          AUTH_TOKEN: '${{ secrets.GIT_AUTH_TOKEN }}'
+        registry-url: https://npm.pkg.github.com/
+        scope: '@epr0t0type'
     - run: |
         yarn install --frozen-lockfile
         yarn bootstrap -- -- -- --frozen-lockfile
@@ -52,16 +48,20 @@ jobs:
         yarn lint:scss
         yarn test
         yarn build
+      env:
+          NODE_AUTH_TOKEN: ${GIT_AUTH_TOKEN}
 
     - name: publish-snapshot
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
       run: |
-        yarn gitstatus
+        echo registry=https://npm.pkg.github.com/@epr0t0type >> .npmrc
         yarn publish-snapshot --legacyAuth=${GIT_AUTH_TOKEN} --preid alpha.${{ steps.vars.outputs.sha_short }}
 
     - name: publish-release
       if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
-      run: yarn publish-release --legacyAuth=${GIT_AUTH_TOKEN}
+      run: |
+        echo registry=https://npm.pkg.github.com/@epr0t0type >> .npmrc
+        yarn publish-release --legacyAuth=${GIT_AUTH_TOKEN}
 
 
     # Simply extracts the project version from the supplied pom.xml
