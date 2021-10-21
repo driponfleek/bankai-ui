@@ -1,0 +1,7 @@
+export default {
+    AFFIRMATIVE: 'AFFIRMATIVE',
+    CAUTIONARY: 'CAUTIONARY',
+    DEFAULT: 'DEFAULT',
+    ERROR: 'ERROR',
+    INFO: 'INFO',
+};

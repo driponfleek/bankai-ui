@@ -1,0 +1,42 @@
+//========================================================
+// Dependencies
+//========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-callout {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3rem;
+
+    &__icon {
+        color: var(--bankai-callout-icon-color, $bankai-callout-icon-color);
+        font-size: 8rem;
+    }
+
+    &__msg {
+        margin: 0;
+    }
+
+    &__title,
+    &__msg {
+        @include bankai-max-line-width();
+        line-height: $bankai-heading-lineheight;
+        display: block;
+        margin: 0 auto;
+    }
+
+    &__title-container,
+    &__msg-container {
+        margin: 0 auto;
+    }
+
+    &__title-container + &__msg-container {
+        margin-top: 5px;
+    }
+
+    &__icon-container + &__text-container {
+        margin-top: 10px;
+    }
+}

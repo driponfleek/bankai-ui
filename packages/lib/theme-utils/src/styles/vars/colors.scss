@@ -49,15 +49,15 @@ $bankai-canvas-primary: $bankai-white;
 $bankai-canvas-alt: $bankai-neutral-95;
 // Status Colors
 $bankai-affirmative-color: #81ba45;
+$bankai-cautionary-color: #faea05;
 $bankai-error-color: #c33;
-$bankai-cautionary-color: #fbec2d;
 // Informative Colors
 $bankai-destructive-color: $bankai-error-color;
-$bankai-info-color: #4d4dff;
+$bankai-info-color: #00f;
 // Typography
+$bankai-link-color: #176ec4;
 $bankai-text-color: $bankai-black;
 $bankai-text-color-alt: $bankai-neutral-40;
-$bankai-link-color: #176ec4;
 // Primary Button
 $bankai-btn-primary-default-bg-color: $bankai-primary-color;
 $bankai-btn-primary-default-text-color: $bankai-black;
@@ -83,35 +83,57 @@ $bankai-btn-secondary-destructive-hover-bg-color: #ebadad;
 $bankai-btn-secondary-destructive-hover-text-color: #521414;
 $bankai-btn-secondary-destructive-hover-border-color: $bankai-btn-secondary-destructive-hover-text-color;
 // Forms
+$bankai-form-checked-state-bg-color: $bankai-primary-color;
+$bankai-form-checked-state-icon-color: $bankai-white;
 $bankai-form-input-bg-color: $bankai-white;
 $bankai-form-input-border-color: $bankai-neutral-80;
-$bankai-form-input-placeholder-text: $bankai-neutral-40;
 $bankai-form-input-disabled-bg-color: $bankai-neutral-90;
 $bankai-form-input-disabled-placeholder-text: $bankai-neutral-40;
 $bankai-form-input-error-border-color: $bankai-error-color;
 $bankai-form-input-error-bg-color: #f5d6d6;
 $bankai-form-input-error-placeholder-text: #a32929;
 $bankai-form-inline-error-text-color: $bankai-error-color;
+$bankai-form-input-placeholder-text: $bankai-neutral-40;
 $bankai-form-menu-selected-state-bg-color: $bankai-primary-color;
-$bankai-form-menu-selected-state-text-color: $bankai-black;
 $bankai-form-menu-selected-state-focus-bg-color: #004666;
 $bankai-form-menu-selected-state-focus-text-color: $bankai-white;
-$bankai-form-checked-state-bg-color: $bankai-primary-color;
-$bankai-form-checked-state-icon-color: $bankai-white;
+$bankai-form-menu-selected-state-text-color: $bankai-black;
 // Tabs
 $bankai-tabs-active-accent-color: $bankai-primary-color;
 $bankai-tabs-active-bg-color: $bankai-white;
 $bankai-tabs-active-text-color: darken($bankai-primary-color, 20%);
+$bankai-tabs-border-color: $bankai-neutral-80;
 $bankai-tabs-inactive-bg-color: $bankai-neutral-90;
 $bankai-tabs-inactive-text-color: $bankai-neutral-40;
 $bankai-tabs-inactive-hover-bg-color: $bankai-neutral-80;
 $bankai-tabs-inactive-hover-text-color: $bankai-neutral-10;
 $bankai-tabs-panel-bg-color: $bankai-white;
-$bankai-tabs-border-color: $bankai-neutral-80;
 // Avatars
 $bankai-avatar-bg-color: $bankai-accent-color-2;
 $bankai-avatar-border-color: $bankai-white;
 $bankai-avatar-text-color: $bankai-white;
+// Callouts
+$bankai-callout-icon-color: $bankai-neutral-60;
+// Callout Memo (Default)
+$bankai-callout-memo-bg-color: $bankai-neutral-90;
+$bankai-callout-memo-icon-color: $bankai-text-color;
+$bankai-callout-memo-text-color: $bankai-text-color;
+// Callout Memo (Affirmative)
+$bankai-callout-memo-affirmative-bg-color: lighten($bankai-affirmative-color, 40%);
+$bankai-callout-memo-affirmative-icon-color: darken($bankai-affirmative-color, 20%);
+$bankai-callout-memo-affirmative-text-color: $bankai-text-color;
+// Callout Memo (Cautionary)
+$bankai-callout-memo-cautionary-bg-color: lighten($bankai-cautionary-color, 40%);
+$bankai-callout-memo-cautionary-icon-color: darken($bankai-cautionary-color, 20%);
+$bankai-callout-memo-cautionary-text-color: $bankai-text-color;
+// Callout Memo (Error)
+$bankai-callout-memo-error-bg-color: lighten($bankai-error-color, 40%);
+$bankai-callout-memo-error-icon-color: darken($bankai-error-color, 10%);
+$bankai-callout-memo-error-text-color: $bankai-text-color;
+// Callout Memo (Info)
+$bankai-callout-memo-info-bg-color: lighten($bankai-info-color, 40%);
+$bankai-callout-memo-info-icon-color: $bankai-info-color;
+$bankai-callout-memo-info-text-color: $bankai-text-color;
 
 // NOT USED
 // $bankai-secondary-color: #367c96;

@@ -53,6 +53,18 @@
                     },
                     "categoryTitle": "Buttons"
                 },
+                "callouts": {
+                    "callout": {
+                        "title": "Callout"
+                    },
+                    "calloutMemo": {
+                        "title": "Callout Memo"
+                    },
+                    "genericError": {
+                        "title": "Generic Error"
+                    },
+                    "categoryTitle": "Callouts"
+                },
                 "formElements": {
                     "categoryTitle": "Form Elements",
                     "checkbox": {
