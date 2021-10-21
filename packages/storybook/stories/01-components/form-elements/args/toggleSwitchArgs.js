@@ -18,9 +18,7 @@ import strings from '../../../../i18n/strings.json';
 const { bankaiUI: locale } = strings;
 
 export const args = {
-    isBusy: true,
-    isChecked: false,
-    isDefaultChecked: false,
+    isBusy: false,
     isDisabled: false,
     // onChange: () => Promise.resolve(),
 };
@@ -52,14 +50,14 @@ export const argTypes = {
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-        defaultValue: 'false',
+        // defaultValue: 'false',
         description: locale.shared.propDesc.formError,
         propName: 'isChecked',
         propType: PROP_TYPES.BOOL,
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-        defaultValue: 'false',
+        // defaultValue: 'false',
         description:
             'If `true` on initial render, the toggle is checked. If `false` on initial render, the toggle is unchecked. Use this if you want to treat the toggle as an uncontrolled component',
         propName: 'isDefaultChecked',

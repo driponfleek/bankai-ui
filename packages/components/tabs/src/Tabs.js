@@ -37,6 +37,7 @@ class Tabs extends Component {
         const {
             contextCls,
             hasMicrointeractions,
+            isVerticalTabs,
             shouldAllowLetterNavigation,
             onChange,
             renderTab,
@@ -47,7 +48,6 @@ class Tabs extends Component {
         const panels = this.prepChildren();
         const tabs = this.getTabs(panels);
         const modCls = this.getModCls();
-        console.table(modCls);
 
         return (
             <TabsWrapper

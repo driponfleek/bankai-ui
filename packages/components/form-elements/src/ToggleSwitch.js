@@ -10,8 +10,6 @@ import './styles/toggle-switch.scss';
 class ToggleSwitch extends Component {
     static defaultProps = {
         isBusy: false,
-        isChecked: false,
-        isDefaultChecked: false,
         isDisabled: false,
         icons: false,
         onChange: () => Promise.resolve(),

@@ -23,8 +23,6 @@ const { bankaiUI: locale } = strings;
 class ToggleSwitchGuide extends PureComponent {
     static defaultProps = {
         isBusy: false,
-        isChecked: false,
-        isDefaultChecked: false,
         isDisabled: false,
         onChange: () => Promise.resolve(),
     };
