@@ -28,6 +28,7 @@
         "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
         "@epr0t0type/bankai-ui-avatars": "^0.0.0",
         "@epr0t0type/bankai-ui-accordions": "^0.0.0",
+        "@epr0t0type/bankai-ui-badges": "^0.0.0",
         "@epr0t0type/bankai-ui-buttons": "^0.0.0",
         "@epr0t0type/bankai-ui-callouts": "^0.0.0",
         "@epr0t0type/bankai-ui-drag-and-drop": "^0.0.0",

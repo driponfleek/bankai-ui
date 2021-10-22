@@ -7,6 +7,8 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-callout-memo {
+    color: var(--bankai-callout-memo-text-color, $bankai-callout-memo-text-color);
+    background-color: var(--bankai-callout-memo-bg-color, $bankai-callout-memo-bg-color);
     box-sizing: border-box;
     border-radius: 5px;
 
@@ -37,6 +39,7 @@
     }
 
     &__icon {
+        color: var(--bankai-callout-memo-icon-color, $bankai-callout-memo-icon-color);
         font-size: 2rem;
         display: block;
         margin: 0 auto;
@@ -77,15 +80,6 @@
 
     &--cautionary &__icon {
         color: var(--bankai-callout-memo-cautionary-icon-color, $bankai-callout-memo-cautionary-icon-color);
-    }
-
-    &--default {
-        color: var(--bankai-callout-memo-text-color, $bankai-callout-memo-text-color);
-        background-color: var(--bankai-callout-memo-bg-color, $bankai-callout-memo-bg-color);
-    }
-
-    &--default &__icon {
-        color: var(--bankai-callout-memo-icon-color, $bankai-callout-memo-icon-color);
     }
 
     &--error {

@@ -2,6 +2,7 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
@@ -10,12 +11,15 @@
 @import './rw-styles.scss';
 
 .bankai-date-picker {
+    display: inline-block;
+
     .rw-widget-picker,
     .rw-popup {
         border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);
     }
 
     > .rw-widget-picker {
+        @include bankai-flex-row;
         border-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
     }
 
@@ -24,8 +28,10 @@
     }
 
     .rw-picker-btn {
-        border-left-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        width: 30px;
         color: $bankai-text-color-alt;
+        border-left-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        flex: 0 0 auto;
 
         @media (hover: hover) {
             &:hover {
@@ -68,9 +74,11 @@
     }
 
     .rw-widget-input {
+        min-width: 1px;
         text-overflow: ellipsis;
         line-height: $bankai-lineheight;
         padding: 0.7rem 1rem;
+        flex: 1 1 auto;
 
         &::placeholder {
             color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);

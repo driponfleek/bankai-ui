@@ -12,6 +12,8 @@
 @import './rw-styles.scss';
 
 .bankai-multiselect {
+    display: inline-block;
+
     .rw-widget-picker,
     .rw-popup {
         border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);

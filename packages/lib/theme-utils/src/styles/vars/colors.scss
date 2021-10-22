@@ -134,6 +134,21 @@ $bankai-callout-memo-error-text-color: $bankai-text-color;
 $bankai-callout-memo-info-bg-color: lighten($bankai-info-color, 40%);
 $bankai-callout-memo-info-icon-color: $bankai-info-color;
 $bankai-callout-memo-info-text-color: $bankai-text-color;
+// Badge (Default)
+$bankai-badge-bg-color: $bankai-neutral-90;
+$bankai-badge-text-color: $bankai-text-color;
+// Badge (Affirmative)
+$bankai-badge-affirmative-bg-color: $bankai-affirmative-color;
+$bankai-badge-affirmative-text-color: $bankai-text-color;
+// Badge (Cautionary)
+$bankai-badge-cautionary-bg-color: $bankai-cautionary-color;
+$bankai-badge-cautionary-text-color: $bankai-text-color;
+// Badge (Error)
+$bankai-badge-error-bg-color: $bankai-error-color;
+$bankai-badge-error-text-color: $bankai-white;
+// Callout Memo (Info)
+$bankai-badge-info-bg-color: $bankai-info-color;
+$bankai-badge-info-text-color: $bankai-white;
 
 // NOT USED
 // $bankai-secondary-color: #367c96;

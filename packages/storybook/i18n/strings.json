@@ -53,6 +53,12 @@
                     },
                     "categoryTitle": "Buttons"
                 },
+                "badges": {
+                    "badge": {
+                        "title": "Badge"
+                    },
+                    "categoryTitle": "Badges"
+                },
                 "callouts": {
                     "callout": {
                         "title": "Callout"

@@ -1,4 +1,4 @@
-import { CALLOUT_MEMO_VARIANTS } from '@epr0t0type/bankai-ui-callouts';
+import { BADGE_VARIANTS } from '@epr0t0type/bankai-ui-badges';
 import { genArgType } from '../../../../utils/argTypesUtils';
 
 // Constants
@@ -11,7 +11,7 @@ import PROP_TYPES from '../../../../const/reactPropTypesConst';
 // Locale
 import strings from '../../../../i18n/strings.json';
 
-const { AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = CALLOUT_MEMO_VARIANTS;
+const { AFFIRMATIVE, CAUTIONARY, DANGER, INFO } = BADGE_VARIANTS;
 
 // Reference:
 // https://storybook.js.org/docs/react/essentials/controls
@@ -20,9 +20,7 @@ const { AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = CALLOUT_MEMO_VARIANTS;
 
 const { bankaiUI: locale } = strings;
 
-export const args = {
-    msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-};
+export const args = {};
 
 export const argTypes = {
     ...genArgType({
@@ -32,28 +30,11 @@ export const argTypes = {
         propType: PROP_TYPES.STRING,
     }),
     ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: 'Text displayed inside the button.',
-        propName: 'title',
-        propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: 'Text displayed inside the button.',
-        propName: 'msg',
-        propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
         defaultValue: undefined,
         description: 'Use to set the component variant.',
-        options: [undefined, AFFIRMATIVE, CAUTIONARY, ERROR, INFO],
+        options: [undefined, AFFIRMATIVE, CAUTIONARY, DANGER, INFO],
         propName: 'variant',
         propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
-        description: `Render function for rendering an icon in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
-        propName: 'renderIcon',
-        propType: PROP_TYPES.FUNC,
     }),
 };

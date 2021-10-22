@@ -8,13 +8,9 @@ import VARIANTS from './const/variantsConst';
 // Styles
 import './styles/callout-memo.scss';
 
-const { AFFIRMATIVE, CAUTIONARY, DEFAULT, ERROR, INFO } = VARIANTS;
+const { AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = VARIANTS;
 
 class CalloutMemo extends PureComponent {
-    static defaultProps = {
-        variant: DEFAULT,
-    };
-
     static propTypes = {
         contextCls: PropTypes.string,
         title: PropTypes.string,
@@ -78,7 +74,6 @@ class CalloutMemo extends PureComponent {
         return {
             [`${this.baseCls}--affirmative`]: variant === AFFIRMATIVE,
             [`${this.baseCls}--cautionary`]: variant === CAUTIONARY,
-            [`${this.baseCls}--default`]: variant === DEFAULT,
             [`${this.baseCls}--error`]: variant === ERROR,
             [`${this.baseCls}--info`]: variant === INFO,
         };

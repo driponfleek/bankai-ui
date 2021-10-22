@@ -36,7 +36,7 @@
         text-overflow: ellipsis;
         padding: 0.7rem 1rem;
         display: block;
-        flex: 0 1 auto;
+        flex: 1 1 auto;
 
         &::placeholder {
             color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);

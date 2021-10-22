@@ -1,0 +1,37 @@
+//========================================================
+// Dependencies
+//========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-badge {
+    color: var(--bankai-badge-text-color, $bankai-badge-text-color);
+    background-color: var(--bankai-badge-bg-color, $bankai-badge-bg-color);
+    font-size: var(--bankai-footnote-text-size, $bankai-footnote-text-size);
+    line-height: $bankai-heading-lineheight;
+    box-sizing: border-box;
+    // stylelint-disable-next-line
+    border-radius: 1em;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+
+    &--affirmative {
+        color: var(--bankai-badge-affirmative-text-color, $bankai-badge-affirmative-text-color);
+        background-color: var(--bankai-badge-affirmative-bg-color, $bankai-badge-affirmative-bg-color);
+    }
+
+    &--info {
+        color: var(--bankai-badge-info-text-color, $bankai-badge-info-text-color);
+        background-color: var(--bankai-badge-info-bg-color, $bankai-badge-info-bg-color);
+    }
+
+    &--cautionary {
+        color: var(--bankai-badge-cautionary-text-color, $bankai-badge-cautionary-text-color);
+        background-color: var(--bankai-badge-cautionary-bg-color, $bankai-badge-cautionary-bg-color);
+    }
+
+    &--danger {
+        color: var(--bankai-badge-error-text-color, $bankai-badge-error-text-color);
+        background-color: var(--bankai-badge-error-bg-color, $bankai-badge-error-bg-color);
+    }
+}
