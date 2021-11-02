@@ -53,7 +53,7 @@
     &--ripples-outline {
         &::after,
         &::before {
-            border: Max(calc(1em * 0.01666666666), 1px) solid var(--bankai-primary-color, $bankai-primary-color);
+            border: max(calc(1em * 0.01666666666), 1px) solid var(--bankai-primary-color, $bankai-primary-color);
         }
     }
 
@@ -64,25 +64,25 @@
                 opacity: 1;
                 transform: scale3d(0.5, 0.5, 1);
             }
-    
+
             to {
                 opacity: 0;
                 transform: scale3d(1, 1, 1);
             }
         }
-    
+
         @keyframes bankai-ripple-inner {
             from {
                 opacity: 0;
                 transform: scale3d(0, 0, 1);
             }
-    
+
             to {
                 opacity: 1;
                 transform: scale3d(0.5, 0.5, 1);
             }
         }
-    
+
         &::after {
             animation: bankai-ripple-outer 0.6s infinite linear;
             transform: scale3d(1, 1, 1);
