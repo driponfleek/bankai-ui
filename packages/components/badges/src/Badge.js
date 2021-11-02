@@ -12,7 +12,6 @@ const Badge = (props) => {
     const { contextCls, variant, children } = props;
     const baseCls = 'bankai-badge';
     const modCls = getCSSModifiersUtil(baseCls, variant);
-    console.table(modCls);
 
     return <span className={cx(baseCls, modCls, contextCls)}>{children}</span>;
 };

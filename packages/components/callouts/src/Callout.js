@@ -9,8 +9,8 @@ import './styles/callout.scss';
 class Callout extends PureComponent {
     static propTypes = {
         contextCls: PropTypes.string,
-        title: PropTypes.string,
         msg: PropTypes.string,
+        title: PropTypes.string,
         renderIcon: PropTypes.func,
     };
 

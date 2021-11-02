@@ -2,7 +2,7 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '../vars/colors.scss';
 
 html {
@@ -10,11 +10,11 @@ html {
 }
 
 body {
-    @include bankai-body-font-shared();
     color: var(--bankai-text-color, $bankai-text-color);
+    font-family: var(--bankai-body-font, $bankai-body-font);
     font-size: var(--bankai-type-base-size, $bankai-type-base-size);
-    -webkit-font-smoothing: antialiased;
     line-height: $bankai-lineheight;
+    -webkit-font-smoothing: antialiased;
 }
 
 html,

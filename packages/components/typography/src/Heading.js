@@ -16,76 +16,25 @@ class Heading extends PureComponent {
     };
 
     render() {
+        const { children } = this.props;
+        const controlledHeadingLevel = this.getControlledHeadingLevel();
+
+        const Tag = `h${controlledHeadingLevel}`;
+
+        return (
+            <Tag {...this.getProps()} className={this.getContainerCls()}>
+                {children}
+            </Tag>
+        );
+    }
+
+    getControlledHeadingLevel = () => {
         const { headingLvl } = this.props;
         const isNumber = this.getIsHeadingLvlNum();
         const isInRange = this.getIsHeadingLvlInRange();
-        const headingLevel = isNumber && isInRange ? headingLvl : 2;
 
-        return this[`renderH${headingLevel}`](
-            this.getContainerCls(),
-            this.getProps(),
-        );
-    }
-
-    renderH1(containerCls, props) {
-        const { children } = this.props;
-
-        return (
-            <h1 {...props} className={containerCls}>
-                {children}
-            </h1>
-        );
-    }
-
-    renderH2(containerCls, props) {
-        const { children } = this.props;
-
-        return (
-            <h2 {...props} className={containerCls}>
-                {children}
-            </h2>
-        );
-    }
-
-    renderH3(containerCls, props) {
-        const { children } = this.props;
-
-        return (
-            <h3 {...props} className={containerCls}>
-                {children}
-            </h3>
-        );
-    }
-
-    renderH4(containerCls, props) {
-        const { children } = this.props;
-
-        return (
-            <h4 {...props} className={containerCls}>
-                {children}
-            </h4>
-        );
-    }
-
-    renderH5(containerCls, props) {
-        const { children } = this.props;
-
-        return (
-            <h5 {...props} className={containerCls}>
-                {children}
-            </h5>
-        );
-    }
-
-    renderH6(containerCls, props) {
-        const { children } = this.props;
-
-        return (
-            <h6 {...props} className={containerCls}>
-                {children}
-            </h6>
-        );
-    }
+        return isNumber && isInRange ? headingLvl : 2;
+    };
 
     getContainerCls() {
         const { contextCls } = this.props;
@@ -94,18 +43,15 @@ class Heading extends PureComponent {
     }
 
     getModCls() {
-        const { headingLvl } = this.props;
-        const isNumber = this.getIsHeadingLvlNum();
-        const isInRange = this.getIsHeadingLvlInRange();
+        const controlledHeadingLevel = this.getControlledHeadingLevel();
 
         return {
-            [`${this.baseCls}--h1`]: headingLvl === 1,
-            [`${this.baseCls}--h2`]:
-                !isNumber || !isInRange || headingLvl === 2,
-            [`${this.baseCls}--h3`]: headingLvl === 3,
-            [`${this.baseCls}--h4`]: headingLvl === 4,
-            [`${this.baseCls}--h5`]: headingLvl === 5,
-            [`${this.baseCls}--h6`]: headingLvl === 6,
+            [`${this.baseCls}--h1`]: controlledHeadingLevel === 1,
+            [`${this.baseCls}--h2`]: controlledHeadingLevel === 2,
+            [`${this.baseCls}--h3`]: controlledHeadingLevel === 3,
+            [`${this.baseCls}--h4`]: controlledHeadingLevel === 4,
+            [`${this.baseCls}--h5`]: controlledHeadingLevel === 5,
+            [`${this.baseCls}--h6`]: controlledHeadingLevel === 6,
         };
     }
 

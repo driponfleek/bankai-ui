@@ -1,0 +1,219 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+// @import './animations.scss';
+@import './mixins.scss';
+
+.bankai-loading-bars {
+    font-size: 60px;
+    $this: &;
+    $bar-width: 0.0667em;
+
+    &__bar {
+        width: $bar-width;
+        height: 100%;
+        background-color: var(--bankai-primary-color, $bankai-primary-color);
+        border-radius: $bar-width;
+        display: block;
+    }
+
+    &--bounce {
+
+        #{$this}__bar {
+            animation: bankai-bounce-animation 1s ease infinite alternate;
+
+            &:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.1s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+        }
+    }
+
+    &--fade {
+        #{$this}__bar {
+            @include bankai-loading-fade;
+        }
+    }
+
+    &--frequency {
+        width: 1em;
+        align-items: center;
+
+        @keyframes bankai-loading-bars-frequency-animation {
+            0% {
+                height: 0;
+            }
+
+            50% {
+                height: 100%;
+            }
+
+            100% {
+                height: 0;
+            }
+        }
+
+        #{$this}__bar {
+            height: 0;
+            animation: bankai-loading-bars-frequency-animation 0.8s infinite;
+
+            &:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.3s;
+            }
+
+            &:nth-child(5) {
+                animation-delay: 0.4s;
+            }
+
+            &:nth-child(6) {
+                animation-delay: 0.5s;
+            }
+
+            &:nth-child(7) {
+                animation-delay: 0.6s;
+            }
+
+            &:nth-child(8) {
+                animation-delay: 0.7s;
+            }
+        }
+    }
+
+    // &--draw-the-line {
+    //     width: Max(0.0238em, 1px);
+    //     height: 1em;
+    //     box-sizing: border-box;
+    //     display: inline-block;
+    //     position: relative;
+
+    //     @keyframes bankai-loading-bars-draw-line-animation {
+    //         50% {
+    //             height: 100%;
+    //             top: 0;
+    //         }
+
+    //         100% {
+    //             top: 100%;
+    //         }
+    //     }
+
+    //     @keyframes bankai-loading-bars-draw-line-star-animation {
+    //         to {
+    //             background-color: var(--bankai-primary-color, $bankai-primary-color);
+    //         }
+    //     }
+
+    //     &::before {
+    //         width: 100%;
+    //         height: 0;
+    //         top: 0;
+    //         background-color: var(--bankai-primary-color, $bankai-primary-color);
+    //         animation: bankai-loading-bars-draw-line-animation 2s infinite;
+    //     }
+
+    //     &::after {
+    //         width: 0.0833em;
+    //         height: 0.0833em;
+    //         border-radius: Max(0.0238em, 1px);
+    //         background-color: transparent;
+    //         animation: bankai-loading-bars-draw-line-star-animation 1s infinite alternate;
+    //         transform: translateX(-50%) rotate(45deg);
+    //         margin-top: 0.0833em;
+    //         margin-left: 50%;
+    //         top: 100%;
+    //     }
+
+    //     &::after,
+    //     &::before {
+    //         content: '';
+    //         position: absolute;
+    //     }
+    // }
+
+    &--pulse {
+        @keyframes bankai-loading-bars-pulse-animation {
+            0% {
+                transform: scale(1);
+            }
+
+            20% {
+                transform: scale(1, 1.5);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        #{$this}__bar {
+            animation: bankai-loading-bars-pulse-animation 1s infinite ease-in-out;
+        }
+    }
+
+    &--pulse-fade {
+        @keyframes bankai-loading-bars-pulse-fade-animation {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            20% {
+                transform: scale(1, 1.5);
+                opacity: 1;
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        #{$this}__bar {
+            @include bankai-loading-pulse-fade;
+            // animation: bankai-loading-bars-pulse-fade-animation 1s infinite ease-in-out;
+        }
+    }
+
+    &--pulse {
+        #{$this}__bar {
+            &:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+        }
+    }
+
+    &--bounce,
+    &--fade,
+    &--frequency,
+    &--pulse,
+    &--pulse-fade {
+        @include bankai-flex-row;
+        height: 0.5em;
+        gap: $bar-width;
+    }
+}

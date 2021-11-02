@@ -1,0 +1,345 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import './animations.scss';
+@import './mixins.scss';
+
+.bankai-loading-spinners {
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
+    font-size: 60px;
+    display: inline-block;
+    position: relative;
+    $this: &;
+
+    &--circular,
+    &--circular-dotted,
+    &--circular-dual {
+        border-radius: 100%;
+        border: 0.0667em solid rgba($bankai-neutral-50, 0.2);
+        animation: bankai-rotate-clockwise 1s infinite;
+
+        &::after {
+            animation: bankai-rotate-clockwise 1.5s -0.1s infinite;
+        }
+
+        &::before {
+            animation: bankai-rotate-clockwise 1.5s infinite;
+        }
+
+        &::after,
+        &::before {
+            width: 100%;
+            height: 100%;
+            content: '';
+            border-radius: 100%;
+            border: 0.0667em solid transparent;
+            border-top-color: var(--bankai-primary-color, $bankai-primary-color);
+            display: block;
+            position: absolute;
+            top: -0.0667em;
+            left: -0.0667em;
+        }
+    }
+
+    &--circular-dotted {
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            border-top-style: dotted;
+        }
+    }
+
+    &--circular-dual {
+        animation: bankai-rotate-clockwise 2s linear infinite;
+
+        &::after {
+            animation: bankai-rotate-clockwise 2s -1s linear infinite;
+        }
+
+        &::before {
+            animation: bankai-rotate-clockwise 2s linear infinite;
+        }
+    }
+
+    &--cube {
+        @keyframes bankai-loading-spinner-cube-animation {
+            0% {
+                transform: rotateZ(0deg);
+                border-radius: 30%;
+            }
+    
+            50% {
+                border-radius: 10%;
+            }
+    
+            100% {
+                transform: rotateZ(360deg);
+                border-radius: 30%;
+            }
+        }
+    
+        &::before {
+            animation: bankai-loading-spinner-cube-animation 2s linear infinite;
+        }
+
+        &::after {
+            animation: bankai-loading-spinner-cube-animation 2.3s infinite;
+        }
+
+        &::before,
+        &::after {
+            width: 70%;
+            height: 70%;
+            content: '';
+            border: 2px solid var(--bankai-primary-color, $bankai-primary-color);
+            border-radius: 10%;
+            box-sizing: border-box;
+            opacity: 0.7;
+            position: absolute;
+            top: 15%;
+            left: 15%;
+        }
+    }
+
+    &--arcs {
+        animation: bankai-rotate-clockwise 2s linear infinite;
+
+        &,
+        &::before,
+        &::after {
+            box-sizing: border-box;
+            border: 0.05em solid transparent;
+            border-radius: 100%;
+        }
+
+        & {
+            border-top-color: var(--bankai-primary-color, $bankai-primary-color);
+        }
+
+        &::before {
+            width: 0.8em;
+            height: 0.8em;
+            border-top-color: var(--bankai-accent-color-1, $bankai-accent-color-1);
+            animation: bankai-rotate-clockwise 1s linear infinite;
+            top: 0.05em;
+            left: 0.05em;
+        }
+
+        &::after {
+            width: 0.6em;
+            height: 0.6em;
+            border-top-color: var(--bankai-neutral-30, $bankai-neutral-30);
+            animation: bankai-rotate-clockwise 2s linear infinite;
+            top: 0.15em;
+            left: 0.15em;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+    }
+
+    &--cyber {
+        animation: bankai-rotate-clockwise 2.5s linear infinite;
+
+        &::after {
+            width: calc(100% - (0.0667em * 4));
+            height: calc(100% - (0.0667em * 4));
+            animation: bankai-rotate-clockwise 4s -0.1s infinite;
+            opacity: 0.4;
+            top: 0.0667em;
+            left: 0.0667em;
+        }
+
+        &::before {
+            width: calc(100% - (0.0667em * 2));
+            height: calc(100% - (0.0667em * 2));
+            animation: bankai-rotate-clockwise 1.5s linear infinite reverse;
+            opacity: 0.7;
+            top: 0;
+            left: 0;
+        }
+
+        &,
+        &::before,
+        &::after {
+            border: 0.0667em solid var(--bankai-primary-color, $bankai-primary-color);
+            border-color: var(--bankai-primary-color, $bankai-primary-color) transparent;
+            border-radius: 100%;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+    }
+
+    &--pixies {
+        animation: bankai-rotate-clockwise 1.7s linear infinite;
+        @keyframes bankai-loading-spinner-pixies-animation {
+            0% {
+                margin: 0;
+                margin-left: -10%;
+                margin-top: -60%;
+            }
+
+            25% {
+                width: 8%;
+                height: 8%;
+                margin-left: 10%;
+                margin-top: -10%;
+            }
+
+            50% {
+                margin-left: -10%;
+                margin-top: 40%;
+            }
+
+            75% {
+                width: 12%;
+                height: 12%;
+                margin-left: -30%;
+                margin-top: -10%;
+            }
+
+            100% {
+                margin: 0;
+                margin-left: -10%;
+                margin-top: -60%;
+            }
+        }
+
+        &::after {
+            animation: bankai-loading-spinner-pixies-animation 2s -1s linear infinite;
+        }
+
+        &::before {
+            animation: bankai-loading-spinner-pixies-animation 2s linear infinite;
+        }
+
+        &::after,
+        &::before {
+            width: 20%;
+            height: 20%;
+            background-color: var(--bankai-primary-color, $bankai-primary-color);
+            content: '';
+            border-radius: 100%;
+            // margin: -10%;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    }
+
+    &--orbit {
+        animation: bankai-rotate-counter-clockwise 4s linear infinite;
+        box-sizing: border-box;
+        padding: .1333em;
+        
+        #{$this}__inner {
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--bankai-primary-color, $bankai-primary-color);
+            box-sizing: border-box;
+            opacity: 0.3;
+            display: block;
+        }
+
+        &::before {
+            width: 26.67%;
+            height: 26.67%;
+            animation: bankai-rotate-clockwise 4s linear infinite;
+        }
+
+        &::after {
+            width: 13.33%;
+            height: 13.33%;
+            top: 40%;
+            left: 40%;
+            transform-origin: -0.1333em -0.1333em;
+            animation: bankai-rotate-counter-clockwise 1s linear infinite;
+        }
+
+        #{$this}__inner,
+        &::after,
+        &::before {
+            border-radius: 100%;
+        }
+        &::after,
+        &::before {
+            background-color: var(--bankai-primary-color, $bankai-primary-color);
+            content: '';
+            display: block;
+            position: absolute;
+        }
+    }
+
+    &--tri-cube {
+        @keyframes bankai-tri-cube {
+            0%, 85%, 100% {
+                top: 0;
+                left: 0;
+            }
+
+            10%, 25% {
+                top: 0;
+                left: 58.333333333%;
+            }
+
+            35%, 50% {
+                top: 58.333333333%;
+                left: 58.333333333%;
+            }
+
+            60%, 75% {
+                top: 58.333333333%;
+                left: 0;
+            }
+        }
+        
+        &::after,
+        &::before {
+            content: '';
+        }
+
+        &::after,
+        &::before,
+        #{$this}__inner {
+            width: 41.666666666%;
+            height: 41.666666666%;
+            border-radius: 20%;
+            animation: bankai-tri-cube 2.4s linear infinite;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &::before {
+            background-color: var(--bankai-primary-color, $bankai-primary-color);
+        }
+
+        #{$this}__inner {
+            background-color: var(--bankai-accent-color-1, $bankai-accent-color-1);
+            animation-delay: 0.8s;
+        }
+
+        &::after {
+            background-color: var(--bankai-neutral-30, $bankai-neutral-30);
+            animation-delay: 1.6s;
+        }
+    }
+}

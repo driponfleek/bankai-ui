@@ -18,8 +18,8 @@ import strings from '../../../../i18n/strings.json';
 const { bankaiUI: locale } = strings;
 
 export const args = {
-    title: "I'm a Callout!",
-    msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    title: 'Loading',
+    msg: 'Please wait...',
 };
 
 export const argTypes = {

@@ -27,7 +27,8 @@
                 "isBusy": "Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.",
                 "requiresBankaiIcons": "Requires [Bankai Iconography Package](?path=/story/style-guide-iconography--iconography-story) or your own custom iconography solution.",
                 "shouldAutoComplete": "Enables autocomplete functionality for the component.",
-                "shouldSpellCheck": "Enable spell checking."
+                "shouldSpellCheck": "Enable spell checking.",
+                "variant": "Use to set the component variant."
             }
         },
         "stories": {
@@ -116,6 +117,33 @@
                         "title": "Icons",
                         "clickToCopy": "Click To Copy CSS Class",
                         "copiedToClipboard": "Copied to Clipboard!"
+                    }
+                },
+                "loading": {
+                    "categoryTitle": "Loading",
+                    "loadingBars": {
+                        "title": "Loading Bars"
+                    },
+                    "loadingDots": {
+                        "title": "Loading Dots"
+                    },
+                    "loadingFlow": {
+                        "title": "Loading Flow"
+                    },
+                    "loadingSkeleton": {
+                        "title": "Loading Skeleton"
+                    },
+                    "loadingSpheres": {
+                        "title": "Loading Spheres"
+                    },
+                    "loadingSpinners": {
+                        "title": "Loading Spinners"
+                    },
+                    "loadingSquares": {
+                        "title": "Loading Squares"
+                    },
+                    "loadingState": {
+                        "title": "Loading State"
                     }
                 },
                 "tabViews": {

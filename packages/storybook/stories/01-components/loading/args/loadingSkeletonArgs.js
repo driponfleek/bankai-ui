@@ -18,8 +18,8 @@ import strings from '../../../../i18n/strings.json';
 const { bankaiUI: locale } = strings;
 
 export const args = {
-    title: "I'm a Callout!",
-    msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    title: 'Loading',
+    msg: 'Please wait...',
 };
 
 export const argTypes = {
@@ -30,20 +30,10 @@ export const argTypes = {
         propType: PROP_TYPES.STRING,
     }),
     ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+        defaultValue: 'false',
         // description: 'Text displayed inside the button.',
-        propName: 'title',
-        propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: 'Text displayed inside the button.',
-        propName: 'msg',
-        propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
-        description: `Render function for rendering an icon in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
-        propName: 'renderIcon',
-        propType: PROP_TYPES.FUNC,
+        propName: 'isSpan',
+        propType: PROP_TYPES.BOOL,
     }),
 };

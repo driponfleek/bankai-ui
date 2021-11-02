@@ -1,0 +1,170 @@
+@import './animations.scss';
+
+@mixin bankai-loading-grid-gap {
+    gap: calc(1ex / 10);
+}
+
+@mixin bankai-loading-grid-item-dimensions {
+    width: calc((1em / 3) - ((1em / 10) / 3));
+    height: calc((1em / 3) - ((1em / 10) / 3));
+}
+
+@mixin bankai-loading-fade {
+    animation: bankai-semi-fade 1.2s infinite ease-in-out;
+
+    &:nth-child(1) {
+        animation-delay: 0.15s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: -20ms;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.66s;
+    }
+
+    &:nth-child(4) {
+        animation-delay: 0.64s;
+    }
+
+    &:nth-child(5) {
+        animation-delay: -0.19s;
+    }
+
+    &:nth-child(6) {
+        animation-delay: 0.69s;
+    }
+
+    &:nth-child(7) {
+        animation-delay: 0.58s;
+    }
+
+    &:nth-child(8) {
+        animation-delay: 0.21s;
+    }
+
+    &:nth-child(9) {
+        animation-delay: -0.18s;
+    }
+}
+
+@mixin bankai-loading-pulse {
+    animation: bankai-semi-pulse 1.2s infinite ease-in-out;
+
+    &:nth-child(1) {
+        animation-delay: 0.22s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.64s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+
+    &:nth-child(4) {
+        animation-delay: -30ms;
+    }
+
+    &:nth-child(5) {
+        animation-delay: 80ms;
+    }
+
+    &:nth-child(6) {
+        animation-delay: 0.43s;
+    }
+
+    &:nth-child(7) {
+        animation-delay: 0.7s;
+    }
+
+    &:nth-child(8) {
+        animation-delay: 0.97s;
+    }
+
+    &:nth-child(9) {
+        animation-delay: 0.63s;
+    }
+}
+
+@mixin bankai-loading-pulse-fade {
+    animation: bankai-semi-pulse-fade 1.2s infinite ease-in-out;
+
+    &:nth-child(1) {
+        animation-delay: 0.22s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.64s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+
+    &:nth-child(4) {
+        animation-delay: -30ms;
+    }
+
+    &:nth-child(5) {
+        animation-delay: 80ms;
+    }
+
+    &:nth-child(6) {
+        animation-delay: 0.43s;
+    }
+
+    &:nth-child(7) {
+        animation-delay: 0.7s;
+    }
+
+    &:nth-child(8) {
+        animation-delay: 0.97s;
+    }
+
+    &:nth-child(9) {
+        animation-delay: 0.63s;
+    }
+}
+
+@mixin bankai-loading-pulse-wave {
+    animation: bankai-pulse 1.2s infinite ease-in-out;
+
+    &:nth-child(1) {
+        animation-delay: 0.3s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.5s;
+    }
+
+    &:nth-child(4) {
+        animation-delay: 0.2s;
+    }
+
+    &:nth-child(5) {
+        animation-delay: 0.3s;
+    }
+
+    &:nth-child(6) {
+        animation-delay: 0.4s;
+    }
+
+    &:nth-child(7) {
+        animation-delay: 0.1s;
+    }
+
+    &:nth-child(8) {
+        animation-delay: 0.2s;
+    }
+
+    &:nth-child(9) {
+        animation-delay: 0.3s;
+    }
+}

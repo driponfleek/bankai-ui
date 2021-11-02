@@ -16,7 +16,6 @@
 
     &--overlap {
         > * {
-            // stylelint-disable-next-line unit-blacklist
             margin-left: -0.25em;
 
             &:first-child {

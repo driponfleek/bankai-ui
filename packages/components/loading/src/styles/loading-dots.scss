@@ -1,0 +1,139 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import './animations.scss';
+@import './mixins.scss';
+
+.bankai-loading-dots {
+    @include bankai-flex-row;
+    @include bankai-loading-grid-gap;
+    font-size: 60px;
+    flex-wrap: wrap;
+    $this: &;
+
+    &__dot {
+        @include bankai-loading-grid-item-dimensions;
+        background-color: var(--bankai-primary-color, $bankai-primary-color);
+        border-radius: 100%;
+        flex: 0 0 auto;
+    }
+
+    &--bounce {
+        // gap: calc(1em / 10);
+
+        @keyframes bankai-dot-bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            5% {
+                transform: translateY(25%);
+            }
+
+            20% {
+                height: calc(((1em / 3) - ((1em / 10) / 3)) * 2.5);
+            }
+
+            30% {
+                transform: translateY(-70%);
+                height: calc((1em / 3) - ((1em / 10) / 3));
+            }
+
+            45% {
+                transform: translateY(0);
+            }
+        }
+
+        #{$this}__dot {
+            border-radius: calc((1em / 3) - ((1em / 10) / 3));
+            animation: bankai-dot-bounce 2s infinite;
+
+            &:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.8s;
+            }
+        }
+    }
+
+    &--fade,
+    &--fade-compact {
+        #{$this}__dot {
+            @include bankai-loading-fade;
+        }
+    }
+
+    &--pulse,
+    &--pulse-compact {
+        #{$this}__dot {
+            @include bankai-loading-pulse;
+        }
+    }
+
+    &--pulse-fade,
+    &--pulse-fade-compact {
+        #{$this}__dot {
+            @include bankai-loading-pulse-fade;
+        }
+    }
+
+    &--fade,
+    &--pulse,
+    &--pulse-fade {
+        width: 1em;
+        height: 1em;
+    }
+
+    &--worm {
+        @keyframes bankai-worm {
+            33% {
+                transform: translateY(0.25em);
+            }
+
+            66% {
+                transform: translateY(-0.25em);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        #{$this}__dot {
+            &:nth-child(1) {
+                animation: bankai-worm 0.6s -0.14s infinite ease-in-out;
+            }
+
+            &:nth-child(2) {
+                animation: bankai-worm 0.6s -70ms infinite ease-in-out;
+            }
+
+            &:nth-child(3) {
+                animation: bankai-worm 0.6s 0s infinite ease-in-out;
+            }
+        }
+    }
+
+    &--bounce,
+    &--worm {
+        width: calc((((1em / 3) - ((1em / 10) / 3)) * 3) + ((1ex / 10) * 2));
+        height: calc((1em / 3) - ((1em / 10) / 3));
+        position: relative;
+
+        #{$this}__dot {
+            position: absolute;
+
+            &:nth-child(2) {
+                margin-left: calc(((1em / 3) - ((1em / 10) / 3)) + (1ex / 10));
+            }
+
+            &:nth-child(3) {
+                right: 0;
+            }
+        }
+    }
+}

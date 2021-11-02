@@ -1,0 +1,14 @@
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+
+.bankai-sb-loading-skeleton-guide {
+    &__demo {
+        .bankai-loading-skeleton {
+            width: 320px;
+            height: 150px;
+            border-radius: 15px;
+        }
+    }
+}

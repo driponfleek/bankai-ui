@@ -28,7 +28,7 @@ module.exports = {
             },
         ],
         'selector-list-comma-newline-after': 'always-multi-line',
-        'unit-blacklist': ['em'],
+        // 'unit-blacklist': ['em'],
         'string-quotes': 'single',
     },
 };
