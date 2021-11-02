@@ -1,7 +1,7 @@
 {
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
-        "react-icons": "4.2.0"
+        "react-icons": "4.3.1"
     },
     "description": "Bankai icons",
     "license": "MIT",
