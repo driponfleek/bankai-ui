@@ -19,6 +19,10 @@ module.exports = {
         ],
         'declaration-empty-line-before': 'never',
         'declaration-no-important': true,
+        'function-name-case': [
+            'lower',
+            { ignoreFunctions: ['/min/i', '/max/i'] },
+        ],
         indentation: 4,
         'selector-max-id': 0,
         'selector-class-pattern': [

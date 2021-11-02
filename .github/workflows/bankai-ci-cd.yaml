@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
       - features/*
       - bugfix/*
   workflow_dispatch:
@@ -59,6 +60,8 @@ jobs:
     - name: publish-release
       if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
       run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         echo registry=https://npm.pkg.github.com/epr0t0type >> .npmrc
         yarn publish-release --legacyAuth=${{ secrets.GIT_AUTH_TOKEN }}
 

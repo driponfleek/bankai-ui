@@ -8,3 +8,4 @@ export default {
 };
 
 export { default as ButtonStory } from './ButtonStory';
+export { default as MenuButtonStory } from './MenuButtonStory';

@@ -54,7 +54,7 @@
         line-height: $bankai-lineheight;
     }
 
-    &--is-active:focus {
+    &--is-active:focus-visible {
         @include bankai-focus-state-box-shadow(var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4)));
     }
 }

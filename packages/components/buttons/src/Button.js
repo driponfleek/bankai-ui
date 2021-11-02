@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';
 
 // Constants
-import BTN_VARIANTS from './const/btnVariantsConst';
+import { BTN_VARIANTS } from './const/btnVariantsConst';
 
 // Styles
 import './styles/button.scss';
@@ -27,7 +27,6 @@ class Button extends PureComponent {
 
     static propTypes = {
         contextCls: PropTypes.string,
-        iconCls: PropTypes.string,
         text: PropTypes.string,
         type: PropTypes.string,
         variant: PropTypes.string,
@@ -147,7 +146,6 @@ class Button extends PureComponent {
     getProps = () => {
         const {
             contextCls,
-            iconCls,
             text,
             type,
             variant,
