@@ -29,27 +29,7 @@
     &--underline,
     &--underline-segmented {
         .bankai-tab {
-            color: var(--bankai-tabs-inactive-text-color, $bankai-tabs-inactive-text-color);
             flex: 1;
-
-            &__content-inner {
-                margin: 0 auto;
-                gap: 5px;
-            }
-
-            &__content,
-            &__content-inner {
-                @include bankai-flex-row;
-            }
-
-            &__icon-container,
-            &__text-container {
-                margin: auto 0;
-            }
-
-            &__text {
-                vertical-align: middle;
-            }
         }
     }
 
@@ -175,7 +155,7 @@
                 content: '';
                 background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
                 border-radius: 10px 10px 0 0;
-                transform: perspective(5px) rotateX(0.75deg) translate3d(0, 1px, -0.09rem);
+                transform: perspective(5px) rotateX(0.75deg) translate3d(0, 1px, -0.0875rem);
                 transform-origin: 0 0;
                 backface-visibility: hidden;
                 position: absolute;

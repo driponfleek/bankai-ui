@@ -55,6 +55,9 @@
                     "categoryTitle": "Buttons",
                     "menuButton": {
                         "title": "Menu Button"
+                    },
+                    "splitButton": {
+                        "title": "Split Button"
                     }
                 },
                 "badges": {

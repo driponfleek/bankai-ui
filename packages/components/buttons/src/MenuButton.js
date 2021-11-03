@@ -126,7 +126,6 @@ class MenuButton extends Component {
 
     renderMenu = () => {
         const { menuOptions, menuProps } = this.props;
-        console.log('menuOptions: ', menuOptions);
 
         return (
             <Menu {...menuProps} className={`${this.baseCls}__menu`}>
@@ -142,7 +141,6 @@ class MenuButton extends Component {
     renderMenuOption = (menuOption) => {
         const { renderMenuOption } = this.props;
         const key = `${this.baseCls}-li-${uuidv4()}`;
-        console.table(menuOption);
 
         return (
             <li key={key} className={`${this.baseCls}__menu-list-option`}>

@@ -14,14 +14,14 @@ import strings from '../../../../i18n/strings.json';
 
 // Imgae
 import avatar01 from '../../../../media/images/avatars/avatar01.jpg';
-import avatar02 from '../../../../media/images/avatars/avatar02.jpg';
-import avatar03 from '../../../../media/images/avatars/avatar03.jpg';
-import avatar04 from '../../../../media/images/avatars/avatar04.jpg';
+// import avatar02 from '../../../../media/images/avatars/avatar02.jpg';
+// import avatar03 from '../../../../media/images/avatars/avatar03.jpg';
+// import avatar04 from '../../../../media/images/avatars/avatar04.jpg';
 import avatar05 from '../../../../media/images/avatars/avatar05.jpg';
-import avatar06 from '../../../../media/images/avatars/avatar06.jpg';
+// import avatar06 from '../../../../media/images/avatars/avatar06.jpg';
 import avatar07 from '../../../../media/images/avatars/avatar07.jpg';
-import avatar08 from '../../../../media/images/avatars/avatar08.jpg';
-import avatar09 from '../../../../media/images/avatars/avatar09.jpg';
+// import avatar08 from '../../../../media/images/avatars/avatar08.jpg';
+// import avatar09 from '../../../../media/images/avatars/avatar09.jpg';
 
 // Reference:
 // https://storybook.js.org/docs/react/essentials/controls
@@ -40,21 +40,21 @@ const avatars = [
         id: '01',
         imgURL: avatar01,
     },
-    {
-        ...baseAvatarProps,
-        id: '02',
-        imgURL: avatar02,
-    },
-    {
-        ...baseAvatarProps,
-        id: '03',
-        imgURL: avatar03,
-    },
-    {
-        ...baseAvatarProps,
-        id: '04',
-        imgURL: avatar04,
-    },
+    // {
+    //     ...baseAvatarProps,
+    //     id: '02',
+    //     imgURL: avatar02,
+    // },
+    // {
+    //     ...baseAvatarProps,
+    //     id: '03',
+    //     imgURL: avatar03,
+    // },
+    // {
+    //     ...baseAvatarProps,
+    //     id: '04',
+    //     imgURL: avatar04,
+    // },
     {
         ...baseAvatarProps,
         id: '05',
@@ -65,26 +65,26 @@ const avatars = [
         id: '06',
         text: 'DY',
     },
-    {
-        ...baseAvatarProps,
-        id: '07',
-        imgURL: avatar06,
-    },
+    // {
+    //     ...baseAvatarProps,
+    //     id: '07',
+    //     imgURL: avatar06,
+    // },
     {
         ...baseAvatarProps,
         id: '08',
         imgURL: avatar07,
     },
-    {
-        ...baseAvatarProps,
-        id: '09',
-        imgURL: avatar08,
-    },
-    {
-        ...baseAvatarProps,
-        id: '10',
-        imgURL: avatar09,
-    },
+    // {
+    //     ...baseAvatarProps,
+    //     id: '09',
+    //     imgURL: avatar08,
+    // },
+    // {
+    //     ...baseAvatarProps,
+    //     id: '10',
+    //     imgURL: avatar09,
+    // },
     {
         ...baseAvatarProps,
         id: '11',

@@ -13,3 +13,5 @@ export const BTN_VARIANTS = {
 };
 
 export const MENU_BTN_VARIANTS = { ...SHARED_VARIANTS };
+
+export const SPLIT_BTN_VARIANTS = { ...SHARED_VARIANTS };

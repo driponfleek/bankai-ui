@@ -12,6 +12,7 @@
 
 .bankai-tab {
     @include bankai-focus-state-halo;
+    color: var(--bankai-tabs-inactive-text-color, $bankai-tabs-inactive-text-color);
     box-sizing: border-box;
     user-select: none;
 
@@ -29,23 +30,29 @@
         }
     }
 
+    &__content {
+        text-align: center;
+    }
+
+    &__content-inner {
+        display: inline-block;
+    }
+
     &__icon-container {
-        // stylelint-disable-next-line
         width: 1em;
-        // stylelint-disable-next-line
-        height: 1em;
-        line-height: 1;
+        line-height: 0;
     }
 
     &__icon-container,
     &__text-container {
-        display: block;
+        padding: 0 0.5rem;
+        vertical-align: middle;
+        margin: auto 0;
+        display: inline-block;
     }
 
     &__icon-safe-space {
-        // stylelint-disable-next-line
         width: 1em;
-        // stylelint-disable-next-line
         height: 1em;
         display: inline-block;
     }

@@ -22,6 +22,7 @@ $css-vars-use-native: true;
         --bankai-btn-primary-hover-bg-color: $bankai-btn-primary-hover-bg-color,
         --bankai-btn-primary-hover-text-color: $bankai-btn-primary-hover-text-color,
         --bankai-btn-primary-focus-halo-color: rgba($bankai-btn-primary-default-bg-color, 0.4),
+        --bankai-split-btn-primary-border-color: $bankai-split-btn-primary-border-color,
         // ========================================================
         // Secondary
         // ========================================================
@@ -31,6 +32,7 @@ $css-vars-use-native: true;
         --bankai-btn-secondary-hover-bg-color: $bankai-btn-secondary-hover-bg-color,
         --bankai-btn-secondary-hover-text-color: $bankai-btn-secondary-hover-text-color,
         --bankai-btn-secondary-focus-halo-color: rgba($bankai-btn-secondary-default-text-color, 0.4),
+        --bankai-split-btn-secondary-border-color: $bankai-split-btn-secondary-border-color,
         // ========================================================
         // Primary Destructive
         // ========================================================
@@ -39,6 +41,7 @@ $css-vars-use-native: true;
         --bankai-btn-primary-destructive-hover-bg-color: $bankai-btn-primary-destructive-hover-bg-color,
         --bankai-btn-primary-destructive-hover-text-color: $bankai-btn-primary-destructive-hover-text-color,
         --bankai-btn-primary-destructive-focus-halo-color: rgba($bankai-btn-primary-destructive-default-bg-color, 0.4),
+        --bankai-split-btn-primary-destructive-border-color: $bankai-split-btn-primary-destructive-border-color,
         // ========================================================
         // Secondary Destructive
         // ========================================================
@@ -49,5 +52,6 @@ $css-vars-use-native: true;
         --bankai-btn-secondary-destructive-hover-border-color: $bankai-btn-secondary-destructive-hover-border-color,
         --bankai-btn-secondary-destructive-hover-text-color: $bankai-btn-secondary-destructive-hover-text-color,
         --bankai-btn-secondary-destructive-focus-halo-color: rgba($bankai-btn-secondary-destructive-default-text-color, 0.4),
+        --bankai-split-btn-secondary-destructive-border-color: $bankai-btn-secondary-destructive-default-border-color,
     ));
 }
