@@ -17,7 +17,7 @@
     line-height: $bankai-lineheight;
     padding: 0.7rem 1rem;
 
-    &[disabled] {
+    &:disabled {
         @include bankai-form-input-disabled;
     }
 

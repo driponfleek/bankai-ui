@@ -13,6 +13,9 @@
 
     &:focus {
         @include bankai-focus-state-reset;
+    }
+
+    &:focus-visible {
         @include bankai-focus-state-box-shadow($color);
     }
 }

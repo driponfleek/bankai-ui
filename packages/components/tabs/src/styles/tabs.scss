@@ -125,10 +125,12 @@
     }
 
     &--folder {
-        .bankai-tab:focus {
-            box-shadow: none;
+        .bankai-tab {
+            &:focus {
+                box-shadow: none;
+            }
 
-            .bankai-tab__content::after {
+            &:focus-visible .bankai-tab__content::after {
                 box-shadow: 0 0 0 3px rgba($bankai-black, 0.4);
             }
         }
@@ -153,7 +155,7 @@
                 transform: translate3d(0, 0, 0);
             }
 
-            &:focus .bankai-tab__content::after {
+            &:focus-visible .bankai-tab__content::after {
                 box-shadow: 0 0 0 3px var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4));
             }
 
@@ -302,7 +304,7 @@
                 box-shadow: 0 0 3px rgba($bankai-black, 0.25);
                 transform: scale(1.05);
 
-                &:focus {
+                &:focus-visible {
                     @include bankai-focus-state-box-shadow(var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4)));
                 }
             }

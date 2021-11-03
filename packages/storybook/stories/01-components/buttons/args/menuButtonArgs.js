@@ -1,7 +1,8 @@
 import React from 'react';
-import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
-import { BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { BankaiMoreVertical } from '@epr0t0type/bankai-ui-icons';
+import { MENU_BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import { genArgType } from '../../../../utils/argTypesUtils';
+import demoOptions from '../mocks/menuButtonMocks';
 
 // Constants
 import {
@@ -19,17 +20,26 @@ import strings from '../../../../i18n/strings.json';
 // https://storybook.js.org/docs/react/api/argtypes
 
 const { bankaiUI: locale } = strings;
-const renderIcon = () => <BankaiCirclePlus />;
+const renderIcon = () => <BankaiMoreVertical />;
 
 export const args = {
-    text: 'Button Text',
-    type: 'button',
-    isBusy: false,
+    text: 'Menu',
     isDisabled: false,
+    shouldCloseOnBlur: true,
+    shouldCloseOnSelection: true,
+    menuOptions: demoOptions,
     renderIcon,
+    // onSelection: () => Promise.resolve(),
+    // onMenuToggle: () => Promise.resolve(),
 };
 
 export const argTypes = {
+    ...genArgType({
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+        // description: locale.shared.propDesc.contextCls,
+        propName: 'btnContextCls',
+        propType: PROP_TYPES.STRING,
+    }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
         description: locale.shared.propDesc.contextCls,
@@ -44,37 +54,12 @@ export const argTypes = {
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-        defaultValue: 'button',
-        description: 'Use to set the HTML button type attribute.',
-        options: ['button', 'submit'],
-        propName: 'type',
-        propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-        defaultValue: undefined,
         description: 'Use to set the button variant.',
-        options: Object.keys(BTN_VARIANTS).map(
-            (VARIANT) => BTN_VARIANTS[VARIANT],
+        options: Object.keys(MENU_BTN_VARIANTS).map(
+            (VARIANT) => MENU_BTN_VARIANTS[VARIANT],
         ),
         propName: 'variant',
         propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-        defaultValue: 'button',
-        description: 'Use to set the HTML button type attribute.',
-        options: ['button', 'submit'],
-        propName: 'type',
-        propType: PROP_TYPES.STRING,
-    }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-        defaultValue: 'false',
-        description:
-            'Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.',
-        propName: 'isBusy',
-        propType: PROP_TYPES.BOOL,
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
@@ -84,17 +69,49 @@ export const argTypes = {
         propType: PROP_TYPES.BOOL,
     }),
     ...genArgType({
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+        defaultValue: true,
+        // description: '',
+        propName: 'shouldCloseOnBlur',
+        propType: PROP_TYPES.BOOL,
+    }),
+    ...genArgType({
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+        defaultValue: true,
+        // description: '',
+        propName: 'shouldCloseOnSelection',
+        propType: PROP_TYPES.BOOL,
+    }),
+    ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
-        description:
-            'Can be used to pass data back to an `onClick` handler when the user clicks on the button.',
-        propName: 'data',
+        // description: '',
+        propName: 'menuProps',
         propType: PROP_TYPES.OBJECT,
     }),
     ...genArgType({
-        action: 'clicked',
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+        // description: '',
+        propName: 'wrapperProps',
+        propType: PROP_TYPES.OBJECT,
+    }),
+    ...genArgType({
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.ARRAY],
+        // description: '',
+        propName: 'menuOptions',
+        propType: PROP_TYPES.ARRAY,
+    }),
+    ...genArgType({
+        action: 'selected',
         defaultValue: '() => Promise.resolve()',
-        description: 'Handler called when the user clicks on the button.',
-        propName: 'onClick',
+        // description: '',
+        propName: 'onSelection',
+        propType: PROP_TYPES.FUNC,
+    }),
+    ...genArgType({
+        action: 'menu toggled',
+        defaultValue: '() => Promise.resolve()',
+        // description: '',
+        propName: 'onMenuToggle',
         propType: PROP_TYPES.FUNC,
     }),
     ...genArgType({
@@ -103,9 +120,8 @@ export const argTypes = {
         propType: PROP_TYPES.FUNC,
     }),
     ...genArgType({
-        description:
-            'Render function for rendering a different busy icon than the default one.',
-        propName: 'renderBusyIcon',
+        // description: ``,
+        propName: 'renderMenuOption',
         propType: PROP_TYPES.FUNC,
     }),
 };

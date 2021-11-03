@@ -52,7 +52,10 @@
                     "button": {
                         "title": "Button"
                     },
-                    "categoryTitle": "Buttons"
+                    "categoryTitle": "Buttons",
+                    "menuButton": {
+                        "title": "Menu Button"
+                    }
                 },
                 "badges": {
                     "badge": {

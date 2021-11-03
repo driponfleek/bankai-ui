@@ -1,0 +1,53 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import './button.scss';
+
+.bankai-menu-button-option {
+    @include bankai-button-reset;
+    @include bankai-focus-state-halo;
+    @include bankai-hover-state;
+    @include bankai-disabled-state;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: nowrap;
+    $this: &;
+
+    @media (hover: hover) {
+        &:enabled:hover {
+            background-color: $bankai-neutral-90;
+        }
+    }
+
+    &__content-container {
+        @extend .bankai-button__content-container;
+        display: block;
+    }
+
+    &__text-container {
+        @extend .bankai-button__text-container;
+    }
+
+    &__icon-container {
+        @extend .bankai-button__icon-container;
+    }
+
+    &__icon-container + &__text-container {
+        vertical-align: middle;
+    }
+
+    &__icon-safe-space {
+        @extend .bankai-button__icon-safe-space;
+    }
+
+    &--is-destructive {
+        color: var(--bankai-btn-secondary-destructive-default-text-color, $bankai-btn-secondary-destructive-default-text-color);
+
+        @media (hover: hover) {
+            &:enabled:hover {
+                color: var(--bankai-btn-secondary-destructive-hover-text-color, $bankai-btn-secondary-destructive-hover-text-color);
+            }
+        }
+    }
+}

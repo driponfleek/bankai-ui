@@ -53,7 +53,6 @@
     &--ripples-outline {
         &::after,
         &::before {
-            // stylelint-disable-next-line
             border: Max(calc(1em * 0.01666666666), 1px) solid var(--bankai-primary-color, $bankai-primary-color);
         }
     }

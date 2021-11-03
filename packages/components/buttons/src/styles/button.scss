@@ -74,7 +74,7 @@
         }
 
         @media (hover: hover) {
-            &:not(:disabled):hover {
+            &:enabled:hover {
                 color: var(--bankai-btn-primary-hover-text-color, $bankai-btn-primary-hover-text-color);
                 background-color: var(--bankai-btn-primary-hover-bg-color, $bankai-btn-primary-hover-bg-color);
             }
@@ -91,7 +91,7 @@
         }
 
         @media (hover: hover) {
-            &:not(:disabled):hover {
+            &:enabled:hover {
                 color: var(--bankai-btn-secondary-hover-text-color, $bankai-btn-secondary-hover-text-color);
                 background-color: var(--bankai-btn-secondary-hover-bg-color, $bankai-btn-secondary-hover-bg-color);
                 border-color: var(--bankai-btn-secondary-hover-border-color, $bankai-btn-secondary-hover-border-color);
@@ -108,7 +108,7 @@
         }
 
         @media (hover: hover) {
-            &:not(:disabled):hover {
+            &:enabled:hover {
                 color: var(--bankai-btn-primary-destructive-hover-text-color, $bankai-btn-primary-destructive-hover-text-color);
                 background-color: var(--bankai-btn-primary-destructive-hover-bg-color, $bankai-btn-primary-destructive-hover-bg-color);
             }
@@ -125,7 +125,7 @@
         }
 
         @media (hover: hover) {
-            &:not(:disabled):hover {
+            &:enabled:hover {
                 color: var(--bankai-btn-secondary-destructive-hover-text-color, $bankai-btn-secondary-destructive-hover-text-color);
                 background-color: var(--bankai-btn-secondary-destructive-hover-bg-color, $bankai-btn-secondary-destructive-hover-bg-color);
                 border-color: var(--bankai-btn-secondary-destructive-hover-border-color, $bankai-btn-secondary-destructive-hover-border-color);
