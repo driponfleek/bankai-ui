@@ -22,7 +22,7 @@
 
 @mixin bankai-hover-state() {
     @media (hover: hover) {
-        &:not(:disabled):hover {
+        &:enabled:hover {
             cursor: pointer;
         }
     }

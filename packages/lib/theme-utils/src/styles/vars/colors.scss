@@ -63,6 +63,7 @@ $bankai-btn-primary-default-bg-color: $bankai-primary-color;
 $bankai-btn-primary-default-text-color: $bankai-black;
 $bankai-btn-primary-hover-bg-color: #004666;
 $bankai-btn-primary-hover-text-color: $bankai-white;
+$bankai-split-btn-primary-border-color: #004666;
 // Secondary Button
 $bankai-btn-secondary-default-bg-color: $bankai-white;
 $bankai-btn-secondary-default-text-color: #367c96;
@@ -70,11 +71,13 @@ $bankai-btn-secondary-default-border-color: $bankai-btn-secondary-default-text-c
 $bankai-btn-secondary-hover-bg-color: #b4d7e4;
 $bankai-btn-secondary-hover-text-color: #1b3e4b;
 $bankai-btn-secondary-hover-border-color: $bankai-btn-secondary-hover-text-color;
+$bankai-split-btn-secondary-border-color: #2a5b6f;
 // Primary Destructive Button
 $bankai-btn-primary-destructive-default-bg-color: $bankai-destructive-color;
 $bankai-btn-primary-destructive-default-text-color: $bankai-white;
 $bankai-btn-primary-destructive-hover-bg-color: #7a1f1f;
 $bankai-btn-primary-destructive-hover-text-color: $bankai-white;
+$bankai-split-btn-primary-destructive-border-color: #521414;
 // Secondary Destructive Button
 $bankai-btn-secondary-destructive-default-bg-color: $bankai-white;
 $bankai-btn-secondary-destructive-default-text-color: $bankai-destructive-color;
@@ -82,6 +85,7 @@ $bankai-btn-secondary-destructive-default-border-color: $bankai-btn-secondary-de
 $bankai-btn-secondary-destructive-hover-bg-color: #ebadad;
 $bankai-btn-secondary-destructive-hover-text-color: #521414;
 $bankai-btn-secondary-destructive-hover-border-color: $bankai-btn-secondary-destructive-hover-text-color;
+$bankai-split-btn-secondary-destructive-border-color: #521414;
 // Forms
 $bankai-form-checked-state-bg-color: $bankai-primary-color;
 $bankai-form-checked-state-icon-color: $bankai-white;

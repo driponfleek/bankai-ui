@@ -16,10 +16,10 @@
     @include bankai-hover-state;
     @include bankai-disabled-state;
     $this: &;
-    border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
     background: $bankai-white;
     box-sizing: border-box;
     border: 1px solid transparent;
+    border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
 
     &__content-container {
         display: inline-block;
