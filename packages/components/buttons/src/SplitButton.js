@@ -6,7 +6,7 @@ import Button from './Button';
 import MenuButton from './MenuButton';
 
 // Constants
-import { SPLIT_BTN_VARIANTS } from './const/btnVariantsConst';
+import { SPLIT_BTN_VARIANTS } from './const/variantsConst';
 
 // Styles
 import './styles/split-button.scss';

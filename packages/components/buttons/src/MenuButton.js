@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import MenuButtonOption from './MenuButtonOption';
 
 // Constants
-import { MENU_BTN_VARIANTS } from './const/btnVariantsConst';
+import { MENU_BTN_VARIANTS } from './const/variantsConst';
 
 // Styles
 import './styles/menu-button.scss';

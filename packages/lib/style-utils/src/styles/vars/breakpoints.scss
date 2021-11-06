@@ -1,0 +1,13 @@
+// ========================================================
+// Responsive Breakpoints
+// ========================================================
+// Breakpoints based off bootstrap:
+// https://getbootstrap.com/docs/5.0/layout/breakpoints/
+$bankai-xl-min: 1200px;
+$bankai-l-max: $bankai-xl-min - 1;
+$bankai-l-min: 992px;
+$bankai-m-max: $bankai-l-min - 1;
+$bankai-m-min: 768px;
+$bankai-s-max: $bankai-m-min - 1;
+$bankai-s-min: 576px;
+$bankai-xs-max: $bankai-s-min - 1;

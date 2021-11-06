@@ -152,6 +152,15 @@
                         "title": "Loading State"
                     }
                 },
+                "modals": {
+                    "categoryTitle": "Modals",
+                    "modal": {
+                        "title": "Modal"
+                    },
+                    "statusModal": {
+                        "title": "Status Modal"
+                    }
+                },
                 "tabViews": {
                     "categoryTitle": "Tab Views",
                     "tabs": {

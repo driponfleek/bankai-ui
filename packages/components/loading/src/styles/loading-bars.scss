@@ -20,7 +20,6 @@
     }
 
     &--bounce {
-
         #{$this}__bar {
             animation: bankai-bounce-animation 1s ease infinite alternate;
 
@@ -45,8 +44,11 @@
     }
 
     &--frequency {
+        @include bankai-flex-row;
+        height: 0.5em;
         width: 1em;
         align-items: center;
+        gap: 0.0666em;
 
         @keyframes bankai-loading-bars-frequency-animation {
             0% {
@@ -63,6 +65,8 @@
         }
 
         #{$this}__bar {
+            width: 0.0666em;
+            flex: 0 0 auto;
             height: 0;
             animation: bankai-loading-bars-frequency-animation 0.8s infinite;
 
@@ -205,7 +209,6 @@
 
     &--bounce,
     &--fade,
-    &--frequency,
     &--pulse,
     &--pulse-fade {
         @include bankai-flex-row;

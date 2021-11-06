@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';
 
 // Constants
-import { BTN_VARIANTS } from './const/btnVariantsConst';
+import { BTN_VARIANTS } from './const/variantsConst';
 
 // Styles
 import './styles/button.scss';

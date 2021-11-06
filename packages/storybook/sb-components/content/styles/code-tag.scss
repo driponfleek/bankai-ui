@@ -1,0 +1,12 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-sb-code-tag {
+    background-color: $bankai-neutral-80;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    display: inline-block;
+}

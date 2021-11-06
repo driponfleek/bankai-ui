@@ -1,0 +1,23 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+
+.bankai-hyperlink {
+    @include bankai-focus-state-halo;
+    color: var(--bankai-link-color, $bankai-link-color);
+    text-decoration: none;
+    border-radius: 3px;
+    $this: &;
+
+    &:focus-visible {
+        @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

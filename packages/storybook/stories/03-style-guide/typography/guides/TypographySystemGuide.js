@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Heading } from '@epr0t0type/bankai-ui-typography';
+import { Heading, Hyperlink } from '@epr0t0type/bankai-ui-typography';
 import ComponentPreview from '../../../../sb-components/content/ComponentPreview';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -110,7 +110,7 @@ class TypographySystemGuide extends Component {
                     </Paragraph>
                 </ComponentPreview>
                 <Paragraph>
-                    Bankai UI uses a modular typography scale system to create a
+                    Bankai UI uses a modular typography scale system to create
                     harmonious type sizes that are pleasant for end users and
                     scalable for applications.
                 </Paragraph>
@@ -162,31 +162,28 @@ class TypographySystemGuide extends Component {
                 </Paragraph>
                 <ul>
                     <li>
-                        <a
+                        <Hyperlink
                             href="https://medium.com/sketch-app-sources/exploring-responsive-type-scales-cf1da541be54"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            shouldOpenInNewWindow
                         >
                             Exploring Responsive Type Scales
-                        </a>
+                        </Hyperlink>
                     </li>
                     <li>
-                        <a
+                        <Hyperlink
                             href="https://pairfonts.eu/articles/typographic-scale.php"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            shouldOpenInNewWindow
                         >
                             The Typographic Scale – Harmony in Fonts
-                        </a>
+                        </Hyperlink>
                     </li>
                     <li>
-                        <a
+                        <Hyperlink
                             href="https://type-scale.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            shouldOpenInNewWindow
                         >
                             Type Scale - A Visual Calculator
-                        </a>
+                        </Hyperlink>
                     </li>
                 </ul>
             </StorySection>

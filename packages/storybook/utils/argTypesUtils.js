@@ -30,6 +30,8 @@ export const genArgType = (config) => {
          * Markdown syntax.
          */
         description,
+        /** Indicates control is disabled for prop. */
+        isDisabled,
         /** Indicates prop is required. */
         isRequired,
         /**
@@ -71,6 +73,7 @@ export const genArgType = (config) => {
             name: propName,
             ...(hasTableConfig && {
                 table: {
+                    ...(isDisabled && { disable: isDisabled }),
                     ...(defaultValue && {
                         defaultValue: {
                             ...(defaultValueDetail && {
