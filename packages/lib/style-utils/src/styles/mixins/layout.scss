@@ -35,3 +35,21 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
+
+@mixin bankai-breakpoint-range($min, $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin bankai-breakpoint-min-only($min) {
+    @media screen and (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin bankai-breakpoint-max-only($max) {
+    @media screen and (max-width: $max) {
+        @content;
+    }
+}

@@ -1,0 +1,110 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-modal {
+    @include bankai-flex-column;
+
+    @include bankai-breakpoint-min-only($bankai-s-min) {
+        @include bankai-box-shadow-elevated($bankai-black);
+        border-radius: var(--bankai-modal-border-radius, 20px);
+        max-width: 90%;
+        max-height: 90%;
+
+        &__underlay {
+            @include bankai-flex-column;
+            align-items: center;
+        }
+
+        &__close-button {
+            border-radius: 0 var(--bankai-modal-border-radius, 20px) 0 0;
+        }
+    }
+
+    @include bankai-breakpoint-max-only($bankai-xs-max) {
+        width: 100%;
+        height: 100%;
+    }
+    box-sizing: border-box;
+    margin: auto;
+    position: relative;
+    $this: &;
+
+    &__content-container {
+        @include bankai-flex-column;
+    }
+
+    &__content-container,
+    &__main-container {
+        min-height: 1px;
+        flex: 1 1 auto;
+    }
+
+    &__close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .bankai-button__content-container {
+            padding: 0.5rem;
+        }
+    }
+
+    &__actions-container {
+        @include bankai-flex-row;
+    }
+
+    &__actions-container-inner {
+        margin-left: auto;
+
+        .bankai-button + .bankai-button {
+            margin-left: 10px;
+        }
+    }
+
+    &__heading-container,
+    &__actions-container {
+        flex: 0 0 auto;
+    }
+
+    &__heading-container,
+    &__main-container,
+    &__actions-container {
+        box-sizing: border-box;
+        padding: 1.5rem;
+    }
+
+    * + &__main-container {
+        padding-top: 0;
+    }
+
+    * + &__actions-container {
+        padding-top: 0;
+    }
+
+    &__close-button + * {
+        margin-top: 40px;
+    }
+
+    &__heading-container + &__close-button + * {
+        margin-top: 0;
+    }
+
+    &__sub-title {
+        @include bankai-max-line-width();
+        color: var(--bankai-text-color-alt, $bankai-text-color-alt);
+        font-size: var(--bankai-sub-text-size);
+        margin: 0;
+    }
+
+    &--has-close-btn {
+        #{$this}__heading-container {
+            padding-right: 50px;
+        }
+    }
+}

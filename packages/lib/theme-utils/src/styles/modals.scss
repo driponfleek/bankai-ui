@@ -1,0 +1,14 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~css-vars/css-vars.scss';
+// @import './vars/colors.scss';
+
+// Needed to make Native CSS Custom Props work
+$css-vars-use-native: true;
+
+:root {
+    @include css-vars((
+        --bankai-modal-border-radius: 20px,
+    ));
+}

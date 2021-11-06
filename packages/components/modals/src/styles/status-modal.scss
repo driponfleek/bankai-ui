@@ -1,0 +1,31 @@
+// ========================================================
+// Dependencies
+// ========================================================
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-status-modal {
+    color: $bankai-white;
+    padding: 1.5rem;
+
+    &__dialog {
+        background-color: transparent;
+        margin: auto;
+    }
+
+    &__underlay {
+        @include bankai-flex-column;
+        align-items: center;
+    }
+
+    .bankai-callout__icon {
+        * {
+            background-color: $bankai-white;
+        }
+    }
+
+    .bankai-callout__title {
+        font-style: italic;
+    }
+}

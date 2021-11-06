@@ -16,7 +16,7 @@
     @include bankai-hover-state;
     @include bankai-disabled-state;
     $this: &;
-    background: $bankai-white;
+    background-color: $bankai-white;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
@@ -156,8 +156,8 @@
             }
         }
 
-        &:focus {
-            @include bankai-focus-state-box-shadow(var(--bankai-focus-halo-color, rgba($bankai-link-color, 0.4)));
+        &:focus-visible {
+            @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));
         }
 
         #{$this}__content-container,

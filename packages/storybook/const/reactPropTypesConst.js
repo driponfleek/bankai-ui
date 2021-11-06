@@ -3,6 +3,7 @@ export default {
     ARRAY: 'array',
     ARRAY_OF: 'arrayOf',
     BOOL: 'bool',
+    ELEMENT: 'element',
     ELEMENT_TYPE: 'elementType',
     EXACT: 'exact',
     FUNC: 'func',

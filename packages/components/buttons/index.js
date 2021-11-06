@@ -6,4 +6,4 @@ export {
     BTN_VARIANTS,
     MENU_BTN_VARIANTS,
     SPLIT_BTN_VARIANTS,
-} from './src/const/btnVariantsConst';
+} from './src/const/variantsConst';

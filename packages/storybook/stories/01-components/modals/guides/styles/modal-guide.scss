@@ -1,0 +1,20 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+
+.bankai-sb-modal-guide {
+    &__demo-content {
+        *:first-child {
+            margin-top: 0;
+        }
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+
+        p {
+            @include bankai-max-line-width();
+        }
+    }
+}
