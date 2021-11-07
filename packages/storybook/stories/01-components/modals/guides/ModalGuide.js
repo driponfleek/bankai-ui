@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import { Modal } from '@epr0t0type/bankai-ui-modals';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
@@ -24,17 +24,58 @@ const { PRIMARY } = BTN_VARIANTS;
 
 class ModalGuide extends Component {
     static defaultProps = {
-        ...Modal.defaultProps,
+        role: 'dialog',
+        closeTimeoutMS: 150,
+        hasCloseButton: true,
+        isOpen: false,
+        shouldCloseOnEsc: true,
+        shouldCloseOnOverlayClick: true,
+        shouldFocusAfterRender: true,
+        modalActions: [],
+        appElement: document.getElementById('root'),
+        onAfterClose: () => Promise.resolve(),
+        onAfterOpen: () => Promise.resolve(),
+        onExit: () => Promise.resolve(),
+        onActionClick: () => Promise.resolve(),
+        renderTo: () => document.body,
     };
 
     static propTypes = {
-        ...Modal.propTypes,
+        ariaDescribedby: PropTypes.string,
+        ariaLabel: PropTypes.string,
+        closeBtnARIALabel: PropTypes.string,
+        dialogContextCls: PropTypes.string,
+        dialogId: PropTypes.string,
+        role: PropTypes.string,
+        subTitle: PropTypes.string,
+        title: PropTypes.string,
+        titleId: PropTypes.string,
+        overlayContextCls: PropTypes.string,
+        closeTimeoutMS: PropTypes.number,
+        hasCloseButton: PropTypes.bool,
+        isOpen: PropTypes.bool,
+        shouldCloseOnEsc: PropTypes.bool,
+        shouldCloseOnOverlayClick: PropTypes.bool,
+        shouldFocusAfterRender: PropTypes.bool,
+        focusTrapOptions: PropTypes.object,
+        modalActions: PropTypes.array,
+        appElement: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.instanceOf(Element),
+        ]),
+        onAfterClose: PropTypes.func,
+        onAfterOpen: PropTypes.func,
+        onExit: PropTypes.func,
+        onActionClick: PropTypes.func,
+        renderCloseButtonIcon: PropTypes.func,
+        renderModalActions: PropTypes.func,
+        renderTo: PropTypes.func,
     };
 
     static displayName = locale.stories.components.modals.modal.title;
 
     state = {
-        isMounted: false,
+        isOpen: false,
     };
 
     render() {
@@ -53,7 +94,7 @@ class ModalGuide extends Component {
 
     renderDemo() {
         const { props } = this;
-        const { isMounted } = this.state;
+        const { isOpen } = this.state;
 
         return (
             <StorySection>
@@ -65,7 +106,7 @@ class ModalGuide extends Component {
                     />
                     <Modal
                         {...props}
-                        isMounted={isMounted}
+                        isOpen={isOpen}
                         onExit={this.handleModalExit}
                         onActionClick={this.handleActionClick}
                     >
@@ -127,19 +168,19 @@ class ModalGuide extends Component {
         const { action } = data || {};
 
         if (action === 'No') {
-            this.setState({ isMounted: false });
+            this.setState({ isOpen: false });
         }
 
         onActionClick(params);
     };
 
     handleShowModalClick = () => {
-        this.setState({ isMounted: true });
+        this.setState({ isOpen: true });
     };
 
     handleModalExit = () => {
         const { onExit } = this.props;
-        this.setState({ isMounted: false }, () => {
+        this.setState({ isOpen: false }, () => {
             onExit();
         });
     };

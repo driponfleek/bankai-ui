@@ -1,4 +1,4 @@
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
@@ -22,6 +22,7 @@ const getBabelConfigURL = () => {
 const pluginsBase = [
     babel({
         exclude: 'node_modules/**',
+        babelHelpers: 'bundled',
         configFile: getBabelConfigURL(),
     }),
     external(),

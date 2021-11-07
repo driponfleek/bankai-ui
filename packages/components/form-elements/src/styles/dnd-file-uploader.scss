@@ -156,12 +156,12 @@
             }
         }
 
-        &:focus + .bankai-button {
-            @extend .bankai-button--secondary:focus;
+        &:focus-visible + .bankai-button {
+            @extend .bankai-button--secondary:focus-visible;
         }
 
-        &:focus + .bankai-button--link {
-            @extend .bankai-button--link:focus;
+        &:focus-visible + .bankai-button--link {
+            @extend .bankai-button--link:focus-visible;
         }
     }
 
@@ -184,7 +184,7 @@
                 cursor: default;
             }
 
-            &:focus {
+            &:focus-visible {
                 @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-destructive-focus-halo-color, rgba($bankai-btn-secondary-destructive-default-text-color, 0.4)));
             }
         }

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import ReactARIAModal from 'react-aria-modal';
+import Modal from 'react-modal/dist/react-modal';
 import { v4 as uuidv4 } from 'uuid';
 
 // Styles
@@ -9,66 +9,69 @@ import './styles/aria-modal.scss';
 
 class ARIAModal extends PureComponent {
     static defaultProps = {
-        isAlert: false,
-        isMounted: false,
-        shouldCenter: true,
+        role: 'dialog',
+        closeTimeoutMS: 0,
+        isOpen: false,
+        shouldCloseOnEsc: true,
+        shouldCloseOnOverlayClick: true,
         shouldDisableScroll: true,
-        shouldExitOnEscapePress: true,
-        shouldExitOnUnderlayClick: true,
-        shouldFocusDialog: true,
-        appNode: document.getElementById('root'),
-        onEnter: () => Promise.resolve(),
+        shouldFocusAfterRender: true,
+        appElement: document.getElementById('root'),
+        onAfterClose: () => Promise.resolve(),
+        onAfterOpen: () => Promise.resolve(),
         onExit: () => Promise.resolve(),
+        renderTo: () => document.body,
     };
 
     static propTypes = {
+        ariaDescribedby: PropTypes.string,
         ariaLabel: PropTypes.string,
         dialogContextCls: PropTypes.string,
         dialogId: PropTypes.string,
-        initialFocus: PropTypes.string,
+        role: PropTypes.string,
         titleId: PropTypes.string,
-        underlayContextCls: PropTypes.string,
-        isAlert: PropTypes.bool,
-        isMounted: PropTypes.bool,
-        shouldCenter: PropTypes.bool,
+        overlayContextCls: PropTypes.string,
+        closeTimeoutMS: PropTypes.number,
+        isOpen: PropTypes.bool,
+        shouldCloseOnEsc: PropTypes.bool,
+        shouldCloseOnOverlayClick: PropTypes.bool,
         shouldDisableScroll: PropTypes.bool,
-        shouldExitOnEscapePress: PropTypes.bool,
-        shouldExitOnUnderlayClick: PropTypes.bool,
-        shouldFocusDialog: PropTypes.bool,
-        appNode: PropTypes.instanceOf(Element),
-        focusTrapOptions: PropTypes.object,
-        renderTo: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-        onEnter: PropTypes.func,
+        shouldFocusAfterRender: PropTypes.bool,
+        appElement: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.instanceOf(Element),
+        ]),
+        onAfterClose: PropTypes.func,
+        onAfterOpen: PropTypes.func,
         onExit: PropTypes.func,
+        renderTo: PropTypes.func,
     };
 
     render() {
         const { children } = this.props;
         const modalProps = this.getModalProps();
-        const ModalComp = this.getModalComponent();
 
-        return <ModalComp {...modalProps}>{children}</ModalComp>;
+        return <Modal {...modalProps}>{children}</Modal>;
     }
 
     getModalProps = () => {
         const {
+            ariaDescribedby,
             ariaLabel,
             dialogContextCls,
             dialogId,
-            initialFocus,
+            role,
             titleId,
-            underlayContextCls,
-            isAlert,
-            isMounted,
-            shouldCenter,
+            overlayContextCls,
+            closeTimeoutMS,
+            isOpen,
+            shouldCloseOnEsc,
+            shouldCloseOnOverlayClick,
             shouldDisableScroll,
-            shouldExitOnEscapePress,
-            shouldExitOnUnderlayClick,
-            shouldFocusDialog,
-            focusTrapOptions,
-            appNode,
+            shouldFocusAfterRender,
             renderTo,
-            onEnter,
+            onAfterClose,
+            onAfterOpen,
             onExit,
             ...rest
         } = this.props;
@@ -76,44 +79,43 @@ class ARIAModal extends PureComponent {
 
         return {
             ...rest,
-            dialogClass: cx(
-                `${this.baseCls}__dialog`,
-                modCls,
-                dialogContextCls,
-            ),
-            dialogId: dialogId || `${this.baseCls}-dialog-${uuidv4()}`,
-            initialFocus,
-            titleId,
-            ...(!titleId && ariaLabel && { titleText: ariaLabel }),
-            underlayClass: cx(`${this.baseCls}__underlay`, underlayContextCls),
-            alert: isAlert,
-            escapeExits: shouldExitOnEscapePress,
-            focusDialog: shouldFocusDialog,
-            includeDefaultStyles: false,
-            mounted: isMounted,
-            scrollDisabled: shouldDisableScroll,
-            verticallyCenter: shouldCenter,
-            focusTrapOptions,
-            applicationNode: appNode,
-            onEnter,
-            onExit,
-            underlayClickExits: shouldExitOnUnderlayClick,
+            className: {
+                afterOpen: `${this.baseCls}__dialog--after-open`,
+                beforeClose: `${this.baseCls}__dialog--before-close`,
+                base: cx(`${this.baseCls}__dialog`, dialogContextCls),
+            },
+            ...(ariaLabel && !titleId && { contentLabel: ariaLabel }),
+            id: dialogId || `${this.baseCls}-dialog-${uuidv4()}`,
+            role,
+            overlayClassName: {
+                afterOpen: `${this.baseCls}__overlay--after-open`,
+                beforeClose: `${this.baseCls}__overlay--before-close`,
+                base: cx(`${this.baseCls}__overlay`, modCls, overlayContextCls),
+            },
+            closeTimeoutMS,
+            ariaHideApp: true,
+            preventScroll: shouldDisableScroll,
+            shouldCloseOnEsc,
+            shouldCloseOnOverlayClick,
+            shouldFocusAfterRender,
+            isOpen,
+            aria: {
+                ...(titleId && { labelledby: titleId }),
+                ...(ariaDescribedby && { describedby: ariaDescribedby }),
+            },
+            onAfterClose,
+            onAfterOpen,
+            onRequestClose: onExit,
+            parentSelector: renderTo,
         };
     };
 
     getModCls = () => {
-        const { isMounted, shouldExitOnUnderlayClick } = this.props;
+        const { shouldCloseOnOverlayClick } = this.props;
 
         return {
-            [`${this.baseCls}--is-mounted`]: isMounted,
-            [`${this.baseCls}--exits-on-underlay-click`]: shouldExitOnUnderlayClick,
+            [`${this.baseCls}--overlay-clickable`]: shouldCloseOnOverlayClick,
         };
-    };
-
-    getModalComponent = () => {
-        const { renderTo } = this.props;
-
-        return renderTo ? ReactARIAModal.renderTo(renderTo) : ReactARIAModal;
     };
 
     baseCls = 'bankai-aria-modal';

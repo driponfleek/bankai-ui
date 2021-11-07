@@ -28,6 +28,13 @@ export const ariaLabel = genArgType({
     propType: PROP_TYPES.STRING,
 });
 
+export const ariaDescribedby = genArgType({
+    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    // description: '',
+    propName: 'ariaDescribedby',
+    propType: PROP_TYPES.STRING,
+});
+
 export const dialogContextCls = genArgType({
     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
     // description: '',
@@ -42,10 +49,11 @@ export const dialogId = genArgType({
     propType: PROP_TYPES.STRING,
 });
 
-export const initialFocus = genArgType({
+export const role = genArgType({
     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    defaultValue: 'dialog',
     // description: '',
-    propName: 'initialFocus',
+    propName: 'role',
     propType: PROP_TYPES.STRING,
 });
 
@@ -56,34 +64,42 @@ export const titleId = genArgType({
     propType: PROP_TYPES.STRING,
 });
 
-export const underlayContextCls = genArgType({
+export const overlayContextCls = genArgType({
     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
     // description: '',
-    propName: 'underlayContextCls',
+    propName: 'overlayContextCls',
     propType: PROP_TYPES.STRING,
 });
 
-export const isAlert = genArgType({
+export const closeTimeoutMS = genArgType({
+    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+    defaultValue: 0,
+    // description: '',
+    propName: 'closeTimeoutMS',
+    propType: PROP_TYPES.NUMBER,
+});
+
+export const isOpen = genArgType({
     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
     defaultValue: 'false',
     // description: '',
-    propName: 'isAlert',
+    propName: 'isOpen',
     propType: PROP_TYPES.BOOL,
 });
 
-export const isMounted = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    defaultValue: 'false',
-    // description: '',
-    propName: 'isMounted',
-    propType: PROP_TYPES.BOOL,
-});
-
-export const shouldCenter = genArgType({
+export const shouldCloseOnEsc = genArgType({
     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
     defaultValue: true,
     // description: '',
-    propName: 'shouldCenter',
+    propName: 'shouldCloseOnEsc',
+    propType: PROP_TYPES.BOOL,
+});
+
+export const shouldCloseOnOverlayClick = genArgType({
+    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    defaultValue: true,
+    // description: '',
+    propName: 'shouldCloseOnOverlayClick',
     propType: PROP_TYPES.BOOL,
 });
 
@@ -95,58 +111,27 @@ export const shouldDisableScroll = genArgType({
     propType: PROP_TYPES.BOOL,
 });
 
-export const shouldExitOnEscapePress = genArgType({
+export const shouldFocusAfterRender = genArgType({
     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
     defaultValue: true,
     // description: '',
-    propName: 'shouldExitOnEscapePress',
+    propName: 'shouldFocusAfterRender',
     propType: PROP_TYPES.BOOL,
 });
 
-export const shouldExitOnUnderlayClick = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    defaultValue: true,
-    // description: '',
-    propName: 'shouldExitOnUnderlayClick',
-    propType: PROP_TYPES.BOOL,
-});
-
-export const shouldFocusDialog = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    defaultValue: true,
-    // description: '',
-    propName: 'shouldFocusDialog',
-    propType: PROP_TYPES.BOOL,
-});
-
-export const focusTrapOptions = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
-    // description: '',
-    propName: 'focusTrapOptions',
-    propType: PROP_TYPES.OBJECT,
-});
-
-export const appNode = genArgType({
-    // controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
-    defaultValue: "document.getElementById('root')",
-    // description: '',
-    // isDisabled: true,
-    propName: 'appNode',
-    propType: `${PROP_TYPES.INSTANCE_OF}(Element)`,
-});
-
-export const renderTo = genArgType({
-    // controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-    // description: '',
-    propName: 'renderTo',
-    propType: [PROP_TYPES.STRING, PROP_TYPES.ELEMENT],
-});
-
-export const onEnter = genArgType({
+export const onAfterClose = genArgType({
     action: 'enter',
     defaultValue: '() => Promise.resolve()',
     // description: '',
-    propName: 'onEnter',
+    propName: 'onAfterClose',
+    propType: PROP_TYPES.FUNC,
+});
+
+export const onAfterOpen = genArgType({
+    action: 'enter',
+    defaultValue: '() => Promise.resolve()',
+    // description: '',
+    propName: 'onAfterOpen',
     propType: PROP_TYPES.FUNC,
 });
 
@@ -155,5 +140,13 @@ export const onExit = genArgType({
     defaultValue: '() => Promise.resolve()',
     // description: '',
     propName: 'onExit',
+    propType: PROP_TYPES.FUNC,
+});
+
+export const renderTo = genArgType({
+    // controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    defaultValue: '() => document.body',
+    // description: '',
+    propName: 'renderTo',
     propType: PROP_TYPES.FUNC,
 });

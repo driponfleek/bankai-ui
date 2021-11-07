@@ -14,7 +14,7 @@
         margin: auto;
     }
 
-    &__underlay {
+    &__overlay {
         @include bankai-flex-column;
         align-items: center;
     }
@@ -27,5 +27,18 @@
 
     .bankai-callout__title {
         font-style: italic;
+    }
+
+    &__overlay.bankai-aria-modal__overlay {
+        opacity: 0;
+        transition: opacity 150ms;
+    }
+
+    &__overlay.bankai-aria-modal__overlay--after-open {
+        opacity: 1;
+    }
+
+    &__overlay.bankai-aria-modal__overlay--before-close {
+        opacity: 0;
     }
 }

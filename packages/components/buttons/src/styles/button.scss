@@ -69,7 +69,7 @@
         color: var(--bankai-btn-primary-default-text-color, $bankai-btn-primary-default-text-color);
         background-color: var(--bankai-btn-primary-default-bg-color, $bankai-btn-primary-default-bg-color);
 
-        &:focus {
+        &:focus-visible {
             @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
         }
 
@@ -86,7 +86,7 @@
         background-color: var(--bankai-btn-secondary-default-bg-color, $bankai-btn-secondary-default-bg-color);
         border-color: var(--bankai-btn-secondary-default-border-color, $bankai-btn-secondary-default-border-color);
 
-        &:focus {
+        &:focus-visible {
             @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
         }
 
@@ -103,7 +103,7 @@
         color: var(--bankai-btn-primary-destructive-default-text-color, $bankai-btn-primary-destructive-default-text-color);
         background-color: var(--bankai-btn-primary-destructive-default-bg-color, $bankai-btn-primary-destructive-default-bg-color);
 
-        &:focus {
+        &:focus-visible {
             @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-destructive-focus-halo-color, rgba($bankai-btn-primary-destructive-default-bg-color, 0.4)));
         }
 
@@ -120,7 +120,7 @@
         background-color: var(--bankai-btn-secondary-destructive-default-bg-color, $bankai-btn-secondary-destructive-default-bg-color);
         border-color: var(--bankai-btn-secondary-destructive-default-border-color, $bankai-btn-secondary-destructive-default-border-color);
 
-        &:focus {
+        &:focus-visible {
             @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-destructive-focus-halo-color, rgba($bankai-btn-secondary-destructive-default-bg-color, 0.4)));
         }
 

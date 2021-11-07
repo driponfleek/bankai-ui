@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { StatusModal } from '@epr0t0type/bankai-ui-modals';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -23,11 +23,30 @@ const { bankaiUI: locale } = strings;
 
 class StatusModalGuide extends Component {
     static defaultProps = {
-        ...StatusModal.defaultProps,
+        isOpen: false,
+        role: 'dialog',
+        closeTimeoutMS: 2000,
+        appElement: document.getElementById('root'),
+        onAfterClose: () => Promise.resolve(),
+        onAfterOpen: () => Promise.resolve(),
+        renderTo: () => document.body,
     };
 
     static propTypes = {
-        ...StatusModal.propTypes,
+        dialogContextCls: PropTypes.string,
+        overlayContextCls: PropTypes.string,
+        role: PropTypes.string,
+        statusText: PropTypes.string.isRequired,
+        closeTimeoutMS: PropTypes.number,
+        isOpen: PropTypes.bool,
+        appElement: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.instanceOf(Element),
+        ]),
+        onAfterClose: PropTypes.func,
+        onAfterOpen: PropTypes.func,
+        renderIcon: PropTypes.func,
+        renderTo: PropTypes.func,
     };
 
     static displayName = locale.stories.components.modals.statusModal.title;
@@ -53,8 +72,8 @@ class StatusModalGuide extends Component {
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <p>
-                        Toggle the <CodeTag>isMounted</CodeTag> prop to
-                        show/hide the status modal
+                        Toggle the <CodeTag>isOpen</CodeTag> prop to show/hide
+                        the status modal
                     </p>
                     <StatusModal {...props} />
                 </ComponentPreview>

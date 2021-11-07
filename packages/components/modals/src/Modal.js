@@ -19,41 +19,52 @@ const {
 
 class Modal extends PureComponent {
     static defaultProps = {
+        role: 'dialog',
+        closeTimeoutMS: 150,
         hasCloseButton: true,
-        isMounted: false,
-        shouldExitOnEscapePress: true,
-        shouldExitOnUnderlayClick: true,
-        shouldFocusDialog: true,
+        isOpen: false,
+        shouldCloseOnEsc: true,
+        shouldCloseOnOverlayClick: true,
+        shouldFocusAfterRender: true,
         modalActions: [],
-        appNode: document.getElementById('root'),
-        onEnter: () => Promise.resolve(),
+        appElement: document.getElementById('root'),
+        onAfterClose: () => Promise.resolve(),
+        onAfterOpen: () => Promise.resolve(),
         onExit: () => Promise.resolve(),
         onActionClick: () => Promise.resolve(),
+        renderTo: () => document.body,
     };
 
     static propTypes = {
+        ariaDescribedby: PropTypes.string,
         ariaLabel: PropTypes.string,
         closeBtnARIALabel: PropTypes.string,
         dialogContextCls: PropTypes.string,
         dialogId: PropTypes.string,
+        role: PropTypes.string,
         subTitle: PropTypes.string,
         title: PropTypes.string,
         titleId: PropTypes.string,
-        underlayContextCls: PropTypes.string,
+        overlayContextCls: PropTypes.string,
+        closeTimeoutMS: PropTypes.number,
         hasCloseButton: PropTypes.bool,
-        isMounted: PropTypes.bool,
-        shouldExitOnEscapePress: PropTypes.bool,
-        shouldExitOnUnderlayClick: PropTypes.bool,
-        shouldFocusDialog: PropTypes.bool,
+        isOpen: PropTypes.bool,
+        shouldCloseOnEsc: PropTypes.bool,
+        shouldCloseOnOverlayClick: PropTypes.bool,
+        shouldFocusAfterRender: PropTypes.bool,
         focusTrapOptions: PropTypes.object,
         modalActions: PropTypes.array,
-        appNode: PropTypes.instanceOf(Element),
-        renderTo: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-        onEnter: PropTypes.func,
+        appElement: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.instanceOf(Element),
+        ]),
+        onAfterClose: PropTypes.func,
+        onAfterOpen: PropTypes.func,
         onExit: PropTypes.func,
         onActionClick: PropTypes.func,
         renderCloseButtonIcon: PropTypes.func,
         renderModalActions: PropTypes.func,
+        renderTo: PropTypes.func,
     };
 
     render() {
@@ -181,7 +192,7 @@ class Modal extends PureComponent {
             title,
             subTitle,
             titleId,
-            underlayContextCls,
+            overlayContextCls,
             hasCloseButton,
             modalActions,
             onActionClick,
@@ -194,9 +205,9 @@ class Modal extends PureComponent {
             ...rest,
             ...(!title && { titleId, ariaLabel }),
             ...(title && { titleId: this.titleId }),
-            underlayContextCls: cx(
-                `${this.baseCls}__underlay`,
-                underlayContextCls,
+            overlayContextCls: cx(
+                `${this.baseCls}__overlay`,
+                overlayContextCls,
             ),
         };
     };

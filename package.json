@@ -7,8 +7,9 @@
 		"@epr0t0type/eslint-config": "^0.0.0",
 		"@epr0t0type/prettier-config": "^0.0.0",
 		"@epr0t0type/stylelint-config": "^0.0.0",
-		"@rollup/plugin-commonjs": "19.0.1",
-		"@rollup/plugin-node-resolve": "13.0.4",
+		"@rollup/plugin-babel": "5.3.0",
+		"@rollup/plugin-commonjs": "21.0.1",
+		"@rollup/plugin-node-resolve": "13.0.6",
 		"autoprefixer": "10.2.4",
 		"cross-env": "7.0.3",
 		"eslint": "7.20.0",
@@ -28,13 +29,12 @@
 		"postcss-import": "14.0.0",
 		"postcss-reporter": "7.0.2",
 		"postcss-url": "10.1.1",
-		"rollup": "2.58.0",
-		"rollup-plugin-babel": "4.4.0",
+		"rollup": "2.59.0",
 		"rollup-plugin-peer-deps-external": "2.2.4",
-		"rollup-plugin-postcss": "4.0.0",
+		"rollup-plugin-postcss": "4.0.1",
 		"rollup-plugin-terser": "7.0.2",
 		"rollup-plugin-visualizer": "4.2.0",
-		"rxjs-compat": "6.6.3"
+		"rxjs-compat": "6.6.7"
 	},
 	"husky": {
 		"hooks": {
@@ -67,9 +67,9 @@
 		],
 		"moduleNameMapper": {
 			"\\.(less|css|scss)$": "<rootDir>/__mocks__/styleMock.js",
-            "dnd-core": "dnd-core/dist/cjs",
+			"dnd-core": "dnd-core/dist/cjs",
 			"^react-dnd$": "react-dnd/dist/cjs",
-            "react-dnd-html5-backend": "react-dnd-html5-backend/dist/cjs"
+			"react-dnd-html5-backend": "react-dnd-html5-backend/dist/cjs"
 		},
 		"roots": [
 			"packages",
