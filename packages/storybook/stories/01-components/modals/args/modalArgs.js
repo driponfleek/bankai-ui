@@ -1,16 +1,17 @@
 import {
     ariaLabel,
+    ariaDescribedby,
     dialogContextCls,
     dialogId,
+    role,
     titleId,
-    underlayContextCls,
-    shouldExitOnEscapePress,
-    shouldExitOnUnderlayClick,
-    shouldFocusDialog,
-    focusTrapOptions,
-    appNode,
+    overlayContextCls,
+    shouldCloseOnEsc,
+    shouldCloseOnOverlayClick,
+    shouldFocusAfterRender,
     renderTo,
-    onEnter,
+    onAfterClose,
+    onAfterOpen,
     onExit,
 } from './sharedModalArgs';
 import modalActions from '../mocks/modalMocks';
@@ -36,25 +37,23 @@ import PROP_TYPES from '../../../../const/reactPropTypesConst';
 export const args = {
     subTitle: 'Sub-Title Text',
     title: 'Title Text',
+    closeTimeoutMS: 150,
     hasCloseButton: true,
-    // isMounted: false,
-    shouldExitOnEscapePress: true,
-    shouldExitOnUnderlayClick: true,
-    shouldFocusDialog: true,
+    // isOpen: false,
+    shouldCloseOnEsc: true,
+    shouldCloseOnOverlayClick: true,
+    shouldFocusAfterRender: true,
     modalActions,
-    // modalActions: [],
-    // appNode: document.getElementById('root'),
-    // onEnter: () => Promise.resolve(),
+    // onAfterClose: () => Promise.resolve(),
+    // onAfterOpen: () => Promise.resolve(),
     // onExit: () => Promise.resolve(),
-    // onActionClick: (params) => {
-    //     console.log(params);
-
-    //     return params;
-    // },
+    // onActionClick: () => Promise.resolve(),
+    // renderTo: () => document.body,
 };
 
 export const argTypes = {
     ...ariaLabel,
+    ...ariaDescribedby,
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
         // description: '',
@@ -63,6 +62,7 @@ export const argTypes = {
     }),
     ...dialogContextCls,
     ...dialogId,
+    ...role,
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
         // description: '',
@@ -76,7 +76,14 @@ export const argTypes = {
         propType: PROP_TYPES.STRING,
     }),
     ...titleId,
-    ...underlayContextCls,
+    ...overlayContextCls,
+    ...genArgType({
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+        defaultValue: 150,
+        // description: '',
+        propName: 'closeTimeoutMS',
+        propType: PROP_TYPES.NUMBER,
+    }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
         defaultValue: true,
@@ -91,10 +98,9 @@ export const argTypes = {
         propName: 'isMounted',
         propType: PROP_TYPES.BOOL,
     }),
-    ...shouldExitOnEscapePress,
-    ...shouldExitOnUnderlayClick,
-    ...shouldFocusDialog,
-    ...focusTrapOptions,
+    ...shouldCloseOnEsc,
+    ...shouldCloseOnOverlayClick,
+    ...shouldFocusAfterRender,
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
         defaultValue: [],
@@ -102,9 +108,8 @@ export const argTypes = {
         propName: 'modalActions',
         propType: PROP_TYPES.ARRAY,
     }),
-    ...appNode,
-    ...renderTo,
-    ...onEnter,
+    ...onAfterClose,
+    ...onAfterOpen,
     ...onExit,
     ...genArgType({
         // action: 'action clicked',
@@ -123,4 +128,5 @@ export const argTypes = {
         propName: 'renderModalActions',
         propType: PROP_TYPES.FUNC,
     }),
+    ...renderTo,
 };

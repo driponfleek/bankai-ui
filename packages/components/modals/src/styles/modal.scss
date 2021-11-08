@@ -16,7 +16,7 @@
         max-width: 90%;
         max-height: 90%;
 
-        &__underlay {
+        &__overlay {
             @include bankai-flex-column;
             align-items: center;
         }
@@ -106,5 +106,18 @@
         #{$this}__heading-container {
             padding-right: 50px;
         }
+    }
+
+    &__overlay.bankai-aria-modal__overlay {
+        opacity: 0;
+        transition: opacity 150ms;
+    }
+
+    &__overlay.bankai-aria-modal__overlay--after-open {
+        opacity: 1;
+    }
+
+    &__overlay.bankai-aria-modal__overlay--before-close {
+        opacity: 0;
     }
 }

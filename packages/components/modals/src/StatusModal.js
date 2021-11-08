@@ -13,23 +13,38 @@ import './styles/status-modal.scss';
 
 class StatusModal extends PureComponent {
     static defaultProps = {
-        isMounted: false,
+        isOpen: false,
+        role: 'dialog',
+        closeTimeoutMS: 2000,
+        appElement: document.getElementById('root'),
+        onAfterClose: () => Promise.resolve(),
+        onAfterOpen: () => Promise.resolve(),
+        renderTo: () => document.body,
     };
 
     static propTypes = {
         dialogContextCls: PropTypes.string,
+        overlayContextCls: PropTypes.string,
+        role: PropTypes.string,
         statusText: PropTypes.string.isRequired,
-        underlayContextCls: PropTypes.string,
-        isMounted: PropTypes.bool,
+        closeTimeoutMS: PropTypes.number,
+        isOpen: PropTypes.bool,
+        appElement: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.instanceOf(Element),
+        ]),
+        onAfterClose: PropTypes.func,
+        onAfterOpen: PropTypes.func,
         renderIcon: PropTypes.func,
+        renderTo: PropTypes.func,
     };
 
     render() {
         const {
             dialogContextCls,
+            overlayContextCls,
             statusText,
-            underlayContextCls,
-            isMounted,
+            isOpen,
             renderIcon,
             ...rest
         } = this.props;
@@ -43,13 +58,13 @@ class StatusModal extends PureComponent {
                     `${this.baseCls}__dialog`,
                     dialogContextCls,
                 )}
-                underlayContextCls={cx(
-                    `${this.baseCls}__underlay`,
-                    underlayContextCls,
+                overlayContextCls={cx(
+                    `${this.baseCls}__overlay`,
+                    overlayContextCls,
                 )}
-                isMounted={isMounted}
-                shoudExitOnEscapePress={false}
-                shouldExitOnUnderlayClick={false}
+                isOpen={isOpen}
+                shouldCloseOnEsc={false}
+                shouldCloseOnOverlayClick={false}
             >
                 <LoadingState
                     contextCls={this.baseCls}

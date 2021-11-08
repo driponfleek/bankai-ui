@@ -7,7 +7,7 @@
         "@epr0t0type/bankai-ui-icons": "^0.0.0",
         "@epr0t0type/bankai-ui-loading": "^0.0.0",
         "@epr0t0type/bankai-ui-typography": "^0.0.0",
-        "react-aria-modal": "4.0.0",
+        "react-modal": "3.14.3",
         "uuid": "8.3.2"
     },
     "description": "Bankai modals",

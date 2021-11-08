@@ -7,7 +7,7 @@
 .bankai-aria-modal {
     $this: &;
 
-    &__underlay {
+    &__overlay {
         @include bankai-scroll-y;
         width: 100%;
         height: 100%;
@@ -31,7 +31,7 @@
         }
     }
 
-    &--exits-on-underlay-click &__underlay {
+    &--overlay-clickable {
         cursor: pointer;
     }
 }
