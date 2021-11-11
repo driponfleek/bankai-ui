@@ -47,7 +47,7 @@
 
     &__title {
         @include bankai-h5;
-        font-size: $bankai-type-base-size;
+        font-size: var(--bankai-type-base-size, $bankai-type-base-size);
         font-weight: bold;
     }
 

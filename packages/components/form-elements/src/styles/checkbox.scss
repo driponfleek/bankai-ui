@@ -25,9 +25,9 @@
     }
 
     &__container {
-        background-color: $bankai-white;
+        background-color: var(--bankai-form-input-bg-color, $bankai-form-input-bg-color);
         box-sizing: border-box;
-        border: 1px solid var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        border: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
         border-radius: 5px;
         display: block;
         z-index: 1;
@@ -52,8 +52,6 @@
 
     &__icon {
         font-size: 20px;
-        // margin: auto;
-        // flex: 0 0 auto;
         margin-top: 50%;
         margin-left: 50%;
         transform: translate3d(-50%, -50%, 0);

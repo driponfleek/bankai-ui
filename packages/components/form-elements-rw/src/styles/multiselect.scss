@@ -20,7 +20,7 @@
     }
 
     .rw-widget-picker {
-        border-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        border-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
     }
 
     &.rw-state-focus .rw-widget-picker {
@@ -39,7 +39,7 @@
     }
 
     .rw-picker-caret {
-        color: $bankai-text-color;
+        color: var(--bankai-text-color, $bankai-text-color);
     }
 
     &__busy-spinner {

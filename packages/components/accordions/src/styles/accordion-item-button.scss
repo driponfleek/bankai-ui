@@ -15,7 +15,7 @@
 
     @media (hover: hover) {
         &:hover {
-            background-color: $bankai-neutral-90;
+            background-color: var(--bankai-neutral-90, $bankai-neutral-90);
             cursor: pointer;
         }
     }

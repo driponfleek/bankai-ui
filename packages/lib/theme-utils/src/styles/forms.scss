@@ -14,7 +14,6 @@ $css-vars-use-native: true;
         // Globals
         // ========================================================
         --bankai-form-input-bg-color: $bankai-form-input-bg-color,
-        --bankai-form-input-border-color: $bankai-form-input-border-color,
         --bankai-form-input-border-radius: $bankai-form-input-border-radius,
         --bankai-form-input-placeholder-text: $bankai-form-input-placeholder-text,
         --bankai-form-input-disabled-bg-color: $bankai-form-input-disabled-bg-color,
@@ -44,9 +43,11 @@ $css-vars-use-native: true;
         // Toggles
         // ========================================================
         --bankai-toggle-switch-knob-color: $bankai-white,
+        --bankai-toggle-switch-track-color: $bankai-neutral-20,
         --bankai-toggle-switch-busy-icon-color: $bankai-white,
         --bankai-toggle-switch-focus-halo-color: rgba($bankai-affirmative-color, 0.4),
         --bankai-toggle-switch-on-knob-color: $bankai-white,
+        --bankai-toggle-switch-on-knob-border-color: $bankai-neutral-30,
         --bankai-toggle-switch-on-busy-icon-color: $bankai-black,
         --bankai-toggle-switch-on-track-color: $bankai-affirmative-color,
         --bankai-toggle-switch-on-track-hover-color: darken($bankai-affirmative-color, 10%),

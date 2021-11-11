@@ -6,7 +6,7 @@ import TabsList from './TabsList';
 import TabsWrapper from './TabsWrapper';
 
 // Constants
-import VARIANTS from './const/tabVariantsConst';
+import VARIANTS from './const/variantsConst';
 
 // Styles
 import './styles/tabs.scss';

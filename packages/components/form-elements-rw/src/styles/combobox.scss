@@ -14,6 +14,10 @@
 .bankai-combobox {
     display: inline-block;
 
+    .rw-widget-picker {
+        background-color: var(--bankai-form-input-bg-color, $bankai-form-input-bg-color);
+    }
+
     .rw-widget-picker,
     .rw-popup {
         border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);
@@ -21,7 +25,7 @@
 
     .rw-widget-picker,
     .rw-picker-btn {
-        border-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        border-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
     }
 
     &.rw-state-focus .rw-widget-picker {
@@ -33,13 +37,13 @@
     }
 
     .rw-picker-btn {
-        color: $bankai-text-color;
-        background-color: $bankai-white;
+        color: var(--bankai-text-color, $bankai-text-color);
+        background-color: var(var(--bankai-form-input-bg-color, $bankai-form-input-bg-color));
         width: 30px;
 
         @media (hover: hover) {
             &:hover {
-                background-color: $bankai-neutral-90;
+                background-color: var(--bankai-neutral-hover-bg-color, $bankai-neutral-hover-bg-color);
             }
         }
     }

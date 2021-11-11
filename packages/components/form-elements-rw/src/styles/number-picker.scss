@@ -50,14 +50,14 @@
 
         @media (hover: hover) {
             &:hover {
-                background-color: $bankai-neutral-90;
+                background-color: var(--bankai-neutral-hover-bg-color, $bankai-neutral-hover-bg-color);
             }
         }
     }
 
     .rw-widget-container,
     .rw-number-picker-spinners {
-        border-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        border-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
     }
 
     &.rw-state-disabled {

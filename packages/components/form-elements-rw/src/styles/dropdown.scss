@@ -37,7 +37,7 @@
 
     .rw-widget-container {
         @include bankai-flex-row;
-        border-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        border-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
     }
 
     .rw-dropdown-list-value {
