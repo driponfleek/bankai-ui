@@ -15,7 +15,7 @@
 
     .react-toggle-thumb {
         background-color: var(--bankai-toggle-switch-knob-color, $bankai-white);
-        border-color: $bankai-neutral-30;
+        border-color: var(--bankai-toggle-switch-knob-border-color, $bankai-neutral-30);
     }
 
     .react-toggle--focus .react-toggle-thumb {
@@ -31,7 +31,7 @@
     }
 
     &:hover .react-toggle-track {
-        background-color: $bankai-neutral-20;
+        background-color: var(--bankai-toggle-switch-track-color, $bankai-neutral-20);
     }
 
     .react-toggle--disabled {
@@ -41,7 +41,7 @@
     // stylelint-disable-next-line
     .react-toggle-track,
     .react-toggle--disabled:hover .react-toggle-track {
-        background-color: $bankai-neutral-30;
+        background-color: var(--bankai-toggle-switch-track-color, $bankai-neutral-20);
     }
 
     // stylelint-disable-next-line

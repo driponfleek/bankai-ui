@@ -166,6 +166,12 @@
                     "tabs": {
                         "title": "Tabs"
                     }
+                },
+                "toasters": {
+                    "categoryTitle": "Toasters",
+                    "toaster": {
+                        "title": "Toaster"
+                    }
                 }
             },
             "intro": {

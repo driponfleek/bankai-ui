@@ -17,7 +17,7 @@ export const CONTROL_TYPE_NAMES = {
 
 export const CONTROL_TYPES = {
     [CONTROL_TYPE_NAMES.BOOL]: 'boolean',
-    [CONTROL_TYPE_NAMES.NUMB]: 'number',
+    [CONTROL_TYPE_NAMES.NUM]: 'number',
     [CONTROL_TYPE_NAMES.RANGE]: 'range',
     [CONTROL_TYPE_NAMES.OBJ]: 'object',
     [CONTROL_TYPE_NAMES.FILE]: 'file',

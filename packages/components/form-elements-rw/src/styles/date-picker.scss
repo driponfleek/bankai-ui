@@ -20,7 +20,8 @@
 
     > .rw-widget-picker {
         @include bankai-flex-row;
-        border-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        background-color: var(--bankai-form-input-bg-color, $bankai-canvas-primary);
+        border-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
     }
 
     &.rw-state-focus .rw-widget-picker {
@@ -29,13 +30,13 @@
 
     .rw-picker-btn {
         width: 30px;
-        color: $bankai-text-color-alt;
-        border-left-color: var(--bankai-form-input-border-color, $bankai-form-input-border-color);
+        color: var(--bankai-text-color-alt, $bankai-text-color-alt);
+        border-left-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
         flex: 0 0 auto;
 
         @media (hover: hover) {
             &:hover {
-                background-color: $bankai-neutral-90;
+                background-color: var(--bankai-neutral-hover-bg-color, $bankai-neutral-hover-bg-color);
             }
         }
     }
@@ -59,7 +60,7 @@
 
         @media (hover: hover) {
             &:hover {
-                background-color: $bankai-neutral-90;
+                background-color: var(--bankai-neutral-hover-bg-color, $bankai-neutral-hover-bg-color);
             }
         }
     }
@@ -70,11 +71,12 @@
     }
 
     .rw-cell-off-range {
-        color: $bankai-neutral-60;
+        color: var(--bankai-neutral-60, $bankai-neutral-60);
     }
 
     .rw-widget-input {
         min-width: 1px;
+        background-color: var(--bankai-form-input-bg-color, $bankai-canvas-primary);
         text-overflow: ellipsis;
         line-height: $bankai-lineheight;
         padding: 0.7rem 1rem;
@@ -87,7 +89,7 @@
     }
 
     .rw-widget {
-        color: $bankai-text-color;
+        color: var(--bankai-text-color, $bankai-text-color);
     }
 
     &.rw-state-disabled,
@@ -114,8 +116,8 @@
         }
 
         .rw-input-addon.rw-picker-btn {
+            background-color: var(--bankai-form-input-bg-color, $bankai-canvas-primary);
             border-color: var(--bankai-form-input-error-border-color, $bankai-form-input-error-border-color);
-            background: $bankai-white;
         }
     }
 }

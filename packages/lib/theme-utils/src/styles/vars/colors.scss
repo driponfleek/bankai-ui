@@ -44,16 +44,19 @@ $bankai-neutral-80: $neutral-80;
 $bankai-neutral-90: $neutral-90;
 $bankai-neutral-95: $neutral-95;
 $bankai-white: $white;
+// Generic
+$bankai-neutral-border-color: $bankai-neutral-80;
+$bankai-neutral-hover-bg-color: $bankai-neutral-90;
 // Canvas Colors
 $bankai-canvas-primary: $bankai-white;
 $bankai-canvas-alt: $bankai-neutral-95;
 // Status Colors
 $bankai-affirmative-color: #81ba45;
-$bankai-cautionary-color: #faea05;
+$bankai-cautionary-color: #fccf03;
 $bankai-error-color: #c33;
 // Informative Colors
 $bankai-destructive-color: $bankai-error-color;
-$bankai-info-color: #00f;
+$bankai-info-color: #1565c0;
 // Typography
 $bankai-link-color: #1b80e4;
 $bankai-text-color: $bankai-black;
@@ -90,7 +93,7 @@ $bankai-split-btn-secondary-destructive-border-color: #521414;
 $bankai-form-checked-state-bg-color: $bankai-primary-color;
 $bankai-form-checked-state-icon-color: $bankai-white;
 $bankai-form-input-bg-color: $bankai-white;
-$bankai-form-input-border-color: $bankai-neutral-80;
+// $bankai-form-input-border-color: $bankai-neutral-80;
 $bankai-form-input-disabled-bg-color: $bankai-neutral-90;
 $bankai-form-input-disabled-placeholder-text: $bankai-neutral-40;
 $bankai-form-input-error-border-color: $bankai-error-color;

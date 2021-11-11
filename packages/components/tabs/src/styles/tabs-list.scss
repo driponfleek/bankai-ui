@@ -13,10 +13,4 @@
 .bankai-tabs-list {
     @include bankai-flex-row;
     box-sizing: border-box;
-
-    // &__container {
-    //     @include bankai-list-reset;
-    //     @include bankai-flex-row;
-    //     box-sizing: border-box;
-    // }
 }

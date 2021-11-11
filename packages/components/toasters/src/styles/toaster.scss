@@ -1,0 +1,107 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~react-toastify/dist/ReactToastify.css';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-toaster {
+    @include bankai-box-shadow-elevated($bankai-black);
+    color: var(--bankai-toaster-default-text-color, $bankai-text-color);
+    background-color: var(--bankai-toaster-default-bg-color, $bankai-canvas-primary);
+    border-radius: var(--bankai-toaster-border-radius, 10px);
+    padding: 0;
+
+    // stylelint-disable-next-line
+    .Toastify__toast-body {
+        padding: 0;
+    }
+
+    [class*='progress-bar'] {
+        background: rgba($bankai-black, 0.3);
+    }
+
+    &__close-btn {
+        color: inherit;
+        background-color: transparent;
+        align-self: flex-start;
+        border-radius: 0 var(--bankai-toaster-border-radius, 10px) 0 0;
+
+        .bankai-button__content-container {
+            padding: 0.5rem;
+        }
+
+        .bankai-button__icon {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__content-container {
+        @include bankai-flex-row;
+    }
+
+    &__icon-container {
+        @include bankai-flex-row;
+        width: 70px;
+        min-height: 50px;
+        flex: 0 0 auto;
+    }
+
+    &__icon-safe-space {
+        width: 1em;
+        height: 1em;
+        font-size: 3rem;
+        margin: auto;
+    }
+
+    &__icon {
+        font-size: inherit;
+    }
+
+    &__icon-container,
+    &__icon-safe-space,
+    &__icon {
+        line-height: 0;
+    }
+
+    &__msg-container {
+        min-width: 1px;
+        padding: 1rem;
+        flex: 1 1 auto;
+    }
+
+    &__title {
+        @include bankai-h5;
+        font-weight: bold;
+    }
+
+    &__msg {
+        @include bankai-max-line-width;
+        line-height: $bankai-lineheight;
+        margin: 0;
+    }
+
+    &--error {
+        color: var(--bankai-toaster-error-text-color, $bankai-white);
+        background-color: var(--bankai-toaster-error-bg-color, $bankai-error-color);
+    }
+
+    &--info {
+        color: var(--bankai-toaster-info-text-color, $bankai-white);
+        background-color: var(--bankai-toaster-info-bg-color, $bankai-info-color);
+    }
+
+    &--success {
+        color: var(--bankai-toaster-success-text-color, $bankai-white);
+        background-color: var(--bankai-toaster-success-bg-color, $bankai-affirmative-color);
+    }
+
+    &--warning {
+        color: var(--bankai-toaster-warning-text-color, $bankai-text-color);
+        background-color: var(--bankai-toaster-warning-bg-color, $bankai-cautionary-color);
+    }
+}

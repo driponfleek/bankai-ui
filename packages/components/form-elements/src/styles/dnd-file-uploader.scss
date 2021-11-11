@@ -19,7 +19,7 @@
         text-align: center;
         box-sizing: border-box;
         border-radius: var(--bankai-dnd-dropzone-border-radius, $bankai-form-input-border-radius);
-        border: 2px dashed var(--bankai-dnd-dropzone-border-color, $bankai-form-input-border-color);
+        border: 2px dashed var(--bankai-neutral-border-color, $bankai-neutral-border-color);
         padding: 1.5rem;
     }
 

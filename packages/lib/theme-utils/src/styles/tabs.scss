@@ -10,7 +10,7 @@ $css-vars-use-native: true;
 :root {
     @include css-vars((
         --bankai-tabs-active-accent-color: $bankai-tabs-active-accent-color,
-        --bankai-tabs-active-bg-color: $bankai-tabs-active-bg-color,
+        --bankai-tabs-active-bg-color: var(--bankai-canvas-primary, $bankai-tabs-active-bg-color),
         --bankai-tabs-active-text-color: $bankai-tabs-active-text-color,
         --bankai-tabs-active-focus-halo-color: rgba($bankai-tabs-active-accent-color, 0.4),
         --bankai-tabs-inactive-bg-color: $bankai-tabs-inactive-bg-color,

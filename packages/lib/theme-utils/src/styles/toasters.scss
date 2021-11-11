@@ -1,0 +1,39 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~css-vars/css-vars.scss';
+@import './vars/colors.scss';
+
+// Needed to make Native CSS Custom Props work
+$css-vars-use-native: true;
+
+:root {
+    @include css-vars((
+        --bankai-toaster-border-radius: 10px,
+        // ========================================================
+        // Default
+        // ========================================================
+        --bankai-toaster-default-bg-color: var(--bankai-canvas-primary, $bankai-canvas-primary),
+        --bankai-toaster-default-text-color: $bankai-text-color,
+        // ========================================================
+        // Error
+        // ========================================================
+        --bankai-toaster-error-bg-color: var(--bankai-error-color, $bankai-error-color),
+        --bankai-toaster-error-text-color: $bankai-white,
+        // ========================================================
+        // Info
+        // ========================================================
+        --bankai-toaster-info-bg-color: var(--bankai-info-color, $bankai-info-color),
+        --bankai-toaster-info-text-color: $bankai-white,
+        // ========================================================
+        // Success
+        // ========================================================
+        --bankai-toaster-success-bg-color: var(--bankai-affirmative-color, $bankai-affirmative-color),
+        --bankai-toaster-success-text-color: $bankai-text-color,
+        // ========================================================
+        // Warning
+        // ========================================================
+        --bankai-toaster-warning-bg-color: var(--bankai-cautionary-color, $bankai-cautionary-color),
+        --bankai-toaster-warning-text-color: $bankai-text-color,
+    ));
+}
