@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import {
     Toaster,
-    // dismissToasters,
+    dismissToasters,
     // TOASTER_POSITIONS,
     // TOASTER_VARIANTS,
 } from '@epr0t0type/bankai-ui-toasters';
@@ -103,6 +103,10 @@ class ToasterGuide extends PureComponent {
         );
     }
 
+    componentWillUnmount() {
+        dismissToasters();
+    }
+
     renderDemo() {
         return (
             <StorySection>
@@ -118,10 +122,7 @@ class ToasterGuide extends PureComponent {
                         onClick={this.handleDismissToasterClick}
                     /> */}
                 </ComponentPreview>
-                <Paragraph>
-                    Here you should write some introductory text summarizing the
-                    component.
-                </Paragraph>
+                <Paragraph>Coming Soon.</Paragraph>
             </StorySection>
         );
     }
@@ -161,7 +162,7 @@ class ToasterGuide extends PureComponent {
             Toaster({
                 ...this.props,
                 toastId: this.toastId,
-                onClose: this.handleClose,
+                onClose: this.handleDemoToasterClose,
             });
         }
     };

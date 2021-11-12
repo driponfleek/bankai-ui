@@ -14,7 +14,7 @@ const allowedVariants = Object.keys(VARIANTS).map(
 
 export const getContainerProps = (props) => {
     const {
-        appNodeId,
+        appElement,
         containerId,
         limit,
         isRTL: rtl,
@@ -24,7 +24,7 @@ export const getContainerProps = (props) => {
 
     return {
         ...toastContainerProps,
-        appNodeId,
+        appElement,
         containerId,
         icon: false,
         limit,
@@ -90,7 +90,6 @@ export const getValidVariant = (variant) => {
 };
 
 export const getDefaultProps = () => ({
-    appNodeId: 'root',
     containerId: 'bankai-toast-container',
     dragDirection: 'x',
     position: BOTTOM_RIGHT,
@@ -107,14 +106,11 @@ export const getDefaultProps = () => ({
     shouldPauseOnHover: false,
     shouldPlaceNewestOnTop: true,
     shouldShowIcon: true,
+    appElement: document.querySelector('body'),
     onClick: () => Promise.resolve(),
     onClose: () => Promise.resolve(),
     onOpen: () => Promise.resolve(),
 });
-
-// export const dismissToasters = toast.dismiss;
-
-// export const isToasterActive = toast.isActive;
 
 export const {
     clearWaitingQueue,
