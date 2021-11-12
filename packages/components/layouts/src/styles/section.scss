@@ -1,0 +1,40 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-section {
+    @include bankai-box-shadow-subtle;
+    background-color: var(--bankai-canvas-primary, $bankai-canvas-primary);
+    border-radius: var(--bankai-section-border-radius, 20px);
+
+    &__heading-container {
+        border-bottom: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
+    }
+
+    &__heading-container,
+    &__content-container,
+    &__content-container-inner {
+        box-sizing: border-box;
+
+        :first-child {
+            margin-top: 0;
+        }
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__heading {
+        @include bankai-h3;
+        color: var(--bankai-text-color-alt, $bankai-text-color-alt);
+    }
+
+    &__heading-container,
+    &--pad-content &__content-container-inner {
+        padding: 1rem 1.5rem;
+    }
+}

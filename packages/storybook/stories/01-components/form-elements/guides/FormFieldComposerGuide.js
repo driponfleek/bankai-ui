@@ -4,7 +4,7 @@ import {
     TextInput,
     Checkbox,
     FormFieldComposer,
-    FORM_FIELD_COMP_MODES,
+    FORM_FIELD_COMP_VARIANTS,
 } from '@epr0t0type/bankai-ui-form-elements';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -26,11 +26,11 @@ import { getComponentsTitle } from '../../../../utils/storiesConfig';
 const { bankaiUI: locale } = strings;
 const ComposedTextInput = FormFieldComposer(TextInput);
 const ComposedCheckbox = FormFieldComposer(Checkbox);
-const { STACKED, TOGGLE } = FORM_FIELD_COMP_MODES;
+const { STACKED, TOGGLE } = FORM_FIELD_COMP_VARIANTS;
 
 class FormFieldComposerGuide extends PureComponent {
     static defaultProps = {
-        mode: STACKED,
+        variant: STACKED,
         hasError: false,
         isDisabled: false,
         isReadOnly: false,
@@ -41,7 +41,7 @@ class FormFieldComposerGuide extends PureComponent {
     static propTypes = {
         contextCls: PropTypes.string,
         id: PropTypes.string,
-        mode: PropTypes.string,
+        variant: PropTypes.string,
         hasError: PropTypes.bool,
         isDisabled: PropTypes.bool,
         isReadOnly: PropTypes.bool,
@@ -75,8 +75,9 @@ class FormFieldComposerGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
-        const { mode } = props;
-        const DemoComp = mode === TOGGLE ? ComposedCheckbox : ComposedTextInput;
+        const { variant } = props;
+        const DemoComp =
+            variant === TOGGLE ? ComposedCheckbox : ComposedTextInput;
 
         return (
             <StorySection>
