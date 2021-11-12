@@ -1,19 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { ToastContainer as ToasterListener } from 'react-toastify';
 
 const ToastContainer = (props) => {
-    const { appNodeId, containerId, ...rest } = props;
+    const {
+        appElement = document.querySelector('body'),
+        containerId = 'bankai-toast-listener-container',
+        ...rest
+    } = props;
     const id = `${containerId}-listener`;
     const isAlreadyRendered = !!document.getElementById(id);
-    const appDOMNode = document.getElementById(appNodeId);
+    const shouldRenderContainer = !isAlreadyRendered && !!appElement;
 
-    if (!isAlreadyRendered && appDOMNode) {
+    if (shouldRenderContainer) {
         const div = document.createElement('div');
         div.setAttribute('id', id);
         div.className = id;
-        appDOMNode.appendChild(div);
+        appElement.appendChild(div);
         ReactDOM.render(
             <ToasterListener
                 {...rest}
@@ -25,14 +29,14 @@ const ToastContainer = (props) => {
     }
 };
 
-ToastContainer.defaultProps = {
-    appNodeId: 'root',
-    containerId: 'bankai-toast-listener-container',
-};
+// ToastContainer.defaultProps = {
+//     appElement: document.querySelector('body'),
+//     containerId: 'bankai-toast-listener-container',
+// };
 
-ToastContainer.defaultProps = {
-    appNodeId: PropTypes.string,
-    containerId: PropTypes.string,
-};
+// ToastContainer.defaultProps = {
+//     appElement: PropTypes.instanceOf(Element),
+//     containerId: PropTypes.string,
+// };
 
 export default ToastContainer;
