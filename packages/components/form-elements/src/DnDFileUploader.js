@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
-import { Dropzone } from '@epr0t0type/bankai-ui-drag-and-drop';
+import {
+    Dropzone,
+    DndProvider,
+    HTML5Backend,
+    NativeTypes,
+} from '@epr0t0type/bankai-ui-drag-and-drop';
 import {
     BankaiBan,
     BankaiCloudUpload,
     BankaiSpinner,
     BankaiX,
 } from '@epr0t0type/bankai-ui-icons';
-import { DndProvider } from 'react-dnd';
-import HTML5Backend, { NativeTypes } from 'react-dnd-html5-backend';
 
 // Utils
 import {
