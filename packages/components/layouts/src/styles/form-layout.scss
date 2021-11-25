@@ -1,0 +1,15 @@
+// ========================================================
+// Dependencies
+// ========================================================
+
+.bankai-form-layout {
+    box-sizing: border-box;
+
+    &-section + &-section {
+        margin-top: 50px;
+    }
+
+    &--pad-content {
+        padding: 1.5rem;
+    }
+}

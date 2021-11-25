@@ -19,7 +19,7 @@ class InlineFormError extends PureComponent {
         id: PropTypes.string,
         isErrorPolite: PropTypes.bool,
         isErrorAtomic: PropTypes.bool,
-        renderCustomError: PropTypes.func,
+        renderError: PropTypes.func,
     };
 
     render() {
@@ -39,10 +39,16 @@ class InlineFormError extends PureComponent {
     }
 
     renderError() {
-        const { renderCustomError } = this.props;
+        const {
+            isErrorPolite,
+            isErrorAtomic,
+            errorARIARelevant,
+            renderError,
+            ...rest
+        } = this.props;
 
-        return renderCustomError
-            ? this.renderCustomError()
+        return renderError
+            ? renderError({ ...rest })
             : this.renderDefaultError();
     }
 
@@ -57,18 +63,6 @@ class InlineFormError extends PureComponent {
                 <span className={`${this.baseCls}__text`}>{errorText}</span>
             </Fragment>
         );
-    }
-
-    renderCustomError() {
-        const {
-            isErrorPolite,
-            isErrorAtomic,
-            errorARIARelevant,
-            renderCustomError,
-            ...rest
-        } = this.props;
-
-        return renderCustomError({ ...rest });
     }
 
     getARIAProps() {
@@ -91,9 +85,9 @@ class InlineFormError extends PureComponent {
     }
 
     getHasError() {
-        const { errorText, renderCustomError } = this.props;
+        const { errorText, renderError } = this.props;
 
-        return !!errorText || !!renderCustomError;
+        return !!errorText || !!renderError;
     }
 
     baseCls = 'bankai-inline-form-error';

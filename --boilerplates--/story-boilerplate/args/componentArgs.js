@@ -1,5 +1,3 @@
-// import React from 'react';
-// import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
 // import { BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 // import { genArgType } from '../../../../utils/argTypesUtils';
 
@@ -13,28 +11,18 @@
 // // Locale
 // import strings from '../../../../i18n/strings.json';
 
-// const {
-//     LINK,
-//     PRIMARY,
-//     PRIMARY_DESTRUCTIVE,
-//     SECONDARY,
-//     SECONDARY_DESTRUCTIVE,
-// } = BTN_VARIANTS;
-
 // // Reference:
 // // https://storybook.js.org/docs/react/essentials/controls
 // // https://storybook.js.org/docs/react/essentials/actions
 // // https://storybook.js.org/docs/react/api/argtypes
 
 // const { bankaiUI: locale } = strings;
-// const renderIcon = () => <BankaiCirclePlus />;
 
 // export const args = {
 //     text: 'Button Text',
 //     type: 'button',
 //     isBusy: false,
 //     isDisabled: false,
-//     renderIcon,
 // };
 
 // export const argTypes = {
@@ -62,13 +50,9 @@
 //         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
 //         defaultValue: undefined,
 //         description: 'Use to set the button variant.',
-//         options: [
-//             LINK,
-//             PRIMARY,
-//             PRIMARY_DESTRUCTIVE,
-//             SECONDARY,
-//             SECONDARY_DESTRUCTIVE,
-//         ],
+//         options: Object.keys(BTN_VARIANTS).map(
+//             (VARIANT) => BTN_VARIANTS[VARIANT],
+//         ),
 //         propName: 'variant',
 //         propType: PROP_TYPES.STRING,
 //     }),

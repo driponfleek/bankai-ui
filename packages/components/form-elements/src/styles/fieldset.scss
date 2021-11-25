@@ -1,0 +1,27 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+
+.bankai-fieldset {
+    box-sizing: border-box;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    &__legend {
+        @include bankai-h5;
+    }
+
+    &__legend + * {
+        margin-top: 15px;
+    }
+
+    &__content-container {
+        box-sizing: border-box;
+    }
+
+    &--should-indent-content &__content-container {
+        padding-left: 1.5rem;
+    }
+}

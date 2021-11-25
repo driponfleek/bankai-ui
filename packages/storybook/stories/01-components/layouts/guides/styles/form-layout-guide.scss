@@ -1,0 +1,15 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+
+.bankai-sb-form-layout-guide {
+    .bankai-sb-component-preview--check-a11y {
+        .bankai-form-field-composer,
+        .bankai-text-input,
+        .bankai-textarea,
+        .bankai-date-picker {
+            width: 100%;
+        }
+    }
+}
