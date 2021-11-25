@@ -35,8 +35,6 @@
         "@epr0t0type/bankai-ui-form-elements": "^0.0.0",
         "@epr0t0type/bankai-ui-form-elements-rw": "^0.0.0",
         "@epr0t0type/bankai-ui-icons": "^0.0.0",
-        "@epr0t0type/bankai-ui-layouts": "^0.0.0",
-        "@epr0t0type/bankai-ui-lists": "^0.0.0",
         "@epr0t0type/bankai-ui-loading": "^0.0.0",
         "@epr0t0type/bankai-ui-modals": "^0.0.0",
         "@epr0t0type/bankai-ui-tabs": "^0.0.0",

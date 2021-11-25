@@ -71,6 +71,30 @@ export const argTypes = {
         propName: 'contextCls',
         propType: PROP_TYPES.STRING,
     }),
+    // ...genArgType({
+    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    //     description: locale.shared.propDesc.formId,
+    //     propName: 'id',
+    //     propType: PROP_TYPES.STRING,
+    // }),
+    // ...genArgType({
+    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    //     description: locale.shared.propDesc.formName,
+    //     propName: 'name',
+    //     propType: PROP_TYPES.STRING,
+    // }),
+    // ...genArgType({
+    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    //     description: locale.shared.propDesc.formPlaceholder,
+    //     propName: 'placeholder',
+    //     propType: PROP_TYPES.STRING,
+    // }),
+    // ...genArgType({
+    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    //     description: locale.shared.propDesc.formValue,
+    //     propName: 'value',
+    //     propType: [PROP_TYPES.STRING, PROP_TYPES.ARRAY, PROP_TYPES.OBJECT],
+    // }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
         defaultValue: 'false',

@@ -1,7 +1,6 @@
 export { default as Checkbox } from './src/Checkbox';
 export { default as ColorPicker } from './src/ColorPicker';
 export { default as DnDFileUploader } from './src/DnDFileUploader';
-export { default as Fieldset } from './src/Fieldset';
 export { default as FormControlHint } from './src/FormControlHint';
 export { default as FormFieldComposer } from './src/FormFieldComposer';
 export { default as FormLabel } from './src/FormLabel';
@@ -11,7 +10,7 @@ export { default as Radio } from './src/Radio';
 export { default as Textarea } from './src/Textarea';
 export { default as TextInput } from './src/TextInput';
 export { default as ToggleSwitch } from './src/ToggleSwitch';
-export { default as FORM_FIELD_COMP_VARIANTS } from './src/const/formFieldComposerVariantsConst';
+export { default as FORM_FIELD_COMP_MODES } from './src/const/formFieldComposerModesConst';
 export {
     DOC_FILE_TYPES,
     DOC_FILE_MIME_TYPES,

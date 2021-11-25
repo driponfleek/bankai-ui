@@ -8,17 +8,17 @@ import FormLabelSubtext from './FormLabelSubtext';
 import InlineFormError from './InlineFormError';
 
 // Constants
-import VARIANTS from './const/formFieldComposerVariantsConst';
+import MODES from './const/formFieldComposerModesConst';
 
 // Styles
 import './styles/form-field-composer.scss';
 
-const { INLINE_LEFT, INLINE_RIGHT, STACKED, TOGGLE } = VARIANTS;
+const { INLINE_LEFT, INLINE_RIGHT, STACKED, TOGGLE } = MODES;
 
 const withFormField = (Comp) =>
     class FormField extends Component {
         static defaultProps = {
-            variant: STACKED,
+            mode: STACKED,
             hasError: false,
             isDisabled: false,
             isReadOnly: false,
@@ -29,7 +29,7 @@ const withFormField = (Comp) =>
         static propTypes = {
             contextCls: PropTypes.string,
             id: PropTypes.string,
-            variant: PropTypes.string,
+            mode: PropTypes.string,
             hasError: PropTypes.bool,
             isDisabled: PropTypes.bool,
             isReadOnly: PropTypes.bool,
@@ -42,11 +42,11 @@ const withFormField = (Comp) =>
         };
 
         render() {
-            const { contextCls, variant } = this.props;
+            const { contextCls, mode } = this.props;
             const modCls = this.getModCls();
             let renderer;
 
-            switch (variant) {
+            switch (mode) {
                 case INLINE_LEFT:
                     renderer = this.renderInlineLeft;
                     break;
@@ -129,14 +129,9 @@ const withFormField = (Comp) =>
 
         renderHints = () => {
             const { shouldIncludeError, shouldIncludeHint } = this.props;
-            const isDisplayingHint = this.getHasHint() || this.getHasError();
-            const hintBaseCls = `${this.baseCls}__hints-container`;
-            const modCls = {
-                [`${hintBaseCls}--is-displaying-hint`]: isDisplayingHint,
-            };
 
             return (
-                <div className={cx(hintBaseCls, modCls)}>
+                <div className={`${this.baseCls}__hints-container`}>
                     {shouldIncludeError && this.renderError()}
                     {shouldIncludeHint && this.renderHint()}
                 </div>
@@ -186,15 +181,15 @@ const withFormField = (Comp) =>
         };
 
         getModCls = () => {
-            const { variant, isDisabled, isReadOnly } = this.props;
+            const { mode, isDisabled, isReadOnly } = this.props;
 
             return {
                 [`${this.baseCls}--is-disabled`]: isDisabled,
-                [`${this.baseCls}--is-inline-left`]: variant === INLINE_LEFT,
-                [`${this.baseCls}--is-inline-right`]: variant === INLINE_RIGHT,
+                [`${this.baseCls}--is-inline-left`]: mode === INLINE_LEFT,
+                [`${this.baseCls}--is-inline-right`]: mode === INLINE_RIGHT,
                 [`${this.baseCls}--is-read-only`]: isReadOnly,
-                [`${this.baseCls}--is-stacked`]: variant === STACKED,
-                [`${this.baseCls}--is-toggle`]: variant === TOGGLE,
+                [`${this.baseCls}--is-stacked`]: mode === STACKED,
+                [`${this.baseCls}--is-toggle`]: mode === TOGGLE,
             };
         };
 
@@ -240,13 +235,13 @@ const withFormField = (Comp) =>
         getHintProps = () => {
             const { hintProps } = this.props;
             const hasError = this.getHasError();
-            const { hintText, renderHint, ...rest } = hintProps || {};
+            const { hintText, renderCustomHint, ...rest } = hintProps || {};
 
             return {
                 ...rest,
                 ...(!hasError && {
                     ...(hintText && { hintText }),
-                    ...(renderHint && { renderHint }),
+                    ...(renderCustomHint && { renderCustomHint }),
                 }),
                 id: this.getHintId(),
             };
@@ -276,18 +271,11 @@ const withFormField = (Comp) =>
             return shouldIncludeError || shouldIncludeHint;
         };
 
-        getHasHint = () => {
-            const { hintProps } = this.props;
-            const { hintText, renderHint } = hintProps || {};
-
-            return !!hintText || !!renderHint;
-        };
-
         getHasError = () => {
             const { hasError, errorProps } = this.props;
-            const { errorText, renderError } = errorProps || {};
+            const { errorText, renderCustomError } = errorProps || {};
 
-            return hasError || !!errorText || !!renderError;
+            return hasError || !!errorText || !!renderCustomError;
         };
 
         getHasLabel = () => {
@@ -307,21 +295,19 @@ const withFormField = (Comp) =>
         getCompProps = () => {
             const {
                 contextCls,
-                variant,
+                mode,
                 shouldIncludeError,
                 shouldIncludeHint,
                 errorProps,
                 hintProps,
                 labelProps,
                 labelSubtextProps,
-                id,
                 ...rest
             } = this.props;
             const hasError = this.getHasError();
 
             return {
                 ...rest,
-                id: id || this.id,
                 ...(hasError && { hasError }),
                 ...(shouldIncludeError ||
                     (shouldIncludeHint && {

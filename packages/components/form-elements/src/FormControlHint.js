@@ -17,7 +17,7 @@ class FormControlHint extends PureComponent {
         hintText: PropTypes.string,
         id: PropTypes.string,
         isHintARIAAtomic: PropTypes.bool,
-        renderHint: PropTypes.func,
+        renderCustomHint: PropTypes.func,
     };
 
     render() {
@@ -37,21 +37,29 @@ class FormControlHint extends PureComponent {
     }
 
     renderHint() {
-        const {
-            hintARIALive,
-            hintARIARelevant,
-            isHintARIAAtomic,
-            renderHint,
-            ...rest
-        } = this.props;
+        const { renderCustomHint } = this.props;
 
-        return renderHint ? renderHint({ ...rest }) : this.renderDefaultHint();
+        return renderCustomHint
+            ? this.renderCustomHint()
+            : this.renderDefaultHint();
     }
 
     renderDefaultHint() {
         const { hintText } = this.props;
 
         return <span className={`${this.baseCls}__text`}>{hintText}</span>;
+    }
+
+    renderCustomHint() {
+        const {
+            hintARIALive,
+            hintARIARelevant,
+            isHintARIAAtomic,
+            renderCustomHint,
+            ...rest
+        } = this.props;
+
+        return renderCustomHint({ ...rest });
     }
 
     getARIAProps() {
@@ -69,9 +77,9 @@ class FormControlHint extends PureComponent {
     }
 
     getHasHint() {
-        const { hintText, renderHint } = this.props;
+        const { hintText, renderCustomHint } = this.props;
 
-        return !!hintText || !!renderHint;
+        return !!hintText || !!renderCustomHint;
     }
 
     baseCls = 'bankai-form-control-hint';

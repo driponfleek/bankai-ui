@@ -14,7 +14,6 @@ export { default as ComboboxStory } from './ComboboxStory';
 export { default as DatePickerStory } from './DatePickerStory';
 export { default as DnDFileUploaderStory } from './DnDFileUploaderStory';
 export { default as DropdownStory } from './DropdownStory';
-export { default as FieldsetStory } from './FieldsetStory';
 export { default as FormFieldComposerStory } from './FormFieldComposerStory';
 export { default as MultiselectStory } from './MultiselectStory';
 export { default as NumberPickerStory } from './NumberPickerStory';

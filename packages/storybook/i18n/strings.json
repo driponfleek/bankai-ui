@@ -95,9 +95,6 @@
                     "dropdown": {
                         "title": "Dropdown"
                     },
-                    "fieldset": {
-                        "title": "Fieldset"
-                    },
                     "formFieldComposer": {
                         "title": "Form Field Composer"
                     },
@@ -126,33 +123,6 @@
                         "title": "Icons",
                         "clickToCopy": "Click To Copy CSS Class",
                         "copiedToClipboard": "Copied to Clipboard!"
-                    }
-                },
-                "layouts": {
-                    "categoryTitle": "Layouts",
-                    "formLayout": {
-                        "title": "Form Layout"
-                    },
-                    "formLayoutFieldContainer": {
-                        "title": "Form Layout Field Container"
-                    },
-                    "formLayoutRow": {
-                        "title": "Form Layout Row"
-                    },
-                    "formLayoutSection": {
-                        "title": "Form Layout Section"
-                    },
-                    "section": {
-                        "title": "Section"
-                    }
-                },
-                "lists": {
-                    "categoryTitle": "Lists",
-                    "list": {
-                        "title": "List"
-                    },
-                    "listItem": {
-                        "title": "List Item"
                     }
                 },
                 "loading": {
