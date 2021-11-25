@@ -1,4 +1,4 @@
-import { FORM_FIELD_COMP_MODES } from '@epr0t0type/bankai-ui-form-elements';
+import { FORM_FIELD_COMP_VARIANTS } from '@epr0t0type/bankai-ui-form-elements';
 import { genArgType } from '../../../../utils/argTypesUtils';
 
 // Constants
@@ -16,17 +16,16 @@ import {
 // https://storybook.js.org/docs/react/api/argtypes
 
 // const { bankaiUI: locale } = strings;
-const { STACKED, INLINE_LEFT, INLINE_RIGHT, TOGGLE } = FORM_FIELD_COMP_MODES;
+const { STACKED, INLINE_LEFT, INLINE_RIGHT, TOGGLE } = FORM_FIELD_COMP_VARIANTS;
 
 export const args = {
-    mode: STACKED,
+    variant: STACKED,
     hasError: false,
     isDisabled: false,
     isReadOnly: false,
     shouldIncludeError: true,
     shouldIncludeHint: true,
     // errorProps: {
-    //     errorIconCls: 'bankai-icon-triangle-danger',
     //     errorText: 'Something is wrong!',
     // },
     hintProps: {
@@ -47,7 +46,7 @@ export const argTypes = {
         description:
             'Use to control the layout of the form element, label and hints. `TOGGLE` is used for controls like Radios, Checkboxes, Toggle Switches, etc.',
         options: [INLINE_LEFT, INLINE_RIGHT, STACKED, TOGGLE],
-        propName: 'mode',
+        propName: 'variant',
         propType: 'string',
     }),
 };
