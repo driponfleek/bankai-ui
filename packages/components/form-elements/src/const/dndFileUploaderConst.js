@@ -1,9 +1,11 @@
 /* eslint-disable import/prefer-default-export */
 export const DND_FILE_UPLOADER_MODES = {
+    ATTACHMENTS: 'ATTACHMENTS',
+    BUSY: 'BUSY',
     DEFAULT: 'DEFAULT',
     DISABLED: 'DISABLED',
-    ATTACHMENTS: 'ATTACHMENTS',
     HOVER: 'HOVER',
     REJECTED: 'REJECTED',
-    BUSY: 'BUSY',
 };
+
+export const INVALID_FILE_TYPES = 'INVALID_FILE_TYPES';

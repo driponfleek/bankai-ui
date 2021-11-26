@@ -1,35 +1,43 @@
-export const dropzoneTypes = (props) => props.accepts;
-
-export const dropzoneTarget = {
-    drop(props, monitor, component) {
+export const dropzoneSpec = {
+    drop(props, item, monitor) {
         const { onDrop } = props || {};
 
         if (onDrop) {
-            onDrop(props, monitor, component);
+            onDrop(props, monitor, item);
         }
     },
-    hover(props, monitor, component) {
+    hover(props, item, monitor) {
         const { onHover } = props || {};
 
         if (onHover) {
-            onHover(props, monitor, component);
+            onHover(props, monitor, item);
         }
     },
-    canDrop(props, monitor) {
+    canDrop(props, item, monitor) {
         const { onCanDrop } = props || {};
 
         if (onCanDrop) {
-            return onCanDrop(props, monitor);
+            return onCanDrop(props, monitor, item);
         }
 
         return true;
     },
 };
 
-export const dropzoneCollect = (connect, monitor) => ({
-    connectDropTarget: connect.dropTarget(),
+export const dropzoneCollect = (monitor) => ({
+    // connectDropTarget: connect.dropTarget(),
     isOver: monitor.isOver(),
     isOverCurrent: monitor.isOver({ shallow: true }),
     canDrop: monitor.canDrop(),
     itemType: monitor.getItemType(),
 });
+
+export const getModCls = (props) => {
+    const { baseCls, isOver, canDrop } = props;
+
+    return {
+        [`${baseCls}--dragging-over`]: isOver,
+        [`${baseCls}--drop-allowed`]: canDrop && isOver,
+        [`${baseCls}--drop-not-allowed`]: !canDrop && isOver,
+    };
+};
