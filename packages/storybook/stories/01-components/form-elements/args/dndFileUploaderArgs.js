@@ -39,8 +39,10 @@ export const args = {
         titleText: undefined,
     },
     localeRejectDropState: {
-        msgText: 'File must be JPG or PNG format',
-        titleText: 'Invalid File',
+        INVALID_FILE_TYPES: {
+            msgText: 'File must be JPG or PNG format',
+            titleText: 'Invalid File',
+        },
     },
     localeShowAttachmentsState: {
         browseLinkText: 'Browse',

@@ -12,7 +12,7 @@ export default {
 export { default as CheckboxStory } from './CheckboxStory';
 export { default as ComboboxStory } from './ComboboxStory';
 export { default as DatePickerStory } from './DatePickerStory';
-// export { default as DnDFileUploaderStory } from './DnDFileUploaderStory';
+export { default as DnDFileUploaderStory } from './DnDFileUploaderStory';
 export { default as DropdownStory } from './DropdownStory';
 export { default as FieldsetStory } from './FieldsetStory';
 export { default as FormFieldComposerStory } from './FormFieldComposerStory';

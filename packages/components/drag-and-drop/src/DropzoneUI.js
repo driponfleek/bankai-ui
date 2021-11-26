@@ -1,33 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-import { DropTarget } from 'react-dnd';
 
-// Utils
-import {
-    dropzoneTarget as dzTarget,
-    dropzoneCollect as dzCollect,
-    dropzoneTypes,
-} from './utils/dropzoneUtils';
-
-// Styles
-import './styles/dropzone.scss';
-
-class Dropzone extends Component {
+class DropzoneUI extends Component {
     static defaultProps = {
         canDrop: true,
         isOver: false,
         attachments: [],
         onDrop: () => Promise.resolve(),
         onHover: () => Promise.resolve(),
-        connectDropTarget: (el) => el,
     };
 
     static propTypes = {
+        baseCls: PropTypes.string,
         canDrop: PropTypes.bool,
         isOver: PropTypes.bool,
         attachments: PropTypes.array,
-        connectDropTarget: PropTypes.func,
         // eslint-disable-next-line react/no-unused-prop-types
         onDrop: PropTypes.func,
         // eslint-disable-next-line react/no-unused-prop-types
@@ -37,28 +24,29 @@ class Dropzone extends Component {
         renderAttachmentsState: PropTypes.func,
     };
 
-    render() {
-        const { isOver, connectDropTarget } = this.props;
+    render = () => {
+        const { isOver } = this.props;
         const hasAttachments = this.getHasAttachments();
-        const modCls = this.getModCls();
 
-        return connectDropTarget(
-            <div className={cx(this.baseCls, modCls)}>
+        // return this.renderDefaultState();
+
+        return (
+            <Fragment>
                 {!isOver && !hasAttachments && this.renderDefaultState()}
                 {isOver && this.renderHoverState()}
                 {hasAttachments && !isOver && this.renderAttachmentsState()}
-            </div>,
+            </Fragment>
         );
-    }
+    };
 
     renderDefaultState = () => {
-        const { renderDefaultState } = this.props;
+        const { renderDefaultState, baseCls } = this.props;
 
         if (renderDefaultState) {
             return this.renderCustomDefaultState();
         }
 
-        return <span className={`${this.baseCls}__default-state`} />;
+        return <span className={`${baseCls}__default-state`} />;
     };
 
     renderCustomDefaultState = () => {
@@ -69,13 +57,13 @@ class Dropzone extends Component {
     };
 
     renderHoverState = () => {
-        const { renderHoverState } = this.props;
+        const { baseCls, renderHoverState } = this.props;
 
         if (renderHoverState) {
             return this.renderCustomHoverState();
         }
 
-        return <span className={`${this.baseCls}__hover-state`} />;
+        return <span className={`${baseCls}__hover-state`} />;
     };
 
     renderCustomHoverState = () => {
@@ -86,16 +74,16 @@ class Dropzone extends Component {
     };
 
     renderAttachmentsState = () => {
-        const { renderAttachmentsState, attachments } = this.props;
+        const { baseCls, renderAttachmentsState, attachments } = this.props;
 
         if (renderAttachmentsState) {
             return this.renderCustomAttachmentsState();
         }
 
         return (
-            <span className={`${this.baseCls}__attachments`}>
+            <span className={`${baseCls}__attachments`}>
                 {attachments.map(({ name }) => (
-                    <span className={`${this.baseCls}__attachment`} key={name}>
+                    <span className={`${baseCls}__attachment`} key={name}>
                         {name}
                     </span>
                 ))}
@@ -110,35 +98,11 @@ class Dropzone extends Component {
         return renderAttachmentsState(renderProps);
     };
 
-    getIsAllowed = () => {
-        const { canDrop, isOver } = this.props;
-
-        return canDrop && isOver;
-    };
-
-    getIsNotAllowed = () => {
-        const { canDrop, isOver } = this.props;
-
-        return !canDrop && isOver;
-    };
-
     getHasAttachments = () => {
         const { attachments } = this.props;
 
         return attachments.length > 0;
     };
-
-    getModCls = () => {
-        const { isOver } = this.props;
-
-        return {
-            [`${this.baseCls}--dragging-over`]: isOver,
-            [`${this.baseCls}--drop-allowed`]: this.getIsAllowed(),
-            [`${this.baseCls}--drop-not-allowed`]: this.getIsNotAllowed(),
-        };
-    };
-
-    baseCls = 'bankai-dropzone';
 }
 
-export default DropTarget(dropzoneTypes, dzTarget, dzCollect)(Dropzone);
+export default DropzoneUI;
