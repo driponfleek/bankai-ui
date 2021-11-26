@@ -3,8 +3,8 @@
     "dependencies": {
         "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
         "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
-        "react-dnd": "9.3.2",
-        "react-dnd-html5-backend": "9.3.2"
+        "react-dnd": "14.0.4",
+        "react-dnd-html5-backend": "14.0.2"
     },
     "description": "Bankai Drag and Drop Components",
     "devDependencies": {
@@ -35,8 +35,8 @@
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
-        "*.css.js",
-        "*.scss.js"
+        "**/*.css.js",
+        "**/*.scss.js"
     ],
     "version": "0.0.0"
 }

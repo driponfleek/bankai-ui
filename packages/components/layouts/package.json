@@ -22,6 +22,11 @@
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/epr0t0type"
     },
+    "repository": {
+        "directory": "packages/components/layouts",
+        "type": "git",
+        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
+    },
     "scripts": {
         "build": "yarn run pre:build && rollup -c",
         "pre:build": "../../../node_modules/.bin/rimraf dist/"
@@ -29,8 +34,8 @@
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
-        "*.css.js",
-        "*.scss.js"
+        "**/*.css.js",
+        "**/*.scss.js"
     ],
     "version": "0.0.0"
 }
