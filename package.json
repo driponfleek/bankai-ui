@@ -10,6 +10,7 @@
 		"@rollup/plugin-babel": "5.3.0",
 		"@rollup/plugin-commonjs": "21.0.1",
 		"@rollup/plugin-node-resolve": "13.0.6",
+		"@testing-library/jest-dom": "5.15.1",
 		"autoprefixer": "10.2.4",
 		"cross-env": "7.0.3",
 		"eslint": "7.20.0",
@@ -40,49 +41,6 @@
 		"hooks": {
 			"pre-commit": "lint-staged"
 		}
-	},
-	"jest": {
-		"coverageThreshold": {
-			"./packages/components/**/*.js": {
-				"branches": 90,
-				"functions": 90,
-				"lines": 90,
-				"statements": 90
-			}
-		},
-		"collectCoverageFrom": [
-			"**/src/*.js"
-		],
-		"coveragePathIgnorePatterns": [
-			"/constants",
-			"/const",
-			"/dist",
-			"node_modules/(?!@epr0t0type)",
-			"/mock-data",
-			"./packages/storybook",
-			"./packages/lib",
-			"rollup.config.js",
-			"./packages/*/index.js",
-			"./packages/*/rollup.config.js"
-		],
-		"moduleNameMapper": {
-			"\\.(less|css|scss)$": "<rootDir>/__mocks__/styleMock.js",
-			"dnd-core": "dnd-core/dist/cjs",
-			"^react-dnd$": "react-dnd/dist/cjs",
-			"react-dnd-html5-backend": "react-dnd-html5-backend/dist/cjs"
-		},
-		"roots": [
-			"packages",
-			"__mocks__"
-		],
-		"setupFiles": [
-			"<rootDir>/scripts/jest/setup.js"
-		],
-		"testEnvironment": "jest-environment-jsdom-global",
-		"transformIgnorePatterns": [
-			"node_modules/(?!@epr0t0type)"
-		],
-		"verbose": false
 	},
 	"lint-staged": {
 		"packages/**/*.js": [
