@@ -1,6 +1,7 @@
 {
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
+        "@testing-library/react": "12.1.2",
         "create-react-class": "15.7.0",
         "react-scripts": "4.0.1",
         "react-test-renderer": "17.0.1"

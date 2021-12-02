@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom';
+
 const crypto = require('crypto');
 
 global.matchMedia = () => {
