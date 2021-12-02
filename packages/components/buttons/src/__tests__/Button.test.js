@@ -9,7 +9,7 @@ import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
 import Button from '../Button';
 import { BTN_VARIANTS } from '../const/variantsConst';
 
-const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
+const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE, LINK } =
     BTN_VARIANTS;
 const baseCls = 'bankai-button';
 
@@ -78,6 +78,18 @@ describe('<Button />', () => {
         expect(button).toHaveClass(`${baseCls}--secondary-destructive`);
     });
 
+    it(`should render as link button when props.variant is ${LINK}`, () => {
+        const props = {
+            variant: LINK,
+        };
+        act(() => {
+            ReactDOM.render(<Button {...props} />, container);
+        });
+        const button = container.querySelector(`.${baseCls}`);
+
+        expect(button).toHaveClass(`${baseCls}--link`);
+    });
+
     it('should render the icon DOM when props.renderIcon is defined', () => {
         const props = {
             renderIcon: () => <BankaiCirclePlus />,
@@ -87,7 +99,6 @@ describe('<Button />', () => {
         });
         const button = container.querySelector(`.${baseCls}`);
         const iconDOM = container.querySelector(`.${baseCls}__icon`);
-        // console.log('iconDOM: ', iconDOM);
 
         expect(button).toContainElement(iconDOM);
     });
@@ -118,37 +129,57 @@ describe('<Button />', () => {
         expect(button).toContainElement(textDOM);
     });
 
-    it('should not render text and icon container DOMs when props.text and props.renderIcon are not provided', () => {
+    it('should not render text container DOM when props.text is not provided', () => {
+        const props = {
+            text: 'Click Me',
+        };
+        act(() => {
+            ReactDOM.render(<Button {...props} />, container);
+        });
+        const textContainerEls = container.getElementsByClassName(
+            `.${baseCls}__text-container`,
+        );
+
+        expect(textContainerEls).toHaveLength(0);
+    });
+
+    it('should not render icon container DOM when props.renderIcon is not provided', () => {
         act(() => {
             ReactDOM.render(<Button />, container);
         });
-        // const button = container.querySelector(`.${baseCls}`);
-        const contentContainer = container.querySelector(
-            `.${baseCls}__content-container`,
+        const iconContainerEls = container.getElementsByClassName(
+            `.${baseCls}__icon-container`,
         );
-        // console.log('contentContainer: ', contentContainer);
 
-        expect(contentContainer).toBeEmptyDOMElement();
+        expect(iconContainerEls).toHaveLength(0);
     });
 
-    it('should not render text and icon container DOMs when children are nested in the Button and props.text and/or props.renderIcon are provided', () => {
+    it('should not render text container DOM when children are nested in the Button and props.text is provided', () => {
         const props = {
             text: 'Click Me',
+        };
+        act(() => {
+            ReactDOM.render(<Button {...props}>Test</Button>, container);
+        });
+        const textContainerEls = container.getElementsByClassName(
+            `.${baseCls}__text-container`,
+        );
+
+        expect(textContainerEls).toHaveLength(0);
+    });
+
+    it('should not render icon container DOM when children are nested in the Button and props.renderIcon is provided', () => {
+        const props = {
             renderIcon: () => <BankaiCirclePlus />,
         };
         act(() => {
             ReactDOM.render(<Button {...props}>Test</Button>, container);
         });
-        // const button = container.querySelector(`.${baseCls}`);
         const iconContainerEls = container.getElementsByClassName(
             `.${baseCls}__icon-container`,
         );
-        const textContainerEls = container.getElementsByClassName(
-            `.${baseCls}__text-container`,
-        );
 
         expect(iconContainerEls).toHaveLength(0);
-        expect(textContainerEls).toHaveLength(0);
     });
 
     it('should call onClick handler when button is clicked and not disabled', () => {
