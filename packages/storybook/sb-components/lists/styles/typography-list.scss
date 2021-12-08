@@ -8,7 +8,7 @@
     @include bankai-flex-row;
     flex-wrap: wrap;
 
-    &-item {
-        margin: 10px;
+    &-item + &-item {
+        margin-left: 10px;
     }
 }

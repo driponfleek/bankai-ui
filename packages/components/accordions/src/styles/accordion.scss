@@ -12,7 +12,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-accordion {
-    background-color: var(--bankai-canvas-primary, $bankai-canvas-primary);
+    background-color: var(--bankai-canvas, $bankai-canvas);
     border-bottom: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
 
     &-item + &-item {

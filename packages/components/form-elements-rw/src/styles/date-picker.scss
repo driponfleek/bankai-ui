@@ -21,7 +21,7 @@
 
     > .rw-widget-picker {
         @include bankai-flex-row;
-        background-color: var(--bankai-form-input-bg-color, $bankai-canvas-primary);
+        background-color: var(--bankai-form-input-bg-color, $bankai-canvas);
         border-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
     }
 
@@ -77,7 +77,7 @@
 
     .rw-widget-input {
         min-width: 1px;
-        background-color: var(--bankai-form-input-bg-color, $bankai-canvas-primary);
+        background-color: var(--bankai-form-input-bg-color, $bankai-canvas);
         text-overflow: ellipsis;
         line-height: $bankai-lineheight;
         padding: 0.7rem 1rem;
@@ -118,7 +118,7 @@
         }
 
         .rw-input-addon.rw-picker-btn {
-            background-color: var(--bankai-form-input-bg-color, $bankai-canvas-primary);
+            background-color: var(--bankai-form-input-bg-color, $bankai-canvas);
             border-color: var(--bankai-form-input-error-border-color, $bankai-form-input-error-border-color);
         }
     }

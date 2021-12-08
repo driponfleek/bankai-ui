@@ -13,7 +13,7 @@ $css-vars-use-native: true;
         // ========================================================
         // Default
         // ========================================================
-        --bankai-toaster-default-bg-color: var(--bankai-canvas-primary, $bankai-canvas-primary),
+        --bankai-toaster-default-bg-color: var(--bankai-canvas, $bankai-canvas),
         --bankai-toaster-default-text-color: $bankai-text-color,
         // ========================================================
         // Error

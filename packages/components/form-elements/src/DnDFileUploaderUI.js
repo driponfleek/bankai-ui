@@ -36,6 +36,7 @@ class DnDFileUploaderUI extends Component {
         isDisabled: false,
         isOver: false,
         shouldShowAttachments: true,
+        onAdd: () => Promise.resolve(),
         onRemove: () => Promise.resolve(),
         onRemoveAll: () => Promise.resolve(),
     };
@@ -83,6 +84,7 @@ class DnDFileUploaderUI extends Component {
             }),
         ),
         attachments: PropTypes.array,
+        onAdd: PropTypes.func,
         onRemove: PropTypes.func,
         onRemoveAll: PropTypes.func,
         renderBusyIcon: PropTypes.func,
@@ -323,6 +325,7 @@ class DnDFileUploaderUI extends Component {
             <span className={`${this.baseCls}__browse-btn-container`}>
                 <input
                     {...inputProps}
+                    aria-label={btnText}
                     className={`${this.baseCls}__browse-input`}
                     type="file"
                     accept={getAcceptedFileExtensions(allowedTypes)}
@@ -361,12 +364,13 @@ class DnDFileUploaderUI extends Component {
     };
 
     handleBrowse = (e) => {
+        const { onAdd } = this.props;
         const { target } = e;
         const { files } = target;
         const attachments = files ? Array.from(files) : [];
 
         if (attachments && attachments.length) {
-            this.handleAdd(attachments);
+            onAdd(attachments);
         }
     };
 

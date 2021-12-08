@@ -5,10 +5,10 @@
 @import '../../mixins/mixins.scss';
 
 .bankai-sb-section {
-    @include bankai-glass-mixin();
+    // @include bankai-glass-mixin();
     box-sizing: border-box;
     border-radius: 15px;
-    padding: 1.5rem;
+    // padding: 1.5rem;
 
     .bankai-sb-section-title + * {
         margin-top: 15px;

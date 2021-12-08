@@ -1,6 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
@@ -9,9 +10,11 @@
 
 .bankai-sb-iconography-list-item {
     @include bankai-button-reset;
-    @include bankai-glass-mixin;
+    // @include bankai-glass-mixin;
     @include bankai-focus-state-halo;
+    @include bankai-box-shadow-subtle;
     width: 180px;
+    background-color: var(--bankai-canvas-alt, $bankai-canvas-alt);
     box-sizing: border-box;
     border-radius: 15px;
     padding: 1rem;

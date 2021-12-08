@@ -7,7 +7,7 @@
 
 .bankai-section {
     @include bankai-box-shadow-subtle;
-    background-color: var(--bankai-canvas-primary, $bankai-canvas-primary);
+    background-color: var(--bankai-canvas, $bankai-canvas);
     border-radius: var(--bankai-section-border-radius, 20px);
 
     &__heading-container {
