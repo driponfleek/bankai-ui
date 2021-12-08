@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { Button, LinkButton } from '@epr0t0type/bankai-ui-buttons';
 import {
     BankaiBan,
     BankaiCloudUpload,
@@ -118,11 +118,8 @@ class DnDFileUploaderUI extends Component {
     }
 
     renderIcon = (MODE) => {
-        const {
-            renderBusyIcon,
-            renderUploadIcon,
-            renderRejectedIcon,
-        } = this.props;
+        const { renderBusyIcon, renderUploadIcon, renderRejectedIcon } =
+            this.props;
         const iconCls = `${this.baseCls}__icon`;
         let iconRenderer = renderUploadIcon || this.renderUploadIcon;
 
@@ -162,11 +159,8 @@ class DnDFileUploaderUI extends Component {
     };
 
     renderSimpleTitle = (MODE) => {
-        const {
-            localeDefaultState,
-            localeHoverState,
-            localeBusyState,
-        } = this.props;
+        const { localeDefaultState, localeHoverState, localeBusyState } =
+            this.props;
         const localeRejectDropState = this.getLocaleRejectState();
         const titles = {
             [DEFAULT]: localeDefaultState.titleText,
@@ -279,11 +273,8 @@ class DnDFileUploaderUI extends Component {
 
     renderAttachmentsStateMessage = () => {
         const { localeShowAttachmentsState, attachments } = this.props;
-        const {
-            msgBeforeBrowseText,
-            msgAfterBrowseText,
-            browseLinkText,
-        } = localeShowAttachmentsState;
+        const { msgBeforeBrowseText, msgAfterBrowseText, browseLinkText } =
+            localeShowAttachmentsState;
         const shouldRenderRemoveAll = attachments.length > 1;
 
         return (
@@ -305,11 +296,8 @@ class DnDFileUploaderUI extends Component {
     };
 
     renderRemoveAllBtn = () => {
-        const {
-            localeShowAttachmentsState,
-            isDisabled,
-            onRemoveAll,
-        } = this.props;
+        const { localeShowAttachmentsState, isDisabled, onRemoveAll } =
+            this.props;
         const { removeAllLinkText } = localeShowAttachmentsState;
 
         return isDisabled ? (
@@ -319,10 +307,8 @@ class DnDFileUploaderUI extends Component {
                 `${this.baseCls}__remove-all-action`,
             )
         ) : (
-            <Button
+            <LinkButton
                 contextCls={`${this.baseCls}__remove-all-action`}
-                variant={BTN_VARIANTS.LINK}
-                isDisabled={isDisabled}
                 text={removeAllLinkText}
                 onClick={onRemoveAll}
             />
@@ -330,12 +316,8 @@ class DnDFileUploaderUI extends Component {
     };
 
     renderBrowseBtn = (btnText, isLink) => {
-        const {
-            inputProps,
-            isDisabled,
-            canUploadMultiple,
-            allowedTypes,
-        } = this.props;
+        const { inputProps, isDisabled, canUploadMultiple, allowedTypes } =
+            this.props;
 
         return (
             <span className={`${this.baseCls}__browse-btn-container`}>
@@ -359,9 +341,8 @@ class DnDFileUploaderUI extends Component {
 
     renderMockBtn = (btnText, isLink, btnCls) => {
         const { isDisabled } = this.props;
-        const bankaiBtnCls = 'bankai-button';
+        const bankaiBtnCls = isLink ? 'bankai-link-button' : 'bankai-button';
         const btnModCls = {
-            [`${bankaiBtnCls}--link`]: isLink,
             [`${bankaiBtnCls}--secondary`]: !isLink,
             [`${bankaiBtnCls}--disabled`]: isDisabled,
         };

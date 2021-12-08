@@ -1,0 +1,73 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+.bankai-link-button {
+    @include bankai-button-reset;
+    @include bankai-focus-state-halo;
+    @include bankai-hover-state;
+    @include bankai-disabled-state;
+    color: $bankai-link-color;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 3px;
+    $this: &;
+
+    @media (hover: hover) {
+        &:hover #{$this}__text {
+            text-decoration: underline;
+        }
+    }
+
+    &:focus-visible {
+        @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));
+    }
+
+    &__content-container {
+        display: inline-block;
+    }
+
+    &__text-container {
+        line-height: $bankai-lineheight;
+    }
+
+    &__icon-container {
+        vertical-align: middle;
+    }
+
+    &__text-container,
+    &__icon-container {
+        box-sizing: border-box;
+        user-select: none;
+        display: inline-block;
+    }
+
+    &__icon-container + &__text-container {
+        vertical-align: middle;
+        margin-left: 4px;
+    }
+
+    &__icon-safe-space {
+        @include bankai-flex-row;
+        vertical-align: middle;
+        box-sizing: border-box;
+    }
+
+    &__icon {
+        @include bankai-flex-row;
+        vertical-align: middle;
+        margin: auto;
+        flex: 0 0 auto;
+
+        .bankai-icon {
+            margin: auto;
+        }
+    }
+}

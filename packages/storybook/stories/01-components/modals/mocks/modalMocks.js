@@ -1,6 +1,6 @@
-import { BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 
-const { PRIMARY, SECONDARY } = BTN_VARIANTS;
+const { PRIMARY, SECONDARY } = VARIANTS;
 
 export default [
     {

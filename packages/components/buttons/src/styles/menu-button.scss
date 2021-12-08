@@ -17,9 +17,10 @@
     &__menu {
         @include bankai-box-shadow-elevated($bankai-black);
         background-color: var(--bankai-canvas-primary, $bankai-canvas-primary);
-        border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
+        // border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
+        border-radius: 5px;
         position: absolute;
-        top: 100%;
+        top: calc(100% + 3px);
         z-index: 1000;
     }
 
@@ -32,10 +33,10 @@
     }
 
     &__menu-list-option:first-child .bankai-menu-button-option {
-        border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius) var(--bankai-btn-border-radius, $bankai-btn-border-radius) 0 0;
+        border-radius: 5px 5px 0 0;
     }
 
     &__menu-list-option:last-child .bankai-menu-button-option {
-        border-radius: 0 0 var(--bankai-btn-border-radius, $bankai-btn-border-radius) var(--bankai-btn-border-radius, $bankai-btn-border-radius);
+        border-radius: 0 0 5px 5px;
     }
 }

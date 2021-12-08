@@ -58,7 +58,8 @@ class List extends PureComponent {
     renderList = () => {
         const { contextCls, shouldAlternateColors, data } = this.props;
         const modCls = {
-            [`${this.baseCls}--alternate-item-bg-colors`]: shouldAlternateColors,
+            [`${this.baseCls}--alternate-item-bg-colors`]:
+                shouldAlternateColors,
         };
 
         return (

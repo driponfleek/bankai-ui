@@ -5,18 +5,11 @@ import { BankaiCaretDown } from '@epr0t0type/bankai-ui-icons';
 import Button from './Button';
 import MenuButton from './MenuButton';
 
-// Constants
-import { SPLIT_BTN_VARIANTS } from './const/variantsConst';
+// Utils
+import { getBtnModCls } from './utils/buttonUtils';
 
 // Styles
 import './styles/split-button.scss';
-
-const {
-    PRIMARY,
-    PRIMARY_DESTRUCTIVE,
-    SECONDARY,
-    SECONDARY_DESTRUCTIVE,
-} = SPLIT_BTN_VARIANTS;
 
 class SplitButton extends Component {
     static defaultProps = {
@@ -88,12 +81,7 @@ class SplitButton extends Component {
         const { variant, isDisabled } = this.props;
 
         return {
-            [`${this.baseCls}--primary`]: variant === PRIMARY,
-            [`${this.baseCls}--secondary`]: variant === SECONDARY,
-            [`${this.baseCls}--primary-destructive`]:
-                variant === PRIMARY_DESTRUCTIVE,
-            [`${this.baseCls}--secondary-destructive`]:
-                variant === SECONDARY_DESTRUCTIVE,
+            ...getBtnModCls(variant, this.baseCls),
             [`${this.baseCls}--is-disabled`]: isDisabled,
         };
     };

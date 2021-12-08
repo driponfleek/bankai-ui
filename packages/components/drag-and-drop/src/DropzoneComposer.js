@@ -21,7 +21,7 @@ import './styles/dropzone.scss';
 const baseCls = 'bankai-dropzone';
 
 const withDropZone = (Comp) => {
-    const wrapped = (props) => {
+    const Wrapped = (props) => {
         const { accept, contextCls, ...rest } = props;
         const [{ canDrop, isOver }, drop] = useDrop(() => ({
             accept,
@@ -39,13 +39,13 @@ const withDropZone = (Comp) => {
             </div>
         );
     };
-    wrapped.defaultProps = {
+    Wrapped.defaultProps = {
         attachments: [],
         onDrop: () => Promise.resolve(),
         onHover: () => Promise.resolve(),
         connectDropTarget: (el) => el,
     };
-    wrapped.propTypes = {
+    Wrapped.propTypes = {
         accept: PropTypes.string,
         contextCls: PropTypes.string,
         attachments: PropTypes.array,
@@ -59,7 +59,7 @@ const withDropZone = (Comp) => {
         renderAttachmentsState: PropTypes.func,
     };
 
-    return wrapped;
+    return Wrapped;
 };
 
 const DropzoneComposer = withDropZone;

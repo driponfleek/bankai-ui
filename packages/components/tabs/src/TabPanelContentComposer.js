@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const withTabPanelContent = (Comp) => {
-    const wrapped = (props) => {
+    const Wrapped = (props) => {
         const { tabProps, panelProps, key, ...rest } = props;
 
         return <Comp {...rest} />;
     };
 
-    wrapped.defaultProps = {
+    Wrapped.defaultProps = {
         tabProps: {},
         panelProps: {},
     };
-    wrapped.propTypes = {
+    Wrapped.propTypes = {
         key: PropTypes.string,
         tabProps: PropTypes.object,
         panelProps: PropTypes.object,
     };
 
-    return wrapped;
+    return Wrapped;
 };
 
 const TabPanelContentComposer = withTabPanelContent;

@@ -12,9 +12,9 @@ module.exports = {
     addons: [
         {
             name: '@storybook/addon-essentials',
-            options: {
-                docs: false,
-            },
+            // options: {
+            //     docs: false,
+            // },
         },
         '@storybook/addon-a11y',
         '@storybook/addon-links',
@@ -26,9 +26,7 @@ module.exports = {
             // '@babel/plugin-proposal-private-methods',
         ],
     }),
-    stories: [
-        '../stories/**/**/*.stories.@(js)',
-    ],
+    stories: ['../stories/**/**/*.stories.@(js)'],
     webpackFinal: async (config) => {
         const symLinks = getSymLinks(rootNodeModules, path, fs);
         const newConfig = fixStoryBookSass(

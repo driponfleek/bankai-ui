@@ -5,18 +5,11 @@ import { Wrapper, Button, Menu } from 'react-aria-menubutton';
 import { v4 as uuidv4 } from 'uuid';
 import MenuButtonOption from './MenuButtonOption';
 
-// Constants
-import { MENU_BTN_VARIANTS } from './const/variantsConst';
+// Utils
+import { getBtnModCls } from './utils/buttonUtils';
 
 // Styles
 import './styles/menu-button.scss';
-
-const {
-    PRIMARY,
-    PRIMARY_DESTRUCTIVE,
-    SECONDARY,
-    SECONDARY_DESTRUCTIVE,
-} = MENU_BTN_VARIANTS;
 
 class MenuButton extends Component {
     static defaultProps = {
@@ -74,12 +67,13 @@ class MenuButton extends Component {
         const {
             btnContextCls,
             text,
+            variant,
             isDisabled,
             renderIcon,
             children,
         } = this.props;
         const props = this.getBtnProps();
-        const modCls = this.getModCls();
+        const modCls = getBtnModCls(variant, this.btnCls);
 
         return (
             <Button
@@ -151,19 +145,6 @@ class MenuButton extends Component {
                 )}
             </li>
         );
-    };
-
-    getModCls = () => {
-        const { variant } = this.props;
-
-        return {
-            [`${this.btnCls}--primary`]: variant === PRIMARY,
-            [`${this.btnCls}--secondary`]: variant === SECONDARY,
-            [`${this.btnCls}--primary-destructive`]:
-                variant === PRIMARY_DESTRUCTIVE,
-            [`${this.btnCls}--secondary-destructive`]:
-                variant === SECONDARY_DESTRUCTIVE,
-        };
     };
 
     getBtnProps = () => {

@@ -1,4 +1,6 @@
 /* eslint-disable no-param-reassign */
+import React from 'react';
+import { Description } from '@storybook/addon-docs';
 import strings from '../i18n/strings.json';
 
 const { bankaiUI: locale } = strings;
@@ -24,8 +26,10 @@ export const storyConfig = (Story, config) => {
         storyName,
         args,
         argTypes,
+        docs,
     } = config || {};
     const decorators = [];
+    const { Changelog, ReadMe } = docs || {};
 
     if (storyName) {
         Story.storyName = storyName;
@@ -40,9 +44,6 @@ export const storyConfig = (Story, config) => {
     }
 
     const parameters = {
-        options: {
-            showPanel: shouldShowPanel,
-        },
         a11y: {
             disable: !hasA11Y,
             element: '.bankai-sb-component-preview--check-a11y',
@@ -50,6 +51,28 @@ export const storyConfig = (Story, config) => {
         actions: {
             disable: !hasActions,
         },
+        ...(docs && {
+            docs: {
+                page: () => (
+                    <>
+                        {ReadMe && <Description>{ReadMe}</Description>}
+                        {Changelog && <Description>{Changelog}</Description>}
+                    </>
+                ),
+            },
+        }),
+        options: {
+            showPanel: shouldShowPanel,
+        },
+        previewTabs: {
+            canvas: {
+                hidden: false,
+            },
+            'storybook/docs/panel': {
+                hidden: !docs,
+            },
+        },
+        viewMode: 'story',
     };
 
     if (decorators.length > 0) {

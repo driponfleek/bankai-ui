@@ -1,6 +1,6 @@
 import React from 'react';
 import { BankaiMoreVertical } from '@epr0t0type/bankai-ui-icons';
-import { MENU_BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import { genArgType } from '../../../../utils/argTypesUtils';
 import demoOptions from '../mocks/menuButtonMocks';
 
@@ -55,9 +55,7 @@ export const argTypes = {
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
         description: 'Use to set the button variant.',
-        options: Object.keys(MENU_BTN_VARIANTS).map(
-            (VARIANT) => MENU_BTN_VARIANTS[VARIANT],
-        ),
+        options: Object.keys(VARIANTS).map((VARIANT) => VARIANTS[VARIANT]),
         propName: 'variant',
         propType: PROP_TYPES.STRING,
     }),

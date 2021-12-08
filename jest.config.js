@@ -7,7 +7,7 @@ module.exports = {
             statements: 90,
         },
     },
-    collectCoverageFrom: ['**/src/*.js'],
+    collectCoverageFrom: ['**/src/*.js', '!**/__tests__/**'],
     coveragePathIgnorePatterns: [
         '/constants',
         '/const',

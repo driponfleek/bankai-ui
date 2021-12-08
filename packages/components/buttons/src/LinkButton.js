@@ -1,48 +1,32 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';
-
-// Utils
-import { getBtnModCls } from './utils/buttonUtils';
 
 // Styles
-import './styles/button.scss';
+import './styles/link-button.scss';
 
-class Button extends PureComponent {
+class LinkButton extends PureComponent {
     static defaultProps = {
-        type: 'button',
-        isBusy: false,
-        isDisabled: false,
         onClick: () => Promise.resolve(),
     };
 
     static propTypes = {
         contextCls: PropTypes.string,
         text: PropTypes.string,
-        type: PropTypes.string,
-        variant: PropTypes.string,
-        isBusy: PropTypes.bool,
-        isDisabled: PropTypes.bool,
         data: PropTypes.object,
         onClick: PropTypes.func,
         renderIcon: PropTypes.func,
-        renderBusyIcon: PropTypes.func,
     };
 
     render() {
-        const { contextCls, type, children } = this.props;
+        const { contextCls, children } = this.props;
         const props = this.getProps();
-        const modCls = this.getModCls();
 
         return (
             <button
                 {...props}
-                className={cx(this.baseCls, modCls, contextCls)}
-                // Disabling react/button-has-type due to
-                // https://github.com/yannickcr/eslint-plugin-react/issues/1555
-                // eslint-disable-next-line react/button-has-type
-                type={type}
+                className={cx(this.baseCls, contextCls)}
+                type="button"
                 onClick={this.handleClick}
             >
                 <span className={`${this.baseCls}__content-container`}>
@@ -54,35 +38,27 @@ class Button extends PureComponent {
     }
 
     renderMain = () => {
-        const { text, isBusy } = this.props;
-        const shouldRenderBtnIcon = this.getShouldRenderBtnIcon();
+        const { text, renderIcon } = this.props;
 
         return (
             <Fragment>
-                {shouldRenderBtnIcon && this.renderIcon()}
-                {isBusy && this.renderIcon(isBusy)}
+                {!!renderIcon && this.renderIcon()}
                 {!!text && this.renderText()}
             </Fragment>
         );
     };
 
-    renderIcon = (isBusyIcon) => {
-        const { renderBusyIcon, renderIcon } = this.props;
+    renderIcon = () => {
+        const { renderIcon } = this.props;
         const baseIconCls = `${this.baseCls}__icon`;
-        const busyIconRenderer = renderBusyIcon || this.renderBusyIcon;
-        const iconRenderer = isBusyIcon ? busyIconRenderer : renderIcon;
 
         return (
             <span className={`${baseIconCls}-container`}>
                 <span className={`${baseIconCls}-safe-space`}>
-                    <span className={baseIconCls}>{iconRenderer()}</span>
+                    <span className={baseIconCls}>{renderIcon()}</span>
                 </span>
             </span>
         );
-    };
-
-    renderBusyIcon = () => {
-        return <BankaiSpinner />;
     };
 
     renderText = () => {
@@ -101,38 +77,18 @@ class Button extends PureComponent {
         onClick({ e, ...(data && { data }) });
     };
 
-    getShouldRenderBtnIcon = () => {
-        const { isBusy, renderIcon } = this.props;
-
-        return !isBusy && !!renderIcon;
-    };
-
-    getModCls = () => {
-        const { variant, isBusy } = this.props;
-
-        return {
-            ...getBtnModCls(variant, this.baseCls),
-            [`${this.baseCls}--busy`]: isBusy,
-        };
-    };
-
     getProps = () => {
         const {
             contextCls,
             text,
-            type,
-            variant,
-            isBusy,
-            isDisabled,
             data,
             onClick,
             renderIcon,
-            renderBusyIcon,
             children,
             ...rest
         } = this.props;
         const props = { ...rest };
-        props.disabled = isBusy || isDisabled;
+        delete props.disabled;
 
         // To enforce button text being properly written and
         // prevent scenario where text and aria label exist,
@@ -144,7 +100,7 @@ class Button extends PureComponent {
         return props;
     };
 
-    baseCls = 'bankai-button';
+    baseCls = 'bankai-link-button';
 }
 
-export default Button;
+export default LinkButton;
