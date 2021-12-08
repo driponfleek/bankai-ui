@@ -11,6 +11,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-ui-buttons/src/styles/button.scss';
+@import '~@epr0t0type/bankai-ui-buttons/src/styles/link-button.scss';
 
 .bankai-dnd-file-uploader {
     min-height: 138px;
@@ -148,7 +149,7 @@
         right: 0;
         bottom: 0;
 
-        &:not(:disabled) {
+        &:enabled {
             cursor: pointer;
         }
 
@@ -156,7 +157,7 @@
             @extend .bankai-button--secondary:active;
         }
 
-        &:not(:disabled):hover {
+        &:enabled:hover {
             + .bankai-button--secondary {
                 @extend .bankai-button--secondary:hover;
             }
@@ -166,8 +167,8 @@
             @extend .bankai-button--secondary:focus-visible;
         }
 
-        &:focus-visible + .bankai-button--link {
-            @extend .bankai-button--link:focus-visible;
+        &:focus-visible + .bankai-link-button {
+            @extend .bankai-link-button:focus-visible;
         }
     }
 

@@ -24,8 +24,7 @@ export const args = {
     data: [...Array(4).keys()].map((key) => ({
         id: `li-${key}`,
         text: 'List Item Text',
-        meta:
-            'Meta text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim viverra sapien eu venenatis. Curabitur sit amet malesuada quam, eu iaculis mi.',
+        meta: 'Meta text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim viverra sapien eu venenatis. Curabitur sit amet malesuada quam, eu iaculis mi.',
     })),
 };
 

@@ -32,7 +32,8 @@ const fixStoryBookFileLoader = (config) => {
         // Adding support for files
         if (isFileLoader) {
             // console.log('ruleClone: ', ruleClone);
-            ruleClone.test = /\.(svg|ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf|zip)(\?.*)?$/;
+            ruleClone.test =
+                /\.(svg|ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf|zip)(\?.*)?$/;
         }
 
         return ruleClone;

@@ -144,41 +144,6 @@
         }
     }
 
-    &--link {
-        color: $bankai-link-color;
-        background-color: transparent;
-        border: none;
-        border-radius: 3px;
-
-        @media (hover: hover) {
-            &:hover #{$this}__text {
-                text-decoration: underline;
-            }
-        }
-
-        &:focus-visible {
-            @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));
-        }
-
-        #{$this}__content-container,
-        #{$this}__text-container,
-        #{$this}__icon-container {
-            padding: 0;
-        }
-
-        #{$this}__icon-safe-space {
-            width: initial;
-        }
-
-        #{$this}__icon {
-            font-size: inherit;
-        }
-
-        #{$this}__icon-container + #{$this}__text-container {
-            margin-left: 4px;
-        }
-    }
-
     &--busy {
         .bankai-icon-spinner {
             @include bankai-rotate-infinite;

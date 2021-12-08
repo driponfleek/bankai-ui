@@ -8,11 +8,8 @@ import { LOADING_SPHERES_VARIANTS } from './const/loadingConst';
 // Styles
 import './styles/loading-spheres.scss';
 
-const {
-    ALTERNATING_PULSE,
-    RIPPLES,
-    RIPPLES_OUTLINE,
-} = LOADING_SPHERES_VARIANTS;
+const { ALTERNATING_PULSE, RIPPLES, RIPPLES_OUTLINE } =
+    LOADING_SPHERES_VARIANTS;
 
 class LoadingSpheres extends PureComponent {
     static defaultProps = {

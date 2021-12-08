@@ -6,13 +6,8 @@ import cx from 'classnames';
 import './styles/component-preview.scss';
 
 const ComponentPreview = (props) => {
-    const {
-        contextCls,
-        children,
-        shouldCheckA11Y,
-        hasLightBg,
-        ...rest
-    } = props;
+    const { contextCls, children, shouldCheckA11Y, hasLightBg, ...rest } =
+        props;
     const modCls = {
         'bankai-sb-component-preview--check-a11y': shouldCheckA11Y,
         'bankai-sb-component-preview--light-bg': hasLightBg,

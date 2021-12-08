@@ -21,12 +21,8 @@ class Section extends Component {
     };
 
     render() {
-        const {
-            contextCls,
-            shouldPadContent,
-            renderHeading,
-            children,
-        } = this.props;
+        const { contextCls, shouldPadContent, renderHeading, children } =
+            this.props;
         const shouldRenderHeading = this.getShouldRenderHeading();
         const headingCls = `${this.baseCls}__heading`;
         const modCls = {

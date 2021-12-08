@@ -24,13 +24,8 @@ class Message extends PureComponent {
     };
 
     render() {
-        const {
-            message,
-            title,
-            variant,
-            shouldShowIcon,
-            renderIcon,
-        } = this.props;
+        const { message, title, variant, shouldShowIcon, renderIcon } =
+            this.props;
 
         return (
             <div className={`${baseCls}__content-container`}>

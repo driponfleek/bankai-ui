@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import { BankaiX } from '@epr0t0type/bankai-ui-icons';
 import { Heading } from '@epr0t0type/bankai-ui-typography';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,12 +10,8 @@ import ARIAModal from './ARIAModal';
 // Styles
 import './styles/modal.scss';
 
-const {
-    PRIMARY,
-    PRIMARY_DESTRUCTIVE,
-    SECONDARY,
-    SECONDARY_DESTRUCTIVE,
-} = BTN_VARIANTS;
+const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
+    VARIANTS;
 
 class Modal extends PureComponent {
     static defaultProps = {

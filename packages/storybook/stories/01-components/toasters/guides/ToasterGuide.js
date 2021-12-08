@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import {
     Toaster,
     dismissToasters,
@@ -113,12 +113,12 @@ class ToasterGuide extends PureComponent {
                 <ComponentPreview shouldCheckA11Y>
                     <Button
                         text="Click to Show Toaster"
-                        variant={BTN_VARIANTS.PRIMARY}
+                        variant={VARIANTS.PRIMARY}
                         onClick={this.handleShowDemoToasterClick}
                     />
                     {/* <Button
                         text="Click to Dismiss Toaster"
-                        variant={BTN_VARIANTS.SECONDARY}
+                        variant={VARIANTS.SECONDARY}
                         onClick={this.handleDismissToasterClick}
                     /> */}
                 </ComponentPreview>

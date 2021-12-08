@@ -44,11 +44,8 @@ class LoadingFlow extends PureComponent {
     }
 
     renderLoadingState = () => {
-        const {
-            loadingStateLocale,
-            renderLoadingState,
-            contextCls,
-        } = this.props;
+        const { loadingStateLocale, renderLoadingState, contextCls } =
+            this.props;
         const modCls = `${this.baseCls}--loading-state`;
 
         if (renderLoadingState) {

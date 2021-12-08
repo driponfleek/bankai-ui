@@ -1,4 +1,4 @@
-// import { BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+// import { VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 // import { genArgType } from '../../../../utils/argTypesUtils';
 
 // // Constants
@@ -50,8 +50,8 @@
 //         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
 //         defaultValue: undefined,
 //         description: 'Use to set the button variant.',
-//         options: Object.keys(BTN_VARIANTS).map(
-//             (VARIANT) => BTN_VARIANTS[VARIANT],
+//         options: Object.keys(VARIANTS).map(
+//             (VARIANT) => VARIANTS[VARIANT],
 //         ),
 //         propName: 'variant',
 //         propType: PROP_TYPES.STRING,

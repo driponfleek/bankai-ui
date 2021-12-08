@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 const withIconContainer = (Icon) => {
-    const wrapped = (props) => {
+    const Wrapped = (props) => {
         const { contextCls, className, iconClsSuffix, ...rest } = props;
         const baseCls = 'bankai-icon';
         const iconCls = {
@@ -17,13 +17,13 @@ const withIconContainer = (Icon) => {
             />
         );
     };
-    wrapped.propTypes = {
+    Wrapped.propTypes = {
         className: PropTypes.string,
         contextCls: PropTypes.string,
         iconClsSuffix: PropTypes.string,
     };
 
-    return wrapped;
+    return Wrapped;
 };
 
 const IconComposer = withIconContainer;

@@ -8,5 +8,6 @@ export default {
 };
 
 export { default as ButtonStory } from './ButtonStory';
+export { default as LinkButtonStory } from './LinkButtonStory';
 export { default as MenuButtonStory } from './MenuButtonStory';
 export { default as SplitButtonStory } from './SplitButtonStory';

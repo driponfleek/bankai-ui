@@ -27,14 +27,28 @@ yarn add @epr0t0type/bankai-ui-buttons
 For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--button-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-package-name';
+import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--button-story).
+### LinkButton
+For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--link-button-story).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-package-name';
+import { LinkButton } from '@epr0t0type/bankai-ui-buttons';
+```
+
+### MenuButton and MenuButtonOption
+For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--menu-button-story).
+
+```
+import { MenuButton, MenuButtonOption, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+```
+
+### SplitButton
+For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--split-button-story).
+
+```
+import { SplitButton, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 ```
 
 ## Built With

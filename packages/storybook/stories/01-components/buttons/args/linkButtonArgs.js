@@ -18,8 +18,7 @@ import strings from '../../../../i18n/strings.json';
 const { bankaiUI: locale } = strings;
 
 export const args = {
-    text: 'List Item Text',
-    meta: 'Meta text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim viverra sapien eu venenatis. Curabitur sit amet malesuada quam, eu iaculis mi.',
+    text: 'Link Text',
 };
 
 export const argTypes = {
@@ -31,15 +30,27 @@ export const argTypes = {
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        description: 'Text displayed inside the List Item.',
+        description: 'Text displayed inside the button.',
         propName: 'text',
         propType: PROP_TYPES.STRING,
     }),
     ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
         description:
-            'Additional secondary text displayed inside the List Item. Used to provide additional information and should be used as supportive information to `props.text`.',
-        propName: 'meta',
-        propType: PROP_TYPES.STRING,
+            'Can be used to pass data back to an `onClick` handler when the user clicks on the button.',
+        propName: 'data',
+        propType: PROP_TYPES.OBJECT,
+    }),
+    ...genArgType({
+        action: 'clicked',
+        defaultValue: '() => Promise.resolve()',
+        description: 'Handler called when the user clicks on the button.',
+        propName: 'onClick',
+        propType: PROP_TYPES.FUNC,
+    }),
+    ...genArgType({
+        description: `Render function for rendering an icon in the button. ${locale.shared.propDesc.requiresBankaiIcons}`,
+        propName: 'renderIcon',
+        propType: PROP_TYPES.FUNC,
     }),
 };

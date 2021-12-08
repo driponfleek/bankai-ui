@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -18,13 +18,8 @@ import { examplesCodeStr } from './codeStr/codeStrBtn';
 // Styles
 import './styles/button-guide.scss';
 
-const {
-    LINK,
-    PRIMARY,
-    PRIMARY_DESTRUCTIVE,
-    SECONDARY,
-    SECONDARY_DESTRUCTIVE,
-} = BTN_VARIANTS;
+const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
+    VARIANTS;
 
 const { bankaiUI: locale } = strings;
 
@@ -102,7 +97,6 @@ class ButtonGuide extends PureComponent {
                         text="Secondary Destructive Button"
                         variant={SECONDARY_DESTRUCTIVE}
                     />
-                    <Button text="Button Styled as a Link" variant={LINK} />
                 </ComponentPreviewWithCodeBlock>
             </StorySection>
         );

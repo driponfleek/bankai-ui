@@ -8,13 +8,8 @@ import { LOADING_SQUARES_VARIANTS } from './const/loadingConst';
 // Styles
 import './styles/loading-squares.scss';
 
-const {
-    FADE,
-    FOLDING_QUADS,
-    PULSE,
-    PULSING_WAVE,
-    PULSE_FADE,
-} = LOADING_SQUARES_VARIANTS;
+const { FADE, FOLDING_QUADS, PULSE, PULSING_WAVE, PULSE_FADE } =
+    LOADING_SQUARES_VARIANTS;
 
 class LoadingSquares extends PureComponent {
     static defaultProps = {

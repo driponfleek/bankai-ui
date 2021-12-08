@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const withAccordionContent = (Comp) => {
-    const wrapped = (props) => {
+    const Wrapped = (props) => {
         const { accItemProps, accTriggerProps, ...rest } = props;
 
         return <Comp {...rest} />;
     };
 
-    wrapped.defaultProps = {
+    Wrapped.defaultProps = {
         accItemProps: {},
         accTriggerProps: {},
     };
-    wrapped.propTypes = {
+    Wrapped.propTypes = {
         accItemProps: PropTypes.object,
         accTriggerProps: PropTypes.object,
     };
 
-    return wrapped;
+    return Wrapped;
 };
 
 const AccordionContentComposer = withAccordionContent;

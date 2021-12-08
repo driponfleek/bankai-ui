@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import { Modal } from '@epr0t0type/bankai-ui-modals';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -20,7 +20,7 @@ import { getComponentsTitle } from '../../../../utils/storiesConfig';
 import './styles/modal-guide.scss';
 
 const { bankaiUI: locale } = strings;
-const { PRIMARY } = BTN_VARIANTS;
+const { PRIMARY } = VARIANTS;
 
 class ModalGuide extends Component {
     static defaultProps = {

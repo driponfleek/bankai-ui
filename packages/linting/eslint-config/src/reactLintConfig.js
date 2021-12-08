@@ -2,7 +2,11 @@
 // 1 = warn
 // 2 = error
 module.exports = {
-    extends: ['@epr0t0type/eslint-config/src/jsLintConfig', 'prettier/react'],
+    extends: [
+        '@epr0t0type/eslint-config/src/jsLintConfig',
+        'prettier/react',
+        'plugin:react-hooks/recommended',
+    ],
     rules: {
         'react/button-has-type': 1,
         'react/boolean-prop-naming': [

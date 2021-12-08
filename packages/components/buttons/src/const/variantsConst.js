@@ -1,17 +1,8 @@
-const LINK = 'LINK';
-
-const SHARED_VARIANTS = {
+export const VARIANTS = {
     PRIMARY: 'PRIMARY',
     PRIMARY_DESTRUCTIVE: 'PRIMARY_DESTRUCTIVE',
     SECONDARY: 'SECONDARY',
     SECONDARY_DESTRUCTIVE: 'SECONDARY_DESTRUCTIVE',
 };
 
-export const BTN_VARIANTS = {
-    LINK,
-    ...SHARED_VARIANTS,
-};
-
-export const MENU_BTN_VARIANTS = { ...SHARED_VARIANTS };
-
-export const SPLIT_BTN_VARIANTS = { ...SHARED_VARIANTS };
+export default {};

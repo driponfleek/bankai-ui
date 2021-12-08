@@ -10,6 +10,7 @@
     @include bankai-hover-state;
     @include bankai-disabled-state;
     box-sizing: border-box;
+    border: 1px solid transparent;
     text-align: left;
     white-space: nowrap;
     $this: &;
@@ -39,6 +40,11 @@
 
     &__icon-safe-space {
         @extend .bankai-button__icon-safe-space;
+    }
+
+    &__icon {
+        @extend .bankai-button__icon;
+        font-size: 100%;
     }
 
     &--is-destructive {
