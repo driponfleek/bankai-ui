@@ -6,7 +6,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 
 .bankai-list-item {
-    background-color: var(--bankai-canvas-primary, $bankai-canvas-primary);
+    background-color: var(--bankai-canvas, $bankai-canvas);
 
     &__inner {
         box-sizing: border-box;

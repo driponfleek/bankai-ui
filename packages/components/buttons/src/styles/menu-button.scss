@@ -16,7 +16,7 @@
 
     &__menu {
         @include bankai-box-shadow-elevated($bankai-black);
-        background-color: var(--bankai-canvas-primary, $bankai-canvas-primary);
+        background-color: var(--bankai-canvas, $bankai-canvas);
         // border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
         border-radius: 5px;
         position: absolute;

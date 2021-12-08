@@ -1,9 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/index.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '../../mixins/mixins.scss';
 
 // stylelint-disable-next-line selector-max-id
@@ -31,22 +31,29 @@ body,
 .bankai-sb-layout {
     @include bankai-scroll-y;
     height: 100%;
-    background: radial-gradient(circle, $bankai-neutral-95 0%, $bankai-neutral-70 100%);
+    background-color: var(--bankai-canvas, $bankai-canvas);
+    // background: radial-gradient(circle, $bankai-neutral-95 0%, $bankai-neutral-70 100%);
     box-sizing: border-box;
 
     &__header {
-        @include bankai-glass-mixin();
+        // @include bankai-glass-mixin();
+        // border-bottom: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
         box-sizing: border-box;
-        padding: 1.5rem;
+        padding: 3rem 3rem 1.5rem;
+    }
+
+    &__content {
+        box-sizing: border-box;
+        padding: 3rem;
     }
 
     &__header + &__content {
-        padding: 1.5rem;
-        margin-top: 15px;
+        padding: 1.5rem 3rem 3rem;
+        // margin-top: 15px;
     }
 
     .bankai-sb-section + .bankai-sb-section {
-        margin-top: 15px;
+        margin-top: 45px;
     }
 
     &__header-subtitle {

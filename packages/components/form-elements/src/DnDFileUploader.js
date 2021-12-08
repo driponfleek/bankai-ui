@@ -52,7 +52,7 @@ class DnDFileUploader extends Component {
         const { FILE } = NativeTypes;
 
         if (isDisabled || isBusy) {
-            return <DnDFileUploaderUI {...this.props} />;
+            return <DnDFileUploaderUI {...this.props} onAdd={this.handleAdd} />;
         }
 
         return (

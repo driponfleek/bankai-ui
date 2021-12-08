@@ -1,4 +1,4 @@
-@mixin bankai-box-shadow-subtle($color: #000, $opacity: 0.25) {
+@mixin bankai-box-shadow-subtle($color: #000, $opacity: 0.4) {
     box-shadow: 1px 1px 1px rgba($color, $opacity);
 }
 

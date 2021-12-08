@@ -21,7 +21,7 @@
 
     &__dialog {
         max-width: 100%;
-        background-color: var(--bankai-canvas-primary, $bankai-canvas-primary);
+        background-color: var(--bankai-canvas, $bankai-canvas);
         box-sizing: border-box;
         cursor: default;
         display: block;

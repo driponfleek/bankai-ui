@@ -12,7 +12,7 @@
 .bankai-toaster {
     @include bankai-box-shadow-elevated($bankai-black);
     color: var(--bankai-toaster-default-text-color, $bankai-text-color);
-    background-color: var(--bankai-toaster-default-bg-color, $bankai-canvas-primary);
+    background-color: var(--bankai-toaster-default-bg-color, $bankai-canvas);
     border-radius: var(--bankai-toaster-border-radius, 10px);
     padding: 0;
 
