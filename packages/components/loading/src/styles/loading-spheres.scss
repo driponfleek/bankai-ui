@@ -4,7 +4,7 @@
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-loading-spheres {
+.bankai-loading-spheres, %bankai-loading-spheres {
     width: 1em;
     height: 1em;
     font-size: 60px;
@@ -53,7 +53,7 @@
     &--ripples-outline {
         &::after,
         &::before {
-            border: Max(calc(1em * 0.01666666666), 1px) solid var(--bankai-primary-color, $bankai-primary-color);
+            border: Max(calc(1em * 0.0167), 1px) solid var(--bankai-primary-color, $bankai-primary-color);
         }
     }
 

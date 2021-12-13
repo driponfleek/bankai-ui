@@ -1,33 +1,35 @@
 {
-    "name": "storybook",
+    "name": "@epr0t0type/storybook",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "7.14.8",
+        "@babel/core": "7.16.0",
         "@babel/plugin-proposal-class-properties": "7.14.5",
-        "@storybook/addon-a11y": "6.4.0",
-        "@storybook/addon-essentials": "6.4.0",
-        "@storybook/addon-jest": "6.4.0",
-        "@storybook/addon-links": "6.4.0",
-        "@storybook/addons": "6.4.0",
-        "@storybook/react": "6.4.0",
-        "@storybook/theming": "6.4.0",
-        "babel-loader": "8.2.2",
+        "@storybook/addon-a11y": "6.4.9",
+        "@storybook/addon-essentials": "6.4.9",
+        "@storybook/addon-jest": "6.4.9",
+        "@storybook/addon-links": "6.4.9",
+        "@storybook/addons": "6.4.9",
+        "@storybook/builder-webpack5": "6.4.9",
+        "@storybook/manager-webpack5": "6.4.9",
+        "@storybook/react": "6.4.9",
+        "@storybook/theming": "6.4.9",
+        "babel-loader": "8.2.3",
         "cross-env": "7.0.3",
-        "css-loader": "5.0.1",
-        "node-sass": "4.13.0",
+        "css-loader": "6.5.1",
         "react": "17.0.2",
         "react-dom": "17.0.2",
-        "sass-loader": "10.1.1",
-        "style-loader": "2.0.0"
+        "sass": "1.45.0",
+        "sass-loader": "12.4.0",
+        "style-loader": "3.3.1"
     },
     "dependencies": {
         "@epr0t0type/bankai-lib-date-time-utils": "^0.0.0",
         "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
         "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
-        "@epr0t0type/bankai-ui-avatars": "^0.0.0",
         "@epr0t0type/bankai-ui-accordions": "^0.0.0",
+        "@epr0t0type/bankai-ui-avatars": "^0.0.0",
         "@epr0t0type/bankai-ui-badges": "^0.0.0",
         "@epr0t0type/bankai-ui-buttons": "^0.0.0",
         "@epr0t0type/bankai-ui-callouts": "^0.0.0",
@@ -51,6 +53,7 @@
     "scripts": {
         "build": "yarn build-storybook",
         "build-storybook": "cross-env NODE_PATH=src build-storybook",
+        "pre:build": "../../node_modules/.bin/rimraf storybook-static/",
         "start": "cross-env NODE_PATH=src start-storybook -p 6006"
     }
 }

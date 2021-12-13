@@ -4,7 +4,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
 
-.bankai-hyperlink {
+.bankai-hyperlink, %bankai-hyperlink {
     @include bankai-focus-state-halo;
     color: var(--bankai-link-color, $bankai-link-color);
     text-decoration: none;

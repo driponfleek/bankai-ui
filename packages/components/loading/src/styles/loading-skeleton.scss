@@ -4,7 +4,7 @@
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-loading-skeleton {
+.bankai-loading-skeleton, %bankai-loading-skeleton {
     background-color: $bankai-neutral-80;
     overflow: hidden;
     position: relative;

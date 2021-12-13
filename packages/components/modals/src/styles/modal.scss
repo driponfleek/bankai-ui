@@ -7,7 +7,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-modal {
+.bankai-modal, %bankai-modal {
     @include bankai-flex-column;
 
     @include bankai-breakpoint-min-only($bankai-s-min) {
@@ -96,7 +96,7 @@
     }
 
     &__sub-title {
-        @include bankai-max-line-width();
+        @include bankai-max-line-width;
         color: var(--bankai-text-color-alt, $bankai-text-color-alt);
         font-size: var(--bankai-sub-text-size);
         margin: 0;

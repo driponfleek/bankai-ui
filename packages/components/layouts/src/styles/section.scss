@@ -5,7 +5,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-section {
+.bankai-section, %bankai-section {
     @include bankai-box-shadow-subtle;
     background-color: var(--bankai-canvas, $bankai-canvas);
     border-radius: var(--bankai-section-border-radius, 20px);

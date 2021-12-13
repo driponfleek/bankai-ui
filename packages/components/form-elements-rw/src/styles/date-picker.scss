@@ -11,7 +11,7 @@
 @import './mixins.scss';
 @import './rw-styles.scss';
 
-.bankai-date-picker {
+.bankai-date-picker, %bankai-date-picker {
     display: inline-block;
 
     .rw-widget-picker,

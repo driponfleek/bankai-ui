@@ -6,7 +6,7 @@
 @import './animations.scss';
 @import './mixins.scss';
 
-.bankai-loading-dots {
+.bankai-loading-dots, %bankai-loading-dots {
     @include bankai-flex-row;
     @include bankai-loading-grid-gap;
     font-size: 60px;

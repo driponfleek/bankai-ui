@@ -10,7 +10,7 @@
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-accordion-item-button {
+.bankai-accordion-item-button, %bankai-accordion-item-button {
     @include bankai-focus-state-halo;
 
     @media (hover: hover) {

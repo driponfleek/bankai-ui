@@ -6,7 +6,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
 
-.bankai-form-field-composer {
+.bankai-form-field-composer, %bankai-form-field-composer {
     display: inline-block;
     $bankai-form-label-control-space: 2px;
     $this: &;

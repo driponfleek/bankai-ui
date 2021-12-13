@@ -11,7 +11,7 @@
 @import './mixins.scss';
 @import './rw-styles.scss';
 
-.bankai-number-picker {
+.bankai-number-picker, %bankai-number-picker {
     display: inline-block;
 
     .rw-widget-picker {

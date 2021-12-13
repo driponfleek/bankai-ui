@@ -2,7 +2,7 @@
 // Dependencies
 // ========================================================
 
-.bankai-form-layout {
+.bankai-form-layout, %bankai-form-layout {
     box-sizing: border-box;
 
     &-section + &-section {

@@ -1,10 +1,9 @@
+@use 'sass:math';
 @import '../vars/typography.scss';
 
-@use 'sass:math';
-
 @mixin bankai-max-line-width($lineheight: $bankai-lineheight) {
-    $divForm: 1em / #{$lineheight};
-    max-width: calc(70 * #{$divForm}); // max characters * (font-size / line-height)
+    $div-form: 1em / #{$lineheight};
+    max-width: calc(70 * #{$div-form}); // max characters * (font-size / line-height)
 }
 
 @mixin bankai-heading-font-shared() {
@@ -22,31 +21,31 @@
 }
 
 @mixin bankai-h1() {
-    @include bankai-heading-font-shared();
+    @include bankai-heading-font-shared;
     @include bankai-max-line-width($bankai-heading-lineheight);
     font-size: var(--bankai-h1-font-size, $bankai-h1-font-size);
 }
 
 @mixin bankai-h2() {
-    @include bankai-heading-font-shared();
+    @include bankai-heading-font-shared;
     @include bankai-max-line-width($bankai-heading-lineheight);
     font-size: var(--bankai-h2-font-size, $bankai-h2-font-size);
 }
 
 @mixin bankai-h3() {
-    @include bankai-heading-font-shared();
+    @include bankai-heading-font-shared;
     @include bankai-max-line-width($bankai-heading-lineheight);
     font-size: var(--bankai-h3-font-size, $bankai-h3-font-size);
 }
 
 @mixin bankai-h4() {
-    @include bankai-heading-font-shared();
+    @include bankai-heading-font-shared;
     @include bankai-max-line-width($bankai-heading-lineheight);
     font-size: var(--bankai-h4-font-size, $bankai-h4-font-size);
 }
 
 @mixin bankai-h5() {
-    @include bankai-heading-font-shared();
+    @include bankai-heading-font-shared;
     @include bankai-max-line-width($bankai-heading-lineheight);
     font-size: var(--bankai-h5-font-size, $bankai-h5-font-size);
 }

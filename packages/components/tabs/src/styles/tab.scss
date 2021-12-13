@@ -10,7 +10,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-tab {
+.bankai-tab, %bankai-tab {
     @include bankai-focus-state-halo;
     color: var(--bankai-tabs-inactive-text-color, $bankai-tabs-inactive-text-color);
     box-sizing: border-box;

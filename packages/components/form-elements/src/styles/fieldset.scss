@@ -3,7 +3,7 @@
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
 
-.bankai-fieldset {
+.bankai-fieldset, %bankai-fieldset {
     box-sizing: border-box;
     border: none;
     padding: 0;

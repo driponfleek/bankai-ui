@@ -4,7 +4,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import './button.scss';
 
-.bankai-menu-button-option {
+.bankai-menu-button-option, %bankai-menu-button-option {
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
@@ -22,16 +22,16 @@
     }
 
     &__content-container {
-        @extend .bankai-button__content-container;
+        @extend %bankai-button__content-container;
         display: block;
     }
 
     &__text-container {
-        @extend .bankai-button__text-container;
+        @extend %bankai-button__text-container;
     }
 
     &__icon-container {
-        @extend .bankai-button__icon-container;
+        @extend %bankai-button__icon-container;
     }
 
     &__icon-container + &__text-container {
@@ -39,11 +39,11 @@
     }
 
     &__icon-safe-space {
-        @extend .bankai-button__icon-safe-space;
+        @extend %bankai-button__icon-safe-space;
     }
 
     &__icon {
-        @extend .bankai-button__icon;
+        @extend %bankai-button__icon;
         font-size: 100%;
     }
 

@@ -7,7 +7,7 @@
 @import './animations.scss';
 @import './mixins.scss';
 
-.bankai-loading-spinners {
+.bankai-loading-spinners, %bankai-loading-spinners {
     width: 1em;
     height: 1em;
     box-sizing: border-box;
@@ -299,16 +299,16 @@
 
             10%, 25% {
                 top: 0;
-                left: 58.333333333%;
+                left: 58.3333%;
             }
 
             35%, 50% {
-                top: 58.333333333%;
-                left: 58.333333333%;
+                top: 58.3333%;
+                left: 58.3333%;
             }
 
             60%, 75% {
-                top: 58.333333333%;
+                top: 58.3333%;
                 left: 0;
             }
         }
@@ -321,8 +321,8 @@
         &::after,
         &::before,
         #{$this}__inner {
-            width: 41.666666666%;
-            height: 41.666666666%;
+            width: 41.6667%;
+            height: 41.6667%;
             border-radius: 20%;
             animation: bankai-tri-cube 2.4s linear infinite;
             display: block;

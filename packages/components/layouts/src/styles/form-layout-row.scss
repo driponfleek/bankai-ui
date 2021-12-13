@@ -3,7 +3,7 @@
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 
-.bankai-form-layout-row {
+.bankai-form-layout-row, %bankai-form-layout-row {
     @include bankai-flex-row;
     box-sizing: border-box;
 

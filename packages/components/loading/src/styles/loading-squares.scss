@@ -6,7 +6,7 @@
 @import './animations.scss';
 @import './mixins.scss';
 
-.bankai-loading-squares {
+.bankai-loading-squares, %bankai-loading-squares {
     @include bankai-flex-row;
     width: 1em;
     height: 1em;

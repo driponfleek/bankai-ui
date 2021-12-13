@@ -1,6 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@use 'sass:color';
 @import '~react-toggle/style.css';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
@@ -9,7 +10,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-toggle-switch {
+.bankai-toggle-switch, %bankai-toggle-switch {
     display: inline-block;
     position: relative;
 
@@ -58,7 +59,7 @@
 
     // stylelint-disable-next-line
     &:hover .react-toggle--checked .react-toggle-track {
-        background-color: var(--bankai-toggle-switch-on-track-hover-color, darken($bankai-affirmative-color, 8%));
+        background-color: var(--bankai-toggle-switch-on-track-hover-color, color.adjust($bankai-affirmative-color, $lightness: -8%));
     }
 
     &__icon-busy {
