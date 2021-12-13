@@ -9,7 +9,7 @@
     color: var(--bankai-link-color, $bankai-link-color);
     text-decoration: none;
     border-radius: 3px;
-    $this: &;
+    $this: '.bankai-hyperlink';
 
     &:focus-visible {
         @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));

@@ -8,7 +8,7 @@
 
 .bankai-loading-bars, %bankai-loading-bars {
     font-size: 60px;
-    $this: &;
+    $this: '.bankai-loading-bars';
     $bar-width: 0.0667em;
 
     &__bar {

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Wrapper, Button, Menu } from 'react-aria-menubutton';
 import { v4 as uuidv4 } from 'uuid';
+import ButtonIcon from './components/ButtonIcon';
+import ButtonText from './components/ButtonText';
 import MenuButtonOption from './MenuButtonOption';
 
 // Utils
@@ -64,14 +66,7 @@ class MenuButton extends Component {
     }
 
     renderButton = () => {
-        const {
-            btnContextCls,
-            text,
-            variant,
-            isDisabled,
-            renderIcon,
-            children,
-        } = this.props;
+        const { btnContextCls, variant, isDisabled, children } = this.props;
         const props = this.getBtnExtantProps();
         const modCls = getBtnModCls(variant, this.btnCls);
 
@@ -83,39 +78,34 @@ class MenuButton extends Component {
                 disabled={isDisabled}
             >
                 <span className={`${this.btnCls}__content-container`}>
-                    {!children && (
-                        <Fragment>
-                            {!!renderIcon && this.renderIcon()}
-                            {!!text && this.renderText()}
-                        </Fragment>
-                    )}
+                    {!children && this.renderMain()}
                     {children}
                 </span>
             </Button>
         );
     };
 
-    renderIcon = () => {
-        const { renderIcon } = this.props;
-        const iconCls = `${this.btnCls}__icon`;
+    renderMain = () => {
+        const { text, renderIcon } = this.props;
 
         return (
-            <span className={`${iconCls}-container`}>
-                <span className={`${iconCls}-safe-space`}>
-                    <span className={iconCls}>{renderIcon()}</span>
-                </span>
-            </span>
+            <Fragment>
+                {!!renderIcon && this.renderIcon()}
+                {!!text && this.renderText()}
+            </Fragment>
         );
+    };
+
+    renderIcon = () => {
+        const { renderIcon } = this.props;
+
+        return <ButtonIcon baseCls={this.btnCls} renderIcon={renderIcon} />;
     };
 
     renderText() {
         const { text } = this.props;
 
-        return (
-            <span className={`${this.btnCls}__text-container`}>
-                <span className={`${this.btnCls}__text`}>{text}</span>
-            </span>
-        );
+        return <ButtonText baseCls={this.btnCls} text={text} />;
     }
 
     renderMenu = () => {

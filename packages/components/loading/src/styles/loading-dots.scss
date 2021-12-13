@@ -11,7 +11,7 @@
     @include bankai-loading-grid-gap;
     font-size: 60px;
     flex-wrap: wrap;
-    $this: &;
+    $this: '.bankai-loading-dots';
 
     &__dot {
         @include bankai-loading-grid-item-dimensions;

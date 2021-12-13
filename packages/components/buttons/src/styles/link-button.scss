@@ -19,11 +19,11 @@
     background-color: transparent;
     box-sizing: border-box;
     border-radius: 3px;
-    $this: &;
+    $this: '.bankai-link-button';
 
     @media (hover: hover) {
         &:hover #{$this}__text {
-            text-decoration: underline;
+            @include bankai-link-button-hover;
         }
     }
 

@@ -12,7 +12,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-tabs, %bankai-tabs {
-    $this: &;
+    $this: '.bankai-tabs';
 
     // Mods
     &--bar,
