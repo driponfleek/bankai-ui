@@ -33,7 +33,7 @@
     box-sizing: border-box;
     margin: auto;
     position: relative;
-    $this: &;
+    $this: '.bankai-modal';
 
     &__content-container {
         @include bankai-flex-column;

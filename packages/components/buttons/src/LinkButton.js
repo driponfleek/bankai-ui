@@ -1,6 +1,8 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import ButtonIcon from './components/ButtonIcon';
+import ButtonText from './components/ButtonText';
 
 // Styles
 import './styles/link-button.scss';
@@ -50,25 +52,14 @@ class LinkButton extends PureComponent {
 
     renderIcon = () => {
         const { renderIcon } = this.props;
-        const baseIconCls = `${this.baseCls}__icon`;
 
-        return (
-            <span className={`${baseIconCls}-container`}>
-                <span className={`${baseIconCls}-safe-space`}>
-                    <span className={baseIconCls}>{renderIcon()}</span>
-                </span>
-            </span>
-        );
+        return <ButtonIcon baseCls={this.baseCls} renderIcon={renderIcon} />;
     };
 
     renderText = () => {
         const { text } = this.props;
 
-        return (
-            <span className={`${this.baseCls}__text-container`}>
-                <span className={`${this.baseCls}__text`}>{text}</span>
-            </span>
-        );
+        return <ButtonText baseCls={this.baseCls} text={text} />;
     };
 
     handleClick = (e) => {

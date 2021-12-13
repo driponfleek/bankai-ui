@@ -13,7 +13,7 @@
     border: 1px solid transparent;
     text-align: left;
     white-space: nowrap;
-    $this: &;
+    $this: '.bankai-menu-button-option';
 
     @media (hover: hover) {
         &:enabled:hover {

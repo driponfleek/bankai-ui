@@ -2,6 +2,8 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';
+import ButtonIcon from './components/ButtonIcon';
+import ButtonText from './components/ButtonText';
 
 // Utils
 import { getBtnModCls } from './utils/buttonUtils';
@@ -18,6 +20,7 @@ class Button extends PureComponent {
     };
 
     static propTypes = {
+        'aria-label': PropTypes.string,
         contextCls: PropTypes.string,
         text: PropTypes.string,
         type: PropTypes.string,
@@ -68,17 +71,10 @@ class Button extends PureComponent {
 
     renderIcon = (isBusyIcon) => {
         const { renderBusyIcon, renderIcon } = this.props;
-        const baseIconCls = `${this.baseCls}__icon`;
         const busyIconRenderer = renderBusyIcon || this.renderBusyIcon;
         const iconRenderer = isBusyIcon ? busyIconRenderer : renderIcon;
 
-        return (
-            <span className={`${baseIconCls}-container`}>
-                <span className={`${baseIconCls}-safe-space`}>
-                    <span className={baseIconCls}>{iconRenderer()}</span>
-                </span>
-            </span>
-        );
+        return <ButtonIcon baseCls={this.baseCls} renderIcon={iconRenderer} />;
     };
 
     renderBusyIcon = () => {
@@ -88,11 +84,7 @@ class Button extends PureComponent {
     renderText = () => {
         const { text } = this.props;
 
-        return (
-            <span className={`${this.baseCls}__text-container`}>
-                <span className={`${this.baseCls}__text`}>{text}</span>
-            </span>
-        );
+        return <ButtonText baseCls={this.baseCls} text={text} />;
     };
 
     handleClick = (e) => {
@@ -118,6 +110,7 @@ class Button extends PureComponent {
 
     getExtantProps = () => {
         const {
+            'aria-label': ariaLabel,
             contextCls,
             text,
             type,
@@ -131,17 +124,12 @@ class Button extends PureComponent {
             children,
             ...rest
         } = this.props;
-        const props = { ...rest };
-        props.disabled = isBusy || isDisabled;
 
-        // To enforce button text being properly written and
-        // prevent scenario where text and aria label exist,
-        // delete the aria-label prop if props.text is present
-        if (text) {
-            delete props['aria-label'];
-        }
-
-        return props;
+        return {
+            ...rest,
+            ...(!text && ariaLabel && { 'aria-label': ariaLabel }),
+            disabled: isBusy || isDisabled,
+        };
     };
 
     baseCls = 'bankai-button';

@@ -12,7 +12,7 @@
     height: 1em;
     font-size: 60px;
     flex-wrap: wrap;
-    $this: &;
+    $this: '.bankai-loading-squares';
 
     &__square {
         background-color: var(--bankai-primary-color, $bankai-primary-color);

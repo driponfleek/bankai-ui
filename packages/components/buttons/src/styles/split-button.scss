@@ -12,7 +12,7 @@
     border: 1px solid transparent;
     border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
     display: inline-block;
-    $this: &;
+    $this: '.bankai-split-button';
 
     &__menu-btn-container {
         border-left: 1px solid transparent;
