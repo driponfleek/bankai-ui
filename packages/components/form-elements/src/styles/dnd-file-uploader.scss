@@ -1,6 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@use 'sass:color';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
@@ -11,9 +12,9 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-ui-buttons/src/styles/button.scss';
-@import '~@epr0t0type/bankai-ui-buttons/src/styles/link-button.scss';
+@import '~@epr0t0type/bankai-ui-buttons/src/styles/mixins.scss';
 
-.bankai-dnd-file-uploader {
+.bankai-dnd-file-uploader, %bankai-dnd-file-uploader {
     min-height: 138px;
 
     &__inner {
@@ -127,13 +128,12 @@
     }
 
     &__browse-btn {
-        @extend .bankai-button;
+        @extend %bankai-button;
         appearance: button;
         display: inline-block;
-        // line-height: 1;
 
         &.bankai-button--secondary {
-            @extend .bankai-button--secondary;
+            @extend %bankai-button--secondary;
         }
     }
 
@@ -154,21 +154,27 @@
         }
 
         &:active + .bankai-button--secondary {
-            @extend .bankai-button--secondary:active;
+            @include bankai-button-active;
         }
 
-        &:enabled:hover {
-            + .bankai-button--secondary {
-                @extend .bankai-button--secondary:hover;
+        &:hover {
+            @media (hover: hover) {
+                + .bankai-button--secondary {
+                    @include bankai-button-secondary-hover;
+                }
+
+                + .bankai-link-button .bankai-link-button__text {
+                    @include bankai-link-button-hover;
+                }
             }
         }
 
         &:focus-visible + .bankai-button {
-            @extend .bankai-button--secondary:focus-visible;
+            @include bankai-button-secondary-focus-visible;
         }
 
         &:focus-visible + .bankai-link-button {
-            @extend .bankai-link-button:focus-visible;
+            @include bankai-link-button-focus-visible;
         }
     }
 
@@ -226,13 +232,13 @@
 
     &--hover {
         background-color: var(--bankai-affirmative-color, $bankai-affirmative-color);
-        border-color: var(--bankai-dnd-file-uploader-hover-state-border-color, darken($bankai-affirmative-color, 20%));
+        border-color: var(--bankai-dnd-file-uploader-hover-state-border-color, color.adjust($bankai-affirmative-color, $lightness: -20%));
     }
 
     &--rejected {
         background-color: var(--bankai-dnd-file-uploader-rejected-state-bg-color, $bankai-error-color);
         color: var(--bankai-dnd-file-uploader-rejected-state-text-color, $bankai-white);
-        border-color: var(--bankai-dnd-file-uploader-rejected-state-border-color, darken($bankai-error-color, 20%));
+        border-color: var(--bankai-dnd-file-uploader-rejected-state-border-color, color.adjust($bankai-error-color, $lightness: -20%));
     }
 
     &--busy {

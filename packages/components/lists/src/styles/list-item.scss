@@ -5,7 +5,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 
-.bankai-list-item {
+.bankai-list-item, %bankai-list-item {
     background-color: var(--bankai-canvas, $bankai-canvas);
 
     &__inner {
@@ -20,7 +20,7 @@
 
     &__text,
     &__meta {
-        @include bankai-max-line-width();
+        @include bankai-max-line-width;
         line-height: $bankai-lineheight;
         margin: 0;
     }

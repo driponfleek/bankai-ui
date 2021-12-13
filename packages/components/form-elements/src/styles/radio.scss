@@ -8,7 +8,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import './mixins.scss';
 
-.bankai-radio {
+.bankai-radio, %bankai-radio {
     width: 25px;
     height: 25px;
     box-sizing: border-box;

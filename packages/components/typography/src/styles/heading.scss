@@ -4,7 +4,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 
-.bankai-heading {
+.bankai-heading, %bankai-heading {
     &--h1 {
         @include bankai-h1;
     }

@@ -12,13 +12,13 @@ module.exports = {
     addons: [
         {
             name: '@storybook/addon-essentials',
-            // options: {
-            //     docs: false,
-            // },
         },
         '@storybook/addon-a11y',
         '@storybook/addon-links',
     ],
+    core: {
+        builder: 'webpack5',
+    },
     babel: async (options) => ({
         ...options,
         plugins: [
@@ -27,6 +27,7 @@ module.exports = {
         ],
     }),
     stories: ['../stories/**/**/*.stories.@(js)'],
+    typescript: { reactDocgen: 'none' },
     webpackFinal: async (config) => {
         const symLinks = getSymLinks(rootNodeModules, path, fs);
         const newConfig = fixStoryBookSass(

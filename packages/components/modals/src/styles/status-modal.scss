@@ -5,7 +5,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-status-modal {
+.bankai-status-modal, %bankai-status-modal {
     color: $bankai-white;
     padding: 1.5rem;
 

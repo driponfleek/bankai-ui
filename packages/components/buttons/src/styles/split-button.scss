@@ -7,7 +7,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-split-button {
+.bankai-split-button, %bankai-split-button {
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);

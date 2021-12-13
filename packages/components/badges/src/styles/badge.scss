@@ -1,10 +1,10 @@
-//========================================================
+// ========================================================
 // Dependencies
-//========================================================
+// ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-badge {
+.bankai-badge, %bankai-badge {
     color: var(--bankai-badge-text-color, $bankai-badge-text-color);
     background-color: var(--bankai-badge-bg-color, $bankai-badge-bg-color);
     font-size: var(--bankai-footnote-text-size, $bankai-footnote-text-size);

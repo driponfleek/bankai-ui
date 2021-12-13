@@ -11,7 +11,7 @@
 @import './mixins.scss';
 @import './rw-styles.scss';
 
-.bankai-dropdown {
+.bankai-dropdown, %bankai-dropdown {
     width: initial;
     display: inline-block;
 

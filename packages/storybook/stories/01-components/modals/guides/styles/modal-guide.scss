@@ -14,7 +14,7 @@
         }
 
         p {
-            @include bankai-max-line-width();
+            @include bankai-max-line-width;
         }
     }
 }

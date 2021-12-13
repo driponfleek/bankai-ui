@@ -5,8 +5,8 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-inline-form-error {
-    @include bankai-max-line-width();
+.bankai-inline-form-error, %bankai-inline-form-error {
+    @include bankai-max-line-width;
     color: var(--bankai-form-inline-error-text-color, $bankai-form-inline-error-text-color);
     font-size: var(--bankai-sub-text-size);
     display: block;

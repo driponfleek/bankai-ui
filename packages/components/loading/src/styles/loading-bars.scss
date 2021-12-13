@@ -6,7 +6,7 @@
 // @import './animations.scss';
 @import './mixins.scss';
 
-.bankai-loading-bars {
+.bankai-loading-bars, %bankai-loading-bars {
     font-size: 60px;
     $this: &;
     $bar-width: 0.0667em;

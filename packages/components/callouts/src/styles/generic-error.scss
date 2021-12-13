@@ -1,9 +1,9 @@
-//========================================================
+// ========================================================
 // Dependencies
-//========================================================
+// ========================================================
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-generic-error {
+.bankai-generic-error, %bankai-generic-error {
     .bankai-callout__icon {
         color: var(--bankai-error-color, $bankai-error-color);
     }

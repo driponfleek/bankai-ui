@@ -10,7 +10,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
-.bankai-tabs-list {
+.bankai-tabs-list, %bankai-tabs-list {
     @include bankai-flex-row;
     box-sizing: border-box;
 }

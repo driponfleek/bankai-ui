@@ -1,0 +1,51 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+
+@mixin bankai-button-active {
+    transform: scale(0.95);
+}
+
+@mixin bankai-button-primary-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+}
+
+@mixin bankai-button-primary-hover {
+    color: var(--bankai-btn-primary-hover-text-color, $bankai-btn-primary-hover-text-color);
+    background-color: var(--bankai-btn-primary-hover-bg-color, $bankai-btn-primary-hover-bg-color);
+}
+
+@mixin bankai-button-secondary-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+}
+
+@mixin bankai-button-secondary-hover {
+    color: var(--bankai-btn-secondary-hover-text-color, $bankai-btn-secondary-hover-text-color);
+    background-color: var(--bankai-btn-secondary-hover-bg-color, $bankai-btn-secondary-hover-bg-color);
+    border-color: var(--bankai-btn-secondary-hover-border-color, $bankai-btn-secondary-hover-border-color);
+}
+
+@mixin bankai-button-destructive-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-destructive-focus-halo-color, rgba($bankai-btn-primary-destructive-default-bg-color, 0.4)));
+}
+
+@mixin bankai-button-primary-destructive-hover {
+    color: var(--bankai-btn-primary-destructive-hover-text-color, $bankai-btn-primary-destructive-hover-text-color);
+    background-color: var(--bankai-btn-primary-destructive-hover-bg-color, $bankai-btn-primary-destructive-hover-bg-color);
+}
+
+@mixin bankai-button-secondary-destructive-hover {
+    color: var(--bankai-btn-secondary-destructive-hover-text-color, $bankai-btn-secondary-destructive-hover-text-color);
+    background-color: var(--bankai-btn-secondary-destructive-hover-bg-color, $bankai-btn-secondary-destructive-hover-bg-color);
+    border-color: var(--bankai-btn-secondary-destructive-hover-border-color, $bankai-btn-secondary-destructive-hover-border-color);
+}
+
+@mixin bankai-link-button-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));
+}
+
+@mixin bankai-link-button-hover {
+    text-decoration: underline;
+}

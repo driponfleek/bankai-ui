@@ -7,7 +7,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import './mixins.scss';
 
-.bankai-text-input {
+.bankai-text-input, %bankai-text-input {
     @include bankai-focus-state-halo;
     background-color: var(--bankai-form-input-bg-color, $bankai-form-input-bg-color);
     box-sizing: border-box;

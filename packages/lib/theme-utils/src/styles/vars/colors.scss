@@ -1,3 +1,4 @@
+@use 'sass:color';
 // ========================================================
 // !!! BEGIN DO NOT USE !!!
 // These are here simply for making it easier to assign
@@ -108,7 +109,7 @@ $bankai-form-menu-selected-state-text-color: $bankai-black;
 // Tabs
 $bankai-tabs-active-accent-color: $bankai-primary-color;
 $bankai-tabs-active-bg-color: $bankai-white;
-$bankai-tabs-active-text-color: darken($bankai-primary-color, 20%);
+$bankai-tabs-active-text-color: color.adjust($bankai-primary-color, $lightness: -20%);
 $bankai-tabs-border-color: $bankai-neutral-80;
 $bankai-tabs-inactive-bg-color: $bankai-neutral-90;
 $bankai-tabs-inactive-text-color: $bankai-neutral-40;
@@ -126,19 +127,19 @@ $bankai-callout-memo-bg-color: $bankai-neutral-90;
 $bankai-callout-memo-icon-color: $bankai-text-color;
 $bankai-callout-memo-text-color: $bankai-text-color;
 // Callout Memo (Affirmative)
-$bankai-callout-memo-affirmative-bg-color: lighten($bankai-affirmative-color, 40%);
-$bankai-callout-memo-affirmative-icon-color: darken($bankai-affirmative-color, 20%);
+$bankai-callout-memo-affirmative-bg-color: color.adjust($bankai-affirmative-color, $lightness: 40%);
+$bankai-callout-memo-affirmative-icon-color: color.adjust($bankai-affirmative-color, $lightness: -20%);
 $bankai-callout-memo-affirmative-text-color: $bankai-text-color;
 // Callout Memo (Cautionary)
-$bankai-callout-memo-cautionary-bg-color: lighten($bankai-cautionary-color, 40%);
-$bankai-callout-memo-cautionary-icon-color: darken($bankai-cautionary-color, 20%);
+$bankai-callout-memo-cautionary-bg-color: color.adjust($bankai-cautionary-color, $lightness: 40%);
+$bankai-callout-memo-cautionary-icon-color: color.adjust($bankai-cautionary-color, $lightness: -20%);
 $bankai-callout-memo-cautionary-text-color: $bankai-text-color;
 // Callout Memo (Error)
-$bankai-callout-memo-error-bg-color: lighten($bankai-error-color, 40%);
-$bankai-callout-memo-error-icon-color: darken($bankai-error-color, 10%);
+$bankai-callout-memo-error-bg-color: color.adjust($bankai-error-color, $lightness: 40%);
+$bankai-callout-memo-error-icon-color: color.adjust($bankai-error-color, $lightness: -10%);
 $bankai-callout-memo-error-text-color: $bankai-text-color;
 // Callout Memo (Info)
-$bankai-callout-memo-info-bg-color: lighten($bankai-info-color, 40%);
+$bankai-callout-memo-info-bg-color: color.adjust($bankai-info-color, $lightness: 40%);
 $bankai-callout-memo-info-icon-color: $bankai-info-color;
 $bankai-callout-memo-info-text-color: $bankai-text-color;
 // Badge (Default)

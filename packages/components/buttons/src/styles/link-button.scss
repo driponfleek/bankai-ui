@@ -8,8 +8,9 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import './mixins.scss';
 
-.bankai-link-button {
+.bankai-link-button, %bankai-link-button {
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
@@ -27,7 +28,7 @@
     }
 
     &:focus-visible {
-        @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));
+        @include bankai-link-button-focus-visible;
     }
 
     &__content-container {

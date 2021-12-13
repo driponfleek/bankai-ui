@@ -6,18 +6,17 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import './button.scss';
 
-.bankai-menu-button {
+.bankai-menu-button, %bankai-menu-button {
     display: inline-block;
     position: relative;
 
     &__button {
-        @extend .bankai-button;
+        @extend %bankai-button;
     }
 
     &__menu {
         @include bankai-box-shadow-elevated($bankai-black);
         background-color: var(--bankai-canvas, $bankai-canvas);
-        // border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
         border-radius: 5px;
         position: absolute;
         top: calc(100% + 3px);

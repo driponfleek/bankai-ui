@@ -3,6 +3,6 @@
 // ========================================================
 @import './text-input.scss';
 
-.bankai-textarea {
-    @extend .bankai-text-input;
+.bankai-textarea, %bankai-textarea {
+    @extend %bankai-text-input;
 }

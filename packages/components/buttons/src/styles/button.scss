@@ -9,8 +9,9 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import './mixins.scss';
 
-.bankai-button {
+.bankai-button, %bankai-button {
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
@@ -70,13 +71,12 @@
         background-color: var(--bankai-btn-primary-default-bg-color, $bankai-btn-primary-default-bg-color);
 
         &:focus-visible {
-            @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+            @include bankai-button-primary-focus-visible;
         }
 
         @media (hover: hover) {
             &:enabled:hover {
-                color: var(--bankai-btn-primary-hover-text-color, $bankai-btn-primary-hover-text-color);
-                background-color: var(--bankai-btn-primary-hover-bg-color, $bankai-btn-primary-hover-bg-color);
+                @include bankai-button-primary-hover;
             }
         }
     }
@@ -87,14 +87,12 @@
         border-color: var(--bankai-btn-secondary-default-border-color, $bankai-btn-secondary-default-border-color);
 
         &:focus-visible {
-            @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+            @include bankai-button-secondary-focus-visible;
         }
 
         @media (hover: hover) {
             &:enabled:hover {
-                color: var(--bankai-btn-secondary-hover-text-color, $bankai-btn-secondary-hover-text-color);
-                background-color: var(--bankai-btn-secondary-hover-bg-color, $bankai-btn-secondary-hover-bg-color);
-                border-color: var(--bankai-btn-secondary-hover-border-color, $bankai-btn-secondary-hover-border-color);
+                @include bankai-button-secondary-hover;
             }
         }
     }
@@ -104,13 +102,12 @@
         background-color: var(--bankai-btn-primary-destructive-default-bg-color, $bankai-btn-primary-destructive-default-bg-color);
 
         &:focus-visible {
-            @include bankai-focus-state-box-shadow(var(--bankai-btn-primary-destructive-focus-halo-color, rgba($bankai-btn-primary-destructive-default-bg-color, 0.4)));
+            @include bankai-button-destructive-focus-visible;
         }
 
         @media (hover: hover) {
             &:enabled:hover {
-                color: var(--bankai-btn-primary-destructive-hover-text-color, $bankai-btn-primary-destructive-hover-text-color);
-                background-color: var(--bankai-btn-primary-destructive-hover-bg-color, $bankai-btn-primary-destructive-hover-bg-color);
+                @include bankai-button-primary-destructive-hover;
             }
         }
     }
@@ -121,14 +118,12 @@
         border-color: var(--bankai-btn-secondary-destructive-default-border-color, $bankai-btn-secondary-destructive-default-border-color);
 
         &:focus-visible {
-            @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-destructive-focus-halo-color, rgba($bankai-btn-secondary-destructive-default-bg-color, 0.4)));
+            @include bankai-button-destructive-focus-visible;
         }
 
         @media (hover: hover) {
             &:enabled:hover {
-                color: var(--bankai-btn-secondary-destructive-hover-text-color, $bankai-btn-secondary-destructive-hover-text-color);
-                background-color: var(--bankai-btn-secondary-destructive-hover-bg-color, $bankai-btn-secondary-destructive-hover-bg-color);
-                border-color: var(--bankai-btn-secondary-destructive-hover-border-color, $bankai-btn-secondary-destructive-hover-border-color);
+                @include bankai-button-secondary-destructive-hover;
             }
         }
     }
@@ -140,7 +135,7 @@
     &--primary-destructive,
     &--secondary-destructive {
         &:active {
-            transform: scale(0.95);
+            @include bankai-button-active;
         }
     }
 

@@ -7,7 +7,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import './mixins.scss';
 
-.bankai-checkbox {
+.bankai-checkbox, %bankai-checkbox {
     width: 25px;
     height: 25px;
     box-sizing: border-box;

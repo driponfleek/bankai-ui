@@ -3,7 +3,7 @@
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 
-.bankai-accordion-item-trigger {
+.bankai-accordion-item-trigger, %bankai-accordion-item-trigger {
     .bankai-accordion-item-button {
         @include bankai-flex-row;
     }

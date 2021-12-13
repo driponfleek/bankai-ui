@@ -5,5 +5,5 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
 
 .bankai-sb-paragraph {
-    @include bankai-max-line-width();
+    @include bankai-max-line-width;
 }

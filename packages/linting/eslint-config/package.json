@@ -23,7 +23,7 @@
     "main": "index.js",
     "name": "@epr0t0type/eslint-config",
     "peerDependencies": {
-        "@babel/core": "^7.12.10",
+        "@babel/core": "^7.16.10",
         "eslint": "^7.16.0",
         "eslint-plugin-filenames": "^1.3.2",
         "eslint-plugin-import": "^2.22.1",
