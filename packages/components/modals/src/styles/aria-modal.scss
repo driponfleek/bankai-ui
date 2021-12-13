@@ -5,7 +5,7 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 
 .bankai-aria-modal, %bankai-aria-modal {
-    $this: &;
+    $this: '.bankai-aria-modal';
 
     &__overlay {
         @include bankai-scroll-y;

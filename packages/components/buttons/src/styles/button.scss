@@ -16,7 +16,7 @@
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
     @include bankai-disabled-state;
-    $this: &;
+    $this: '.bankai-button';
     background-color: $bankai-white;
     box-sizing: border-box;
     border: 1px solid transparent;
