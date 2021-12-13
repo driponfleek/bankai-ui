@@ -44,7 +44,7 @@ class SplitButton extends Component {
     render() {
         const { contextCls, renderMainButton } = this.props;
         const modCls = this.getModCls();
-        const mainBtnProps = this.getMainBtnProps();
+        const mainBtnProps = this.getMainBtnExtantProps();
         const mainBtnRenderer = renderMainButton || this.renderMainButton;
 
         return (
@@ -66,7 +66,7 @@ class SplitButton extends Component {
     };
 
     renderMenuButton = () => {
-        const props = this.getMenuBtnProps();
+        const props = this.getMenuBtnExtantProps();
 
         return (
             <MenuButton {...props} contextCls={`${this.baseCls}__menu-btn`} />
@@ -86,7 +86,7 @@ class SplitButton extends Component {
         };
     };
 
-    getMainBtnProps = () => {
+    getMainBtnExtantProps = () => {
         const {
             variant,
             isDisabled,
@@ -106,7 +106,7 @@ class SplitButton extends Component {
         };
     };
 
-    getMenuBtnProps = () => {
+    getMenuBtnExtantProps = () => {
         const {
             menuButtonARIALabel,
             variant,

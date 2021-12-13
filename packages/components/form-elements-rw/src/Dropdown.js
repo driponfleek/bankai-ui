@@ -80,7 +80,7 @@ class Dropdown extends PureComponent {
             [`${this.baseCls}--error`]: hasError,
             [`${this.baseCls}--no-filter`]: !filter,
         };
-        const props = this.getProps();
+        const props = this.getExtantProps();
 
         return (
             <DropdownList
@@ -128,34 +128,34 @@ class Dropdown extends PureComponent {
         onToggle(e);
     };
 
-    getProps = () => {
+    getExtantProps = () => {
         const {
+            contextCls,
+            hasError,
             disabledOptions,
-            isBusy,
-            isDefaultOpen,
-            isDisabled,
-            isOpen,
-            isReadOnly,
-            shouldAutoFocus,
-            shouldDropUp,
+            isBusy: busy,
+            isDefaultOpen: defaultOpen,
+            isDisabled: disabled,
+            isOpen: open,
+            isReadOnly: readOnly,
+            shouldAutoFocus: autoFocus,
+            shouldDropUp: dropUp,
+            onChange,
+            onSelect,
+            onToggle,
             ...rest
         } = this.props;
-        const props = { ...rest };
-        delete props.contextCls;
-        delete props.hasError;
-        delete props.onChange;
-        delete props.onSelect;
-        delete props.onToggle;
 
-        props.autoFocus = shouldAutoFocus;
-        props.busy = isBusy;
-        props.defaultOpen = isDefaultOpen;
-        props.disabled = isDisabled || disabledOptions;
-        props.open = !isDisabled && isOpen;
-        props.readOnly = isReadOnly;
-        props.dropUp = shouldDropUp;
-
-        return props;
+        return {
+            ...rest,
+            autoFocus,
+            busy,
+            defaultOpen,
+            disabled,
+            open,
+            readOnly,
+            dropUp,
+        };
     };
 
     baseCls = 'bankai-dropdown';

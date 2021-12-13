@@ -31,7 +31,7 @@ class Textarea extends PureComponent {
 
     render() {
         const { contextCls, onChange } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
 
         return (
             <textarea
@@ -42,7 +42,7 @@ class Textarea extends PureComponent {
         );
     }
 
-    getProps() {
+    getExtantProps() {
         const {
             contextCls,
             hasError,

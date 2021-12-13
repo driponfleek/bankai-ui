@@ -74,7 +74,7 @@ class Multiselect extends PureComponent {
 
     render() {
         const { contextCls, hasError } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
         const modCls = {
             [`${this.baseCls}--error`]: hasError,
         };
@@ -147,7 +147,7 @@ class Multiselect extends PureComponent {
         onSelect(e);
     };
 
-    getProps = () => {
+    getExtantProps = () => {
         const {
             isBusy,
             isDefaultOpen,

@@ -144,7 +144,7 @@ const withFormField = (Comp) =>
         };
 
         renderComp = () => {
-            const props = this.getCompProps();
+            const props = this.getCompExtantProps();
 
             return (
                 <div className={`${this.baseCls}__control-container`}>
@@ -154,19 +154,19 @@ const withFormField = (Comp) =>
         };
 
         renderError = () => {
-            const props = this.getErrorProps();
+            const props = this.getErrorExtantProps();
 
             return <InlineFormError {...props} />;
         };
 
         renderHint = () => {
-            const props = this.getHintProps();
+            const props = this.getHintExtantProps();
 
             return <FormControlHint {...props} />;
         };
 
         renderLabel = () => {
-            const props = this.getLabelProps();
+            const props = this.getLabelExtantProps();
             const hasSubtext = this.getHasLabelSubtext();
 
             return (
@@ -180,7 +180,7 @@ const withFormField = (Comp) =>
         };
 
         renderSubText = () => {
-            const props = this.getLabelSubtextProps();
+            const props = this.getLabelSubtextExtantProps();
 
             return <FormLabelSubtext {...props} />;
         };
@@ -228,7 +228,7 @@ const withFormField = (Comp) =>
             ].join(' ');
         };
 
-        getErrorProps = () => {
+        getErrorExtantProps = () => {
             const { errorProps } = this.props;
 
             return {
@@ -237,7 +237,7 @@ const withFormField = (Comp) =>
             };
         };
 
-        getHintProps = () => {
+        getHintExtantProps = () => {
             const { hintProps } = this.props;
             const hasError = this.getHasError();
             const { hintText, renderHint, ...rest } = hintProps || {};
@@ -252,7 +252,7 @@ const withFormField = (Comp) =>
             };
         };
 
-        getLabelProps = () => {
+        getLabelExtantProps = () => {
             const { id, labelProps } = this.props;
 
             return {
@@ -261,7 +261,7 @@ const withFormField = (Comp) =>
             };
         };
 
-        getLabelSubtextProps = () => {
+        getLabelSubtextExtantProps = () => {
             const { labelSubtextProps } = this.props;
 
             return {
@@ -304,7 +304,7 @@ const withFormField = (Comp) =>
             return !!subtext || renderCustomSubtext;
         };
 
-        getCompProps = () => {
+        getCompExtantProps = () => {
             const {
                 contextCls,
                 variant,

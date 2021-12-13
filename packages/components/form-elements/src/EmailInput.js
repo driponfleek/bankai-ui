@@ -34,12 +34,12 @@ class EmailInput extends PureComponent {
 
     render() {
         const { contextCls } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
 
         return <input {...props} className={cx(this.baseCls, contextCls)} />;
     }
 
-    getProps() {
+    getExtantProps() {
         const {
             contextCls,
             hasError,

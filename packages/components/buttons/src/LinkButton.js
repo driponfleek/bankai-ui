@@ -20,7 +20,7 @@ class LinkButton extends PureComponent {
 
     render() {
         const { contextCls, children } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
 
         return (
             <button
@@ -77,7 +77,7 @@ class LinkButton extends PureComponent {
         onClick({ e, ...(data && { data }) });
     };
 
-    getProps = () => {
+    getExtantProps = () => {
         const {
             contextCls,
             text,
