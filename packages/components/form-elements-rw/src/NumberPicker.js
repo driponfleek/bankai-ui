@@ -51,7 +51,7 @@ class NumberPicker extends PureComponent {
 
     render() {
         const { contextCls, hasError } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
         const modCls = {
             [`${this.baseCls}--error`]: hasError,
         };
@@ -123,7 +123,7 @@ class NumberPicker extends PureComponent {
         onBlur(params);
     };
 
-    getProps = () => {
+    getExtantProps = () => {
         const { isDisabled, isReadOnly, shouldAutoFocus, ...rest } = this.props;
         const props = { ...rest };
         delete props.contextCls;

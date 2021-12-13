@@ -28,7 +28,7 @@ class Radio extends PureComponent {
 
     render() {
         const { contextCls, isChecked } = this.props;
-        const radioProps = this.getRadioProps();
+        const radioProps = this.getExtantProps();
         const modCls = this.getModCls();
 
         return (
@@ -78,7 +78,7 @@ class Radio extends PureComponent {
         };
     };
 
-    getRadioProps = () => {
+    getExtantProps = () => {
         const {
             contextCls,
             isChecked,

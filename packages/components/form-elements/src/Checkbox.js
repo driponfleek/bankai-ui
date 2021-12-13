@@ -29,7 +29,7 @@ class Checkbox extends PureComponent {
 
     render() {
         const { contextCls, isChecked } = this.props;
-        const checkboxProps = this.getCheckboxProps();
+        const checkboxProps = this.getExtantProps();
         const modCls = this.getModCls();
 
         return (
@@ -79,7 +79,7 @@ class Checkbox extends PureComponent {
         };
     };
 
-    getCheckboxProps = () => {
+    getExtantProps = () => {
         const {
             contextCls,
             isChecked,

@@ -25,7 +25,7 @@ class InlineFormError extends PureComponent {
     render() {
         const { contextCls, id } = this.props;
         const hasError = this.getHasError();
-        const ariaProps = this.getARIAProps();
+        const ariaProps = this.getARIAExtantProps();
 
         return (
             <span
@@ -65,7 +65,7 @@ class InlineFormError extends PureComponent {
         );
     }
 
-    getARIAProps() {
+    getARIAExtantProps() {
         const { isErrorPolite, isErrorAtomic, errorARIARelevant } = this.props;
         const ariaLive = isErrorPolite ? 'polite' : 'assertive';
 

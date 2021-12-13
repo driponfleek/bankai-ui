@@ -72,7 +72,7 @@ class MenuButton extends Component {
             renderIcon,
             children,
         } = this.props;
-        const props = this.getBtnProps();
+        const props = this.getBtnExtantProps();
         const modCls = getBtnModCls(variant, this.btnCls);
 
         return (
@@ -147,7 +147,7 @@ class MenuButton extends Component {
         );
     };
 
-    getBtnProps = () => {
+    getBtnExtantProps = () => {
         const {
             btnContextCls,
             contextCls,

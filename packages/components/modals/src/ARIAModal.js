@@ -49,12 +49,12 @@ class ARIAModal extends PureComponent {
 
     render() {
         const { children } = this.props;
-        const modalProps = this.getModalProps();
+        const modalProps = this.getExtantProps();
 
         return <Modal {...modalProps}>{children}</Modal>;
     }
 
-    getModalProps = () => {
+    getExtantProps = () => {
         const {
             ariaDescribedby,
             ariaLabel,

@@ -22,7 +22,7 @@ class FormControlHint extends PureComponent {
 
     render() {
         const { contextCls, id } = this.props;
-        const ariaProps = this.getARIAProps();
+        const ariaProps = this.getARIAExtantProps();
         const hasHint = this.getHasHint();
 
         return (
@@ -54,7 +54,7 @@ class FormControlHint extends PureComponent {
         return <span className={`${this.baseCls}__text`}>{hintText}</span>;
     }
 
-    getARIAProps() {
+    getARIAExtantProps() {
         const { hintARIALive, hintARIARelevant, isHintARIAAtomic } = this.props;
 
         // https://hiddedevries.nl/en/blog/2017-04-04-how-to-make-inline-error-messages-accessible

@@ -31,7 +31,7 @@ class ToggleSwitch extends Component {
 
     render() {
         const { contextCls, isBusy, isDisabled } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
         const modCls = {
             [`${this.baseCls}--is-busy`]: isBusy,
             [`${this.baseCls}--is-disabled`]: isBusy || isDisabled,
@@ -58,7 +58,7 @@ class ToggleSwitch extends Component {
         onChange(payload);
     };
 
-    getProps = () => {
+    getExtantProps = () => {
         const {
             contextCls,
             isBusy,

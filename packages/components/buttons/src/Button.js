@@ -32,7 +32,7 @@ class Button extends PureComponent {
 
     render() {
         const { contextCls, type, children } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
         const modCls = this.getModCls();
 
         return (
@@ -116,7 +116,7 @@ class Button extends PureComponent {
         };
     };
 
-    getProps = () => {
+    getExtantProps = () => {
         const {
             contextCls,
             text,

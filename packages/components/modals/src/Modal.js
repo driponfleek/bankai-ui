@@ -71,7 +71,7 @@ class Modal extends PureComponent {
             hasCloseButton,
             renderModalActions,
         } = this.props;
-        const modalProps = this.getModalProps();
+        const modalProps = this.getExtantProps();
         const hasActions = modalActions.length > 0 || !!renderModalActions;
         const modCls = {
             [`${this.baseCls}--has-close-btn`]: hasCloseButton,
@@ -181,7 +181,7 @@ class Modal extends PureComponent {
         return <Button {...action} onClick={onActionClick} />;
     };
 
-    getModalProps = () => {
+    getExtantProps = () => {
         const {
             ariaLabel,
             closeBtnARIALabel,

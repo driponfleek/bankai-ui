@@ -35,7 +35,7 @@ class TextInput extends PureComponent {
 
     render() {
         const { contextCls, onChange } = this.props;
-        const props = this.getProps();
+        const props = this.getExtantProps();
 
         return (
             <input
@@ -46,7 +46,7 @@ class TextInput extends PureComponent {
         );
     }
 
-    getProps() {
+    getExtantProps() {
         const {
             contextCls,
             hasError,
