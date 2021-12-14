@@ -2,7 +2,7 @@ import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
+import styles from 'rollup-plugin-styles';
 import { terser } from 'rollup-plugin-terser';
 import path from 'path';
 import visualizer from 'rollup-plugin-visualizer';
@@ -45,7 +45,7 @@ export default (opts) => {
             },
             plugins: [
                 ...pluginsBase,
-                postcss({ ...postcssBaseConfig, minimize: true }),
+                styles({ ...postcssBaseConfig, minimize: true }),
                 terser({
                     mangle: {
                         keep_fnames: true,
@@ -65,7 +65,7 @@ export default (opts) => {
             },
             plugins: [
                 ...pluginsBase,
-                postcss({ ...postcssBaseConfig, minimize: true }),
+                styles({ ...postcssBaseConfig, minimize: true }),
                 terser({
                     mangle: {
                         keep_fnames: true,
