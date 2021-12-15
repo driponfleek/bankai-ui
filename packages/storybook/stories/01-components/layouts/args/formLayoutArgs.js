@@ -1,11 +1,4 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
-import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+import { stringArg, boolArg } from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -22,17 +15,13 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
         // description: '',
         propName: 'shouldPadContent',
-        propType: PROP_TYPES.BOOL,
     }),
 };

@@ -1,11 +1,10 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
 import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+    // genArgType,
+    stringArg,
+    boolArg,
+    arrayArg,
+    funcArg,
+} from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -29,46 +28,34 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: '',
         propName: 'emptyStateMsg',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        description: 'Text displayed inside the button',
+    ...stringArg({
+        // description: '',
         propName: 'emptyStateTitle',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         // description: '',
         propName: 'shouldAlternateColors',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.ARRAY],
+    ...arrayArg({
         defaultValue: [],
         // description: '',
         propName: 'data',
-        propType: PROP_TYPES.ARRAY,
     }),
-    ...genArgType({
+    ...funcArg({
         description: `Render a custom empty state`,
         propName: 'renderEmptyState',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         description: 'Render a custom List Item',
         propName: 'renderListItem',
-        propType: PROP_TYPES.FUNC,
     }),
 };

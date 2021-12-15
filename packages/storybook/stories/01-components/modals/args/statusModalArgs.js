@@ -13,14 +13,7 @@ import {
     onExit,
     renderTo,
 } from './sharedModalArgs';
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
-import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+import { stringArg, numberArg, funcArg } from '../../../../utils/argTypesUtils';
 
 // Locale
 // import strings from '../../../../i18n/strings.json';
@@ -45,17 +38,14 @@ export const argTypes = {
     ...dialogId,
     ...role,
     ...overlayContextCls,
-    ...genArgType({
+    ...stringArg({
         // description: '',
         propName: 'statusText',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+    ...numberArg({
         defaultValue: 200,
         // description: '',
         propName: 'closeTimeoutMS',
-        propType: PROP_TYPES.NUMBER,
     }),
     ...isOpen,
     ...shouldCloseOnEsc,
@@ -63,10 +53,9 @@ export const argTypes = {
     ...onAfterClose,
     ...onAfterOpen,
     ...onExit,
-    ...genArgType({
+    ...funcArg({
         description: 'Render function for rendering an icon in the component.',
         propName: 'renderIcon',
-        propType: PROP_TYPES.FUNC,
     }),
     ...renderTo,
 };

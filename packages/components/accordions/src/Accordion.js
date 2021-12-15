@@ -23,7 +23,7 @@ class Accordion extends PureComponent {
         shouldAllowMultipleExpanded: PropTypes.bool,
         shouldAllowZeroExpanded: PropTypes.bool,
         preExpanded: PropTypes.array,
-        renderCustomTrigger: PropTypes.func,
+        renderTrigger: PropTypes.func,
         renderTriggerIcon: PropTypes.func,
         onChange: PropTypes.func,
     };
@@ -53,22 +53,21 @@ class Accordion extends PureComponent {
     }
 
     renderItem = (item) => {
-        const { renderCustomTrigger } = this.props;
+        const { renderTrigger } = this.props;
         const { props: itemProps } = item || {};
         const { accItemProps, accTriggerProps } = itemProps || {};
         const { id } = accItemProps || {};
+        const triggerRenderer = renderTrigger || this.renderTrigger;
 
         return (
             <AccordionItem key={id} {...accItemProps}>
-                {renderCustomTrigger
-                    ? renderCustomTrigger(accTriggerProps)
-                    : this.renderDefaultTrigger(accTriggerProps)}
+                {triggerRenderer(accTriggerProps)}
                 <AccordionItemPanel>{item}</AccordionItemPanel>
             </AccordionItem>
         );
     };
 
-    renderDefaultTrigger = (accTriggerProps) => {
+    renderTrigger = (accTriggerProps) => {
         const { headingLvl, renderTriggerIcon } = this.props;
         const { children, headingProps, ...rest } = accTriggerProps || {};
         const { headingLvl: hpHeadingLvl } = headingProps || {};

@@ -1,15 +1,15 @@
 import React from 'react';
-import { BankaiMoreVertical } from '@epr0t0type/bankai-ui-icons';
+import { BankaiCaretDown } from '@epr0t0type/bankai-ui-icons';
 import { VARIANTS } from '@epr0t0type/bankai-ui-buttons';
-import { genArgType } from '../../../../utils/argTypesUtils';
-import demoOptions from '../mocks/menuButtonMocks';
-
-// Constants
 import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+    stringArg,
+    boolArg,
+    selectArg,
+    arrayArg,
+    objectArg,
+    funcArg,
+} from '../../../../utils/argTypesUtils';
+import demoOptions from '../mocks/menuButtonMocks';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -20,7 +20,7 @@ import strings from '../../../../i18n/strings.json';
 // https://storybook.js.org/docs/react/api/argtypes
 
 const { bankaiUI: locale } = strings;
-const renderIcon = () => <BankaiMoreVertical />;
+const renderIcon = () => <BankaiCaretDown />;
 
 export const args = {
     text: 'Menu',
@@ -34,92 +34,71 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: locale.shared.propDesc.contextCls,
         propName: 'btnContextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: 'Text displayed inside the button.',
         propName: 'text',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-        description: 'Use to set the button variant.',
-        options: Object.keys(VARIANTS).map((VARIANT) => VARIANTS[VARIANT]),
+    ...selectArg({
+        description: locale.shared.propDesc.variant,
+        options: [
+            undefined,
+            ...Object.keys(VARIANTS).map((VARIANT) => VARIANTS[VARIANT]),
+        ],
         propName: 'variant',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
-        description: 'Use to disable the component.',
+        description: locale.shared.propDesc.isDisabled,
         propName: 'isDisabled',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
         // description: '',
         propName: 'shouldCloseOnBlur',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
         // description: '',
         propName: 'shouldCloseOnSelection',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...objectArg({
         // description: '',
         propName: 'menuProps',
-        propType: PROP_TYPES.OBJECT,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...objectArg({
         // description: '',
         propName: 'wrapperProps',
-        propType: PROP_TYPES.OBJECT,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.ARRAY],
+    ...arrayArg({
         // description: '',
         propName: 'menuOptions',
-        propType: PROP_TYPES.ARRAY,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'selected',
         defaultValue: '() => Promise.resolve()',
         // description: '',
         propName: 'onSelection',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'menu toggled',
         defaultValue: '() => Promise.resolve()',
         // description: '',
         propName: 'onMenuToggle',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
-        description: `Render function for rendering an icon in the button. ${locale.shared.propDesc.requiresBankaiIcons}`,
+    ...funcArg({
+        description: `${locale.shared.propDesc.renderIcon} ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderIcon',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         // description: ``,
         propName: 'renderMenuOption',
-        propType: PROP_TYPES.FUNC,
     }),
 };

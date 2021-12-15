@@ -1,11 +1,9 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
 import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+    stringArg,
+    boolArg,
+    shapeArg,
+    funcArg,
+} from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -31,46 +29,34 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: false,
         // description: '',
         propName: 'hasError',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
         // description: '',
         propName: 'isLoading',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...shapeArg({
         // description: '',
         propName: 'errorStateLocale',
-        propType: PROP_TYPES.SHAPE,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...shapeArg({
         // description: '',
         propName: 'loadingStateLocale',
-        propType: PROP_TYPES.SHAPE,
     }),
-    ...genArgType({
+    ...funcArg({
         description: `Render function for rendering your own loading state UI instead of the default one.`,
         propName: 'renderLoadingState',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         description: `Render function for rendering your own error state UI instead of the default one.`,
         propName: 'renderErrorState',
-        propType: PROP_TYPES.FUNC,
     }),
 };

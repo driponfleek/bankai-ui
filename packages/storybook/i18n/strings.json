@@ -25,6 +25,7 @@
                 "formValue": "Use to set the value.",
                 "isDisabled": "Use to disable the component.",
                 "isBusy": "Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.",
+                "renderIcon": "Render function for rendering an icon in the component.",
                 "requiresBankaiIcons": "Requires [Bankai Iconography Package](?path=/story/style-guide-iconography--iconography-story) or your own custom iconography solution.",
                 "shouldAutoComplete": "Enables autocomplete functionality for the component.",
                 "shouldSpellCheck": "Enable spell checking.",

@@ -8,7 +8,9 @@ const ButtonIcon = (props) => {
     return (
         <span className={`${baseIconCls}-container`}>
             <span className={`${baseIconCls}-safe-space`}>
-                <span className={baseIconCls}>{renderIcon()}</span>
+                <span className={baseIconCls}>
+                    {renderIcon && renderIcon()}
+                </span>
             </span>
         </span>
     );

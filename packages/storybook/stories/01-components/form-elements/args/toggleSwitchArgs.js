@@ -1,11 +1,4 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
-import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+import { stringArg, boolArg, funcArg } from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -24,70 +17,50 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formId,
         propName: 'id',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formName,
         propName: 'name',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formValue,
         propName: 'value',
-        propType: [PROP_TYPES.STRING, PROP_TYPES.ARRAY, PROP_TYPES.OBJECT],
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-        // defaultValue: 'false',
+    ...boolArg({
+        defaultValue: 'false',
         description: locale.shared.propDesc.formError,
         propName: 'isChecked',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-        // defaultValue: 'false',
+    ...boolArg({
         description:
             'If `true` on initial render, the toggle is checked. If `false` on initial render, the toggle is unchecked. Use this if you want to treat the toggle as an uncontrolled component',
         propName: 'isDefaultChecked',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.isDisabled,
         propName: 'isDisabled',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.isBusy,
         propName: 'isBusy',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        action: 'changed',
+    ...funcArg({
+        action: 'change',
         defaultValue: '() => Promise.resolve()',
-        description:
-            'Handler called when the user interacts with the component.',
+        // description: '',
         propName: 'onChange',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
-        description: `Render function for rendering an alternative icon to the default one provided in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
+    ...funcArg({
+        description: `Render function for overriding the default busy icon with a custom one. ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderBusyIcon',
-        propType: PROP_TYPES.FUNC,
     }),
 };

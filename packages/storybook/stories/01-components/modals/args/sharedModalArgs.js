@@ -1,11 +1,9 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
 import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+    stringArg,
+    numberArg,
+    boolArg,
+    funcArg,
+} from '../../../../utils/argTypesUtils';
 
 // Locale
 // import strings from '../../../../i18n/strings.json';
@@ -21,132 +19,101 @@ export const args = {
     isMounted: false,
 };
 
-export const ariaLabel = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const ariaLabel = stringArg({
     // description: '',
     propName: 'ariaLabel',
-    propType: PROP_TYPES.STRING,
 });
 
-export const ariaDescribedby = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const ariaDescribedby = stringArg({
     // description: '',
     propName: 'ariaDescribedby',
-    propType: PROP_TYPES.STRING,
 });
 
-export const dialogContextCls = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const dialogContextCls = stringArg({
     // description: '',
     propName: 'dialogContextCls',
-    propType: PROP_TYPES.STRING,
 });
 
-export const dialogId = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const dialogId = stringArg({
     // description: '',
     propName: 'dialogId',
-    propType: PROP_TYPES.STRING,
 });
 
-export const role = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const role = stringArg({
     defaultValue: 'dialog',
     // description: '',
     propName: 'role',
-    propType: PROP_TYPES.STRING,
 });
 
-export const titleId = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const titleId = stringArg({
     // description: '',
     propName: 'titleId',
-    propType: PROP_TYPES.STRING,
 });
 
-export const overlayContextCls = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const overlayContextCls = stringArg({
     // description: '',
     propName: 'overlayContextCls',
-    propType: PROP_TYPES.STRING,
 });
 
-export const closeTimeoutMS = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+export const closeTimeoutMS = numberArg({
     defaultValue: 0,
     // description: '',
     propName: 'closeTimeoutMS',
-    propType: PROP_TYPES.NUMBER,
 });
 
-export const isOpen = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+export const isOpen = boolArg({
     defaultValue: 'false',
     // description: '',
     propName: 'isOpen',
-    propType: PROP_TYPES.BOOL,
 });
 
-export const shouldCloseOnEsc = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+export const shouldCloseOnEsc = boolArg({
     defaultValue: true,
     // description: '',
     propName: 'shouldCloseOnEsc',
-    propType: PROP_TYPES.BOOL,
 });
 
-export const shouldCloseOnOverlayClick = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+export const shouldCloseOnOverlayClick = boolArg({
     defaultValue: true,
     // description: '',
     propName: 'shouldCloseOnOverlayClick',
-    propType: PROP_TYPES.BOOL,
 });
 
-export const shouldDisableScroll = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+export const shouldDisableScroll = boolArg({
     defaultValue: true,
     // description: '',
     propName: 'shouldDisableScroll',
-    propType: PROP_TYPES.BOOL,
 });
 
-export const shouldFocusAfterRender = genArgType({
-    controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+export const shouldFocusAfterRender = boolArg({
     defaultValue: true,
     // description: '',
     propName: 'shouldFocusAfterRender',
-    propType: PROP_TYPES.BOOL,
 });
 
-export const onAfterClose = genArgType({
+export const onAfterClose = funcArg({
     action: 'enter',
     defaultValue: '() => Promise.resolve()',
     // description: '',
     propName: 'onAfterClose',
-    propType: PROP_TYPES.FUNC,
 });
 
-export const onAfterOpen = genArgType({
+export const onAfterOpen = funcArg({
     action: 'enter',
     defaultValue: '() => Promise.resolve()',
     // description: '',
     propName: 'onAfterOpen',
-    propType: PROP_TYPES.FUNC,
 });
 
-export const onExit = genArgType({
+export const onExit = funcArg({
     action: 'exit',
     defaultValue: '() => Promise.resolve()',
     // description: '',
     propName: 'onExit',
-    propType: PROP_TYPES.FUNC,
 });
 
-export const renderTo = genArgType({
-    // controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+export const renderTo = funcArg({
     defaultValue: '() => document.body',
     // description: '',
     propName: 'renderTo',
-    propType: PROP_TYPES.FUNC,
 });

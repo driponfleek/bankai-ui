@@ -2,7 +2,15 @@ import {
     TOASTER_VARIANTS,
     TOASTER_POSITIONS,
 } from '@epr0t0type/bankai-ui-toasters';
-import { genArgType } from '../../../../utils/argTypesUtils';
+import {
+    genArgType,
+    stringArg,
+    numberArg,
+    selectArg,
+    boolArg,
+    objectArg,
+    funcArg,
+} from '../../../../utils/argTypesUtils';
 
 // Constants
 import {
@@ -51,223 +59,165 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         defaultValue: 'root',
         // description: '',
         propName: 'appNodeId',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // defaultValue: '',
+    ...stringArg({
         // description: '',
         propName: 'closeBtnARIALabel',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         defaultValue: 'bankai-toast-container',
         // description: '',
         propName: 'containerId',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         defaultValue: 'x',
         // description: '',
         propName: 'dragDirection',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: '',
         propName: 'message',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
+    ...selectArg({
         defaultValue: BOTTOM_RIGHT,
         description: 'Use to set the component position.',
         options: Object.keys(TOASTER_POSITIONS).map(
             (POSITION) => TOASTER_POSITIONS[POSITION],
         ),
         propName: 'position',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         defaultValue: 'alert',
         // description: '',
         propName: 'role',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: '',
         propName: 'title',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: '',
         propName: 'toastId',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
+    ...stringArg({
         defaultValue: DEFAULT,
         description: 'Use to set the component variant.',
         options: Object.keys(TOASTER_VARIANTS).map(
             (VARIANT) => TOASTER_VARIANTS[VARIANT],
         ),
         propName: 'variant',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+    ...numberArg({
         // description: '',
         propName: 'delay',
-        propType: PROP_TYPES.NUMBER,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+    ...numberArg({
         defaultValue: 80,
         // description: '',
         propName: 'dragToDismissPercent',
-        propType: PROP_TYPES.NUMBER,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+    ...numberArg({
         // defaultValue: ,
         // description: '',
         propName: 'limit',
-        propType: PROP_TYPES.NUMBER,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+    ...numberArg({
         // defaultValue: ,
         // description: '',
         propName: 'progress',
-        propType: PROP_TYPES.NUMBER,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
         // description: '',
         propName: 'hasCloseButton',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
-        description: '',
+        // description: '',
         propName: 'isDraggable',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
-        description: '',
+        // description: '',
         propName: 'isRTL',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
-        description: '',
+        // description: '',
         propName: 'shouldCloseOnClick',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
-        description: '',
+        // description: '',
         propName: 'shouldHideProgressBar',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
-        description: '',
+        // description: '',
         propName: 'shouldPauseOnFocusLoss',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
-        description: '',
+        // description: '',
         propName: 'shouldPauseOnHover',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
-        description: '',
+        // description: '',
         propName: 'shouldPlaceNewestOnTop',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
-        description: '',
+        // description: '',
         propName: 'shouldShowIcon',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...objectArg({
         // description: '',
         propName: 'toastContainerProps',
-        propType: PROP_TYPES.OBJECT,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...objectArg({
         // description: '',
         propName: 'toasterProps',
-        propType: PROP_TYPES.OBJECT,
     }),
     ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUMBER],
         // description: '',
         propName: 'autoClose',
         propType: [PROP_TYPES.BOOL, PROP_TYPES.NUMBER],
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'clicked',
         defaultValue: '() => Promise.resolve()',
         // description: '',
         propName: 'onClick',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'closed',
         defaultValue: '() => Promise.resolve()',
         // description: '',
         propName: 'onClose',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'opened',
         defaultValue: '() => Promise.resolve()',
         // description: '',
         propName: 'onOpen',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         description:
             'Render function for rendering a custom close button in the toaster.',
         propName: 'renderCloseButton',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         description: `Render function for rendering an icon in the toaster. ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderIcon',
-        propType: PROP_TYPES.FUNC,
     }),
 };

@@ -1,12 +1,11 @@
 // import { VARIANTS } from '@epr0t0type/bankai-ui-buttons';
-// import { genArgType } from '../../../../utils/argTypesUtils';
-
-// // Constants
 // import {
-//     CONTROL_TYPE_NAMES,
-//     CONTROL_TYPES,
-// } from '../../../../const/controlsConst';
-// import PROP_TYPES from '../../../../const/reactPropTypesConst';
+//     stringArg,
+//     boolArg,
+//     selectArg,
+//     objectArg,
+//     funcArg,
+// } from '../../../../utils/argTypesUtils';
 
 // // Locale
 // import strings from '../../../../i18n/strings.json';
@@ -26,82 +25,54 @@
 // };
 
 // export const argTypes = {
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+//     ...stringArg({
 //         description: locale.shared.propDesc.contextCls,
 //         propName: 'contextCls',
-//         propType: PROP_TYPES.STRING,
 //     }),
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+//     ...stringArg({
 //         description: 'Text displayed inside the button.',
 //         propName: 'text',
-//         propType: PROP_TYPES.STRING,
 //     }),
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
+//     ...selectArg({
 //         defaultValue: 'button',
 //         description: 'Use to set the HTML button type attribute.',
 //         options: ['button', 'submit'],
 //         propName: 'type',
-//         propType: PROP_TYPES.STRING,
 //     }),
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-//         defaultValue: undefined,
-//         description: 'Use to set the button variant.',
-//         options: Object.keys(VARIANTS).map(
-//             (VARIANT) => VARIANTS[VARIANT],
-//         ),
+//     ...selectArg({
+//         description: locale.shared.propDesc.variant,
+//         options: Object.keys(VARIANTS).map((VARIANT) => VARIANTS[VARIANT]),
 //         propName: 'variant',
-//         propType: PROP_TYPES.STRING,
 //     }),
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-//         defaultValue: 'button',
-//         description: 'Use to set the HTML button type attribute.',
-//         options: ['button', 'submit'],
-//         propName: 'type',
-//         propType: PROP_TYPES.STRING,
-//     }),
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+//     ...boolArg({
 //         defaultValue: 'false',
 //         description:
 //             'Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.',
 //         propName: 'isBusy',
-//         propType: PROP_TYPES.BOOL,
 //     }),
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+//     ...boolArg({
 //         defaultValue: 'false',
-//         description: 'Use to disable the component.',
+//         description: locale.shared.propDesc.isDisabled,
 //         propName: 'isDisabled',
-//         propType: PROP_TYPES.BOOL,
 //     }),
-//     ...genArgType({
-//         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+//     ...objectArg({
 //         description:
 //             'Can be used to pass data back to an `onClick` handler when the user clicks on the button.',
 //         propName: 'data',
-//         propType: PROP_TYPES.OBJECT,
 //     }),
-//     ...genArgType({
+//     ...funcArg({
 //         action: 'clicked',
 //         defaultValue: '() => Promise.resolve()',
 //         description: 'Handler called when the user clicks on the button.',
 //         propName: 'onClick',
-//         propType: PROP_TYPES.FUNC,
 //     }),
-//     ...genArgType({
-//         description: `Render function for rendering an icon in the button. ${locale.shared.propDesc.requiresBankaiIcons}`,
+//     ...funcArg({
+//         description: `${locale.shared.propDesc.renderIcon} ${locale.shared.propDesc.requiresBankaiIcons}`,
 //         propName: 'renderIcon',
-//         propType: PROP_TYPES.FUNC,
 //     }),
-//     ...genArgType({
+//     ...funcArg({
 //         description:
-//             'Render function for rendering a different busy icon than the default one.',
+//             'Render function for overriding the default busy icon with a custom one.',
 //         propName: 'renderBusyIcon',
-//         propType: PROP_TYPES.FUNC,
 //     }),
 // };

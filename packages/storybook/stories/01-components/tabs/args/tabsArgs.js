@@ -1,22 +1,21 @@
-import { TAB_VARIANTS } from '@epr0t0type/bankai-ui-tabs';
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
+import { VARIANTS } from '@epr0t0type/bankai-ui-tabs';
 import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
+    stringArg,
+    boolArg,
+    selectArg,
+    funcArg,
+} from '../../../../utils/argTypesUtils';
 
 // Locale
-// import strings from '../../../../i18n/strings.json';
+import strings from '../../../../i18n/strings.json';
 
 // Reference:
 // https://storybook.js.org/docs/react/essentials/controls
 // https://storybook.js.org/docs/react/essentials/actions
 // https://storybook.js.org/docs/react/api/argtypes
 
-// const { bankaiUI: locale } = strings;
-const { OVERLINE_SEGMENTED } = TAB_VARIANTS;
+const { bankaiUI: locale } = strings;
+const { OVERLINE_SEGMENTED } = VARIANTS;
 
 export const args = {
     variant: OVERLINE_SEGMENTED,
@@ -27,108 +26,45 @@ export const args = {
 };
 
 export const argTypes = {
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-    //     description: locale.shared.propDesc.contextCls,
-    //     propName: 'contextCls',
-    //     propType: 'string',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-    //     defaultValue: 'bankai-icon-spinner',
-    //     description:
-    //         'CSS Class used to render a busy icon in the button when `isBusy` prop is `true`. Requires [Bankai Iconography Package](?path=/story/style-guide-iconography--iconography-story) or your own custom iconography solution.',
-    //     propName: 'busyIconCls',
-    //     propType: 'string',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-    //     description:
-    //         'CSS Class used to render icons in the button. Requires [Bankai Iconography Package](?path=/story/style-guide-iconography--iconography-story) or your own custom iconography solution.',
-    //     propName: 'iconCls',
-    //     propType: 'string',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-    //     description: 'Text displayed inside the button.',
-    //     propName: 'text',
-    //     propType: 'string',
-    // }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
+    ...stringArg({
+        // description: '',
+        propName: 'activeTabId',
+    }),
+    ...stringArg({
+        description: locale.shared.propDesc.contextCls,
+        propName: 'contextCls',
+    }),
+    ...selectArg({
         defaultValue: OVERLINE_SEGMENTED,
-        // description: 'Use to set the HTML button type attribute.',
-        options: Object.keys(TAB_VARIANTS).map(
-            (VARIANT_KEY) => TAB_VARIANTS[VARIANT_KEY],
+        // description: '',
+        options: Object.keys(VARIANTS).map(
+            (VARIANT_KEY) => VARIANTS[VARIANT_KEY],
         ),
         propName: 'variant',
-        propType: 'string',
     }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    //     defaultValue: 'false',
-    //     description:
-    //         'Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.',
-    //     propName: 'isBusy',
-    //     propType: 'bool',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    //     defaultValue: 'false',
-    //     description:
-    //         'Use to render the button as a destructive action. Must also have either `isPrimary` or `isSecondary` set to `true` in order to indicate the action type for destructive treatment to be applied.',
-    //     propName: 'isDestructive',
-    //     propType: 'bool',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    //     defaultValue: 'false',
-    //     description: 'Use to disable the component.',
-    //     propName: 'isDisabled',
-    //     propType: 'bool',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    //     defaultValue: 'false',
-    //     description:
-    //         'Use when you need to semantically use a button but need a visual treatment of a link.',
-    //     propName: 'isLink',
-    //     propType: 'bool',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    //     defaultValue: 'false',
-    //     description: 'Use to indicate the button is a primary action.',
-    //     propName: 'isPrimary',
-    //     propType: 'bool',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    //     defaultValue: 'false',
-    //     description: 'Use to indicate the button is a secondary action.',
-    //     propName: 'isSecondary',
-    //     propType: 'bool',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-    //     defaultValue: 'true',
-    //     description:
-    //         'When `true` will apply an infinite rotating animation to the busy icon. Turn off to handle your custom implementations.',
-    //     propName: 'shouldAnimateBusyIcon',
-    //     propType: 'bool',
-    // }),
-    // ...genArgType({
-    //     controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
-    //     description:
-    //         'Can be used to pass data back to an `onClick` handler when the user clicks on the button.',
-    //     propName: 'data',
-    //     propType: 'object',
-    // }),
-    ...genArgType({
+    ...boolArg({
+        defaultValue: true,
+        // description: '',
+        propName: 'hasMicrointeractions',
+    }),
+    ...boolArg({
+        defaultValue: 'false',
+        // description: '',
+        propName: 'isVerticalTabs',
+    }),
+    ...boolArg({
+        defaultValue: 'false',
+        // description: '',
+        propName: 'shouldAllowLetterNavigation',
+    }),
+    ...funcArg({
         action: 'change',
         defaultValue: '() => Promise.resolve()',
-        // description: 'Handler called when the user clicks on the button.',
+        // description: '',
         propName: 'onChange',
-        propType: 'func',
+    }),
+    ...funcArg({
+        // description: '',
+        propName: 'renderTab',
     }),
 };

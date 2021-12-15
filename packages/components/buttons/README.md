@@ -23,11 +23,11 @@ yarn add @epr0t0type/bankai-ui-buttons
 
 ## Usage
 
-### Button
+### Button, ButtonIcon, ButtonText
 For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--button-story).
 
 ```
-import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { Button, ButtonIcon, ButtonText, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 ```
 
 ### LinkButton

@@ -84,7 +84,7 @@ class Button extends PureComponent {
     renderText = () => {
         const { text } = this.props;
 
-        return <ButtonText baseCls={this.baseCls} text={text} />;
+        return <ButtonText baseCls={this.baseCls}>{text}</ButtonText>;
     };
 
     handleClick = (e) => {

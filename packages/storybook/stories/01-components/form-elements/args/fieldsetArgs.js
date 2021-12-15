@@ -1,4 +1,9 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
+import {
+    genArgType,
+    stringArg,
+    boolArg,
+    objectArg,
+} from '../../../../utils/argTypesUtils';
 
 // Constants
 import {
@@ -24,47 +29,35 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: locale.shared.propDesc.contextCls,
+    ...stringArg({
+        // description: '',
         propName: 'formId',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: locale.shared.propDesc.contextCls,
+    ...stringArg({
+        // description: '',
         propName: 'name',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
-        // description: locale.shared.propDesc.contextCls,
+        // description: '',
         propName: 'isDisabled',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
-        // description: locale.shared.propDesc.contextCls,
+        // description: '',
         propName: 'shouldIndentContent',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
-        // description: locale.shared.propDesc.contextCls,
+    ...objectArg({
+        // description: '',
         propName: 'legendProps',
-        propType: PROP_TYPES.OBJECT,
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: locale.shared.propDesc.contextCls,
+        // description: '',
         isRequired: true,
         propName: 'legend',
         propType: [PROP_TYPES.STRING, PROP_TYPES.ELEMENT],

@@ -2,6 +2,7 @@ import {
     stringArg,
     numberArg,
     boolArg,
+    arrayArg,
     funcArg,
 } from '../../../../utils/argTypesUtils';
 
@@ -16,9 +17,10 @@ import strings from '../../../../i18n/strings.json';
 const { bankaiUI: locale } = strings;
 
 export const args = {
-    headingText: 'Heading Text',
-    headingLvl: 2,
-    shouldPadContent: true,
+    headingLvl: 3,
+    shouldAllowMultipleExpanded: false,
+    shouldAllowZeroExpanded: true,
+    // onChange: () => Promise.resolve(),
 };
 
 export const argTypes = {
@@ -26,22 +28,35 @@ export const argTypes = {
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
     }),
-    ...stringArg({
-        // description: '',
-        propName: 'headingText',
-    }),
     ...numberArg({
-        defaultValue: 2,
         // description: '',
         propName: 'headingLvl',
     }),
     ...boolArg({
-        defaultValue: true,
+        defaultValue: 'false',
         // description: '',
-        propName: 'shouldPadContent',
+        propName: 'shouldAllowMultipleExpanded',
+    }),
+    ...boolArg({
+        defaultValue: args.shouldAllowZeroExpanded,
+        // description: '',
+        propName: 'shouldAllowZeroExpanded',
+    }),
+    ...arrayArg({
+        propName: 'preExpanded',
     }),
     ...funcArg({
         // description: '',
-        propName: 'renderHeading',
+        propName: 'renderTrigger',
+    }),
+    ...funcArg({
+        // description: '',
+        propName: 'renderTriggerIcon',
+    }),
+    ...funcArg({
+        action: 'change fired',
+        defaultValue: '() => Promise.resolve()',
+        // description: '',
+        propName: 'onChange',
     }),
 };

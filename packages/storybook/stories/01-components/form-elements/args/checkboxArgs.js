@@ -1,11 +1,9 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
 import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+    stringArg,
+    boolArg,
+    objectArg,
+    funcArg,
+} from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -25,70 +23,51 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formId,
         propName: 'id',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formName,
         propName: 'name',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formValue,
         propName: 'value',
-        propType: [PROP_TYPES.STRING, PROP_TYPES.ARRAY, PROP_TYPES.OBJECT],
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.formError,
         propName: 'isChecked',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.isDisabled,
         propName: 'isDisabled',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.formIsReadOnly,
         propName: 'isReadOnly',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
-        defaultValue: undefined,
+    ...objectArg({
         description:
             'Use to pass data back when the onChange handler is called.',
         propName: 'data',
-        propType: PROP_TYPES.OBJECT,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'changed',
         defaultValue: '() => Promise.resolve()',
         description:
             'Handler called when the user interacts with the component.',
         propName: 'onChange',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
-        description: `Render function for rendering an alternative icon to the default one provided in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
+    ...funcArg({
+        description: `Render function for overriding the default checked icon with a custom one. ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderCheckedIcon',
-        propType: PROP_TYPES.FUNC,
     }),
 };

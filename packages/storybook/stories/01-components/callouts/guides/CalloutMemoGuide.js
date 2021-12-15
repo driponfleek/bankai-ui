@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {
-    CalloutMemo,
-    CALLOUT_MEMO_VARIANTS,
-} from '@epr0t0type/bankai-ui-callouts';
+import { CalloutMemo, VARIANTS } from '@epr0t0type/bankai-ui-callouts';
 import {
     BankaiCheck,
     BankaiCircleInfo,
@@ -28,7 +25,7 @@ import { getComponentsTitle } from '../../../../utils/storiesConfig';
 import './styles/callout-memo-guide.scss';
 
 const { bankaiUI: locale } = strings;
-const { DEFAULT, AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = CALLOUT_MEMO_VARIANTS;
+const { DEFAULT, AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = VARIANTS;
 
 class CalloutMemoGuide extends PureComponent {
     static defaultProps = {

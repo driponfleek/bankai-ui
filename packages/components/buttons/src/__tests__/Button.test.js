@@ -102,6 +102,20 @@ describe('<Button />', () => {
         expect(iconContainerEls).toHaveLength(0);
     });
 
+    it('should not render icon container DOM when children are nested in the Button and props.renderIcon is provided', () => {
+        const props = {
+            renderIcon: () => <BankaiCirclePlus />,
+        };
+        act(() => {
+            ReactDOM.render(<Button {...props}>Test</Button>, container);
+        });
+        const iconContainerEls = container.getElementsByClassName(
+            `${baseCls}__icon-container`,
+        );
+
+        expect(iconContainerEls).toHaveLength(0);
+    });
+
     it('should render busy spinner icon when props.isBusy is true', () => {
         const props = {
             isBusy: true,
@@ -153,18 +167,29 @@ describe('<Button />', () => {
         expect(textContainerEls).toHaveLength(0);
     });
 
-    it('should not render icon container DOM when children are nested in the Button and props.renderIcon is provided', () => {
+    it('should not allow aria-label to be set when props.text is provided', () => {
         const props = {
-            renderIcon: () => <BankaiCirclePlus />,
+            'aria-label': 'Click me to do a thing',
+            text: 'Click Me!',
         };
         act(() => {
-            ReactDOM.render(<Button {...props}>Test</Button>, container);
+            ReactDOM.render(<Button {...props} />, container);
         });
-        const iconContainerEls = container.getElementsByClassName(
-            `${baseCls}__icon-container`,
-        );
+        const button = container.querySelector(`.${baseCls}`);
 
-        expect(iconContainerEls).toHaveLength(0);
+        expect(button).not.toHaveAttribute('aria-label');
+    });
+
+    it('should have aria-label provided and props.text is not provided', () => {
+        const props = {
+            'aria-label': 'Click me to do a thing',
+        };
+        act(() => {
+            ReactDOM.render(<Button {...props} />, container);
+        });
+        const button = container.querySelector(`.${baseCls}`);
+
+        expect(button).toHaveAttribute('aria-label');
     });
 
     it('should call onClick handler when button is clicked and not disabled', () => {
