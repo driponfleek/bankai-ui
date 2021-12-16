@@ -1,6 +1,6 @@
-import { BADGE_VARIANTS, BADGE_CSS_MODIFIERS } from '../const/variantsConst';
+import { VARIANTS, BADGE_CSS_MODIFIERS } from '../const/variantsConst';
 
-const { DANGER, INFO, AFFIRMATIVE, CAUTIONARY } = BADGE_VARIANTS;
+const { DANGER, INFO, AFFIRMATIVE, CAUTIONARY } = VARIANTS;
 
 const getCSSModifiersUtil = (baseCls, VARIANT) => {
     return {

@@ -14,6 +14,16 @@
         @extend %bankai-button;
     }
 
+    .bankai-button {
+        &__icon-safe-space {
+            width: 1em;
+        }
+
+        &__icon {
+            font-size: inherit;
+        }
+    }
+
     &__menu {
         @include bankai-box-shadow-elevated($bankai-black);
         background-color: var(--bankai-canvas, $bankai-canvas);

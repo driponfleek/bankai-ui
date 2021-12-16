@@ -1,17 +1,8 @@
-import { CALLOUT_MEMO_VARIANTS } from '@epr0t0type/bankai-ui-callouts';
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
-import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+import { VARIANTS } from '@epr0t0type/bankai-ui-callouts';
+import { stringArg, selectArg, funcArg } from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
-
-const { AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = CALLOUT_MEMO_VARIANTS;
 
 // Reference:
 // https://storybook.js.org/docs/react/essentials/controls
@@ -25,35 +16,28 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: 'Text displayed inside the button.',
+    ...stringArg({
+        // description: '',
         propName: 'title',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        // description: 'Text displayed inside the button.',
+    ...stringArg({
+        // description: '',
         propName: 'msg',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-        defaultValue: undefined,
-        description: 'Use to set the component variant.',
-        options: [undefined, AFFIRMATIVE, CAUTIONARY, ERROR, INFO],
+    ...selectArg({
+        description: locale.shared.propDesc.variant,
+        options: [
+            undefined,
+            ...Object.keys(VARIANTS).map((VARIANT) => VARIANTS[VARIANT]),
+        ],
         propName: 'variant',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        description: `Render function for rendering an icon in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
+    ...funcArg({
+        description: `${locale.shared.propDesc.renderIcon} ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderIcon',
-        propType: PROP_TYPES.FUNC,
     }),
 };

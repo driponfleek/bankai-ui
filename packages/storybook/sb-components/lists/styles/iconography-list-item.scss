@@ -10,7 +10,6 @@
 
 .bankai-sb-iconography-list-item {
     @include bankai-button-reset;
-    // @include bankai-glass-mixin;
     @include bankai-focus-state-halo;
     @include bankai-box-shadow-subtle;
     width: 180px;
@@ -18,17 +17,16 @@
     box-sizing: border-box;
     border-radius: 15px;
     padding: 1rem;
-    // transition: all 0.2s ease-in-out;
 
     @media (hover: hover) {
         &:hover {
-            // transform: translate3d(2px, -2px, 0);
             transform: scale(1.03);
             cursor: pointer;
         }
     }
 
     &:active {
+        box-shadow: inset 0 0 2px rgba(#000, 0.4);
         transform: scale(0.975);
     }
 
@@ -48,7 +46,6 @@
     }
 
     &__text {
-        // color: $bankai-neutral-30;
         text-align: center;
         margin: auto;
     }
@@ -66,7 +63,5 @@
     &--copied {
         background-color: $bankai-affirmative-color;
         border-color: $bankai-affirmative-color;
-        // @include bankai-glass-mixin($bankai-affirmative-color);
-        // @include bankai-glass-mixin($bankai-affirmative-color);
     }
 }

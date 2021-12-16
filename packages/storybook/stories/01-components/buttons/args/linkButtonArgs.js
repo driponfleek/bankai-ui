@@ -1,11 +1,4 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
-import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+import { stringArg, objectArg, funcArg } from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -22,35 +15,27 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: 'Text displayed inside the button.',
         propName: 'text',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...objectArg({
         description:
             'Can be used to pass data back to an `onClick` handler when the user clicks on the button.',
         propName: 'data',
-        propType: PROP_TYPES.OBJECT,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'clicked',
         defaultValue: '() => Promise.resolve()',
         description: 'Handler called when the user clicks on the button.',
         propName: 'onClick',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
-        description: `Render function for rendering an icon in the button. ${locale.shared.propDesc.requiresBankaiIcons}`,
+    ...funcArg({
+        description: `${locale.shared.propDesc.renderIcon} ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderIcon',
-        propType: PROP_TYPES.FUNC,
     }),
 };

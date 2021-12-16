@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
     Tabs,
     TabPanelContentComposer,
-    TAB_VARIANTS,
+    VARIANTS,
 } from '@epr0t0type/bankai-ui-tabs';
 import {
     BankaiCalendar,
@@ -36,7 +36,7 @@ import { getComponentsTitle } from '../../../../utils/storiesConfig';
 import './styles/tabs-guide.scss';
 
 const ComposedPanelContent = TabPanelContentComposer(TabPanelContent);
-const { OVERLINE_SEGMENTED } = TAB_VARIANTS;
+const { OVERLINE_SEGMENTED } = VARIANTS;
 const { bankaiUI: locale } = strings;
 const tab1Id = '961c2e20-a681-4054-acc1-01e75b361009';
 const tab2Id = '2c3762b4-d70e-4884-a6ab-26d94c2f915c';

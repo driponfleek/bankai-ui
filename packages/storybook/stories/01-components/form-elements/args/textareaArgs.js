@@ -1,10 +1,4 @@
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
-import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
+import { stringArg, boolArg, funcArg } from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -26,90 +20,55 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: 'string',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formId,
         propName: 'id',
-        propType: 'string',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formName,
         propName: 'name',
-        propType: 'string',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formPlaceholder,
         propName: 'placeholder',
-        propType: 'string',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.formValue,
         propName: 'value',
-        propType: 'string',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.formError,
         propName: 'hasError',
-        propType: 'bool',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.isDisabled,
         propName: 'isDisabled',
-        propType: 'bool',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.formIsReadOnly,
         propName: 'isReadOnly',
-        propType: 'bool',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.shouldAutoFocus,
         propName: 'shouldAutoFocus',
-        propType: 'bool',
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.shouldSpellCheck,
         propName: 'shouldSpellCheck',
-        propType: 'bool',
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'change',
         defaultValue: '() => Promise.resolve()',
-        // description: 'Handler called when the user clicks on the button.',
+        // description: '',
         propName: 'onChange',
-        propType: 'func',
-    }),
-    ...genArgType({
-        action: 'focus',
-        // defaultValue: '() => Promise.resolve()',
-        // description: 'Handler called when the user clicks on the button.',
-        propName: 'onFocus',
-        propType: 'func',
-    }),
-    ...genArgType({
-        action: 'blur',
-        // defaultValue: '() => Promise.resolve()',
-        // description: 'Handler called when the user clicks on the button.',
-        propName: 'onBlur',
-        propType: 'func',
     }),
 };

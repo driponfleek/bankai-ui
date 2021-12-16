@@ -15,14 +15,13 @@ import {
     onExit,
 } from './sharedModalArgs';
 import modalActions from '../mocks/modalMocks';
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
 import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+    stringArg,
+    numberArg,
+    funcArg,
+    boolArg,
+    arrayArg,
+} from '../../../../utils/argTypesUtils';
 
 // Locale
 // import strings from '../../../../i18n/strings.json';
@@ -54,79 +53,62 @@ export const args = {
 export const argTypes = {
     ...ariaLabel,
     ...ariaDescribedby,
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: '',
         propName: 'closeBtnARIALabel',
-        propType: PROP_TYPES.STRING,
     }),
     ...dialogContextCls,
     ...dialogId,
     ...role,
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: '',
         propName: 'subTitle',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         // description: '',
         propName: 'title',
-        propType: PROP_TYPES.STRING,
     }),
     ...titleId,
     ...overlayContextCls,
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUM],
+    ...numberArg({
         defaultValue: 150,
         // description: '',
         propName: 'closeTimeoutMS',
-        propType: PROP_TYPES.NUMBER,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
         // description: '',
         propName: 'hasCloseButton',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        // controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: true,
         // description: '',
         propName: 'isMounted',
-        propType: PROP_TYPES.BOOL,
     }),
     ...shouldCloseOnEsc,
     ...shouldCloseOnOverlayClick,
     ...shouldFocusAfterRender,
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJ],
+    ...arrayArg({
         defaultValue: [],
         // description: '',
         propName: 'modalActions',
-        propType: PROP_TYPES.ARRAY,
     }),
     ...onAfterClose,
     ...onAfterOpen,
     ...onExit,
-    ...genArgType({
-        // action: 'action clicked',
+    ...funcArg({
+        action: 'action clicked',
         // defaultValue: '() => Promise.resolve()',
         // description: '',
         propName: 'onActionClick',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         // description: '',
         propName: 'renderCloseButtonIcon',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         // description: '',
         propName: 'renderModalActions',
-        propType: PROP_TYPES.FUNC,
     }),
     ...renderTo,
 };

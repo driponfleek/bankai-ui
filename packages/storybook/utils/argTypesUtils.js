@@ -1,4 +1,5 @@
-/* eslint-disable import/prefer-default-export */
+import { CONTROL_TYPE_NAMES, CONTROL_TYPES } from '../const/controlsConst';
+import PROP_TYPES from '../const/reactPropTypesConst';
 
 // https://storybook.js.org/docs/react/writing-docs/doc-blocks#argstable
 // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-controloptions
@@ -93,4 +94,75 @@ export const genArgType = (config) => {
             ...(isRequired && { type: { required: isRequired } }),
         },
     };
+};
+
+export const stringArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+        propType: PROP_TYPES.STRING,
+    });
+};
+
+export const dateArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.DATE],
+        propType: `${PROP_TYPES.INSTANCE_OF}: Date`,
+    });
+};
+
+export const numberArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUMBER],
+        propType: PROP_TYPES.NUMBER,
+    });
+};
+
+export const selectArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
+        propType: PROP_TYPES.STRING,
+    });
+};
+
+export const boolArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+        propType: PROP_TYPES.BOOL,
+    });
+};
+
+export const arrayArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.ARRAY],
+        propType: PROP_TYPES.ARRAY,
+    });
+};
+
+export const objectArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJECT],
+        propType: PROP_TYPES.OBJECT,
+    });
+};
+
+export const shapeArg = (config) => {
+    return genArgType({
+        ...config,
+        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJECT],
+        propType: PROP_TYPES.SHAPE,
+    });
+};
+
+export const funcArg = (config) => {
+    return genArgType({
+        ...config,
+        propType: PROP_TYPES.FUNC,
+    });
 };

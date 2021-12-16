@@ -2,14 +2,7 @@ import {
     IMG_FILE_TYPES,
     genFileTypeMeta,
 } from '@epr0t0type/bankai-ui-form-elements';
-import { genArgType } from '../../../../utils/argTypesUtils';
-
-// Constants
-import {
-    CONTROL_TYPE_NAMES,
-    CONTROL_TYPES,
-} from '../../../../const/controlsConst';
-import PROP_TYPES from '../../../../const/reactPropTypesConst';
+import { stringArg, boolArg, funcArg } from '../../../../utils/argTypesUtils';
 
 // Locale
 import strings from '../../../../i18n/strings.json';
@@ -67,75 +60,59 @@ export const args = {
 };
 
 export const argTypes = {
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
+    ...stringArg({
         description: locale.shared.propDesc.contextCls,
         propName: 'contextCls',
-        propType: PROP_TYPES.STRING,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: 'Set to `true` to allow users to upload multiple files.',
         propName: 'canUploadMultiple',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.isBusy,
         propName: 'isBusy',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description:
             'Used when working in smaller constraints. **Note:** Compact mode will never render the files attached by the user when `props.attachments` has data.',
         propName: 'isCompact',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
-        controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
+    ...boolArg({
         defaultValue: 'false',
         description: locale.shared.propDesc.isDisabled,
         propName: 'isDisabled',
-        propType: PROP_TYPES.BOOL,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'add',
         defaultValue: '() => Promise.resolve()',
-        // description: 'Handler called when the user clicks on the button.',
+        // description: '',
         propName: 'onAdd',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'remove',
         defaultValue: '() => Promise.resolve()',
-        // description: 'Handler called when the user clicks on the button.',
+        // description: '',
         propName: 'onRemove',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         action: 'removeAll',
         defaultValue: '() => Promise.resolve()',
-        // description: 'Handler called when the user clicks on the button.',
+        // description: '',
         propName: 'onRemoveAll',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         description: `Render function for overriding the default busy state icon in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderBusyIcon',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         description: `Render function for overriding the default rejected state icon in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderRejectedIcon',
-        propType: PROP_TYPES.FUNC,
     }),
-    ...genArgType({
+    ...funcArg({
         description: `Render function for overriding the default icon in the component. ${locale.shared.propDesc.requiresBankaiIcons}`,
         propName: 'renderUploadIcon',
-        propType: PROP_TYPES.FUNC,
     }),
 };

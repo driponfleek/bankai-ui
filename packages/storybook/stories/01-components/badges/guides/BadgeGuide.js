@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Badge, BADGE_VARIANTS } from '@epr0t0type/bankai-ui-badges';
+import { Badge, VARIANTS } from '@epr0t0type/bankai-ui-badges';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -19,7 +19,7 @@ import { getComponentsTitle } from '../../../../utils/storiesConfig';
 import './styles/badge-guide.scss';
 
 const { bankaiUI: locale } = strings;
-const { AFFIRMATIVE, CAUTIONARY, DANGER, INFO } = BADGE_VARIANTS;
+const { AFFIRMATIVE, CAUTIONARY, DANGER, INFO } = VARIANTS;
 
 class BadgeGuide extends PureComponent {
     static propTypes = {

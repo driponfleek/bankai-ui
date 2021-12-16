@@ -90,8 +90,8 @@ class MenuButton extends Component {
 
         return (
             <Fragment>
-                {!!renderIcon && this.renderIcon()}
                 {!!text && this.renderText()}
+                {!!renderIcon && this.renderIcon()}
             </Fragment>
         );
     };
@@ -105,7 +105,7 @@ class MenuButton extends Component {
     renderText() {
         const { text } = this.props;
 
-        return <ButtonText baseCls={this.btnCls} text={text} />;
+        return <ButtonText baseCls={this.btnCls}>{text}</ButtonText>;
     }
 
     renderMenu = () => {
