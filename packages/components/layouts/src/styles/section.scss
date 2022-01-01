@@ -2,16 +2,17 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-section, %bankai-section {
     @include bankai-box-shadow-subtle;
-    background-color: var(--bankai-canvas, $bankai-canvas);
-    border-radius: var(--bankai-section-border-radius, 20px);
+    background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+    border-radius: var(--bankai-layout-section-border-radius, bankai-light-theme('layout-section-border-radius'));
 
     &__heading-container {
-        border-bottom: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
+        border-bottom: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
     }
 
     &__heading-container,
@@ -30,11 +31,11 @@
 
     &__heading {
         @include bankai-h3;
-        color: var(--bankai-text-color-alt, $bankai-text-color-alt);
+        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
     }
 
     &__heading-container,
     &--pad-content &__content-container-inner {
-        padding: 1rem 1.5rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
     }
 }

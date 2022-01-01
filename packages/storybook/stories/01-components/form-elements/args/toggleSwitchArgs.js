@@ -13,6 +13,7 @@ const { bankaiUI: locale } = strings;
 export const args = {
     isBusy: false,
     isDisabled: false,
+    isChecked: false,
     // onChange: () => Promise.resolve(),
 };
 

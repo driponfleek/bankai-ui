@@ -5,30 +5,27 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import '~@epr0t0type/bankai-ui-buttons/src/styles/button.scss';
 @import '~@epr0t0type/bankai-ui-buttons/src/styles/mixins.scss';
 
 .bankai-dnd-file-uploader, %bankai-dnd-file-uploader {
-    min-height: 138px;
+    min-height: 142px;
 
     &__inner {
         @include bankai-flex-column;
         text-align: center;
         box-sizing: border-box;
-        border-radius: var(--bankai-dnd-dropzone-border-radius, $bankai-form-input-border-radius);
-        border: 2px dashed var(--bankai-neutral-border-color, $bankai-neutral-border-color);
-        padding: 1.5rem;
+        border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
+        border: 2px dashed var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     .bankai-dropzone,
     &__inner {
-        min-height: 138px;
+        min-height: 142px;
     }
 
     &__content-container {
@@ -52,9 +49,9 @@
         &-item-inner {
             @include bankai-flex-row;
             min-width: 1px;
-            background-color: var(--bankai-dnd-file-uploader-attachment-bg-color, $bankai-btn-primary-default-bg-color);
-            color: var(--bankai-dnd-file-uploader-attachment-text-color, $bankai-btn-primary-default-text-color);
-            border-radius: var(--bankai-dnd-file-uploader-attachment-border-radius, $bankai-btn-border-radius);
+            background-color: var(--bankai-color-form-pill-bg, bankai-light-theme('color-form-pill-bg'));
+            color: var(--bankai-color-form-pill-text, bankai-light-theme('color-form-pill-text'));
+            border-radius: var(--bankai-btn-border-radius, bankai-light-theme('btn-border-radius'));
             margin: 0 auto;
             flex: 0 1 auto;
         }
@@ -63,10 +60,9 @@
     &__attachment-remove-btn {
         color: inherit;
         background-color: transparent;
-        border-radius: var(--bankai-dnd-file-uploader-attachment-border-radius, $bankai-btn-border-radius);
 
         .bankai-button__content-container {
-            padding: 0.5rem;
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
         }
 
         .bankai-button__icon-safe-space {
@@ -89,14 +85,14 @@
 
     &__attachment-file-name {
         box-sizing: border-box;
-        padding-left: 1rem;
+        padding-left: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
         margin: auto 0;
     }
 
     &__icon-container + &__messaging-container,
     &__title-container + &__msg-container,
     &__attachments-list + &__msg-container {
-        margin-top: 5px;
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
     }
 
     &__icon-container-inner {
@@ -113,7 +109,7 @@
     }
 
     &__msg {
-        line-height: $bankai-lineheight;
+        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
         margin: 0;
     }
 
@@ -128,11 +124,11 @@
     }
 
     &__browse-btn {
-        @extend %bankai-button;
         appearance: button;
         display: inline-block;
 
         &.bankai-button--secondary {
+            @extend %bankai-button;
             @extend %bankai-button--secondary;
         }
     }
@@ -184,13 +180,13 @@
         }
 
         .bankai-dnd-file-uploader__msg-text + .bankai-dnd-file-uploader__browse-btn-container {
-            margin-top: 5px;
+            margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
         }
     }
 
     &__remove-all-action {
         &.bankai-button--link {
-            color: var(--bankai-btn-secondary-destructive-default-text-color, $bankai-btn-secondary-destructive-default-text-color);
+            color: var(--bankai-color-btn-secondary-destructive-default-text, bankai-light-theme('color-btn-secondary-destructive-default-text'));
             user-select: none;
 
             &.bankai-button--disabled:hover {
@@ -198,7 +194,7 @@
             }
 
             &:focus-visible {
-                @include bankai-focus-state-box-shadow(var(--bankai-btn-secondary-destructive-focus-halo-color, rgba($bankai-btn-secondary-destructive-default-text-color, 0.4)));
+                @include bankai-focus-state-box-shadow(var(--bankai-color-btn-secondary-destructive-focus-halo, bankai-light-theme('color-btn-secondary-destructive-focus-halo')));
             }
         }
     }
@@ -227,18 +223,19 @@
     }
 
     &--disabled {
-        opacity: $bankai-disabled-opacity;
+        opacity: bankai-light-theme('state-disabled-opacity');
     }
 
     &--hover {
-        background-color: var(--bankai-affirmative-color, $bankai-affirmative-color);
-        border-color: var(--bankai-dnd-file-uploader-hover-state-border-color, color.adjust($bankai-affirmative-color, $lightness: -20%));
+        color: var(--bankai-color-form-dnd-file-uploader-hover-state-text, bankai-light-theme('color-form-dnd-file-uploader-hover-state-text'));
+        background-color: var(--bankai-color-form-dnd-file-uploader-hover-state-bg, bankai-light-theme('color-form-dnd-file-uploader-hover-state-bg'));
+        border-color: var(--bankai-color-form-dnd-file-uploader-hover-state-border, bankai-light-theme('color-form-dnd-file-uploader-hover-state-border'));
     }
 
     &--rejected {
-        background-color: var(--bankai-dnd-file-uploader-rejected-state-bg-color, $bankai-error-color);
-        color: var(--bankai-dnd-file-uploader-rejected-state-text-color, $bankai-white);
-        border-color: var(--bankai-dnd-file-uploader-rejected-state-border-color, color.adjust($bankai-error-color, $lightness: -20%));
+        color: var(--bankai-color-form-dnd-file-uploader-rejected-state-text, bankai-light-theme('color-form-dnd-file-uploader-rejected-state-text'));
+        background-color: var(--bankai-color-form-dnd-file-uploader-rejected-state-bg, bankai-light-theme('color-form-dnd-file-uploader-rejected-state-bg'));
+        border-color: var(--bankai-color-form-dnd-file-uploader-rejected-state-border, bankai-light-theme('color-form-dnd-file-uploader-rejected-state-border'));
     }
 
     &--busy {
@@ -250,6 +247,6 @@
     &--default,
     &--attachment,
     &--busy {
-        background-color: var(--bankai-neutral-95, $bankai-neutral-95);
+        background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
     }
 }

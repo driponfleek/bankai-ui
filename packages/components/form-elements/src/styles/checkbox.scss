@@ -1,34 +1,28 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './mixins.scss';
 
 .bankai-checkbox, %bankai-checkbox {
     width: 25px;
     height: 25px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: var(--bankai-form-checkbox-border-radius, bankai-light-theme('form-checkbox-border-radius'));
     position: relative;
     display: inline-block;
 
     &__input {
         opacity: 0;
         z-index: 3;
-
-        &[disabled] {
-            cursor: not-allowed;
-        }
     }
 
     &__container {
-        background-color: var(--bankai-form-input-bg-color, $bankai-form-input-bg-color);
+        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
         box-sizing: border-box;
-        border: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
-        border-radius: 5px;
+        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-radius: var(--bankai-form-checkbox-border-radius, bankai-light-theme('form-checkbox-border-radius'));
         display: block;
         z-index: 1;
     }
@@ -42,7 +36,11 @@
         left: 0;
     }
 
-    &__input:focus + &__container {
+    &__input:disabled {
+        cursor: not-allowed;
+    }
+
+    &__input:focus-visible + &__container {
         @include bankai-focus-state-box-shadow;
     }
 
@@ -63,13 +61,13 @@
         // stylelint-disable-next-line
         .bankai-checkbox__container,
         .bankai-checkbox__input:disabled + .bankai-checkbox__container {
-            color: var(--bankai-form-checked-state-icon-color, $bankai-form-checked-state-icon-color);
-            background-color: var(--bankai-form-checked-state-bg-color, $bankai-form-checked-state-bg-color);
-            border-color: var(--bankai-form-checked-state-bg-color, $bankai-form-checked-state-bg-color);
+            color: var(--bankai-color-form-checked-state-icon, bankai-light-theme('color-form-checked-state-icon'));
+            background-color: var(--bankai-color-form-checked-state-bg, bankai-light-theme('color-form-checked-state-bg'));
+            border-color: var(--bankai-color-form-checked-state-bg, bankai-light-theme('color-form-checked-state-bg'));
         }
 
         .bankai-checkbox__input:focus + .bankai-checkbox__container {
-            @include bankai-focus-state-box-shadow(var(--bankai-form-checked-state-focus-halo-color, rgba($bankai-btn-primary-default-bg-color, 0.4)));
+            @include bankai-focus-state-box-shadow(var(--bankai-color-form-checked-state-focus-halo, bankai-light-theme('color-form-checked-state-focus-halo')));
         }
     }
 }

@@ -1,0 +1,193 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:map';
+@use 'sass:color';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@import './color-neutral-tokens.scss';
+@import '../vars/colors-dark-theme-common.scss';
+
+// Light Theme Color Tokens
+$bankai-color-dark-theme-tokens: (
+    // Main
+    color-brand: $bankai-color-dt-brand,
+    color-primary: $bankai-color-dt-primary,
+    color-secondary: $bankai-color-dt-secondary,
+    // Accent
+    color-accent: $bankai-color-dt-accent,
+    // Universal
+    color-universal-border: $bankai-color-dt-universal-border,
+    color-universal-hover-bg: $bankai-color-dt-universal-hover-bg,
+    // Canvas
+    color-canvas: $bankai-color-dt-canvas,
+    color-canvas-alt: $bankai-color-dt-canvas-alt,
+    // Status
+    color-affirmative: $bankai-color-dt-affirmative,
+    color-cautionary: $bankai-color-dt-cautionary,
+    color-error: $bankai-color-dt-error,
+    // Informative
+    color-destructive: $bankai-color-dt-error,
+    color-info: $bankai-color-dt-info,
+    // Typography
+    color-link: $bankai-color-dt-link,
+    color-link-focus-halo: color.change($bankai-color-dt-link, $alpha: 0.4),
+    color-text: $bankai-color-dt-text,
+    color-text-alt: $bankai-color-dt-text-alt,
+    // Accordions
+    color-accordion-border: $bankai-color-dt-universal-border,
+    color-accordion-bg: $bankai-color-dt-canvas,
+    color-accordion-trigger-text: inherit,
+    color-accordion-trigger-hover-bg: $bankai-color-dt-universal-hover-bg,
+    color-accordion-trigger-hover-text: inherit,
+    // Avatars
+    color-avatar-bg: $bankai-color-dt-accent,
+    color-avatar-border: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-avatar-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    // Badge (Default)
+    color-badge-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-90'),
+    color-badge-text: $bankai-color-dt-text,
+    // Badge (Affirmative)
+    color-badge-affirmative-bg: $bankai-color-dt-affirmative,
+    color-badge-affirmative-text: $bankai-color-dt-text,
+    // Badge (Cautionary)
+    color-badge-cautionary-bg: $bankai-color-dt-cautionary,
+    color-badge-cautionary-text: $bankai-color-dt-text,
+    // Badge (Error)
+    color-badge-error-bg: $bankai-color-dt-error,
+    color-badge-error-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    // Badge (Info)
+    color-badge-info-bg: $bankai-color-dt-info,
+    color-badge-info-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    // Button - Primary
+    color-btn-primary-default-bg: $bankai-color-dt-primary,
+    color-btn-primary-default-border: transparent,
+    color-btn-primary-default-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'),
+    color-btn-primary-hover-bg: $bankai-color-dt-btn-primary-hover-bg,
+    color-btn-primary-hover-border: transparent,
+    color-btn-primary-hover-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-btn-primary-focus-halo: color.change($bankai-color-dt-primary, $alpha: 0.4),
+    color-btn-split-primary-border: $bankai-color-dt-btn-primary-hover-bg,
+    // Button - Secondary
+    color-btn-secondary-default-bg: $bankai-color-dt-canvas,
+    color-btn-secondary-default-text: $bankai-color-dt-btn-secondary-default-text,
+    color-btn-secondary-default-border: $bankai-color-dt-btn-secondary-default-text,
+    color-btn-secondary-hover-bg: color.change($bankai-color-dt-secondary, $lightness: 20%),
+    color-btn-secondary-hover-text: $bankai-color-dt-btn-secondary-hover-text,
+    color-btn-secondary-hover-border: $bankai-color-dt-btn-secondary-hover-text,
+    color-btn-secondary-focus-halo: color.change($bankai-color-dt-btn-secondary-default-text, $alpha: 0.4),
+    color-btn-split-secondary-border: $bankai-color-dt-btn-secondary-hover-text,
+    // Button - Primary Destructive
+    color-btn-primary-destructive-default-bg: $bankai-color-dt-destructive,
+    color-btn-primary-destructive-default-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-btn-primary-destructive-default-border: transparent,
+    color-btn-primary-destructive-hover-bg: $bankai-color-dt-btn-secondary-destructive-hover-bg,
+    color-btn-primary-destructive-hover-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-btn-primary-destructive-hover-border: transparent,
+    color-btn-primary-destructive-focus-halo: color.change($bankai-color-dt-destructive, $alpha: 0.4),
+    color-btn-split-primary-destructive-border: $bankai-color-dt-btn-secondary-destructive-hover-bg,
+    // Button - Secondary Destructive
+    color-btn-secondary-destructive-default-bg: $bankai-color-dt-canvas,
+    color-btn-secondary-destructive-default-text: $bankai-color-dt-btn-secondary-destructive-default-text,
+    color-btn-secondary-destructive-default-border: $bankai-color-dt-btn-secondary-destructive-default-text,
+    color-btn-secondary-destructive-hover-bg: color.change($bankai-color-dt-btn-secondary-destructive-default-text, $lightness: 20%),
+    color-btn-secondary-destructive-hover-text: $bankai-color-dt-btn-secondary-destructive-hover-text,
+    color-btn-secondary-destructive-hover-border: $bankai-color-dt-btn-secondary-destructive-hover-text,
+    color-btn-secondary-destructive-focus-halo: color.change($bankai-color-dt-btn-secondary-default-text, $alpha: 0.4),
+    color-btn-split-secondary-destructive-border: $bankai-color-dt-btn-secondary-destructive-hover-text,
+    // Callouts
+    color-callout-icon: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-60'),
+    // Generic Error
+    color-callout-generic-error-icon: $bankai-color-dt-error,
+    // Callout Memo (Default)
+    color-callout-memo-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-90'),
+    color-callout-memo-icon: $bankai-color-dt-text,
+    color-callout-memo-text: $bankai-color-dt-text,
+    // Callout Memo (Affirmative)
+    color-callout-memo-affirmative-bg: color.change($bankai-color-dt-affirmative, $lightness: 90%),
+    color-callout-memo-affirmative-icon: color.change($bankai-color-dt-affirmative, $lightness: 30%),
+    color-callout-memo-affirmative-text: $bankai-color-dt-text,
+    // Callout Memo (Cautionary)
+    color-callout-memo-cautionary-bg: color.change($bankai-color-dt-cautionary, $lightness: 90%),
+    color-callout-memo-cautionary-icon: color.change($bankai-color-dt-cautionary, $lightness: 30%),
+    color-callout-memo-cautionary-text: $bankai-color-dt-text,
+    // Callout Memo (Error)
+    color-callout-memo-error-bg: color.change($bankai-color-dt-error, $lightness: 90%),
+    color-callout-memo-error-icon: color.change($bankai-color-dt-error, $lightness: 30%),
+    color-callout-memo-error-text: $bankai-color-dt-text,
+    // Callout Memo (Info)
+    color-callout-memo-info-bg: color.change($bankai-color-dt-info, $lightness: 90%),
+    color-callout-memo-info-icon: $bankai-color-dt-info,
+    color-callout-memo-info-text: $bankai-color-dt-text,
+    // Forms
+    color-form-checked-state-bg: $bankai-color-dt-primary,
+    color-form-checked-state-icon: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-checked-state-focus-halo: color.change($bankai-color-dt-primary, $alpha: 0.4),
+    color-form-date-picker-off-range-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-60'),
+    color-form-dnd-file-uploader-hover-state-bg: $bankai-color-dt-affirmative,
+    color-form-dnd-file-uploader-hover-state-border: color.adjust($bankai-color-dt-affirmative, $lightness: -20%),
+    color-form-dnd-file-uploader-hover-state-text: $bankai-color-dt-text,
+    color-form-dnd-file-uploader-rejected-state-bg: $bankai-color-dt-error,
+    color-form-dnd-file-uploader-rejected-state-border: color.adjust($bankai-color-dt-error, $lightness: -20%),
+    color-form-dnd-file-uploader-rejected-state-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-inline-error-text: $bankai-color-dt-error,
+    color-form-input-text: 'inherit',
+    color-form-input-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-input-disabled-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-90'),
+    color-form-input-disabled-placeholder-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-40'),
+    color-form-input-error-border: $bankai-color-dt-error,
+    color-form-input-error-bg: color.change($bankai-color-dt-error, $lightness: 90%),
+    color-form-input-error-placeholder-text: color.change($bankai-color-dt-error, $lightness: 40%),
+    color-form-input-error-focus-halo: color.change($bankai-color-dt-error, $alpha: 0.4),
+    color-form-input-placeholder-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-40'),
+    color-form-menu-selected-state-bg: $bankai-color-dt-primary,
+    color-form-menu-selected-state-focus-bg: color.change($bankai-color-dt-primary, $lightness: 20%),
+    color-form-menu-selected-state-focus-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-menu-selected-state-text: $bankai-color-dt-text,
+    color-form-pill-bg: $bankai-color-dt-primary,
+    color-form-pill-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-toggle-switch-knob: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-toggle-switch-knob-border: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-30'),
+    color-form-toggle-switch-track: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-20'),
+    color-form-toggle-switch-track-hover: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-10'),
+    color-form-toggle-switch-knob-on-state: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-toggle-switch-track-on-state: $bankai-color-dt-affirmative,
+    color-form-toggle-switch-track-hover-on-state: color.adjust($bankai-color-dt-affirmative, $lightness: -8%),
+    color-form-toggle-switch-busy-icon: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-form-toggle-switch-busy-icon-on-state: bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'),
+    color-form-toggle-switch-on-state-focus-halo: color.change($bankai-color-dt-affirmative, $alpha: 0.4),
+    // Loading
+    color-loading-icon-primary: $bankai-color-dt-primary,
+    color-loading-icon-secondary: $bankai-color-dt-secondary,
+    color-loading-icon-accent: $bankai-color-dt-accent,
+    color-loading-skeleton-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-80'),
+    color-loading-skeleton-animation: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    // Modal
+    color-modal-overlay-bg: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'), $alpha: 0.7),
+    // Tabs
+    color-tabs-active-accent: $bankai-color-dt-primary,
+    color-tabs-active-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-tabs-active-focus-halo: color.change($bankai-color-dt-primary, $alpha: 0.4),
+    color-tabs-active-text: color.change($bankai-color-dt-primary, $lightness: 30%),
+    color-tabs-border: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-80'),
+    color-tabs-inactive-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-90'),
+    color-tabs-inactive-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-40'),
+    color-tabs-inactive-hover-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-80'),
+    color-tabs-inactive-hover-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-10'),
+    color-tabs-panel-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    // Toasters
+    color-toaster-bg: $bankai-color-dt-canvas,
+    color-toaster-text: $bankai-color-dt-text,
+    color-toaster-progress-bar: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'), $alpha: 0.3),
+    color-toaster-error-bg: $bankai-color-dt-error,
+    color-toaster-error-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-toaster-error-progress-bar: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'), $alpha: 0.3),
+    color-toaster-info-bg: $bankai-color-dt-info,
+    color-toaster-info-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white'),
+    color-toaster-info-progress-bar: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'), $alpha: 0.3),
+    color-toaster-success-bg: $bankai-color-dt-affirmative,
+    color-toaster-success-text: $bankai-color-dt-text,
+    color-toaster-success-progress-bar: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'), $alpha: 0.3),
+    color-toaster-warning-bg: $bankai-color-dt-cautionary,
+    color-toaster-warning-text: $bankai-color-dt-text,
+    color-toaster-warning-progress-bar: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'color-black'), $alpha: 0.3),
+);

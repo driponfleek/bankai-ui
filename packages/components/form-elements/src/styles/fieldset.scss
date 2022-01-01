@@ -1,7 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-fieldset, %bankai-fieldset {
     box-sizing: border-box;
@@ -14,7 +16,7 @@
     }
 
     &__legend + * {
-        margin-top: 15px;
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     &__content-container {
@@ -22,6 +24,6 @@
     }
 
     &--should-indent-content &__content-container {
-        padding-left: 1.5rem;
+        padding-left: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
     }
 }

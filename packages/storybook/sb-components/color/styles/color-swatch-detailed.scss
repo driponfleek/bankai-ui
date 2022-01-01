@@ -1,0 +1,48 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-color-swatch-detailed {
+    @include bankai-box-shadow-elevated;
+    width: 157px;
+    min-height: 190px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
+
+    &__name {
+        @include bankai-h5;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__details {
+        font-size: var(--bankai-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
+    }
+
+    &__hex,
+    &__rgb,
+    &__hsl {
+        display: block;
+    }
+
+    .bankai-sb-color-compatibilities-list {
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+    }
+
+    &--light-text .bankai-sb-color-compatibilities-list__icon-wrapper {
+        color: #000;
+        background-color: #fff;
+    }
+
+    &--dark-text .bankai-sb-color-compatibilities-list__icon-wrapper {
+        color: #fff;
+        background-color: #000;
+    }
+}

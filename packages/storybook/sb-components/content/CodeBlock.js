@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 // Styles
 import './styles/code-block.scss';
@@ -15,7 +15,7 @@ const CodeBlock = (props) => {
         shouldWrapLines,
         shouldShowLineNumbers,
     } = props;
-    const styles = { ...tomorrow };
+    const styles = { ...coldarkDark };
     delete styles['pre[class*="language-"]'].margin;
 
     return (

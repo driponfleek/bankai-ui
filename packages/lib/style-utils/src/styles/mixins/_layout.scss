@@ -1,0 +1,60 @@
+@mixin bankai-inline-flex-row() {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+@mixin bankai-flex-row() {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin bankai-flex-row-reverse() {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@mixin bankai-flex-column() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin bankai-flex-column-reverse() {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@mixin bankai-scroll-x() {
+    overflow-y: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin bankai-scroll-y() {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin bankai-scroll-all() {
+    overflow-y: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin bankai-breakpoint-range($min, $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin bankai-breakpoint-min-only($min) {
+    @media screen and (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin bankai-breakpoint-max-only($max) {
+    @media screen and (max-width: $max) {
+        @content;
+    }
+}

@@ -1,14 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-typography-list {
     @include bankai-flex-row;
     flex-wrap: wrap;
 
     &-item + &-item {
-        margin-left: 10px;
+        margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
     }
 }

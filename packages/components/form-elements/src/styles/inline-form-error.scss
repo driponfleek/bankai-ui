@@ -1,14 +1,13 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-inline-form-error, %bankai-inline-form-error {
     @include bankai-max-line-width;
-    color: var(--bankai-form-inline-error-text-color, $bankai-form-inline-error-text-color);
-    font-size: var(--bankai-sub-text-size);
+    color: var(--bankai-color-form-inline-error-text, bankai-light-theme('color-form-inline-error-text'));
+    font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
     display: block;
 
     &__icon,

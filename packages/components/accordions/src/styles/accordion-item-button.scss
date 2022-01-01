@@ -4,18 +4,17 @@
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-accordion-item-button, %bankai-accordion-item-button {
     @include bankai-focus-state-halo;
+    color: var(--bankai-color-accordion-trigger-text, bankai-light-theme('color-accordion-trigger-text'));
 
     @media (hover: hover) {
         &:hover {
-            background-color: var(--bankai-neutral-90, $bankai-neutral-90);
+            color: var(--bankai-color-accordion-trigger-hover-text, #{bankai-light-theme('color-accordion-trigger-hover-text')});
+            background-color: var(--bankai-color-accordion-trigger-hover-bg, #{bankai-light-theme('color-accordion-trigger-hover-bg')});
             cursor: pointer;
         }
     }

@@ -1,0 +1,36 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-color-variants-list {
+    @include bankai-flex-row;
+    // @include bankai-box-shadow-slightly-elevated;
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+    box-shadow: 0 0 5px rgba(0, 0, 0, 25%);
+
+    .bankai-sb-color-swatch-detailed {
+        border-radius: 0;
+        flex: 0 0 auto;
+    }
+
+    &__empty-state {
+        background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
+        min-height: 190px;
+    }
+
+    > :first-child {
+        border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} 0 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+    }
+
+    > :last-child {
+        border-radius: 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} 0;
+    }
+
+    &--should-scroll {
+        @include bankai-scroll-x;
+    }
+}

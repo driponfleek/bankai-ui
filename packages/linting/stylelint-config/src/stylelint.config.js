@@ -8,6 +8,7 @@ module.exports = {
     extends: 'stylelint-config-standard-scss',
     rules: {
         'at-rule-no-unknown': null,
+        'at-rule-empty-line-before': null,
         'color-function-notation': null,
         'declaration-empty-line-before': 'never',
         'declaration-no-important': true,
@@ -18,18 +19,23 @@ module.exports = {
         indentation: 4,
         'max-line-length': null,
         'scss/at-import-partial-extension': 'always',
+        'scss/at-rule-conditional-no-parentheses': null,
         'scss/at-rule-no-unknown': [
             true,
             {
                 ignoreAtRules: [
                     'at-root',
+                    'each',
                     'extend',
+                    'else',
+                    'forward',
+                    'function',
                     'if',
                     'include',
-                    'function',
                     'mixin',
                     'return',
                     'use',
+                    'warn',
                 ],
             },
         ],

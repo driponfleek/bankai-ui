@@ -1,12 +1,17 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-code-tag {
-    background-color: $bankai-neutral-80;
-    border-radius: 3px;
+    background-color: var(--bankai-color-neutral-80, bankai-light-theme('color-neutral-80'));
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
     box-sizing: border-box;
-    padding: 0 0.5rem;
+    padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
     display: inline-block;
+
+    @at-root .bankai-sb--dark & {
+        background-color: var(--bankai-color-neutral-20, bankai-light-theme('color-neutral-20'));
+    }
 }

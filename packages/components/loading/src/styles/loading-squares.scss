@@ -2,7 +2,7 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './animations.scss';
 @import './mixins.scss';
 
@@ -15,7 +15,7 @@
     $this: '.bankai-loading-squares';
 
     &__square {
-        background-color: var(--bankai-primary-color, $bankai-primary-color);
+        background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
         flex: 0 0 auto;
     }
 
@@ -39,7 +39,7 @@
             &::before {
                 width: 100%;
                 height: 100%;
-                background-color: var(--bankai-primary-color, $bankai-primary-color);
+                background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
                 content: '';
                 animation: bankai-fold-cube 2.4s infinite linear both;
                 transform-origin: 100% 100%;

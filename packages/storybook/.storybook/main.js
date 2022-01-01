@@ -7,7 +7,7 @@ const {
     fixStoryBookSass,
 } = require('../utils/webpackUtils');
 const rootNodeModules = path.resolve('..', '..', 'node_modules', '@epr0t0type');
-
+// console.log('options.presets: ', options?.presets);
 module.exports = {
     addons: [
         {
@@ -22,8 +22,12 @@ module.exports = {
     babel: async (options) => ({
         ...options,
         plugins: [
-            '@babel/plugin-proposal-class-properties',
-            // '@babel/plugin-proposal-private-methods',
+            ['@babel/plugin-proposal-class-properties', { loose: true }],
+            ['@babel/plugin-proposal-private-methods', { loose: true }],
+            [
+                '@babel/plugin-proposal-private-property-in-object',
+                { loose: true },
+            ],
         ],
     }),
     stories: ['../stories/**/**/*.stories.@(js)'],

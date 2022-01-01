@@ -1,14 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-loading-skeleton-guide {
     &__demo {
         .bankai-loading-skeleton {
             width: 320px;
             height: 150px;
-            border-radius: 15px;
+            border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
         }
     }
 }

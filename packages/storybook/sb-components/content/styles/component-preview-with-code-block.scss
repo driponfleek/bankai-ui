@@ -2,19 +2,21 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-component-preview-with-code-block {
-    border-radius: 10px;
+    border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
 
     .bankai-sb-component-preview {
         border: none;
-        border-radius: 10px 10px 0 0;
+        border-radius: #{bankai-to-px((bankai-light-theme('layout-grid-base') * 3) - 1px)} #{bankai-to-px((bankai-light-theme('layout-grid-base') * 3) - 1px)} 0 0;
     }
 
     .bankai-sb-code-block {
         box-shadow: none;
-        border-radius: 0 0 10px 10px;
+        border-radius: 0 0 #{bankai-to-px((bankai-light-theme('layout-grid-base') * 3) - 1px)} #{bankai-to-px((bankai-light-theme('layout-grid-base') * 3) - 1px)};
     }
 
     .bankai-sb-component-preview,

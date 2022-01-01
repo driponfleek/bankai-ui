@@ -35,6 +35,7 @@ import {
     BankaiCloud,
     BankaiCloudDownload,
     BankaiCloudUpload,
+    BankaiColorPalette,
     BankaiController,
     BankaiCopy,
     BankaiCreditCard,
@@ -106,6 +107,7 @@ import {
     BankaiTextAlignRight,
     BankaiTextBold,
     BankaiTextBulletList,
+    BankaiTextColor,
     BankaiTextDecreaseIndent,
     BankaiTextH1,
     BankaiTextH2,
@@ -269,6 +271,10 @@ export default [
     {
         Icon: BankaiCloudUpload,
         name: 'BankaiCloudUpload',
+    },
+    {
+        Icon: BankaiColorPalette,
+        name: 'BankaiColorPalette',
     },
     {
         Icon: BankaiController,
@@ -553,6 +559,10 @@ export default [
     {
         Icon: BankaiTextBulletList,
         name: 'BankaiTextBulletList',
+    },
+    {
+        Icon: BankaiTextColor,
+        name: 'BankaiTextColor',
     },
     {
         Icon: BankaiTextDecreaseIndent,

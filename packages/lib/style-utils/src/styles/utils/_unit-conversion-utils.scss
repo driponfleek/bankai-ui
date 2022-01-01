@@ -1,0 +1,29 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:math';
+
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function bankai-strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        // @return $number / ($number * 0 + 1);
+        @return math.div($number, ($number * 0 + 1));
+    }
+
+    @return $number;
+}
+
+@function bankai-to-rem($value) {
+    @return math.div(bankai-strip-unit($value), 10) + rem;
+}
+
+@function bankai-to-px($value) {
+    @return bankai-strip-unit($value) + px;
+}
+
+// TODO: May use this in the future
+// @function bankai-css-var-to-rem($css-var, $css-var-fallback) {
+//     @return '(var(#{$css-var}, #{$css-var-fallback}) / 10) * 1rem';
+// }

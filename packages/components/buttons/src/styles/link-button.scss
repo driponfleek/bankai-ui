@@ -3,22 +3,19 @@
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './mixins.scss';
 
 .bankai-link-button, %bankai-link-button {
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
-    @include bankai-disabled-state;
-    color: $bankai-link-color;
+    color: var(--bankai-color-link, bankai-light-theme('color-link'));
     background-color: transparent;
     box-sizing: border-box;
-    border-radius: 3px;
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
     $this: '.bankai-link-button';
 
     @media (hover: hover) {
@@ -36,7 +33,7 @@
     }
 
     &__text-container {
-        line-height: $bankai-lineheight;
+        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
     }
 
     &__icon-container {
@@ -52,7 +49,7 @@
 
     &__icon-container + &__text-container {
         vertical-align: middle;
-        margin-left: 4px;
+        margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     &__icon-safe-space {

@@ -1,10 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-form-field-composer, %bankai-form-field-composer {
     display: inline-block;
@@ -40,7 +39,7 @@
         }
 
         .bankai-form-field-composer__label-container + .bankai-form-field-composer__control-hint-container {
-            margin-left: 10px;
+            margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
         }
     }
 
@@ -58,7 +57,7 @@
         }
 
         .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__label-container {
-            margin-left: 10px;
+            margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
         }
     }
 
@@ -69,7 +68,7 @@
         }
 
         .bankai-form-field-composer__control-container + .bankai-form-field-composer__label-container {
-            margin-left: 10px;
+            margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
         }
 
         .bankai-form-control-hint {
@@ -77,7 +76,7 @@
         }
 
         .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__hints-container {
-            margin-top: v$bankai-form-label-control-space;
+            margin-top: $bankai-form-label-control-space;
         }
     }
 
@@ -85,7 +84,7 @@
     fieldset:disabled & {
         #{$this}__label-container,
         #{$this}__hints-container {
-            opacity: $bankai-disabled-opacity;
+            opacity: bankai-light-theme('state-disabled-opacity');
         }
     }
 }

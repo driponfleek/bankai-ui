@@ -1,21 +1,21 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@use 'sass:color';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './mixins.scss';
 
 .bankai-text-input, %bankai-text-input {
     @include bankai-focus-state-halo;
-    background-color: var(--bankai-form-input-bg-color, $bankai-form-input-bg-color);
+    color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+    background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
     box-sizing: border-box;
-    box-shadow: inset 0 1px 1px rgba($bankai-black, 0.075);
-    border: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
-    border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);
-    line-height: $bankai-lineheight;
-    padding: 0.7rem 1rem;
+    box-shadow: inset 0 1px 1px color.change(bankai-light-theme('color-black'), $alpha: 0.075);
+    border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+    border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
+    line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+    padding: bankai-light-theme('form-input-padding');
 
     &:disabled {
         @include bankai-form-input-disabled;
@@ -26,7 +26,7 @@
     }
 
     &::placeholder {
-        color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);
-        font-style: italic;
+        color: var(--bankai-color-form-input-placeholder-text, bankai-light-theme('color-form-input-placeholder-text'));
+        font-style: bankai-light-theme('form-input-placeholder-font-style');
     }
 }

@@ -2,6 +2,9 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-accordion-item-trigger, %bankai-accordion-item-trigger {
     .bankai-accordion-item-button {
@@ -9,22 +12,26 @@
     }
 
     &__text-container {
+        @include bankai-h5;
         min-width: 1px;
         flex: 1 1 auto;
     }
 
     &__icon-container {
+        @include bankai-flex-column;
         flex: 0 0 auto;
     }
 
     &__icon {
-        font-size: 2rem;
+        font-size: 1.25em;
+        margin: auto;
+        flex: 0 0 auto;
     }
 
     &__text-container,
     &__icon-container {
         box-sizing: border-box;
-        padding: 1rem 1.5rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
     }
 
     .bankai-icon-chevron-down {

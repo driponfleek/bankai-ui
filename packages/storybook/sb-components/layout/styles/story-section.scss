@@ -1,20 +1,23 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
-@import '../../mixins/mixins.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-section {
-    // @include bankai-glass-mixin();
     box-sizing: border-box;
-    border-radius: 15px;
-    // padding: 1.5rem;
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
 
     .bankai-sb-section-title + * {
-        margin-top: 15px;
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
     }
 
-    > *:last-child {
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
         margin-bottom: 0;
     }
 }

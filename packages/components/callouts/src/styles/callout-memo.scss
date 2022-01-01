@@ -2,15 +2,15 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-callout-memo, %bankai-callout-memo {
-    color: var(--bankai-callout-memo-text-color, $bankai-callout-memo-text-color);
-    background-color: var(--bankai-callout-memo-bg-color, $bankai-callout-memo-bg-color);
+    color: var(--bankai-color-callout-memo-text, bankai-light-theme('color-callout-memo-text'));
+    background-color: var(--bankai-color-callout-memo-bg, bankai-light-theme('color-callout-memo-bg'));
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: var(--bankai-callout-memo-border-radius, bankai-light-theme('callout-memo-border-radius'));
 
     &__inner {
         @include bankai-flex-row;
@@ -18,7 +18,7 @@
     }
 
     &__icon-container {
-        min-width: 2rem;
+        min-width: 1.25em;
         text-align: center;
         flex: 0 0 auto;
     }
@@ -31,7 +31,7 @@
     &__icon-container,
     &__text-container {
         box-sizing: border-box;
-        padding: 1rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
     }
 
     &__icon-container + &__text-container {
@@ -39,64 +39,60 @@
     }
 
     &__icon {
-        color: var(--bankai-callout-memo-icon-color, $bankai-callout-memo-icon-color);
-        font-size: 2rem;
+        color: var(--bankai-color-callout-memo-icon, bankai-light-theme('color-callout-memo-icon'));
+        font-size: 1.25em;
         display: block;
         margin: 0 auto;
     }
 
     &__title {
         @include bankai-h5;
-        font-size: var(--bankai-type-base-size, $bankai-type-base-size);
+        font-size: var(--bankai-typography-size-base, bankai-light-theme('typography-size-base'));
         font-weight: bold;
     }
 
     &__title,
     &__msg {
         @include bankai-max-line-width;
-        line-height: $bankai-heading-lineheight;
+        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
         margin: 0;
         display: block;
     }
 
-    &__title-container + &__msg-container {
-        margin-top: 5px;
-    }
-
     // Mods
     &--affirmative {
-        color: var(--bankai-callout-memo-affirmative-text-color, $bankai-callout-memo-affirmative-text-color);
-        background-color: var(--bankai-callout-memo-affirmative-bg-color, $bankai-callout-memo-affirmative-bg-color);
+        color: var(--bankai-color-callout-memo-affirmative-text, bankai-light-theme('color-callout-memo-affirmative-text'));
+        background-color: var(--bankai-color-callout-memo-affirmative-bg, bankai-light-theme('color-callout-memo-affirmative-bg'));
     }
 
     &--affirmative &__icon {
-        color: var(--bankai-callout-memo-affirmative-icon-color, $bankai-callout-memo-affirmative-icon-color);
+        color: var(--bankai-color-callout-memo-affirmative-icon, bankai-light-theme('color-callout-memo-affirmative-icon'));
     }
 
     &--cautionary {
-        color: var(--bankai-callout-memo-cautionary-text-color, $bankai-callout-memo-cautionary-text-color);
-        background-color: var(--bankai-callout-memo-cautionary-bg-color, $bankai-callout-memo-cautionary-bg-color);
+        color: var(--bankai-color-callout-memo-cautionary-text, bankai-light-theme('color-callout-memo-cautionary-text'));
+        background-color: var(--bankai-color-callout-memo-cautionary-bg, bankai-light-theme('color-callout-memo-cautionary-bg'));
     }
 
     &--cautionary &__icon {
-        color: var(--bankai-callout-memo-cautionary-icon-color, $bankai-callout-memo-cautionary-icon-color);
+        color: var(--bankai-color-callout-memo-cautionary-icon, bankai-light-theme('color-callout-memo-cautionary-icon'));
     }
 
     &--error {
-        color: var(--bankai-callout-memo-error-text-color, $bankai-callout-memo-error-text-color);
-        background-color: var(--bankai-callout-memo-error-bg-color, $bankai-callout-memo-error-bg-color);
+        color: var(--bankai-color-callout-memo-error-text, bankai-light-theme('color-callout-memo-error-text'));
+        background-color: var(--bankai-color-callout-memo-error-bg, bankai-light-theme('color-callout-memo-error-bg'));
     }
 
     &--error &__icon {
-        color: var(--bankai-callout-memo-error-icon-color, $bankai-callout-memo-error-icon-color);
+        color: var(--bankai-color-callout-memo-error-icon, bankai-light-theme('color-callout-memo-error-icon'));
     }
 
     &--info {
-        color: var(--bankai-callout-memo-info-text-color, $bankai-callout-memo-info-text-color);
-        background-color: var(--bankai-callout-memo-info-bg-color, $bankai-callout-memo-info-bg-color);
+        color: var(--bankai-color-callout-memo-info-text, bankai-light-theme('color-callout-memo-info-text'));
+        background-color: var(--bankai-color-callout-memo-info-bg, bankai-light-theme('color-callout-memo-info-bg'));
     }
 
     &--info &__icon {
-        color: var(--bankai-callout-memo-info-icon-color, $bankai-callout-memo-info-icon-color);
+        color: var(--bankai-color-callout-memo-info-icon, bankai-light-theme('color-callout-memo-info-icon'));
     }
 }

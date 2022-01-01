@@ -2,7 +2,6 @@
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
         "@epr0t0type/bankai-lib-style-utils": "0.0.0",
-        "css-vars": "2.3.0",
         "normalize.css": "8.0.1"
     },
     "description": "Theme Defaults and Generators for Apps",

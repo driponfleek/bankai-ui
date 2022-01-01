@@ -1,0 +1,40 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-applying-themes-guide {
+    $this: &;
+
+    .bankai-form-layout-section + .bankai-form-layout-section {
+        margin-top: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 5)};
+    }
+
+    &__theme-demo {
+        @include bankai-flex-row;
+        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+        flex-wrap: wrap;
+    }
+
+    &__config-container--slim {
+        #{$this}__config-container-inner {
+            @include bankai-box-shadow-slightly-elevated;
+            width: 100%;
+            background-color: var(--bankai-color-canvas);
+            box-sizing: border-box;
+            padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1020;
+
+            @include bankai-breakpoint-max-only($bankai-s-min) {
+                padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+            }
+        }
+    }
+}

@@ -1,6 +1,8 @@
 export { default as Checkbox } from './src/Checkbox';
 export { default as ColorPicker } from './src/ColorPicker';
+export { default as ColorPickerInput } from './src/ColorPickerInput';
 export { default as DnDFileUploader } from './src/DnDFileUploader';
+export { default as DnDFileUploaderUI } from './src/DnDFileUploaderUI';
 export { default as Fieldset } from './src/Fieldset';
 export { default as FormControlHint } from './src/FormControlHint';
 export { default as FormFieldComposer } from './src/FormFieldComposer';

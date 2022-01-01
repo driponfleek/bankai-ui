@@ -3,13 +3,11 @@
 // Dependencies
 // ========================================================
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-tabs, %bankai-tabs {
     $this: '.bankai-tabs';
@@ -46,21 +44,21 @@
 
     &--bar {
         #{$this}__tabs-list-container {
-            background-color: var(--bankai-tabs-border-color, $bankai-tabs-border-color);
-            padding: 5px;
+            background-color: var(--bankai-color-tabs-border, bankai-light-theme('color-tabs-border'));
+            padding: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
         }
 
         .bankai-tabs-list {
-            gap: 5px;
+            gap: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
         }
 
         .bankai-tab {
-            background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+            background-color: var(--bankai-color-tabs-inactive-bg, bankai-light-theme('color-tabs-inactive-bg'));
             transform: scale(0.95);
 
             &--is-active {
-                color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
-                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
+                background-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                 transform: scale(1);
             }
         }
@@ -68,7 +66,7 @@
 
     &--flip {
         #{$this}__tabs-list-container {
-            background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+            background-color: var(--bankai-color-tabs-inactive-bg, bankai-light-theme('color-tabs-inactive-bg'));
         }
 
         .bankai-tab {
@@ -94,10 +92,10 @@
             }
 
             &--is-active {
-                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
 
                 .bankai-tab__content::after {
-                    background-color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                    background-color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
                     transform: perspective(900px) rotate3d(1, 0, 0, 0deg);
                 }
             }
@@ -111,17 +109,17 @@
             }
 
             &:focus-visible .bankai-tab__content::after {
-                box-shadow: 0 0 0 3px rgba($bankai-black, 0.4);
+                box-shadow: 0 0 0 3px rgba(bankai-light-theme('color-black'), 0.4);
             }
         }
 
         .bankai-tab:not(.bankai-tab--is-active) {
             @media (hover: hover) {
                 &:hover {
-                    color: var(--bankai-tabs-inactive-hover-text-color, $bankai-tabs-inactive-hover-text-color);
+                    color: var(--bankai-color-tabs-inactive-hover-text, bankai-light-theme('color-tabs-inactive-hover-text'));
 
                     .bankai-tab__content::after {
-                        background-color: var(--bankai-tabs-inactive-hover-bg-color, $bankai-tabs-inactive-hover-bg-color);
+                        background-color: var(--bankai-color-tabs-inactive-hover-bg, bankai-light-theme('color-tabs-inactive-hover-bg'));
                     }
                 }
             }
@@ -136,14 +134,14 @@
             }
 
             &:focus-visible .bankai-tab__content::after {
-                box-shadow: 0 0 0 3px var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4));
+                box-shadow: 0 0 0 3px var(--bankai-color-tabs-active-focus-halo, bankai-light-theme('color-tabs-active-focus-halo'));
             }
 
             .bankai-tab__content {
-                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
 
                 &::after {
-                    background-color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                    background-color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
                 }
             }
         }
@@ -153,8 +151,8 @@
 
             &::after {
                 content: '';
-                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
-                border-radius: 10px 10px 0 0;
+                background-color: var(--bankai-color-tabs-inactive-bg, bankai-light-theme('color-tabs-inactive-bg'));
+                border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} 0 0;
                 transform: perspective(5px) rotateX(0.75deg) translate3d(0, 1px, -0.0875rem);
                 transform-origin: 0 0;
                 backface-visibility: hidden;
@@ -179,7 +177,7 @@
             }
 
             &__content::after {
-                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                background-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                 transform: translate3d(0, 100%, 0);
             }
         }
@@ -187,20 +185,20 @@
 
     &--line-box {
         .bankai-tabs-list {
-            gap: 10px;
+            gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
         }
 
         .bankai-tab {
             &__content::after {
-                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+                background-color: var(--bankai-color-tabs-inactive-bg, bankai-light-theme('color-tabs-inactive-bg'));
                 transform: translate3d(0, 100%, 0) translate3d(0, -3px, 0);
             }
 
             &--is-active .bankai-tab__content {
-                color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+                color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
 
                 &::after {
-                    background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                    background-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                     transform: translate3d(0, 0, 0);
                 }
             }
@@ -208,10 +206,10 @@
             &:not(.bankai-tab--is-active) {
                 @media (hover: hover) {
                     &:hover .bankai-tab__content {
-                        color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                        color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
 
                         &::after {
-                            background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                            background-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                         }
                     }
                 }
@@ -242,10 +240,10 @@
         }
 
         .bankai-tab--is-active .bankai-tab__content {
-            color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
+            color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
 
             &::after {
-                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                background-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                 transform: translate3d(0, 0, 0);
             }
         }
@@ -259,12 +257,12 @@
 
     &--pill {
         #{$this}__tabs-list-container {
-            background-color: var(--bankai-neutral-90, $bankai-neutral-90);
-            border-radius: 40px;
-            box-shadow: inset 0 0 3px rgba($bankai-black, 0.25);
-            padding: 1rem 1.5rem;
+            background-color: var(--bankai-color-tabs-inactive-hover-bg, bankai-light-theme('color-canvas-alt'));
+            border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 10)};
+            box-shadow: inset 0 0 4px rgba(bankai-light-theme('color-black'), 0.35);
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
             margin: 0 auto;
-            gap: 10px;
+            gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
         }
 
         .bankai-tabs-list {
@@ -272,44 +270,45 @@
         }
 
         .bankai-tab__content {
-            padding: 1rem 1.5rem;
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
         }
 
         .bankai-tab {
-            border-radius: 30px;
+            border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 8)};
 
             &--is-active {
-                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
-                background-color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
-                box-shadow: 0 0 3px rgba($bankai-black, 0.25);
+                // @include bankai-box-shadow-subtle;
+                color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
+                background-color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
+                box-shadow: 0 0 3px rgba(bankai-light-theme('color-black'), 0.35);
                 transform: scale(1.05);
 
                 &:focus-visible {
-                    @include bankai-focus-state-box-shadow(var(--bankai-tabs-active-focus-halo-color, rgba($bankai-tabs-active-accent-color, 0.4)));
+                    @include bankai-focus-state-box-shadow(var(--bankai-color-tabs-active-focus-halo, bankai-light-theme('color-tabs-active-focus-halo')));
                 }
             }
         }
 
         #{$this}__tabs-list-container + #{$this}__content-container {
-            margin-top: 15px;
+            margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
         }
     }
 
     &--pointer {
         .bankai-tab {
             &:not(.bankai-tab--is-active) {
-                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+                background-color: var(--bankai-color-tabs-inactive-bg, bankai-light-theme('color-tabs-inactive-bg'));
 
                 @media (hover: hover) {
                     &:hover {
-                        background-color: var(--bankai-tabs-inactive-hover-bg-color, $bankai-tabs-inactive-hover-bg-color);
+                        background-color: var(--bankai-color-tabs-inactive-hover-bg, bankai-light-theme('color-tabs-inactive-hover-bg'));
                     }
                 }
             }
 
             &--is-active {
-                color: var(--bankai-tabs-active-bg-color, $bankai-tabs-active-bg-color);
-                background-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
+                background-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
 
                 .bankai-tab__content::after {
                     transform: translate3d(-50%, 0, 0);
@@ -326,7 +325,7 @@
                 height: 0;
                 border: solid transparent;
                 border-width: 11px;
-                border-top-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                border-top-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                 transform: translate3d(-50%, -50%, 0);
                 content: '';
                 opacity: 0;
@@ -347,7 +346,7 @@
     &--overline,
     &--underline {
         .bankai-tab--is-active {
-            color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+            color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
         }
     }
 
@@ -360,7 +359,7 @@
                     width: 100%;
                     height: 3px;
                     display: block;
-                    background-color: var(--bankai-tabs-active-accent-color, $bankai-tabs-active-accent-color);
+                    background-color: var(--bankai-color-tabs-active-accent, bankai-light-theme('color-tabs-active-accent'));
                     transform: translateY(-4px);
                     position: absolute;
                     top: 0;
@@ -383,7 +382,7 @@
                     width: 100%;
                     height: 3px;
                     display: block;
-                    background-color: var(--bankai-tabs-active-accent-color, $bankai-tabs-active-accent-color);
+                    background-color: var(--bankai-color-tabs-active-accent, bankai-light-theme('color-tabs-active-accent'));
                     transform: translateY(4px);
                     position: absolute;
                     bottom: 0;
@@ -400,24 +399,24 @@
     &--overline-segmented,
     &--underline-segmented {
         .bankai-tab {
-            background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
-            border: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+            background-color: var(--bankai-color-tabs-inactive-bg, bankai-light-theme('color-tabs-inactive-bg'));
+            border: 1px solid var(--bankai-color-tabs-border, bankai-light-theme('color-tabs-border'));
             border-right: none;
 
             &:not(.bankai-tab--is-active) {
                 @media (hover: hover) {
                     &:hover {
-                        background-color: var(--bankai-tabs-inactive-hover-bg-color, $bankai-tabs-inactive-hover-bg-color);
+                        background-color: var(--bankai-color-tabs-inactive-hover-bg, bankai-light-theme('color-tabs-inactive-hover-bg'));
                     }
                 }
             }
 
             &:last-child {
-                border-right: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+                border-right: 1px solid var(--bankai-color-tabs-border, bankai-light-theme('color-tabs-border'));
             }
 
             &--is-active {
-                background-color: var(--bankai-tabs-panel-bg-color, $bankai-tabs-panel-bg-color);
+                background-color: var(--bankai-color-tabs-panel-bg, bankai-light-theme('color-tabs-panel-bg'));
                 z-index: 2;
             }
         }
@@ -443,7 +442,7 @@
     &--underline-segmented {
         .bankai-tab {
             &--is-active {
-                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
 
                 .bankai-tab__content-inner {
                     transform: translate3d(0, 0, 0);
@@ -459,22 +458,22 @@
 
     &--traditional-gapped {
         .bankai-tabs-list {
-            gap: 10px;
+            gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
         }
     }
 
     &--traditional,
     &--traditional-gapped {
         .bankai-tab {
-            border-radius: 10px 10px 0 0;
+            border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)} 0 0;
 
             &:not(.bankai-tab--is-active) {
-                background-color: var(--bankai-tabs-inactive-bg-color, $bankai-tabs-inactive-bg-color);
+                background-color: var(--bankai-color-tabs-inactive-bg, bankai-light-theme('color-tabs-inactive-bg'));
             }
 
             &--is-active {
-                color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
-                background-color: var(--bankai-tabs-panel-bg-color, $bankai-tabs-panel-bg-color);
+                color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
+                background-color: var(--bankai-color-tabs-panel-bg, bankai-light-theme('color-tabs-panel-bg'));
             }
         }
     }
@@ -492,7 +491,7 @@
     &--underline,
     &--underline-segmented {
         .bankai-tab__content {
-            padding: 2rem 1.5rem;
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 5)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
         }
     }
 
@@ -510,7 +509,7 @@
         .bankai-tab:not(.bankai-tab--is-active) {
             @media (hover: hover) {
                 &:hover {
-                    color: var(--bankai-tabs-inactive-hover-text-color, $bankai-tabs-inactive-hover-text-color);
+                    color: var(--bankai-color-tabs-inactive-hover-text, bankai-light-theme('color-tabs-inactive-hover-text'));
                     // color: $bankai-black;
                 }
             }
@@ -525,7 +524,7 @@
     &--traditional-gapped,
     &--underline-segmented {
         .bankai-tab-panel {
-            background-color: var(--bankai-tabs-panel-bg-color, $bankai-tabs-panel-bg-color);
+            background-color: var(--bankai-color-tabs-panel-bg, bankai-light-theme('color-tabs-panel-bg'));
         }
     }
 
@@ -659,8 +658,8 @@
 
         &#{$this}--folder {
             .bankai-tab__content::after {
-                border-radius: 10px 0 0 10px;
-                transform: perspective(5px) rotateY(-0.58deg) translate3d(0, 0, -0.088rem);
+                border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} 0 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+                transform: perspective(5px) rotateY(-0.58deg) translate3d(0, 0, -0.063em);
                 transform-origin: 0 0;
             }
         }
@@ -679,22 +678,22 @@
 
         &#{$this}--pill {
             #{$this}__tabs-list-container {
-                border-radius: 40px;
-                box-shadow: inset 0 0 3px rgba($bankai-black, 0.25);
-                padding: 1.5rem;
+                border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 10)};
+                box-shadow: inset 0 0 3px rgba(bankai-light-theme('color-black'), 0.25);
+                padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
                 margin: 0 auto;
-                gap: 10px;
+                gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
             }
             #{$this}__tabs-list-container + #{$this}__content-container {
                 margin-top: 0;
-                margin-left: 15px;
+                margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
             }
         }
 
         &#{$this}--pointer {
             .bankai-tab {
                 &__content::after {
-                    border-left-color: var(--bankai-tabs-active-text-color, $bankai-tabs-active-text-color);
+                    border-left-color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                     border-top-color: transparent;
                     transform: translate3d(-50%, -50%, 0);
                     top: 50%;
@@ -710,19 +709,19 @@
         &#{$this}--traditional,
         &#{$this}--traditional-gapped {
             .bankai-tab {
-                border-radius: 10px 0 0 10px;
+                border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} 0 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
             }
         }
 
         &#{$this}--overline-segmented,
         &#{$this}--underline-segmented {
             .bankai-tab {
-                border: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+                border: 1px solid var(--bankai-color-tabs-border, bankai-light-theme('color-tabs-border'));
                 border-top: none;
                 border-right: none;
 
                 &:first-child {
-                    border-top: 1px solid var(--bankai-tabs-border-color, $bankai-tabs-border-color);
+                    border-top: 1px solid var(--bankai-color-tabs-border, bankai-light-theme('color-tabs-border'));
                 }
             }
         }

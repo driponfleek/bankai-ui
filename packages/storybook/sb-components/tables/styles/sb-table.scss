@@ -1,7 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@use 'sass:color';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-table {
     width: 100%;
@@ -10,7 +12,7 @@
     table-layout: fixed;
 
     &__th {
-        padding: 1rem 1.5rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     &__th,
@@ -24,29 +26,30 @@
     }
 
     &__td {
-        padding: 1.5rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     &__tr {
-        &--alt .storybook-table__td {
-            background-color: $bankai-neutral-90;
+        &--alt .bankai-sb-table__td {
+            background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
         }
 
         &:last-child {
-            .storybook-table__td {
+            .bankai-sb-table__td {
                 &:first-child {
-                    border-radius: 0 0 0 2px;
+                    border-radius: 0 0 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') - 1px)};
                 }
 
                 &:last-child {
-                    border-radius: 0 0 2px;
+                    border-radius: 0 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') - 1px)};
                 }
             }
         }
     }
 
     &__tbody {
-        border-radius: 3px;
-        box-shadow: rgba($bankai-black, 0.1) 0 1px 3px 1px, rgba($bankai-black, 0.067) 0 0 0 1px;
+        // border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+        box-shadow: color.change(bankai-light-theme('color-black'), $alpha: 0.1) 0 1px 3px 1px, color.change(bankai-light-theme('color-black'), $alpha: 0.167) 0 0 0 1px;
     }
 }

@@ -1,16 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/buttons.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-split-button, %bankai-split-button {
     box-sizing: border-box;
     border: 1px solid transparent;
-    border-radius: var(--bankai-btn-border-radius, $bankai-btn-border-radius);
+    border-radius: var(--bankai-btn-border-radius, bankai-light-theme('btn-border-radius'));
     display: inline-block;
     $this: '.bankai-split-button';
 
@@ -46,7 +45,7 @@
         }
 
         .bankai-button__content-container {
-            padding: 0.5rem;
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
         }
     }
 
@@ -69,7 +68,7 @@
     }
 
     &--is-disabled {
-        opacity: $bankai-disabled-opacity;
+        opacity: bankai-light-theme('state-disabled-opacity');
 
         #{$this}__main-btn:disabled,
         .bankai-menu-button__button:disabled {
@@ -78,34 +77,34 @@
     }
 
     &--primary {
-        border-color: var(--bankai-split-btn-primary-border-color, $bankai-split-btn-primary-border-color);
+        border-color: var(--bankai-color-btn-split-primary-border, bankai-light-theme('color-btn-split-primary-border'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-split-btn-primary-border-color, $bankai-split-btn-primary-border-color);
+            border-left-color: var(--bankai-color-btn-split-primary-border, bankai-light-theme('color-btn-split-primary-border'));
         }
     }
 
     &--secondary {
-        border-color: var(--bankai-split-btn-secondary-border-color, $bankai-split-btn-secondary-border-color);
+        border-color: var(--bankai-color-btn-split-secondary-border, bankai-light-theme('color-btn-split-secondary-border'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-split-btn-secondary-border-color, $bankai-split-btn-secondary-border-color);
+            border-left-color: var(--bankai-color-btn-split-secondary-border, bankai-light-theme('color-btn-split-secondary-border'));
         }
     }
 
     &--primary-destructive {
-        border-color: var(--bankai-split-btn-primary-destructive-border-color, $bankai-split-btn-primary-destructive-border-color);
+        border-color: var(--bankai-color-btn-split-primary-destructive-border, bankai-light-theme('color-btn-split-primary-destructive-border'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-split-btn-primary-destructive-border-color, $bankai-split-btn-primary-destructive-border-color);
+            border-left-color: var(--bankai-color-btn-split-primary-destructive-border, bankai-light-theme('color-btn-split-primary-destructive-border'));
         }
     }
 
     &--secondary-destructive {
-        border-color: var(--bankai-split-btn-secondary-destructive-border-color, $bankai-split-btn-secondary-destructive-border-color);
+        border-color: var(--bankai-color-btn-split-secondary-destructive-border, bankai-light-theme('color-btn-split-secondary-destructive-border'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-split-btn-secondary-destructive-border-color, $bankai-split-btn-secondary-destructive-border-color);
+            border-left-color: var(--bankai-color-btn-split-secondary-destructive-border, bankai-light-theme('color-btn-split-secondary-destructive-border'));
         }
     }
 }

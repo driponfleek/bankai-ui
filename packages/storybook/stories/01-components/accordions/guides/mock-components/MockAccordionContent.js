@@ -3,7 +3,7 @@ import { AccordionContentComposer } from '@epr0t0type/bankai-ui-accordions';
 
 const MockAccordionContent = () => {
     return (
-        <div style={{ padding: '0 1.5rem' }}>
+        <div style={{ padding: '0 1.6rem' }}>
             <p>I am Accordion Content</p>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla

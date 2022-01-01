@@ -10,6 +10,7 @@ export { default as BankaiUsers } from './src/BankaiUsers';
 
 // css.gg
 export { default as BankaiSearch } from './src/BankaiSearch';
+export { default as BankaiTextColor } from './src/BankaiTextColor';
 export { default as BankaiZoomIn } from './src/BankaiZoomIn';
 export { default as BankaiZoomOut } from './src/BankaiZoomOut';
 
@@ -104,6 +105,7 @@ export { default as BankaiBan } from './src/BankaiBan';
 export { default as BankaiCart } from './src/BankaiCart';
 export { default as BankaiCalendar } from './src/BankaiCalendar';
 export { default as BankaiCalendarClear } from './src/BankaiCalendarClear';
+export { default as BankaiColorPalette } from './src/BankaiColorPalette';
 export { default as BankaiCrop } from './src/BankaiCrop';
 export { default as BankaiCopy } from './src/BankaiCopy';
 export { default as BankaiFilter } from './src/BankaiFilter';

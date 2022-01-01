@@ -1,22 +1,24 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@use 'sass:color';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
-@import '../../mixins/mixins.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-iconography-list-item {
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
     @include bankai-box-shadow-subtle;
     width: 180px;
-    background-color: var(--bankai-canvas-alt, $bankai-canvas-alt);
+    color: inherit;
+    background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
     box-sizing: border-box;
-    border-radius: 15px;
-    padding: 1rem;
+    border-radius: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
 
     @media (hover: hover) {
         &:hover {
@@ -26,7 +28,7 @@
     }
 
     &:active {
-        box-shadow: inset 0 0 2px rgba(#000, 0.4);
+        box-shadow: inset 0 0 2px color.change(bankai-light-theme('color-black'), $alpha: 0.4);
         transform: scale(0.975);
     }
 
@@ -56,12 +58,12 @@
     }
 
     &__icon-container + &__text-container {
-        margin-top: 5px;
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
     }
 
     // MODS
     &--copied {
-        background-color: $bankai-affirmative-color;
-        border-color: $bankai-affirmative-color;
+        background-color: var(--bankai-color-affirmative, bankai-light-theme('color-affirmative'));
+        border-color: var(--bankai-color-affirmative, bankai-light-theme('color-affirmative'));
     }
 }
