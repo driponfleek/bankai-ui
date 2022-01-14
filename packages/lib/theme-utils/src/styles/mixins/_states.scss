@@ -1,0 +1,44 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@import '../tokens/spec-tokens.scss';
+
+@mixin bankai-focus-state-box-shadow($color: var(--bankai-color-universal-focus-halo, rgba(0, 0, 0, 0.4))) {
+    box-shadow: 0 0 0 3px $color;
+}
+
+@mixin bankai-focus-state-halo($color: var(--bankai-color-universal-focus-halo, rgba(0, 0, 0, 0.4))) {
+    transition: box-shadow 0.15s ease-in-out;
+
+    &:focus {
+        @include bankai-focus-state-reset;
+    }
+
+    &:focus-visible {
+        @include bankai-focus-state-box-shadow($color);
+    }
+}
+
+@mixin bankai-hover-state() {
+    @media (hover: hover) {
+        &:enabled:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+@mixin bankai-disabled-state($has-hover: true) {
+    &:disabled {
+        opacity: bankai-get-map-value($bankai-spec-tokens, 'state-disabled-opacity');
+
+        @if $has-hover {
+            @media (hover: hover) {
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

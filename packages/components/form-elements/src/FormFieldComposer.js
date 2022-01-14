@@ -315,14 +315,17 @@ const withFormField = (Comp) =>
                 labelProps,
                 labelSubtextProps,
                 id,
+                isReadOnly,
+                hasError,
                 ...rest
             } = this.props;
-            const hasError = this.getHasError();
+            const compHasError = this.getHasError();
 
             return {
                 ...rest,
                 id: id || this.id,
-                ...(hasError && { hasError }),
+                ...(!!isReadOnly && { isReadOnly }),
+                ...(!!compHasError && { hasError: compHasError }),
                 ...(shouldIncludeError ||
                     (shouldIncludeHint && {
                         'aria-describedby': this.getCompARIADescByIds,

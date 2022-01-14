@@ -87,6 +87,12 @@
                     "checkbox": {
                         "title": "Checkbox"
                     },
+                    "colorPicker": {
+                        "title": "Color Picker"
+                    },
+                    "colorPickerInput": {
+                        "title": "Color Picker Input"
+                    },
                     "combobox": {
                         "title": "Combobox"
                     },
@@ -216,6 +222,69 @@
             },
             "libsUtils": "",
             "styleGuide": {
+                "designTokens": {
+                    "categoryTitle": "Design Tokens",
+                    "colorTokens": {
+                        "sectionTitles": {
+                            "accentColor": "Accent Color",
+                            "affirmativeColor": "Affirmative Color",
+                            "brandColor": "Brand Color",
+                            "canvasColors": "Canvas Colors",
+                            "cautionaryColor": "Cautionary Color",
+                            "destructiveColor": "Destructive Color",
+                            "errorColor": "Error Color",
+                            "infoColor": "Info Color",
+                            "informativeColors": "Informative Colors",
+                            "linkColor": "Link Color",
+                            "mainColors": "Main Colors",
+                            "neutralColors": "Neutral Colors",
+                            "primaryColor": "Primary Color",
+                            "secondaryColor": "Secondary Color",
+                            "statusColors": "Status Colors",
+                            "textColors": "Text Colors",
+                            "typographyColors": "Typography Colors",
+                            "universalColors": "Universal Colors"
+                        },
+                        "title": "Color Tokens"
+                    },
+                    "specTokens": {
+                        "sectionTitles": {
+                            "borderRadius": "Border Radius",
+                            "forms": "Forms",
+                            "layout": "Layout",
+                            "state": "State",
+                            "typography": "Typography"
+                        },
+                        "title": "Spec Tokens"
+                    },
+                    "whatAreDesignTokens": {
+                        "title": "What Are Design Tokens?"
+                    }
+                },
+                "theming": {
+                    "applyingThemes": {
+                        "sectionTitles": {
+                            "accentColor": "Accent Color",
+                            "affirmativeColor": "Affirmative Color",
+                            "configs": "Configs",
+                            "cautionaryColor": "Cautionary Color",
+                            "destructiveColor": "Destructive Color",
+                            "errorColor": "Error Color",
+                            "infoColor": "Info Color",
+                            "linkColor": "Link Color",
+                            "primaryColor": "Primary Color",
+                            "secondaryColor": "Secondary Color"
+                        },
+                        "title": "Applying a Theme"
+                    },
+                    "categoryTitle": "Theming",
+                    "workingWithColor": {
+                        "sectionTitles": {
+                            "accessiblePalettes": "Accessible Color Pairings"
+                        },
+                        "title": "Working With Color"
+                    }
+                },
                 "typography": {
                     "categoryTitle": "Typography",
                     "typographySystem": {

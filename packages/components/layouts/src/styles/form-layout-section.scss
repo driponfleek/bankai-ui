@@ -1,6 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-form-layout-section, %bankai-form-layout-section {
     box-sizing: border-box;
@@ -11,7 +12,7 @@
         > .bankai-form-layout-field-container + .bankai-form-layout-field-container,
         > .bankai-form-layout-field-container + .bankai-form-layout-row,
         > .bankai-form-layout-row + .bankai-form-layout-field-container {
-            margin-top: 20px;
+            margin-top: bankai-light-theme('layout-form-controls-gap');
         }
     }
 }

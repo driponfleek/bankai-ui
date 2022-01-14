@@ -1,0 +1,16 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:map';
+
+// Typography Ratios
+$bankai-typography-ratios: (
+    typography-ratio-minor-second: 1.067,
+    typography-ratio-major-second: 1.125,
+    typography-ratio-minor-third: 1.2,
+    typography-ratio-major-third: 1.25,
+    typography-ratio-perfect-fourth: 1.333,
+    typography-ratio-augmented-fourth: 1.414,
+    typography-ratio-perfect-fifth: 1.5,
+    typography-ratio-golden-ratio: 1.618,
+);

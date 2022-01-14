@@ -1,26 +1,23 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@use 'sass:color';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
-@import '../../mixins/mixins.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-typography-list-item {
-    // @include bankai-glass-mixin;
-    // @include bankai-box-shadow-subtle;
-    background-color: var(--bankai-canvas-alt, $bankai-canvas-alt);
+    background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
     width: 140px;
-    box-shadow: inset 0 1px 3px 1px rgba($bankai-black, 0.1);
+    box-shadow: inset 0 1px 3px 1px color.change(bankai-light-theme('color-black'), $alpha: 0.1);
     box-sizing: border-box;
-    border-radius: 15px;
-    padding: 1rem;
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
 
     &__category {
         font-style: italic;
-        font-size: $bankai-footnote-text-size;
+        font-size: var(--bankai-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
     }
 
     &__example {
@@ -30,7 +27,7 @@
 
     &__category,
     &__font-family-name {
-        color: $bankai-text-color-alt;
+        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
     }
 
     &__category,
@@ -40,10 +37,10 @@
     }
 
     &--exo .bankai-sb-typography-list-item__example {
-        font-family: $bankai-heading-font;
+        font-family: var(--bankai-typography-heading-font-name, bankai-light-theme('typography-heading-font-name')), var(--bankai-typography-heading-font-fallback, bankai-light-theme('typography-heading-font-fallback'));
     }
 
     &--titillium-web .bankai-sb-typography-list-item__example {
-        font-family: $bankai-body-font;
+        font-family: var(--bankai-typography-body-font-name, bankai-light-theme('typography-body-font-name')), var(--bankai-typography-body-font-fallback, bankai-light-theme('typography-body-font-fallback'));
     }
 }

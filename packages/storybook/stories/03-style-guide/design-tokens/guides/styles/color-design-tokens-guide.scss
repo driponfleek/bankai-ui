@@ -1,0 +1,108 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.banka-sb-color-design-tokens-ux-guide {
+    $this: &;
+
+    &__color-with-variants {
+        @include bankai-flex-row;
+        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 8)};
+        flex-wrap: wrap;
+    }
+
+    &__color-desc-container {
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__brand-color-description {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__color-with-variants .bankai-sb-color-variants-list {
+        max-width: 465px;
+        flex-wrap: wrap;
+        box-shadow: none;
+        align-self: flex-start;
+        margin: auto;
+
+        > :first-child,
+        > :last-child {
+            border-radius: 0;
+        }
+    }
+
+    &__color-variant {
+        width: 155px;
+        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+    }
+
+    &__color-variant-inner {
+        @include bankai-flex-row;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
+        // gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+        justify-content: space-between;
+    }
+
+    &__color-variant-name,
+    &__color-variant-desc {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+
+    &__brand-color &__section-content {
+        @include bankai-flex-row;
+        flex-wrap: wrap;
+        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+    }
+
+    &__neutral-colors-container,
+    &__text-colors-container,
+    &__canvas-colors-container,
+    &__universal-colors-container {
+        @include bankai-flex-row;
+        flex-wrap: wrap;
+        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+
+        .bankai-sb-color-swatch-simple {
+            flex: 0 0 auto;
+        }
+    }
+
+    &__config-container--slim {
+        #{$this}__config-container-inner {
+            @include bankai-box-shadow-slightly-elevated;
+            width: 100%;
+            background-color: var(--bankai-color-canvas);
+            box-sizing: border-box;
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1020;
+
+            @include bankai-breakpoint-max-only($bankai-s-min) {
+                padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+            }
+        }
+    }
+}

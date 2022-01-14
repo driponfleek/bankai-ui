@@ -1,0 +1,57 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+@mixin bankai-button-active {
+    transform: scale(0.95);
+}
+
+@mixin bankai-button-primary-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-color-btn-primary-focus-halo, bankai-light-theme('color-btn-primary-focus-halo')));
+}
+
+@mixin bankai-button-primary-hover {
+    color: var(--bankai-color-btn-primary-hover-text, bankai-light-theme('color-btn-primary-hover-text'));
+    background-color: var(--bankai-color-btn-primary-hover-bg, bankai-light-theme('color-btn-primary-hover-bg'));
+    border-color: var(--bankai-color-btn-primary-hover-border, bankai-light-theme('color-btn-primary-hover-border'));
+}
+
+@mixin bankai-button-secondary-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-color-btn-secondary-focus-halo, bankai-light-theme('color-btn-secondary-focus-halo')));
+}
+
+@mixin bankai-button-secondary-hover {
+    color: var(--bankai-color-btn-secondary-hover-text, bankai-light-theme('color-btn-secondary-hover-text'));
+    background-color: var(--bankai-color-btn-secondary-hover-bg, bankai-light-theme('color-btn-secondary-hover-bg'));
+    border-color: var(--bankai-color-btn-secondary-hover-border, bankai-light-theme('color-btn-secondary-hover-border'));
+}
+
+@mixin bankai-button-destructive-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-color-btn-primary-destructive-focus-halo, bankai-light-theme('color-btn-primary-destructive-focus-halo')));
+}
+
+@mixin bankai-button-primary-destructive-hover {
+    color: var(--bankai-color-btn-primary-destructive-hover-text, bankai-light-theme('color-btn-primary-destructive-hover-text'));
+    background-color: var(--bankai-color-btn-primary-destructive-hover-bg, bankai-light-theme('color-btn-primary-destructive-hover-bg'));
+    border-color: var(--bankai-color-btn-primary-destructive-hover-border, bankai-light-theme('color-btn-primary-destructive-hover-border'));
+}
+
+@mixin bankai-button-secondary-destructive-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-color-btn-secondary-destructive-focus-halo, bankai-light-theme('color-btn-secondary-destructive-focus-halo')));
+}
+
+@mixin bankai-button-secondary-destructive-hover {
+    color: var(--bankai-color-btn-secondary-destructive-hover-text, bankai-light-theme('color-btn-secondary-destructive-hover-text'));
+    background-color: var(--bankai-color-btn-secondary-destructive-hover-bg, bankai-light-theme('color-btn-secondary-destructive-hover-bg'));
+    border-color: var(--bankai-color-btn-secondary-destructive-hover-border, bankai-light-theme('color-btn-secondary-destructive-hover-border'));
+}
+
+@mixin bankai-link-button-focus-visible {
+    @include bankai-focus-state-box-shadow(var(--bankai-color-link-focus-halo, bankai-light-theme('color-link-focus-halo')));
+}
+
+@mixin bankai-link-button-hover {
+    text-decoration: underline;
+}

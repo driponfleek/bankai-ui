@@ -1,10 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-generic-error, %bankai-generic-error {
     .bankai-callout__icon {
-        color: var(--bankai-error-color, $bankai-error-color);
+        color: var(--bankai-color-callout-generic-error-icon, bankai-light-theme('color-callout-generic-error-icon'));
     }
 }

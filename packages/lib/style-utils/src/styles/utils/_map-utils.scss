@@ -1,0 +1,34 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:map';
+
+// Helper function for checking if key exists in map
+@function bankai-is-map-key-valild($map, $key) {
+    @return map.has-key($map, $key);
+}
+
+// Function for getting value from map
+@function bankai-get-map-value($map, $key) {
+    $map-value: null;
+
+    @if (bankai-is-map-key-valild($map, $key)) {
+        $map-value: map.get($map, $key);
+    } @else {
+        @debug 'key: #{$key}';
+        @error "Property #{$key} doesn't exist in the provided map";
+    }
+
+    @return $map-value;
+}
+
+// Function for merging multiple maps due to 2 map limit in sass.
+@function bankai-merge-maps($maps...) {
+    $merged-maps: ();
+
+    @each $map in $maps {
+        $merged-maps: map.merge($merged-maps, $map);
+    }
+
+    @return $merged-maps;
+}

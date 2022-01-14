@@ -8,6 +8,9 @@ import classNameUtil from './utils/classNameUtil';
 // Constants
 import baseCls from './const/baseClsConst';
 
+// Styles
+import './styles/shared.scss';
+
 const BankaiEdit = (props) => {
     const { contextCls, className, ...rest } = props;
 

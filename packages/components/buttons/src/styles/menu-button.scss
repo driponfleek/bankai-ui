@@ -4,6 +4,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './button.scss';
 
 .bankai-menu-button, %bankai-menu-button {
@@ -25,9 +26,10 @@
     }
 
     &__menu {
-        @include bankai-box-shadow-elevated($bankai-black);
-        background-color: var(--bankai-canvas, $bankai-canvas);
-        border-radius: 5px;
+        @include bankai-box-shadow-elevated;
+        background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));
         position: absolute;
         top: calc(100% + 3px);
         z-index: 1000;
@@ -42,10 +44,10 @@
     }
 
     &__menu-list-option:first-child .bankai-menu-button-option {
-        border-radius: 5px 5px 0 0;
+        border-radius: calc(var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius')) - 1px) calc(var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius')) - 1px) 0 0;
     }
 
     &__menu-list-option:last-child .bankai-menu-button-option {
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 calc(var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius')) - 1px) calc(var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius')) - 1px);
     }
 }

@@ -1,0 +1,42 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-color-compatibilities-list {
+    &__icon-and-val {
+        @include bankai-flex-row;
+        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+        margin: 0;
+        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+    }
+
+    &__value {
+        font-style: italic;
+    }
+
+    &__icon-wrapper {
+        width: 1em;
+        height: 1em;
+        line-height: 1;
+        border-radius: 100%;
+        display: block;
+        padding: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+    }
+
+    &__icon {
+        flex: 0 0 auto;
+    }
+
+    &__icon,
+    &__value {
+        margin: 0;
+        display: block;
+    }
+
+    &__compat-color + &__compat-color {
+        margin-top: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
+    }
+}

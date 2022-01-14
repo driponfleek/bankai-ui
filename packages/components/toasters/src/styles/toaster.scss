@@ -5,15 +5,15 @@
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-toaster, %bankai-toaster {
-    @include bankai-box-shadow-elevated($bankai-black);
-    color: var(--bankai-toaster-default-text-color, $bankai-text-color);
-    background-color: var(--bankai-toaster-default-bg-color, $bankai-canvas);
-    border-radius: var(--bankai-toaster-border-radius, 10px);
+    @include bankai-box-shadow-elevated;
+    color: var(--bankai-color-toaster-text, bankai-light-theme('color-toaster-text'));
+    background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+    border-radius: var(--bankai-toaster-border-radius, bankai-light-theme('toaster-border-radius'));
     padding: 0;
 
     // stylelint-disable-next-line
@@ -22,17 +22,17 @@
     }
 
     [class*='progress-bar'] {
-        background: rgba($bankai-black, 0.3);
+        background: var(--bankai-color-toaster-progress-bar, bankai-light-theme('color-toaster-progress-bar'));
     }
 
     &__close-btn {
         color: inherit;
         background-color: transparent;
         align-self: flex-start;
-        border-radius: 0 var(--bankai-toaster-border-radius, 10px) 0 0;
+        border-radius: 0 var(--bankai-toaster-border-radius, bankai-light-theme('toaster-border-radius')) 0 0;
 
         .bankai-button__content-container {
-            padding: 0.5rem;
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
         }
 
         .bankai-button__icon {
@@ -70,7 +70,7 @@
 
     &__msg-container {
         min-width: 1px;
-        padding: 1rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
         flex: 1 1 auto;
     }
 
@@ -81,27 +81,43 @@
 
     &__msg {
         @include bankai-max-line-width;
-        line-height: $bankai-lineheight;
+        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
         margin: 0;
     }
 
     &--error {
-        color: var(--bankai-toaster-error-text-color, $bankai-white);
-        background-color: var(--bankai-toaster-error-bg-color, $bankai-error-color);
+        color: var(--bankai-color-toaster-error-text, bankai-light-theme('color-toaster-error-text'));
+        background-color: var(--bankai-color-toaster-error-bg, bankai-light-theme('color-toaster-error-bg'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-color-toaster-error-progress-bar, bankai-light-theme('color-toaster-error-progress-bar'));
+        }
     }
 
     &--info {
-        color: var(--bankai-toaster-info-text-color, $bankai-white);
-        background-color: var(--bankai-toaster-info-bg-color, $bankai-info-color);
+        color: var(--bankai-color-toaster-info-text, bankai-light-theme('color-toaster-info-text'));
+        background-color: var(--bankai-color-toaster-info-bg, bankai-light-theme('color-toaster-info-bg'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-color-toaster-info-progress-bar, bankai-light-theme('color-toaster-info-progress-bar'));
+        }
     }
 
     &--success {
-        color: var(--bankai-toaster-success-text-color, $bankai-white);
-        background-color: var(--bankai-toaster-success-bg-color, $bankai-affirmative-color);
+        color: var(--bankai-color-toaster-success-text, bankai-light-theme('color-toaster-success-text'));
+        background-color: var(--bankai-color-toaster-success-bg, bankai-light-theme('color-toaster-success-bg'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-color-toaster-success-progress-bar, bankai-light-theme('color-toaster-success-progress-bar'));
+        }
     }
 
     &--warning {
-        color: var(--bankai-toaster-warning-text-color, $bankai-text-color);
-        background-color: var(--bankai-toaster-warning-bg-color, $bankai-cautionary-color);
+        color: var(--bankai-color-toaster-warning-text, bankai-light-theme('color-toaster-warning-text'));
+        background-color: var(--bankai-color-toaster-warning-bg, bankai-light-theme('color-toaster-warning-bg'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-color-toaster-warning-progress-bar, bankai-light-theme('color-toaster-warning-progress-bar'));
+        }
     }
 }

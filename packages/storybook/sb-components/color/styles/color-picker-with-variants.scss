@@ -1,0 +1,31 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-color-picker-with-variants {
+    @include bankai-flex-column;
+    gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+
+    .bankai-sb-color-results__comp-container {
+        .bankai-sb-color-compatibilities-list {
+            @include bankai-flex-row;
+            gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 6)};
+        }
+
+        .bankai-sb-color-picker-with-compatibilities__section {
+            margin: auto 0;
+        }
+
+        .bankai-sb-color-compatibilities-list__compat-color + .bankai-sb-color-compatibilities-list__compat-color {
+            margin-top: 0;
+        }
+
+        + .bankai-sb-color-results__variants-container {
+            margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+        }
+    }
+}

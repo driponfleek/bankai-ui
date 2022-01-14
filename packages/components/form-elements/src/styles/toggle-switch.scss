@@ -6,17 +6,16 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/general.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-toggle-switch, %bankai-toggle-switch {
     display: inline-block;
     position: relative;
 
     .react-toggle-thumb {
-        background-color: var(--bankai-toggle-switch-knob-color, $bankai-white);
-        border-color: var(--bankai-toggle-switch-knob-border-color, $bankai-neutral-30);
+        background-color: var(--bankai-color-form-toggle-switch-knob, bankai-light-theme('color-form-toggle-switch-knob'));
+        border-color: var(--bankai-color-form-toggle-switch-knob-border, bankai-light-theme('color-form-toggle-switch-knob-border'));
     }
 
     .react-toggle--focus .react-toggle-thumb {
@@ -24,15 +23,15 @@
     }
 
     .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
-        box-shadow: 0 0 5px 5px rgba($bankai-black, 0.4);
+        box-shadow: bankai-light-theme('form-toggle-switch-knob-box-shadow');
     }
 
     .react-toggle-track {
-        box-shadow: inset 0 0 1px 1px rgba($bankai-black, 0.1);
+        box-shadow: bankai-light-theme('form-toggle-switch-track-box-shadow');
     }
 
-    &:hover .react-toggle-track {
-        background-color: var(--bankai-toggle-switch-track-color, $bankai-neutral-20);
+    &__toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+        background-color: var(--bankai-color-form-toggle-switch-track-hover, bankai-light-theme('color-form-toggle-switch-track-hover'));
     }
 
     .react-toggle--disabled {
@@ -42,29 +41,29 @@
     // stylelint-disable-next-line
     .react-toggle-track,
     .react-toggle--disabled:hover .react-toggle-track {
-        background-color: var(--bankai-toggle-switch-track-color, $bankai-neutral-20);
+        background-color: var(--bankai-color-form-toggle-switch-track, bankai-light-theme('color-form-toggle-switch-track'));
     }
 
-    // stylelint-disable-next-line
+    // stylelint-disable-next-line no-descending-specificity
     .react-toggle--checked .react-toggle-thumb {
-        background-color: var(--bankai-toggle-switch-on-knob-color, $bankai-white);
-        border-color: var(--bankai-toggle-switch-on-track-color, $bankai-affirmative-color);
+        background-color: var(--bankai-color-form-toggle-switch-knob-on-state, bankai-light-theme('color-form-toggle-switch-knob-on-state'));
+        border-color: var(--bankai-color-form-toggle-switch-track-on-state, bankai-light-theme('color-form-toggle-switch-track-on-state'));
     }
 
-    // stylelint-disable-next-line
+    // stylelint-disable-next-line no-descending-specificity
     .react-toggle--checked .react-toggle-track,
     .react-toggle--checked.react-toggle--disabled:hover .react-toggle-track {
-        background-color: var(--bankai-toggle-switch-on-track-color, $bankai-affirmative-color);
+        background-color: var(--bankai-color-form-toggle-switch-track-on-state, bankai-light-theme('color-form-toggle-switch-track-on-state'));
     }
 
-    // stylelint-disable-next-line
+    // stylelint-disable-next-line no-descending-specificity
     &:hover .react-toggle--checked .react-toggle-track {
-        background-color: var(--bankai-toggle-switch-on-track-hover-color, color.adjust($bankai-affirmative-color, $lightness: -8%));
+        background-color: var(--bankai-color-form-toggle-switch-track-hover-on-state, bankai-light-theme('color-form-toggle-switch-track-hover-on-state'));
     }
 
     &__icon-busy {
         @include bankai-rotate-infinite;
-        color: var(--bankai-toggle-switch-busy-icon-color, $bankai-white);
+        color: var(--bankai-color-form-toggle-switch-busy-icon, bankai-light-theme('color-form-toggle-switch-busy-icon'));
         font-size: 2rem;
         margin: 2px;
         position: absolute;
@@ -72,7 +71,7 @@
     }
 
     .react-toggle--checked + &__icon-busy {
-        color: var(--bankai-toggle-switch-on-busy-icon-color, $bankai-black);
+        color: var(--bankai-color-form-toggle-switch-busy-icon-on-state, bankai-light-theme('color-form-toggle-switch-busy-icon-on-state'));
         left: 0;
     }
 
@@ -82,14 +81,14 @@
 
     // stylelint-disable-next-line
     .react-toggle--checked.react-toggle--focus .react-toggle-thumb {
-        @include bankai-focus-state-box-shadow(var(--bankai-toggle-switch-on-focus-halo-color, rgba($bankai-affirmative-color, 0.4)));
+        @include bankai-focus-state-box-shadow(var(--bankai-color-form-toggle-switch-on-state-focus-halo, bankai-light-theme('color-form-toggle-switch-on-state-focus-halo')));
     }
 
     .react-toggle--checked:active:not(.react-toggle--disabled) .react-toggle-thumb {
-        box-shadow: 0 0 5px 5px var(--bankai-toggle-switch-on-focus-halo-color, rgba($bankai-affirmative-color, 0.4));
+        box-shadow: 0 0 5px 5px var(--bankai-color-form-toggle-switch-on-state-focus-halo, bankai-light-theme('color-form-toggle-switch-on-state-focus-halo'));
     }
 
     &--is-disabled {
-        opacity: $bankai-disabled-opacity;
+        opacity: bankai-light-theme('state-disabled-opacity');
     }
 }

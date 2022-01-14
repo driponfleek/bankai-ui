@@ -1,45 +1,55 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@use 'sass:math';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/forms.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './mixins.scss';
 @import './rw-styles.scss';
 
 .bankai-multiselect, %bankai-multiselect {
     display: inline-block;
 
-    .rw-widget-picker,
-    .rw-popup {
-        border-radius: var(--bankai-form-input-border-radius, $bankai-form-input-border-radius);
+    &.rw-widget {
+        color: inherit;
     }
 
     .rw-widget-picker {
-        border-color: var(--bankai-neutral-border-color, $bankai-neutral-border-color);
+        border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
+        border-color: var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+    }
+
+    .rw-popup {
+        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));
     }
 
     &.rw-state-focus .rw-widget-picker {
         @include bankai-rw-focus-state-halo;
     }
 
+    .rw-widget-input {
+        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+    }
+
     .rw-multiselect-input {
-        line-height: $bankai-lineheight;
-        padding: 0 1rem;
+        line-height: bankai-light-theme('typography-line-height');
+        padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
 
         &::placeholder {
-            color: var(--bankai-form-input-placeholder-text, $bankai-form-input-placeholder-text);
-            font-style: italic;
+            color: var(--bankai-color-form-input-placeholder-text, bankai-light-theme('color-form-input-placeholder-text'));
+            font-style: bankai-light-theme('form-input-placeholder-font-style');
             flex: 0 0 auto;
         }
     }
 
     .rw-picker-caret {
-        color: var(--bankai-text-color, $bankai-text-color);
+        color: var(--bankai-color-text, bankai-light-theme('color-text'));
     }
 
     &__busy-spinner {
@@ -53,36 +63,52 @@
     }
 
     &.rw-state-disabled {
-        opacity: $bankai-disabled-opacity;
+        opacity: bankai-light-theme('state-disabled-opacity');
 
         > .rw-widget-picker {
-            background-color: var(--bankai-form-input-disabled-bg-color, $bankai-form-input-disabled-bg-color);
+            background-color: var(--bankai-color-form-input-disabled-bg, bankai-light-theme('color-form-input-disabled-bg'));
         }
     }
 
     .rw-multiselect-taglist {
-        padding: 0.1rem 0.4rem;
+        padding: #{bankai-to-rem(math.div(bankai-light-theme('layout-grid-base'), 2))} #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+        // padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') / 2)} #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
     }
 
     .rw-multiselect-tag {
-        color: var(--bankai-form-menu-selected-state-text-color, $bankai-form-menu-selected-state-text-color);
-        background-color: var(--bankai-form-menu-selected-state-bg-color, $bankai-form-menu-selected-state-bg-color);
-        border-radius: calc(var(--bankai-form-input-border-radius, $bankai-form-input-border-radius) - 1px);
-        border-color: var(--bankai-form-menu-selected-state-bg-color, $bankai-form-menu-selected-state-bg-color);
+        color: var(--bankai-color-form-pill-text, bankai-light-theme('color-form-pill-text'));
+        background-color: var(--bankai-color-form-pill-bg, bankai-light-theme('color-form-pill-bg'));
+        border-radius: var(--bankai-form-pill-border-radius, calc(bankai-light-theme('form-input-border-radius') - 1px));
+        border-color: var(--bankai-color-form-pill-bg, bankai-light-theme('color-form-pill-bg'));
         user-select: none;
     }
 
+    .rw-multiselect-tag-btn {
+        @include bankai-flex-row;
+
+        .bankai-icon {
+            margin: auto;
+            line-height: 1;
+        }
+    }
+
     .rw-multiselect-tag-label {
-        line-height: $bankai-lineheight;
+        line-height: bankai-light-theme('typography-line-height');
     }
 
     .rw-list {
-        padding-top: 0;
-        padding-bottom: 0;
+        @include bankai-rw-list;
     }
 
     .rw-list-option {
         @include bankai-rw-list-option;
+        color: inherit;
+
+        @media (hover: hover) {
+            &:hover {
+                border-color: transparent;
+            }
+        }
     }
 
     .rw-list-empty {
@@ -91,18 +117,18 @@
 
     &--error {
         &.rw-state-focus .rw-widget-picker {
-            @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, rgba($bankai-form-input-error-border-color, 0.4)));
+            @include bankai-focus-state-box-shadow(var(--bankai-color-form-input-error-focus-halo, bankai-light-theme('color-form-input-error-focus-halo')));
         }
 
         .rw-widget-container,
         &.rw-state-focus > .rw-widget-container {
-            background-color: var(--bankai-form-input-error-bg-color, $bankai-form-input-error-bg-color);
-            border-color: var(--bankai-form-input-error-border-color, $bankai-form-input-error-border-color);
+            background-color: var(--bankai-color-form-input-error-bg, bankai-light-theme('color-form-input-error-bg'));
+            border-color: var(--bankai-color-form-input-error-border, bankai-light-theme('color-form-input-error-border'));
         }
 
         .rw-multiselect-input {
             &::placeholder {
-                color: var(--bankai-form-input-error-placeholder-text, $bankai-form-input-error-placeholder-text);
+                color: var(--bankai-color-form-input-error-placeholder-text, bankai-light-theme('color-form-input-error-placeholder-text'));
             }
         }
     }

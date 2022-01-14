@@ -3,7 +3,7 @@
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './animations.scss';
 @import './mixins.scss';
 
@@ -20,7 +20,7 @@
     &--circular-dotted,
     &--circular-dual {
         border-radius: 100%;
-        border: 0.0667em solid rgba($bankai-neutral-50, 0.2);
+        border: 0.0667em solid rgba(var(--bankai-color-neutral-50, bankai-light-theme('color-neutral-50')), 0.2);
         animation: bankai-rotate-clockwise 1s infinite;
 
         &::after {
@@ -38,7 +38,7 @@
             content: '';
             border-radius: 100%;
             border: 0.0667em solid transparent;
-            border-top-color: var(--bankai-primary-color, $bankai-primary-color);
+            border-top-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
             display: block;
             position: absolute;
             top: -0.0667em;
@@ -98,7 +98,7 @@
             width: 70%;
             height: 70%;
             content: '';
-            border: 2px solid var(--bankai-primary-color, $bankai-primary-color);
+            border: 2px solid var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
             border-radius: 10%;
             box-sizing: border-box;
             opacity: 0.7;
@@ -121,13 +121,13 @@
 
         // stylelint-disable-next-line no-duplicate-selectors
         & {
-            border-top-color: var(--bankai-primary-color, $bankai-primary-color);
+            border-top-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
         }
 
         &::before {
             width: 0.8em;
             height: 0.8em;
-            border-top-color: var(--bankai-accent-color-1, $bankai-accent-color-1);
+            border-top-color: var(--bankai-color-loading-icon-secondary, bankai-light-theme('color-loading-icon-secondary'));
             animation: bankai-rotate-clockwise 1s linear infinite;
             top: 0.05em;
             left: 0.05em;
@@ -136,7 +136,7 @@
         &::after {
             width: 0.6em;
             height: 0.6em;
-            border-top-color: var(--bankai-neutral-30, $bankai-neutral-30);
+            border-top-color: var(--bankai-color-loading-icon-accent, bankai-light-theme('color-loading-icon-accent'));
             animation: bankai-rotate-clockwise 2s linear infinite;
             top: 0.15em;
             left: 0.15em;
@@ -174,8 +174,8 @@
         &,
         &::before,
         &::after {
-            border: 0.0667em solid var(--bankai-primary-color, $bankai-primary-color);
-            border-color: var(--bankai-primary-color, $bankai-primary-color) transparent;
+            border: 0.0667em solid var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            border-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary')) transparent;
             border-radius: 100%;
         }
 
@@ -235,7 +235,7 @@
         &::before {
             width: 20%;
             height: 20%;
-            background-color: var(--bankai-primary-color, $bankai-primary-color);
+            background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
             content: '';
             border-radius: 100%;
             // margin: -10%;
@@ -254,7 +254,7 @@
         #{$this}__inner {
             width: 100%;
             height: 100%;
-            border: 1px solid var(--bankai-primary-color, $bankai-primary-color);
+            border: 1px solid var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
             box-sizing: border-box;
             opacity: 0.3;
             display: block;
@@ -283,7 +283,7 @@
 
         &::after,
         &::before {
-            background-color: var(--bankai-primary-color, $bankai-primary-color);
+            background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
             content: '';
             display: block;
             position: absolute;
@@ -332,16 +332,16 @@
         }
 
         &::before {
-            background-color: var(--bankai-primary-color, $bankai-primary-color);
+            background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
         }
 
         #{$this}__inner {
-            background-color: var(--bankai-accent-color-1, $bankai-accent-color-1);
+            background-color: var(--bankai-color-loading-icon-secondary, bankai-light-theme('color-loading-icon-secondary'));
             animation-delay: 0.8s;
         }
 
         &::after {
-            background-color: var(--bankai-neutral-30, $bankai-neutral-30);
+            background-color: var(--bankai-color-loading-icon-accent, bankai-light-theme('color-loading-icon-accent'));
             animation-delay: 1.6s;
         }
     }

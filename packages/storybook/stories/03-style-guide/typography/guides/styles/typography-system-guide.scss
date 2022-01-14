@@ -1,49 +1,49 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-typography-system-guide {
     .bankai-sb-typography-list + .bankai-sb-section {
-        margin-top: 15px;
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     .bankai-sb-component-preview {
         // ========================================================
         // Headings
         // ========================================================
-        --bankai-h5-font-size: calc(var(--bankai-type-base-size) * var(--bankai-type-size-ratio));
-        --bankai-h4-font-size: calc(var(--bankai-h5-font-size) * var(--bankai-type-size-ratio));
-        --bankai-h3-font-size: calc(var(--bankai-h4-font-size) * var(--bankai-type-size-ratio));
-        --bankai-h2-font-size: calc(var(--bankai-h3-font-size) * var(--bankai-type-size-ratio));
-        --bankai-h1-font-size: calc(var(--bankai-h2-font-size) * var(--bankai-type-size-ratio));
+        --bankai-typography-h5-font-size: calc(var(--bankai-typography-size-base) * var(--bankai-typography-size-ratio));
+        --bankai-typography-h4-font-size: calc(var(--bankai-typography-h5-font-size) * var(--bankai-typography-size-ratio));
+        --bankai-typography-h3-font-size: calc(var(--bankai-typography-h4-font-size) * var(--bankai-typography-size-ratio));
+        --bankai-typography-h2-font-size: calc(var(--bankai-typography-h3-font-size) * var(--bankai-typography-size-ratio));
+        --bankai-typography-h1-font-size: calc(var(--bankai-typography-h2-font-size) * var(--bankai-typography-size-ratio));
         // ========================================================
         // Body
         // ========================================================
-        --bankai-sub-text-size: calc(var(--bankai-type-base-size, $bankai-type-base-size) / var(--bankai-type-size-ratio, $bankai-type-size-ratio));
-        --bankai-footnote-text-size: calc(var(--bankai-sub-text-size, $bankai-sub-text-size) / var(--bankai-type-size-ratio, $bankai-type-size-ratio));
+        --bankai-typography-sub-text-font-size: calc(var(--bankai-typography-size-base, bankai-light-theme('typography-size-base')) / var(--bankai-typography-size-ratio, bankai-light-theme('typography-size-ratio')));
+        --bankai-typography-footnote-font-size: calc(var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size')) / var(--bankai-typography-size-ratio, bankai-light-theme('typography-size-ratio')));
 
         .bankai-heading + .bankai-heading {
-            margin-top: 15px;
+            margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
         }
     }
 
     &__paragraph {
-        font-size: var(--bankai-type-base-size, $bankai-type-base-size);
+        font-size: var(--bankai-typography-size-base, bankai-light-theme('typography-size-base'));
     }
 
     &__sub-text {
-        font-size: var(--bankai-sub-text-size, $bankai-sub-text-size);
+        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
     }
 
     &__footnote {
-        font-size: var(--bankai-footnote-text-size, $bankai-footnote-text-size);
+        font-size: var(--bankai-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
     }
 
     &__sub-text,
     &__footnote {
-        color: $bankai-text-color-alt;
+        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
     }
 }

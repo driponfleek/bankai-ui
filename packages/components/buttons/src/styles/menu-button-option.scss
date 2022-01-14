@@ -2,6 +2,7 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './button.scss';
 
 .bankai-menu-button-option, %bankai-menu-button-option {
@@ -9,6 +10,7 @@
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
     @include bankai-disabled-state;
+    color: inherit;
     box-sizing: border-box;
     border: 1px solid transparent;
     text-align: left;
@@ -17,7 +19,7 @@
 
     @media (hover: hover) {
         &:enabled:hover {
-            background-color: $bankai-neutral-90;
+            background-color: var(--bankai-color-universal-hover-bg, bankai-light-theme('color-universal-hover-bg'));
         }
     }
 
@@ -48,11 +50,11 @@
     }
 
     &--is-destructive {
-        color: var(--bankai-btn-secondary-destructive-default-text-color, $bankai-btn-secondary-destructive-default-text-color);
+        color: var(--bankai-color-btn-secondary-destructive-default-text, bankai-light-theme('color-btn-secondary-destructive-default-text'));
 
         @media (hover: hover) {
             &:enabled:hover {
-                color: var(--bankai-btn-secondary-destructive-hover-text-color, $bankai-btn-secondary-destructive-hover-text-color);
+                color: var(--bankai-color-btn-secondary-destructive-hover-text, bankai-light-theme('color-btn-secondary-destructive-hover-text'));
             }
         }
     }

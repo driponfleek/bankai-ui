@@ -124,9 +124,7 @@ class DnDFileUploaderGuide extends PureComponent {
                         attachments={attachments}
                     />
                 </ComponentPreview>
-                <Paragraph>
-                    Use text inputs to allow user input in your applications.
-                </Paragraph>
+                <Paragraph>Coming Soon.</Paragraph>
             </StorySection>
         );
     }

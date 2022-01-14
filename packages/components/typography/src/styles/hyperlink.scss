@@ -1,18 +1,19 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-hyperlink, %bankai-hyperlink {
     @include bankai-focus-state-halo;
-    color: var(--bankai-link-color, $bankai-link-color);
+    color: var(--bankai-color-link, bankai-light-theme('color-link'));
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
     $this: '.bankai-hyperlink';
 
     &:focus-visible {
-        @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, rgba($bankai-link-color, 0.4)));
+        @include bankai-focus-state-box-shadow(var(--bankai-color-link-focus-halo, bankai-light-theme('color-link-focus-halo')));
     }
 
     @media (hover: hover) {

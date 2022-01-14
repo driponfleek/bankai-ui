@@ -4,7 +4,10 @@ module.exports = function (api) {
 
     return {
         presets: [
-            ['@babel/preset-env', { modules: false }],
+            [
+                '@babel/preset-env',
+                { modules: false, shippedProposals: true, loose: true },
+            ],
             '@babel/preset-react',
         ],
         plugins: [

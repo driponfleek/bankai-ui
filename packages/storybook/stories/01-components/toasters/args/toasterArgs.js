@@ -107,7 +107,7 @@ export const argTypes = {
         // description: '',
         propName: 'toastId',
     }),
-    ...stringArg({
+    ...selectArg({
         defaultValue: DEFAULT,
         description: 'Use to set the component variant.',
         options: Object.keys(TOASTER_VARIANTS).map(

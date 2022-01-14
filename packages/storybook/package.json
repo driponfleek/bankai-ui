@@ -5,7 +5,9 @@
     "license": "MIT",
     "devDependencies": {
         "@babel/core": "7.16.0",
-        "@babel/plugin-proposal-class-properties": "7.14.5",
+        "@babel/plugin-proposal-class-properties": "7.16.7",
+        "@babel/plugin-proposal-private-methods": "7.16.7",
+        "@babel/plugin-proposal-private-property-in-object": "7.16.7",
         "@storybook/addon-a11y": "6.4.9",
         "@storybook/addon-essentials": "6.4.9",
         "@storybook/addon-jest": "6.4.9",
@@ -45,7 +47,7 @@
         "@epr0t0type/bankai-ui-toasters": "^0.0.0",
         "@epr0t0type/bankai-ui-typography": "^0.0.0",
         "classnames": "2.3.1",
-        "css-vars": "2.3.0",
+        "react-helmet": "6.1.0",
         "react-syntax-highlighter": "15.4.4",
         "uuid": "8.3.2"
     },

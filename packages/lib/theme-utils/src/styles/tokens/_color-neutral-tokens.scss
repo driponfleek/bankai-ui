@@ -1,0 +1,21 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:map';
+
+// Neutral Color Tokens
+$bankai-color-neutral-tokens: (
+    color-black: #000,
+    color-neutral-05: #0b0c0e,
+    color-neutral-10: #17191c,
+    color-neutral-20: #2e3238,
+    color-neutral-30: #454b54,
+    color-neutral-40: #5c6470,
+    color-neutral-50: #737d8c,
+    color-neutral-60: #8f97a3,
+    color-neutral-70: #abb1ba,
+    color-neutral-80: #c7cbd1,
+    color-neutral-90: #e3e5e8,
+    color-neutral-95: #f1f2f4,
+    color-white: #fff,
+);

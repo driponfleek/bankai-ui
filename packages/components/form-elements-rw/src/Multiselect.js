@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import MultiselectField from 'react-widgets/Multiselect';
+import { BankaiX } from '@epr0t0type/bankai-ui-icons';
 
 // Styles
 import './styles/multiselect.scss';
@@ -98,8 +99,8 @@ class Multiselect extends PureComponent {
 
         return (
             clearTagIcon || (
-                <span
-                    className={cx(
+                <BankaiX
+                    contextCls={cx(
                         `${this.baseCls}__clear-tag-icon`,
                         'bankai-icon-close',
                     )}

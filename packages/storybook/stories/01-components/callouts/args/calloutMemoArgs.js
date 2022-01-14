@@ -13,6 +13,7 @@ const { bankaiUI: locale } = strings;
 
 export const args = {
     msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    title: 'Callout Memo',
 };
 
 export const argTypes = {

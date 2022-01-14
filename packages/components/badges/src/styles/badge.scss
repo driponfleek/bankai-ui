@@ -1,37 +1,36 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-badge, %bankai-badge {
-    color: var(--bankai-badge-text-color, $bankai-badge-text-color);
-    background-color: var(--bankai-badge-bg-color, $bankai-badge-bg-color);
-    font-size: var(--bankai-footnote-text-size, $bankai-footnote-text-size);
-    line-height: $bankai-heading-lineheight;
+    color: var(--bankai-color-badge-text, bankai-light-theme('color-badge-text'));
+    background-color: var(--bankai-color-badge-bg, bankai-light-theme('color-badge-bg'));
+    font-size: var(--bankai-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
+    line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
     box-sizing: border-box;
-    // stylelint-disable-next-line
-    border-radius: 1em;
+    border-radius: var(--bankai-badge-border-radius, bankai-light-theme('badge-border-radius'));
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
 
     &--affirmative {
-        color: var(--bankai-badge-affirmative-text-color, $bankai-badge-affirmative-text-color);
-        background-color: var(--bankai-badge-affirmative-bg-color, $bankai-badge-affirmative-bg-color);
+        color: var(--bankai-color-badge-affirmative-text, bankai-light-theme('color-badge-affirmative-text'));
+        background-color: var(--bankai-color-badge-affirmative-bg, bankai-light-theme('color-badge-affirmative-bg'));
     }
 
     &--info {
-        color: var(--bankai-badge-info-text-color, $bankai-badge-info-text-color);
-        background-color: var(--bankai-badge-info-bg-color, $bankai-badge-info-bg-color);
+        color: var(--bankai-color-badge-info-text, bankai-light-theme('color-badge-info-text'));
+        background-color: var(--bankai-color-badge-info-bg, bankai-light-theme('color-badge-info-bg'));
     }
 
     &--cautionary {
-        color: var(--bankai-badge-cautionary-text-color, $bankai-badge-cautionary-text-color);
-        background-color: var(--bankai-badge-cautionary-bg-color, $bankai-badge-cautionary-bg-color);
+        color: var(--bankai-color-badge-cautionary-text, bankai-light-theme('color-badge-cautionary-text'));
+        background-color: var(--bankai-color-badge-cautionary-bg, bankai-light-theme('color-badge-cautionary-bg'));
     }
 
     &--danger {
-        color: var(--bankai-badge-error-text-color, $bankai-badge-error-text-color);
-        background-color: var(--bankai-badge-error-bg-color, $bankai-badge-error-bg-color);
+        color: var(--bankai-color-badge-error-text, bankai-light-theme('color-badge-error-text'));
+        background-color: var(--bankai-color-badge-error-bg, bankai-light-theme('color-badge-error-bg'));
     }
 }

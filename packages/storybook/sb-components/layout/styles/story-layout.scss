@@ -2,9 +2,10 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/index.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
-@import '../../mixins/mixins.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 // stylelint-disable-next-line selector-max-id
 html,
@@ -15,15 +16,6 @@ body,
     box-sizing: border-box;
 }
 
-// body {
-//     @include flex-column;
-// }
-
-// stylelint-disable-next-line selector-max-id
-// #root {
-//     flex: 1 1 auto;
-// }
-
 .sb-show-main.sb-main-padded {
     padding: 0;
 }
@@ -31,34 +23,42 @@ body,
 .bankai-sb-layout {
     @include bankai-scroll-y;
     height: 100%;
-    background-color: var(--bankai-canvas, $bankai-canvas);
-    // background: radial-gradient(circle, $bankai-neutral-95 0%, $bankai-neutral-70 100%);
+    background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
     box-sizing: border-box;
+    $this: &;
 
     &__header {
-        // @include bankai-glass-mixin();
-        // border-bottom: 1px solid var(--bankai-neutral-border-color, $bankai-neutral-border-color);
         box-sizing: border-box;
-        padding: 3rem 3rem 1.5rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     &__content {
         box-sizing: border-box;
-        padding: 3rem;
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
     }
 
     &__header + &__content {
-        padding: 1.5rem 3rem 3rem;
-        // margin-top: 15px;
+        padding-top: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
     }
 
     .bankai-sb-section + .bankai-sb-section {
-        margin-top: 45px;
+        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 11)};
     }
 
     &__header-subtitle {
-        color: $bankai-neutral-30;
+        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
         font-style: italic;
         margin: 0;
+    }
+
+    @include bankai-breakpoint-max-only($bankai-s-min) {
+        &__header {
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+        }
+
+        &__content {
+            box-sizing: border-box;
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+        }
     }
 }

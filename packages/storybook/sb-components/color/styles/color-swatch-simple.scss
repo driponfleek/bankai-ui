@@ -1,0 +1,45 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-color-swatch-simple {
+    @include bankai-box-shadow-slightly-elevated;
+    width: 150px;
+    min-height: 160px;
+    box-sizing: border-box;
+    border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+
+    &__swatch-container {
+        border-bottom: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+    }
+
+    &__swatch {
+        height: 100px;
+        border-radius: #{bankai-to-px((bankai-light-theme('layout-grid-base') * 3) - 1px)} #{bankai-to-px((bankai-light-theme('layout-grid-base') * 3) - 1px)} 0 0;
+    }
+
+    &__details-container {
+        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
+    }
+
+    &__name {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__desc {
+        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
+        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+    }
+
+    &__name,
+    &__desc {
+        margin: 0;
+    }
+}

@@ -69,7 +69,7 @@ class CheckboxGuide extends PureComponent {
                 <ComponentPreview shouldCheckA11Y>
                     <Checkbox {...checkboxProps} />
                 </ComponentPreview>
-                <Paragraph>Coming soon</Paragraph>
+                <Paragraph>Coming soon.</Paragraph>
             </StorySection>
         );
     }

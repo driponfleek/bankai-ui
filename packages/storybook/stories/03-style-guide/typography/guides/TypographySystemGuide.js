@@ -76,13 +76,14 @@ class TypographySystemGuide extends Component {
     }
 
     renderDemo = () => {
-        const h5 = 16 * 1.2;
-        const h4 = h5 * 1.2;
-        const h3 = h4 * 1.2;
-        const h2 = (h3 * 1.2).toFixed(4);
-        const h1 = (h2 * 1.2).toFixed(4);
-        const subText = (16 / 1.2).toFixed(4);
-        const footnote = (subText / 1.2).toFixed(4);
+        const baseSize = 16;
+        const h5 = Math.round(baseSize * 1.2);
+        const h4 = Math.round(h5 * 1.2);
+        const h3 = Math.round(h4 * 1.2);
+        const h2 = Math.round(h3 * 1.2);
+        const h1 = Math.round(h2 * 1.2);
+        const subText = Math.round(baseSize / 1.2);
+        const footnote = Math.round(subText / 1.2);
 
         return (
             <StorySection>
@@ -154,8 +155,10 @@ class TypographySystemGuide extends Component {
                     </li>
                 </ul>
                 <Paragraph>
-                    For design purposes feel free to round the value to the
-                    nearest pixel.
+                    <em>
+                        (Values above have been rounded to the nearest whole
+                        number.)
+                    </em>
                 </Paragraph>
                 <Paragraph>
                     <strong>Reference:</strong>
@@ -203,8 +206,14 @@ class TypographySystemGuide extends Component {
             TYPE_RATIOS[ratioConst.replace(' ', '_').toUpperCase()];
 
         // --bankai-type-base-size
-        containerDOM.style.setProperty('--bankai-type-size-ratio', ratioValue);
-        containerDOM.style.setProperty('--bankai-type-base-size', baseFontSize);
+        containerDOM.style.setProperty(
+            '--bankai-typography-size-ratio',
+            ratioValue,
+        );
+        containerDOM.style.setProperty(
+            '--bankai-typography-size-base',
+            baseFontSize,
+        );
     };
 
     baseCls = 'bankai-sb-typography-system-guide';

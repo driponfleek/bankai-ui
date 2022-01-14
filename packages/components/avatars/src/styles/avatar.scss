@@ -2,14 +2,14 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/vars/colors.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-avatar, %bankai-avatar {
     @include bankai-flex-row;
     width: 1em;
     height: 1em;
-    color: var(--bankai-avatar-text-color, $bankai-avatar-text-color);
-    background-color: var(--bankai-avatar-bg-color, $bankai-avatar-bg-color);
+    color: var(--bankai-color-avatar-text, bankai-light-theme('color-avatar-text'));
+    background-color: var(--bankai-color-avatar-bg, bankai-light-theme('color-avatar-bg'));
     box-sizing: border-box;
     font-size: 50px;
     text-align: center;
@@ -38,6 +38,6 @@
     }
 
     &--has-border {
-        border: 0.04em solid var(--bankai-avatar-border-color, $bankai-avatar-border-color);
+        border: Min(0.04em, 1px) solid var(--bankai-color-avatar-border, bankai-light-theme('color-avatar-border'));
     }
 }

@@ -1,0 +1,25 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-color-picker-with-compatibilities {
+    @include bankai-flex-row;
+    flex-wrap: wrap;
+    gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+
+    .bankai-sb-color-compatibilities-list__icon-wrapper {
+        color: #fff;
+        background-color: #000;
+    }
+
+    @at-root .bankai-sb--dark & {
+        .bankai-sb-color-compatibilities-list__icon-wrapper {
+            color: #000;
+            background-color: #fff;
+        }
+    }
+}
