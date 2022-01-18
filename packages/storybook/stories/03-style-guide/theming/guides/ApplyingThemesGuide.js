@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { linkTo } from '@storybook/addon-links';
 import { Avatar } from '@epr0t0type/bankai-ui-avatars';
 import {
-    bankaiLightTheme,
-    bankaiDarkTheme,
     getThemeCSS,
-    formatThemeColorValuesForWeb,
     getThemeAPIKeyFromName,
+    getThemeDefaults,
     THEME_TOKEN_NAMES,
 } from '@epr0t0type/bankai-lib-theme-utils';
 import {
@@ -59,18 +58,20 @@ import MockDnDHoverState from './mock-components/MockDnDHoverState';
 import MockDnDRejectState from './mock-components/MockDnDRejectState';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
+import StickySection from '../../../../sb-components/layout/StickySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
 import Paragraph from '../../../../sb-components/content/Paragraph';
 import ComponentPreview from '../../../../sb-components/content/ComponentPreview';
-import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
 import strings from '../../../../i18n/strings.json';
+
+// Utils
+import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/applying-themes-guide.scss';
 
 const { bankaiUI: locale } = strings;
-const defaultDarkTheme = formatThemeColorValuesForWeb(bankaiDarkTheme);
-const defaultLightTheme = formatThemeColorValuesForWeb(bankaiLightTheme);
 const ComposedColorPickerInput = FormFieldComposer(ColorPickerInput);
 const ComposedToggleSwitch = FormFieldComposer(ToggleSwitch);
 const ComposedTextInput = FormFieldComposer(TextInput);
@@ -94,55 +95,29 @@ const formMenuMockData = [
 ];
 
 class ApplyingThemesGuide extends PureComponent {
+    static defaultProps = {
+        isDarkMode: false,
+    };
+
+    static propTypes = {
+        isDarkMode: PropTypes.bool,
+    };
+
     constructor(...args) {
         super(...args);
-        this.cssMatchMedia = window.matchMedia('(prefers-color-scheme: dark)');
-
-        this.cssMatchMedia.addEventListener(
-            'change',
-            this.handleColorSchemeChange,
-        );
-        const isDarkMode = this.cssMatchMedia.matches;
-        const defaultTheme = isDarkMode ? defaultDarkTheme : defaultLightTheme;
+        const { isDarkMode } = this.props;
+        const defaultTheme = getThemeDefaults(isDarkMode);
 
         this.state = {
-            colorPrimary:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_PRIMARY)
-                ],
-            colorSecondary:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_SECONDARY)
-                ],
-            colorAccent:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_ACCENT)
-                ],
-            colorLink:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_LINK)
-                ],
-            colorAffirmative:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_AFFIRMATIVE)
-                ],
-            colorCautionary:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_CAUTIONARY)
-                ],
-            colorError:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_ERROR)
-                ],
-            colorDestructive:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_DESTRUCTIVE)
-                ],
-            colorInfo:
-                defaultTheme[
-                    getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_INFO)
-                ],
-            isDarkMode,
+            colorPrimary: defaultTheme[THEME_TOKEN_NAMES.COLOR_PRIMARY],
+            colorSecondary: defaultTheme[THEME_TOKEN_NAMES.COLOR_SECONDARY],
+            colorAccent: defaultTheme[THEME_TOKEN_NAMES.COLOR_ACCENT],
+            colorLink: defaultTheme[THEME_TOKEN_NAMES.COLOR_LINK],
+            colorAffirmative: defaultTheme[THEME_TOKEN_NAMES.COLOR_AFFIRMATIVE],
+            colorCautionary: defaultTheme[THEME_TOKEN_NAMES.COLOR_CAUTIONARY],
+            colorError: defaultTheme[THEME_TOKEN_NAMES.COLOR_ERROR],
+            colorDestructive: defaultTheme[THEME_TOKEN_NAMES.COLOR_DESTRUCTIVE],
+            colorInfo: defaultTheme[THEME_TOKEN_NAMES.COLOR_INFO],
             isRoundedUI: true,
             shouldAutoCorrectColors: true,
         };
@@ -150,11 +125,10 @@ class ApplyingThemesGuide extends PureComponent {
 
     render() {
         const theme = this.getTheme();
-        // console.log('theme: ', theme);
-        // console.log('cssVars: ', cssVars);
 
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.styleGuide.theming.applyingThemes.title}
                 subTitle={getStyleGuideTitle(
@@ -177,16 +151,6 @@ class ApplyingThemesGuide extends PureComponent {
                 {this.renderDestructiveColor()}
             </StoryLayout>
         );
-    }
-
-    componentDidMount() {
-        const guideDOM = this.getGuideDOM();
-        guideDOM.addEventListener('scroll', this.handleScroll);
-    }
-
-    componentWillUnmount() {
-        const guideDOM = this.getGuideDOM();
-        guideDOM.removeEventListener('scroll', this.handleScroll);
     }
 
     renderIntro = () => {
@@ -217,7 +181,7 @@ class ApplyingThemesGuide extends PureComponent {
     };
 
     renderConfigs = () => {
-        const { shouldAutoCorrectColors, isRoundedUI, isDarkMode } = this.state;
+        const { shouldAutoCorrectColors, isRoundedUI } = this.state;
 
         return (
             <StorySection>
@@ -227,64 +191,46 @@ class ApplyingThemesGuide extends PureComponent {
                             .sectionTitles.configs
                     }
                 </SectionTitle>
-                <div
-                    className={`${this.baseCls}__config-container`}
-                    ref={this.handleSetConfigRef}
+                <StickySection
+                    contextCls={`${this.baseCls}__config-container`}
+                    scrollingContainerCSSClass={this.baseCls}
                 >
-                    <div className={`${this.baseCls}__config-container-inner`}>
-                        <FormLayout>
-                            <Fieldset legend="Theme Configurations">
-                                <FormLayoutRow>
-                                    <FormLayoutFieldContainer>
-                                        <ComposedToggleSwitch
-                                            labelProps={{
-                                                labelText: 'Round Corners?',
-                                            }}
-                                            isChecked={isRoundedUI}
-                                            variant={
-                                                FORM_FIELD_COMP_VARIANTS.INLINE_RIGHT
-                                            }
-                                            onChange={
-                                                this
-                                                    .handleShouldRoundCornersChange
-                                            }
-                                        />
-                                    </FormLayoutFieldContainer>
-                                    <FormLayoutFieldContainer>
-                                        <ComposedToggleSwitch
-                                            labelProps={{
-                                                labelText:
-                                                    'Auto-Correct Colors?',
-                                            }}
-                                            isChecked={shouldAutoCorrectColors}
-                                            variant={
-                                                FORM_FIELD_COMP_VARIANTS.INLINE_RIGHT
-                                            }
-                                            onChange={
-                                                this
-                                                    .handleShouldAutoCorrectColorsChange
-                                            }
-                                        />
-                                    </FormLayoutFieldContainer>
-                                    <FormLayoutFieldContainer>
-                                        <ComposedToggleSwitch
-                                            labelProps={{
-                                                labelText: 'Dark Mode?',
-                                            }}
-                                            isChecked={isDarkMode}
-                                            variant={
-                                                FORM_FIELD_COMP_VARIANTS.INLINE_RIGHT
-                                            }
-                                            onChange={
-                                                this.handleIsDarkModeChange
-                                            }
-                                        />
-                                    </FormLayoutFieldContainer>
-                                </FormLayoutRow>
-                            </Fieldset>
-                        </FormLayout>
-                    </div>
-                </div>
+                    <FormLayout>
+                        <Fieldset legend="Theme Configurations">
+                            <FormLayoutRow>
+                                <FormLayoutFieldContainer>
+                                    <ComposedToggleSwitch
+                                        labelProps={{
+                                            labelText: 'Round Corners?',
+                                        }}
+                                        isChecked={isRoundedUI}
+                                        variant={
+                                            FORM_FIELD_COMP_VARIANTS.INLINE_RIGHT
+                                        }
+                                        onChange={
+                                            this.handleShouldRoundCornersChange
+                                        }
+                                    />
+                                </FormLayoutFieldContainer>
+                                <FormLayoutFieldContainer>
+                                    <ComposedToggleSwitch
+                                        labelProps={{
+                                            labelText: 'Auto-Correct Colors?',
+                                        }}
+                                        isChecked={shouldAutoCorrectColors}
+                                        variant={
+                                            FORM_FIELD_COMP_VARIANTS.INLINE_RIGHT
+                                        }
+                                        onChange={
+                                            this
+                                                .handleShouldAutoCorrectColorsChange
+                                        }
+                                    />
+                                </FormLayoutFieldContainer>
+                            </FormLayoutRow>
+                        </Fieldset>
+                    </FormLayout>
+                </StickySection>
             </StorySection>
         );
     };
@@ -821,22 +767,6 @@ class ApplyingThemesGuide extends PureComponent {
         e?.stopPropagation();
     };
 
-    handleColorSchemeChange = (e) => {
-        const { isDarkMode } = this.state;
-
-        if (e && e.matches && !isDarkMode) {
-            this.setState({
-                isDarkMode: true,
-            });
-        }
-
-        if (e && !e.matches && isDarkMode) {
-            this.setState({
-                isDarkMode: false,
-            });
-        }
-    };
-
     handleShouldRoundCornersChange = () => {
         const { isRoundedUI } = this.state;
 
@@ -850,14 +780,6 @@ class ApplyingThemesGuide extends PureComponent {
 
         this.setState({
             shouldAutoCorrectColors: !shouldAutoCorrectColors,
-        });
-    };
-
-    handleIsDarkModeChange = () => {
-        const { isDarkMode } = this.state;
-
-        this.setState({
-            isDarkMode: !isDarkMode,
         });
     };
 
@@ -915,62 +837,9 @@ class ApplyingThemesGuide extends PureComponent {
         });
     };
 
-    handleScroll = () => {
-        const reqAniFrame = this.getBrowserReqAniFrame();
-        const guideDOM = this.getGuideDOM();
-        this.lastScrollY = guideDOM.scrollTop;
-
-        if (!this.isScrolling && this.configDOM) {
-            reqAniFrame(this.handleConfigModCls);
-            this.isScrolling = true;
-        }
-    };
-
-    handleSetConfigRef = (el) => {
-        if (el) {
-            this.configDOM = el;
-        }
-    };
-
-    handleConfigModCls = () => {
-        const modCls = `${this.baseCls}__config-container--slim`;
-        const guideDOM = this.getGuideDOM();
-        const { top: configDistanceFromTop, height: configHeight } =
-            this.configDOM.getBoundingClientRect();
-
-        if (this.lastScrollY === guideDOM.scrollTop) {
-            const isSlim = this.configDOM.classList.contains(modCls);
-            // const configDistanceFromTop =
-            //     this.configDOM.getBoundingClientRect().top;
-            const shouldBeSlim = configDistanceFromTop <= 0;
-
-            if (!isSlim && shouldBeSlim) {
-                this.configDOM.classList.add(modCls);
-                this.configDOM.style.minHeight = `${configHeight}px`;
-            } else if (isSlim && !shouldBeSlim) {
-                this.configDOM.classList.remove(modCls);
-                this.configDOM.style.minHeight = '';
-            }
-        }
-
-        this.isScrolling = false;
-    };
-
-    getGuideDOM = () => document.getElementsByClassName(this.baseCls)[0];
-
-    getBrowserReqAniFrame = () => {
-        return (
-            window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            window.oRequestAnimationFrame
-        );
-    };
-
     getTheme = () => {
+        const { isDarkMode } = this.props;
         const {
-            isDarkMode,
             isRoundedUI,
             shouldAutoCorrectColors,
             colorPrimary,

@@ -6,7 +6,11 @@ import { argTypes, args } from './args/checkboxArgs';
 
 const { bankaiUI: locale } = strings;
 
-const CheckboxStory = (props) => <Guide {...props} />;
+const CheckboxStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(CheckboxStory, {
     storyName: locale.stories.components.formElements.checkbox.title,

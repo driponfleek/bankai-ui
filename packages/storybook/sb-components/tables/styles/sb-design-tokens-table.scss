@@ -1,0 +1,12 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-design-tokens-table {
+    &__token-description,
+    &__token-value-desc {
+        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
+        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+    }
+}

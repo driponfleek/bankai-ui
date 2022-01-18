@@ -8,7 +8,11 @@ import { argTypes, args } from './args/buttonArgs';
 
 const { bankaiUI: locale } = strings;
 
-const ButtonStory = (props) => <Guide {...props} />;
+const ButtonStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ButtonStory, {
     storyName: locale.stories.components.buttons.button.title,

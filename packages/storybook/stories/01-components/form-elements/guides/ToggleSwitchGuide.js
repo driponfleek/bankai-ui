@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrTextInput';
@@ -47,6 +48,7 @@ class ToggleSwitchGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={
                     locale.stories.components.formElements.toggleSwitch.title
                 }
@@ -62,10 +64,10 @@ class ToggleSwitchGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
-        const compProps = {
+        const compProps = getSanatizedStoryProps({
             ...props,
             'aria-label': 'Demo Toggle Switch',
-        };
+        });
 
         return (
             <StorySection>

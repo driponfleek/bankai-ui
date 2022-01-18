@@ -6,7 +6,11 @@ import { argTypes, args } from './args/typographyArgs';
 
 const { bankaiUI: locale } = strings;
 
-const TypographySystemStory = (props) => <Guide {...props} />;
+const TypographySystemStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(TypographySystemStory, {
     storyName: locale.stories.styleGuide.typography.typographySystem.title,

@@ -1,22 +1,15 @@
 import React, { PureComponent } from 'react';
 import { Hyperlink } from '@epr0t0type/bankai-ui-typography';
-// import {
-//     genColorsData,
-//     getIsReadable,
-//     getRecommendedColor,
-//     getColorCorrelationsData,
-//     getStarterColorData,
-// } from '@epr0t0type/bankai-lib-color-utils';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
-// import CodeTag from '../../../../sb-components/content/CodeTag';
-// import SectionTitle from '../../../../sb-components/content/SectionTitle';
 import Paragraph from '../../../../sb-components/content/Paragraph';
 import List from '../../../../sb-components/content/List';
 import ListItem from '../../../../sb-components/content/ListItem';
-// import ColorPickerWithVariants from '../../../../sb-components/color/ColorPickerWithVariants';
-import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
 import strings from '../../../../i18n/strings.json';
+
+// Utils
+import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/what-are-design-tokens-guide.scss';
@@ -27,6 +20,7 @@ class WhatAreDesignTokensGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={
                     locale.stories.styleGuide.designTokens.whatAreDesignTokens

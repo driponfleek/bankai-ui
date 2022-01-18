@@ -12,10 +12,6 @@ export {
     SPEC_TOKEN_DEFAULTS,
 } from './src/const/specTokensConst';
 export { THEME_TOKEN_NAMES } from './src/const/themeTokensConst';
-export * from './src/utils/cssVarUtils';
-export * from './src/utils/dataMassageUtils';
-export * from './src/utils/theme/buttonThemeUtils';
-export * from './src/utils/theme/themeUtils';
 export {
     getCommonColorCompatabilities,
     getJuxtaposedColorAgainstCanvases,
@@ -24,4 +20,19 @@ export {
     getThemeDefaults,
     getFocusHaloRGBA,
 } from './src/utils/colorUtils';
-// export * from './src/utils/themeUtils';
+export * from './src/utils/cssVarUtils';
+export * from './src/utils/dataMassageUtils';
+export * from './src/utils/theme/accordionThemeUtils';
+export * from './src/utils/theme/avatarThemeUtils';
+export * from './src/utils/theme/badgeThemeUtils';
+export * from './src/utils/theme/buttonThemeUtils';
+export * from './src/utils/theme/calloutThemeUtils';
+export * from './src/utils/theme/coreColorsThemeUtils';
+export * from './src/utils/theme/formThemeUtils';
+export * from './src/utils/theme/linkThemeUtils';
+export * from './src/utils/theme/loadingThemeUtils';
+export * from './src/utils/theme/modalThemeUtils';
+export * from './src/utils/theme/specThemeUtils';
+export * from './src/utils/theme/tabThemeUtils';
+export * from './src/utils/theme/themeUtils';
+export * from './src/utils/theme/toasterThemeUtils';

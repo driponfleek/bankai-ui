@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrBtn';
@@ -52,6 +53,7 @@ class MenuButtonGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.buttons.menuButton.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.buttons.categoryTitle,
@@ -69,7 +71,7 @@ class MenuButtonGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <MenuButton {...props} />
+                    <MenuButton {...getSanatizedStoryProps(props)} />
                 </ComponentPreview>
                 <Paragraph>Coming soon.</Paragraph>
             </StorySection>

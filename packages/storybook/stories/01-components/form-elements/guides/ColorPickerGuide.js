@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrTextInput';
@@ -43,6 +44,7 @@ class ColorPickerGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.formElements.colorPicker.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,
@@ -60,7 +62,7 @@ class ColorPickerGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <ColorPicker {...props} />
+                    <ColorPicker {...getSanatizedStoryProps(props)} />
                 </ComponentPreview>
                 <Paragraph>Coming soon.</Paragraph>
             </StorySection>

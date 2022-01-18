@@ -9,7 +9,10 @@ import Paragraph from '../../../../sb-components/content/Paragraph';
 import TypographyList from '../../../../sb-components/lists/TypographyList';
 // import TypographyListItem from '../../../../sb-components/lists/TypographyListItem';
 import strings from '../../../../i18n/strings.json';
+
+// Utils
 import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Constants
 import TYPE_RATIOS from './const/typeRatiosConst';
@@ -33,6 +36,7 @@ class TypographySystemGuide extends Component {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={
                     locale.stories.styleGuide.typography.typographySystem.title

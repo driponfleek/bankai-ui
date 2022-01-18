@@ -30,6 +30,7 @@ import './styles/story-layout.scss';
 // ==================================================================
 class StoryLayout extends PureComponent {
     static defaultProps = {
+        isDarkMode: false,
         isRoundedUI: true,
         shouldAutoCorrectColors: true,
     };
@@ -38,29 +39,16 @@ class StoryLayout extends PureComponent {
         contextCls: PropTypes.string,
         title: PropTypes.string,
         subTitle: PropTypes.string,
+        isDarkMode: PropTypes.bool,
         isRoundedUI: PropTypes.bool,
         shouldAutoCorrectColors: PropTypes.bool,
         darkThemeData: PropTypes.object,
         lightThemeData: PropTypes.object,
     };
 
-    constructor(...args) {
-        super(...args);
-        this.cssMatchMedia = window.matchMedia('(prefers-color-scheme: dark)');
-
-        this.cssMatchMedia.addEventListener(
-            'change',
-            this.handleColorSchemeChange,
-        );
-
-        this.state = {
-            isDarkMode: this.cssMatchMedia.matches,
-        };
-    }
-
     render() {
-        const { title, subTitle, children, contextCls } = this.props;
-        const { isDarkMode } = this.state;
+        const { title, subTitle, children, isDarkMode, contextCls } =
+            this.props;
         const theme = this.getTheme();
         const modCls = {
             'bankai-sb--dark': isDarkMode,
@@ -106,30 +94,14 @@ class StoryLayout extends PureComponent {
         }
     }
 
-    handleColorSchemeChange = (e) => {
-        const { isDarkMode } = this.state;
-
-        if (e && e.matches && !isDarkMode) {
-            this.setState({
-                isDarkMode: true,
-            });
-        }
-
-        if (e && !e.matches && isDarkMode) {
-            this.setState({
-                isDarkMode: false,
-            });
-        }
-    };
-
     getTheme = () => {
         const {
             darkThemeData,
             lightThemeData,
             isRoundedUI,
             shouldAutoCorrectColors,
+            isDarkMode,
         } = this.props;
-        const { isDarkMode } = this.state;
         const themeConfig = {
             isDarkMode,
             isRoundedUI,

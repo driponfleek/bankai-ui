@@ -6,7 +6,11 @@ import { argTypes, args } from './args/dndFileUploaderArgs';
 
 const { bankaiUI: locale } = strings;
 
-const DnDFileUploaderStory = (props) => <Guide {...props} />;
+const DnDFileUploaderStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(DnDFileUploaderStory, {
     storyName: locale.stories.components.formElements.dndFileUploader.title,

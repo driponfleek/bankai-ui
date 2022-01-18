@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 import { examplesCodeStr } from './codeStr/codeStrTextarea';
@@ -47,6 +48,7 @@ class TextareaGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.formElements.textarea.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,
@@ -64,7 +66,10 @@ class TextareaGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Textarea {...props} aria-label="Demo Textarea" />
+                    <Textarea
+                        {...getSanatizedStoryProps(props)}
+                        aria-label="Demo Textarea"
+                    />
                 </ComponentPreview>
                 <Paragraph>
                     Use textareas to allow user input that requires more room

@@ -12,6 +12,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -34,6 +35,7 @@ class CalloutGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.callouts.callout.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.callouts.categoryTitle,
@@ -51,7 +53,10 @@ class CalloutGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Callout {...props} renderIcon={this.renderCalloutIcon} />
+                    <Callout
+                        {...getSanatizedStoryProps(props)}
+                        renderIcon={this.renderCalloutIcon}
+                    />
                 </ComponentPreview>
                 <Paragraph>Coming Soon.</Paragraph>
             </StorySection>

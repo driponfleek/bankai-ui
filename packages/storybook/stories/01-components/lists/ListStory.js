@@ -6,7 +6,11 @@ import { argTypes, args } from './args/listArgs';
 
 const { bankaiUI: locale } = strings;
 
-const ListStory = (props) => <Guide {...props} />;
+const ListStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ListStory, {
     storyName: locale.stories.components.lists.list.title,

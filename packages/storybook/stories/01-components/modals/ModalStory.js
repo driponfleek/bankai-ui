@@ -6,7 +6,11 @@ import { argTypes, args } from './args/modalArgs';
 
 const { bankaiUI: locale } = strings;
 
-const ModalStory = (props) => <Guide {...props} />;
+const ModalStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ModalStory, {
     storyName: locale.stories.components.modals.modal.title,

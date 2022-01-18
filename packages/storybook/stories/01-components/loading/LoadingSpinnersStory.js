@@ -6,7 +6,11 @@ import { argTypes, args } from './args/loadingSpinnersArgs';
 
 const { bankaiUI: locale } = strings;
 
-const LoadingSpinnersStory = (props) => <Guide {...props} />;
+const LoadingSpinnersStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(LoadingSpinnersStory, {
     storyName: locale.stories.components.loading.loadingSpinners.title,

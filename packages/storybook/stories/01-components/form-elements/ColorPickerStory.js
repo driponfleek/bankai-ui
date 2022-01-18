@@ -6,7 +6,11 @@ import { argTypes, args } from './args/colorPickerArgs';
 
 const { bankaiUI: locale } = strings;
 
-const ColorPickerStory = (props) => <Guide {...props} />;
+const ColorPickerStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ColorPickerStory, {
     storyName: locale.stories.components.formElements.colorPicker.title,

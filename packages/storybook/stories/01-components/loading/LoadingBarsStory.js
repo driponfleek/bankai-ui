@@ -6,7 +6,11 @@ import { argTypes, args } from './args/loadingBarsArgs';
 
 const { bankaiUI: locale } = strings;
 
-const LoadingBarsStory = (props) => <Guide {...props} />;
+const LoadingBarsStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(LoadingBarsStory, {
     storyName: locale.stories.components.loading.loadingBars.title,

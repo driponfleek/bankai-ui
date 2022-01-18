@@ -24,6 +24,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -51,6 +52,7 @@ class FormLayoutGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.components.layouts.formLayout.title}
                 subTitle={getComponentsTitle(
@@ -69,7 +71,7 @@ class FormLayoutGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <FormLayout {...props}>
+                    <FormLayout {...getSanatizedStoryProps(props)}>
                         <FormLayoutSection>
                             <Fieldset legend="User Info">
                                 <FormLayoutSection>

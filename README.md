@@ -1,5 +1,5 @@
 # bankai-ui
-A flexible UI SDK to serve as a solid starting point for building applications.
+A flexible UI SDK to serve as a solid starting point when establishing dev standards, enforcing code quality and establishing design systems.
 
 **Key Features**
 

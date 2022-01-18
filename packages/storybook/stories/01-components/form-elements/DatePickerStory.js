@@ -6,7 +6,11 @@ import { argTypes, args } from './args/datePickerArgs';
 
 const { bankaiUI: locale } = strings;
 
-const DatePickerStory = (props) => <Guide {...props} />;
+const DatePickerStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(DatePickerStory, {
     storyName: locale.stories.components.formElements.datePicker.title,

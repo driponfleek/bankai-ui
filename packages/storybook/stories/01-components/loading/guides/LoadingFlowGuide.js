@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -34,6 +35,7 @@ class LoadingFlowGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.loading.loadingFlow.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.loading.categoryTitle,
@@ -51,7 +53,7 @@ class LoadingFlowGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <LoadingFlow {...props}>
+                    <LoadingFlow {...getSanatizedStoryProps(props)}>
                         <p>
                             I&apos;m the content waiting to be loaded.
                             You&apos;ll see me when{' '}

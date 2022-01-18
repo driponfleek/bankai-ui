@@ -6,7 +6,11 @@ import { argTypes, args } from './args/tabsArgs';
 
 const { bankaiUI: locale } = strings;
 
-const TabsStory = (props) => <Guide {...props} />;
+const TabsStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(TabsStory, {
     storyName: locale.stories.components.tabViews.tabs.title,

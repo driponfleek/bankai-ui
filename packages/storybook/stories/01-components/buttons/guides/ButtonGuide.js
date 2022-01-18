@@ -1,19 +1,38 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import {
+    // THEME_TOKEN_NAMES,
+    getThemeDefaults,
+} from '@epr0t0type/bankai-lib-theme-utils';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
 import ComponentPreview from '../../../../sb-components/content/ComponentPreview';
 import ComponentPreviewWithCodeBlock from '../../../../sb-components/content/ComponentPreviewWithCodeBlock';
 import Paragraph from '../../../../sb-components/content/Paragraph';
+import SBDesignTokensTable from '../../../../sb-components/tables/SBDesignTokensTable';
 import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
+import {
+    getColorCanvasToken,
+    getColorTextToken,
+    getBtnBorderRadius,
+    getPrimaryBtnTokenData,
+    getPrimaryDestructiveBtnTokenData,
+} from '../../../../utils/themeTokenUtils';
 
 // Code Strings
-import { examplesCodeStr } from './codeStr/codeStrBtn';
+import {
+    defaultBtnCodeStr,
+    primaryBtnCodeStr,
+    secondaryBtnCodeStr,
+    primaryDestructiveBtnCodeStr,
+    secondaryDestructiveBtnCodeStr,
+} from './codeStr/codeStrBtn';
 
 // Styles
 import './styles/button-guide.scss';
@@ -50,13 +69,19 @@ class ButtonGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={locale.stories.components.buttons.button.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.buttons.categoryTitle,
                 )}
             >
                 {this.renderDemo()}
-                {this.renderExamples()}
+                {this.renderDefaultButton()}
+                {this.renderPrimaryButton()}
+                {this.renderSecondaryButton()}
+                {this.renderPrimaryDestructiveButton()}
+                {this.renderSecondaryDestructiveButton()}
             </StoryLayout>
         );
     }
@@ -67,7 +92,7 @@ class ButtonGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Button {...props} />
+                    <Button {...getSanatizedStoryProps(props)} />
                 </ComponentPreview>
                 <Paragraph>
                     Buttons allow users to take action in your UI. Well-formed
@@ -78,21 +103,128 @@ class ButtonGuide extends PureComponent {
         );
     }
 
-    renderExamples = () => {
+    renderDesignTokenHeading = () => {
+        return <SectionTitle headingLvl={3}>Design Tokens</SectionTitle>;
+    };
+
+    renderDefaultButton = () => {
         return (
             <StorySection>
-                <SectionTitle>Examples</SectionTitle>
+                <SectionTitle>Default Button</SectionTitle>
+                <StorySection>
+                    <ComponentPreviewWithCodeBlock
+                        contextCls={`${this.baseCls}__examples-preview`}
+                        codeString={defaultBtnCodeStr}
+                    >
+                        <Button text="Default Button" />
+                    </ComponentPreviewWithCodeBlock>
+                    <Paragraph>
+                        A starter button for creating new button types.
+                    </Paragraph>
+                </StorySection>
+                <StorySection>
+                    {this.renderDesignTokenHeading()}
+                    {this.renderDesignTokensTable(
+                        this.getDefaultBtnTokenData(),
+                    )}
+                </StorySection>
+            </StorySection>
+        );
+    };
+
+    renderPrimaryButton = () => {
+        this.getPrimaryBtnTokenData();
+
+        return (
+            <StorySection>
+                <SectionTitle>Primary Button</SectionTitle>
+                <StorySection>
+                    <ComponentPreviewWithCodeBlock
+                        contextCls={`${this.baseCls}__examples-preview`}
+                        codeString={primaryBtnCodeStr}
+                    >
+                        <Button text="Primary Button" variant={PRIMARY} />
+                    </ComponentPreviewWithCodeBlock>
+                    <Paragraph>
+                        Use when you want the action to be the primary one a
+                        user takes in your experience. This should be used
+                        sparingly so that it does not compete with other actions
+                        of less importance.
+                    </Paragraph>
+                </StorySection>
+                <StorySection>
+                    {this.renderDesignTokenHeading()}
+                    <Paragraph>
+                        Colors are generated from the{' '}
+                        <strong>Primary Color</strong> design token and its
+                        variants.
+                    </Paragraph>
+                    {this.renderDesignTokensTable(
+                        this.getPrimaryBtnTokenData(),
+                    )}
+                </StorySection>
+            </StorySection>
+        );
+    };
+
+    renderSecondaryButton = () => {
+        return (
+            <StorySection>
+                <SectionTitle>Secondary Button</SectionTitle>
                 <ComponentPreviewWithCodeBlock
                     contextCls={`${this.baseCls}__examples-preview`}
-                    codeString={examplesCodeStr}
+                    codeString={secondaryBtnCodeStr}
                 >
-                    <Button text="Default Button" />
-                    <Button text="Primary Button" variant={PRIMARY} />
                     <Button text="Secondary Button" variant={SECONDARY} />
-                    <Button
-                        text="Primary Destructive Button"
-                        variant={PRIMARY_DESTRUCTIVE}
-                    />
+                </ComponentPreviewWithCodeBlock>
+            </StorySection>
+        );
+    };
+
+    renderPrimaryDestructiveButton = () => {
+        return (
+            <StorySection>
+                <SectionTitle>Primary Destructive Button</SectionTitle>
+                <StorySection>
+                    <ComponentPreviewWithCodeBlock
+                        contextCls={`${this.baseCls}__examples-preview`}
+                        codeString={primaryDestructiveBtnCodeStr}
+                    >
+                        <Button
+                            text="Primary Destructive Button"
+                            variant={PRIMARY_DESTRUCTIVE}
+                        />
+                    </ComponentPreviewWithCodeBlock>
+                    <Paragraph>
+                        Use when you want the action to be the primary one a
+                        user takes in your experience and it is destructive in
+                        nature. This should be used sparingly so that it does
+                        not compete with other actions of less importance.
+                    </Paragraph>
+                </StorySection>
+                <StorySection>
+                    {this.renderDesignTokenHeading()}
+                    <Paragraph>
+                        Colors are generated from the{' '}
+                        <strong>Destructive Color</strong> design token and its
+                        variants.
+                    </Paragraph>
+                    {this.renderDesignTokensTable(
+                        this.getPrimaryDestructiveBtnTokenData(),
+                    )}
+                </StorySection>
+            </StorySection>
+        );
+    };
+
+    renderSecondaryDestructiveButton = () => {
+        return (
+            <StorySection>
+                <SectionTitle>Secondary Destructive Button</SectionTitle>
+                <ComponentPreviewWithCodeBlock
+                    contextCls={`${this.baseCls}__examples-preview`}
+                    codeString={secondaryDestructiveBtnCodeStr}
+                >
                     <Button
                         text="Secondary Destructive Button"
                         variant={SECONDARY_DESTRUCTIVE}
@@ -100,6 +232,46 @@ class ButtonGuide extends PureComponent {
                 </ComponentPreviewWithCodeBlock>
             </StorySection>
         );
+    };
+
+    renderDesignTokensTable = (data) => {
+        return <SBDesignTokensTable data={data} />;
+    };
+
+    getIsDarkMode = () => {
+        const { isDarkMode } = getSanatizedStoryProps(this.props, false);
+
+        return isDarkMode;
+    };
+
+    getDefaultBtnTokenData = () => {
+        const canvasToken = getColorCanvasToken(this.getIsDarkMode());
+        const textToken = getColorTextToken(this.getIsDarkMode());
+
+        return [
+            {
+                ...canvasToken,
+                name: 'Background Color (Resting State)',
+            },
+            {
+                ...textToken,
+                name: 'Text Color (Resting State)',
+                isAlt: true,
+            },
+            getBtnBorderRadius(),
+        ];
+    };
+
+    getPrimaryBtnTokenData = () => {
+        return getPrimaryBtnTokenData(this.getIsDarkMode());
+    };
+
+    getPrimaryDestructiveBtnTokenData = () => {
+        return getPrimaryDestructiveBtnTokenData(this.getIsDarkMode());
+    };
+
+    getDefaultTheme = () => {
+        return getThemeDefaults(this.getIsDarkMode());
     };
 
     baseCls = 'bankai-sb-buttons-guide';

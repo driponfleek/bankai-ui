@@ -6,7 +6,11 @@ import strings from '../../../i18n/strings.json';
 
 const { bankaiUI: locale } = strings;
 
-const NumberPickerStory = (props) => <Guide {...props} />;
+const NumberPickerStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(NumberPickerStory, {
     storyName: locale.stories.components.formElements.numberPicker.title,

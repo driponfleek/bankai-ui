@@ -6,7 +6,11 @@ import { argTypes, args } from './args/textareaArgs';
 
 const { bankaiUI: locale } = strings;
 
-const TextareaStory = (props) => <Guide {...props} />;
+const TextareaStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(TextareaStory, {
     storyName: locale.stories.components.formElements.textarea.title,

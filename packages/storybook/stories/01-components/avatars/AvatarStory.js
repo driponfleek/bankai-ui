@@ -6,7 +6,11 @@ import { argTypes, args } from './args/avatarArgs';
 
 const { bankaiUI: locale } = strings;
 
-const AvatarStory = (props) => <Guide {...props} />;
+const AvatarStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(AvatarStory, {
     storyName: locale.stories.components.avatars.avatar.title,

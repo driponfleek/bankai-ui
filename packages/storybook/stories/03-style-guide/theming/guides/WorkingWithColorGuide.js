@@ -15,8 +15,11 @@ import Paragraph from '../../../../sb-components/content/Paragraph';
 import List from '../../../../sb-components/content/List';
 import ListItem from '../../../../sb-components/content/ListItem';
 import ColorPickerWithVariants from '../../../../sb-components/color/ColorPickerWithVariants';
-import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
 import strings from '../../../../i18n/strings.json';
+
+// Utils
+import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/colors-guide.scss';
@@ -31,6 +34,7 @@ class WorkingWithColorGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.styleGuide.theming.workingWithColor.title}
                 subTitle={getStyleGuideTitle(

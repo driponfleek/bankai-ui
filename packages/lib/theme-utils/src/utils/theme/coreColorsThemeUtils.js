@@ -60,6 +60,24 @@ export const getCoreColorsData = (data = {}, isDarkMode) => {
         [`${getThemeAPIKeyFromName(COLOR_LINK)}`]: THEME_COLOR_LINK = DEFAULTS[
             COLOR_LINK
         ],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_10)}`]:
+            THEME_COLOR_NEUTRAL_10 = DEFAULTS[COLOR_NEUTRAL_10],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_20)}`]:
+            THEME_COLOR_NEUTRAL_20 = DEFAULTS[COLOR_NEUTRAL_20],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_30)}`]:
+            THEME_COLOR_NEUTRAL_30 = DEFAULTS[COLOR_NEUTRAL_30],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_40)}`]:
+            THEME_COLOR_NEUTRAL_40 = DEFAULTS[COLOR_NEUTRAL_40],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_50)}`]:
+            THEME_COLOR_NEUTRAL_50 = DEFAULTS[COLOR_NEUTRAL_50],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_60)}`]:
+            THEME_COLOR_NEUTRAL_60 = DEFAULTS[COLOR_NEUTRAL_60],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_70)}`]:
+            THEME_COLOR_NEUTRAL_70 = DEFAULTS[COLOR_NEUTRAL_70],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_80)}`]:
+            THEME_COLOR_NEUTRAL_80 = DEFAULTS[COLOR_NEUTRAL_80],
+        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_90)}`]:
+            THEME_COLOR_NEUTRAL_90 = DEFAULTS[COLOR_NEUTRAL_90],
         [`${getThemeAPIKeyFromName(COLOR_PRIMARY)}`]:
             THEME_COLOR_PRIMARY = DEFAULTS[COLOR_PRIMARY],
         [`${getThemeAPIKeyFromName(COLOR_SECONDARY)}`]:
@@ -84,6 +102,15 @@ export const getCoreColorsData = (data = {}, isDarkMode) => {
     const errorColorData = genColorsData(THEME_COLOR_ERROR);
     const infoColorData = genColorsData(THEME_COLOR_INFO);
     const linkColorData = genColorsData(THEME_COLOR_LINK);
+    const neutral10Color = getColorSeedData(THEME_COLOR_NEUTRAL_10);
+    const neutral20Color = getColorSeedData(THEME_COLOR_NEUTRAL_20);
+    const neutral30Color = getColorSeedData(THEME_COLOR_NEUTRAL_30);
+    const neutral40Color = getColorSeedData(THEME_COLOR_NEUTRAL_40);
+    const neutral50Color = getColorSeedData(THEME_COLOR_NEUTRAL_50);
+    const neutral60Color = getColorSeedData(THEME_COLOR_NEUTRAL_60);
+    const neutral70Color = getColorSeedData(THEME_COLOR_NEUTRAL_70);
+    const neutral80Color = getColorSeedData(THEME_COLOR_NEUTRAL_80);
+    const neutral90Color = getColorSeedData(THEME_COLOR_NEUTRAL_90);
     const primaryColorData = genColorsData(THEME_COLOR_PRIMARY);
     const secondaryColorData = genColorsData(THEME_COLOR_SECONDARY);
     const textColor = getColorSeedData(THEME_COLOR_TEXT);
@@ -104,6 +131,15 @@ export const getCoreColorsData = (data = {}, isDarkMode) => {
         errorColorData,
         infoColorData,
         linkColorData,
+        neutral10Color,
+        neutral20Color,
+        neutral30Color,
+        neutral40Color,
+        neutral50Color,
+        neutral60Color,
+        neutral70Color,
+        neutral80Color,
+        neutral90Color,
         primaryColorData,
         secondaryColorData,
         textColor,
