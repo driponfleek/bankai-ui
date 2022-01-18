@@ -1,15 +1,6 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
-.banka-sb-spec-design-tokens-ux-guide {
-    &__token-description {
-        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
-        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
-    }
-}
+// .banka-sb-spec-design-tokens-ux-guide {}

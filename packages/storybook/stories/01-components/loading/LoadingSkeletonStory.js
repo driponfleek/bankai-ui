@@ -6,7 +6,11 @@ import { argTypes, args } from './args/loadingSkeletonArgs';
 
 const { bankaiUI: locale } = strings;
 
-const LoadingSkeletonStory = (props) => <Guide {...props} />;
+const LoadingSkeletonStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(LoadingSkeletonStory, {
     storyName: locale.stories.components.loading.loadingSkeleton.title,

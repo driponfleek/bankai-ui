@@ -6,7 +6,11 @@ import { argTypes, args } from './args/toggleSwitchArgs';
 
 const { bankaiUI: locale } = strings;
 
-const ToggleSwitchStory = (props) => <Guide {...props} />;
+const ToggleSwitchStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ToggleSwitchStory, {
     storyName: locale.stories.components.formElements.toggleSwitch.title,

@@ -5,9 +5,10 @@ import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import IconographyList from '../../../../sb-components/lists/IconographyList';
 // import StorySection from '../../../../sb-components/layout/StorySection';
 import strings from '../../../../i18n/strings.json';
-import { getComponentsTitle } from '../../../../utils/storiesConfig';
 
 // Utils
+import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 import iconData from '../utils/icons';
 
 const { bankaiUI: locale } = strings;
@@ -16,6 +17,7 @@ class IconographyGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.iconography.icons.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.iconography.categoryTitle,

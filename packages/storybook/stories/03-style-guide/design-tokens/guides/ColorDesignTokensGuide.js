@@ -1,17 +1,11 @@
 import React, { PureComponent, Fragment } from 'react';
-import { Helmet } from 'react-helmet';
-import {
-    FormFieldComposer,
-    ToggleSwitch,
-    FORM_FIELD_COMP_VARIANTS,
-} from '@epr0t0type/bankai-ui-form-elements';
+import PropTypes from 'prop-types';
 import { Hyperlink } from '@epr0t0type/bankai-ui-typography';
 import { genColorsData } from '@epr0t0type/bankai-lib-color-utils';
 import {
     THEME_TOKEN_NAMES,
     getThemeDefaults,
     getTextColor,
-    getThemeCSS,
 } from '@epr0t0type/bankai-lib-theme-utils';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -19,16 +13,18 @@ import SectionTitle from '../../../../sb-components/content/SectionTitle';
 import Paragraph from '../../../../sb-components/content/Paragraph';
 import List from '../../../../sb-components/content/List';
 import ListItem from '../../../../sb-components/content/ListItem';
-import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
 import strings from '../../../../i18n/strings.json';
 import ColorResults from '../../../../sb-components/color/ColorResults';
 import ColorSwatchSimple from '../../../../sb-components/color/ColorSwatchSimple';
+
+// Utils
+import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/color-design-tokens-guide.scss';
 
 const { bankaiUI: locale } = strings;
-const ComposedToggleSwitch = FormFieldComposer(ToggleSwitch);
 const {
     COLOR_BRAND,
     COLOR_PRIMARY,
@@ -58,35 +54,26 @@ const {
 } = THEME_TOKEN_NAMES;
 
 class ColorDesignTokensGuide extends PureComponent {
-    constructor(...args) {
-        super(...args);
-        this.cssMatchMedia = window.matchMedia('(prefers-color-scheme: dark)');
-        this.cssMatchMedia.addEventListener(
-            'change',
-            this.handleColorSchemeChange,
-        );
+    static defaultProps = {
+        isDarkMode: false,
+    };
 
-        this.state = {
-            isDarkMode: this.cssMatchMedia.matches,
-        };
-    }
+    static propTypes = {
+        isDarkMode: PropTypes.bool,
+    };
 
     render() {
-        const theme = this.getTheme();
-
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.styleGuide.designTokens.colorTokens.title}
                 subTitle={getStyleGuideTitle(
                     locale.stories.styleGuide.designTokens.categoryTitle,
                 )}
+                onColorSchemeChange={this.handleColorSchemeChange}
             >
-                <Helmet>
-                    <style>{theme}</style>
-                </Helmet>
                 {this.renderIntro()}
-                {this.renderConfigs()}
                 {this.renderMainColors()}
                 {this.renderStatusColors()}
                 {this.renderInformativeColors()}
@@ -96,16 +83,6 @@ class ColorDesignTokensGuide extends PureComponent {
                 {this.renderUniversalColors()}
             </StoryLayout>
         );
-    }
-
-    componentDidMount() {
-        const guideDOM = this.getGuideDOM();
-        guideDOM.addEventListener('scroll', this.handleScroll);
-    }
-
-    componentWillUnmount() {
-        const guideDOM = this.getGuideDOM();
-        guideDOM.removeEventListener('scroll', this.handleScroll);
     }
 
     renderIntro = () => {
@@ -122,30 +99,6 @@ class ColorDesignTokensGuide extends PureComponent {
                     Use the toggle switch below to switch between dark and light
                     modes to see tokens for the respective theme.
                 </Paragraph>
-            </StorySection>
-        );
-    };
-
-    renderConfigs = () => {
-        const { isDarkMode } = this.state;
-
-        return (
-            <StorySection>
-                <div
-                    className={`${this.baseCls}__config-container`}
-                    ref={this.handleSetConfigRef}
-                >
-                    <div className={`${this.baseCls}__config-container-inner`}>
-                        <ComposedToggleSwitch
-                            labelProps={{
-                                labelText: 'Dark Mode?',
-                            }}
-                            isChecked={isDarkMode}
-                            variant={FORM_FIELD_COMP_VARIANTS.INLINE_RIGHT}
-                            onChange={this.handleIsDarkModeChange}
-                        />
-                    </div>
-                </div>
             </StorySection>
         );
     };
@@ -871,7 +824,7 @@ class ColorDesignTokensGuide extends PureComponent {
     };
 
     renderColorSwatchVariant = (props = {}) => {
-        const { colorDescription, colorName, colorValue, ...rest } = props;
+        const { colorDescription, colorName, colorValue, id, ...rest } = props;
         const style = {
             color: getTextColor(colorValue),
             backgroundColor: colorValue,
@@ -880,6 +833,7 @@ class ColorDesignTokensGuide extends PureComponent {
         return (
             <div
                 {...rest}
+                key={id}
                 className={`${this.baseCls}__color-variant`}
                 style={style}
             >
@@ -895,83 +849,13 @@ class ColorDesignTokensGuide extends PureComponent {
         );
     };
 
-    handleSetConfigRef = (el) => {
-        if (el) {
-            this.configDOM = el;
-        }
-    };
-
-    handleColorSchemeChange = (e) => {
-        const { isDarkMode } = this.state;
-
-        if (e && e.matches && !isDarkMode) {
-            this.setState({
-                isDarkMode: true,
-            });
-        }
-
-        if (e && !e.matches && isDarkMode) {
-            this.setState({
-                isDarkMode: false,
-            });
-        }
-    };
-
-    handleIsDarkModeChange = () => {
-        const { isDarkMode } = this.state;
-
-        this.setState({
-            isDarkMode: !isDarkMode,
-        });
-    };
-
-    handleScroll = () => {
-        const reqAniFrame = this.getBrowserReqAniFrame();
-        const guideDOM = this.getGuideDOM();
-        this.lastScrollY = guideDOM.scrollTop;
-
-        if (!this.isScrolling && this.configDOM) {
-            reqAniFrame(this.handleConfigModCls);
-            this.isScrolling = true;
-        }
-    };
-
-    handleConfigModCls = () => {
-        const modCls = `${this.baseCls}__config-container--slim`;
-        const guideDOM = this.getGuideDOM();
-        const { top: configDistanceFromTop, height: configHeight } =
-            this.configDOM.getBoundingClientRect();
-
-        if (this.lastScrollY === guideDOM.scrollTop) {
-            const isSlim = this.configDOM.classList.contains(modCls);
-            // const configDistanceFromTop =
-            //     this.configDOM.getBoundingClientRect().top;
-            const shouldBeSlim = configDistanceFromTop <= 0;
-
-            if (!isSlim && shouldBeSlim) {
-                this.configDOM.classList.add(modCls);
-                this.configDOM.style.minHeight = `${configHeight}px`;
-            } else if (isSlim && !shouldBeSlim) {
-                this.configDOM.classList.remove(modCls);
-                this.configDOM.style.minHeight = '';
-            }
-        }
-
-        this.isScrolling = false;
-    };
-
-    handleSetConfigRef = (el) => {
-        if (el) {
-            this.configDOM = el;
-        }
-    };
-
     getMassagedColorData = (color = {}, colorName) => {
-        const { hex } = color;
+        const { hex, id } = color;
 
         return {
             colorDescription: hex,
             colorName,
+            id,
             colorValue: hex,
         };
     };
@@ -987,31 +871,10 @@ class ColorDesignTokensGuide extends PureComponent {
         });
     };
 
-    getGuideDOM = () => document.getElementsByClassName(this.baseCls)[0];
-
-    getBrowserReqAniFrame = () => {
-        return (
-            window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            window.oRequestAnimationFrame
-        );
-    };
-
     getThemeDefaults = () => {
-        const { isDarkMode } = this.state;
+        const { isDarkMode } = this.props;
 
         return getThemeDefaults(isDarkMode);
-    };
-
-    getTheme = () => {
-        const { isDarkMode } = this.state;
-        const themeConfig = {
-            isDarkMode,
-        };
-
-        return getThemeCSS({}, themeConfig);
     };
 
     baseCls = 'banka-sb-color-design-tokens-ux-guide';

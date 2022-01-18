@@ -8,7 +8,11 @@ import { argTypes, args } from './args/linkButtonArgs';
 
 const { bankaiUI: locale } = strings;
 
-const LinkButtonStory = (props) => <Guide {...props} />;
+const LinkButtonStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(LinkButtonStory, {
     storyName: locale.stories.components.buttons.linkButton.title,

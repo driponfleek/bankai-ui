@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -39,6 +40,7 @@ class SectionGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.layouts.section.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.layouts.categoryTitle,
@@ -56,8 +58,8 @@ class SectionGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Section {...props}>
-                        <p>
+                    <Section {...getSanatizedStoryProps(props)}>
+                        <Paragraph>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit. Sed nec feugiat nisi, quis iaculis neque.
                             Aenean id elit ut sapien pulvinar lobortis. Class
@@ -74,7 +76,7 @@ class SectionGuide extends PureComponent {
                             tincidunt. Nullam et iaculis purus, ultrices
                             pharetra purus. Sed bibendum aliquam risus, at
                             feugiat arcu placerat a.
-                        </p>
+                        </Paragraph>
                     </Section>
                 </ComponentPreview>
                 <Paragraph>Coming Soon.</Paragraph>

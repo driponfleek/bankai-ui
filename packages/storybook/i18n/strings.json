@@ -15,6 +15,14 @@
         },
         "shared": {
             "deprecated": "DEPRECATED",
+            "designTokens": {
+                "table": {
+                    "headings": {
+                        "token": "Token",
+                        "value": "Value"
+                    }
+                }
+            },
             "propDesc": {
                 "contextCls": "CSS class that can be used to namespace additional styling to a specific context. Helps to reduce possible CSS conflicts when only wanting to target the component in a given context.",
                 "formError": "Use to apply an error treatment to the form element.",
@@ -51,6 +59,10 @@
                 },
                 "buttons": {
                     "button": {
+                        "sectionTitles": {
+                            "buttonVariants": "Button Variants",
+                            "primaryButton": "Primary Button"
+                        },
                         "title": "Button"
                     },
                     "categoryTitle": "Buttons",

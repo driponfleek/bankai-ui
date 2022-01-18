@@ -6,7 +6,11 @@ import { argTypes, args } from './args/multiselectArgs';
 
 const { bankaiUI: locale } = strings;
 
-const MultiselectStory = (props) => <Guide {...props} />;
+const MultiselectStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(MultiselectStory, {
     storyName: locale.stories.components.formElements.multiselect.title,

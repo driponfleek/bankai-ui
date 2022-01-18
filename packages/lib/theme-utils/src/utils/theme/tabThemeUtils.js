@@ -31,7 +31,6 @@ const getAutoCorrectedColor = (
     shouldEvalForText,
 ) => {
     const { sourceColorData = {}, ...rest } = colors;
-    // console.log('sourceColorData: ', sourceColorData);
 
     return !shouldAutoCorrectColors
         ? sourceColorData.base
@@ -82,7 +81,6 @@ export const getTabsTheme = (colors = {}, config = {}) => {
         inactiveHoverBGColor?.variants,
         true,
     );
-    // console.log('recommendedAccentColorData: ', recommendedAccentColorData);
 
     return {
         [getThemeAPIKeyFromName(COLOR_TABS_ACTIVE_BG)]:

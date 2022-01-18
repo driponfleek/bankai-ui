@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -32,6 +33,7 @@ class BadgeGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.badges.badge.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.badges.categoryTitle,
@@ -49,7 +51,7 @@ class BadgeGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Badge {...props}>10</Badge>
+                    <Badge {...getSanatizedStoryProps(props)}>10</Badge>
                 </ComponentPreview>
                 <Paragraph>Coming Soon.</Paragraph>
             </StorySection>

@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrBtn';
@@ -55,6 +56,7 @@ class SplitButtonGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.buttons.splitButton.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.buttons.categoryTitle,
@@ -72,7 +74,7 @@ class SplitButtonGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <SplitButton {...props} />
+                    <SplitButton {...getSanatizedStoryProps(props)} />
                 </ComponentPreview>
                 <Paragraph>Coming soon.</Paragraph>
             </StorySection>

@@ -12,6 +12,7 @@ import MockAccordionContent from './mock-components/MockAccordionContent';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -43,6 +44,7 @@ class AccordionGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.accordions.accordion.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.accordions.categoryTitle,
@@ -60,7 +62,10 @@ class AccordionGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Accordion {...props} headingLvl={2}>
+                    <Accordion
+                        {...getSanatizedStoryProps(props)}
+                        headingLvl={2}
+                    >
                         <MockAccordionContent
                             accItemProps={{
                                 id: '001',

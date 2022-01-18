@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -33,6 +34,7 @@ class GenericErrorGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.callouts.genericError.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.callouts.categoryTitle,
@@ -50,7 +52,7 @@ class GenericErrorGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <GenericError {...props} />
+                    <GenericError {...getSanatizedStoryProps(props)} />
                 </ComponentPreview>
                 <Paragraph>Coming Soon.</Paragraph>
             </StorySection>

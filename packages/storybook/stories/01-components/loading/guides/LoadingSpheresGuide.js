@@ -14,6 +14,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -39,6 +40,7 @@ class LoadingSpheresGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.loading.loadingSpheres.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.loading.categoryTitle,
@@ -56,7 +58,7 @@ class LoadingSpheresGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <LoadingSpheres {...props} />
+                    <LoadingSpheres {...getSanatizedStoryProps(props)} />
                 </ComponentPreview>
                 <Paragraph>Coming Soon.</Paragraph>
             </StorySection>

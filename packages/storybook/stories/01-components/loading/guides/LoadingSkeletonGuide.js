@@ -11,6 +11,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -34,6 +35,7 @@ class LoadingSkeletonGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.components.loading.loadingSkeleton.title}
                 subTitle={getComponentsTitle(
@@ -55,7 +57,7 @@ class LoadingSkeletonGuide extends PureComponent {
                     contextCls={`${this.baseCls}__demo`}
                     shouldCheckA11Y
                 >
-                    <LoadingSkeleton {...props} />
+                    <LoadingSkeleton {...getSanatizedStoryProps(props)} />
                 </ComponentPreview>
                 <Paragraph>Coming Soon.</Paragraph>
             </StorySection>

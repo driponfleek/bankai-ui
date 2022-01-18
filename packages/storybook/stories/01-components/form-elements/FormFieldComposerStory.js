@@ -6,7 +6,11 @@ import { argTypes, args } from './args/formFieldComposerArgs';
 
 const { bankaiUI: locale } = strings;
 
-const FormFieldComposerStory = (props) => <Guide {...props} />;
+const FormFieldComposerStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(FormFieldComposerStory, {
     storyName: locale.stories.components.formElements.formFieldComposer.title,

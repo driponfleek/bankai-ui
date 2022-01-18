@@ -6,7 +6,11 @@ import { argTypes, args } from './args/radioArgs';
 
 const { bankaiUI: locale } = strings;
 
-const RadioStory = (props) => <Guide {...props} />;
+const RadioStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(RadioStory, {
     storyName: locale.stories.components.formElements.radio.title,

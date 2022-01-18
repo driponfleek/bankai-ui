@@ -6,7 +6,11 @@ import { argTypes, args } from './args/calloutArgs';
 
 const { bankaiUI: locale } = strings;
 
-const CalloutStory = (props) => <Guide {...props} />;
+const CalloutStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(CalloutStory, {
     storyName: locale.stories.components.callouts.callout.title,

@@ -20,21 +20,11 @@
         flex-wrap: wrap;
     }
 
-    &__config-container--slim {
-        #{$this}__config-container-inner {
-            @include bankai-box-shadow-slightly-elevated;
-            width: 100%;
-            background-color: var(--bankai-color-canvas);
-            box-sizing: border-box;
-            padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1020;
+    .bankai-sb-sticky-section--slim .bankai-sb-sticky-section__inner {
+        padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
 
-            @include bankai-breakpoint-max-only($bankai-s-min) {
-                padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
-            }
+        @include bankai-breakpoint-max-only($bankai-s-min) {
+            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
         }
     }
 }

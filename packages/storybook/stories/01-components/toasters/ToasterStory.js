@@ -6,7 +6,11 @@ import { argTypes, args } from './args/toasterArgs';
 
 const { bankaiUI: locale } = strings;
 
-const ToasterStory = (props) => <Guide {...props} />;
+const ToasterStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ToasterStory, {
     storyName: locale.stories.components.toasters.toaster.title,

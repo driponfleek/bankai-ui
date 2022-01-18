@@ -16,7 +16,7 @@ const {
     COLOR_BADGE_INFO_TEXT,
 } = THEME_TOKEN_NAMES;
 
-export const getBadgeColors = (colorData = {}) => {
+const getBadgeColors = (colorData = {}) => {
     const { base = {} } = colorData;
     const { hex } = base;
 

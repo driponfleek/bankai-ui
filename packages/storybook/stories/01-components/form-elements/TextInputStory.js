@@ -6,7 +6,11 @@ import { argTypes, args } from './args/textInputArgs';
 
 const { bankaiUI: locale } = strings;
 
-const TextInputStory = (props) => <Guide {...props} />;
+const TextInputStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(TextInputStory, {
     storyName: locale.stories.components.formElements.textInput.title,

@@ -6,7 +6,11 @@ import { argTypes, args } from './args/genericErrorArgs';
 
 const { bankaiUI: locale } = strings;
 
-const GenericErrorStory = (props) => <Guide {...props} />;
+const GenericErrorStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(GenericErrorStory, {
     storyName: locale.stories.components.callouts.genericError.title,

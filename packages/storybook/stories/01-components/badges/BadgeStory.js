@@ -6,7 +6,11 @@ import { argTypes, args } from './args/badgeArgs';
 
 const { bankaiUI: locale } = strings;
 
-const BadgeStory = (props) => <Guide {...props} />;
+const BadgeStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(BadgeStory, {
     storyName: locale.stories.components.badges.badge.title,

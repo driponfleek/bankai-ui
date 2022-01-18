@@ -5,7 +5,11 @@ import strings from '../../../i18n/strings.json';
 
 const { bankaiUI: locale } = strings;
 
-const ColorDesignTokensStory = (props) => <Guide {...props} />;
+const ColorDesignTokensStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ColorDesignTokensStory, {
     storyName: locale.stories.styleGuide.designTokens.colorTokens.title,

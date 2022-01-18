@@ -6,7 +6,11 @@ import { argTypes, args } from './args/dropdownArgs';
 
 const { bankaiUI: locale } = strings;
 
-const DropdownStory = (props) => <Guide {...props} />;
+const DropdownStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(DropdownStory, {
     storyName: locale.stories.components.formElements.dropdown.title,

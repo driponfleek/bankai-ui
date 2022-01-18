@@ -6,7 +6,11 @@ import { argTypes, args } from './args/comboboxArgs';
 
 const { bankaiUI: locale } = strings;
 
-const ComboboxStory = (props) => <Guide {...props} />;
+const ComboboxStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(ComboboxStory, {
     storyName: locale.stories.components.formElements.combobox.title,

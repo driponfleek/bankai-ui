@@ -6,7 +6,11 @@ import { argTypes, args } from './args/fieldsetArgs';
 
 const { bankaiUI: locale } = strings;
 
-const FieldsetStory = (props) => <Guide {...props} />;
+const FieldsetStory = (props, context = {}) => {
+    const { isDarkMode } = context;
+
+    return <Guide {...props} isDarkMode={isDarkMode} />;
+};
 
 storyConfig(FieldsetStory, {
     storyName: locale.stories.components.formElements.fieldset.title,

@@ -49,7 +49,7 @@ const {
     COLOR_BTN_SPLIT_SECONDARY_DESTRUCTIVE_BORDER,
 } = THEME_TOKEN_NAMES;
 
-export const getPrimaryBtnColors = (sourceColorData = {}) => {
+const getPrimaryBtnColors = (sourceColorData = {}) => {
     const { base = {} } = sourceColorData;
     const { hex, isDark } = base;
     const baseColorLightness = getColorLightness(hex);
@@ -97,7 +97,7 @@ const getSecondaryDefaultTextColor = (
     return recommendedColor.hex;
 };
 
-export const getSecondaryBtnColors = (
+const getSecondaryBtnColors = (
     sourceColorData = {},
     defaultBtnBGColor = {},
     config = {},

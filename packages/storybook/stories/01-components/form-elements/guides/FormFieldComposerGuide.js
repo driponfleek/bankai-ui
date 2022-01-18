@@ -16,6 +16,7 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
+import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrTextarea';
@@ -59,6 +60,7 @@ class FormFieldComposerGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                {...getSanatizedStoryProps(this.props, false)}
                 title={
                     locale.stories.components.formElements.formFieldComposer
                         .title
@@ -83,7 +85,7 @@ class FormFieldComposerGuide extends PureComponent {
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <DemoComp
-                        {...props}
+                        {...getSanatizedStoryProps(props)}
                         aria-label="Demo Form Field Composer"
                     />
                 </ComponentPreview>
