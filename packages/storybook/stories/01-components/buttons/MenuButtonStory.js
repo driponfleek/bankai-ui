@@ -8,10 +8,8 @@ import { argTypes, args } from './args/menuButtonArgs';
 
 const { bankaiUI: locale } = strings;
 
-const MenuButtonStory = (props, context = {}) => {
-    const { isDarkMode } = context;
-
-    return <Guide {...props} isDarkMode={isDarkMode} />;
+const MenuButtonStory = (props) => {
+    return <Guide {...props} />;
 };
 
 storyConfig(MenuButtonStory, {

@@ -6,6 +6,7 @@ import {
     FormFieldComposer,
     FORM_FIELD_COMP_VARIANTS,
 } from '@epr0t0type/bankai-ui-form-elements';
+import { BankaiTriangleAlert } from '@epr0t0type/bankai-ui-icons';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -16,7 +17,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrTextarea';
@@ -60,7 +60,7 @@ class FormFieldComposerGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={
                     locale.stories.components.formElements.formFieldComposer
                         .title
@@ -80,12 +80,17 @@ class FormFieldComposerGuide extends PureComponent {
         const { variant } = props;
         const DemoComp =
             variant === TOGGLE ? ComposedCheckbox : ComposedTextInput;
+        const { errorProps, ...sanatizedProps } = props;
 
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <DemoComp
-                        {...getSanatizedStoryProps(props)}
+                        {...sanatizedProps}
+                        errorProps={{
+                            ...errorProps,
+                            renderErrorIcon: this.renderErrorIcon,
+                        }}
                         aria-label="Demo Form Field Composer"
                     />
                 </ComponentPreview>
@@ -93,6 +98,8 @@ class FormFieldComposerGuide extends PureComponent {
             </StorySection>
         );
     }
+
+    renderErrorIcon = (iconCls) => <BankaiTriangleAlert contextCls={iconCls} />;
 
     // renderExamples = () => {
     //     const placeholderText = 'Please enter a value...';

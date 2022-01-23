@@ -9,6 +9,7 @@ import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
 import LinkButton from '../LinkButton';
 
 const baseCls = 'bankai-link-button';
+const renderIcon = () => <BankaiCirclePlus />;
 
 describe('<LinkButton />', () => {
     let container;
@@ -29,7 +30,7 @@ describe('<LinkButton />', () => {
 
     it('should render the icon DOM when props.renderIcon is defined', () => {
         const props = {
-            renderIcon: () => <BankaiCirclePlus />,
+            renderIcon,
         };
         act(() => {
             ReactDOM.render(<LinkButton {...props} />, container);
@@ -53,7 +54,7 @@ describe('<LinkButton />', () => {
 
     it('should not render icon container DOM when children are nested in the link button and props.renderIcon is provided', () => {
         const props = {
-            renderIcon: () => <BankaiCirclePlus />,
+            renderIcon,
         };
         act(() => {
             ReactDOM.render(

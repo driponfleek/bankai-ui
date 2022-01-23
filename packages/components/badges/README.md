@@ -1,3 +1,11 @@
+# @epr0t0type/bankai-ui-badges
+Badge components for your UIs.
+
+## Getting Started
+
+### Prerequisites
+Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
+
 ```
 "peerDependencies": {
     "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
@@ -9,6 +17,7 @@
     ...
 },
 ```
+```
 
 ## Installing
 ```
@@ -17,18 +26,11 @@ yarn add @epr0t0type/bankai-ui-badges
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Badge
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-badges';
-```
-
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
-
-```
-import { ComponentB } from '@epr0t0type/bankai-ui-badges';
+import { Badge, VARIANTS } from '@epr0t0type/bankai-ui-badges';
 ```
 
 ## Built With

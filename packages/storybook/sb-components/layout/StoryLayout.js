@@ -5,12 +5,8 @@ import { Helmet } from 'react-helmet';
 import { Heading } from '@epr0t0type/bankai-ui-typography';
 import {
     getThemeCSS,
-    // setUserTheme,
     bankaiLightTheme,
-    // bankaiDarkTheme,
-    // getThemeTokens,
-    // generateCSSVars,
-    // formatThemeColorValuesForWeb,
+    bankaiDarkTheme,
 } from '@epr0t0type/bankai-lib-theme-utils';
 // import Paragraph from '../content/Paragraph';
 
@@ -30,25 +26,33 @@ import './styles/story-layout.scss';
 // ==================================================================
 class StoryLayout extends PureComponent {
     static defaultProps = {
-        isDarkMode: false,
         isRoundedUI: true,
         shouldAutoCorrectColors: true,
+        onColorSchemeChange: () => Promise.resolve(),
     };
 
     static propTypes = {
         contextCls: PropTypes.string,
         title: PropTypes.string,
         subTitle: PropTypes.string,
-        isDarkMode: PropTypes.bool,
         isRoundedUI: PropTypes.bool,
         shouldAutoCorrectColors: PropTypes.bool,
         darkThemeData: PropTypes.object,
         lightThemeData: PropTypes.object,
+        onColorSchemeChange: PropTypes.func,
     };
 
+    constructor(...args) {
+        super(...args);
+
+        this.state = {
+            isDarkMode: this.getIsDarkMode(),
+        };
+    }
+
     render() {
-        const { title, subTitle, children, isDarkMode, contextCls } =
-            this.props;
+        const { title, subTitle, children, contextCls } = this.props;
+        const { isDarkMode } = this.state;
         const theme = this.getTheme();
         const modCls = {
             'bankai-sb--dark': isDarkMode,
@@ -57,7 +61,7 @@ class StoryLayout extends PureComponent {
         console.groupCollapsed(
             'Core Theme Data (Does not represent all tokens)',
         );
-        console.table(bankaiLightTheme);
+        console.table(isDarkMode ? bankaiDarkTheme : bankaiLightTheme);
         console.groupEnd();
 
         return (
@@ -85,7 +89,18 @@ class StoryLayout extends PureComponent {
         );
     }
 
+    componentDidMount() {
+        this.classChangeObserver = new MutationObserver(
+            this.handleMutationChange,
+        );
+        this.classChangeObserver.observe(this.getHMTLDOMEl(), {
+            attributes: true,
+        });
+    }
+
     componentWillUnmount() {
+        this.classChangeObserver.disconnect();
+
         if (this.cssMatchMedia) {
             this.cssMatchMedia.removeEventListener(
                 'change',
@@ -94,14 +109,37 @@ class StoryLayout extends PureComponent {
         }
     }
 
+    handleMutationChange = (mutationList = []) => {
+        const { onColorSchemeChange } = this.props;
+        const hasClassChange =
+            mutationList.findIndex(
+                (mutation) => mutation.attributeName === 'class',
+            ) > -1;
+
+        if (hasClassChange) {
+            const isDarkMode = this.getIsDarkMode();
+            onColorSchemeChange(isDarkMode);
+
+            this.setState({ isDarkMode });
+        }
+    };
+
+    getHMTLDOMEl = () => document.getElementsByTagName('html')[0];
+
+    getIsDarkMode = () => {
+        const htmlDOM = this.getHMTLDOMEl();
+
+        return htmlDOM.classList.contains('bankai-sb--dark');
+    };
+
     getTheme = () => {
         const {
             darkThemeData,
             lightThemeData,
             isRoundedUI,
             shouldAutoCorrectColors,
-            isDarkMode,
         } = this.props;
+        const { isDarkMode } = this.state;
         const themeConfig = {
             isDarkMode,
             isRoundedUI,

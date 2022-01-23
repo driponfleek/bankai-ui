@@ -11,10 +11,9 @@ Below we've provided a starter template for component README files.
 ---
 
 # @epr0t0type/bankai-ui-package-name
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque, magna nec iaculis pellentesque, est nisi cursus libero, vel ultrices justo velit pulvinar mi. In pellentesque ex in gravida tempus. Duis at venenatis elit.
+Bankai components for your UIs.
 
 ## Getting Started
-Sed neque leo, hendrerit vel sem ornare, rhoncus cursus magna.
 
 ### Prerequisites
 Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
@@ -38,15 +37,15 @@ yarn add @epr0t0type/bankai-ui-package-name
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### ComponentA
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
 import { ComponentA } from '@epr0t0type/bankai-ui-package-name';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### ComponentB
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
 import { ComponentB } from '@epr0t0type/bankai-ui-package-name';

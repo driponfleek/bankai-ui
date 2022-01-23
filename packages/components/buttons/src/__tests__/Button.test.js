@@ -12,6 +12,7 @@ import { VARIANTS } from '../const/variantsConst';
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
     VARIANTS;
 const baseCls = 'bankai-button';
+const renderIcon = () => <BankaiCirclePlus />;
 
 describe('<Button />', () => {
     let container;
@@ -80,7 +81,7 @@ describe('<Button />', () => {
 
     it('should render the icon DOM when props.renderIcon is defined', () => {
         const props = {
-            renderIcon: () => <BankaiCirclePlus />,
+            renderIcon,
         };
         act(() => {
             ReactDOM.render(<Button {...props} />, container);
@@ -104,7 +105,7 @@ describe('<Button />', () => {
 
     it('should not render icon container DOM when children are nested in the Button and props.renderIcon is provided', () => {
         const props = {
-            renderIcon: () => <BankaiCirclePlus />,
+            renderIcon,
         };
         act(() => {
             ReactDOM.render(<Button {...props}>Test</Button>, container);

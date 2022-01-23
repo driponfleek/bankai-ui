@@ -9,7 +9,8 @@ export const getThemeCSSVarFromAPIKey = (key) => {
         return undefined;
     }
     const cssVarPrefix = '--bankai-';
-    const formattedKey = key.replaceAll('.', '-');
+    const testRegEx = /\./g;
+    const formattedKey = key.replace(testRegEx, '-');
 
     return `${cssVarPrefix}${formattedKey}`;
 };

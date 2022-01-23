@@ -1,6 +1,4 @@
 {
-	"name": "@epr0t0type/bankai-ui",
-	"private": true,
 	"devDependencies": {
 		"@babel/cli": "7.16.0",
 		"@babel/core": "7.16.0",
@@ -15,9 +13,9 @@
 		"babel-jest": "27.4.2",
 		"cross-env": "7.0.3",
 		"husky": "4.3.8",
-		"jest": "26.6.3",
-		"jest-environment-jsdom-global": "2.0.4",
-		"lerna": "3.22.1",
+        "jest": "27.4.3",
+        "jest-environment-jsdom-global": "3.0.0",
+        "lerna": "4.0.0",
 		"lint-staged": "10.5.3",
 		"postcss": "8.4.4",
 		"postcss-import": "14.0.0",
@@ -44,6 +42,12 @@
 		"packages/**/*.scss": [
 			"stylelint --fix --ignore-pattern '**/public/**' --ignore-pattern '**/build/**'"
 		]
+	},
+	"name": "@epr0t0type/bankai-ui",
+	"private": true,
+	"resolutions": {
+        "eslint-plugin-react": "7.28.0",
+        "eslint-plugin-react-hooks": "4.3.0"
 	},
 	"scripts": {
 		"bootstrap": "yarn run lerna bootstrap",

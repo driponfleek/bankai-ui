@@ -14,7 +14,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -41,7 +40,7 @@ class LoadingSpinnersGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={locale.stories.components.loading.loadingSpinners.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.loading.categoryTitle,
@@ -59,7 +58,7 @@ class LoadingSpinnersGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <LoadingSpinners {...getSanatizedStoryProps(props)} />
+                    <LoadingSpinners {...props} />
                 </ComponentPreview>
                 <Paragraph>Coming Soon.</Paragraph>
             </StorySection>

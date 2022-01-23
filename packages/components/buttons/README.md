@@ -1,5 +1,5 @@
 # @epr0t0type/bankai-ui-buttons
-Buttons and button-related components for your UIs.
+Button components for your UIs.
 
 ## Getting Started
 
@@ -8,6 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
+    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
+    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "16 - 17",
@@ -23,29 +25,29 @@ yarn add @epr0t0type/bankai-ui-buttons
 
 ## Usage
 
-### Button, ButtonIcon, ButtonText
-For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--button-story).
+### Button
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--button-story).
 
 ```
 import { Button, ButtonIcon, ButtonText, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 ```
 
 ### LinkButton
-For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--link-button-story).
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--link-button-story).
 
 ```
 import { LinkButton } from '@epr0t0type/bankai-ui-buttons';
 ```
 
 ### MenuButton and MenuButtonOption
-For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--menu-button-story).
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--menu-button-story).
 
 ```
 import { MenuButton, MenuButtonOption, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 ```
 
 ### SplitButton
-For the full list of component props, examples and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--split-button-story).
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--split-button-story).
 
 ```
 import { SplitButton, VARIANTS } from '@epr0t0type/bankai-ui-buttons';

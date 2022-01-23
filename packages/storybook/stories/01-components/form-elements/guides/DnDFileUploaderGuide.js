@@ -11,7 +11,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrDnDFileUploader';
@@ -96,7 +95,7 @@ class DnDFileUploaderGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={
                     locale.stories.components.formElements.dndFileUploader.title
                 }
@@ -118,7 +117,7 @@ class DnDFileUploaderGuide extends PureComponent {
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <DnDFileUploader
-                        {...getSanatizedStoryProps(props)}
+                        {...props}
                         aria-label="Demo Text Input"
                         onAdd={this.handleAdd}
                         onRemove={this.handleRemove}

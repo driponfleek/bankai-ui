@@ -404,30 +404,6 @@ class DnDFileUploaderUI extends Component {
         }
     };
 
-    getFileMIMETypes = (fileItem) => {
-        if (!fileItem) {
-            return [];
-        }
-
-        const { files, items } = fileItem;
-
-        if (files && files.length > 0) {
-            return files.map((f) => f.type);
-        }
-
-        if (items && items.length > 0) {
-            return Array.from(items).map((i) => i.type);
-        }
-
-        return [];
-    };
-
-    getShouldRenderAttachments = () => {
-        const { isCompact, shouldShowAttachments } = this.props;
-
-        return !isCompact && shouldShowAttachments && this.getHasAttachments();
-    };
-
     getHasAttachments = () => {
         const { attachments } = this.props;
 

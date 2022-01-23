@@ -8,9 +8,10 @@ import './styles/typography-list-item.scss';
 const TypographyListItem = (props) => {
     const { contextCls, categoryText, fontFamilyName } = props;
     const baseCls = 'bankai-sb-typography-list-item';
+    const testRegEx = / /g;
     const modCls = `${baseCls}--${fontFamilyName
         .toLowerCase()
-        .replaceAll(' ', '-')}`;
+        .replace(testRegEx, '-')}`;
 
     return (
         <div className={cx(baseCls, modCls, contextCls)}>

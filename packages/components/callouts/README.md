@@ -1,3 +1,11 @@
+# @epr0t0type/bankai-ui-callouts
+Callout components for your UIs.
+
+## Getting Started
+
+### Prerequisites
+Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
+
 ```
 "peerDependencies": {
     "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
@@ -17,18 +25,25 @@ yarn add @epr0t0type/bankai-ui-callouts
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Callout
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-callouts--callout-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-callouts';
+import { Callout } from '@epr0t0type/bankai-ui-callouts';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### CalloutMemo
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-callouts--callout-memo-story).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-callouts';
+import { CalloutMemo, VARIANTS } from '@epr0t0type/bankai-ui-callouts';
+```
+
+### GenericError
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-callouts--generic-error-story).
+
+```
+import { GenericError } from '@epr0t0type/bankai-ui-callouts';
 ```
 
 ## Built With

@@ -5,6 +5,7 @@ import cx from 'classnames';
 // Styles
 import './styles/text-input.scss';
 
+// TODO: Either remove or finish
 class EmailInput extends PureComponent {
     static defaultProps = {
         hasError: false,

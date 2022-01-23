@@ -1,14 +1,14 @@
 import React from 'react';
+import CHANGELOG from '@epr0t0type/bankai-ui-icons/CHANGELOG.md';
+import README from '@epr0t0type/bankai-ui-icons/README.md';
 import Guide from './guides/IconographyGuide';
 import { storyConfig } from '../../../utils/storiesConfig';
 import strings from '../../../i18n/strings.json';
 
 const { bankaiUI: locale } = strings;
 
-const IconographyStory = (props, context = {}) => {
-    const { isDarkMode } = context;
-
-    return <Guide {...props} isDarkMode={isDarkMode} />;
+const IconographyStory = (props) => {
+    return <Guide {...props} />;
 };
 
 storyConfig(IconographyStory, {
@@ -16,6 +16,10 @@ storyConfig(IconographyStory, {
     hasA11Y: false,
     hasInfo: false,
     shouldShowPanel: false,
+    docs: {
+        Changelog: CHANGELOG,
+        ReadMe: README,
+    },
 });
 
 export default IconographyStory;

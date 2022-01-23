@@ -9,7 +9,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/what-are-design-tokens-guide.scss';
@@ -20,7 +19,6 @@ class WhatAreDesignTokensGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={
                     locale.stories.styleGuide.designTokens.whatAreDesignTokens

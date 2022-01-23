@@ -49,12 +49,6 @@ class FormLabel extends PureComponent {
         return renderCustomLabel({ ...rest });
     }
 
-    getHasLabelContent() {
-        const { labelText, renderCustomLabel } = this.props;
-
-        return !!labelText || !!renderCustomLabel;
-    }
-
     baseCls = 'bankai-form-label';
 }
 

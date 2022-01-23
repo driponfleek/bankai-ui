@@ -11,7 +11,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrTextInput';
@@ -64,7 +63,7 @@ class ColorPickerInputGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={
                     locale.stories.components.formElements.colorPickerInput
                         .title
@@ -87,7 +86,7 @@ class ColorPickerInputGuide extends PureComponent {
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <ColorPickerInput
-                        {...getSanatizedStoryProps(props)}
+                        {...props}
                         aria-label="Enter a Color"
                         color={color}
                         onChange={this.handleDemoChange}

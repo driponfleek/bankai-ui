@@ -1,7 +1,7 @@
 {
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
-        "prettier": "2.2.1"
+        "prettier": "2.5.1"
     },
     "description": "Envisioned Prototype Prettier configs",
     "keywords": [

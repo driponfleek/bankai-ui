@@ -1,8 +1,7 @@
-# @epr0t0type/bankai-ui-drag-and-drop
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque, magna nec iaculis pellentesque, est nisi cursus libero, vel ultrices justo velit pulvinar mi. In pellentesque ex in gravida tempus. Duis at venenatis elit.
+# @epr0t0type/bankai-ui-buttons
+Drag & Drop components and utilities for your UIs.
 
 ## Getting Started
-Sed neque leo, hendrerit vel sem ornare, rhoncus cursus magna.
 
 ### Prerequisites
 Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
@@ -26,18 +25,20 @@ yarn add @epr0t0type/bankai-ui-drag-and-drop
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### DropzoneComposer
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-drag-and-drop';
+import { DropzoneComposer } from '@epr0t0type/bankai-ui-drag-and-drop';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Utilities and Libraries
+
+#### DropzoneSpec, DropzoneCollect, DragSourceCollect and DragSourceSpec
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-drag-and-drop';
+import { dropzoneSpec, dropzoneCollect, dragSourceCollect, dragSourceSpec } from '@epr0t0type/bankai-ui-drag-and-drop';
 ```
 
 ## Built With

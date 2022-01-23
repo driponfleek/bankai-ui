@@ -6,7 +6,9 @@ export const getThemeAPIKeyFromName = (name) => {
         return name;
     }
 
-    return name.toLowerCase().replaceAll('_', '.');
+    const testRegEx = /_/g;
+
+    return name.toLowerCase().replace(testRegEx, '.');
 };
 
 export const getNameFromThemeAPIKey = (apiKey) => {
@@ -14,7 +16,9 @@ export const getNameFromThemeAPIKey = (apiKey) => {
         return apiKey;
     }
 
-    return apiKey.toUpperCase().replaceAll('.', '_');
+    const testRegEx = /\./g;
+
+    return apiKey.toUpperCase().replace(testRegEx, '_');
 };
 
 /**
@@ -34,7 +38,8 @@ export const getThemeAPIKeysFromNames = (names = {}) => {
 
     for (let index = 0; index < nameKeys.length; index += 1) {
         const NAME = nameKeys[index];
-        const VALUE = NAME.toLowerCase().replaceAll('_', '.');
+        const testRegEx = /_/g;
+        const VALUE = NAME.toLowerCase().replace(testRegEx, '.');
 
         keysObj[NAME] = VALUE;
     }

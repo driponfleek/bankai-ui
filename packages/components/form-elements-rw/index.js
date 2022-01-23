@@ -6,11 +6,11 @@ export { default as MultiselectItem } from './src/MultiselectItem';
 export { default as NumberPicker } from './src/NumberPicker';
 export { Localization } from 'react-widgets';
 export {
-    default as DateLocalizer,
+    default as dateLocalizer,
     defaultFormats as defaultDateFormats,
     locales as defaultDateLocales,
 } from './src/nls/RWDateLocalizer';
 export {
-    default as NumberLocalizer,
+    default as numberLocalizer,
     defaultFormats as defaultNumberFormats,
 } from './src/nls/RWNumberLocalizer';
