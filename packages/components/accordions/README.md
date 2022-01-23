@@ -1,3 +1,11 @@
+# @epr0t0type/bankai-ui-accordions
+Accordion components for your UIs.
+
+## Getting Started
+
+### Prerequisites
+Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
+
 ```
 "peerDependencies": {
     "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
@@ -17,18 +25,67 @@ yarn add @epr0t0type/bankai-ui-accordions
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Accordion
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-accordions';
+import { Accordion } from '@epr0t0type/bankai-ui-accordions';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### AccordionWrapper
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-accordions';
+import { AccordionWrapper } from '@epr0t0type/bankai-ui-accordions';
+```
+
+### AccordionItem
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
+
+```
+import { AccordionItem } from '@epr0t0type/bankai-ui-accordions';
+```
+
+### AccordionItemHeading
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
+
+```
+import { AccordionItemHeading } from '@epr0t0type/bankai-ui-accordions';
+```
+
+### AccordionItemTrigger
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
+
+```
+import { AccordionItemTrigger } from '@epr0t0type/bankai-ui-accordions';
+```
+
+### AccordionItemButton
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
+
+```
+import { AccordionItemButton } from '@epr0t0type/bankai-ui-accordions';
+```
+
+### AccordionItemPanel
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
+
+```
+import { AccordionItemPanel } from '@epr0t0type/bankai-ui-accordions';
+```
+
+### AccordionItemState
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
+
+```
+import { AccordionItemState } from '@epr0t0type/bankai-ui-accordions';
+```
+
+### AccordionContentComposer
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-accordions--accordion-story).
+
+```
+import { AccordionContentComposer } from '@epr0t0type/bankai-ui-accordions';
 ```
 
 ## Built With

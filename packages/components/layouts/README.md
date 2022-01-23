@@ -1,5 +1,5 @@
 # @epr0t0type/bankai-ui-layouts
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque, magna nec iaculis pellentesque, est nisi cursus libero, vel ultrices justo velit pulvinar mi. In pellentesque ex in gravida tempus. Duis at venenatis elit.
+Layout components for your UIs.
 
 ## Getting Started
 Sed neque leo, hendrerit vel sem ornare, rhoncus cursus magna.
@@ -26,18 +26,23 @@ yarn add @epr0t0type/bankai-ui-layouts
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Form Layouts
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-layouts--form-layout-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-layouts';
+import {
+    FormLayout,
+    FormLayoutFieldContainer,
+    FormLayoutRow,
+    FormLayoutSection,
+} from '@epr0t0type/bankai-ui-layouts';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Section
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-layouts';
+import { Section } from '@epr0t0type/bankai-ui-layouts';
 ```
 
 ## Built With

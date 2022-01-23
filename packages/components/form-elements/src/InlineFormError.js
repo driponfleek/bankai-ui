@@ -15,11 +15,11 @@ class InlineFormError extends PureComponent {
         contextCls: PropTypes.string,
         errorARIARelevant: PropTypes.string,
         errorText: PropTypes.string,
-        errorIconCls: PropTypes.string,
         id: PropTypes.string,
         isErrorPolite: PropTypes.bool,
         isErrorAtomic: PropTypes.bool,
         renderError: PropTypes.func,
+        renderErrorIcon: PropTypes.func,
     };
 
     render() {
@@ -53,12 +53,14 @@ class InlineFormError extends PureComponent {
     }
 
     renderDefaultError() {
-        const { errorIconCls, errorText } = this.props;
+        const { renderErrorIcon, errorText } = this.props;
 
         return (
             <Fragment>
-                {errorIconCls && (
-                    <span className={`${this.baseCls}__icon ${errorIconCls}`} />
+                {renderErrorIcon && (
+                    <span className={`${this.baseCls}__icon-container`}>
+                        {renderErrorIcon(`${this.baseCls}__icon`)}
+                    </span>
                 )}{' '}
                 <span className={`${this.baseCls}__text`}>{errorText}</span>
             </Fragment>

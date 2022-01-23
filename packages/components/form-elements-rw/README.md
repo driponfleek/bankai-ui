@@ -1,8 +1,7 @@
 # @epr0t0type/bankai-ui-form-elements-rw
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque, magna nec iaculis pellentesque, est nisi cursus libero, vel ultrices justo velit pulvinar mi. In pellentesque ex in gravida tempus. Duis at venenatis elit.
+Form Element components for your UIs.
 
 ## Getting Started
-Sed neque leo, hendrerit vel sem ornare, rhoncus cursus magna.
 
 ### Prerequisites
 Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
@@ -26,24 +25,62 @@ yarn add @epr0t0type/bankai-ui-form-elements-rw
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Combobox
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-form-elements--combobox-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-form-elements-rw';
+import { Combobox } from '@epr0t0type/bankai-ui-form-elements-rw';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### DatePicker
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--date-picker-story).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-form-elements-rw';
+import {
+    DatePicker,
+    dateLocalizer,
+    defaultDateFormats,
+    defaultDateLocales,
+} from '@epr0t0type/bankai-ui-form-elements-rw';
 ```
+
+### Dropdown
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--dropdown-story).
+
+```
+import { Dropdown } from '@epr0t0type/bankai-ui-form-elements-rw';
+```
+
+### Multiselect
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--multiselect-story).
+
+```
+import { Multiselect, MultiselectItem } from '@epr0t0type/bankai-ui-form-elements-rw';
+```
+
+### NumberPicker
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--number-picker-story).
+
+```
+import {
+    NumberPicker,
+    numberLocalizer,
+    defaultNumberFormats,
+} from '@epr0t0type/bankai-ui-form-elements-rw';
+```
+
+### Utilities
+
+#### Localization
+```
+import { Localization } from '@epr0t0type/bankai-ui-form-elements-rw';
+```
+
 
 ## Built With
 * [React](https://github.com/facebook/react)
 * [SASS](https://github.com/sass/sass)
-* [third-party-dependency](https://github.com/author/link-to-third-party-dependency)
+* [react-widgets](https://github.com/jquense/react-widgets)
 
 ## License
 [MIT](../../../LICENSE)

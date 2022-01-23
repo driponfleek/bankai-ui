@@ -14,6 +14,7 @@
             "required": "Required"
         },
         "shared": {
+            "changelog": "CHANGELOG",
             "deprecated": "DEPRECATED",
             "designTokens": {
                 "table": {
@@ -38,7 +39,8 @@
                 "shouldAutoComplete": "Enables autocomplete functionality for the component.",
                 "shouldSpellCheck": "Enable spell checking.",
                 "variant": "Use to set the component variant."
-            }
+            },
+            "readme": "README"
         },
         "stories": {
             "components": {

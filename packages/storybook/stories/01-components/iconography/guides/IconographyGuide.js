@@ -8,7 +8,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 import iconData from '../utils/icons';
 
 const { bankaiUI: locale } = strings;
@@ -17,7 +16,6 @@ class IconographyGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.iconography.icons.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.iconography.categoryTitle,

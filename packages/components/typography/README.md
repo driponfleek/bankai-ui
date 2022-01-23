@@ -1,8 +1,7 @@
 # @epr0t0type/bankai-ui-typography
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque, magna nec iaculis pellentesque, est nisi cursus libero, vel ultrices justo velit pulvinar mi. In pellentesque ex in gravida tempus. Duis at venenatis elit.
+Typography components for your UIs.
 
 ## Getting Started
-Sed neque leo, hendrerit vel sem ornare, rhoncus cursus magna.
 
 ### Prerequisites
 Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
@@ -26,24 +25,23 @@ yarn add @epr0t0type/bankai-ui-typography
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Heading
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-package-name';
+import { Heading } from '@epr0t0type/bankai-ui-package-name';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Hyperlink
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-package-name';
+import { Hyperlink } from '@epr0t0type/bankai-ui-package-name';
 ```
 
 ## Built With
 * [React](https://github.com/facebook/react)
 * [SASS](https://github.com/sass/sass)
-* [third-party-dependency](https://github.com/author/link-to-third-party-dependency)
 
 ## License
 [MIT](../../../LICENSE)

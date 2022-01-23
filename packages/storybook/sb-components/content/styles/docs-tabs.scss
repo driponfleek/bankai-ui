@@ -1,0 +1,49 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:color';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-docs-tabs {
+    @at-root .sbdocs:not(.sbdocs-code):not(.sbdocs-a) {
+        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+        background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+    }
+
+    @at-root .bankai-sb--dark .sbdocs-code {
+        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+        background-color: var(--bankai-color-neutral-20, bankai-light-theme('color-neutral-20'));
+        border: none;
+    }
+
+    @at-root .bankai-sb--dark .sbdocs .sbdocs-pre > div {
+        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+        background: var(--bankai-color-neutral-20, bankai-light-theme('color-neutral-20'));
+        border: none;
+    }
+
+    @at-root .bankai-sb--light .sbdocs-code {
+        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+        background-color: var(--bankai-color-neutral-80, bankai-light-theme('color-neutral-80'));
+        border: none;
+    }
+
+    @at-root .bankai-sb--light .sbdocs .sbdocs-pre > div {
+        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+        background-color: var(--bankai-color-neutral-80, bankai-light-theme('color-neutral-80'));
+        border: none;
+    }
+
+    @at-root .sbdocs .sbdocs-a {
+        color: var(--bankai-color-link, bankai-light-theme('color-link'));
+    }
+
+    @at-root .sbdocs .sbdocs-pre > div {
+        border: none;
+    }
+
+    @at-root .sbdocs .sbdocs-pre .os-host + div {
+        background: transparent;
+    }
+}

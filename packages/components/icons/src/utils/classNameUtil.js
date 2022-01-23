@@ -1,4 +1,6 @@
 import cx from 'classnames';
+
+// Constants
 import baseCls from '../const/baseClsConst';
 
 const classNameUtil = (contextCls, className, iconCls) =>

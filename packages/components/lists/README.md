@@ -1,3 +1,11 @@
+# @epr0t0type/bankai-ui-lists
+List components for your UIs.
+
+## Getting Started
+
+### Prerequisites
+Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
+
 ```
 "peerDependencies": {
     "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
@@ -17,18 +25,18 @@ yarn add @epr0t0type/bankai-ui-lists
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### List
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-lists--list-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-lists';
+import { List } from '@epr0t0type/bankai-ui-lists';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### ListItem
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-lists--list-item-story).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-lists';
+import { ListItem } from '@epr0t0type/bankai-ui-lists';
 ```
 
 ## Built With

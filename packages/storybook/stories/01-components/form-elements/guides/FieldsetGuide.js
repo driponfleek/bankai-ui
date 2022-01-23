@@ -19,7 +19,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrTextarea';
@@ -49,7 +48,7 @@ class FieldsetGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={locale.stories.components.formElements.fieldset.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,
@@ -67,7 +66,7 @@ class FieldsetGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Fieldset {...getSanatizedStoryProps(props)}>
+                    <Fieldset {...props}>
                         <FormLayoutSection>
                             <FormLayoutFieldContainer>
                                 <ComposedTextInput

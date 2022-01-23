@@ -1,12 +1,8 @@
 import React from 'react';
 import { themes } from '@storybook/theming';
-import { useDarkMode } from 'storybook-dark-mode';
-// import {
-//     getThemeCSS,
-//     getThemeAPIKeyFromName,
-//     getThemeDefaults,
-//     THEME_TOKEN_NAMES,
-// } from '@epr0t0type/bankai-lib-theme-utils';
+// import { useDarkMode } from 'storybook-dark-mode';
+
+const brandTitle = 'Bankai UI';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -26,13 +22,19 @@ export const parameters = {
         },
     },
     darkMode: {
+        classTarget: 'html',
         dark: {
             ...themes.dark,
+            brandTitle,
         },
+        darkClass: 'bankai-sb--dark',
         light: {
             ...themes.light,
+            brandTitle,
         },
+        lightClass: 'bankai-sb--light',
+        stylePreview: true,
     },
 };
 
-export const decorators = [(Story) => <Story isDarkMode={useDarkMode()} />];
+// export const decorators = [(Story) => <Story isDarkMode={useDarkMode()} />];

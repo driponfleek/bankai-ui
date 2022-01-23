@@ -11,7 +11,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 import { examplesCodeStr } from './codeStr/codeStrTextInput';
@@ -54,7 +53,6 @@ class TextInputGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.formElements.textInput.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,
@@ -72,10 +70,7 @@ class TextInputGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <TextInput
-                        {...getSanatizedStoryProps(props)}
-                        aria-label="Demo Text Input"
-                    />
+                    <TextInput {...props} aria-label="Demo Text Input" />
                 </ComponentPreview>
                 <Paragraph>
                     Use text inputs to allow user input in your applications.

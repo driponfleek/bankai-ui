@@ -11,7 +11,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrTextInput';
@@ -93,7 +92,7 @@ class ComboboxGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={locale.stories.components.formElements.combobox.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,
@@ -107,10 +106,10 @@ class ComboboxGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
-        const comboboxProps = getSanatizedStoryProps({
+        const comboboxProps = {
             ...props,
             inputProps: { 'aria-label': 'Demo Combobox' },
-        });
+        };
 
         return (
             <StorySection>

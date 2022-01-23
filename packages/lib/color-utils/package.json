@@ -8,7 +8,6 @@
     "license": "MIT",
     "main": "index.js",
     "name": "@epr0t0type/bankai-lib-color-utils",
-    "private": true,
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/epr0t0type"
     },

@@ -17,7 +17,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -93,7 +92,7 @@ class ToasterGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={locale.stories.components.toasters.toaster.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.toasters.categoryTitle,
@@ -162,7 +161,7 @@ class ToasterGuide extends PureComponent {
             });
         } else {
             Toaster({
-                ...getSanatizedStoryProps(this.props),
+                ...this.props,
                 toastId: this.toastId,
                 onClose: this.handleDemoToasterClose,
             });

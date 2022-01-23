@@ -1,10 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
-import {
-    // THEME_TOKEN_NAMES,
-    getThemeDefaults,
-} from '@epr0t0type/bankai-lib-theme-utils';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -16,7 +12,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 import {
     getColorCanvasToken,
     getColorTextToken,
@@ -66,15 +61,23 @@ class ButtonGuide extends PureComponent {
 
     static displayName = locale.stories.components.buttons.button.title;
 
+    constructor(...args) {
+        super(...args);
+
+        this.state = {
+            isDarkMode: this.getIsDarkMode(),
+        };
+    }
+
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.components.buttons.button.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.buttons.categoryTitle,
                 )}
+                onColorSchemeChange={this.handleColorSchemeChange}
             >
                 {this.renderDemo()}
                 {this.renderDefaultButton()}
@@ -92,7 +95,7 @@ class ButtonGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Button {...getSanatizedStoryProps(props)} />
+                    <Button {...props} />
                 </ComponentPreview>
                 <Paragraph>
                     Buttons allow users to take action in your UI. Well-formed
@@ -238,10 +241,18 @@ class ButtonGuide extends PureComponent {
         return <SBDesignTokensTable data={data} />;
     };
 
-    getIsDarkMode = () => {
-        const { isDarkMode } = getSanatizedStoryProps(this.props, false);
+    handleColorSchemeChange = (isDarkMode) => {
+        if (this.state.isDarkMode !== isDarkMode) {
+            this.setState({ isDarkMode });
+        }
+    };
 
-        return isDarkMode;
+    getHMTLDOMEl = () => document.getElementsByTagName('html')[0];
+
+    getIsDarkMode = () => {
+        const htmlDOM = this.getHMTLDOMEl();
+
+        return htmlDOM.classList.contains('bankai-sb--dark');
     };
 
     getDefaultBtnTokenData = () => {
@@ -268,10 +279,6 @@ class ButtonGuide extends PureComponent {
 
     getPrimaryDestructiveBtnTokenData = () => {
         return getPrimaryDestructiveBtnTokenData(this.getIsDarkMode());
-    };
-
-    getDefaultTheme = () => {
-        return getThemeDefaults(this.getIsDarkMode());
     };
 
     baseCls = 'bankai-sb-buttons-guide';

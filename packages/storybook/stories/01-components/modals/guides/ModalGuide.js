@@ -12,7 +12,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -82,7 +81,6 @@ class ModalGuide extends Component {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 title={locale.stories.components.modals.modal.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.modals.categoryTitle,
@@ -107,7 +105,7 @@ class ModalGuide extends Component {
                         onClick={this.handleShowModalClick}
                     />
                     <Modal
-                        {...getSanatizedStoryProps(props)}
+                        {...props}
                         isOpen={isOpen}
                         onExit={this.handleModalExit}
                         onActionClick={this.handleActionClick}

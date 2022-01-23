@@ -19,7 +19,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/colors-guide.scss';
@@ -34,7 +33,6 @@ class WorkingWithColorGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.styleGuide.theming.workingWithColor.title}
                 subTitle={getStyleGuideTitle(
@@ -253,13 +251,6 @@ class WorkingWithColorGuide extends PureComponent {
         return variants.filter(
             (variant) => compatList.indexOf(variant.id) !== -1,
         );
-    };
-
-    getIsBaseColorDark = () => {
-        const base = this.getBaseFromColorData();
-        const { isDark } = base;
-
-        return isDark;
     };
 
     getFallbackTextColor = () => {

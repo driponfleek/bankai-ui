@@ -26,13 +26,13 @@
 
     &__msg {
         color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
+        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
         margin: 0;
     }
 
     &__title,
     &__msg {
         @include bankai-max-line-width;
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
         display: block;
         margin: 0 auto;
     }

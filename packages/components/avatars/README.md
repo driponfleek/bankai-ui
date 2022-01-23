@@ -1,3 +1,11 @@
+# @epr0t0type/bankai-ui-avatars
+Avatar components for your UIs.
+
+## Getting Started
+
+### Prerequisites
+Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
+
 ```
 "peerDependencies": {
     "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
@@ -17,24 +25,23 @@ yarn add @epr0t0type/bankai-ui-avatars
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Avatar
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-avatars--avatar-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-avatars';
+import { Avatar, VARIANTS } from '@epr0t0type/bankai-ui-avatars';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### AvatarGroup
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-avatars--avatar-group-story).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-avatars';
+import { AvatarGroup } from '@epr0t0type/bankai-ui-avatars';
 ```
 
 ## Built With
 * [React](https://github.com/facebook/react)
 * [SASS](https://github.com/sass/sass)
-* [react-accessible-accordion](https://github.com/springload/react-accessible-accordion)
 
 ## License
 [MIT](../../../LICENSE)

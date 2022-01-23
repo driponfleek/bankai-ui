@@ -1,3 +1,11 @@
+# @epr0t0type/bankai-ui-modals
+Modal components for your UIs.
+
+## Getting Started
+
+### Prerequisites
+Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
+
 ```
 "peerDependencies": {
     "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
@@ -17,24 +25,32 @@ yarn add @epr0t0type/bankai-ui-modals
 
 ## Usage
 
-### Component A
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### Modal
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-modals--modal-story).
 
 ```
-import { ComponentA } from '@epr0t0type/bankai-ui-modals';
+import { Modal } from '@epr0t0type/bankai-ui-modals';
 ```
 
-### Component B
-For the full list of component props, examples and guidance on usage and more please reference the the Bankai UI documentation.
+### StatusModal
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-modals--status-modal-story).
 
 ```
-import { ComponentB } from '@epr0t0type/bankai-ui-modals';
+import { StatusModal } from '@epr0t0type/bankai-ui-modals';
+```
+
+### ARIAModal
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
+
+```
+import { ARIAModal } from '@epr0t0type/bankai-ui-modals';
 ```
 
 ## Built With
 * [React](https://github.com/facebook/react)
 * [SASS](https://github.com/sass/sass)
 * [react-aria-modal](https://github.com/davidtheclark/react-aria-modal)
+* [uuid](https://github.com/uuidjs/uuid)
 
 ## License
 [MIT](../../../LICENSE)

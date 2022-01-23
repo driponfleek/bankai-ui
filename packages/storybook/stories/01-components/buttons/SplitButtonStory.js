@@ -8,10 +8,8 @@ import { argTypes, args } from './args/splitButtonArgs';
 
 const { bankaiUI: locale } = strings;
 
-const SplitButtonStory = (props, context = {}) => {
-    const { isDarkMode } = context;
-
-    return <Guide {...props} isDarkMode={isDarkMode} />;
+const SplitButtonStory = (props) => {
+    return <Guide {...props} />;
 };
 
 storyConfig(SplitButtonStory, {

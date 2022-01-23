@@ -275,13 +275,13 @@
 
         .bankai-tab {
             border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 8)};
+            transform: scale(0.95);
 
             &--is-active {
-                // @include bankai-box-shadow-subtle;
                 color: var(--bankai-color-tabs-active-text, bankai-light-theme('color-tabs-active-text'));
                 background-color: var(--bankai-color-tabs-active-bg, bankai-light-theme('color-tabs-active-bg'));
                 box-shadow: 0 0 3px rgba(bankai-light-theme('color-black'), 0.35);
-                transform: scale(1.05);
+                transform: scale(1);
 
                 &:focus-visible {
                     @include bankai-focus-state-box-shadow(var(--bankai-color-tabs-active-focus-halo, bankai-light-theme('color-tabs-active-focus-halo')));

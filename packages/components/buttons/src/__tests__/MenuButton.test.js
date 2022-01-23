@@ -25,6 +25,7 @@ const menuOps = [
 ];
 const baseCls = 'bankai-menu-button';
 const btnCls = 'bankai-button';
+const renderIcon = () => <BankaiCirclePlus />;
 
 describe('<MenuButton />', () => {
     let container;
@@ -93,7 +94,7 @@ describe('<MenuButton />', () => {
 
     it('should render the icon DOM when props.renderIcon is defined', () => {
         const props = {
-            renderIcon: () => <BankaiCirclePlus />,
+            renderIcon,
         };
         act(() => {
             ReactDOM.render(<MenuButton {...props} />, container);
@@ -117,7 +118,7 @@ describe('<MenuButton />', () => {
 
     it('should not render icon container DOM when children are nested in the menu button and props.renderIcon is provided', () => {
         const props = {
-            renderIcon: () => <BankaiCirclePlus />,
+            renderIcon,
         };
         act(() => {
             ReactDOM.render(

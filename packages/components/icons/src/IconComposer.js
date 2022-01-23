@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
+
+// Utils
+import classNameUtil from './utils/classNameUtil';
+
+// Constants
+import baseCls from './const/baseClsConst';
+
+// Styles
+import './styles/shared.scss';
 
 const withIconContainer = (Icon) => {
     const Wrapped = (props) => {
         const { contextCls, className, iconClsSuffix, ...rest } = props;
-        const baseCls = 'bankai-icon';
         const iconCls = {
             [`${baseCls}-${iconClsSuffix}`]: !!iconClsSuffix,
         };
@@ -13,7 +20,7 @@ const withIconContainer = (Icon) => {
         return (
             <Icon
                 {...rest}
-                className={cx(baseCls, className, iconCls, contextCls)}
+                className={classNameUtil(iconCls, className, contextCls)}
             />
         );
     };

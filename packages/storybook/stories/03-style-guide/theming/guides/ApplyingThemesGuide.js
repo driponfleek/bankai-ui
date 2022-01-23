@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { linkTo } from '@storybook/addon-links';
 import { Avatar } from '@epr0t0type/bankai-ui-avatars';
 import {
@@ -66,7 +65,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/applying-themes-guide.scss';
@@ -95,17 +93,9 @@ const formMenuMockData = [
 ];
 
 class ApplyingThemesGuide extends PureComponent {
-    static defaultProps = {
-        isDarkMode: false,
-    };
-
-    static propTypes = {
-        isDarkMode: PropTypes.bool,
-    };
-
     constructor(...args) {
         super(...args);
-        const { isDarkMode } = this.props;
+        const isDarkMode = this.getIsDarkMode();
         const defaultTheme = getThemeDefaults(isDarkMode);
 
         this.state = {
@@ -118,6 +108,7 @@ class ApplyingThemesGuide extends PureComponent {
             colorError: defaultTheme[THEME_TOKEN_NAMES.COLOR_ERROR],
             colorDestructive: defaultTheme[THEME_TOKEN_NAMES.COLOR_DESTRUCTIVE],
             colorInfo: defaultTheme[THEME_TOKEN_NAMES.COLOR_INFO],
+            isDarkMode,
             isRoundedUI: true,
             shouldAutoCorrectColors: true,
         };
@@ -128,12 +119,12 @@ class ApplyingThemesGuide extends PureComponent {
 
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.styleGuide.theming.applyingThemes.title}
                 subTitle={getStyleGuideTitle(
                     locale.stories.styleGuide.theming.categoryTitle,
                 )}
+                onColorSchemeChange={this.handleColorSchemeChange}
             >
                 <Helmet>
                     <style>{theme}</style>
@@ -670,6 +661,7 @@ class ApplyingThemesGuide extends PureComponent {
                                     }}
                                     errorProps={{
                                         errorText: 'Something is wrong',
+                                        renderErrorIcon: this.renderAlertIcon,
                                     }}
                                     hasError
                                 />
@@ -762,6 +754,8 @@ class ApplyingThemesGuide extends PureComponent {
         return <Icon contextCls={iconCls} />;
     };
 
+    renderAlertIcon = (iconCls) => <BankaiTriangleAlert contextCls={iconCls} />;
+
     handleLinkClick = (e) => {
         e?.preventDefault();
         e?.stopPropagation();
@@ -837,8 +831,22 @@ class ApplyingThemesGuide extends PureComponent {
         });
     };
 
+    handleColorSchemeChange = (isDarkMode) => {
+        if (this.state.isDarkMode !== isDarkMode) {
+            this.setState({ isDarkMode });
+        }
+    };
+
+    getHMTLDOMEl = () => document.getElementsByTagName('html')[0];
+
+    getIsDarkMode = () => {
+        const htmlDOM = this.getHMTLDOMEl();
+
+        return htmlDOM.classList.contains('bankai-sb--dark');
+    };
+
     getTheme = () => {
-        const { isDarkMode } = this.props;
+        const { isDarkMode } = this.state;
         const {
             isRoundedUI,
             shouldAutoCorrectColors,

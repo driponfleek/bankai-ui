@@ -14,7 +14,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/spec-design-tokens-guide.scss';
@@ -50,7 +49,6 @@ class SpecDesignTokensGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.styleGuide.designTokens.specTokens.title}
                 subTitle={getStyleGuideTitle(

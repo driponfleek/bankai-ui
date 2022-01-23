@@ -12,7 +12,6 @@ import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -55,7 +54,7 @@ class StatusModalGuide extends Component {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
+                contextCls={this.baseCls}
                 title={locale.stories.components.modals.statusModal.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.modals.categoryTitle,
@@ -77,7 +76,7 @@ class StatusModalGuide extends Component {
                         Toggle the <CodeTag>isOpen</CodeTag> prop to show/hide
                         the status modal
                     </p>
-                    <StatusModal {...getSanatizedStoryProps(props)} />
+                    <StatusModal {...props} />
                 </ComponentPreview>
                 <Paragraph>Coming soon.</Paragraph>
             </StorySection>

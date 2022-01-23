@@ -28,7 +28,6 @@ import noice from '../../../../media/images/gifs/noice.gif';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Code Strings
 // import { examplesCodeStr } from './codeStr/codeStrComponent';
@@ -71,7 +70,6 @@ class TabsGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.components.tabViews.tabs.title}
                 subTitle={getComponentsTitle(
@@ -92,7 +90,7 @@ class TabsGuide extends PureComponent {
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <Tabs
-                        {...getSanatizedStoryProps(props)}
+                        {...props}
                         activeTabId={activeDemoTabId}
                         onChange={this.handleDemoTabChange}
                     >

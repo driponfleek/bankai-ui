@@ -19,7 +19,6 @@ import ColorSwatchSimple from '../../../../sb-components/color/ColorSwatchSimple
 
 // Utils
 import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
-import { getSanatizedStoryProps } from '../../../../utils/storyLayoutPropsUtils';
 
 // Styles
 import './styles/color-design-tokens-guide.scss';
@@ -65,7 +64,6 @@ class ColorDesignTokensGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
-                {...getSanatizedStoryProps(this.props, false)}
                 contextCls={this.baseCls}
                 title={locale.stories.styleGuide.designTokens.colorTokens.title}
                 subTitle={getStyleGuideTitle(
