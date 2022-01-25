@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ListItem } from '@epr0t0type/bankai-ui-lists';
+import packageJSON from '@epr0t0type/bankai-ui-lists/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -48,6 +49,7 @@ class ListItemGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.lists.listItem.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.lists.categoryTitle,

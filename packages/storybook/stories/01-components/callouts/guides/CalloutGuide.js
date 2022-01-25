@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Callout } from '@epr0t0type/bankai-ui-callouts';
+import packageJSON from '@epr0t0type/bankai-ui-callouts/package.json';
 import { BankaiCloud } from '@epr0t0type/bankai-ui-icons';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -35,6 +36,7 @@ class CalloutGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.callouts.callout.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.callouts.categoryTitle,

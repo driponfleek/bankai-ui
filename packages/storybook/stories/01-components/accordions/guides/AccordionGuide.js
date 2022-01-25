@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Accordion } from '@epr0t0type/bankai-ui-accordions';
+import packageJSON from '@epr0t0type/bankai-ui-accordions/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -44,6 +45,7 @@ class AccordionGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.accordions.accordion.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.accordions.categoryTitle,

@@ -5,6 +5,7 @@ import {
     Fieldset,
     FormFieldComposer,
 } from '@epr0t0type/bankai-ui-form-elements';
+import packageJSON from '@epr0t0type/bankai-ui-form-elements/package.json';
 import {
     FormLayoutFieldContainer,
     FormLayoutSection,
@@ -49,6 +50,7 @@ class FieldsetGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.formElements.fieldset.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,

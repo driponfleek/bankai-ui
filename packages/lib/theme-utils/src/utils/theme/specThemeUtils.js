@@ -22,6 +22,7 @@ const {
     TYPOGRAPHY_H1_FONT_SIZE,
     TYPOGRAPHY_SUB_TEXT_FONT_SIZE,
     TYPOGRAPHY_FOOTNOTE_FONT_SIZE,
+    STATE_DISABLED_OPACITY,
     LAYOUT_GRID_BASE,
     ...LOOPABLE_NAMES
 } = SPEC_TOKEN_NAMES;
@@ -82,6 +83,9 @@ export const getTypographyTheme = (data = {}) => {
         SUB_TEXT_FONT_SIZE;
     themeData[getThemeAPIKeyFromName(TYPOGRAPHY_FOOTNOTE_FONT_SIZE)] =
         FOOTNOTE_FONT_SIZE;
+    themeData[getThemeAPIKeyFromName(STATE_DISABLED_OPACITY)] =
+        data[getThemeAPIKeyFromName(STATE_DISABLED_OPACITY)] ||
+        SPEC_TOKEN_DEFAULTS[STATE_DISABLED_OPACITY];
 
     return themeData;
 };

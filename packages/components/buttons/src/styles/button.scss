@@ -135,7 +135,7 @@
     &--destructive,
     &--primary-destructive,
     &--secondary-destructive {
-        &:active {
+        &:active:enabled {
             @include bankai-button-active;
         }
     }

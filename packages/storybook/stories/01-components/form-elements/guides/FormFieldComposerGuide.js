@@ -6,6 +6,7 @@ import {
     FormFieldComposer,
     FORM_FIELD_COMP_VARIANTS,
 } from '@epr0t0type/bankai-ui-form-elements';
+import packageJSON from '@epr0t0type/bankai-ui-form-elements/package.json';
 import { BankaiTriangleAlert } from '@epr0t0type/bankai-ui-icons';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -61,6 +62,7 @@ class FormFieldComposerGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={
                     locale.stories.components.formElements.formFieldComposer
                         .title

@@ -60,3 +60,43 @@ const { SECONDARY_DESTRUCTIVE } = VARIANTS;
 />`;
 
 export const customComponentExampleCodeStr = `import { Button } from '@epr0t0type/bankai-ui-buttons';`;
+
+export const renderingBtnIconExampleCodeStr = `import { Button, VARIANTS }  from '@epr0t0type/bankai-ui-buttons';
+import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
+
+const { PRIMARY } = VARIANTS;
+
+const renderIcon = () => <BankaiCirclePlus />;
+
+<Button
+    text="Primary Button"
+    variant={PRIMARY}
+    renderIcon={renderIcon}
+/>`;
+
+export const renderingBtnBusyIconExampleCodeStr = `import { Button, VARIANTS }  from '@epr0t0type/bankai-ui-buttons';
+import { BankaiCircleDash } from '@epr0t0type/bankai-ui-icons';
+
+const { PRIMARY } = VARIANTS;
+
+const renderBusyIcon = () => <BankaiCircleDash />;
+
+<Button
+    text="Primary Button"
+    variant={PRIMARY}
+    renderBusyIcon={renderBusyIcon}
+    isBusy
+/>`;
+
+export const renderingBtnCustomContentExampleCodeStr = `import { Button, ButtonText, ButtonIcon, VARIANTS }  from '@epr0t0type/bankai-ui-buttons';
+import { BankaiAndroid } from '@epr0t0type/bankai-ui-icons';
+
+const { SECONDARY } = VARIANTS;
+const renderIcon = () => <BankaiAndroid />;
+
+<Button variant={SECONDARY}>
+    <ButtonText>
+        (∩^o^)⊃━☆゜.* Magic!
+    </ButtonText>{' '}
+    <ButtonIcon renderIcon={this.renderIcon} />
+</Button>`;

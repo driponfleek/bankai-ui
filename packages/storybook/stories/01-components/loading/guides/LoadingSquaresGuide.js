@@ -4,6 +4,7 @@ import {
     LoadingSquares,
     LOADING_SQUARES_VARIANTS,
 } from '@epr0t0type/bankai-ui-loading';
+import packageJSON from '@epr0t0type/bankai-ui-loading/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -40,6 +41,7 @@ class LoadingSquaresGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.loading.loadingSquares.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.loading.categoryTitle,

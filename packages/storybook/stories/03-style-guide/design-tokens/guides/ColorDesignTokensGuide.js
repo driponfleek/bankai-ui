@@ -1,5 +1,4 @@
 import React, { PureComponent, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { Hyperlink } from '@epr0t0type/bankai-ui-typography';
 import { genColorsData } from '@epr0t0type/bankai-lib-color-utils';
 import {
@@ -53,13 +52,13 @@ const {
 } = THEME_TOKEN_NAMES;
 
 class ColorDesignTokensGuide extends PureComponent {
-    static defaultProps = {
-        isDarkMode: false,
-    };
+    constructor(...args) {
+        super(...args);
 
-    static propTypes = {
-        isDarkMode: PropTypes.bool,
-    };
+        this.state = {
+            isDarkMode: this.getIsDarkMode(),
+        };
+    }
 
     render() {
         return (
@@ -847,6 +846,20 @@ class ColorDesignTokensGuide extends PureComponent {
         );
     };
 
+    handleColorSchemeChange = (isDarkMode) => {
+        if (this.state.isDarkMode !== isDarkMode) {
+            this.setState({ isDarkMode });
+        }
+    };
+
+    getHMTLDOMEl = () => document.getElementsByTagName('html')[0];
+
+    getIsDarkMode = () => {
+        const htmlDOM = this.getHMTLDOMEl();
+
+        return htmlDOM.classList.contains('bankai-sb--dark');
+    };
+
     getMassagedColorData = (color = {}, colorName) => {
         const { hex, id } = color;
 
@@ -870,7 +883,7 @@ class ColorDesignTokensGuide extends PureComponent {
     };
 
     getThemeDefaults = () => {
-        const { isDarkMode } = this.props;
+        const { isDarkMode } = this.state;
 
         return getThemeDefaults(isDarkMode);
     };

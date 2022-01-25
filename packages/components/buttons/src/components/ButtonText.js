@@ -11,8 +11,12 @@ const ButtonText = (props) => {
     );
 };
 
+ButtonText.defaultProps = {
+    baseCls: 'bankai-button',
+};
+
 ButtonText.propTypes = {
-    baseCls: PropTypes.string.isRequired,
+    baseCls: PropTypes.string,
 };
 
 export default ButtonText;

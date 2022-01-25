@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown } from '@epr0t0type/bankai-ui-form-elements-rw';
+import packageJSON from '@epr0t0type/bankai-ui-form-elements-rw/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -94,6 +95,7 @@ class DropdownGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.formElements.dropdown.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,

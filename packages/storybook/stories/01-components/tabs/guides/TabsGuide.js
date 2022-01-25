@@ -5,6 +5,7 @@ import {
     TabPanelContentComposer,
     VARIANTS,
 } from '@epr0t0type/bankai-ui-tabs';
+import packageJSON from '@epr0t0type/bankai-ui-tabs/package.json';
 import {
     BankaiCalendar,
     BankaiStorefront,
@@ -71,6 +72,7 @@ class TabsGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.tabViews.tabs.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.tabViews.categoryTitle,

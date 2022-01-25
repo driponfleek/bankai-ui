@@ -14,6 +14,7 @@ import {
     FormLayoutRow,
     FormLayoutFieldContainer,
 } from '@epr0t0type/bankai-ui-layouts';
+import packageJSON from '@epr0t0type/bankai-ui-layouts/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -52,6 +53,7 @@ class FormLayoutGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.layouts.formLayout.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.layouts.categoryTitle,

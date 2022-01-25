@@ -1,24 +1,38 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import {
+    Button,
+    ButtonText,
+    ButtonIcon,
+    VARIANTS,
+} from '@epr0t0type/bankai-ui-buttons';
+import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
+import {
+    CalloutMemo,
+    VARIANTS as CALLOUT_MEMO_VARIANTS,
+} from '@epr0t0type/bankai-ui-callouts';
+import {
+    BankaiCirclePlus,
+    BankaiCircleDash,
+    BankaiCircleInfo,
+    BankaiAndroid,
+} from '@epr0t0type/bankai-ui-icons';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
 import ComponentPreview from '../../../../sb-components/content/ComponentPreview';
 import ComponentPreviewWithCodeBlock from '../../../../sb-components/content/ComponentPreviewWithCodeBlock';
 import Paragraph from '../../../../sb-components/content/Paragraph';
-import SBDesignTokensTable from '../../../../sb-components/tables/SBDesignTokensTable';
+import CollapsibleDesignTokensSection from '../../../../sb-components/content/CollapsibleDesignTokensSection';
 import strings from '../../../../i18n/strings.json';
 
 // Utils
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
 import {
-    getColorCanvasToken,
-    getColorTextToken,
-    getBtnBorderRadius,
+    getDefaultBtnTokenData,
     getPrimaryBtnTokenData,
-    getPrimaryDestructiveBtnTokenData,
-} from '../../../../utils/themeTokenUtils';
+    getSecondaryBtnTokenData,
+} from '../../../../utils/designTokens/buttonTokenUtils';
 
 // Code Strings
 import {
@@ -27,6 +41,9 @@ import {
     secondaryBtnCodeStr,
     primaryDestructiveBtnCodeStr,
     secondaryDestructiveBtnCodeStr,
+    renderingBtnIconExampleCodeStr,
+    renderingBtnBusyIconExampleCodeStr,
+    renderingBtnCustomContentExampleCodeStr,
 } from './codeStr/codeStrBtn';
 
 // Styles
@@ -73,6 +90,7 @@ class ButtonGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.buttons.button.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.buttons.categoryTitle,
@@ -85,6 +103,9 @@ class ButtonGuide extends PureComponent {
                 {this.renderSecondaryButton()}
                 {this.renderPrimaryDestructiveButton()}
                 {this.renderSecondaryDestructiveButton()}
+                {this.renderingAnIcon()}
+                {this.renderingCustomBusyIcon()}
+                {this.renderingCustomBtnContent()}
             </StoryLayout>
         );
     }
@@ -95,7 +116,7 @@ class ButtonGuide extends PureComponent {
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
-                    <Button {...props} />
+                    <Button {...props} renderIcon={this.renderCirclePlusIcon} />
                 </ComponentPreview>
                 <Paragraph>
                     Buttons allow users to take action in your UI. Well-formed
@@ -106,66 +127,169 @@ class ButtonGuide extends PureComponent {
         );
     }
 
-    renderDesignTokenHeading = () => {
-        return <SectionTitle headingLvl={3}>Design Tokens</SectionTitle>;
-    };
-
-    renderDefaultButton = () => {
+    renderingAnIcon = () => {
         return (
             <StorySection>
-                <SectionTitle>Default Button</SectionTitle>
+                <SectionTitle>
+                    {
+                        locale.stories.components.buttons.button.sectionTitles
+                            .renderingAnIcon
+                    }
+                </SectionTitle>
+                <ComponentPreviewWithCodeBlock
+                    contextCls={`${this.baseCls}__examples-preview`}
+                    codeString={renderingBtnIconExampleCodeStr}
+                >
+                    <Button
+                        text="Button Text"
+                        variant={PRIMARY}
+                        renderIcon={this.renderCirclePlusIcon}
+                    />
+                </ComponentPreviewWithCodeBlock>
+            </StorySection>
+        );
+    };
+
+    renderingCustomBusyIcon = () => {
+        return (
+            <StorySection>
+                <SectionTitle>
+                    {
+                        locale.stories.components.buttons.button.sectionTitles
+                            .renderingCustomBusyIcon
+                    }
+                </SectionTitle>
+                <ComponentPreviewWithCodeBlock
+                    contextCls={`${this.baseCls}__examples-preview`}
+                    codeString={renderingBtnBusyIconExampleCodeStr}
+                >
+                    <Button
+                        contextCls={`${this.baseCls}__custom-busy-icon-demo`}
+                        text="Button Text"
+                        variant={PRIMARY}
+                        renderBusyIcon={this.renderCircleDashIcon}
+                        isBusy
+                    />
+                </ComponentPreviewWithCodeBlock>
+                <CalloutMemo
+                    title="Note"
+                    msg={`The spinning animation is not supplied with a custom busy icon. ${locale.designSystemName} makes no assumptions about the animation that works best for your icon, so you must supply your own when using this approach.`}
+                    variant={CALLOUT_MEMO_VARIANTS.INFO}
+                    renderIcon={this.renderInfoIcon}
+                />
+            </StorySection>
+        );
+    };
+
+    renderingCustomBtnContent = () => {
+        const calloutMemoCls = 'bankai-callout-memo';
+
+        return (
+            <StorySection>
+                <SectionTitle>
+                    {
+                        locale.stories.components.buttons.button.sectionTitles
+                            .renderCustomBtnContent
+                    }
+                </SectionTitle>
                 <StorySection>
                     <ComponentPreviewWithCodeBlock
                         contextCls={`${this.baseCls}__examples-preview`}
-                        codeString={defaultBtnCodeStr}
+                        codeString={renderingBtnCustomContentExampleCodeStr}
                     >
-                        <Button text="Default Button" />
+                        <Button variant={SECONDARY}>
+                            <ButtonText>(∩^o^)⊃━☆゜.* Magic!</ButtonText>{' '}
+                            <ButtonIcon renderIcon={this.renderAndroidIcon} />
+                        </Button>
                     </ComponentPreviewWithCodeBlock>
-                    <Paragraph>
-                        A starter button for creating new button types.
-                    </Paragraph>
-                </StorySection>
-                <StorySection>
-                    {this.renderDesignTokenHeading()}
-                    {this.renderDesignTokensTable(
-                        this.getDefaultBtnTokenData(),
-                    )}
+                    <CalloutMemo variant={CALLOUT_MEMO_VARIANTS.INFO}>
+                        <div className={`${calloutMemoCls}__icon-container`}>
+                            {this.renderInfoIcon(`${calloutMemoCls}__icon`)}
+                        </div>
+                        <div className={`${calloutMemoCls}__text-container`}>
+                            <div
+                                className={`${calloutMemoCls}__title-container`}
+                            >
+                                <p className={`${calloutMemoCls}__title`}>
+                                    Note
+                                </p>
+                            </div>
+                            <div className={`${calloutMemoCls}__msg-container`}>
+                                <p className={`${calloutMemoCls}__msg`}>
+                                    When rendering custom content as children
+                                    inside the button, both the{' '}
+                                    <strong>text</strong> and{' '}
+                                    <strong>renderIcon</strong> props are
+                                    ignored.
+                                </p>
+                                <p className={`${calloutMemoCls}__msg`}>
+                                    <strong>ButtonText</strong> and{' '}
+                                    <strong>ButtonIcon</strong> are provided to
+                                    help you reproduce the same DOM structure
+                                    used by the defaults to preserve initial
+                                    styling when defining custom content.
+                                </p>
+                            </div>
+                        </div>
+                    </CalloutMemo>
                 </StorySection>
             </StorySection>
         );
     };
 
-    renderPrimaryButton = () => {
-        this.getPrimaryBtnTokenData();
+    renderInfoIcon = (iconCls) => <BankaiCircleInfo contextCls={iconCls} />;
 
+    renderCirclePlusIcon = () => <BankaiCirclePlus />;
+
+    renderCircleDashIcon = () => <BankaiCircleDash />;
+
+    renderAndroidIcon = () => <BankaiAndroid />;
+
+    renderDefaultButton = () => {
+        return (
+            <StorySection>
+                <SectionTitle>Default Button</SectionTitle>
+                <ComponentPreviewWithCodeBlock
+                    contextCls={`${this.baseCls}__examples-preview`}
+                    codeString={defaultBtnCodeStr}
+                >
+                    <Button text="Default Button" />
+                </ComponentPreviewWithCodeBlock>
+                <Paragraph>
+                    A starter button for creating new button types.
+                </Paragraph>
+                <CollapsibleDesignTokensSection
+                    tokens={this.getDefaultBtnTokenData()}
+                />
+            </StorySection>
+        );
+    };
+
+    renderPrimaryButton = () => {
         return (
             <StorySection>
                 <SectionTitle>Primary Button</SectionTitle>
-                <StorySection>
-                    <ComponentPreviewWithCodeBlock
-                        contextCls={`${this.baseCls}__examples-preview`}
-                        codeString={primaryBtnCodeStr}
-                    >
-                        <Button text="Primary Button" variant={PRIMARY} />
-                    </ComponentPreviewWithCodeBlock>
-                    <Paragraph>
-                        Use when you want the action to be the primary one a
-                        user takes in your experience. This should be used
-                        sparingly so that it does not compete with other actions
-                        of less importance.
-                    </Paragraph>
-                </StorySection>
-                <StorySection>
-                    {this.renderDesignTokenHeading()}
+                <ComponentPreviewWithCodeBlock
+                    contextCls={`${this.baseCls}__examples-preview`}
+                    codeString={primaryBtnCodeStr}
+                >
+                    <Button text="Primary Button" variant={PRIMARY} />
+                </ComponentPreviewWithCodeBlock>
+                <Paragraph>
+                    Use when you want the action to be the primary one a user
+                    takes in your experience. This should be used sparingly and
+                    should have little competition with other actions in your
+                    user interface.
+                </Paragraph>
+                <CollapsibleDesignTokensSection
+                    tokens={this.getPrimaryBtnTokenData()}
+                >
                     <Paragraph>
                         Colors are generated from the{' '}
                         <strong>Primary Color</strong> design token and its
                         variants.
                     </Paragraph>
-                    {this.renderDesignTokensTable(
-                        this.getPrimaryBtnTokenData(),
-                    )}
-                </StorySection>
+                </CollapsibleDesignTokensSection>
             </StorySection>
         );
     };
@@ -180,6 +304,19 @@ class ButtonGuide extends PureComponent {
                 >
                     <Button text="Secondary Button" variant={SECONDARY} />
                 </ComponentPreviewWithCodeBlock>
+                <Paragraph>
+                    Used when the call to action is lower priority to the users
+                    or business need than the primary actions on the page.
+                </Paragraph>
+                <CollapsibleDesignTokensSection
+                    tokens={this.getSecondaryBtnTokenData()}
+                >
+                    <Paragraph>
+                        Colors are generated from the{' '}
+                        <strong>Secondary Color</strong> design token and its
+                        variants.
+                    </Paragraph>
+                </CollapsibleDesignTokensSection>
             </StorySection>
         );
     };
@@ -188,34 +325,30 @@ class ButtonGuide extends PureComponent {
         return (
             <StorySection>
                 <SectionTitle>Primary Destructive Button</SectionTitle>
-                <StorySection>
-                    <ComponentPreviewWithCodeBlock
-                        contextCls={`${this.baseCls}__examples-preview`}
-                        codeString={primaryDestructiveBtnCodeStr}
-                    >
-                        <Button
-                            text="Primary Destructive Button"
-                            variant={PRIMARY_DESTRUCTIVE}
-                        />
-                    </ComponentPreviewWithCodeBlock>
-                    <Paragraph>
-                        Use when you want the action to be the primary one a
-                        user takes in your experience and it is destructive in
-                        nature. This should be used sparingly so that it does
-                        not compete with other actions of less importance.
-                    </Paragraph>
-                </StorySection>
-                <StorySection>
-                    {this.renderDesignTokenHeading()}
+                <ComponentPreviewWithCodeBlock
+                    contextCls={`${this.baseCls}__examples-preview`}
+                    codeString={primaryDestructiveBtnCodeStr}
+                >
+                    <Button
+                        text="Primary Destructive Button"
+                        variant={PRIMARY_DESTRUCTIVE}
+                    />
+                </ComponentPreviewWithCodeBlock>
+                <Paragraph>
+                    Use when you want the action to be the primary one a user
+                    takes in your experience and it is destructive in nature.
+                    This should be used sparingly so that it does not compete
+                    with other actions of less importance.
+                </Paragraph>
+                <CollapsibleDesignTokensSection
+                    tokens={this.getPrimaryDestructiveBtnTokenData()}
+                >
                     <Paragraph>
                         Colors are generated from the{' '}
                         <strong>Destructive Color</strong> design token and its
                         variants.
                     </Paragraph>
-                    {this.renderDesignTokensTable(
-                        this.getPrimaryDestructiveBtnTokenData(),
-                    )}
-                </StorySection>
+                </CollapsibleDesignTokensSection>
             </StorySection>
         );
     };
@@ -233,12 +366,21 @@ class ButtonGuide extends PureComponent {
                         variant={SECONDARY_DESTRUCTIVE}
                     />
                 </ComponentPreviewWithCodeBlock>
+                <Paragraph>
+                    Use when you have a seondary action that is destructive in
+                    nature.
+                </Paragraph>
+                <CollapsibleDesignTokensSection
+                    tokens={this.getSecondaryDestructiveBtnTokenData()}
+                >
+                    <Paragraph>
+                        Colors are generated from the{' '}
+                        <strong>Destructive Color</strong> design token and its
+                        variants.
+                    </Paragraph>
+                </CollapsibleDesignTokensSection>
             </StorySection>
         );
-    };
-
-    renderDesignTokensTable = (data) => {
-        return <SBDesignTokensTable data={data} />;
     };
 
     handleColorSchemeChange = (isDarkMode) => {
@@ -256,29 +398,33 @@ class ButtonGuide extends PureComponent {
     };
 
     getDefaultBtnTokenData = () => {
-        const canvasToken = getColorCanvasToken(this.getIsDarkMode());
-        const textToken = getColorTextToken(this.getIsDarkMode());
+        const { isDarkMode } = this.state;
 
-        return [
-            {
-                ...canvasToken,
-                name: 'Background Color (Resting State)',
-            },
-            {
-                ...textToken,
-                name: 'Text Color (Resting State)',
-                isAlt: true,
-            },
-            getBtnBorderRadius(),
-        ];
+        return getDefaultBtnTokenData(isDarkMode);
     };
 
     getPrimaryBtnTokenData = () => {
-        return getPrimaryBtnTokenData(this.getIsDarkMode());
+        const { isDarkMode } = this.state;
+
+        return getPrimaryBtnTokenData(isDarkMode);
+    };
+
+    getSecondaryBtnTokenData = () => {
+        const { isDarkMode } = this.state;
+
+        return getSecondaryBtnTokenData(isDarkMode);
     };
 
     getPrimaryDestructiveBtnTokenData = () => {
-        return getPrimaryDestructiveBtnTokenData(this.getIsDarkMode());
+        const { isDarkMode } = this.state;
+
+        return getPrimaryBtnTokenData(isDarkMode, true);
+    };
+
+    getSecondaryDestructiveBtnTokenData = () => {
+        const { isDarkMode } = this.state;
+
+        return getSecondaryBtnTokenData(isDarkMode, true);
     };
 
     baseCls = 'bankai-sb-buttons-guide';
