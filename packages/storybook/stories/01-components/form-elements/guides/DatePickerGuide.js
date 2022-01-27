@@ -4,6 +4,7 @@ import {
     DatePicker,
     defaultDateFormats,
 } from '@epr0t0type/bankai-ui-form-elements-rw';
+import packageJSON from '@epr0t0type/bankai-ui-form-elements-rw/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -90,6 +91,7 @@ class DatePickerGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.formElements.datePicker.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.formElements.categoryTitle,

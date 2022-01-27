@@ -11,7 +11,7 @@ import {
 // Locale
 import strings from '../../../../i18n/strings.json';
 
-// Imgae
+// Imgage
 // import avatar from '../../../../media/images/avatars/avatar07.jpg';
 
 // Reference:
@@ -38,7 +38,8 @@ export const argTypes = {
         propName: 'imgURL',
     }),
     ...stringArg({
-        // description: '',
+        description:
+            'Renders text in the avatar. This prop will be ignored if `imgURL` or `renderIcon` are used.',
         propName: 'text',
     }),
     ...selectArg({
@@ -55,7 +56,7 @@ export const argTypes = {
         propName: 'hasBorder',
     }),
     ...funcArg({
-        description: `${locale.shared.propDesc.renderIcon} ${locale.shared.propDesc.requiresBankaiIcons}`,
+        description: `${locale.shared.propDesc.renderIcon} ${locale.shared.propDesc.requiresBankaiIcons} This prop will be ignored when using the \`imgUrl\` prop.`,
         propName: 'renderIcon',
     }),
 };

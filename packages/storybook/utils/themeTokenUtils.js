@@ -1,6 +1,7 @@
 import {
     getCoreColorsData,
     getBtnPrimaryTheme,
+    getBtnSecondaryTheme,
     THEME_TOKEN_NAMES,
     SPEC_TOKEN_DEFAULTS,
     // getThemeDefaults,
@@ -19,6 +20,13 @@ const {
     COLOR_BTN_PRIMARY_HOVER_BG,
     COLOR_BTN_PRIMARY_HOVER_BORDER,
     COLOR_BTN_PRIMARY_HOVER_TEXT,
+    COLOR_BTN_SECONDARY_DEFAULT_BG,
+    COLOR_BTN_SECONDARY_DEFAULT_BORDER,
+    COLOR_BTN_SECONDARY_DEFAULT_TEXT,
+    COLOR_BTN_SECONDARY_FOCUS_HALO,
+    COLOR_BTN_SECONDARY_HOVER_BG,
+    COLOR_BTN_SECONDARY_HOVER_BORDER,
+    COLOR_BTN_SECONDARY_HOVER_TEXT,
     COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BG,
     COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BORDER,
     COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_TEXT,
@@ -26,9 +34,13 @@ const {
     COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BG,
     COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BORDER,
     COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_TEXT,
-    // COLOR_PRIMARY,
-    // COLOR_SECONDARY,
-    // COLOR_DESTRUCTIVE,
+    COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BG,
+    COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BORDER,
+    COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_TEXT,
+    COLOR_BTN_SECONDARY_DESTRUCTIVE_FOCUS_HALO,
+    COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BG,
+    COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BORDER,
+    COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_TEXT,
     COLOR_TEXT,
     COLOR_TEXT_ALT,
 } = THEME_TOKEN_NAMES;
@@ -96,111 +108,22 @@ export const getBtnBorderRadius = () => {
     };
 };
 
-export const getPrimaryBtnTokenData = (isDarkMode) => {
+const getPrimaryBtnTokens = (colors = {}, TOKEN_NAMES = {}, config = {}) => {
     const {
-        primaryColorData: sourceColorData = {},
-        canvasColorData = {},
-        canvasAltColorData = {},
-    } = getCoreColors(isDarkMode);
-    const { base = {}, variants = [] } = sourceColorData;
-    const btnTheme = getBtnPrimaryTheme({
+        DEFAULT_BG,
+        DEFAULT_BORDER,
+        DEFAULT_TEXT,
+        FOCUS_HALO,
+        HOVER_BG,
+        HOVER_BORDER,
+        HOVER_TEXT,
+    } = TOKEN_NAMES;
+    const { valDescBase, isDestructive } = config;
+    const {
         sourceColorData,
-        canvasColor: canvasColorData.base,
-        canvasAltColor: canvasAltColorData.base,
-    });
-    const restingBGAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DEFAULT_BG,
-    );
-    const restingBorderAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DEFAULT_BORDER,
-    );
-    const restingTextAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DEFAULT_TEXT,
-    );
-    const focusHaloAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_FOCUS_HALO,
-    );
-    const hoverBGAPIKey = getThemeAPIKeyFromName(COLOR_BTN_PRIMARY_HOVER_BG);
-    const hoverBorderAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_HOVER_BORDER,
-    );
-    const hoverTextAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_HOVER_TEXT,
-    );
-    const hoverBGColor = variants.find(
-        (variant) => variant.hex === btnTheme[hoverBGAPIKey],
-    );
-    const restingBGColor = variants.find(
-        (variant) => variant.hex === btnTheme[restingBGAPIKey],
-    );
-    const isRestingBGBase = base.hex === btnTheme[restingBGAPIKey];
-    const valDescBase = 'Primary Color';
-    const restingBGValDesc = isRestingBGBase
-        ? valDescBase
-        : `${valDescBase} (Variant ${restingBGColor?.lightness})`;
-
-    return [
-        {
-            description: getThemeCSSVarFromAPIKey(restingBGAPIKey),
-            id: restingBGAPIKey,
-            name: 'Background Color (Resting State)',
-            value: btnTheme[restingBGAPIKey],
-            valueDesc: restingBGValDesc,
-        },
-        {
-            description: getThemeCSSVarFromAPIKey(restingBorderAPIKey),
-            id: restingBorderAPIKey,
-            name: 'Border Color (Resting State)',
-            value: btnTheme[restingBorderAPIKey],
-            isAlt: true,
-        },
-        {
-            description: getThemeCSSVarFromAPIKey(restingTextAPIKey),
-            id: restingTextAPIKey,
-            name: 'Text Color (Resting State)',
-            value: btnTheme[restingTextAPIKey],
-        },
-        {
-            description: getThemeCSSVarFromAPIKey(hoverBGAPIKey),
-            id: hoverBGAPIKey,
-            name: 'Background Color (Hover State)',
-            value: btnTheme[hoverBGAPIKey],
-            valueDesc: `${restingBGValDesc} (Variant ${hoverBGColor?.lightness})`,
-            isAlt: true,
-        },
-        {
-            description: getThemeCSSVarFromAPIKey(hoverBorderAPIKey),
-            id: hoverBorderAPIKey,
-            name: 'Border Color (Hover State)',
-            value: btnTheme[hoverBorderAPIKey],
-        },
-        {
-            description: getThemeCSSVarFromAPIKey(hoverTextAPIKey),
-            id: hoverTextAPIKey,
-            name: 'Text Color (Hover State)',
-            value: btnTheme[hoverTextAPIKey],
-            isAlt: true,
-        },
-        {
-            description: getThemeCSSVarFromAPIKey(focusHaloAPIKey),
-            id: focusHaloAPIKey,
-            name: 'Focus Halo',
-            value: btnTheme[focusHaloAPIKey],
-        },
-        {
-            ...getBtnBorderRadius(),
-            isAlt: true,
-        },
-    ];
-};
-
-export const getPrimaryDestructiveBtnTokenData = (isDarkMode) => {
-    const {
-        destructiveColorData: sourceColorData = {},
         canvasColorData = {},
         canvasAltColorData = {},
-    } = getCoreColors(isDarkMode);
-    // console.log('sourceColorData: ', sourceColorData);
+    } = colors;
     const { base = {}, variants = [] } = sourceColorData;
     const btnTheme = getBtnPrimaryTheme(
         {
@@ -208,29 +131,15 @@ export const getPrimaryDestructiveBtnTokenData = (isDarkMode) => {
             canvasColor: canvasColorData.base,
             canvasAltColor: canvasAltColorData.base,
         },
-        { isDestructive: true },
+        { isDestructive },
     );
-    const restingBGAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BG,
-    );
-    const restingBorderAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BORDER,
-    );
-    const restingTextAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_TEXT,
-    );
-    const focusHaloAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DESTRUCTIVE_FOCUS_HALO,
-    );
-    const hoverBGAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BG,
-    );
-    const hoverBorderAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BORDER,
-    );
-    const hoverTextAPIKey = getThemeAPIKeyFromName(
-        COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_TEXT,
-    );
+    const restingBGAPIKey = getThemeAPIKeyFromName(DEFAULT_BG);
+    const restingBorderAPIKey = getThemeAPIKeyFromName(DEFAULT_BORDER);
+    const restingTextAPIKey = getThemeAPIKeyFromName(DEFAULT_TEXT);
+    const focusHaloAPIKey = getThemeAPIKeyFromName(FOCUS_HALO);
+    const hoverBGAPIKey = getThemeAPIKeyFromName(HOVER_BG);
+    const hoverBorderAPIKey = getThemeAPIKeyFromName(HOVER_BORDER);
+    const hoverTextAPIKey = getThemeAPIKeyFromName(HOVER_TEXT);
     const hoverBGColor = variants.find(
         (variant) => variant.hex === btnTheme[hoverBGAPIKey],
     );
@@ -238,7 +147,6 @@ export const getPrimaryDestructiveBtnTokenData = (isDarkMode) => {
         (variant) => variant.hex === btnTheme[restingBGAPIKey],
     );
     const isRestingBGBase = base.hex === btnTheme[restingBGAPIKey];
-    const valDescBase = 'Destructive Color';
     const restingBGValDesc = isRestingBGBase
         ? valDescBase
         : `${valDescBase} (Variant ${restingBGColor?.lightness})`;
@@ -296,4 +204,192 @@ export const getPrimaryDestructiveBtnTokenData = (isDarkMode) => {
             isAlt: true,
         },
     ];
+};
+
+const getSecondaryBtnTokens = (colors = {}, TOKEN_NAMES = {}, config = {}) => {
+    const {
+        DEFAULT_BG,
+        DEFAULT_BORDER,
+        DEFAULT_TEXT,
+        FOCUS_HALO,
+        HOVER_BG,
+        HOVER_BORDER,
+        HOVER_TEXT,
+    } = TOKEN_NAMES;
+    const { sourceColorData, defaultBtnBGColor } = colors;
+    const { valDescBase, isDestructive, isDarkMode } = config;
+    const { base = {}, variants = [] } = sourceColorData;
+    const btnTheme = getBtnSecondaryTheme(
+        {
+            sourceColorData,
+            defaultBtnBGColor,
+        },
+        { isDarkMode, isDestructive },
+    );
+    const restingBGAPIKey = getThemeAPIKeyFromName(DEFAULT_BG);
+    const restingBorderAPIKey = getThemeAPIKeyFromName(DEFAULT_BORDER);
+    const restingTextAPIKey = getThemeAPIKeyFromName(DEFAULT_TEXT);
+    const focusHaloAPIKey = getThemeAPIKeyFromName(FOCUS_HALO);
+    const hoverBGAPIKey = getThemeAPIKeyFromName(HOVER_BG);
+    const hoverBorderAPIKey = getThemeAPIKeyFromName(HOVER_BORDER);
+    const hoverTextAPIKey = getThemeAPIKeyFromName(HOVER_TEXT);
+    const restingTextColor = btnTheme[restingTextAPIKey];
+    const isRestingTextBase = base.hex === restingTextColor;
+    const restingTextValDesc = isRestingTextBase
+        ? valDescBase
+        : `${valDescBase} (Variant ${
+              variants.find((variant) => variant.hex === restingTextColor)
+                  ?.lightness
+          })`;
+    const hoverBGColor = variants.find(
+        (variant) => variant.hex === btnTheme[hoverBGAPIKey],
+    );
+    const hoverTextColor = variants.find(
+        (variant) => variant.hex === btnTheme[hoverTextAPIKey],
+    );
+
+    return [
+        {
+            description: getThemeCSSVarFromAPIKey(restingBGAPIKey),
+            id: restingBGAPIKey,
+            name: 'Background Color (Resting State)',
+            value: btnTheme[restingBGAPIKey],
+            valueDesc: 'Canvas Color',
+        },
+        {
+            description: getThemeCSSVarFromAPIKey(restingBorderAPIKey),
+            id: restingBorderAPIKey,
+            name: 'Border Color (Resting State)',
+            value: btnTheme[restingBorderAPIKey],
+            valueDesc: restingTextValDesc,
+            isAlt: true,
+        },
+        {
+            description: getThemeCSSVarFromAPIKey(restingTextAPIKey),
+            id: restingTextAPIKey,
+            name: 'Text Color (Resting State)',
+            value: btnTheme[restingTextAPIKey],
+            valueDesc: restingTextValDesc,
+        },
+        {
+            description: getThemeCSSVarFromAPIKey(hoverBGAPIKey),
+            id: hoverBGAPIKey,
+            name: 'Background Color (Hover State)',
+            value: btnTheme[hoverBGAPIKey],
+            valueDesc: `${valDescBase} (Variant ${hoverBGColor?.lightness})`,
+            isAlt: true,
+        },
+        {
+            description: getThemeCSSVarFromAPIKey(hoverBorderAPIKey),
+            id: hoverBorderAPIKey,
+            name: 'Border Color (Hover State)',
+            value: btnTheme[hoverBorderAPIKey],
+            valueDesc: `${valDescBase} (Variant ${hoverTextColor?.lightness})`,
+        },
+        {
+            description: getThemeCSSVarFromAPIKey(hoverTextAPIKey),
+            id: hoverTextAPIKey,
+            name: 'Text Color (Hover State)',
+            value: btnTheme[hoverTextAPIKey],
+            valueDesc: `${valDescBase} (Variant ${hoverTextColor?.lightness})`,
+            isAlt: true,
+        },
+        {
+            description: getThemeCSSVarFromAPIKey(focusHaloAPIKey),
+            id: focusHaloAPIKey,
+            name: 'Focus Halo',
+            value: btnTheme[focusHaloAPIKey],
+        },
+        {
+            ...getBtnBorderRadius(),
+            isAlt: true,
+        },
+    ];
+};
+
+export const getPrimaryBtnTokenData = (isDarkMode, isDestructive) => {
+    const {
+        primaryColorData = {},
+        destructiveColorData = {},
+        canvasColorData = {},
+        canvasAltColorData = {},
+    } = getCoreColors(isDarkMode);
+    const colors = {
+        sourceColorData: isDestructive
+            ? destructiveColorData
+            : primaryColorData,
+        canvasColorData,
+        canvasAltColorData,
+    };
+    const PRIMARY_TOKEN_NAMES = {
+        DEFAULT_BG: COLOR_BTN_PRIMARY_DEFAULT_BG,
+        DEFAULT_BORDER: COLOR_BTN_PRIMARY_DEFAULT_BORDER,
+        DEFAULT_TEXT: COLOR_BTN_PRIMARY_DEFAULT_TEXT,
+        FOCUS_HALO: COLOR_BTN_PRIMARY_FOCUS_HALO,
+        HOVER_BG: COLOR_BTN_PRIMARY_HOVER_BG,
+        HOVER_BORDER: COLOR_BTN_PRIMARY_HOVER_BORDER,
+        HOVER_TEXT: COLOR_BTN_PRIMARY_HOVER_TEXT,
+    };
+    const PRIMARY_DESTRUCTIVE_TOKEN_NAMES = {
+        DEFAULT_BG: COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BG,
+        DEFAULT_BORDER: COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BORDER,
+        DEFAULT_TEXT: COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_TEXT,
+        FOCUS_HALO: COLOR_BTN_PRIMARY_DESTRUCTIVE_FOCUS_HALO,
+        HOVER_BG: COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BG,
+        HOVER_BORDER: COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BORDER,
+        HOVER_TEXT: COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_TEXT,
+    };
+    const TOKEN_NAMES = isDestructive
+        ? PRIMARY_DESTRUCTIVE_TOKEN_NAMES
+        : PRIMARY_TOKEN_NAMES;
+    const valDescBase = isDestructive ? 'Destructive Color' : 'Primary Color';
+
+    return getPrimaryBtnTokens(colors, TOKEN_NAMES, {
+        isDarkMode,
+        isDestructive,
+        valDescBase,
+    });
+};
+
+export const getSecondaryBtnTokenData = (isDarkMode, isDestructive) => {
+    const {
+        secondaryColorData = {},
+        destructiveColorData = {},
+        canvasColorData = {},
+    } = getCoreColors(isDarkMode);
+    const sourceColorData = isDestructive
+        ? destructiveColorData
+        : secondaryColorData;
+    const colors = {
+        sourceColorData,
+        defaultBtnBGColor: canvasColorData?.base,
+    };
+    const SECONDARY_TOKEN_NAMES = {
+        DEFAULT_BG: COLOR_BTN_SECONDARY_DEFAULT_BG,
+        DEFAULT_BORDER: COLOR_BTN_SECONDARY_DEFAULT_BORDER,
+        DEFAULT_TEXT: COLOR_BTN_SECONDARY_DEFAULT_TEXT,
+        FOCUS_HALO: COLOR_BTN_SECONDARY_FOCUS_HALO,
+        HOVER_BG: COLOR_BTN_SECONDARY_HOVER_BG,
+        HOVER_BORDER: COLOR_BTN_SECONDARY_HOVER_BORDER,
+        HOVER_TEXT: COLOR_BTN_SECONDARY_HOVER_TEXT,
+    };
+    const SECONDARY_DESTRUCTIVE_TOKEN_NAMES = {
+        DEFAULT_BG: COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BG,
+        DEFAULT_BORDER: COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BORDER,
+        DEFAULT_TEXT: COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_TEXT,
+        FOCUS_HALO: COLOR_BTN_SECONDARY_DESTRUCTIVE_FOCUS_HALO,
+        HOVER_BG: COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BG,
+        HOVER_BORDER: COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BORDER,
+        HOVER_TEXT: COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_TEXT,
+    };
+    const TOKEN_NAMES = isDestructive
+        ? SECONDARY_DESTRUCTIVE_TOKEN_NAMES
+        : SECONDARY_TOKEN_NAMES;
+    const valDescBase = isDestructive ? 'Destructive Color' : 'Secondary Color';
+
+    return getSecondaryBtnTokens(colors, TOKEN_NAMES, {
+        isDarkMode,
+        isDestructive,
+        valDescBase,
+    });
 };

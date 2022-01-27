@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Badge, VARIANTS } from '@epr0t0type/bankai-ui-badges';
+import packageJSON from '@epr0t0type/bankai-ui-badges/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -33,6 +34,7 @@ class BadgeGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.badges.badge.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.badges.categoryTitle,

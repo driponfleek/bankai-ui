@@ -1,5 +1,3 @@
-import React from 'react';
-import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
 import { VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import {
     stringArg,
@@ -18,14 +16,12 @@ import strings from '../../../../i18n/strings.json';
 // https://storybook.js.org/docs/react/api/argtypes
 
 const { bankaiUI: locale } = strings;
-const renderIcon = () => <BankaiCirclePlus />;
 
 export const args = {
     text: 'Button Text',
     type: 'button',
     isBusy: false,
     isDisabled: false,
-    renderIcon,
 };
 
 export const argTypes = {

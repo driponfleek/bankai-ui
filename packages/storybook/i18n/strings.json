@@ -22,7 +22,8 @@
                         "token": "Token",
                         "value": "Value"
                     }
-                }
+                },
+                "title": "Design Tokens"
             },
             "propDesc": {
                 "contextCls": "CSS class that can be used to namespace additional styling to a specific context. Helps to reduce possible CSS conflicts when only wanting to target the component in a given context.",
@@ -32,6 +33,7 @@
                 "formName": "Use to reference elements in a JavaScript, or to reference form data after a form is submitted.",
                 "formPlaceholder": "Use to provide extra information that is decidedly *not* vital to using the form control.",
                 "formValue": "Use to set the value.",
+                "headingLvl": "Used to pick the semantically correct html heading tag (h1 - h6).",
                 "isDisabled": "Use to disable the component.",
                 "isBusy": "Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.",
                 "renderIcon": "Render function for rendering an icon in the component.",
@@ -40,7 +42,8 @@
                 "shouldSpellCheck": "Enable spell checking.",
                 "variant": "Use to set the component variant."
             },
-            "readme": "README"
+            "readme": "README",
+            "version": "version"
         },
         "stories": {
             "components": {
@@ -63,7 +66,13 @@
                     "button": {
                         "sectionTitles": {
                             "buttonVariants": "Button Variants",
-                            "primaryButton": "Primary Button"
+                            "primaryButton": "Primary Button",
+                            "primaryDestructiveButton": "Primary Destructive Button",
+                            "renderingAnIcon": "Rendering An Icon",
+                            "renderingCustomBusyIcon": "Rendering a Custom Busy Icon",
+                            "renderCustomBtnContent": "Render Custom Button Content",
+                            "secondaryButton": "Secondary Button",
+                            "secondaryDestructiveButton": "Secondary Destructive Button"
                         },
                         "title": "Button"
                     },
@@ -226,6 +235,15 @@
                     "toaster": {
                         "title": "Toaster"
                     }
+                },
+                "typography": {
+                    "categoryTitle": "Typography",
+                    "heading": {
+                        "title": "Heading"
+                    },
+                    "hyperlink": {
+                        "title": "Hyperlink"
+                    }
                 }
             },
             "intro": {
@@ -234,7 +252,7 @@
                     "title": "Weclome to Bankai UI"
                 }
             },
-            "libsUtils": "",
+            "libsUtils": {},
             "styleGuide": {
                 "designTokens": {
                     "categoryTitle": "Design Tokens",

@@ -72,10 +72,7 @@
 //                 <ComponentPreview shouldCheckA11Y>
 //                     <Button {...props} />
 //                 </ComponentPreview>
-//                 <Paragraph>
-//                     Here you should write some introductory text summarizing the
-//                     component.
-//                 </Paragraph>
+//                 <Paragraph>Coming Soon.</Paragraph>
 //             </StorySection>
 //         );
 //     }

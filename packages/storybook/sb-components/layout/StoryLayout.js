@@ -8,7 +8,7 @@ import {
     bankaiLightTheme,
     bankaiDarkTheme,
 } from '@epr0t0type/bankai-lib-theme-utils';
-// import Paragraph from '../content/Paragraph';
+import PackageBadges from '../badges/PackageBadges';
 
 // Styles
 import './styles/story-layout.scss';
@@ -34,6 +34,7 @@ class StoryLayout extends PureComponent {
     static propTypes = {
         contextCls: PropTypes.string,
         title: PropTypes.string,
+        packageVer: PropTypes.string,
         subTitle: PropTypes.string,
         isRoundedUI: PropTypes.bool,
         shouldAutoCorrectColors: PropTypes.bool,
@@ -51,7 +52,8 @@ class StoryLayout extends PureComponent {
     }
 
     render() {
-        const { title, subTitle, children, contextCls } = this.props;
+        const { title, subTitle, children, packageVer, contextCls } =
+            this.props;
         const { isDarkMode } = this.state;
         const theme = this.getTheme();
         const modCls = {
@@ -80,6 +82,12 @@ class StoryLayout extends PureComponent {
                         <span className={`${this.baseCls}__header-subtitle`}>
                             {subTitle}
                         </span>
+                    )}
+                    {packageVer && (
+                        <PackageBadges
+                            contextCls={`${this.baseCls}__package-badges`}
+                            version={packageVer}
+                        />
                     )}
                 </div>
                 {children && (

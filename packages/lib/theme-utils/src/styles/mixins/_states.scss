@@ -31,7 +31,7 @@
 
 @mixin bankai-disabled-state($has-hover: true) {
     &:disabled {
-        opacity: bankai-get-map-value($bankai-spec-tokens, 'state-disabled-opacity');
+        opacity: var(--bankai-state-disabled-opacity, bankai-get-map-value($bankai-spec-tokens, 'state-disabled-opacity'));
 
         @if $has-hover {
             @media (hover: hover) {

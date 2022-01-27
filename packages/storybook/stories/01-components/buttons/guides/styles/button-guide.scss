@@ -1,6 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
@@ -13,6 +14,12 @@
 
         .bankai-button {
             flex: 0 0 auto;
+        }
+    }
+
+    &__custom-busy-icon-demo {
+        .bankai-icon {
+            @include bankai-rotate-infinite;
         }
     }
 }

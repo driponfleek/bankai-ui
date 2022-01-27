@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import { Modal } from '@epr0t0type/bankai-ui-modals';
+import packageJSON from '@epr0t0type/bankai-ui-modals/package.json';
+import { Button, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -81,6 +82,8 @@ class ModalGuide extends Component {
     render() {
         return (
             <StoryLayout
+                contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.modals.modal.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.modals.categoryTitle,

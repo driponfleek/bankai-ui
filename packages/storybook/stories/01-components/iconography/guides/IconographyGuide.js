@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-// import PropTypes from 'prop-types';
-// import { Button } from '@epr0t0type/bankai-ui-buttons';
+import packageJSON from '@epr0t0type/bankai-ui-icons/package.json';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import IconographyList from '../../../../sb-components/lists/IconographyList';
 // import StorySection from '../../../../sb-components/layout/StorySection';
@@ -16,6 +15,8 @@ class IconographyGuide extends PureComponent {
     render() {
         return (
             <StoryLayout
+                contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.iconography.icons.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.iconography.categoryTitle,
@@ -35,6 +36,8 @@ class IconographyGuide extends PureComponent {
 
         return <IconographyList icons={iconData} locale={messages} />;
     };
+
+    baseCls = 'bankai-sb-iconography-guide';
 }
 
 export default IconographyGuide;

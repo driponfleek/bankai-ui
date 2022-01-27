@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { CalloutMemo, VARIANTS } from '@epr0t0type/bankai-ui-callouts';
+import packageJSON from '@epr0t0type/bankai-ui-callouts/package.json';
 import {
     BankaiCheck,
     BankaiCircleInfo,
@@ -46,6 +47,7 @@ class CalloutMemoGuide extends PureComponent {
         return (
             <StoryLayout
                 contextCls={this.baseCls}
+                packageVer={packageJSON.version}
                 title={locale.stories.components.callouts.calloutMemo.title}
                 subTitle={getComponentsTitle(
                     locale.stories.components.callouts.categoryTitle,

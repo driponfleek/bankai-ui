@@ -45,17 +45,27 @@
         margin: 0 auto;
     }
 
+    &__msg-container {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
     &__title {
         @include bankai-h5;
         font-size: var(--bankai-typography-size-base, bankai-light-theme('typography-size-base'));
         font-weight: bold;
+        margin: 0;
     }
 
     &__title,
     &__msg {
         @include bankai-max-line-width;
         line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
-        margin: 0;
         display: block;
     }
 

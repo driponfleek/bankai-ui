@@ -16,8 +16,12 @@ const ButtonIcon = (props) => {
     );
 };
 
+ButtonIcon.defaultProps = {
+    baseCls: 'bankai-button',
+};
+
 ButtonIcon.propTypes = {
-    baseCls: PropTypes.string.isRequired,
+    baseCls: PropTypes.string,
     renderIcon: PropTypes.func.isRequired,
 };
 

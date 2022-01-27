@@ -1,0 +1,16 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-collapsible-dt-section {
+    background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
+    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+    border-bottom: none;
+    overflow: hidden;
+
+    &__content-container {
+        padding: #{bankai-to-px(bankai-light-theme('layout-grid-base'))} #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)} #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)} #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+    }
+}
