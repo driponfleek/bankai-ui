@@ -1,13 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import Component2 from '../Component2';
 
 describe('<Component2 />', () => {
-    it('renders without crashing', () => {
-        const div = document.createElement('div');
-
-        ReactDOM.render(<Component2 />, div);
-        ReactDOM.unmountComponentAtNode(div);
+    it('should render without crashing', () => {
+        render(<Component2 />);
     });
 
     // it('should ', () => {});

@@ -16,7 +16,7 @@ const Avatar = (props) => {
     };
     const baseCls = 'bankai-avatar';
     const modCls = {
-        [`${baseCls}--icon`]: !!renderIcon && !text && !shouldRenderImg,
+        [`${baseCls}--icon`]: !!renderIcon && !shouldRenderImg,
         [`${baseCls}--img`]: shouldRenderImg,
         [`${baseCls}--text`]: !!text && !shouldRenderImg && !renderIcon,
         [`${baseCls}--has-border`]: hasBorder,

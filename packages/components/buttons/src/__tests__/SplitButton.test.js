@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
     act,
     fireEvent,
@@ -53,7 +52,7 @@ describe('<SplitButton />', () => {
             onMainButtonClick: clickSpy,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const button = container.querySelector(`.${btnCls}`);
         fireEvent.click(button);
@@ -72,7 +71,7 @@ describe('<SplitButton />', () => {
             compRef = el;
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} ref={setRef} />, container);
+            render(<SplitButton {...props} ref={setRef} />, { container });
         });
         compRef.props.onSelection();
 
@@ -86,7 +85,7 @@ describe('<SplitButton />', () => {
             onMenuToggle: menuToggleSpy,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const button = container.querySelector(`.${menuBtnCls}__button`);
         fireEvent.click(button);
@@ -100,7 +99,7 @@ describe('<SplitButton />', () => {
             isDisabled: true,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
         const mainButton = container.querySelector(`.${btnCls}`);
@@ -117,7 +116,7 @@ describe('<SplitButton />', () => {
             },
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
         const mainButton = container.querySelector(`.${btnCls}`);
@@ -134,7 +133,7 @@ describe('<SplitButton />', () => {
             },
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
         const mainButton = container.querySelector(`.${btnCls}`);
@@ -149,7 +148,7 @@ describe('<SplitButton />', () => {
             variant: PRIMARY,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
@@ -166,7 +165,7 @@ describe('<SplitButton />', () => {
             variant: PRIMARY_DESTRUCTIVE,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
@@ -183,7 +182,7 @@ describe('<SplitButton />', () => {
             variant: SECONDARY,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
@@ -200,7 +199,7 @@ describe('<SplitButton />', () => {
             variant: SECONDARY_DESTRUCTIVE,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
@@ -217,7 +216,7 @@ describe('<SplitButton />', () => {
             isDisabled: true,
         };
         act(() => {
-            ReactDOM.render(<SplitButton {...props} />, container);
+            render(<SplitButton {...props} />, { container });
         });
         const splitButton = container.querySelector(`.${baseCls}`);
 

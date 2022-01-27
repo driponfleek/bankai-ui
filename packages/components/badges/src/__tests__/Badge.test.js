@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
-import Component1 from '../Component1';
+import Badge from '../Badge';
 
-describe('<Component1 />', () => {
+describe('<Badge />', () => {
     it('should render without crashing', () => {
-        render(<Component1 />);
+        render(<Badge />);
     });
 
     // it('should ', () => {});

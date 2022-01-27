@@ -91,14 +91,6 @@ class Accordion extends PureComponent {
         const { onChange } = this.props;
 
         onChange(expandedIds);
-        // this.setState(
-        //     {
-        //         expandedItems: expandedIds,
-        //     },
-        //     () => {
-        //         onChange(expandedIds);
-        //     },
-        // );
     };
 
     prepChildren = () => {

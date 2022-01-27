@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
     act,
     fireEvent,
@@ -49,7 +48,7 @@ describe('<MenuButton />', () => {
             variant: PRIMARY,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
 
@@ -61,7 +60,7 @@ describe('<MenuButton />', () => {
             variant: PRIMARY_DESTRUCTIVE,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
 
@@ -73,7 +72,7 @@ describe('<MenuButton />', () => {
             variant: SECONDARY,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
 
@@ -85,7 +84,7 @@ describe('<MenuButton />', () => {
             variant: SECONDARY_DESTRUCTIVE,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
 
@@ -97,7 +96,7 @@ describe('<MenuButton />', () => {
             renderIcon,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
         const iconDOM = container.querySelector(`.${btnCls}__icon`);
@@ -107,7 +106,7 @@ describe('<MenuButton />', () => {
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
         act(() => {
-            ReactDOM.render(<MenuButton />, container);
+            render(<MenuButton />, { container });
         });
         const iconContainerEls = container.getElementsByClassName(
             `${btnCls}__icon-container`,
@@ -121,10 +120,7 @@ describe('<MenuButton />', () => {
             renderIcon,
         };
         act(() => {
-            ReactDOM.render(
-                <MenuButton {...props}>Test</MenuButton>,
-                container,
-            );
+            render(<MenuButton {...props}>Test</MenuButton>, { container });
         });
         const iconContainerEls = container.getElementsByClassName(
             `${btnCls}__icon-container`,
@@ -138,7 +134,7 @@ describe('<MenuButton />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
         const textDOM = container.querySelector(`.${btnCls}__text-container`);
@@ -148,7 +144,7 @@ describe('<MenuButton />', () => {
 
     it('should not render text container DOM when props.text is not provided', () => {
         act(() => {
-            ReactDOM.render(<MenuButton />, container);
+            render(<MenuButton />, { container });
         });
         const textContainerEls = container.getElementsByClassName(
             `${btnCls}__text-container`,
@@ -162,10 +158,7 @@ describe('<MenuButton />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(
-                <MenuButton {...props}>Test</MenuButton>,
-                container,
-            );
+            render(<MenuButton {...props}>Test</MenuButton>, { container });
         });
         const textContainerEls = container.getElementsByClassName(
             `${btnCls}__text-container`,
@@ -184,7 +177,7 @@ describe('<MenuButton />', () => {
             compRef = el;
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} ref={setRef} />, container);
+            render(<MenuButton {...props} ref={setRef} />, { container });
         });
         compRef.props.onSelection();
 
@@ -197,7 +190,7 @@ describe('<MenuButton />', () => {
             onMenuToggle: menuToggleSpy,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
         fireEvent.click(button);
@@ -212,7 +205,7 @@ describe('<MenuButton />', () => {
             isDisabled: true,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
         fireEvent.click(button);
@@ -225,7 +218,7 @@ describe('<MenuButton />', () => {
             menuOptions: menuOps,
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
         fireEvent.click(button);
@@ -244,7 +237,7 @@ describe('<MenuButton />', () => {
             ),
         };
         act(() => {
-            ReactDOM.render(<MenuButton {...props} />, container);
+            render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
         fireEvent.click(button);

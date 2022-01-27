@@ -33,21 +33,6 @@ const avatars = [
         id: '01',
         imgURL: avatar01,
     },
-    // {
-    //     ...baseAvatarProps,
-    //     id: '02',
-    //     imgURL: avatar02,
-    // },
-    // {
-    //     ...baseAvatarProps,
-    //     id: '03',
-    //     imgURL: avatar03,
-    // },
-    // {
-    //     ...baseAvatarProps,
-    //     id: '04',
-    //     imgURL: avatar04,
-    // },
     {
         ...baseAvatarProps,
         id: '05',
@@ -58,26 +43,11 @@ const avatars = [
         id: '06',
         text: 'DY',
     },
-    // {
-    //     ...baseAvatarProps,
-    //     id: '07',
-    //     imgURL: avatar06,
-    // },
     {
         ...baseAvatarProps,
         id: '08',
         imgURL: avatar07,
     },
-    // {
-    //     ...baseAvatarProps,
-    //     id: '09',
-    //     imgURL: avatar08,
-    // },
-    // {
-    //     ...baseAvatarProps,
-    //     id: '10',
-    //     imgURL: avatar09,
-    // },
     {
         ...baseAvatarProps,
         id: '11',
