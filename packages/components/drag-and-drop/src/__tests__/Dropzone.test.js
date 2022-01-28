@@ -1,11 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import {
-//     createWrapper,
-//     // findRenderedDOMComponentWithClassName,
-//     findAllElementsWithClassName,
-//     // simulateEvent,
-// } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import DropzoneComposer from '../DropzoneComposer';
 
 jest.mock('react-dnd', () => ({
@@ -16,10 +10,7 @@ const DecoratedDZ = DropzoneComposer(<div />);
 
 describe('<Dropzone />', () => {
     xit('should render without crashing', () => {
-        const div = document.createElement('div');
-
-        ReactDOM.render(<DecoratedDZ />, div);
-        ReactDOM.unmountComponentAtNode(div);
+        render(<DecoratedDZ />);
     });
 
     // it('should render a custom default state when props.renderDefaultState is provided', () => {
@@ -130,7 +121,7 @@ describe('<Dropzone />', () => {
     //     };
     //     const div = document.createElement('div');
 
-    //     ReactDOM.render(<OriginalDZ {...props} />, div);
+    //     render(<OriginalDZ {...props} />, div);
     //     ReactDOM.unmountComponentAtNode(div);
 
     //     expect(connectDropTargetSpy).toHaveBeenCalled();

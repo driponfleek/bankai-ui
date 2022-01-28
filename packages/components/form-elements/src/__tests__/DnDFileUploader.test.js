@@ -1,12 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import {
-//     createWrapper,
-//     findRenderedDOMComponentWithClassName,
-//     findAllElementsWithClassName,
-//     simulateEvent,
-//     // simulateEvent,
-// } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import DnDFileUploader from '../DnDFileUploader';
 // import { DND_FILE_UPLOADER_MODES as MODES } from '../const/dndFileUploaderConst';
 // import {
@@ -111,10 +104,7 @@ jest.mock('@epr0t0type/bankai-ui-drag-and-drop', () => {
 
 describe('<DnDFileUploader />', () => {
     it('should render without crashing', () => {
-        const div = document.createElement('div');
-
-        ReactDOM.render(<DnDFileUploader />, div);
-        ReactDOM.unmountComponentAtNode(div);
+        render(<DnDFileUploader />);
     });
 
     // it('should only allow one file to be dropped if props.canUploadMultiple is false and more than one file is dropped', () => {

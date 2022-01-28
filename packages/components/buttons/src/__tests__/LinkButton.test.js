@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
     act,
     fireEvent,
@@ -33,7 +32,7 @@ describe('<LinkButton />', () => {
             renderIcon,
         };
         act(() => {
-            ReactDOM.render(<LinkButton {...props} />, container);
+            render(<LinkButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         const iconDOM = container.querySelector(`.${baseCls}__icon`);
@@ -43,7 +42,7 @@ describe('<LinkButton />', () => {
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
         act(() => {
-            ReactDOM.render(<LinkButton />, container);
+            render(<LinkButton />, { container });
         });
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
@@ -57,10 +56,7 @@ describe('<LinkButton />', () => {
             renderIcon,
         };
         act(() => {
-            ReactDOM.render(
-                <LinkButton {...props}>Test</LinkButton>,
-                container,
-            );
+            render(<LinkButton {...props}>Test</LinkButton>, { container });
         });
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
@@ -74,7 +70,7 @@ describe('<LinkButton />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(<LinkButton {...props} />, container);
+            render(<LinkButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         const textDOM = container.querySelector(`.${baseCls}__text-container`);
@@ -84,7 +80,7 @@ describe('<LinkButton />', () => {
 
     it('should not render text container DOM when props.text is not provided', () => {
         act(() => {
-            ReactDOM.render(<LinkButton />, container);
+            render(<LinkButton />, { container });
         });
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
@@ -98,10 +94,7 @@ describe('<LinkButton />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(
-                <LinkButton {...props}>Test</LinkButton>,
-                container,
-            );
+            render(<LinkButton {...props}>Test</LinkButton>, { container });
         });
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
@@ -117,7 +110,7 @@ describe('<LinkButton />', () => {
             onClick: clickSpy,
         };
         act(() => {
-            ReactDOM.render(<LinkButton {...props} />, container);
+            render(<LinkButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         fireEvent.click(button);
@@ -137,7 +130,7 @@ describe('<LinkButton />', () => {
             },
         };
         act(() => {
-            ReactDOM.render(<LinkButton {...props} />, container);
+            render(<LinkButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         fireEvent.click(button);

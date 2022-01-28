@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { act, render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
 import MenuButtonOption from '../MenuButtonOption';
@@ -37,7 +36,7 @@ describe('<MenuButtonOption />', () => {
             renderIcon: (iconCls) => <BankaiCirclePlus contextCls={iconCls} />,
         };
         act(() => {
-            ReactDOM.render(<MenuButtonOption {...props} />, container);
+            render(<MenuButtonOption {...props} />, { container });
         });
         const option = container.querySelector(`.${baseCls}`);
         const iconDOM = container.querySelector(`.${baseCls}__icon`);
@@ -47,7 +46,7 @@ describe('<MenuButtonOption />', () => {
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
         act(() => {
-            ReactDOM.render(<MenuButtonOption />, container);
+            render(<MenuButtonOption />, { container });
         });
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
@@ -61,7 +60,7 @@ describe('<MenuButtonOption />', () => {
             renderIcon: (iconCls) => <BankaiCirclePlus contextCls={iconCls} />,
         };
         act(() => {
-            ReactDOM.render(
+            render(
                 <MenuButtonOption {...props}>Test</MenuButtonOption>,
                 container,
             );
@@ -78,7 +77,7 @@ describe('<MenuButtonOption />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(<MenuButtonOption {...props} />, container);
+            render(<MenuButtonOption {...props} />, { container });
         });
         const option = container.querySelector(`.${baseCls}`);
         const textDOM = container.querySelector(`.${baseCls}__text-container`);
@@ -88,7 +87,7 @@ describe('<MenuButtonOption />', () => {
 
     it('should not render text container DOM when props.text is not provided', () => {
         act(() => {
-            ReactDOM.render(<MenuButtonOption />, container);
+            render(<MenuButtonOption />, { container });
         });
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
@@ -102,7 +101,7 @@ describe('<MenuButtonOption />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(
+            render(
                 <MenuButtonOption {...props}>Test</MenuButtonOption>,
                 container,
             );

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
-import Component1 from '../Component1';
+import AccordionItemButton from '../AccordionItemButton';
 
-describe('<Component1 />', () => {
+describe('<AccordionItemButton />', () => {
     it('should render without crashing', () => {
-        render(<Component1 />);
+        render(<AccordionItemButton />);
     });
 
     // it('should ', () => {});

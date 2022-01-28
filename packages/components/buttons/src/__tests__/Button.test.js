@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
     act,
     fireEvent,
@@ -36,7 +35,7 @@ describe('<Button />', () => {
             variant: PRIMARY,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
 
@@ -48,7 +47,7 @@ describe('<Button />', () => {
             variant: PRIMARY_DESTRUCTIVE,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
 
@@ -60,7 +59,7 @@ describe('<Button />', () => {
             variant: SECONDARY,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
 
@@ -72,7 +71,7 @@ describe('<Button />', () => {
             variant: SECONDARY_DESTRUCTIVE,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
 
@@ -84,7 +83,7 @@ describe('<Button />', () => {
             renderIcon,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         const iconDOM = container.querySelector(`.${baseCls}__icon`);
@@ -94,7 +93,7 @@ describe('<Button />', () => {
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
         act(() => {
-            ReactDOM.render(<Button />, container);
+            render(<Button />, { container });
         });
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
@@ -108,7 +107,7 @@ describe('<Button />', () => {
             renderIcon,
         };
         act(() => {
-            ReactDOM.render(<Button {...props}>Test</Button>, container);
+            render(<Button {...props}>Test</Button>, { container });
         });
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
@@ -122,7 +121,7 @@ describe('<Button />', () => {
             isBusy: true,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         const iconDOM = container.querySelector('.bankai-icon-spinner');
@@ -135,7 +134,7 @@ describe('<Button />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         const textDOM = container.querySelector(`.${baseCls}__text-container`);
@@ -145,7 +144,7 @@ describe('<Button />', () => {
 
     it('should not render text container DOM when props.text is not provided', () => {
         act(() => {
-            ReactDOM.render(<Button />, container);
+            render(<Button />, { container });
         });
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
@@ -159,7 +158,7 @@ describe('<Button />', () => {
             text: 'Click Me',
         };
         act(() => {
-            ReactDOM.render(<Button {...props}>Test</Button>, container);
+            render(<Button {...props}>Test</Button>, { container });
         });
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
@@ -174,7 +173,7 @@ describe('<Button />', () => {
             text: 'Click Me!',
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
 
@@ -186,7 +185,7 @@ describe('<Button />', () => {
             'aria-label': 'Click me to do a thing',
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
 
@@ -200,7 +199,7 @@ describe('<Button />', () => {
             onClick: clickSpy,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         fireEvent.click(button);
@@ -215,7 +214,7 @@ describe('<Button />', () => {
             onClick: clickSpy,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         fireEvent.click(button);
@@ -230,7 +229,7 @@ describe('<Button />', () => {
             onClick: clickSpy,
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         fireEvent.click(button);
@@ -250,7 +249,7 @@ describe('<Button />', () => {
             },
         };
         act(() => {
-            ReactDOM.render(<Button {...props} />, container);
+            render(<Button {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
         fireEvent.click(button);
