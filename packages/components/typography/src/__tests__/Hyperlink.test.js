@@ -12,7 +12,7 @@ describe('<Hyperlink />', () => {
         console.error = originalConsoleError;
     });
 
-    it('should should set the target and rel attributes to the appropriate values when props.shouldOpenInNewWindow is true', () => {
+    it('should set the target and rel attributes to the appropriate values when props.shouldOpenInNewWindow is true', () => {
         act(() => {
             render(
                 <Hyperlink href="https://google.com" shouldOpenInNewWindow>
