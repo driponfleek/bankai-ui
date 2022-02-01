@@ -25,7 +25,6 @@ class CheckboxGuide extends PureComponent {
     static defaultProps = {
         isDisabled: false,
         isChecked: false,
-        isReadOnly: false,
         onChange: () => Promise.resolve(),
     };
 
@@ -36,7 +35,6 @@ class CheckboxGuide extends PureComponent {
         value: PropTypes.string,
         isChecked: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        isReadOnly: PropTypes.bool,
         data: PropTypes.object,
         onChange: PropTypes.func,
         renderCheckedIcon: PropTypes.func,

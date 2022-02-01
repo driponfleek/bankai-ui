@@ -50,6 +50,7 @@ class Textarea extends PureComponent {
             isReadOnly,
             shouldAutoFocus,
             shouldSpellCheck,
+            onChange,
             ...rest
         } = this.props;
         const props = {

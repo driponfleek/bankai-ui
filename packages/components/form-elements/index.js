@@ -7,7 +7,6 @@ export { default as Fieldset } from './src/Fieldset';
 export { default as FormControlHint } from './src/FormControlHint';
 export { default as FormFieldComposer } from './src/FormFieldComposer';
 export { default as FormLabel } from './src/FormLabel';
-// export { default as EmailInput } from './src/EmailInput';
 export { default as InlineFormError } from './src/InlineFormError';
 export { default as Radio } from './src/Radio';
 export { default as Textarea } from './src/Textarea';

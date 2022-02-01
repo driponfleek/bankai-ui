@@ -16,7 +16,8 @@ class FormLabel extends PureComponent {
     };
 
     render() {
-        const { contextCls, htmlFor, labelText, ...rest } = this.props;
+        const { contextCls, htmlFor, labelText, renderCustomLabel, ...rest } =
+            this.props;
 
         return (
             <label

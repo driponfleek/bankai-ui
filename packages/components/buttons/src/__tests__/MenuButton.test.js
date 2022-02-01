@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     act,
-    fireEvent,
+    userEvent,
     render,
 } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
@@ -193,7 +193,7 @@ describe('<MenuButton />', () => {
             render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
-        fireEvent.click(button);
+        userEvent.click(button);
 
         expect(menuToggleSpy).toHaveBeenCalled();
     });
@@ -208,7 +208,7 @@ describe('<MenuButton />', () => {
             render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
-        fireEvent.click(button);
+        userEvent.click(button);
 
         expect(menuToggleSpy).not.toHaveBeenCalled();
     });
@@ -221,7 +221,7 @@ describe('<MenuButton />', () => {
             render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
-        fireEvent.click(button);
+        userEvent.click(button);
         const optionEls = container.getElementsByClassName(
             `${baseCls}__menu-list-option`,
         );
@@ -240,7 +240,7 @@ describe('<MenuButton />', () => {
             render(<MenuButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}__button`);
-        fireEvent.click(button);
+        userEvent.click(button);
         const optionEls = container.getElementsByClassName('custom-op');
 
         expect(optionEls).toHaveLength(2);

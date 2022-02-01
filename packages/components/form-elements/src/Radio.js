@@ -9,7 +9,6 @@ class Radio extends PureComponent {
     static defaultProps = {
         isDisabled: false,
         isChecked: false,
-        isReadOnly: false,
         onChange: () => Promise.resolve(),
     };
 
@@ -20,7 +19,6 @@ class Radio extends PureComponent {
         value: PropTypes.string,
         isChecked: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        isReadOnly: PropTypes.bool,
         data: PropTypes.object,
         onChange: PropTypes.func,
         renderCheckedIcon: PropTypes.func,
@@ -83,7 +81,6 @@ class Radio extends PureComponent {
             contextCls,
             isChecked,
             isDisabled,
-            isReadOnly,
             data,
             onChange,
             renderCheckedIcon,
@@ -93,7 +90,6 @@ class Radio extends PureComponent {
         return {
             ...rest,
             disabled: isDisabled,
-            readOnly: isReadOnly,
             checked: isChecked,
         };
     };

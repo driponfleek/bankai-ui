@@ -34,7 +34,6 @@ class ColorPicker extends PureComponent {
         const { contextCls, color, hasAlpha } = this.props;
         const Picker = hasAlpha ? RgbaColorPicker : RgbColorPicker;
         const sanatizedColor = this.getSanatizedColor(color);
-        // console.log('color: ', color);
 
         return (
             <Picker

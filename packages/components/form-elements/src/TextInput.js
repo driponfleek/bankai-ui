@@ -56,6 +56,7 @@ class TextInput extends PureComponent {
             shouldAutoComplete,
             shouldAutoFocus,
             shouldSpellCheck,
+            onChange,
             ...rest
         } = this.props;
         const props = {

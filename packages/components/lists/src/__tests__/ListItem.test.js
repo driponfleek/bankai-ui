@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { render, act } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import ListItem from '../ListItem';

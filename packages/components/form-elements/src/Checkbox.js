@@ -10,7 +10,6 @@ class Checkbox extends PureComponent {
     static defaultProps = {
         isDisabled: false,
         isChecked: false,
-        isReadOnly: false,
         onChange: () => Promise.resolve(),
     };
 
@@ -21,7 +20,6 @@ class Checkbox extends PureComponent {
         value: PropTypes.string,
         isChecked: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        isReadOnly: PropTypes.bool,
         data: PropTypes.object,
         onChange: PropTypes.func,
         renderCheckedIcon: PropTypes.func,
@@ -84,7 +82,6 @@ class Checkbox extends PureComponent {
             contextCls,
             isChecked,
             isDisabled,
-            isReadOnly,
             data,
             onChange,
             renderCheckedIcon,
@@ -94,7 +91,6 @@ class Checkbox extends PureComponent {
         return {
             ...rest,
             disabled: isDisabled,
-            readOnly: isReadOnly,
             checked: isChecked,
         };
     };
