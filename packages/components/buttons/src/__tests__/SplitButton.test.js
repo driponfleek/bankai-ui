@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     act,
-    fireEvent,
+    userEvent,
     render,
 } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import SplitButton from '../SplitButton';
@@ -55,7 +55,7 @@ describe('<SplitButton />', () => {
             render(<SplitButton {...props} />, { container });
         });
         const button = container.querySelector(`.${btnCls}`);
-        fireEvent.click(button);
+        userEvent.click(button);
 
         expect(clickSpy).toHaveBeenCalled();
     });
@@ -88,7 +88,7 @@ describe('<SplitButton />', () => {
             render(<SplitButton {...props} />, { container });
         });
         const button = container.querySelector(`.${menuBtnCls}__button`);
-        fireEvent.click(button);
+        userEvent.click(button);
 
         expect(menuToggleSpy).toHaveBeenCalled();
     });

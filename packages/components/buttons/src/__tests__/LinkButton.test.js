@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     act,
-    fireEvent,
+    userEvent,
     render,
 } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
@@ -113,7 +113,7 @@ describe('<LinkButton />', () => {
             render(<LinkButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
-        fireEvent.click(button);
+        userEvent.click(button);
 
         expect(clickSpy).toHaveBeenCalled();
     });
@@ -133,7 +133,7 @@ describe('<LinkButton />', () => {
             render(<LinkButton {...props} />, { container });
         });
         const button = container.querySelector(`.${baseCls}`);
-        fireEvent.click(button);
+        userEvent.click(button);
 
         expect(result?.data).toEqual(data);
     });

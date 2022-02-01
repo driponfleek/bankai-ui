@@ -97,8 +97,9 @@ class ColorPickerInput extends Component {
             <TextInput
                 {...props}
                 value={color}
-                className={`${this.baseCls}__input`}
+                contextCls={`${this.baseCls}__input`}
                 maxLength={maxChars}
+                onChange={this.handleInputChange}
             />
         );
     };
@@ -154,17 +155,12 @@ class ColorPickerInput extends Component {
 
     handlePickerChange = (color) => {
         const { hasAlpha } = this.props;
-        // console.log('color: ', color);
-        // console.log('converted: ', convertColorToHex(color));
 
         this.handleChange(hasAlpha ? convertColorToHex(color) : color);
     };
 
     handleInputChange = (evt) => {
-        const { target } = evt || {};
-        const { value } = target || {};
-
-        this.handleChange(value);
+        this.handleChange(evt?.target?.value);
     };
 
     handleChange = (color) => {
@@ -254,7 +250,6 @@ class ColorPickerInput extends Component {
         return {
             ...rest,
             ...(hasError && { 'aria-invalid': true }),
-            onChange: this.handleInputChange,
         };
     };
 

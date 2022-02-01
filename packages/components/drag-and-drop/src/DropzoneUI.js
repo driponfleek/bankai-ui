@@ -28,8 +28,6 @@ class DropzoneUI extends Component {
         const { isOver } = this.props;
         const hasAttachments = this.getHasAttachments();
 
-        // return this.renderDefaultState();
-
         return (
             <Fragment>
                 {!isOver && !hasAttachments && this.renderDefaultState()}

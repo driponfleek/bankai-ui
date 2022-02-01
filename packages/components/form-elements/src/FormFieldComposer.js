@@ -42,25 +42,9 @@ const withFormField = (Comp) =>
         };
 
         render() {
-            const { contextCls, variant } = this.props;
+            const { contextCls } = this.props;
             const modCls = this.getModCls();
-            let renderer;
-
-            switch (variant) {
-                case INLINE_LEFT:
-                    renderer = this.renderInlineLeft;
-                    break;
-                case INLINE_RIGHT:
-                    renderer = this.renderInlineRight;
-                    break;
-                case TOGGLE:
-                    renderer = this.renderToggle;
-                    break;
-                case STACKED:
-                default:
-                    renderer = this.renderStacked;
-                    break;
-            }
+            const renderer = this.getRenderer();
 
             return (
                 <div className={cx(this.baseCls, modCls, contextCls)}>
@@ -181,8 +165,29 @@ const withFormField = (Comp) =>
 
         renderSubText = () => {
             const props = this.getLabelSubtextExtantProps();
+            const { renderSubtext, ...rest } = props;
 
-            return <FormLabelSubtext {...props} />;
+            return renderSubtext ? (
+                renderSubtext({ ...rest })
+            ) : (
+                <FormLabelSubtext {...rest} />
+            );
+        };
+
+        getRenderer = () => {
+            const { variant } = this.props;
+
+            switch (variant) {
+                case INLINE_LEFT:
+                    return this.renderInlineLeft;
+                case INLINE_RIGHT:
+                    return this.renderInlineRight;
+                case TOGGLE:
+                    return this.renderToggle;
+                case STACKED:
+                default:
+                    return this.renderStacked;
+            }
         };
 
         getModCls = () => {
@@ -222,9 +227,12 @@ const withFormField = (Comp) =>
             const getHasLabelSubtext = this.getHasLabelSubtext();
 
             return [
-                ...(shouldIncludeError && [this.getErrorId()]),
-                ...(hasLabel && getHasLabelSubtext && [this.getHintId()]),
-                ...(shouldIncludeHint && [this.getHintId()]),
+                ...(shouldIncludeError ? [this.getErrorId()] : []),
+                ...(shouldIncludeHint && hasLabel ? [this.getHintId()] : []),
+                ...(getHasLabelSubtext && hasLabel
+                    ? [this.getSubtextId()]
+                    : []),
+                // ...(shouldIncludeHint && [this.getHintId()]),
             ].join(' ');
         };
 
@@ -299,9 +307,9 @@ const withFormField = (Comp) =>
 
         getHasLabelSubtext = () => {
             const { labelSubtextProps } = this.props;
-            const { subtext, renderCustomSubtext } = labelSubtextProps || {};
+            const { subtext, renderSubtext } = labelSubtextProps || {};
 
-            return !!subtext || renderCustomSubtext;
+            return !!subtext || renderSubtext;
         };
 
         getCompExtantProps = () => {
@@ -324,12 +332,13 @@ const withFormField = (Comp) =>
             return {
                 ...rest,
                 id: id || this.id,
-                ...(!!isReadOnly && { isReadOnly }),
-                ...(!!compHasError && { hasError: compHasError }),
-                ...(shouldIncludeError ||
-                    (shouldIncludeHint && {
-                        'aria-describedby': this.getCompARIADescByIds,
-                    })),
+                ...(isReadOnly && { isReadOnly }),
+                ...(compHasError && { hasError: compHasError }),
+                ...((shouldIncludeError ||
+                    shouldIncludeHint ||
+                    this.getHasLabelSubtext()) && {
+                    'aria-describedby': this.getCompARIADescByIds(),
+                }),
             };
         };
 

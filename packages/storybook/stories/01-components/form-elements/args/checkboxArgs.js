@@ -18,7 +18,6 @@ const { bankaiUI: locale } = strings;
 export const args = {
     isDisabled: false,
     isChecked: false,
-    isReadOnly: false,
     // onChange: () => Promise.resolve(),
 };
 
@@ -48,11 +47,6 @@ export const argTypes = {
         defaultValue: 'false',
         description: locale.shared.propDesc.isDisabled,
         propName: 'isDisabled',
-    }),
-    ...boolArg({
-        defaultValue: 'false',
-        description: locale.shared.propDesc.formIsReadOnly,
-        propName: 'isReadOnly',
     }),
     ...objectArg({
         description:
