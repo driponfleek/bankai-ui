@@ -124,11 +124,6 @@ export const formatThemeColorValuesForWeb = (themeData = {}) => {
         const colorKey = colorKeys[index];
         const val = themeDataClone[colorKey] || '';
 
-        // if (!val) {
-        //     console.log('colorKey: ', colorKey);
-        //     console.log('val: ', val);
-        // }
-
         const isRGB = val.includes('rgb(');
 
         if (isRGB) {
@@ -159,15 +154,6 @@ export const formatThemeDataForWeb = (themeData = {}) => {
     if (themeKeys.length === 0) {
         return themeDataClone;
     }
-
-    // Fix Web-Specific Formats
-    // themeDataClone = formatThemeColorValuesForWeb(
-    //     formatFontSizeValsForWeb(
-    //         formatThemeBorderRadiusValsForWeb(
-    //             formatSpecValuesForWeb(themeDataClone),
-    //         ),
-    //     ),
-    // );
 
     // Fix Web-Specific Formats
     themeDataClone = formatThemeColorValuesForWeb(

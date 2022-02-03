@@ -8,6 +8,12 @@
         "@epr0t0type/eslint-config/src/reactLintConfig",
         "plugin:prettier/recommended"
     ],
+    "parserOptions": {
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
+        },
+        "requireConfigFile": false
+    },
     "plugins": [
         "jest"
     ]

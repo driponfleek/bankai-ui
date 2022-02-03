@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { MenuButton } from '@epr0t0type/bankai-ui-buttons';
 import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
+import { Hyperlink } from '@epr0t0type/bankai-ui-typography';
+import CalloutMemoInfo from '../../../../sb-components/callouts/CalloutMemoInfo';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -68,13 +70,35 @@ class MenuButtonGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
+        const calloutMemoCls = 'bankai-callout-memo';
 
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <MenuButton {...props} />
                 </ComponentPreview>
-                <Paragraph>Coming soon.</Paragraph>
+                <Paragraph>
+                    Menu Buttons should be used when we need to consolidate
+                    related actions to preserve space or to improve the overall
+                    user experience. For example, you may want to use a menu
+                    button for actions when there isn&apos;t enough space to
+                    show all of them, or when there are actions that are not
+                    used frequently by users and consolidating them in to a menu
+                    button improves the overall UI and experience.
+                </Paragraph>
+                <CalloutMemoInfo title="Note">
+                    <p className={`${calloutMemoCls}__msg`}>
+                        {locale.designSystemName}&apos;s Menu Button uses{' '}
+                        <Hyperlink
+                            href="https://github.com/davidtheclark/react-aria-menubutton"
+                            shouldOpenInNewWindow
+                        >
+                            react-aria-menubutton
+                        </Hyperlink>{' '}
+                        behind the scenes. Additional information beyond the
+                        scope shown here can be found in their documentation.
+                    </p>
+                </CalloutMemoInfo>
             </StorySection>
         );
     }

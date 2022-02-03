@@ -29,34 +29,41 @@ export const argTypes = {
         propName: 'contextCls',
     }),
     ...numberArg({
-        // description: '',
+        description: locale.shared.propDesc.headingLvl,
         propName: 'headingLvl',
     }),
     ...boolArg({
         defaultValue: 'false',
-        // description: '',
+        description:
+            'When `false` only allows one accordion item to be open at a time. When `true` allows multiple accordion items to be open at the same time.',
         propName: 'shouldAllowMultipleExpanded',
     }),
     ...boolArg({
         defaultValue: args.shouldAllowZeroExpanded,
-        // description: '',
+        description:
+            'When true this will allow users to collapse all the accordion items. Setting to false will prevent the user from collapsing the last remaining expanded item.',
         propName: 'shouldAllowZeroExpanded',
     }),
     ...arrayArg({
+        description:
+            'An array of accordion item UUIDs that should be expanded by default when the component is first mounted.',
         propName: 'preExpanded',
     }),
     ...funcArg({
-        // description: '',
+        description:
+            'Render prop used to render custom content in to the trigger of the accordion.',
         propName: 'renderTrigger',
     }),
     ...funcArg({
-        // description: '',
+        description:
+            'Use to override the default trigger icon used to indicate collapsed/expanded state to end users.',
         propName: 'renderTriggerIcon',
     }),
     ...funcArg({
         action: 'change fired',
         defaultValue: '() => Promise.resolve()',
-        // description: '',
+        description:
+            'Callback which is called when items are expaned or collapsed. Returns an array of UUIDs for the currently expanded items in the accordion.',
         propName: 'onChange',
     }),
 };

@@ -232,7 +232,6 @@ const withFormField = (Comp) =>
                 ...(getHasLabelSubtext && hasLabel
                     ? [this.getSubtextId()]
                     : []),
-                // ...(shouldIncludeHint && [this.getHintId()]),
             ].join(' ');
         };
 

@@ -34,6 +34,13 @@ export const convertColorToRGB = (val = '#000000', isString = false) => {
     return isString ? color.toRgbString() : color.toRgb();
 };
 
+/**
+ * Use to convert hex value that need alpha transperancy to RGBA
+ * @param {*} val
+ * @param {*} alpha - alpha transparency (0 - 1)
+ * @param {*} isString - When true will return rgba string instead of object
+ * @returns string if isString is true, otherwise object { r, g, b, a }
+ */
 export const convertColorToRGBA = (
     val = '#000000',
     alpha = 1,

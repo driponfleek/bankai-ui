@@ -13,7 +13,7 @@
 		"autoprefixer": "10.2.4",
 		"babel-jest": "27.4.2",
 		"cross-env": "7.0.3",
-		"husky": "4.3.8",
+		"husky": "7.0.0",
 		"jest": "27.4.3",
 		"jest-environment-jsdom-global": "3.0.0",
 		"lerna": "4.0.0",
@@ -28,11 +28,6 @@
 		"rollup-plugin-terser": "7.0.2",
 		"rollup-plugin-visualizer": "4.2.0",
 		"rxjs-compat": "6.6.7"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
 	},
 	"lint-staged": {
 		"packages/**/*.js": [
@@ -60,6 +55,8 @@
 		"lerna-version": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna version --conventional-commits --yes",
 		"lint:js": "eslint packages --fix --ignore-pattern '**/node_modules/**' --ignore-pattern '**/public/**' --ignore-pattern '**/build/**' --ignore-pattern '**/dist/**'",
 		"lint:scss": "stylelint \"**/*.scss\" --fix",
+		"pre-commit": "lint-staged",
+		"prepare": "husky install",
 		"publish-snapshot": "yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --no-push  --canary  --yes --force-publish",
 		"publish-release": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --conventional-commits --yes",
 		"test": "cross-env NODE_ENV=test jest",

@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { linkTo } from '@storybook/addon-links';
 import { LinkButton } from '@epr0t0type/bankai-ui-buttons';
 import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
+import CalloutMemoInfo from '../../../../sb-components/callouts/CalloutMemoInfo';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -60,7 +62,41 @@ class LinkButtonGuide extends PureComponent {
                 <ComponentPreview shouldCheckA11Y>
                     <LinkButton {...props} />
                 </ComponentPreview>
-                <Paragraph>Coming soon.</Paragraph>
+                <Paragraph>
+                    Link Buttons are used when the desired visual appearance,
+                    usability and context in which it is placed are similar to
+                    what a user would expect from a hyperlink. Users interpret
+                    links as navigational, so when using Link Buttons you should
+                    consider the intent and try not to stray too much from this
+                    purpose. For example, a common use cases for using a Link
+                    Button would be needing to handle the click in some way
+                    before allowing the user to continue on to their
+                    destination.
+                </Paragraph>
+                <Paragraph>
+                    As a rule of thumb, use Link Buttons as a last resort when
+                    you need functionality you cannot get from a native
+                    hyperlink.{' '}
+                    <LinkButton
+                        text={`See ${locale.designSystemName}'s native Hyperlink
+                    component`}
+                        onClick={linkTo(
+                            getComponentsTitle(
+                                locale.stories.components.typography
+                                    .categoryTitle,
+                            ),
+                            locale.stories.components.typography.hyperlink
+                                .title,
+                        )}
+                    />{' '}
+                    and consider using this instead of Link Buttons whenever
+                    possible.
+                </Paragraph>
+                <CalloutMemoInfo
+                    title="Note"
+                    msg="Because Link Buttons are designed to mimic native hyperlinks
+                    they cannot be disabled."
+                />
             </StorySection>
         );
     }

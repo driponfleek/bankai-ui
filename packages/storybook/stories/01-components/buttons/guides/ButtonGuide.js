@@ -8,15 +8,11 @@ import {
 } from '@epr0t0type/bankai-ui-buttons';
 import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
 import {
-    CalloutMemo,
-    VARIANTS as CALLOUT_MEMO_VARIANTS,
-} from '@epr0t0type/bankai-ui-callouts';
-import {
     BankaiCirclePlus,
     BankaiCircleDash,
-    BankaiCircleInfo,
     BankaiAndroid,
 } from '@epr0t0type/bankai-ui-icons';
+import CalloutMemoInfo from '../../../../sb-components/callouts/CalloutMemoInfo';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -171,11 +167,9 @@ class ButtonGuide extends PureComponent {
                         isBusy
                     />
                 </ComponentPreviewWithCodeBlock>
-                <CalloutMemo
+                <CalloutMemoInfo
                     title="Note"
                     msg={`The spinning animation is not supplied with a custom busy icon. ${locale.designSystemName} makes no assumptions about the animation that works best for your icon, so you must supply your own when using this approach.`}
-                    variant={CALLOUT_MEMO_VARIANTS.INFO}
-                    renderIcon={this.renderInfoIcon}
                 />
             </StorySection>
         );
@@ -202,42 +196,24 @@ class ButtonGuide extends PureComponent {
                             <ButtonIcon renderIcon={this.renderAndroidIcon} />
                         </Button>
                     </ComponentPreviewWithCodeBlock>
-                    <CalloutMemo variant={CALLOUT_MEMO_VARIANTS.INFO}>
-                        <div className={`${calloutMemoCls}__icon-container`}>
-                            {this.renderInfoIcon(`${calloutMemoCls}__icon`)}
-                        </div>
-                        <div className={`${calloutMemoCls}__text-container`}>
-                            <div
-                                className={`${calloutMemoCls}__title-container`}
-                            >
-                                <p className={`${calloutMemoCls}__title`}>
-                                    Note
-                                </p>
-                            </div>
-                            <div className={`${calloutMemoCls}__msg-container`}>
-                                <p className={`${calloutMemoCls}__msg`}>
-                                    When rendering custom content as children
-                                    inside the button, both the{' '}
-                                    <strong>text</strong> and{' '}
-                                    <strong>renderIcon</strong> props are
-                                    ignored.
-                                </p>
-                                <p className={`${calloutMemoCls}__msg`}>
-                                    <strong>ButtonText</strong> and{' '}
-                                    <strong>ButtonIcon</strong> are provided to
-                                    help you reproduce the same DOM structure
-                                    used by the defaults to preserve initial
-                                    styling when defining custom content.
-                                </p>
-                            </div>
-                        </div>
-                    </CalloutMemo>
+                    <CalloutMemoInfo title="Note">
+                        <p className={`${calloutMemoCls}__msg`}>
+                            When rendering custom content as children inside the
+                            button, both the <strong>text</strong> and{' '}
+                            <strong>renderIcon</strong> props are ignored.
+                        </p>
+                        <p className={`${calloutMemoCls}__msg`}>
+                            <strong>ButtonText</strong> and{' '}
+                            <strong>ButtonIcon</strong> are provided to help you
+                            reproduce the same DOM structure used by the
+                            defaults to preserve initial styling when defining
+                            custom content.
+                        </p>
+                    </CalloutMemoInfo>
                 </StorySection>
             </StorySection>
         );
     };
-
-    renderInfoIcon = (iconCls) => <BankaiCircleInfo contextCls={iconCls} />;
 
     renderCirclePlusIcon = () => <BankaiCirclePlus />;
 
