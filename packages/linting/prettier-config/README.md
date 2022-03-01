@@ -1,11 +1,17 @@
-# `@epr0t0type/bankai-ui-prettier-config`
+# @epr0t0type/prettier-config
+Reusable Prettier configs.
 
-> TODO: description
+## Installing
+```
+yarn add @epr0t0type/prettier-config
+```
 
 ## Usage
+In the root of your project create a `prettier.config.js` file and add the following:
 
 ```
-const prettierConfig = require('@epr0t0type/bankai-ui-prettier-config');
-
-// TODO: DEMONSTRATE API
+module.exports = require('@epr0t0type/prettier-config');
 ```
+
+## Built With
+* [prettier](https://prettier.io/)

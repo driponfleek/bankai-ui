@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 /**
  *
  * @param {object} base - The color to evaluate all variants against
@@ -44,5 +46,3 @@ export const getRecommendedColor = (
         options.find((variant) => variant.lightness === variantLightness) || {}
     );
 };
-
-export default {};

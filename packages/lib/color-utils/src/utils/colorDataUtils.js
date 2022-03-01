@@ -91,7 +91,6 @@ export const getColorVariantsSeedData = (hex, step) => {
  * @param {array} options
  * @returns {object} evaulated base color
  */
-// export const getColorCorrelationsData
 export const getColorCorrelationsData = (baseColorData, options) => {
     return {
         ...baseColorData,

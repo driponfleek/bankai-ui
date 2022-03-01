@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { SplitButton } from '@epr0t0type/bankai-ui-buttons';
+import { linkTo } from '@storybook/addon-links';
+import { SplitButton, LinkButton } from '@epr0t0type/bankai-ui-buttons';
 import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
+import CalloutMemoInfo from '../../../../sb-components/callouts/CalloutMemoInfo';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -71,13 +73,47 @@ class SplitButtonGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
+        const calloutMemoCls = 'bankai-callout-memo';
 
         return (
             <StorySection>
                 <ComponentPreview shouldCheckA11Y>
                     <SplitButton {...props} />
                 </ComponentPreview>
-                <Paragraph>Coming soon.</Paragraph>
+                <Paragraph>
+                    Split buttons should be used when you a set of related
+                    actions and you want to prioritize one of them while
+                    consolidating the rest in a menu.
+                </Paragraph>
+                <CalloutMemoInfo title="Note">
+                    <p className={`${calloutMemoCls}__msg`}>
+                        The Split Button is composed from{' '}
+                        {locale.designSystemName}&apos;s{' '}
+                        <LinkButton
+                            text="Button"
+                            onClick={linkTo(
+                                getComponentsTitle(
+                                    locale.stories.components.buttons
+                                        .categoryTitle,
+                                ),
+                                locale.stories.components.buttons.button.title,
+                            )}
+                        />{' '}
+                        and{' '}
+                        <LinkButton
+                            text="Menu Button"
+                            onClick={linkTo(
+                                getComponentsTitle(
+                                    locale.stories.components.buttons
+                                        .categoryTitle,
+                                ),
+                                locale.stories.components.buttons.menuButton
+                                    .title,
+                            )}
+                        />
+                        .
+                    </p>
+                </CalloutMemoInfo>
             </StorySection>
         );
     }

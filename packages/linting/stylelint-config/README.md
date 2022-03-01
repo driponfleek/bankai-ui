@@ -1,11 +1,18 @@
-# `@epr0t0type/bankai-ui-stylelint-config`
+# @epr0t0type/stylelint-config
+Reusable Stylelint configs for linting CSS and SASS.
 
-> TODO: description
+## Installing
+```
+yarn add @epr0t0type/stylelint-config
+```
 
 ## Usage
+In the root of your project create a `stylelint.config.js` file and add the following:
 
 ```
-const stylelintConfig = require('@epr0t0type/bankai-ui-stylelint-config');
-
-// TODO: DEMONSTRATE API
+module.exports = require('@epr0t0type/stylelint-config');
 ```
+
+## Built With
+* [styelint](https://github.com/stylelint/stylelint)
+* [stylelint-config-standard-scss](https://github.com/stylelint-scss/stylelint-config-standard-scss)
