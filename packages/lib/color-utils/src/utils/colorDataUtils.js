@@ -7,13 +7,23 @@ import {
 import { evaluateColorCompatibilities } from './evalutationUtils';
 
 /**
+ *
+ * @param {string} color - hex or rgb string
+ * @returns {number} lightness of color
+ */
+export const getColorLightness = (color) => {
+    const { l } = convertColorToHSL(color);
+
+    return Math.round(l * 100);
+};
+
+/**
  * Use to get foundation data for a color.
  * @param {string} hex - 4 or 7 digit hex (must include hash)
  */
 export const getColorSeedData = (hex) => {
     const color = tinycolor(hex);
     const hsl = convertColorToHSL(hex);
-    const { l } = hsl || {};
 
     return {
         hex,
@@ -22,7 +32,7 @@ export const getColorSeedData = (hex) => {
         rgb: convertColorToRGB(hex),
         rgbString: convertColorToRGB(hex, true),
         isDark: color.isDark(),
-        lightness: Math.round(l * 100),
+        lightness: getColorLightness(hex),
     };
 };
 
@@ -45,17 +55,6 @@ const getLightnessArray = (step = 10) => {
         .filter((k) => k !== 0)
         .map((l) => l * safeStep)
         .reverse();
-};
-
-/**
- *
- * @param {string} color - hex or rgb string
- * @returns {number} lightness of color
- */
-export const getColorLightness = (color) => {
-    const { l } = convertColorToHSL(color);
-
-    return l * 100;
 };
 
 export const getNewColorByChangingLightness = (hex, lightness) => {

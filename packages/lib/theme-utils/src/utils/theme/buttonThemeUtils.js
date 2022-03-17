@@ -1,5 +1,4 @@
 import {
-    getNewColorByChangingLightness,
     getColorLightness,
     getRecommendedColor,
     getIsReadable,
@@ -7,11 +6,7 @@ import {
     convertColorToRGBA,
 } from '@epr0t0type/bankai-lib-color-utils';
 import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import {
-    getJuxtaposedColorAgainstCanvases,
-    getTextColor,
-    getCorrectedLightnessAdjustment,
-} from '../colorUtils';
+import { getJuxtaposedColorAgainstCanvases, getTextColor } from '../colorUtils';
 import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
 
 const {
@@ -49,18 +44,108 @@ const {
     COLOR_BTN_SPLIT_SECONDARY_DESTRUCTIVE_BORDER,
 } = THEME_TOKEN_NAMES;
 
-const getPrimaryBtnColors = (sourceColorData = {}) => {
-    const { base = {} } = sourceColorData;
+const getPrimaryBtnHoverBGColor = (sourceColorData = {}) => {
+    const { base = {}, variants = [] } = sourceColorData;
     const { hex, isDark } = base;
     const baseColorLightness = getColorLightness(hex);
+    const variantsLightnessArr = variants.map((variant) => variant?.lightness);
+    const variantA = variants[0];
+    const variantB = variants[1];
+    const isBaseAlsoVariant =
+        variants.findIndex(
+            (variant) => variant?.lightness === baseColorLightness,
+        ) > -1;
+    let isBaseColorOutsideVariantRange = false;
+    let shouldReverseLogic = false;
+    // Determine the step used for variants
+    let variantsStep = variantA?.lightness - variantB?.lightness;
+    // In the event the sort order of the variants changes,
+    // check for negative value and fix
+    variantsStep = variantsStep < 0 ? variantsStep * -1 : variantsStep;
+
+    let potentialHoverLightnesses = isDark
+        ? variantsLightnessArr.filter(
+              (variantLightness) => variantLightness < baseColorLightness,
+          )
+        : variantsLightnessArr.filter(
+              (variantLightness) => variantLightness > baseColorLightness,
+          );
+
+    // If there are no options for potential hover lightness that means the baseColorLightness
+    // is lighter/darker than the lights/darkest variants available and we should
+    // pick a hover color from all the variants.
+    if (potentialHoverLightnesses.length === 0) {
+        isBaseColorOutsideVariantRange = true;
+        shouldReverseLogic = true;
+        potentialHoverLightnesses = [...variantsLightnessArr];
+    }
+
+    // If there are less than 2 options for potential hover lightness, that means
+    // we don't have enough options to choose from for a hover color and
+    // we should reverse our original filtering for light/dark check.
+    if (potentialHoverLightnesses.length < 2) {
+        shouldReverseLogic = true;
+        potentialHoverLightnesses = isDark
+            ? variantsLightnessArr.filter(
+                  (variantLightness) => variantLightness > baseColorLightness,
+              )
+            : variantsLightnessArr.filter(
+                  (variantLightness) => variantLightness < baseColorLightness,
+              );
+    }
+
+    // If the baseColorLightness is also a variant
+    // remove it from potential hover lightnesses.
+    if (isBaseAlsoVariant) {
+        potentialHoverLightnesses = potentialHoverLightnesses.filter(
+            (potentialHoverLightness) =>
+                potentialHoverLightness !== baseColorLightness,
+        );
+    }
+
+    // Set closest lightness to lightest value by default
+    let closestVariantLightness = Math.max(...potentialHoverLightnesses);
+
+    // Handle scenarios where the closest variant lightness
+    // should be the darkest variant
+    if (
+        // If the base color is outside the range of the variants
+        // and is perceived as dark
+        (isBaseColorOutsideVariantRange && isDark) ||
+        // If the base color is not outside the range of the variants
+        // and is perceived as dark
+        // and did not have enough potential hover lightnesses on the first check
+        (!isBaseColorOutsideVariantRange && isDark && shouldReverseLogic) ||
+        // If the base color is not outside the range of the variants
+        // and is not perceived as dark
+        // and had enough potential hover lightnesses on the first check
+        (!isBaseColorOutsideVariantRange && !isDark && !shouldReverseLogic) ||
+        // If the base color is not outside the range of the variants
+        // and is perceived as dark
+        // and did not have enough potential hover lightnesses on the first check
+        (!isBaseColorOutsideVariantRange && isDark && shouldReverseLogic)
+    ) {
+        closestVariantLightness = Math.min(...potentialHoverLightnesses);
+    }
+
+    const multiplier = isDark ? -1 : 1;
+    const recommendedHoverLightness =
+        closestVariantLightness +
+        variantsStep * (shouldReverseLogic ? multiplier * -1 : multiplier);
+
+    return variants.find(
+        (variant) => variant?.lightness === recommendedHoverLightness,
+    );
+};
+
+const getPrimaryBtnColors = (sourceColorData = {}) => {
+    const { base = {} } = sourceColorData;
+    const { hex } = base;
     const DEFAULT_TEXT = getTextColor(hex);
     const DEFAULT_BG = hex;
-    const hoverLightness = getCorrectedLightnessAdjustment(
-        baseColorLightness,
-        20,
-        isDark,
-    );
-    const HOVER_BG = getNewColorByChangingLightness(hex, hoverLightness);
+
+    const hoverBGColor = getPrimaryBtnHoverBGColor(sourceColorData);
+    const HOVER_BG = hoverBGColor?.hex;
     const HOVER_TEXT = getTextColor(HOVER_BG);
     const FOCUS_HALO_COLOR = hex;
     const FOCUS_HALO = convertColorToRGBA(FOCUS_HALO_COLOR, 0.4, true);

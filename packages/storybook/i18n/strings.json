@@ -317,6 +317,18 @@
                         "title": "Working With Color"
                     }
                 },
+                "toolsForDesigners": {
+                    "categoryTitle": "Tools For Designers",
+                    "accessibleLinkColorGenerator": {
+                        "title": "Accessible Link Color Generator"
+                    },
+                    "accessibleNonTextColorGenerator": {
+                        "title": "Accessible Non-Text Color Generator"
+                    },
+                    "accessibleTextColorGenerator": {
+                        "title": "Accessible Text Color Generator"
+                    }
+                },
                 "typography": {
                     "categoryTitle": "Typography",
                     "typographySystem": {
