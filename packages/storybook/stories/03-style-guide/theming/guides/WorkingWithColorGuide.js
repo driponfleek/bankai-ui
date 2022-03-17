@@ -4,9 +4,11 @@ import {
     genColorsData,
     getIsReadable,
     getRecommendedColor,
-    // getColorCorrelationsData,
-    // getStarterColorData,
 } from '@epr0t0type/bankai-lib-color-utils';
+import {
+    getThemeDefaults,
+    THEME_TOKEN_NAMES,
+} from '@epr0t0type/bankai-lib-theme-utils';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import CodeTag from '../../../../sb-components/content/CodeTag';
@@ -26,9 +28,23 @@ import './styles/colors-guide.scss';
 const { bankaiUI: locale } = strings;
 
 class WorkingWithColorGuide extends PureComponent {
-    state = {
-        color: genColorsData('#00aeff'),
-    };
+    constructor(...args) {
+        super(...args);
+        const isDarkMode = this.getIsDarkMode();
+        const defaultTheme = getThemeDefaults(isDarkMode);
+
+        this.state = {
+            color: genColorsData(defaultTheme[THEME_TOKEN_NAMES.COLOR_PRIMARY]),
+        };
+    }
+
+    // state = {
+    //     color: genColorsData(
+    //         getThemeDefaults(this.getIsDarkMode())[
+    //             THEME_TOKEN_NAMES.COLOR_PRIMARY
+    //         ],
+    //     ),
+    // };
 
     render() {
         return (
@@ -273,6 +289,14 @@ class WorkingWithColorGuide extends PureComponent {
         }
 
         return getRecommendedColor(base, [base, ...variants], true);
+    };
+
+    getHMTLDOMEl = () => document.getElementsByTagName('html')[0];
+
+    getIsDarkMode = () => {
+        const htmlDOM = this.getHMTLDOMEl();
+
+        return htmlDOM.classList.contains('bankai-sb--dark');
     };
 
     baseCls = 'bankai-sb-colors-guide';

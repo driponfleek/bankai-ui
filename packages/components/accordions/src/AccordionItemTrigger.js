@@ -48,9 +48,7 @@ class AccordionItemTrigger extends PureComponent {
                 contextCls={cx(modCls, btnContextCls)}
             >
                 <div className={`${this.baseCls}__text-container`}>
-                    <div className={`${this.baseCls}__text-container-inner`}>
-                        {children}
-                    </div>
+                    <div className={`${this.baseCls}__text`}>{children}</div>
                 </div>
                 {this.renderTriggerIcon(isExpanded)}
             </AccordionItemButton>
@@ -59,20 +57,23 @@ class AccordionItemTrigger extends PureComponent {
 
     renderTriggerIcon = (isExpanded) => {
         const { renderTriggerIcon } = this.props;
+        const triggerIconRenderer =
+            renderTriggerIcon || this.renderDefaultTriggerIcon;
 
-        return renderTriggerIcon
-            ? renderTriggerIcon({
-                  isExpanded,
-                  triggerIconCls: this.triggerIconCls,
-                  triggerIconContainerCls: `${this.triggerIconCls}-container`,
-              })
-            : this.renderDefaultTriggerIcon();
+        return triggerIconRenderer({
+            isExpanded,
+            triggerIconCls: this.triggerIconCls,
+            triggerIconContainerCls: `${this.triggerIconCls}-container`,
+        });
     };
 
-    renderDefaultTriggerIcon = () => {
+    renderDefaultTriggerIcon = ({
+        triggerIconCls,
+        triggerIconContainerCls,
+    }) => {
         return (
-            <div className={`${this.triggerIconCls}-container`}>
-                <BankaiChevronDown contextCls={this.triggerIconCls} />
+            <div className={triggerIconContainerCls}>
+                <BankaiChevronDown contextCls={triggerIconCls} />
             </div>
         );
     };

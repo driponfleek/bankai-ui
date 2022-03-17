@@ -12,9 +12,12 @@
     }
 
     &__text-container {
-        @include bankai-h5;
         min-width: 1px;
         flex: 1 1 auto;
+    }
+
+    &__text {
+        @include bankai-h5;
     }
 
     &__icon-container {
