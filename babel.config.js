@@ -3,6 +3,10 @@ module.exports = function (api) {
     api.cache(true);
 
     return {
+        assumptions: {
+            arrayLikeIsIterable: true,
+            iterableIsArray: true,
+        },
         presets: [
             [
                 '@babel/preset-env',

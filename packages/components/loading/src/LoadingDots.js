@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+// Utils
+import generateArrUtil from './utils/generateArrUtil';
+
 // Constants
 import { LOADING_DOTS_VARIANTS } from './const/loadingConst';
 
@@ -54,7 +57,7 @@ class LoadingDots extends PureComponent {
                 numberOfDots = 3;
                 break;
         }
-        const arrOfNums = [...Array(numberOfDots).keys()];
+        const arrOfNums = generateArrUtil(numberOfDots);
 
         return arrOfNums.map((id) => this.renderDot(id));
     };

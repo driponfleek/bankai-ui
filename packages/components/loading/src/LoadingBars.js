@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+// Utils
+import generateArrUtil from './utils/generateArrUtil';
+
 // Constants
 import { LOADING_BARS_VARIANTS } from './const/loadingConst';
 
@@ -52,7 +55,7 @@ class LoadingBars extends PureComponent {
                 break;
         }
 
-        const arrOfNums = [...Array(numberOfBars).keys()];
+        const arrOfNums = generateArrUtil(numberOfBars);
 
         return arrOfNums.map((id) => this.renderBAR(id));
     };

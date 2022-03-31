@@ -52,6 +52,7 @@ if (!destinationPathIsValid) {
 // need to be symlinked.
 const componentsDirPath = path.resolve(__dirname, '../packages/components');
 const libDirPath = path.resolve(__dirname, '../packages/lib');
+const lintingDirPath = path.resolve(__dirname, '../packages/linting');
 
 // Utility function for getting the sub-directories
 // found in a given path.
@@ -61,9 +62,11 @@ const getSubDirs = (parentDirPath) => {
 
 // Get Sub-Folder names from parent directories.
 const componentsSubFolders = getSubDirs(componentsDirPath).filter(
-    (folderName) => folderName !== '--boilerplate--',
+    (folderName) =>
+        folderName !== '--boilerplate--' && folderName !== '.DS_Store',
 );
 const libSubFolders = getSubDirs(libDirPath);
+const lintingSubFolders = getSubDirs(lintingDirPath);
 
 // Utility function for generating the paths to
 // sub-directories.
@@ -76,13 +79,24 @@ const componentsSubDirsPaths = getSubDirsPaths(
     componentsDirPath,
     componentsSubFolders,
 );
-const libSubDirsPaths = getSubDirsPaths(libDirPath, libSubFolders);
+const libSubDirsPaths = getSubDirsPaths(libDirPath, libSubFolders).filter(
+    (folderName) => folderName !== '.DS_Store',
+);
+const lintingSubDirsPaths = getSubDirsPaths(
+    lintingDirPath,
+    lintingSubFolders,
+).filter((folderName) => folderName !== '.DS_Store');
 
 // Create List of all paths to be symlinked
-const allSymLinkPaths = [...componentsSubDirsPaths, ...libSubDirsPaths];
+const allSymLinkPaths = [
+    ...componentsSubDirsPaths,
+    ...libSubDirsPaths,
+    ...lintingSubDirsPaths,
+];
 
 // Create Symlinks
 const createSymlinks = () => {
+    let packageNameList;
     allSymLinkPaths.forEach((symLinkPath) => {
         // Create path to package.json
         const pkgJSONPath = `${symLinkPath}/package.json`;
@@ -93,8 +107,15 @@ const createSymlinks = () => {
         // console.log('pkgName: ', pkgName);
         console.log(chalk.green.bold(`Creating symlink for ${pkgName}`));
         execSync(`cd ${symLinkPath} && yarn link`);
-        execSync(`cd ${destinationPath} && yarn link ${pkgName}`);
+
+        if (!packageNameList) {
+            packageNameList = pkgName;
+        } else {
+            packageNameList = `${packageNameList} ${pkgName}`;
+        }
     });
+
+    execSync(`cd ${destinationPath} && yarn link ${packageNameList}`);
 };
 
 // Remove Symlinks

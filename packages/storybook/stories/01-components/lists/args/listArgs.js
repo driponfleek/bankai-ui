@@ -20,7 +20,7 @@ export const args = {
     emptyStateMsg: 'I have nothing to show for myself.',
     emptyStateTitle: 'I Feel Empty Inside',
     shouldAlternateColors: false,
-    data: [...Array(4).keys()].map((key) => ({
+    data: [...Array.from(Array(4).keys())].map((key) => ({
         id: `li-${key}`,
         text: 'List Item Text',
         meta: 'Meta text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim viverra sapien eu venenatis. Curabitur sit amet malesuada quam, eu iaculis mi.',
