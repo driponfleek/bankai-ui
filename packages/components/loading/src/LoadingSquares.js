@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+// Utils
+import generateArrUtil from './utils/generateArrUtil';
+
 // Constants
 import { LOADING_SQUARES_VARIANTS } from './const/loadingConst';
 
@@ -35,7 +38,7 @@ class LoadingSquares extends PureComponent {
     renderSquares = () => {
         const { variant } = this.props;
         const numberOfSquares = variant === FOLDING_QUADS ? 4 : 9;
-        const arrOfNums = [...Array(numberOfSquares).keys()];
+        const arrOfNums = generateArrUtil(numberOfSquares);
 
         return arrOfNums.map((id) => this.renderSquare(id));
     };

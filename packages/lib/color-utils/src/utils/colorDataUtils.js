@@ -51,7 +51,7 @@ const getLightnessArray = (step = 10) => {
     // Stick to whole numbers
     const numOfVariants = Math.round(100 / safeStep);
 
-    return [...Array(numOfVariants).keys()]
+    return [...Array.from(Array(numOfVariants).keys())]
         .filter((k) => k !== 0)
         .map((l) => l * safeStep)
         .reverse();

@@ -59,6 +59,8 @@
 		"prepare": "husky install",
 		"publish-snapshot": "yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --no-push  --canary  --yes --force-publish",
 		"publish-release": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --conventional-commits --yes",
+		"symlink:packages": "node ./scripts/symlinkPackages.js",
+		"symlink:remove:packages": "yarn symlink:packages unlink",
 		"test": "cross-env NODE_ENV=test jest",
 		"test:related": "cross-env NODE_ENV=test jest --findRelatedTests",
 		"whereami": "ls -ltrah"
