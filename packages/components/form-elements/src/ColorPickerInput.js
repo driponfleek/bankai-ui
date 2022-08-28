@@ -80,13 +80,13 @@ class ColorPickerInput extends Component {
         );
     }
 
-    componentDidMount = () => {
+    componentDidMount() {
         this.addListeners();
-    };
+    }
 
-    componentWillUnmount = () => {
+    componentWillUnmount() {
         this.removeListeners();
-    };
+    }
 
     renderInput = () => {
         const { hasAlpha, color } = this.props;
