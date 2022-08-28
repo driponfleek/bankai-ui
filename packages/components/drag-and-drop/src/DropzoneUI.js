@@ -24,7 +24,7 @@ class DropzoneUI extends Component {
         renderAttachmentsState: PropTypes.func,
     };
 
-    render = () => {
+    render() {
         const { isOver } = this.props;
         const hasAttachments = this.getHasAttachments();
 
@@ -35,7 +35,7 @@ class DropzoneUI extends Component {
                 {hasAttachments && !isOver && this.renderAttachmentsState()}
             </Fragment>
         );
-    };
+    }
 
     renderDefaultState = () => {
         const { renderDefaultState, baseCls } = this.props;
