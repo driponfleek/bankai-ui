@@ -18,6 +18,7 @@ module.exports = {
         ],
         indentation: 4,
         'max-line-length': null,
+        'no-invalid-double-slash-comments': null,
         'scss/at-import-partial-extension': 'always',
         'scss/at-rule-conditional-no-parentheses': null,
         'scss/at-rule-no-unknown': [
@@ -51,5 +52,7 @@ module.exports = {
         ],
         'selector-list-comma-newline-after': 'always-multi-line',
         'string-quotes': 'single',
+        // https://github.com/stylelint/stylelint/issues/5863
+        'value-keyword-case': ['lower', { camelCaseSvgKeywords: true }],
     },
 };

@@ -41,8 +41,8 @@
         "**/*.scss.js"
     ],
     "scripts": {
-        "build": "yarn run pre:build && rollup -c",
-        "pre:build": "../../../node_modules/.bin/rimraf dist/"
+        "build": "npm run pre:build && rollup -c",
+        "pre:build": "rimraf dist/"
     },
     "version": "0.0.0"
 }

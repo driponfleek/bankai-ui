@@ -4,11 +4,33 @@
 module.exports = {
     extends: [
         '@epr0t0type/eslint-config/src/jsLintConfig',
-        'prettier/react',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
     ],
+    parserOptions: {
+        babelOptions: {
+            presets: ['@babel/preset-react'],
+        },
+        requireConfigFile: false,
+    },
     rules: {
+        'class-methods-use-this': [
+            2,
+            {
+                enforceForClassFields: false,
+                exceptMethods: [
+                    'componentDidCatch',
+                    'componentDidMount',
+                    'componentWillUnmount',
+                    'componentDidUpdate',
+                    'componentWillReact',
+                    'componentWillReceiveProps',
+                    'componentWillUpdate',
+                    'render',
+                    'shouldComponentUpdate',
+                ],
+            },
+        ],
         'jsx-a11y/anchor-is-valid': [
             2,
             {
@@ -90,6 +112,7 @@ module.exports = {
                 ignore: ['children'],
             },
         ],
+        'react/react-in-jsx-scope': 0,
         'react/require-default-props': 0,
         'react/self-closing-comp': 2,
         'react/sort-comp': [

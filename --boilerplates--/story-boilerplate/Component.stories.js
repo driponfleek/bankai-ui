@@ -1,12 +1,12 @@
 // import { getComponentsTitle } from '../../../utils/storiesConfig';
-// import strings from '../../../i18n/strings.json';
 
-// const { bankaiUI: locale } = strings;
+// // Utils
+// import { getLocale } from '../../../utils/localeUtils';
 
 // export default {
 //     title: getComponentsTitle(
-//         locale.stories.components.componentCategory.categoryTitle,
+//         getLocale('stories.components.componentCategory.categoryTitle'),
 //     ),
 // };
 
-// export { default as ComponentStory } from './ComponentStory';
+// export { default as StoryComponent } from './StoryComponent';

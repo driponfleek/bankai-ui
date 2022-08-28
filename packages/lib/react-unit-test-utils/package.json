@@ -1,7 +1,7 @@
 {
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
-        "@testing-library/react": "12.1.2",
+        "@testing-library/react": "13.1.1",
         "@testing-library/user-event": "13.5.0"
     },
     "description": "Bankai Library of helper utilities for unit testing applications with React framework",

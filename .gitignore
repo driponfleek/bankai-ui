@@ -19,4 +19,5 @@ Thumbs.db
 stats.html
 stats.json
 .env
-.yarnrc
+.npmrc
+.vscode/

@@ -12,7 +12,7 @@ const fixStoryBookBabel = (config, symLinks) => {
     const babelLoader = babelLoaderRule.use[0];
 
     babelLoader.options.presets = [
-        require.resolve('@babel/preset-react'),
+        [require.resolve('@babel/preset-react'), { runtime: 'automatic' }],
         require.resolve('@babel/preset-env'),
     ];
 

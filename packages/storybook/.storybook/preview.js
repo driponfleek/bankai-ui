@@ -1,6 +1,5 @@
 import React from 'react';
 import { themes } from '@storybook/theming';
-// import { useDarkMode } from 'storybook-dark-mode';
 
 const brandTitle = 'Bankai UI';
 
@@ -23,6 +22,7 @@ export const parameters = {
     },
     darkMode: {
         classTarget: 'html',
+        current: 'light',
         dark: {
             ...themes.dark,
             brandTitle,
@@ -36,5 +36,3 @@ export const parameters = {
         stylePreview: true,
     },
 };
-
-// export const decorators = [(Story) => <Story isDarkMode={useDarkMode()} />];

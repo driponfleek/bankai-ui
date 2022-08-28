@@ -8,7 +8,7 @@
 // } from '../../../../utils/argTypesUtils';
 
 // // Locale
-// import strings from '../../../../i18n/strings.json';
+// import { getLocale } from '../../../../utils/localeUtils';
 
 // // Reference:
 // // https://storybook.js.org/docs/react/essentials/controls
@@ -26,7 +26,7 @@
 
 // export const argTypes = {
 //     ...stringArg({
-//         description: locale.shared.propDesc.contextCls,
+//         description: getLocale('shared.propDesc.contextCls'),
 //         propName: 'contextCls',
 //     }),
 //     ...stringArg({
@@ -34,25 +34,13 @@
 //         propName: 'text',
 //     }),
 //     ...selectArg({
-//         defaultValue: 'button',
-//         description: 'Use to set the HTML button type attribute.',
-//         options: ['button', 'submit'],
-//         propName: 'type',
-//     }),
-//     ...selectArg({
-//         description: locale.shared.propDesc.variant,
+//         description: getLocale('shared.propDesc.variant'),
 //         options: Object.keys(VARIANTS).map((VARIANT) => VARIANTS[VARIANT]),
 //         propName: 'variant',
 //     }),
 //     ...boolArg({
 //         defaultValue: 'false',
-//         description:
-//             'Use to render a busy state for the component when the UI needs time to perform an action triggerd by a user interaction with the component.',
-//         propName: 'isBusy',
-//     }),
-//     ...boolArg({
-//         defaultValue: 'false',
-//         description: locale.shared.propDesc.isDisabled,
+//         description: getLocale('shared.propDesc.isDisabled'),
 //         propName: 'isDisabled',
 //     }),
 //     ...objectArg({

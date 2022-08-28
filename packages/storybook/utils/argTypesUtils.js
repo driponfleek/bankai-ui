@@ -97,72 +97,108 @@ export const genArgType = (config) => {
 };
 
 export const stringArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.TEXT],
-        propType: PROP_TYPES.STRING,
+        propType: propType
+            ? `${PROP_TYPES.STRING}, ${propType}`
+            : PROP_TYPES.STRING,
     });
 };
 
 export const dateArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.DATE],
-        propType: `${PROP_TYPES.INSTANCE_OF}: Date`,
+        propType: propType
+            ? `${`${PROP_TYPES.INSTANCE_OF}: Date`}, ${propType}`
+            : `${PROP_TYPES.INSTANCE_OF}: Date`,
     });
 };
 
 export const numberArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.NUMBER],
-        propType: PROP_TYPES.NUMBER,
+        propType: propType
+            ? `${PROP_TYPES.NUMBER}, ${propType}`
+            : PROP_TYPES.NUMBER,
     });
 };
 
 export const selectArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.SELECT],
-        propType: PROP_TYPES.STRING,
+        propType: propType
+            ? `${PROP_TYPES.STRING}, ${propType}`
+            : PROP_TYPES.STRING,
     });
 };
 
 export const boolArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.BOOL],
-        propType: PROP_TYPES.BOOL,
+        propType: propType
+            ? `${PROP_TYPES.BOOL}, ${propType}`
+            : PROP_TYPES.BOOL,
     });
 };
 
 export const arrayArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.ARRAY],
-        propType: PROP_TYPES.ARRAY,
+        propType: propType
+            ? `${PROP_TYPES.ARRAY}, ${propType}`
+            : PROP_TYPES.ARRAY,
     });
 };
 
 export const objectArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJECT],
-        propType: PROP_TYPES.OBJECT,
+        propType: propType
+            ? `${PROP_TYPES.OBJECT}, ${propType}`
+            : PROP_TYPES.OBJECT,
     });
 };
 
 export const shapeArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
+        ...rest,
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.OBJECT],
-        propType: PROP_TYPES.SHAPE,
+        propType: propType
+            ? `${PROP_TYPES.SHAPE}, ${propType}`
+            : PROP_TYPES.SHAPE,
     });
 };
 
 export const funcArg = (config) => {
+    const { propType, ...rest } = config ?? {};
+
     return genArgType({
-        ...config,
-        propType: PROP_TYPES.FUNC,
+        ...rest,
+        propType: propType
+            ? `${PROP_TYPES.FUNC}, ${propType}`
+            : PROP_TYPES.FUNC,
     });
 };
