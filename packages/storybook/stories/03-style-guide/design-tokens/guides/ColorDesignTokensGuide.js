@@ -779,8 +779,8 @@ class ColorDesignTokensGuide extends PureComponent {
         );
     };
 
-    renderColorWithVariants = (colorData = {}, renderDesc) => {
-        const { base, variants } = colorData;
+    renderColorWithVariants = (colorData, renderDesc) => {
+        const { base, variants } = colorData ?? {};
 
         return (
             <div className={`${this.baseCls}__color-with-variants-container`}>
@@ -860,8 +860,8 @@ class ColorDesignTokensGuide extends PureComponent {
         return htmlDOM.classList.contains('bankai-sb--dark');
     };
 
-    getMassagedColorData = (color = {}, colorName) => {
-        const { hex, id } = color;
+    getMassagedColorData = (color, colorName) => {
+        const { hex, id } = color ?? {};
 
         return {
             colorDescription: hex,
@@ -871,8 +871,8 @@ class ColorDesignTokensGuide extends PureComponent {
         };
     };
 
-    getMassagedColorVariantData = (variants = [], baseColorName) => {
-        return variants.map((variant = {}) => {
+    getMassagedColorVariantData = (variants, baseColorName) => {
+        return (variants ?? []).map((variant = {}) => {
             const { lightness } = variant;
 
             return this.getMassagedColorData(

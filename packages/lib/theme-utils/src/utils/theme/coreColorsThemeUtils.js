@@ -35,7 +35,7 @@ const {
     COLOR_UNIVERSAL_HOVER_BG,
 } = THEME_TOKEN_NAMES;
 
-export const getCoreColorsData = (data = {}, isDarkMode) => {
+export const getCoreColorsData = (data, isDarkMode) => {
     const DEFAULTS = getThemeDefaults(isDarkMode);
     const {
         [`${getThemeAPIKeyFromName(COLOR_ACCENT)}`]:
@@ -91,7 +91,7 @@ export const getCoreColorsData = (data = {}, isDarkMode) => {
             THEME_COLOR_UNIVERSAL_BORDER = DEFAULTS[COLOR_UNIVERSAL_BORDER],
         [`${getThemeAPIKeyFromName(COLOR_UNIVERSAL_HOVER_BG)}`]:
             THEME_COLOR_UNIVERSAL_HOVER_BG = DEFAULTS[COLOR_UNIVERSAL_HOVER_BG],
-    } = data;
+    } = data ?? {};
     const accentColorData = genColorsData(THEME_COLOR_ACCENT);
     const affirmativeColorData = genColorsData(THEME_COLOR_AFFIRMATIVE);
     const brandColorData = genColorsData(THEME_COLOR_BRAND);

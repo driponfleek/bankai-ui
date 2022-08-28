@@ -28,7 +28,7 @@ const {
 const getAutoCorrectedColor = (
     colors = {},
     shouldAutoCorrectColors = true,
-    shouldEvalForText,
+    shouldEvalForText = false,
 ) => {
     const { sourceColorData = {}, ...rest } = colors;
 

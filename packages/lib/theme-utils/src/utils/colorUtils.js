@@ -32,14 +32,14 @@ export const getCommonColorCompatabilities = (
 };
 
 export const getJuxtaposedColorAgainstCanvases = (
-    colors = {},
+    colors,
     shouldEvalForText,
 ) => {
     const {
         sourceColorData = {},
         canvasColor = {},
         canvasAltColor = {},
-    } = colors;
+    } = colors ?? {};
     let { base = {} } = sourceColorData;
     const { variants = [] } = sourceColorData;
     const canvasOptions = [base, ...variants];

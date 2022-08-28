@@ -113,36 +113,46 @@ class CalloutMemoGuide extends PureComponent {
                         renderIcon={this.renderCalloutIcon(INFO)}
                     />
                 </ComponentPreview>
-                {/* <ComponentPreviewWithCodeBlock
-                    contextCls={`${this.baseCls}__examples-preview`}
-                    codeString={examplesCodeStr}
-                >
-                    <CalloutMemo />
-                </ComponentPreviewWithCodeBlock> */}
             </StorySection>
         );
     };
 
-    renderCalloutIcon = (VARIANT) => (iconCls) => {
-        let Icon;
+    renderCalloutIcon = (VARIANT) => {
+        let iconRenderer;
 
         switch (VARIANT) {
             case AFFIRMATIVE:
-                Icon = BankaiCheck;
+                iconRenderer = this.renderAffirmativeCalloutMemoIcon;
                 break;
             case CAUTIONARY:
             case ERROR:
-                Icon = BankaiTriangleAlert;
+                iconRenderer = this.renderCautionaryErrorCalloutMemoIcon;
                 break;
             case INFO:
-                Icon = BankaiCircleInfo;
+                iconRenderer = this.renderInfoCalloutMemoIcon;
                 break;
             default:
-                Icon = BankaiCloud;
+                iconRenderer = this.renderDefaultCalloutMemoIcon;
                 break;
         }
 
-        return <Icon contextCls={iconCls} />;
+        return iconRenderer;
+    };
+
+    renderDefaultCalloutMemoIcon = (iconCls) => {
+        return <BankaiCloud contextCls={iconCls} />;
+    };
+
+    renderAffirmativeCalloutMemoIcon = (iconCls) => {
+        return <BankaiCheck contextCls={iconCls} />;
+    };
+
+    renderCautionaryErrorCalloutMemoIcon = (iconCls) => {
+        return <BankaiTriangleAlert contextCls={iconCls} />;
+    };
+
+    renderInfoCalloutMemoIcon = (iconCls) => {
+        return <BankaiCircleInfo contextCls={iconCls} />;
     };
 
     baseCls = 'bankai-sb-callout-memo-guide';

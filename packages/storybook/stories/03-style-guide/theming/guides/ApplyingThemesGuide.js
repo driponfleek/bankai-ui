@@ -32,7 +32,7 @@ import {
 import {
     CalloutMemo,
     GenericError,
-    VARIANTS as CM_VARIANTS,
+    VARIANTS as CALLOUT_VARIANTS,
 } from '@epr0t0type/bankai-ui-callouts';
 import {
     Badge,
@@ -519,7 +519,7 @@ class ApplyingThemesGuide extends PureComponent {
                         <ComponentPreview contextCls={this.demoCls}>
                             <div>
                                 {this.renderCalloutMemo(
-                                    CM_VARIANTS.AFFIRMATIVE,
+                                    CALLOUT_VARIANTS.AFFIRMATIVE,
                                 )}
                             </div>
                             <div>
@@ -596,7 +596,9 @@ class ApplyingThemesGuide extends PureComponent {
                     <FormLayoutSection>
                         <ComponentPreview contextCls={this.demoCls}>
                             <div>
-                                {this.renderCalloutMemo(CM_VARIANTS.CAUTIONARY)}
+                                {this.renderCalloutMemo(
+                                    CALLOUT_VARIANTS.CAUTIONARY,
+                                )}
                             </div>
                             <div>
                                 {this.renderBadge(BADGE_VARIANTS.CAUTIONARY)}
@@ -651,7 +653,7 @@ class ApplyingThemesGuide extends PureComponent {
                                 />
                             </div>
                             <div>
-                                {this.renderCalloutMemo(CM_VARIANTS.ERROR)}
+                                {this.renderCalloutMemo(CALLOUT_VARIANTS.ERROR)}
                             </div>
                             <div>
                                 <ComposedTextInput
@@ -699,7 +701,7 @@ class ApplyingThemesGuide extends PureComponent {
                     <FormLayoutSection>
                         <ComponentPreview contextCls={this.demoCls}>
                             <div>
-                                {this.renderCalloutMemo(CM_VARIANTS.INFO)}
+                                {this.renderCalloutMemo(CALLOUT_VARIANTS.INFO)}
                             </div>
                             <div>{this.renderBadge(BADGE_VARIANTS.INFO)}</div>
                         </ComponentPreview>
@@ -727,31 +729,43 @@ class ApplyingThemesGuide extends PureComponent {
                 title="Callout Memo"
                 msg="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 variant={VARIANT}
-                renderIcon={this.renderCalloutMemoIcon(VARIANT)}
+                renderIcon={this.renderCalloutMemoIconByVariant(VARIANT)}
             />
         );
     };
 
-    renderCalloutMemoIcon = (VARIANT) => (iconCls) => {
-        let Icon;
+    renderCalloutMemoIconByVariant = (VARIANT) => {
+        let iconRenderer;
 
         switch (VARIANT) {
-            case CM_VARIANTS.AFFIRMATIVE:
-                Icon = BankaiCheck;
+            case CALLOUT_VARIANTS.AFFIRMATIVE:
+                iconRenderer = this.renderAffirmativeCalloutMemoIcon;
                 break;
-            case CM_VARIANTS.CAUTIONARY:
-            case CM_VARIANTS.ERROR:
-                Icon = BankaiTriangleAlert;
+            case CALLOUT_VARIANTS.CAUTIONARY:
+            case CALLOUT_VARIANTS.ERROR:
+                iconRenderer = this.renderCautionaryErrorCalloutMemoIcon;
                 break;
-            case CM_VARIANTS.INFO:
-                Icon = BankaiCircleInfo;
+            case CALLOUT_VARIANTS.INFO:
+                iconRenderer = this.renderInfoCalloutMemoIcon;
                 break;
             default:
-                Icon = BankaiCheck;
+                iconRenderer = this.renderAffirmativeCalloutMemoIcon;
                 break;
         }
 
-        return <Icon contextCls={iconCls} />;
+        return iconRenderer;
+    };
+
+    renderAffirmativeCalloutMemoIcon = (iconCls) => {
+        return <BankaiCheck contextCls={iconCls} />;
+    };
+
+    renderCautionaryErrorCalloutMemoIcon = (iconCls) => {
+        return <BankaiTriangleAlert contextCls={iconCls} />;
+    };
+
+    renderInfoCalloutMemoIcon = (iconCls) => {
+        return <BankaiCircleInfo contextCls={iconCls} />;
     };
 
     renderAlertIcon = (iconCls) => <BankaiTriangleAlert contextCls={iconCls} />;
