@@ -82,7 +82,7 @@ export const getTypographyTheme = (data = {}) => {
     return themeData;
 };
 
-export const getBorderRadiusTheme = (data = {}, isRoundedUI) => {
+export const getBorderRadiusTheme = (data, isRoundedUI) => {
     const dataClone = {
         ...getBorderRadiusDefaults(),
         ...data,
@@ -123,7 +123,7 @@ export const getBorderRadiusTheme = (data = {}, isRoundedUI) => {
     };
 };
 
-export const getSpecTheme = (data = {}, isRoundedUI) => {
+export const getSpecTheme = (data, isRoundedUI) => {
     const typographyTheme = getTypographyTheme(data);
     const borderRadiusTheme = getBorderRadiusTheme(data, isRoundedUI);
     const GRID_BASE_API_KEY = getThemeAPIKeyFromName(LAYOUT_GRID_BASE);

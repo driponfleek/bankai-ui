@@ -58,7 +58,7 @@ const getPrimaryBtnHoverBGColor = (sourceColorData = {}) => {
     let isBaseColorOutsideVariantRange = false;
     let shouldReverseLogic = false;
     // Determine the step used for variants
-    let variantsStep = variantA?.lightness - variantB?.lightness;
+    let variantsStep = variantA.lightness - variantB.lightness;
     // In the event the sort order of the variants changes,
     // check for negative value and fix
     variantsStep = variantsStep < 0 ? variantsStep * -1 : variantsStep;
