@@ -14,8 +14,9 @@ A flexible UI SDK to serve as a solid starting point when establishing dev stand
 ## Prerequisites
 You should have the following installed on your machine before starting:
 
-- Node and NPM
-- Yarn
+-   Node and NPM (managed through Node Version Manager (NVM))
+    -   [NVM for Mac](https://github.com/nvm-sh/nvm)
+    -   [NVM for Windows](https://github.com/coreybutler/nvm-windows)
 
 Also, make sure to [install `Lerna` globally on your machine](https://lerna.js.org/#getting-started).
 
@@ -34,48 +35,72 @@ To unlink this repo's packages from your other projects:
 1. Ensure you have modified the `symlink:packages` script as described in the above steps.
 1. In terminal run the `symlink:remove:packages` from the root of this project.
 
-> **NOTE:** Make sure to revert the changes you made to the `symlink:packages` before committing your code!
+> **Note** 
+> Make sure to revert the changes you made to the `symlink:packages` before committing your code!
 
 ## Running Storybook
 1. Clone this repo to the desired location on your machine and navigate to the root of the project within your terminal.
 1. Run `lerna bootstrap` to install all dependencies.
 1. Navigate to `packages/storybook`.
-1. Run `yarn start` in your terminal to start up Storybook.
+1. Run `npm start` in your terminal to start up Storybook.
+
+> **Note**
+> If you run in to an error when running `lerna bootstrap` in regard to peerDependencies and you're on the latest version of node/npm, run `npm config set legacy-peer-deps true` to fix. This prevents npm from trying to auto-install peer dependencies by default.
 
 ## Running Tests
 The following should all be run from the project root folder:
 
 **Run All Tests**
 ```
-yarn test
+npm run test
 ```
 
 **Get Coverage For All Tests**
 ```
-yarn test --coverage
+npm run test -- --coverage
 ```
 
 **Watch**
 
 Run tests and automatically update results when changes are made to corresponding code.
 ```
-yarn test --watch
+npm run test -- --watch
 ```
 
 **Run a Specific Test**
 ```
-yarn test packages/components/buttons/src/__tests__/Button.test.js
+npm run test packages/components/buttons/src/__tests__/Button.test.js
 ```
 
 **Run All Tests in a Package**
 ```
-yarn test packages/components/buttons/src/**/*.js
+npm run test packages/components/buttons/src/**/*.js
 ```
 
 **Get Coverage For All Tests in a Package**
 ```
-yarn test packages/components/buttons/src/**/*.js --coverage --collectCoverageFrom=packages/components/buttons/src/**/*.js
+npm run test packages/components/buttons/src/**/*.js -- --coverage --collectCoverageFrom="packages/components/buttons/src/**/*.js"
 ```
+
+## Developer Workflow
+
+```mermaid
+flowchart TD
+    subgraph main
+    nodeStart(Get Latest Code)
+    end
+    nodeStart --Create New Branch--> newBranchStart(git checkout -b feature/branch-name\ngit checkout -b bug/branch-name)
+    newBranchStart --Commit Changes with Conventional Commit--> newBranchCommit(git add .\ngit commit -m &quotfeat: Commit message&quot\ngit push --set-upstream origin feature/branch-name)
+    newBranchCommit --Sync Current Branch with Main Branch--> newBranchSyncWithMain(git rebase -i origin/main\nSquash all commits except first one\ngit push -f)
+    newBranchSyncWithMain --> createPR(Create Pull Request in Github\nAssign/Notify Reviewers\nGet at least 1 approval)
+    createPR --Merge PR in to Main Branch\nSwitch back to Main Branch--> nodeStart
+    style newBranchStart text-align:left
+    style newBranchCommit text-align:left
+    style newBranchSyncWithMain text-align:left
+```
+
+> **Note**
+> When committing code make sure to use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). This automates the versioning of packages and updating of CHANGELOGs.
 
 ## The Tech Stack
 - [Lerna](https://lerna.js.org/)

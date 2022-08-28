@@ -27,8 +27,8 @@
         "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
     },
     "scripts": {
-        "build": "yarn run pre:build && rollup -c",
-        "pre:build": "../../../node_modules/.bin/rimraf dist/"
+        "build": "npm run pre:build && rollup -c",
+        "pre:build": "rimraf dist/"
     },
     "sideEffects": [
         "**/*.css",

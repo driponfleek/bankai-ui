@@ -8,6 +8,7 @@
 		"@epr0t0type/stylelint-config": "^0.0.0",
 		"@rollup/plugin-babel": "5.3.0",
 		"@rollup/plugin-commonjs": "21.0.1",
+		"@rollup/plugin-json": "4.1.0",
 		"@rollup/plugin-node-resolve": "13.0.6",
 		"@testing-library/jest-dom": "5.15.1",
 		"autoprefixer": "10.2.4",
@@ -22,18 +23,18 @@
 		"postcss-import": "14.0.0",
 		"postcss-reporter": "7.0.2",
 		"postcss-url": "10.1.1",
-		"rollup": "2.59.0",
+		"rollup": "2.72.0",
 		"rollup-plugin-peer-deps-external": "2.2.4",
-		"rollup-plugin-styles": "3.14.1",
+		"rollup-plugin-styles": "4.0.0",
 		"rollup-plugin-terser": "7.0.2",
-		"rollup-plugin-visualizer": "4.2.0",
+		"rollup-plugin-visualizer": "5.6.0",
 		"rxjs-compat": "6.6.7"
 	},
 	"lint-staged": {
 		"packages/**/*.js": [
 			"prettier --write",
-			"eslint --fix --ignore-pattern '**/public/**' --ignore-pattern '**/build/**' --ignore-pattern '**/dist/**'",
-			"yarn test:related packages/"
+			"eslint --fix --ignore-pattern /**/rollup.config.js --ignore-pattern **/storybook-static/** --ignore-pattern **/node_modules/** --ignore-pattern **/public/** --ignore-pattern **/build/** --ignore-pattern **/dist/**",
+			"npm run test:related packages/"
 		],
 		"packages/**/*.scss": [
 			"stylelint --fix --ignore-pattern '**/public/**' --ignore-pattern '**/build/**'"
@@ -42,25 +43,25 @@
 	"name": "@epr0t0type/bankai-ui",
 	"private": true,
 	"resolutions": {
-		"eslint-plugin-react": "7.28.0",
-		"eslint-plugin-react-hooks": "4.3.0"
+		"eslint-plugin-react": "7.29.4",
+		"eslint-plugin-react-hooks": "4.5.0"
 	},
 	"scripts": {
-		"bootstrap": "yarn run lerna bootstrap",
-		"build": "yarn run lerna run build --concurrency 3",
-		"build:clean": "yarn run lerna run pre:build --parallel",
+		"bootstrap": "lerna bootstrap",
+		"build": "lerna run build --concurrency 3",
+		"build:clean": "lerna run pre:build --parallel",
 		"fresh-start": "lerna clean && rm -rf node_modules && lerna bootstrap",
 		"gitversion": "git --version",
 		"gitstatus": "git status",
-		"lerna-version": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna version --conventional-commits --yes",
-		"lint:js": "eslint packages --fix --ignore-pattern '**/node_modules/**' --ignore-pattern '**/public/**' --ignore-pattern '**/build/**' --ignore-pattern '**/dist/**'",
+		"lerna-version": "cross-env HUSKY_SKIP_HOOKS=1 npm run lerna version --conventional-commits --yes",
+		"lint:js": "eslint --fix --ignore-pattern /**/rollup.config.js --ignore-pattern **/storybook-static/** --ignore-pattern **/node_modules/** --ignore-pattern **/public/** --ignore-pattern **/build/** --ignore-pattern **/dist/** ./",
 		"lint:scss": "stylelint \"**/*.scss\" --fix",
 		"pre-commit": "lint-staged",
 		"prepare": "husky install",
-		"publish-snapshot": "yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --no-push  --canary  --yes --force-publish",
-		"publish-release": "cross-env HUSKY_SKIP_HOOKS=1 yarn run lerna publish --registry https://npm.pkg.github.com/epr0t0type --conventional-commits --yes",
+		"publish-snapshot": "lerna publish --registry https://npm.pkg.github.com/epr0t0type --no-push  --canary  --yes --force-publish",
+		"publish-release": "cross-env HUSKY_SKIP_HOOKS=1 lerna publish --registry https://npm.pkg.github.com/epr0t0type --conventional-commits --yes",
 		"symlink:packages": "node ./scripts/symlinkPackages.js",
-		"symlink:remove:packages": "yarn symlink:packages unlink",
+		"symlink:remove:packages": "npm run symlink:packages unlink",
 		"test": "cross-env NODE_ENV=test jest",
 		"test:related": "cross-env NODE_ENV=test jest --findRelatedTests",
 		"whereami": "ls -ltrah"

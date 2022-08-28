@@ -6,11 +6,16 @@ module.exports = {
         browser: true,
         node: true,
     },
-    extends: ['airbnb', 'plugin:prettier/recommended'],
+    extends: [
+        'airbnb',
+        'plugin:prettier/recommended',
+        'plugin:import/recommended',
+    ],
     parser: '@babel/eslint-parser',
     plugins: ['prettier', 'filenames', 'no-null'],
     rules: {
         'arrow-body-style': 0,
+        'class-methods-use-this': [2, { enforceForClassFields: false }],
         curly: 2,
         'filenames/match-exported': 2,
         'import/no-cycle': 0,

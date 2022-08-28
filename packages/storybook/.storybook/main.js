@@ -7,7 +7,6 @@ const {
     fixStoryBookSass,
 } = require('../utils/webpackUtils');
 const rootNodeModules = path.resolve('..', '..', 'node_modules', '@epr0t0type');
-// console.log('options.presets: ', options?.presets);
 module.exports = {
     addons: [
         {
