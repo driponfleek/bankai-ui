@@ -17,19 +17,19 @@
     }
 
     .rw-widget-picker {
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
     }
 
     .rw-popup {
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
-        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+        border: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
         border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));
     }
 
     .rw-widget-picker,
     .rw-picker-btn {
-        border-color: var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
     }
 
     &.rw-state-focus .rw-widget-picker {
@@ -52,21 +52,21 @@
     }
 
     .rw-picker-btn {
-        color: var(--bankai-color-text, bankai-light-theme('color-text'));
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         width: 30px;
 
         &.rw-input-addon {
-            border-left-color: var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+            border-left-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
         }
 
         &:active {
-            background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+            background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         }
 
         @media (hover: hover) {
             &:hover {
-                background-color: var(--bankai-color-universal-hover-bg, bankai-light-theme('color-universal-hover-bg'));
+                background-color: var(--bankai-core-color-universal-hover-bg, bankai-light-theme('core-color-universal-hover-bg'));
             }
         }
     }
@@ -80,7 +80,7 @@
         opacity: bankai-light-theme('state-disabled-opacity');
 
         > .rw-widget-picker {
-            background-color: var(--bankai-color-form-input-disabled-bg, bankai-light-theme('color-form-input-disabled-bg'));
+            background-color: var(--bankai-form-input-disabled-bg-color, bankai-light-theme('form-input-disabled-bg-color'));
         }
     }
 
@@ -89,20 +89,20 @@
         color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
         max-width: initial;
         min-width: 1px;
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
         padding: bankai-light-theme('form-input-padding');
         display: block;
         flex: 0 1 auto;
         text-overflow: ellipsis;
 
         &::placeholder {
-            color: var(--bankai-color-form-input-placeholder-text, bankai-light-theme('color-form-input-placeholder-text'));
+            color: var(--bankai-form-input-placeholder-text, bankai-light-theme('form-input-placeholder-text'));
             font-style: bankai-light-theme('form-input-placeholder-font-style');
             flex: 0 0 auto;
         }
 
         &:disabled::placeholder {
-            color: var(--bankai-color-form-input-disabled-placeholder-text, bankai-light-theme('color-form-input-disabled-placeholder-text'));
+            color: var(--bankai-form-input-disabled-placeholder-text-color, bankai-light-theme('form-input-disabled-placeholder-text-color'));
         }
     }
 
@@ -116,25 +116,25 @@
 
     &--error {
         &.rw-state-focus .rw-widget-picker {
-            @include bankai-focus-state-box-shadow(var(--bankai-color-form-input-error-focus-halo, bankai-light-theme('color-form-input-error-focus-halo')));
+            @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-light-theme('form-input-error-focus-halo-color')));
         }
 
         .rw-widget-container,
         &.rw-state-focus .rw-widget-picker {
-            background-color: var(--bankai-color-form-input-error-bg, bankai-light-theme('color-form-input-error-bg'));
-            border-color: var(--bankai-color-form-input-error-border, bankai-light-theme('color-form-input-error-border'));
+            background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
         }
 
         .rw-input-addon.rw-picker-btn {
-            border-color: var(--bankai-color-form-input-error-border, bankai-light-theme('color-form-input-error-border'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
         }
 
         .rw-combobox-input {
-            background-color: var(--bankai-color-form-input-error-bg, bankai-light-theme('color-form-input-error-bg'));
+            background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
 
             // stylelint-disable-next-line no-descending-specificity
             &::placeholder {
-                color: var(--bankai-color-form-input-error-placeholder-text, bankai-light-theme('color-form-input-error-placeholder-text'));
+                color: var(--bankai-form-input-error-placeholder-text-color, bankai-light-theme('form-input-error-placeholder-text-color'));
             }
         }
     }

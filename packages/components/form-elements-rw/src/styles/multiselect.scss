@@ -20,12 +20,12 @@
 
     .rw-widget-picker {
         border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
-        border-color: var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
     }
 
     .rw-popup {
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
-        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+        border: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
         border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));
     }
 
@@ -34,22 +34,22 @@
     }
 
     .rw-widget-input {
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
     }
 
     .rw-multiselect-input {
-        line-height: bankai-light-theme('typography-line-height');
-        padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
+        line-height: bankai-light-theme('core-typography-line-height');
+        padding: 0 #{bankai-to-rem(bankai-light-theme('core-system-scale') * 2)};
 
         &::placeholder {
-            color: var(--bankai-color-form-input-placeholder-text, bankai-light-theme('color-form-input-placeholder-text'));
+            color: var(--bankai-form-input-placeholder-text, bankai-light-theme('form-input-placeholder-text'));
             font-style: bankai-light-theme('form-input-placeholder-font-style');
             flex: 0 0 auto;
         }
     }
 
     .rw-picker-caret {
-        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
     }
 
     &__busy-spinner {
@@ -66,20 +66,20 @@
         opacity: bankai-light-theme('state-disabled-opacity');
 
         > .rw-widget-picker {
-            background-color: var(--bankai-color-form-input-disabled-bg, bankai-light-theme('color-form-input-disabled-bg'));
+            background-color: var(--bankai-form-input-disabled-bg-color, bankai-light-theme('form-input-disabled-bg-color'));
         }
     }
 
     .rw-multiselect-taglist {
-        padding: #{bankai-to-rem(math.div(bankai-light-theme('layout-grid-base'), 2))} #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
-        // padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') / 2)} #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+        padding: #{bankai-to-rem(math.div(bankai-light-theme('core-system-scale'), 2))} #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
+        // padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') / 2)} #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
     }
 
     .rw-multiselect-tag {
-        color: var(--bankai-color-form-pill-text, bankai-light-theme('color-form-pill-text'));
-        background-color: var(--bankai-color-form-pill-bg, bankai-light-theme('color-form-pill-bg'));
+        color: var(--bankai-form-pill-text-color, bankai-light-theme('form-pill-text-color'));
+        background-color: var(--bankai-form-pill-bg-color, bankai-light-theme('form-pill-bg-color'));
         border-radius: var(--bankai-form-pill-border-radius, calc(bankai-light-theme('form-input-border-radius') - 1px));
-        border-color: var(--bankai-color-form-pill-bg, bankai-light-theme('color-form-pill-bg'));
+        border-color: var(--bankai-form-pill-bg-color, bankai-light-theme('form-pill-bg-color'));
         user-select: none;
     }
 
@@ -93,7 +93,7 @@
     }
 
     .rw-multiselect-tag-label {
-        line-height: bankai-light-theme('typography-line-height');
+        line-height: bankai-light-theme('core-typography-line-height');
     }
 
     .rw-list {
@@ -117,18 +117,18 @@
 
     &--error {
         &.rw-state-focus .rw-widget-picker {
-            @include bankai-focus-state-box-shadow(var(--bankai-color-form-input-error-focus-halo, bankai-light-theme('color-form-input-error-focus-halo')));
+            @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-light-theme('form-input-error-focus-halo-color')));
         }
 
         .rw-widget-container,
         &.rw-state-focus > .rw-widget-container {
-            background-color: var(--bankai-color-form-input-error-bg, bankai-light-theme('color-form-input-error-bg'));
-            border-color: var(--bankai-color-form-input-error-border, bankai-light-theme('color-form-input-error-border'));
+            background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
         }
 
         .rw-multiselect-input {
             &::placeholder {
-                color: var(--bankai-color-form-input-error-placeholder-text, bankai-light-theme('color-form-input-error-placeholder-text'));
+                color: var(--bankai-form-input-error-placeholder-text-color, bankai-light-theme('form-input-error-placeholder-text-color'));
             }
         }
     }

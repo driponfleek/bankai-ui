@@ -7,31 +7,31 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './rw-styles.scss';
 
-@mixin bankai-rw-focus-state-halo($color: var(--bankai-color-universal-focus-halo, color.change(bankai-light-theme('color-black'), $alpha: 0.4))) {
+@mixin bankai-rw-focus-state-halo($color: var(--bankai-core-color-universal-focus-halo, color.change(bankai-light-theme('core-color-neutral-0'), $alpha: 0.4))) {
     @include bankai-focus-state-box-shadow($color);
-    border-color: var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+    border-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
     transition: box-shadow 0.15s ease-in-out;
 }
 
 @mixin bankai-rw-list-option() {
     box-sizing: border-box;
-    line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
-    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
+    line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
+    padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 2)};
 
     &.rw-state-focus:not(.rw-state-selected),
     &:not(.rw-state-selected):hover {
-        background-color: var(--bankai-color-universal-hover-bg, bankai-light-theme('color-universal-hover-bg'));
+        background-color: var(--bankai-core-color-universal-hover-bg, bankai-light-theme('core-color-universal-hover-bg'));
     }
 
     &.rw-state-selected {
-        color: var(--bankai-color-form-menu-selected-state-text, bankai-light-theme('color-form-menu-selected-state-text'));
-        background-color: var(--bankai-color-form-menu-selected-state-bg, bankai-light-theme('color-form-menu-selected-state-bg'));
-        border-color: var(--bankai-color-form-menu-selected-state-bg, bankai-light-theme('color-form-menu-selected-state-bg'));
+        color: var(--bankai-form-menu-selected-text-color, bankai-light-theme('form-menu-selected-text-color'));
+        background-color: var(--bankai-form-menu-selected-bg-color, bankai-light-theme('form-menu-selected-bg-color'));
+        border-color: var(--bankai-form-menu-selected-bg-color, bankai-light-theme('form-menu-selected-bg-color'));
 
         &.rw-state-focus {
-            color: var(--bankai-color-form-menu-selected-state-focus-text, bankai-light-theme('color-form-menu-selected-state-focus-text'));
-            background-color: var(--bankai-color-form-menu-selected-state-focus-bg, bankai-light-theme('color-form-menu-selected-state-focus-bg'));
-            border-color: var(--bankai-color-form-menu-selected-state-focus-bg, bankai-light-theme('color-form-menu-selected-state-focus-bg'));
+            color: var(--bankai-form-menu-selected-focus-text-color, bankai-light-theme('form-menu-selected-focus-text-color'));
+            background-color: var(--bankai-form-menu-selected-focus-bg-color, bankai-light-theme('form-menu-selected-focus-bg-color'));
+            border-color: var(--bankai-form-menu-selected-focus-bg-color, bankai-light-theme('form-menu-selected-focus-bg-color'));
         }
     }
 }
@@ -50,7 +50,7 @@
 }
 
 @mixin bankai-rw-list-empty() {
-    color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
+    color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
     font-style: italic;
-    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
+    padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 2)};
 }

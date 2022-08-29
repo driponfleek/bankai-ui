@@ -3,7 +3,7 @@ Utilities for dealing with color.
 
 ## Installing
 ```
-yarn add @epr0t0type/bankai-lib-theme-utils
+npm i @epr0t0type/bankai-lib-theme-utils
 ```
 
 ## Usage
@@ -16,12 +16,9 @@ import { bankaiLightTheme, bankaiDarkTheme } from '@epr0t0type/bankai-lib-theme-
 ### Constants
 ```
 import {
-    DARK_THEME_TOKEN_DEFAULTS,
-    LIGHT_THEME_TOKEN_DEFAULTS,
+    CORE_COLOR_DARK_THEME_TOKEN_DEFAULTS,
+    CORE_COLOR_LIGHT_THEME_TOKEN_DEFAULTS,
     COLOR_TOKEN_NAMES,
-    SPEC_TOKEN_NAMES,
-    SPEC_TOKEN_DEFAULTS,
-    THEME_TOKEN_NAMES,
 } from '@epr0t0type/bankai-lib-theme-utils';
 ```
 
@@ -32,6 +29,7 @@ import {
     getJuxtaposedColorAgainstCanvases,
     getCorrectedLightnessAdjustment,
     getTextColor,
+    getAccessibleWhiteOrBlackColor,
     getThemeDefaults,
     getFocusHaloRGBA,
     getThemeCSSVarFromAPIKey,
@@ -41,6 +39,7 @@ import {
     getThemeAPIKeysFromNames,
     mapThemeAPIKeysToDefaults,
     formatThemeBorderRadiusValsForWeb,
+    formatBorderWidthsForWeb,
     formatFontSizeValsForWeb,
     formatThemeColorValuesForWeb,
     formatSpecValuesForWeb,
@@ -52,13 +51,19 @@ import {
     getBadgeErrorTheme,
     getBadgeInfoTheme,
     getBadgeDefaultTheme,
-    getBtnSecondaryTheme,
-    getBtnPrimaryTheme,
-    getCalloutMemoAffirmativeTheme,
-    getCalloutMemoCautionaryTheme,
-    getCalloutMemoErrorTheme,
-    getCalloutMemoInfoTheme,
-    getCalloutTheme,
+    getGhostBtnTheme,
+    getFlatBtnTheme,
+    getBtnTheme,
+    getCalloutBannerAffirmativeTheme,
+    getCalloutBannerCautionaryTheme,
+    getCalloutBannerDefaultTheme,
+    getCalloutBannerErrorTheme,
+    getCalloutBannerInfoTheme,
+    getCalloutAffirmativeTheme,
+    getCalloutCautionaryTheme,
+    getCalloutDefaultTheme,
+    getCalloutErrorTheme,
+    getCalloutInfoTheme,
     getCoreColorsData,
     getCoreColorsTheme,
     getFormToggleSwitchTheme,
@@ -97,7 +102,7 @@ import {
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/tokens/color-neutral-tokens.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/tokens/dark-theme-tokens.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/tokens/light-theme-tokens.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/tokens/spec-tokens.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/tokens/style-tokens.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/tokens/typography-ratio-design-tokens.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/typography-utils.scss';

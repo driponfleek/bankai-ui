@@ -16,18 +16,18 @@
     @include bankai-disabled-state;
     $this: '.bankai-button';
     color: inherit;
-    background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+    background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: var(--bankai-btn-border-radius, bankai-light-theme('btn-border-radius'));
 
     &__content-container {
         display: inline-block;
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))} #{bankai-to-rem(bankai-light-theme('core-system-scale') * 2)};
     }
 
     &__text-container {
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
     }
 
     &__icon-container {
@@ -39,7 +39,7 @@
         box-sizing: border-box;
         user-select: none;
         display: inline-block;
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
     }
 
     &__icon-container + &__text-container {
@@ -66,12 +66,16 @@
     }
 
     &--primary {
-        color: var(--bankai-color-btn-primary-default-text, bankai-light-theme('color-btn-primary-default-text'));
-        background-color: var(--bankai-color-btn-primary-default-bg, bankai-light-theme('color-btn-primary-default-bg'));
-        border-color: var(--bankai-color-btn-primary-default-border, bankai-light-theme('color-btn-primary-default-border'));
+        color: var(--bankai-btn-primary-text-color, bankai-light-theme('btn-primary-text-color'));
+        background-color: var(--bankai-btn-primary-bg-color, bankai-light-theme('btn-primary-bg-color'));
+        border-color: var(--bankai-btn-primary-border-color, bankai-light-theme('btn-primary-border-color'));
 
         &:focus-visible {
             @include bankai-button-primary-focus-visible;
+        }
+
+        &:enabled:active {
+            @include bankai-button-primary-active;
         }
 
         @media (hover: hover) {
@@ -82,12 +86,16 @@
     }
 
     &--secondary {
-        color: var(--bankai-color-btn-secondary-default-text, bankai-light-theme('color-btn-secondary-default-text'));
-        background-color: var(--bankai-color-btn-secondary-default-bg, bankai-light-theme('color-btn-secondary-default-bg'));
-        border-color: var(--bankai-color-btn-secondary-default-border, bankai-light-theme('color-btn-secondary-default-border'));
+        color: var(--bankai-btn-secondary-text-color, bankai-light-theme('btn-secondary-text-color'));
+        background-color: var(--bankai-btn-secondary-bg-color, bankai-light-theme('btn-secondary-bg-color'));
+        border-color: var(--bankai-btn-secondary-border-color, bankai-light-theme('btn-secondary-border-color'));
 
         &:focus-visible {
             @include bankai-button-secondary-focus-visible;
+        }
+
+        &:enabled:active {
+            @include bankai-button-secondary-active;
         }
 
         @media (hover: hover) {
@@ -98,12 +106,16 @@
     }
 
     &--primary-destructive {
-        color: var(--bankai-color-btn-primary-destructive-default-text, bankai-light-theme('color-btn-primary-destructive-default-text'));
-        background-color: var(--bankai-color-btn-primary-destructive-default-bg, bankai-light-theme('color-btn-primary-destructive-default-bg'));
-        border-color: var(--bankai-color-btn-primary-destructive-default-border, bankai-light-theme('color-btn-primary-destructive-default-border'));
+        color: var(--bankai-btn-primary-destructive-text-color, bankai-light-theme('btn-primary-destructive-text-color'));
+        background-color: var(--bankai-btn-primary-destructive-bg-color, bankai-light-theme('btn-primary-destructive-bg-color'));
+        border-color: var(--bankai-btn-primary-destructive-border-color, bankai-light-theme('btn-primary-destructive-border-color'));
 
         &:focus-visible {
             @include bankai-button-destructive-focus-visible;
+        }
+
+        &:enabled:active {
+            @include bankai-button-primary-destructive-active;
         }
 
         @media (hover: hover) {
@@ -114,12 +126,16 @@
     }
 
     &--secondary-destructive {
-        color: var(--bankai-color-btn-secondary-destructive-default-text, bankai-light-theme('color-btn-secondary-destructive-default-text'));
-        background-color: var(--bankai-color-btn-secondary-destructive-default-bg, bankai-light-theme('color-btn-secondary-destructive-default-bg'));
-        border-color: var(--bankai-color-btn-secondary-destructive-default-border, bankai-light-theme('color-btn-secondary-destructive-default-border'));
+        color: var(--bankai-btn-secondary-destructive-text-color, bankai-light-theme('btn-secondary-destructive-text-color'));
+        background-color: var(--bankai-btn-secondary-destructive-bg-color, bankai-light-theme('btn-secondary-destructive-bg-color'));
+        border-color: var(--bankai-btn-secondary-destructive-border-color, bankai-light-theme('btn-secondary-destructive-border-color'));
 
         &:focus-visible {
             @include bankai-button-destructive-focus-visible;
+        }
+
+        &:enabled:active {
+            @include bankai-button-secondary-destructive-active;
         }
 
         @media (hover: hover) {

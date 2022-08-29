@@ -12,12 +12,12 @@
 
     &__color-with-variants {
         @include bankai-flex-row;
-        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 8)};
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 8)};
         flex-wrap: wrap;
     }
 
     &__color-desc-container {
-        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+        margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
 
         > :first-child {
             margin-top: 0;
@@ -53,13 +53,13 @@
 
     &__color-variant {
         width: 155px;
-        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
     }
 
     &__color-variant-inner {
         @include bankai-flex-row;
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
-        // gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)} #{bankai-to-rem(bankai-light-theme('core-system-scale') * 2)} #{bankai-to-rem(bankai-light-theme('core-system-scale') * 2)};
+        // gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
         justify-content: space-between;
     }
 
@@ -72,7 +72,7 @@
     &__brand-color &__section-content {
         @include bankai-flex-row;
         flex-wrap: wrap;
-        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
     }
 
     &__neutral-colors-container,
@@ -81,7 +81,7 @@
     &__universal-colors-container {
         @include bankai-flex-row;
         flex-wrap: wrap;
-        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
 
         .bankai-sb-color-swatch-simple {
             flex: 0 0 auto;
@@ -89,10 +89,10 @@
     }
 
     .bankai-sb-sticky-section--slim .bankai-sb-sticky-section__inner {
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)} #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)} #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
 
         @include bankai-breakpoint-max-only($bankai-s-min) {
-            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+            padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
         }
     }
 }

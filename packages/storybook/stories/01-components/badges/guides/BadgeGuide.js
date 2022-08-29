@@ -74,7 +74,7 @@ class BadgeGuide extends PureComponent {
                     contextCls={`${this.baseCls}__examples-preview`}
                     codeString={examplesCodeStr}
                 >
-                    <CalloutMemo />
+                    <CalloutBanner />
                 </ComponentPreviewWithCodeBlock> */}
             </StorySection>
         );

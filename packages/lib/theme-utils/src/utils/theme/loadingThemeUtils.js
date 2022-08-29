@@ -3,54 +3,33 @@ import {
     getNewColorByChangingLightness,
     convertColorToRGB,
 } from '@epr0t0type/bankai-lib-color-utils';
-import { getJuxtaposedColorAgainstCanvases } from '../colorUtils';
-import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
+import { getThemeAPIKeyFromName } from '../dataUtils';
+import { LOADING_TOKEN_NAMES } from '../../const/tokens/loadingTokensConst';
 
-const getAutoCorrectedColor = (colors = {}, shouldAutoCorrectColors = true) => {
-    const { sourceColorData, ...rest } = colors;
-
-    return !shouldAutoCorrectColors
-        ? sourceColorData.base
-        : getJuxtaposedColorAgainstCanvases({
-              ...rest,
-              sourceColorData,
-          });
+const getAutoCorrectedColor = (
+    base,
+    recommended,
+    shouldAutoCorrectColors = true,
+) => {
+    return (shouldAutoCorrectColors ? recommended : base).hex;
 };
 
 export const getLoadingTheme = (colors = {}, config = {}) => {
-    const {
-        primaryColorData,
-        secondaryColorData,
-        accentColorData,
-        canvasColor,
-        ...rest
-    } = colors;
+    const { primaryColors, secondaryColors, accentColors, canvasColor } =
+        colors;
     const { shouldAutoCorrectColors = true, isDarkMode } = config;
-    const recommendedPrimaryColorData = getAutoCorrectedColor(
-        {
-            ...rest,
-            canvasColor,
-            sourceColorData: primaryColorData,
-        },
-        shouldAutoCorrectColors,
-    );
-    const recommendedSecondaryColorData = getAutoCorrectedColor(
-        {
-            ...rest,
-            canvasColor,
-            sourceColorData: secondaryColorData,
-        },
-        shouldAutoCorrectColors,
-    );
-    const recommendedAccentColorData = getAutoCorrectedColor(
-        {
-            ...rest,
-            canvasColor,
-            sourceColorData: accentColorData,
-        },
-        shouldAutoCorrectColors,
-    );
+    const {
+        base: primaryBase,
+        recommendedNonTextColor: recommendedPrimaryNonTextColor,
+    } = primaryColors;
+    const {
+        base: secondaryBase,
+        recommendedNonTextColor: recommendedSecondaryNonTextColor,
+    } = secondaryColors;
+    const {
+        base: accentBase,
+        recommendedNonTextColor: recommendedAccentNonTextColor,
+    } = accentColors;
     const bg = getNewColorByChangingLightness(
         canvasColor.hex,
         isDarkMode ? 20 : 90,
@@ -58,17 +37,30 @@ export const getLoadingTheme = (colors = {}, config = {}) => {
     const { r, g, b } = convertColorToRGB('#ffffff');
 
     return {
-        [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_LOADING_ICON_PRIMARY)]:
-            recommendedPrimaryColorData.hex,
         [getThemeAPIKeyFromName(
-            THEME_TOKEN_NAMES.COLOR_LOADING_ICON_SECONDARY,
-        )]: recommendedSecondaryColorData.hex,
-        [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_LOADING_ICON_ACCENT)]:
-            recommendedAccentColorData.hex,
-        [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_LOADING_SKELETON_BG)]:
+            LOADING_TOKEN_NAMES.LOADING_ICON_PRIMARY_COLOR,
+        )]: getAutoCorrectedColor(
+            primaryBase,
+            recommendedPrimaryNonTextColor,
+            shouldAutoCorrectColors,
+        ),
+        [getThemeAPIKeyFromName(
+            LOADING_TOKEN_NAMES.LOADING_ICON_SECONDARY_COLOR,
+        )]: getAutoCorrectedColor(
+            secondaryBase,
+            recommendedSecondaryNonTextColor,
+            shouldAutoCorrectColors,
+        ),
+        [getThemeAPIKeyFromName(LOADING_TOKEN_NAMES.LOADING_ICON_ACCENT_COLOR)]:
+            getAutoCorrectedColor(
+                accentBase,
+                recommendedAccentNonTextColor,
+                shouldAutoCorrectColors,
+            ),
+        [getThemeAPIKeyFromName(LOADING_TOKEN_NAMES.LOADING_SKELETON_BG_COLOR)]:
             bg,
         [getThemeAPIKeyFromName(
-            THEME_TOKEN_NAMES.COLOR_LOADING_SKELETON_ANIMATION,
+            LOADING_TOKEN_NAMES.LOADING_SKELETON_ANIMATION_COLOR,
         )]: `${r}, ${g}, ${b}`,
     };
 };

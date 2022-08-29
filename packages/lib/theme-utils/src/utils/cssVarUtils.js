@@ -1,4 +1,4 @@
-import { formatThemeDataForWeb } from './dataMassageUtils';
+import { formatThemeDataForWeb } from './dataUtils';
 
 // This is used to convert an API key that uses dot notation
 // to the corresponding CSS variable if applicable. If provided

@@ -72,7 +72,7 @@ export const getNewColorByChangingLightness = (hex, lightness) => {
  * @param {number} step - must be divisible by 100 or will default to 10
  * @return {array}
  */
-export const getColorVariantsSeedData = (hex, step) => {
+export const getColorVariantsSeedData = ({ hex, step, tokenId }) => {
     if (!hex) {
         return [];
     }
@@ -80,6 +80,7 @@ export const getColorVariantsSeedData = (hex, step) => {
 
     return lightnessArr.map((l) => ({
         ...getColorSeedData(getNewColorByChangingLightness(hex, l)),
+        tokenId: `${tokenId}_${l}`,
         id: `${l}`,
     }));
 };
@@ -126,12 +127,12 @@ export const getColorAndVariantCorrelationsData = (
  * @param {number} step - must be divisible by 100 or will default to 10
  * @return {object}
  */
-export const genColorsData = (hex, step) => {
+export const genColorsData = ({ hex, step, tokenId }) => {
     const baseColor = {
         ...getColorSeedData(hex),
         id: 'base',
     };
-    const variantColors = getColorVariantsSeedData(hex, step);
+    const variantColors = getColorVariantsSeedData({ hex, step, tokenId });
 
     return getColorAndVariantCorrelationsData(baseColor, variantColors);
 };

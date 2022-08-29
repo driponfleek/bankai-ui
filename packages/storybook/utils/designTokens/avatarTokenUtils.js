@@ -1,42 +1,53 @@
 /* eslint-disable import/prefer-default-export */
 import {
     getAvatarTheme,
-    THEME_TOKEN_NAMES,
-    getThemeCSSVarFromAPIKey,
+    AVATAR_TOKEN_NAMES,
     getThemeAPIKeyFromName,
 } from '@epr0t0type/bankai-lib-theme-utils';
 import { getCoreColors } from './coreTokenUtils';
 
-const { COLOR_AVATAR_BG, COLOR_AVATAR_BORDER, COLOR_AVATAR_TEXT } =
-    THEME_TOKEN_NAMES;
+const { AVATAR_BG_COLOR, AVATAR_BORDER_COLOR, AVATAR_TEXT_COLOR } =
+    AVATAR_TOKEN_NAMES;
+
+const getAvatarBGColorDesc = (bgColor, accentColors = {}) => {
+    const { base = {}, variants = [] } = accentColors;
+    const descBase = 'Accent Color';
+
+    if (bgColor === base.hex) {
+        return descBase;
+    }
+
+    const variantColor = variants.find((variant) => bgColor === variant.hex);
+
+    return `${descBase} (Variant ${variantColor?.lightness})`;
+};
 
 export const getAvatarTokenData = (isDarkMode) => {
-    const { accentColorData } = getCoreColors(isDarkMode);
-    const borderAPIKey = getThemeAPIKeyFromName(COLOR_AVATAR_BORDER);
-    const bgAPIKey = getThemeAPIKeyFromName(COLOR_AVATAR_BG);
-    const textAPIKey = getThemeAPIKeyFromName(COLOR_AVATAR_TEXT);
-    const avatarTheme = getAvatarTheme(accentColorData);
+    const { accentColors } = getCoreColors(isDarkMode);
+    const bgAPIKey = getThemeAPIKeyFromName(AVATAR_BG_COLOR);
+    const borderAPIKey = getThemeAPIKeyFromName(AVATAR_BORDER_COLOR);
+    const textAPIKey = getThemeAPIKeyFromName(AVATAR_TEXT_COLOR);
+    const avatarTheme = getAvatarTheme({ sourceColors: accentColors });
 
     return [
         {
-            description: getThemeCSSVarFromAPIKey(borderAPIKey),
-            id: borderAPIKey,
+            description: getAvatarBGColorDesc(),
+            id: AVATAR_BG_COLOR,
+            name: 'Background Color',
+            tokenName: AVATAR_BG_COLOR,
+            value: avatarTheme[bgAPIKey],
+        },
+        {
+            id: AVATAR_BORDER_COLOR,
             name: 'Border Color',
+            tokenName: AVATAR_BORDER_COLOR,
             value: avatarTheme[borderAPIKey],
         },
         {
-            description: getThemeCSSVarFromAPIKey(textAPIKey),
-            id: textAPIKey,
+            id: AVATAR_TEXT_COLOR,
             name: 'Text Color',
+            tokenName: AVATAR_TEXT_COLOR,
             value: avatarTheme[textAPIKey],
-            isAlt: true,
-        },
-        {
-            description: getThemeCSSVarFromAPIKey(bgAPIKey),
-            id: bgAPIKey,
-            name: 'Background Color',
-            value: avatarTheme[bgAPIKey],
-            valueDesc: 'Accent Color',
         },
     ];
 };

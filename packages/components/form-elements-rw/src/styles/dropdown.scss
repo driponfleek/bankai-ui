@@ -23,8 +23,8 @@
     }
 
     .rw-popup {
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
-        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+        border: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
         border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));
     }
 
@@ -33,7 +33,7 @@
     }
 
     .rw-placeholder {
-        color: var(--bankai-color-form-input-placeholder-text, bankai-light-theme('color-form-input-placeholder-text'));
+        color: var(--bankai-form-input-placeholder-text, bankai-light-theme('form-input-placeholder-text'));
         font-style: bankai-light-theme('form-input-placeholder-font-style');
         flex: 0 0 auto;
     }
@@ -45,23 +45,23 @@
 
     .rw-widget-container {
         @include bankai-flex-row;
-        border-color: var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
     }
 
     .rw-dropdown-list-value {
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
     }
 
     &.rw-state-disabled {
         opacity: bankai-light-theme('state-disabled-opacity');
 
         > .rw-widget-picker {
-            background-color: var(--bankai-color-form-input-disabled-bg, bankai-light-theme('color-form-input-disabled-bg'));
+            background-color: var(--bankai-form-input-disabled-bg-color, bankai-light-theme('form-input-disabled-bg-color'));
         }
     }
 
     .rw-dropdown-list-input {
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         text-overflow: ellipsis;
         padding: bankai-light-theme('form-input-padding');
         flex: 1 1 auto;
@@ -69,8 +69,8 @@
 
     .rw-picker-caret {
         width: 30px;
-        color: var(--bankai-color-text, bankai-light-theme('color-text'));
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         flex: 0 0 auto;
     }
 
@@ -103,17 +103,17 @@
 
     &--error {
         &.rw-state-focus .rw-widget-picker {
-            @include bankai-focus-state-box-shadow(var(--bankai-color-form-input-error-focus-halo, bankai-light-theme('color-form-input-error-focus-halo')));
+            @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-light-theme('form-input-error-focus-halo-color')));
         }
 
         .rw-widget-container,
         &.rw-state-focus .rw-widget-picker {
-            background-color: var(--bankai-color-form-input-error-bg, bankai-light-theme('color-form-input-error-bg'));
-            border-color: var(--bankai-color-form-input-error-border, bankai-light-theme('color-form-input-error-border'));
+            background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
         }
 
         .rw-placeholder {
-            color: var(--bankai-color-form-input-error-placeholder-text, bankai-light-theme('color-form-input-error-placeholder-text'));
+            color: var(--bankai-form-input-error-placeholder-text-color, bankai-light-theme('form-input-error-placeholder-text-color'));
         }
     }
 }

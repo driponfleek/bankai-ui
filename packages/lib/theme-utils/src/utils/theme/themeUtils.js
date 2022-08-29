@@ -1,200 +1,523 @@
-/* eslint-disable import/prefer-default-export */
+import { VARIANTS as BTN_VARIANTS } from '@epr0t0type/bankai-ui-buttons';
 import { generateCSSVars } from '../cssVarUtils';
-import { getAvatarTheme } from './avatarThemeUtils';
-import { getBtnPrimaryTheme, getBtnSecondaryTheme } from './buttonThemeUtils';
-import { getLinkTheme } from './linkThemeUtils';
-import { getCoreColorsData, getCoreColorsTheme } from './coreColorsThemeUtils';
 import { getAccordionTheme } from './accordionThemeUtils';
-import {
-    getCalloutMemoAffirmativeTheme,
-    getCalloutMemoCautionaryTheme,
-    getCalloutMemoErrorTheme,
-    getCalloutMemoInfoTheme,
-    getCalloutTheme,
-} from './calloutThemeUtils';
+import { getAvatarTheme } from './avatarThemeUtils';
 import {
     getBadgeAffirmativeTheme,
     getBadgeCautionaryTheme,
+    getBadgeDefaultTheme,
     getBadgeErrorTheme,
     getBadgeInfoTheme,
-    getBadgeDefaultTheme,
+    getBadgeStyle,
 } from './badgeThemeUtils';
+import { getBtnTheme, getBtnStyles } from './buttonThemeUtils';
+import {
+    getCoreColorsData,
+    getCoreColorsTheme,
+    getErrorTextColor,
+} from './coreColorsThemeUtils';
+import {
+    getCalloutAffirmativeTheme,
+    getCalloutBannerAffirmativeTheme,
+    getCalloutBannerCautionaryTheme,
+    getCalloutBannerDefaultTheme,
+    getCalloutBannerErrorTheme,
+    getCalloutBannerInfoTheme,
+    getCalloutBannerStyle,
+    getCalloutCautionaryTheme,
+    getCalloutDefaultTheme,
+    getCalloutErrorTheme,
+    getCalloutInfoTheme,
+} from './calloutThemeUtils';
 import {
     getFormGeneralTheme,
+    getFormCheckedAccentColorTheme,
     getFormErrorsTheme,
-    getFormToggleSwitchTheme,
-    getFormPrimaryColorTheme,
     getFormDnDFileUploaderTheme,
+    getFormFocusColorTheme,
+    getFormStyles,
+    getFormMenuTheme,
+    getFormMultiselectTheme,
+    getFormToggleSwitchTheme,
 } from './formThemeUtils';
-import { getSpecTheme } from './specThemeUtils';
+import { getLinkStyle, getLinkTheme } from './linkThemeUtils';
 import { getLoadingTheme } from './loadingThemeUtils';
-import { getModalTheme } from './modalThemeUtils';
+import { getModalStyles, getModalTheme } from './modalThemeUtils';
+import { getSectionStyles } from './sectionThemeUtils';
 import { getTabsTheme } from './tabThemeUtils';
 import {
     getToasterAffirmativeTheme,
     getToasterCautionaryTheme,
     getToasterErrorTheme,
     getToasterInfoTheme,
+    getToasterStyles,
     getToasterTheme,
 } from './toasterThemeUtils';
+import { getTypographyTheme } from './styleTokensThemeUtils';
+import { BTN_STYLES } from '../../const/btnStylesConst';
+import { getComponentSourceColor } from '../dataUtils';
+
+const { GHOST, FLAT } = BTN_STYLES;
 
 export const getThemeTokens = (data = {}, config = {}) => {
     const {
         isDarkMode = false,
         shouldAutoCorrectColors = true,
-        isRoundedUI = true,
+        // isRoundedUI = true,
+        isMobile = false,
+        shouldUnderlineLink = false,
+        componentOverrides,
+        primaryBtnStyle = FLAT,
+        primaryDestructiveBtnStyle = FLAT,
+        secondaryBtnStyle = GHOST,
+        secondaryDestructiveBtnStyle = GHOST,
     } = config;
-    const coreColors = getCoreColorsData(data, isDarkMode);
     const {
-        accentColorData,
-        affirmativeColorData,
-        canvasAltColorData = {},
-        canvasColorData = {},
-        cautionaryColorData,
-        destructiveColorData,
-        errorColorData,
-        infoColorData,
-        linkColorData,
-        primaryColorData,
-        secondaryColorData,
+        accentColors,
+        affirmativeColors,
+        canvasAltColors = {},
+        canvasColors = {},
+        cautionaryColors,
+        destructiveColors,
+        errorColors,
+        infoColors,
+        neutral50Color,
+        neutral80Color,
+        primaryColors,
+        secondaryColors,
         textColor,
         textAltColor,
-        universalBorderColor,
+        // universalBorderAccessibleColor,
+        universalBorderDecorativeColor,
         universalHoverColor,
-    } = coreColors;
+    } = getCoreColorsData(data, { isDarkMode, isMobile });
+    const typographyTokens = getTypographyTheme(data, { isMobile });
+    const canvasAltColor = canvasAltColors.base;
+    const canvasColor = canvasColors.base;
+    const canvases = {
+        canvasAltColor,
+        canvasColor,
+    };
 
     return {
-        ...getCoreColorsTheme(data, { isDarkMode }),
-        ...getAccordionTheme({
-            canvasColor: canvasColorData.base,
-            universalHoverColor,
-            universalBorderColor,
-        }),
-        ...getAvatarTheme(accentColorData),
-        ...getBadgeDefaultTheme(canvasColorData.base, { isDarkMode }),
-        ...getBadgeAffirmativeTheme(affirmativeColorData),
-        ...getBadgeCautionaryTheme(cautionaryColorData),
-        ...getBadgeErrorTheme(errorColorData),
-        ...getBadgeInfoTheme(infoColorData),
-        ...getBtnPrimaryTheme(
+        ...getCoreColorsTheme(data, { isDarkMode, isMobile }),
+        ...getErrorTextColor(
             {
-                sourceColorData: primaryColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
+                sourceColors: errorColors,
             },
             { shouldAutoCorrectColors },
         ),
-        ...getBtnPrimaryTheme(
+        ...getAccordionTheme(
             {
-                sourceColorData: destructiveColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
+                canvasColor,
+                universalHoverColor,
+                borderColor: universalBorderDecorativeColor,
             },
-            { shouldAutoCorrectColors, isDestructive: true },
+            { isMobile },
         ),
-        ...getBtnSecondaryTheme(
+        ...getAvatarTheme(
             {
-                sourceColorData: secondaryColorData,
-                defaultBtnBGColor: canvasColorData.base,
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: accentColors,
+                    overrideHex: componentOverrides?.avatarSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getBadgeStyle(data),
+        ...getBadgeAffirmativeTheme({
+            sourceColors: getComponentSourceColor({
+                ...canvases,
+                fallback: affirmativeColors,
+                overrideHex: componentOverrides?.badgeAffirmativeSourceColor,
+            }),
+        }),
+        ...getBadgeCautionaryTheme({
+            sourceColors: getComponentSourceColor({
+                ...canvases,
+                fallback: cautionaryColors,
+                overrideHex: componentOverrides?.badgeCautionarySourceColor,
+            }),
+        }),
+        ...getBadgeDefaultTheme({
+            sourceColors: getComponentSourceColor({
+                ...canvases,
+                fallback: canvasAltColor,
+                overrideHex: componentOverrides?.badgeDefaultSourceColor,
+            }),
+        }),
+        ...getBadgeErrorTheme({
+            sourceColors: getComponentSourceColor({
+                ...canvases,
+                fallback: errorColors,
+                overrideHex: componentOverrides?.badgeErrorSourceColor,
+            }),
+        }),
+        ...getBadgeInfoTheme({
+            sourceColors: getComponentSourceColor({
+                ...canvases,
+                fallback: infoColors,
+                overrideHex: componentOverrides?.badgeInfoSourceColor,
+            }),
+        }),
+        ...getBtnStyles(data),
+        ...getBtnTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: primaryColors,
+                    overrideHex: componentOverrides?.btnPrimarySourceColor,
+                }),
             },
             {
+                shouldAutoCorrectColors,
+                btnStyle: primaryBtnStyle,
+                VARIANT: BTN_VARIANTS.PRIMARY,
+                isMobile,
+            },
+        ),
+        ...getBtnTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: destructiveColors,
+                    overrideHex:
+                        componentOverrides?.btnPrimaryDestructiveSourceColor,
+                }),
+                canvasColor,
+            },
+            {
+                shouldAutoCorrectColors,
+                btnStyle: primaryDestructiveBtnStyle,
+                VARIANT: BTN_VARIANTS.PRIMARY_DESTRUCTIVE,
+                isMobile,
+            },
+        ),
+        ...getBtnTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: secondaryColors,
+                    overrideHex: componentOverrides?.btnSecondarySourceColor,
+                }),
+                canvasColor,
+            },
+            {
+                btnStyle: secondaryBtnStyle,
+                VARIANT: BTN_VARIANTS.SECONDARY,
                 isDarkMode,
+                isMobile,
                 shouldAutoCorrectColors,
             },
         ),
-        ...getBtnSecondaryTheme(
+        ...getBtnTheme(
             {
-                sourceColorData: destructiveColorData,
-                defaultBtnBGColor: canvasColorData.base,
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: destructiveColors,
+                    overrideHex:
+                        componentOverrides?.btnSecondaryDestructiveSourceColor,
+                }),
+                canvasColor,
             },
             {
+                btnStyle: secondaryDestructiveBtnStyle,
+                VARIANT: BTN_VARIANTS.SECONDARY_DESTRUCTIVE,
                 isDarkMode,
+                isMobile,
                 shouldAutoCorrectColors,
-                isDestructive: true,
             },
         ),
-        ...getCalloutMemoAffirmativeTheme(affirmativeColorData),
-        ...getCalloutMemoCautionaryTheme(cautionaryColorData),
-        ...getCalloutMemoErrorTheme(errorColorData),
-        ...getCalloutMemoInfoTheme(infoColorData),
-        ...getCalloutTheme(
+        ...getCalloutBannerStyle(data),
+        ...getCalloutAffirmativeTheme(
             {
-                errorColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
-                textAltColor,
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: affirmativeColors,
+                    overrideHex:
+                        componentOverrides?.calloutAffirmativeSourceColor,
+                }),
             },
-            { isDarkMode, shouldAutoCorrectColors },
+            { shouldAutoCorrectColors },
         ),
-        ...getFormGeneralTheme(canvasColorData, { isDarkMode }),
+        ...getCalloutCautionaryTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: cautionaryColors,
+                    overrideHex:
+                        componentOverrides?.calloutCautionarySourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutDefaultTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: {
+                        ...textAltColor,
+                        recommendedNonTextColor: textAltColor,
+                    },
+                    overrideHex: componentOverrides?.calloutDefaultSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutErrorTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: errorColors,
+                    overrideHex: componentOverrides?.calloutErrorSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutInfoTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: infoColors,
+                    overrideHex: componentOverrides?.calloutInfoSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutBannerAffirmativeTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: affirmativeColors,
+                    overrideHex:
+                        componentOverrides?.calloutAffirmativeSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutBannerCautionaryTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: cautionaryColors,
+                    overrideHex:
+                        componentOverrides?.calloutCautionarySourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutBannerDefaultTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: { ...neutral80Color, variants: [neutral80Color] },
+                    overrideHex: componentOverrides?.calloutDefaultSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutBannerErrorTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: errorColors,
+                    overrideHex: componentOverrides?.calloutErrorSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getCalloutBannerInfoTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: infoColors,
+                    overrideHex: componentOverrides?.calloutInfoSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getFormStyles(data),
+        ...getFormGeneralTheme({ canvasColors }, { isDarkMode }),
+        ...getFormCheckedAccentColorTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: primaryColors,
+                    overrideHex:
+                        componentOverrides?.formCheckedAccentSourceColor,
+                }),
+            },
+            { isMobile, shouldAutoCorrectColors },
+        ),
+        ...(!isMobile &&
+            getFormDnDFileUploaderTheme(
+                {
+                    affirmativeColors: getComponentSourceColor({
+                        ...canvases,
+                        fallback: affirmativeColors,
+                        overrideHex:
+                            componentOverrides?.dndFileUploaderAffirmativeSourceColor,
+                    }),
+                    errorColors: getComponentSourceColor({
+                        ...canvases,
+                        fallback: errorColors,
+                        overrideHex:
+                            componentOverrides?.dndFileUploaderErrorSourceColor,
+                    }),
+                    ...canvases,
+                },
+                { isDarkMode, shouldAutoCorrectColors },
+            )),
         ...getFormErrorsTheme(
             {
-                sourceColorData: errorColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: errorColors,
+                    overrideHex: componentOverrides?.formErrorsSourceColor,
+                }),
             },
-            { isDarkMode, shouldAutoCorrectColors },
+            { isDarkMode, isMobile },
+        ),
+        ...getFormFocusColorTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: primaryColors,
+                    overrideHex: componentOverrides?.formFocusSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors, isMobile },
+        ),
+        ...getFormMenuTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: primaryColors,
+                    overrideHex: componentOverrides?.formMenuSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors, isMobile, isDarkMode },
+        ),
+        ...getFormMultiselectTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: primaryColors,
+                    overrideHex: componentOverrides?.formMultiselectSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
         ),
         ...getFormToggleSwitchTheme(
             {
-                sourceColorData: affirmativeColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: affirmativeColors,
+                    overrideHex:
+                        componentOverrides?.formToggleSwitchSourceColor,
+                }),
+                neutralColor: neutral50Color,
+                ...canvases,
             },
             { isDarkMode, shouldAutoCorrectColors },
         ),
-        ...getFormPrimaryColorTheme(
-            {
-                sourceColorData: primaryColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
-            },
-            { isDarkMode, shouldAutoCorrectColors },
-        ),
-        ...getFormDnDFileUploaderTheme(
-            {
-                affirmativeColorData,
-                errorColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
-            },
-            { isDarkMode, shouldAutoCorrectColors },
-        ),
+        ...getLinkStyle(data),
         ...getLinkTheme(
+            data,
+            { ...canvases, textColor },
             {
-                sourceColorData: linkColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
-                textColor,
+                isDarkMode,
+                isMobile,
+                shouldAutoCorrectColors,
+                shouldUnderlineLink,
             },
-            { isDarkMode, shouldAutoCorrectColors },
         ),
         ...getLoadingTheme(
             {
-                primaryColorData,
-                secondaryColorData,
-                accentColorData,
-                canvasColor: canvasColorData.base,
-                canvasAltColor: canvasAltColorData.base,
+                accentColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: accentColors,
+                    overrideHex: componentOverrides?.loadingAccentSourceColor,
+                }),
+                primaryColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: primaryColors,
+                    overrideHex: componentOverrides?.loadingPrimarySourceColor,
+                }),
+                secondaryColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: secondaryColors,
+                    overrideHex:
+                        componentOverrides?.loadingSecondarySourceColor,
+                }),
+                ...canvases,
             },
             { shouldAutoCorrectColors, isDarkMode },
         ),
-        ...getModalTheme(),
+        ...getModalStyles(data),
+        ...getModalTheme({ isMobile }),
+        ...getSectionStyles(data),
         ...getTabsTheme(
             {
-                primaryColorData,
-                canvasColorData,
-                canvasAltColorData,
-                universalBorderColor,
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: primaryColors,
+                    overrideHex: componentOverrides?.tabsSourceColor,
+                }),
+                canvasAltColors,
+                canvasColors,
+                borderColor: universalBorderDecorativeColor,
             },
             { isDarkMode, shouldAutoCorrectColors },
         ),
-        ...getToasterTheme(canvasColorData),
-        ...getToasterAffirmativeTheme(affirmativeColorData),
-        ...getToasterCautionaryTheme(cautionaryColorData),
-        ...getToasterErrorTheme(errorColorData),
-        ...getToasterInfoTheme(infoColorData),
-        ...getSpecTheme(data, isRoundedUI),
+        ...getToasterStyles(data),
+        ...getToasterTheme({
+            sourceColors: canvasColors,
+        }),
+        ...getToasterAffirmativeTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: affirmativeColors,
+                    overrideHex:
+                        componentOverrides?.toasterAffirmativeSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getToasterCautionaryTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: cautionaryColors,
+                    overrideHex:
+                        componentOverrides?.toasterCautionarySourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getToasterErrorTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: errorColors,
+                    overrideHex: componentOverrides?.toasterErrorSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...getToasterInfoTheme(
+            {
+                sourceColors: getComponentSourceColor({
+                    ...canvases,
+                    fallback: infoColors,
+                    overrideHex: componentOverrides?.toasterInfoSourceColor,
+                }),
+            },
+            { shouldAutoCorrectColors },
+        ),
+        ...typographyTokens,
     };
 };
 

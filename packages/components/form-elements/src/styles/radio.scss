@@ -13,6 +13,7 @@
     border-radius: 100%;
     position: relative;
     display: inline-block;
+    $this: '.bankai-radio';
 
     &__input {
         opacity: 0;
@@ -21,9 +22,9 @@
 
     &__container {
         @include bankai-flex-row;
-        background-color: var(--bankai-color-form-input-bg, bankai-light-theme('color-form-input-bg'));
+        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         box-sizing: border-box;
-        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
         border-radius: 100%;
         z-index: 1;
     }
@@ -50,9 +51,9 @@
     }
 
     &__icon {
-        width: 17px;
-        height: 17px;
-        background-color: var(--bankai-color-form-checked-state-bg, bankai-light-theme('color-form-checked-state-bg'));
+        width: 11px;
+        height: 11px;
+        background-color: var(--bankai-form-checked-accent-compliment-color, bankai-light-theme('form-checked-accent-compliment-color'));
         border-radius: 100%;
         margin: auto;
         display: block;
@@ -60,8 +61,13 @@
     }
 
     &--checked {
-        .bankai-radio__input:focus + .bankai-radio__container {
-            @include bankai-focus-state-box-shadow(var(--bankai-color-form-checked-state-focus-halo, bankai-light-theme('color-form-checked-state-focus-halo')));
+        #{$this}__container,
+        #{$this}_input:disabled + #{$this}__container {
+            background-color: var(--bankai-form-checked-accent-color, bankai-light-theme('form-checked-accent-color'));
+        }
+
+        #{$this}__input:focus + #{$this}__container {
+            @include bankai-focus-state-box-shadow(var(--bankai-form-checked-focus-halo-color, bankai-light-theme('form-checked-focus-halo-color')));
         }
     }
 }

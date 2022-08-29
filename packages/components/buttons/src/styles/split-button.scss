@@ -45,7 +45,7 @@
         }
 
         .bankai-button__content-container {
-            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+            padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
         }
     }
 
@@ -77,34 +77,34 @@
     }
 
     &--primary {
-        border-color: var(--bankai-color-btn-split-primary-border, bankai-light-theme('color-btn-split-primary-border'));
+        border-color: var(--bankai-btn-split-primary-border-color, bankai-light-theme('btn-split-primary-border-color'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-color-btn-split-primary-border, bankai-light-theme('color-btn-split-primary-border'));
+            border-left-color: var(--bankai-btn-split-primary-border-color, bankai-light-theme('btn-split-primary-border-color'));
         }
     }
 
     &--secondary {
-        border-color: var(--bankai-color-btn-split-secondary-border, bankai-light-theme('color-btn-split-secondary-border'));
+        border-color: var(--bankai-btn-split-secondary-border-color, bankai-light-theme('btn-split-secondary-border-color'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-color-btn-split-secondary-border, bankai-light-theme('color-btn-split-secondary-border'));
+            border-left-color: var(--bankai-btn-split-secondary-border-color, bankai-light-theme('btn-split-secondary-border-color'));
         }
     }
 
     &--primary-destructive {
-        border-color: var(--bankai-color-btn-split-primary-destructive-border, bankai-light-theme('color-btn-split-primary-destructive-border'));
+        border-color: var(--bankai-btn-split-primary-destructive-border-clor, bankai-light-theme('btn-split-primary-destructive-border-clor'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-color-btn-split-primary-destructive-border, bankai-light-theme('color-btn-split-primary-destructive-border'));
+            border-left-color: var(--bankai-btn-split-primary-destructive-border-clor, bankai-light-theme('btn-split-primary-destructive-border-clor'));
         }
     }
 
     &--secondary-destructive {
-        border-color: var(--bankai-color-btn-split-secondary-destructive-border, bankai-light-theme('color-btn-split-secondary-destructive-border'));
+        border-color: var(--bankai-btn-split-secondary-destructive-border-color, bankai-light-theme('btn-split-secondary-destructive-border-color'));
 
         #{$this}__menu-btn-container {
-            border-left-color: var(--bankai-color-btn-split-secondary-destructive-border, bankai-light-theme('color-btn-split-secondary-destructive-border'));
+            border-left-color: var(--bankai-btn-split-secondary-destructive-border-color, bankai-light-theme('btn-split-secondary-destructive-border-color'));
         }
     }
 }

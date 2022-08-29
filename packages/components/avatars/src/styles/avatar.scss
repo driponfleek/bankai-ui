@@ -8,8 +8,8 @@
     @include bankai-flex-row;
     width: 1em;
     height: 1em;
-    color: var(--bankai-color-avatar-text, bankai-light-theme('color-avatar-text'));
-    background-color: var(--bankai-color-avatar-bg, bankai-light-theme('color-avatar-bg'));
+    color: var(--bankai-avatar-text-color, bankai-light-theme('avatar-text-color'));
+    background-color: var(--bankai-avatar-bg-color, bankai-light-theme('avatar-bg-color'));
     box-sizing: border-box;
     font-size: 50px;
     text-align: center;
@@ -38,6 +38,6 @@
     }
 
     &--has-border {
-        border: Min(0.04em, 1px) solid var(--bankai-color-avatar-border, bankai-light-theme('color-avatar-border'));
+        border: Min(0.04em, 1px) solid var(--bankai-avatar-border-color, bankai-light-theme('avatar-border-color'));
     }
 }

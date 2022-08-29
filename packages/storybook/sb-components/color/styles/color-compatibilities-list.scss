@@ -8,9 +8,9 @@
 .bankai-sb-color-compatibilities-list {
     &__icon-and-val {
         @include bankai-flex-row;
-        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
         margin: 0;
-        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
     }
 
     &__value {
@@ -23,7 +23,7 @@
         line-height: 1;
         border-radius: 100%;
         display: block;
-        padding: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+        padding: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
     }
 
     &__icon {
@@ -37,6 +37,6 @@
     }
 
     &__compat-color + &__compat-color {
-        margin-top: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
+        margin-top: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
     }
 }

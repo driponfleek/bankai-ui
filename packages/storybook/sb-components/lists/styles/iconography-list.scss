@@ -8,5 +8,5 @@
 .bankai-sb-iconography-list {
     @include bankai-flex-row;
     flex-wrap: wrap;
-    gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+    gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
 }

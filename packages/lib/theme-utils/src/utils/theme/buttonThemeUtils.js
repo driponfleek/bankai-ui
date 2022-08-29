@@ -5,52 +5,23 @@ import {
     getColorCorrelationsData,
     convertColorToRGBA,
 } from '@epr0t0type/bankai-lib-color-utils';
-import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import { getJuxtaposedColorAgainstCanvases, getTextColor } from '../colorUtils';
-import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
+import { getThemeAPIKeyFromName } from '../dataUtils';
+import { getTextColor } from '../helperUtils';
+import { BTN_TOKEN_NAMES } from '../../const/tokens/btnTokensConst';
+import { BTN_STYLE_TOKEN_DEFAULTS } from '../../const/tokens/defaults/btnTokenDefaultsConst';
+import { BTN_STYLES } from '../../const/btnStylesConst';
 
-const {
-    COLOR_BTN_PRIMARY_DEFAULT_BG,
-    COLOR_BTN_PRIMARY_DEFAULT_BORDER,
-    COLOR_BTN_PRIMARY_DEFAULT_TEXT,
-    COLOR_BTN_PRIMARY_HOVER_BG,
-    COLOR_BTN_PRIMARY_HOVER_BORDER,
-    COLOR_BTN_PRIMARY_HOVER_TEXT,
-    COLOR_BTN_PRIMARY_FOCUS_HALO,
-    COLOR_BTN_SPLIT_PRIMARY_BORDER,
-    COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BG,
-    COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BORDER,
-    COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_TEXT,
-    COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BG,
-    COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BORDER,
-    COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_TEXT,
-    COLOR_BTN_PRIMARY_DESTRUCTIVE_FOCUS_HALO,
-    COLOR_BTN_SPLIT_PRIMARY_DESTRUCTIVE_BORDER,
-    COLOR_BTN_SECONDARY_DEFAULT_BG,
-    COLOR_BTN_SECONDARY_DEFAULT_BORDER,
-    COLOR_BTN_SECONDARY_DEFAULT_TEXT,
-    COLOR_BTN_SECONDARY_HOVER_BG,
-    COLOR_BTN_SECONDARY_HOVER_BORDER,
-    COLOR_BTN_SECONDARY_HOVER_TEXT,
-    COLOR_BTN_SECONDARY_FOCUS_HALO,
-    COLOR_BTN_SPLIT_SECONDARY_BORDER,
-    COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BG,
-    COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BORDER,
-    COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_TEXT,
-    COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BG,
-    COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BORDER,
-    COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_TEXT,
-    COLOR_BTN_SECONDARY_DESTRUCTIVE_FOCUS_HALO,
-    COLOR_BTN_SPLIT_SECONDARY_DESTRUCTIVE_BORDER,
-} = THEME_TOKEN_NAMES;
+const { GHOST } = BTN_STYLES;
+const { BTN_BORDER_RADIUS, BTN_BORDER_WIDTH, BTN_FONT_WEIGHT } =
+    BTN_TOKEN_NAMES;
 
-const getPrimaryBtnHoverBGColor = (sourceColorData = {}) => {
-    const { base = {}, variants = [] } = sourceColorData;
+const getFlatBtnHoverBGColor = (sourceColors = {}) => {
+    const { base = {}, variants = [] } = sourceColors;
     const { hex, isDark } = base;
     const baseColorLightness = getColorLightness(hex);
     const variantsLightnessArr = variants.map((variant) => variant?.lightness);
-    const variantA = variants[0];
-    const variantB = variants[1];
+    const variantA = variants[0] ?? {};
+    const variantB = variants[1] ?? {};
     const isBaseAlsoVariant =
         variants.findIndex(
             (variant) => variant?.lightness === baseColorLightness,
@@ -138,201 +109,235 @@ const getPrimaryBtnHoverBGColor = (sourceColorData = {}) => {
     );
 };
 
-const getPrimaryBtnColors = (sourceColorData = {}) => {
-    const { base = {} } = sourceColorData;
-    const { hex } = base;
+const getFlatBtnColors = (sourceColors = {}, config = {}) => {
+    const {
+        base = {},
+        variants = [],
+        recommendedNonTextColor = {},
+    } = sourceColors;
+    const { shouldAutoCorrectColors = true } = config;
+    const evaluatedBaseColor = {
+        base: shouldAutoCorrectColors ? recommendedNonTextColor : base,
+        variants,
+    };
+    const { hex } = evaluatedBaseColor.base;
+    const hoverBGColor = getFlatBtnHoverBGColor(sourceColors);
     const DEFAULT_TEXT = getTextColor(hex);
     const DEFAULT_BG = hex;
-
-    const hoverBGColor = getPrimaryBtnHoverBGColor(sourceColorData);
-    const HOVER_BG = hoverBGColor?.hex;
-    const HOVER_TEXT = getTextColor(HOVER_BG);
+    const INTERACTION_BG = hoverBGColor?.hex;
+    const INTERACTION_TEXT = getTextColor(INTERACTION_BG);
     const FOCUS_HALO_COLOR = hex;
     const FOCUS_HALO = convertColorToRGBA(FOCUS_HALO_COLOR, 0.4, true);
 
     return {
         DEFAULT_TEXT,
         DEFAULT_BG,
-        HOVER_TEXT,
-        HOVER_BG,
+        INTERACTION_TEXT,
+        INTERACTION_BG,
         FOCUS_HALO,
     };
 };
 
-const getSecondaryDefaultTextColor = (
-    sourceColorData = {},
-    defaultBtnBGColor = {},
+const getGhostBtnTextColor = (
+    sourceColors = {},
+    canvasColor = {},
     shouldAutoCorrectColors = true,
 ) => {
-    const { base = {}, variants = [] } = sourceColorData;
-    const { hex: defaultBtnBGHex } = defaultBtnBGColor;
+    const { base = {}, variants = [] } = sourceColors;
+    const { hex: btnBgHex } = canvasColor;
     const shouldUseBaseForDefaultColor = !shouldAutoCorrectColors
         ? true
-        : getIsReadable(base.hex, defaultBtnBGHex);
+        : getIsReadable(base.hex, btnBgHex);
 
     if (shouldUseBaseForDefaultColor) {
-        return base.hex;
+        return base?.hex;
     }
 
     const bgColorData =
-        getColorCorrelationsData(defaultBtnBGColor, [base, ...variants]) || {};
+        getColorCorrelationsData(canvasColor, [base, ...variants]) || {};
     const recommendedColor =
         getRecommendedColor(bgColorData, [base, ...variants], true) || {};
 
-    return recommendedColor.hex;
+    return recommendedColor?.hex;
 };
 
-const getSecondaryBtnColors = (
-    sourceColorData = {},
-    defaultBtnBGColor = {},
+const getGhostBtnColors = (
+    sourceColors = {},
+    canvasColor = {},
     config = {},
 ) => {
-    const { variants = [] } = sourceColorData;
-    const { isDarkMode = false, shouldAutoCorrectColors = true } = config;
-    const defaultHex = getSecondaryDefaultTextColor(
-        sourceColorData,
-        defaultBtnBGColor,
+    const { base = {}, variants = [] } = sourceColors;
+    const {
+        isDarkMode = false,
+        shouldAutoCorrectColors = true,
+        isMobile = false,
+    } = config;
+    const DEFAULT_TEXT = getGhostBtnTextColor(
+        sourceColors,
+        canvasColor,
         shouldAutoCorrectColors,
     );
     const hoverLightness = isDarkMode ? 20 : 80;
-    const FOCUS_HALO_COLOR = defaultHex;
+    const FOCUS_HALO_COLOR = DEFAULT_TEXT;
     const {
-        hex: hoverBGHex,
+        hex: interactionBGColor,
         compatibleTextColors: hoverCompatibleTextColors = [],
     } =
         variants.find((variant) => variant.id === hoverLightness.toString()) ||
         {};
-    const { hex: hoverTextColor } =
-        variants.find((variant) => {
-            const hasCompatColors = hoverCompatibleTextColors.length > 0;
-            const lightestId = hasCompatColors
-                ? Math.max(...hoverCompatibleTextColors).toString()
-                : undefined;
 
-            return variant.id === lightestId;
-        }) || {};
+    const hasCompatColors = hoverCompatibleTextColors.length > 0;
+    const canUseBaseForHover =
+        DEFAULT_TEXT !== base?.hex &&
+        hoverCompatibleTextColors.findIndex((colorId) => colorId === 'base') >
+            -1;
+    const interactionTextColor = canUseBaseForHover
+        ? base?.hex
+        : variants.find((variant) => {
+              const lightestId = hasCompatColors
+                  ? Math.max(
+                        ...hoverCompatibleTextColors.filter(
+                            (colorId) => colorId !== 'base',
+                        ),
+                    ).toString()
+                  : undefined;
 
-    const DEFAULT_TEXT = defaultHex;
-    const DEFAULT_BG = defaultBtnBGColor.hex;
-    const DEFAULT_BORDER = defaultHex;
-    const HOVER_TEXT = hoverTextColor;
-    const HOVER_BG = hoverBGHex;
-    const HOVER_BORDER = hoverTextColor;
+              return variant.id === lightestId;
+          })?.hex;
+
+    const DEFAULT_BG = canvasColor?.hex;
+    const DEFAULT_BORDER = isMobile ? DEFAULT_TEXT : 'currentColor';
+    const INTERACTION_TEXT = interactionTextColor;
+    const INTERACTION_BG = interactionBGColor;
+    const INTERACTION_BORDER = isMobile ? interactionTextColor : 'currentColor';
     const FOCUS_HALO = convertColorToRGBA(FOCUS_HALO_COLOR, 0.4, true);
 
     return {
         DEFAULT_TEXT,
         DEFAULT_BG,
         DEFAULT_BORDER,
-        HOVER_TEXT,
-        HOVER_BG,
-        HOVER_BORDER,
+        INTERACTION_TEXT,
+        INTERACTION_BG,
+        INTERACTION_BORDER,
         FOCUS_HALO,
     };
 };
 
-export const getBtnSecondaryTheme = (colors = {}, config = {}) => {
-    const { sourceColorData = {}, defaultBtnBGColor = {} } = colors;
+export const getGhostBtnTheme = (colors = {}, config = {}) => {
+    const { sourceColors = {}, canvasColor = {} } = colors;
     const {
+        VARIANT,
         isDarkMode,
         shouldAutoCorrectColors = true,
-        isDestructive = false,
+        isMobile = false,
     } = config;
     const {
         DEFAULT_TEXT,
         DEFAULT_BG,
         DEFAULT_BORDER,
-        HOVER_TEXT,
-        HOVER_BG,
-        HOVER_BORDER,
+        INTERACTION_TEXT,
+        INTERACTION_BG,
+        INTERACTION_BORDER,
         FOCUS_HALO,
-    } = getSecondaryBtnColors(sourceColorData, defaultBtnBGColor, {
+    } = getGhostBtnColors(sourceColors, canvasColor, {
         isDarkMode,
         shouldAutoCorrectColors,
     });
-    const BTN_DEFAULT_TEXT = isDestructive
-        ? COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_TEXT
-        : COLOR_BTN_SECONDARY_DEFAULT_TEXT;
-    const BTN_DEFAULT_BG = isDestructive
-        ? COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BG
-        : COLOR_BTN_SECONDARY_DEFAULT_BG;
-    const BTN_DEFAULT_BORDER = isDestructive
-        ? COLOR_BTN_SECONDARY_DESTRUCTIVE_DEFAULT_BORDER
-        : COLOR_BTN_SECONDARY_DEFAULT_BORDER;
-    const BTN_HOVER_TEXT = isDestructive
-        ? COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_TEXT
-        : COLOR_BTN_SECONDARY_HOVER_TEXT;
-    const BTN_HOVER_BG = isDestructive
-        ? COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BG
-        : COLOR_BTN_SECONDARY_HOVER_BG;
-    const BTN_HOVER_BORDER = isDestructive
-        ? COLOR_BTN_SECONDARY_DESTRUCTIVE_HOVER_BORDER
-        : COLOR_BTN_SECONDARY_HOVER_BORDER;
-    const BTN_FOCUS_HALO = isDestructive
-        ? COLOR_BTN_SECONDARY_DESTRUCTIVE_FOCUS_HALO
-        : COLOR_BTN_SECONDARY_FOCUS_HALO;
-    const BTN_SPLIT_BORDER = isDestructive
-        ? COLOR_BTN_SPLIT_SECONDARY_DESTRUCTIVE_BORDER
-        : COLOR_BTN_SPLIT_SECONDARY_BORDER;
+    const BTN_DEFAULT_TEXT = `BTN_${VARIANT}_TEXT_COLOR`;
+    const BTN_DEFAULT_BG = `BTN_${VARIANT}_BG_COLOR`;
+    const BTN_DEFAULT_BORDER = `BTN_${VARIANT}_BORDER_COLOR`;
+    const BTN_HOVER_TEXT = `BTN_${VARIANT}_HOVER_TEXT_COLOR`;
+    const BTN_HOVER_BG = `BTN_${VARIANT}_HOVER_BG_COLOR`;
+    const BTN_HOVER_BORDER = `BTN_${VARIANT}_HOVER_BORDER_COLOR`;
+    const BTN_ACTIVE_TEXT = `BTN_${VARIANT}_ACTIVE_TEXT_COLOR`;
+    const BTN_ACTIVE_BG = `BTN_${VARIANT}_ACTIVE_BG_COLOR`;
+    const BTN_ACTIVE_BORDER = `BTN_${VARIANT}_ACTIVE_BORDER_COLOR`;
+    const BTN_FOCUS_HALO = `BTN_${VARIANT}_FOCUS_HALO_COLOR`;
+    const BTN_SPLIT_BORDER = `BTN_SPLIT_${VARIANT}_BORDER_COLOR`;
 
     return {
         [getThemeAPIKeyFromName(BTN_DEFAULT_TEXT)]: DEFAULT_TEXT,
         [getThemeAPIKeyFromName(BTN_DEFAULT_BG)]: DEFAULT_BG,
         [getThemeAPIKeyFromName(BTN_DEFAULT_BORDER)]: DEFAULT_BORDER,
-        [getThemeAPIKeyFromName(BTN_HOVER_TEXT)]: HOVER_TEXT,
-        [getThemeAPIKeyFromName(BTN_HOVER_BG)]: HOVER_BG,
-        [getThemeAPIKeyFromName(BTN_HOVER_BORDER)]: HOVER_BORDER,
+        ...(!isMobile && {
+            [getThemeAPIKeyFromName(BTN_HOVER_TEXT)]: INTERACTION_TEXT,
+            [getThemeAPIKeyFromName(BTN_HOVER_BG)]: INTERACTION_BG,
+            [getThemeAPIKeyFromName(BTN_HOVER_BORDER)]: INTERACTION_BORDER,
+        }),
+        [getThemeAPIKeyFromName(BTN_ACTIVE_TEXT)]: INTERACTION_TEXT,
+        [getThemeAPIKeyFromName(BTN_ACTIVE_BG)]: INTERACTION_BG,
+        [getThemeAPIKeyFromName(BTN_ACTIVE_BORDER)]: INTERACTION_BORDER,
         [getThemeAPIKeyFromName(BTN_FOCUS_HALO)]: FOCUS_HALO,
-        [getThemeAPIKeyFromName(BTN_SPLIT_BORDER)]: HOVER_TEXT,
+        [getThemeAPIKeyFromName(BTN_SPLIT_BORDER)]: INTERACTION_TEXT,
     };
 };
 
-export const getBtnPrimaryTheme = (colors = {}, config = {}) => {
-    const { sourceColorData = {} } = colors;
-    const { shouldAutoCorrectColors = true, isDestructive = false } = config;
-    const { base = {}, variants = [] } = sourceColorData;
-    const evaluatedColorData = {
-        base: shouldAutoCorrectColors
-            ? getJuxtaposedColorAgainstCanvases(colors)
-            : base,
-        variants,
-    };
+export const getFlatBtnTheme = (colors = {}, config = {}) => {
+    const { sourceColors = {} } = colors;
+    const { VARIANT, isMobile = false } = config;
 
-    const { DEFAULT_TEXT, DEFAULT_BG, HOVER_TEXT, HOVER_BG, FOCUS_HALO } =
-        getPrimaryBtnColors(evaluatedColorData);
-    const BTN_DEFAULT_TEXT = isDestructive
-        ? COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_TEXT
-        : COLOR_BTN_PRIMARY_DEFAULT_TEXT;
-    const BTN_DEFAULT_BG = isDestructive
-        ? COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BG
-        : COLOR_BTN_PRIMARY_DEFAULT_BG;
-    const BTN_DEFAULT_BORDER = isDestructive
-        ? COLOR_BTN_PRIMARY_DESTRUCTIVE_DEFAULT_BORDER
-        : COLOR_BTN_PRIMARY_DEFAULT_BORDER;
-    const BTN_HOVER_TEXT = isDestructive
-        ? COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_TEXT
-        : COLOR_BTN_PRIMARY_HOVER_TEXT;
-    const BTN_HOVER_BG = isDestructive
-        ? COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BG
-        : COLOR_BTN_PRIMARY_HOVER_BG;
-    const BTN_HOVER_BORDER = isDestructive
-        ? COLOR_BTN_PRIMARY_DESTRUCTIVE_HOVER_BORDER
-        : COLOR_BTN_PRIMARY_HOVER_BORDER;
-    const BTN_FOCUS_HALO = isDestructive
-        ? COLOR_BTN_PRIMARY_DESTRUCTIVE_FOCUS_HALO
-        : COLOR_BTN_PRIMARY_FOCUS_HALO;
-    const BTN_SPLIT_BORDER = isDestructive
-        ? COLOR_BTN_SPLIT_PRIMARY_DESTRUCTIVE_BORDER
-        : COLOR_BTN_SPLIT_PRIMARY_BORDER;
+    const {
+        DEFAULT_TEXT,
+        DEFAULT_BG,
+        INTERACTION_TEXT,
+        INTERACTION_BG,
+        FOCUS_HALO,
+    } = getFlatBtnColors(sourceColors, config);
+    const BTN_DEFAULT_TEXT = `BTN_${VARIANT}_TEXT_COLOR`;
+    const BTN_DEFAULT_BG = `BTN_${VARIANT}_BG_COLOR`;
+    const BTN_DEFAULT_BORDER = `BTN_${VARIANT}_BORDER_COLOR`;
+    const BTN_ACTIVE_TEXT = `BTN_${VARIANT}_ACTIVE_TEXT_COLOR`;
+    const BTN_ACTIVE_BG = `BTN_${VARIANT}_ACTIVE_BG_COLOR`;
+    const BTN_ACTIVE_BORDER = `BTN_${VARIANT}_ACTIVE_BORDER_COLOR`;
+    const BTN_HOVER_TEXT = `BTN_${VARIANT}_HOVER_TEXT_COLOR`;
+    const BTN_HOVER_BG = `BTN_${VARIANT}_HOVER_BG_COLOR`;
+    const BTN_HOVER_BORDER = `BTN_${VARIANT}_HOVER_BORDER_COLOR`;
+    const BTN_FOCUS_HALO = `BTN_${VARIANT}_FOCUS_HALO_COLOR`;
+    const BTN_SPLIT_BORDER = `BTN_SPLIT_${VARIANT}_BORDER_COLOR`;
 
     return {
         [getThemeAPIKeyFromName(BTN_DEFAULT_TEXT)]: DEFAULT_TEXT,
         [getThemeAPIKeyFromName(BTN_DEFAULT_BG)]: DEFAULT_BG,
         [getThemeAPIKeyFromName(BTN_DEFAULT_BORDER)]: 'transparent',
-        [getThemeAPIKeyFromName(BTN_HOVER_TEXT)]: HOVER_TEXT,
-        [getThemeAPIKeyFromName(BTN_HOVER_BG)]: HOVER_BG,
-        [getThemeAPIKeyFromName(BTN_HOVER_BORDER)]: 'transparent',
+        ...(!isMobile && {
+            [getThemeAPIKeyFromName(BTN_HOVER_TEXT)]: INTERACTION_TEXT,
+            [getThemeAPIKeyFromName(BTN_HOVER_BG)]: INTERACTION_BG,
+            [getThemeAPIKeyFromName(BTN_HOVER_BORDER)]: 'transparent',
+        }),
+        [getThemeAPIKeyFromName(BTN_ACTIVE_TEXT)]: INTERACTION_TEXT,
+        [getThemeAPIKeyFromName(BTN_ACTIVE_BG)]: INTERACTION_BG,
+        [getThemeAPIKeyFromName(BTN_ACTIVE_BORDER)]: 'transparent',
         [getThemeAPIKeyFromName(BTN_FOCUS_HALO)]: FOCUS_HALO,
-        [getThemeAPIKeyFromName(BTN_SPLIT_BORDER)]: HOVER_TEXT,
+        [getThemeAPIKeyFromName(BTN_SPLIT_BORDER)]: INTERACTION_TEXT,
+    };
+};
+
+export const getBtnTheme = (colors, config = {}) => {
+    const { btnStyle, ...rest } = config;
+
+    if (btnStyle === GHOST) {
+        return getGhostBtnTheme(colors, { ...rest });
+    }
+
+    return getFlatBtnTheme(colors, { ...rest });
+};
+
+export const getBtnStyles = (data = {}) => {
+    const apiKeyBorderRadius = getThemeAPIKeyFromName(BTN_BORDER_RADIUS);
+    const apiKeyBorderWidth = getThemeAPIKeyFromName(BTN_BORDER_WIDTH);
+    const apiKeyFontWeight = getThemeAPIKeyFromName(BTN_FONT_WEIGHT);
+    const defaultBorderRadius = BTN_STYLE_TOKEN_DEFAULTS[BTN_BORDER_RADIUS];
+    const defaultBorderWidth = BTN_STYLE_TOKEN_DEFAULTS[BTN_BORDER_WIDTH];
+    const defaultFontWeight = BTN_STYLE_TOKEN_DEFAULTS[BTN_FONT_WEIGHT];
+    const {
+        [apiKeyBorderRadius]: borderRadius = defaultBorderRadius,
+        [apiKeyBorderWidth]: borderWidth = defaultBorderWidth,
+        [apiKeyFontWeight]: fontWeight = defaultFontWeight,
+    } = data;
+
+    return {
+        [apiKeyBorderRadius]: borderRadius,
+        [apiKeyBorderWidth]: borderWidth,
+        [apiKeyFontWeight]: fontWeight,
     };
 };

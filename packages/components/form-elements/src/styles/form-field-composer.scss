@@ -39,7 +39,7 @@
         }
 
         .bankai-form-field-composer__label-container + .bankai-form-field-composer__control-hint-container {
-            margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
         }
     }
 
@@ -57,7 +57,7 @@
         }
 
         .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__label-container {
-            margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
         }
     }
 
@@ -68,7 +68,7 @@
         }
 
         .bankai-form-field-composer__control-container + .bankai-form-field-composer__label-container {
-            margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
         }
 
         .bankai-form-control-hint {

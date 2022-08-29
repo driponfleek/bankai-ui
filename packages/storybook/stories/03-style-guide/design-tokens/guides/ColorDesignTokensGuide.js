@@ -44,7 +44,7 @@ const {
     COLOR_NEUTRAL_90,
     COLOR_TEXT,
     COLOR_TEXT_ALT,
-    COLOR_LINK,
+    LINK_TEXT_COLOR,
     COLOR_CANVAS,
     COLOR_CANVAS_ALT,
     COLOR_UNIVERSAL_BORDER,
@@ -158,7 +158,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderPrimaryColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_PRIMARY];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Primary';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -208,7 +208,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderSecondaryColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_SECONDARY];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Secondary';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -253,7 +253,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderAccentColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_ACCENT];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Accent';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -310,7 +310,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderAffirmativeColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_AFFIRMATIVE];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Affirmative';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -347,7 +347,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderCautionaryColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_CAUTIONARY];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Cautionary';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -387,7 +387,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderErrorColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_ERROR];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Error';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -446,7 +446,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderInfoColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_INFO];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Info';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -486,7 +486,7 @@ class ColorDesignTokensGuide extends PureComponent {
     renderDestructiveColor = () => {
         const themeDefaults = this.getThemeDefaults();
         const color = themeDefaults[COLOR_DESTRUCTIVE];
-        const { base, variants } = genColorsData(color);
+        const { base, variants } = genColorsData({ hex: color });
         const colorName = 'Destructive';
         const massagedData = {
             base: this.getMassagedColorData(base, colorName),
@@ -604,7 +604,7 @@ class ColorDesignTokensGuide extends PureComponent {
         const themeDefaults = this.getThemeDefaults();
         const textColor = themeDefaults[COLOR_TEXT];
         const textAltColor = themeDefaults[COLOR_TEXT_ALT];
-        const linkColor = themeDefaults[COLOR_LINK];
+        const linkColor = themeDefaults[LINK_TEXT_COLOR];
 
         // Text
         // Text Alt

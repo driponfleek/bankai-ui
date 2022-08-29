@@ -3,7 +3,7 @@ Reusable Prettier configs.
 
 ## Installing
 ```
-yarn add @epr0t0type/prettier-config
+npm i @epr0t0type/prettier-config
 ```
 
 ## Usage

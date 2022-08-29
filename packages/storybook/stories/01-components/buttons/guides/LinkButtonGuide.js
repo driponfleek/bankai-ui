@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { linkTo } from '@storybook/addon-links';
 import { LinkButton } from '@epr0t0type/bankai-ui-buttons';
 import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
-import CalloutMemoInfo from '../../../../sb-components/callouts/CalloutMemoInfo';
+import CalloutBannerInfo from '../../../../sb-components/callouts/CalloutBannerInfo';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -92,7 +92,7 @@ class LinkButtonGuide extends PureComponent {
                     and consider using this instead of Link Buttons whenever
                     possible.
                 </Paragraph>
-                <CalloutMemoInfo
+                <CalloutBannerInfo
                     title="Note"
                     msg="Because Link Buttons are designed to mimic native hyperlinks
                     they cannot be disabled."

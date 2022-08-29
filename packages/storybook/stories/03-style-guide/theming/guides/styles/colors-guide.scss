@@ -16,6 +16,6 @@
     * + .bankai-sb-colors-guide__final-colors,
     .bankai-sb-color-picker-with-variants + *,
     .bankai-sb-colors-guide__final-colors + * {
-        margin-top: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
+        margin-top: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
     }
 }

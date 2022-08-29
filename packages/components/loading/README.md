@@ -20,7 +20,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-yarn add @epr0t0type/bankai-ui-loading
+npm i @epr0t0type/bankai-ui-loading
 ```
 
 ## Usage

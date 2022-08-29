@@ -22,7 +22,7 @@ class Button extends PureComponent {
     static propTypes = {
         'aria-label': PropTypes.string,
         contextCls: PropTypes.string,
-        text: PropTypes.string,
+        text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         type: PropTypes.string,
         variant: PropTypes.string,
         isBusy: PropTypes.bool,

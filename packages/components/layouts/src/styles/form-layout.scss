@@ -12,6 +12,6 @@
     }
 
     &--pad-content {
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
     }
 }

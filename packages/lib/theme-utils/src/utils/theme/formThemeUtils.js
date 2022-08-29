@@ -4,68 +4,145 @@ import {
     getNewColorByChangingLightness,
 } from '@epr0t0type/bankai-lib-color-utils';
 import {
-    getJuxtaposedColorAgainstCanvases,
     getCorrectedLightnessAdjustment,
     getTextColor,
-} from '../colorUtils';
-import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
+    getAccessibleWhiteOrBlackColor,
+    getAccessibleNeutralColor,
+} from '../helperUtils';
+import {
+    getThemeAPIKeyFromName,
+    getJuxtaposedColorAgainstCanvases,
+} from '../dataUtils';
+import { FORM_TOKEN_NAMES } from '../../const/tokens/formTokensConst';
+import { FORM_STYLE_TOKEN_DEFAULTS } from '../../const/tokens/defaults/formTokenDefaultsConst';
 
 const {
-    COLOR_FORM_CHECKED_STATE_BG,
-    COLOR_FORM_CHECKED_STATE_ICON,
-    COLOR_FORM_CHECKED_STATE_FOCUS_HALO,
-    COLOR_FORM_DATE_PICKER_OFF_RANGE_TEXT,
-    COLOR_FORM_DND_FILE_UPLOADER_HOVER_STATE_BG,
-    COLOR_FORM_DND_FILE_UPLOADER_HOVER_STATE_BORDER,
-    COLOR_FORM_DND_FILE_UPLOADER_HOVER_STATE_TEXT,
-    COLOR_FORM_DND_FILE_UPLOADER_REJECTED_STATE_BG,
-    COLOR_FORM_DND_FILE_UPLOADER_REJECTED_STATE_BORDER,
-    COLOR_FORM_DND_FILE_UPLOADER_REJECTED_STATE_TEXT,
-    COLOR_FORM_INLINE_ERROR_TEXT,
-    COLOR_FORM_INPUT_BG,
-    COLOR_FORM_INPUT_TEXT,
-    COLOR_FORM_INPUT_DISABLED_BG,
-    COLOR_FORM_INPUT_DISABLED_PLACEHOLDER_TEXT,
-    COLOR_FORM_INPUT_ERROR_BORDER,
-    COLOR_FORM_INPUT_ERROR_BG,
-    COLOR_FORM_INPUT_ERROR_PLACEHOLDER_TEXT,
-    COLOR_FORM_INPUT_ERROR_FOCUS_HALO,
-    COLOR_FORM_INPUT_PLACHOLDER_TEXT,
-    COLOR_FORM_MENU_SELECTED_STATE_BG,
-    COLOR_FORM_MENU_SELECTED_STATE_FOCUS_BG,
-    COLOR_FORM_MENU_SELECTED_STATE_FOCUS_TEXT,
-    COLOR_FORM_MENU_SELECTED_STATE_TEXT,
-    COLOR_FORM_PILL_BG,
-    COLOR_FORM_PILL_TEXT,
-    COLOR_FORM_TOGGLE_SWITCH_KNOB,
-    COLOR_FORM_TOGGLE_SWITCH_KNOB_BORDER,
-    COLOR_FORM_TOGGLE_SWITCH_TRACK,
-    COLOR_FORM_TOGGLE_SWITCH_TRACK_HOVER,
-    COLOR_FORM_TOGGLE_SWITCH_KNOB_ON_STATE,
-    COLOR_FORM_TOGGLE_SWITCH_TRACK_ON_STATE,
-    COLOR_FORM_TOGGLE_SWITCH_TRACK_HOVER_ON_STATE,
-    COLOR_FORM_TOGGLE_SWITCH_BUSY_ICON,
-    COLOR_FORM_TOGGLE_SWITCH_BUSY_ICON_ON_STATE,
-    COLOR_FORM_TOGGLE_SWITCH_ON_STATE_FOCUS_HALO,
-} = THEME_TOKEN_NAMES;
+    FORM_CHECKBOX_BORDER_RADIUS,
+    FORM_CHECKED_ACCENT_COLOR,
+    FORM_CHECKED_ACCENT_COMPLIMENT_COLOR,
+    FORM_CHECKED_FOCUS_HALO_COLOR,
+    FORM_DATE_PICKER_OFF_RANGE_TEXT_COLOR,
+    FORM_DND_FILE_UPLOADER_HOVER_BG_COLOR,
+    FORM_DND_FILE_UPLOADER_HOVER_BORDER_COLOR,
+    FORM_DND_FILE_UPLOADER_HOVER_TEXT_COLOR,
+    FORM_DND_FILE_UPLOADER_REJECTED_BG_COLOR,
+    FORM_DND_FILE_UPLOADER_REJECTED_BORDER_COLOR,
+    FORM_DND_FILE_UPLOADER_REJECTED_TEXT_COLOR,
+    FORM_INPUT_BG_COLOR,
+    FORM_INPUT_BORDER_RADIUS,
+    FORM_INPUT_BORDER_WIDTH,
+    FORM_INPUT_TEXT_COLOR,
+    FORM_INPUT_DISABLED_BG_COLOR,
+    FORM_INPUT_DISABLED_PLACEHOLDER_TEXT_COLOR,
+    FORM_INPUT_ERROR_BORDER_COLOR,
+    FORM_INPUT_ERROR_BG_COLOR,
+    FORM_INPUT_ERROR_PLACEHOLDER_TEXT_COLOR,
+    FORM_INPUT_ERROR_FOCUS_HALO_COLOR,
+    FORM_INPUT_FOCUS_BORDER_COLOR,
+    FORM_INPUT_FOCUS_HALO_COLOR,
+    FORM_INPUT_PLACEHOLDER_FONT_STYLE,
+    FORM_INPUT_PLACEHOLDER_TEXT_COLOR,
+    FORM_MENU_BORDER_RADIUS,
+    FORM_MENU_SELECTED_BG_COLOR,
+    FORM_MENU_SELECTED_FOCUS_BG_COLOR,
+    FORM_MENU_SELECTED_FOCUS_TEXT_COLOR,
+    FORM_MENU_SELECTED_TEXT_COLOR,
+    FORM_PILL_BG_COLOR,
+    FORM_PILL_BORDER_RADIUS,
+    FORM_PILL_TEXT_COLOR,
+    FORM_TOGGLE_SWITCH_KNOB_COLOR,
+    FORM_TOGGLE_SWITCH_KNOB_BORDER_COLOR,
+    FORM_TOGGLE_SWITCH_KNOB_BORDER_RADIUS,
+    FORM_TOGGLE_SWITCH_TRACK_BORDER_RADIUS,
+    FORM_TOGGLE_SWITCH_TRACK_COLOR,
+    FORM_TOGGLE_SWITCH_TRACK_HOVER_COLOR,
+    FORM_TOGGLE_SWITCH_ON_KNOB_COLOR,
+    FORM_TOGGLE_SWITCH_ON_TRACK_COLOR,
+    FORM_TOGGLE_SWITCH_ON_HOVER_TRACK_COLOR,
+    FORM_TOGGLE_SWITCH_BUSY_ICON_COLOR,
+    FORM_TOGGLE_SWITCH_ON_BUSY_ICON_COLOR,
+    FORM_TOGGLE_SWITCH_ON_FOCUS_HALO_COLOR,
+} = FORM_TOKEN_NAMES;
+
+export const getFormStyles = (data = {}) => {
+    const apiKeyCheckboxBorderRadius = getThemeAPIKeyFromName(
+        FORM_CHECKBOX_BORDER_RADIUS,
+    );
+    const apiKeyInputBorderRadius = getThemeAPIKeyFromName(
+        FORM_INPUT_BORDER_RADIUS,
+    );
+    const apiKeyInputBorderWidth = getThemeAPIKeyFromName(
+        FORM_INPUT_BORDER_WIDTH,
+    );
+    const apiKeyInputPlaceholderFontStyle = getThemeAPIKeyFromName(
+        FORM_INPUT_PLACEHOLDER_FONT_STYLE,
+    );
+    const apiKeyMenuBorderRadius = getThemeAPIKeyFromName(
+        FORM_MENU_BORDER_RADIUS,
+    );
+    const apiKeyPillBorderRadius = getThemeAPIKeyFromName(
+        FORM_PILL_BORDER_RADIUS,
+    );
+    const apiKeyToggleSwitchTrackBorderRadius = getThemeAPIKeyFromName(
+        FORM_TOGGLE_SWITCH_TRACK_BORDER_RADIUS,
+    );
+    const apiKeyToggleSwitchKnobBorderRadius = getThemeAPIKeyFromName(
+        FORM_TOGGLE_SWITCH_KNOB_BORDER_RADIUS,
+    );
+    const checkboxBorderRadiusDefault =
+        FORM_STYLE_TOKEN_DEFAULTS[FORM_CHECKBOX_BORDER_RADIUS];
+    const inputBorderRadiusDefault =
+        FORM_STYLE_TOKEN_DEFAULTS[FORM_INPUT_BORDER_RADIUS];
+    const inputBorderWidthDefault =
+        FORM_STYLE_TOKEN_DEFAULTS[FORM_INPUT_BORDER_WIDTH];
+    const inputPlaceholderFontStyleDefault =
+        FORM_STYLE_TOKEN_DEFAULTS[FORM_INPUT_PLACEHOLDER_FONT_STYLE];
+    const menuBorderRadiusDefault =
+        FORM_STYLE_TOKEN_DEFAULTS[FORM_MENU_BORDER_RADIUS];
+    const pillBorderRadiusDefault =
+        FORM_STYLE_TOKEN_DEFAULTS[FORM_PILL_BORDER_RADIUS];
+    const toggleSwitchTrackBorderRadiusDefault =
+        FORM_STYLE_TOKEN_DEFAULTS[FORM_TOGGLE_SWITCH_TRACK_BORDER_RADIUS];
+    const {
+        [apiKeyCheckboxBorderRadius]:
+            checkboxBorderRadius = checkboxBorderRadiusDefault,
+        [apiKeyInputBorderRadius]: inputBorderRadius = inputBorderRadiusDefault,
+        [apiKeyInputBorderWidth]: inputBorderWidth = inputBorderWidthDefault,
+        [apiKeyInputPlaceholderFontStyle]:
+            inputPlaceholderFontStyle = inputPlaceholderFontStyleDefault,
+        [apiKeyMenuBorderRadius]: menuBorderRadius = menuBorderRadiusDefault,
+        [apiKeyPillBorderRadius]: pillBorderRadius = pillBorderRadiusDefault,
+        [apiKeyToggleSwitchTrackBorderRadius]:
+            toggleSwitchTrackBorderRadius = toggleSwitchTrackBorderRadiusDefault,
+    } = data;
+
+    return {
+        [apiKeyCheckboxBorderRadius]: checkboxBorderRadius,
+        [apiKeyInputBorderRadius]: inputBorderRadius,
+        [apiKeyInputBorderWidth]: inputBorderWidth,
+        [apiKeyInputPlaceholderFontStyle]: inputPlaceholderFontStyle,
+        [apiKeyMenuBorderRadius]: menuBorderRadius,
+        [apiKeyPillBorderRadius]: pillBorderRadius,
+        [apiKeyToggleSwitchTrackBorderRadius]: toggleSwitchTrackBorderRadius,
+        [apiKeyToggleSwitchKnobBorderRadius]: Math.max(
+            toggleSwitchTrackBorderRadius - 1,
+            0,
+        ),
+    };
+};
 
 export const getFormToggleSwitchTheme = (colors = {}, config = {}) => {
+    const { sourceColors = {}, canvasColor = {}, canvasAltColor = {} } = colors;
     const {
-        sourceColorData = {},
-        canvasColor = {},
-        canvasAltColor = {},
-    } = colors;
-    const { base = {} } = sourceColorData;
-    const { isDarkMode, shouldAutoCorrectColors = true } = config;
+        isDarkMode,
+        isMobile = false,
+        shouldAutoCorrectColors = true,
+    } = config;
+    const { base = {}, recommendedNonTextColor = {} } = sourceColors;
+    const { hex: canvasHex } = canvasColor;
     const formTrackOnStateColor = !shouldAutoCorrectColors
         ? base
-        : getJuxtaposedColorAgainstCanvases({
-              sourceColorData,
-              canvasColor,
-              canvasAltColor,
-          });
-
+        : recommendedNonTextColor;
     const trackLightnessThreshold = 10;
     const trackOnHoverLightness = getCorrectedLightnessAdjustment(
         formTrackOnStateColor.lightness,
@@ -77,47 +154,45 @@ export const getFormToggleSwitchTheme = (colors = {}, config = {}) => {
         formTrackOnStateColor.hex,
         trackOnHoverLightness,
     );
-    const defaultTrackBGColor = getNewColorByChangingLightness(
-        canvasColor.hex,
-        30,
+    const defaultTrackBGColor = getAccessibleNeutralColor(
+        canvasColor?.hex,
+        canvasAltColor?.hex,
     );
-    const knobColor = canvasColor.hex;
+    const knobColor = canvasHex;
 
     return {
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_KNOB)]: knobColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_TRACK)]:
+        [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_KNOB_COLOR)]: knobColor,
+        [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_TRACK_COLOR)]:
             defaultTrackBGColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_TRACK_HOVER)]:
-            getNewColorByChangingLightness(
-                canvasColor.hex,
-                isDarkMode ? 40 : 20,
-            ),
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_KNOB_BORDER)]:
+        [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_KNOB_BORDER_COLOR)]:
             defaultTrackBGColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_KNOB_ON_STATE)]:
-            knobColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_TRACK_ON_STATE)]:
+        [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_ON_KNOB_COLOR)]: knobColor,
+        [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_ON_TRACK_COLOR)]:
             formTrackOnStateColor.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_TRACK_HOVER_ON_STATE)]:
-            trackOnHoverColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_ON_STATE_FOCUS_HALO)]:
-            convertColorToRGBA(trackOnHoverColor, 0.4, true),
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_BUSY_ICON)]:
-            getTextColor(defaultTrackBGColor),
-        [getThemeAPIKeyFromName(COLOR_FORM_TOGGLE_SWITCH_BUSY_ICON_ON_STATE)]:
-            getTextColor(formTrackOnStateColor.hex),
+        [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_BUSY_ICON_COLOR)]:
+            getAccessibleWhiteOrBlackColor(defaultTrackBGColor),
+        [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_ON_BUSY_ICON_COLOR)]:
+            getAccessibleWhiteOrBlackColor(formTrackOnStateColor.hex),
+        ...(!isMobile && {
+            [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_TRACK_HOVER_COLOR)]:
+                getNewColorByChangingLightness(canvasHex, isDarkMode ? 40 : 20),
+            [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_ON_HOVER_TRACK_COLOR)]:
+                trackOnHoverColor,
+            [getThemeAPIKeyFromName(FORM_TOGGLE_SWITCH_ON_FOCUS_HALO_COLOR)]:
+                convertColorToRGBA(trackOnHoverColor, 0.4, true),
+        }),
     };
 };
 
 export const getFormDnDFileUploaderTheme = (colors = {}, config = {}) => {
-    const { affirmativeColorData, errorColorData, ...rest } = colors;
+    const { affirmativeColors, errorColors, ...rest } = colors;
     const { shouldAutoCorrectColors = true, isDarkMode } = config;
     const lightnessThreshold = 30;
     const hoverColor = !shouldAutoCorrectColors
-        ? affirmativeColorData?.base
+        ? affirmativeColors?.base
         : getJuxtaposedColorAgainstCanvases({
               ...rest,
-              sourceColorData: affirmativeColorData,
+              sourceColors: affirmativeColors,
           });
     const hoverBorderLightness = getCorrectedLightnessAdjustment(
         hoverColor.lightness,
@@ -130,10 +205,10 @@ export const getFormDnDFileUploaderTheme = (colors = {}, config = {}) => {
     );
     const hoverTextColor = getTextColor(hoverColor.hex);
     const rejectColor = !shouldAutoCorrectColors
-        ? errorColorData?.base
+        ? errorColors?.base
         : getJuxtaposedColorAgainstCanvases({
               ...rest,
-              sourceColorData: errorColorData,
+              sourceColors: errorColors,
           });
     const rejectBorderLightness = getCorrectedLightnessAdjustment(
         rejectColor.lightness,
@@ -148,54 +223,37 @@ export const getFormDnDFileUploaderTheme = (colors = {}, config = {}) => {
     const rejectTextColor = getTextColor(rejectColor.hex);
 
     return {
-        [getThemeAPIKeyFromName(COLOR_FORM_DND_FILE_UPLOADER_HOVER_STATE_BG)]:
+        [getThemeAPIKeyFromName(FORM_DND_FILE_UPLOADER_HOVER_BG_COLOR)]:
             hoverColor.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_DND_FILE_UPLOADER_HOVER_STATE_TEXT)]:
+        [getThemeAPIKeyFromName(FORM_DND_FILE_UPLOADER_HOVER_TEXT_COLOR)]:
             hoverTextColor,
-        [getThemeAPIKeyFromName(
-            COLOR_FORM_DND_FILE_UPLOADER_HOVER_STATE_BORDER,
-        )]: hoverBorderColor,
-        [getThemeAPIKeyFromName(
-            COLOR_FORM_DND_FILE_UPLOADER_REJECTED_STATE_BG,
-        )]: rejectColor.hex,
-        [getThemeAPIKeyFromName(
-            COLOR_FORM_DND_FILE_UPLOADER_REJECTED_STATE_BORDER,
-        )]: rejectBorderColor,
-        [getThemeAPIKeyFromName(
-            COLOR_FORM_DND_FILE_UPLOADER_REJECTED_STATE_TEXT,
-        )]: rejectTextColor,
+        [getThemeAPIKeyFromName(FORM_DND_FILE_UPLOADER_HOVER_BORDER_COLOR)]:
+            hoverBorderColor,
+        [getThemeAPIKeyFromName(FORM_DND_FILE_UPLOADER_REJECTED_BG_COLOR)]:
+            rejectColor.hex,
+        [getThemeAPIKeyFromName(FORM_DND_FILE_UPLOADER_REJECTED_BORDER_COLOR)]:
+            rejectBorderColor,
+        [getThemeAPIKeyFromName(FORM_DND_FILE_UPLOADER_REJECTED_TEXT_COLOR)]:
+            rejectTextColor,
     };
 };
 
 export const getFormErrorsTheme = (colors = {}, config = {}) => {
-    const { sourceColorData = {}, ...rest } = colors;
-    const { isDarkMode, shouldAutoCorrectColors = true } = config;
-    const { base = {}, variants = [] } = sourceColorData;
-    const FORM_INLINE_ERROR_TEXT_API_KEY = getThemeAPIKeyFromName(
-        COLOR_FORM_INLINE_ERROR_TEXT,
-    );
+    const { sourceColors = {} } = colors;
+    const { isDarkMode, isMobile } = config;
+    const { base = {}, variants = [] } = sourceColors;
     const FORM_INPUT_ERROR_BG_API_KEY = getThemeAPIKeyFromName(
-        COLOR_FORM_INPUT_ERROR_BG,
+        FORM_INPUT_ERROR_BG_COLOR,
     );
     const FORM_INPUT_ERROR_PLACEHOLDER_TEXT_API_KEY = getThemeAPIKeyFromName(
-        COLOR_FORM_INPUT_ERROR_PLACEHOLDER_TEXT,
+        FORM_INPUT_ERROR_PLACEHOLDER_TEXT_COLOR,
     );
     const FORM_INPUT_ERROR_BORDER_API_KEY = getThemeAPIKeyFromName(
-        COLOR_FORM_INPUT_ERROR_BORDER,
+        FORM_INPUT_ERROR_BORDER_COLOR,
     );
     const FORM_INPUT_ERROR_FOCUS_HALO_API_KEY = getThemeAPIKeyFromName(
-        COLOR_FORM_INPUT_ERROR_FOCUS_HALO,
+        FORM_INPUT_ERROR_FOCUS_HALO_COLOR,
     );
-
-    const errorTextColor = !shouldAutoCorrectColors
-        ? base.hex
-        : getJuxtaposedColorAgainstCanvases(
-              {
-                  ...rest,
-                  sourceColorData,
-              },
-              true,
-          ).hex;
     const bgLightness = isDarkMode ? 20 : 80;
     const inputErrorBgColor =
         variants.find((variant) => variant.lightness === bgLightness) || {};
@@ -206,23 +264,21 @@ export const getFormErrorsTheme = (colors = {}, config = {}) => {
     )?.hex;
 
     return {
-        [FORM_INLINE_ERROR_TEXT_API_KEY]: errorTextColor,
         [FORM_INPUT_ERROR_BG_API_KEY]: inputErrorBgColor.hex,
         [FORM_INPUT_ERROR_PLACEHOLDER_TEXT_API_KEY]:
             inputErrorPlaceholderTextColor,
         [FORM_INPUT_ERROR_BORDER_API_KEY]: inputErrorPlaceholderTextColor,
-        [FORM_INPUT_ERROR_FOCUS_HALO_API_KEY]: convertColorToRGBA(
-            inputErrorPlaceholderTextColor,
-            0.4,
-            true,
-        ),
+        [FORM_INPUT_ERROR_FOCUS_HALO_API_KEY]: isMobile
+            ? `${inputErrorPlaceholderTextColor}66`
+            : convertColorToRGBA(inputErrorPlaceholderTextColor, 0.4, true),
     };
 };
 
-export const getFormGeneralTheme = (canvasColorData = {}, config = {}) => {
+export const getFormGeneralTheme = (colors = {}, config = {}) => {
+    const { canvasColors = {} } = colors;
     const { isDarkMode } = config;
-    const { base = {}, variants = [] } = canvasColorData;
-    const defaultBg = base.hex;
+    const { base = {}, variants = [] } = canvasColors;
+    const { hex: defaultBg } = base;
     const recommendedPlaceholderTextColor =
         getRecommendedColor(base, variants, true) || {};
     const disabledBgColor = isDarkMode
@@ -232,59 +288,101 @@ export const getFormGeneralTheme = (canvasColorData = {}, config = {}) => {
         getRecommendedColor(disabledBgColor, [base, ...variants], true) || {};
 
     const themeData = {
-        [getThemeAPIKeyFromName(COLOR_FORM_INPUT_BG)]: defaultBg,
-        [getThemeAPIKeyFromName(COLOR_FORM_INPUT_TEXT)]:
+        [getThemeAPIKeyFromName(FORM_INPUT_BG_COLOR)]: defaultBg,
+        [getThemeAPIKeyFromName(FORM_INPUT_TEXT_COLOR)]:
             getTextColor(defaultBg),
-        [getThemeAPIKeyFromName(COLOR_FORM_INPUT_PLACHOLDER_TEXT)]:
-            recommendedPlaceholderTextColor.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_INPUT_DISABLED_BG)]:
+        [getThemeAPIKeyFromName(FORM_INPUT_PLACEHOLDER_TEXT_COLOR)]:
+            recommendedPlaceholderTextColor?.hex,
+        [getThemeAPIKeyFromName(FORM_INPUT_DISABLED_BG_COLOR)]:
             disabledBgColor?.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_INPUT_DISABLED_PLACEHOLDER_TEXT)]:
-            disabledPlaceholderTextColor.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_DATE_PICKER_OFF_RANGE_TEXT)]:
-            recommendedPlaceholderTextColor.hex,
+        [getThemeAPIKeyFromName(FORM_INPUT_DISABLED_PLACEHOLDER_TEXT_COLOR)]:
+            disabledPlaceholderTextColor?.hex,
+        [getThemeAPIKeyFromName(FORM_DATE_PICKER_OFF_RANGE_TEXT_COLOR)]:
+            recommendedPlaceholderTextColor?.hex,
     };
 
     return themeData;
 };
 
-export const getFormPrimaryColorTheme = (colors = {}, config = {}) => {
-    const { sourceColorData, ...rest } = colors;
-    const { shouldAutoCorrectColors = true, isDarkMode } = config;
-    const recommendedColorData = !shouldAutoCorrectColors
-        ? sourceColorData.base
-        : getJuxtaposedColorAgainstCanvases({
-              ...rest,
-              sourceColorData,
-          });
-    const textColor = getTextColor(recommendedColorData?.hex);
-    const { lightness: recommendedColorLightness } = recommendedColorData || {};
-    const lightnessThreshold = 20;
+export const getFormCheckedAccentColorTheme = (colors = {}, config = {}) => {
+    const { sourceColors = {} } = colors;
+    const { isMobile, shouldAutoCorrectColors = true } = config;
+    const { base = {}, recommendedNonTextColor = {} } = sourceColors;
+    const accentColor = shouldAutoCorrectColors
+        ? recommendedNonTextColor.hex
+        : base.hex;
+
+    return {
+        [getThemeAPIKeyFromName(FORM_CHECKED_ACCENT_COLOR)]: accentColor,
+        [getThemeAPIKeyFromName(FORM_CHECKED_ACCENT_COMPLIMENT_COLOR)]:
+            getAccessibleWhiteOrBlackColor(accentColor),
+        [getThemeAPIKeyFromName(FORM_CHECKED_FOCUS_HALO_COLOR)]: isMobile
+            ? `${accentColor}66`
+            : convertColorToRGBA(accentColor, 0.4, true),
+    };
+};
+
+export const getFormMultiselectTheme = (colors = {}, config = {}) => {
+    const { sourceColors = {} } = colors;
+    const { shouldAutoCorrectColors = true } = config;
+    const { base = {}, recommendedNonTextColor = {} } = sourceColors;
+    const pillBGHex = shouldAutoCorrectColors
+        ? recommendedNonTextColor.hex
+        : base.hex;
+    const textColor = getTextColor(pillBGHex);
+
+    return {
+        [getThemeAPIKeyFromName(FORM_PILL_BG_COLOR)]: pillBGHex,
+        [getThemeAPIKeyFromName(FORM_PILL_TEXT_COLOR)]: textColor,
+    };
+};
+
+export const getFormMenuTheme = (colors = {}, config = {}) => {
+    const { sourceColors = {} } = colors;
+    const { shouldAutoCorrectColors, isMobile, isDarkMode } = config;
+    const { base = {}, recommendedNonTextColor = {} } = sourceColors;
+    const selectedBGHex = shouldAutoCorrectColors
+        ? recommendedNonTextColor.hex
+        : base.hex;
+    const { lightness: recommendedColorLightness } = shouldAutoCorrectColors
+        ? recommendedNonTextColor
+        : base;
+    const selectedTextHex = getTextColor(selectedBGHex);
     const menuItemSelectedLightness = getCorrectedLightnessAdjustment(
         recommendedColorLightness,
-        lightnessThreshold,
+        20,
         isDarkMode,
     );
     const formMenuSelectedStateFocusBGColor = getNewColorByChangingLightness(
-        recommendedColorData?.hex,
+        selectedBGHex,
         menuItemSelectedLightness,
     );
 
     return {
-        [getThemeAPIKeyFromName(COLOR_FORM_CHECKED_STATE_BG)]:
-            recommendedColorData?.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_CHECKED_STATE_ICON)]: textColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_CHECKED_STATE_FOCUS_HALO)]:
-            convertColorToRGBA(recommendedColorData?.hex, 0.4, true),
-        [getThemeAPIKeyFromName(COLOR_FORM_PILL_BG)]: recommendedColorData?.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_PILL_TEXT)]: textColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_MENU_SELECTED_STATE_FOCUS_BG)]:
-            formMenuSelectedStateFocusBGColor,
-        [getThemeAPIKeyFromName(COLOR_FORM_MENU_SELECTED_STATE_FOCUS_TEXT)]:
-            getTextColor(formMenuSelectedStateFocusBGColor),
-        [getThemeAPIKeyFromName(COLOR_FORM_MENU_SELECTED_STATE_BG)]:
-            recommendedColorData?.hex,
-        [getThemeAPIKeyFromName(COLOR_FORM_MENU_SELECTED_STATE_TEXT)]:
-            textColor,
+        [getThemeAPIKeyFromName(FORM_MENU_SELECTED_BG_COLOR)]: selectedBGHex,
+        [getThemeAPIKeyFromName(FORM_MENU_SELECTED_TEXT_COLOR)]:
+            selectedTextHex,
+        ...(!isMobile && {
+            [getThemeAPIKeyFromName(FORM_MENU_SELECTED_FOCUS_BG_COLOR)]:
+                formMenuSelectedStateFocusBGColor,
+            [getThemeAPIKeyFromName(FORM_MENU_SELECTED_FOCUS_TEXT_COLOR)]:
+                getTextColor(formMenuSelectedStateFocusBGColor),
+        }),
+    };
+};
+
+export const getFormFocusColorTheme = (colors = {}, config = {}) => {
+    const { sourceColors = {} } = colors;
+    const { shouldAutoCorrectColors = true, isMobile } = config;
+    const { base = {}, recommendedNonTextColor = {} } = sourceColors;
+    const sourceColor = shouldAutoCorrectColors
+        ? recommendedNonTextColor.hex
+        : base.hex;
+
+    return {
+        [getThemeAPIKeyFromName(FORM_INPUT_FOCUS_BORDER_COLOR)]: sourceColor,
+        [getThemeAPIKeyFromName(FORM_INPUT_FOCUS_HALO_COLOR)]: isMobile
+            ? `${sourceColor}66`
+            : convertColorToRGBA(sourceColor, 0.4, true),
     };
 };

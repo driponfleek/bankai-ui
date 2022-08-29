@@ -1,33 +1,35 @@
 /* eslint-disable import/prefer-default-export */
-import { getTextColor } from '../colorUtils';
-import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
+import { getTextColor } from '../helperUtils';
+import { getThemeAPIKeyFromName } from '../dataUtils';
+import { ACCORDION_COLOR_TOKEN_NAMES } from '../../const/tokens/accordionTokensConst';
 
 const {
-    COLOR_ACCORDION_BORDER,
-    COLOR_ACCORDION_BG,
-    COLOR_ACCORDION_TRIGGER_TEXT,
-    COLOR_ACCORDION_TRIGGER_HOVER_BG,
-    COLOR_ACCORDION_TRIGGER_HOVER_TEXT,
-} = THEME_TOKEN_NAMES;
+    ACCORDION_BORDER_COLOR,
+    ACCORDION_BG_COLOR,
+    ACCORDION_TRIGGER_TEXT_COLOR,
+    ACCORDION_TRIGGER_HOVER_BG_COLOR,
+    ACCORDION_TRIGGER_HOVER_TEXT_COLOR,
+} = ACCORDION_COLOR_TOKEN_NAMES;
 
-export const getAccordionTheme = (colors = {}) => {
+export const getAccordionTheme = (colors = {}, config = {}) => {
     const {
         canvasColor = {},
         universalHoverColor = {},
-        universalBorderColor = {},
+        borderColor = {},
     } = colors;
+    const { isMobile } = config;
 
     return {
-        [getThemeAPIKeyFromName(COLOR_ACCORDION_BORDER)]:
-            universalBorderColor.hex,
-        [getThemeAPIKeyFromName(COLOR_ACCORDION_BG)]: canvasColor.hex,
-        [getThemeAPIKeyFromName(COLOR_ACCORDION_TRIGGER_TEXT)]: getTextColor(
+        [getThemeAPIKeyFromName(ACCORDION_BORDER_COLOR)]: borderColor.hex,
+        [getThemeAPIKeyFromName(ACCORDION_BG_COLOR)]: canvasColor.hex,
+        [getThemeAPIKeyFromName(ACCORDION_TRIGGER_TEXT_COLOR)]: getTextColor(
             canvasColor.hex,
         ),
-        [getThemeAPIKeyFromName(COLOR_ACCORDION_TRIGGER_HOVER_BG)]:
-            universalHoverColor.hex,
-        [getThemeAPIKeyFromName(COLOR_ACCORDION_TRIGGER_HOVER_TEXT)]:
-            getTextColor(universalHoverColor.hex),
+        ...(!isMobile && {
+            [getThemeAPIKeyFromName(ACCORDION_TRIGGER_HOVER_BG_COLOR)]:
+                universalHoverColor.hex,
+            [getThemeAPIKeyFromName(ACCORDION_TRIGGER_HOVER_TEXT_COLOR)]:
+                getTextColor(universalHoverColor.hex),
+        }),
     };
 };

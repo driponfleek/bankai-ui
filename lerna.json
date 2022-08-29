@@ -1,5 +1,10 @@
 {
     "command": {
+        "bootsrap": {
+            "npmClientArgs": [
+                "--legacy-peer-deps"
+            ]
+        },
         "publish": {
             "allowBranch": "main",
             "message": "chore(release): publish",

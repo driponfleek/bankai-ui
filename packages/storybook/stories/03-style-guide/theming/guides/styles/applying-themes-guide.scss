@@ -11,20 +11,20 @@
     $this: &;
 
     .bankai-form-layout-section + .bankai-form-layout-section {
-        margin-top: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 5)};
+        margin-top: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 5)};
     }
 
     &__theme-demo {
         @include bankai-flex-row;
-        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 5)};
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
         flex-wrap: wrap;
     }
 
     .bankai-sb-sticky-section--slim .bankai-sb-sticky-section__inner {
-        padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
+        padding: 0 #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
 
         @include bankai-breakpoint-max-only($bankai-s-min) {
-            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+            padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
         }
     }
 }

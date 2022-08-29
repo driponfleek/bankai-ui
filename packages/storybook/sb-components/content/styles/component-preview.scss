@@ -6,10 +6,10 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-component-preview {
-    background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
-    border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
-    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
-    box-shadow: inset 0 1px 3px 1px color.change(bankai-light-theme('color-black'), $alpha: 0.1);
+    background-color: var(--bankai-core-color-canvas-alt, bankai-light-theme('core-color-canvas-alt'));
+    border: 1px solid var(--bankai-core-color-universal-decorative-border, bankai-light-theme('core-color-universal-decorative-border'));
+    border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
+    box-shadow: inset 0 1px 3px 1px color.change(bankai-light-theme('core-color-neutral-0'), $alpha: 0.1);
     box-sizing: border-box;
-    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+    padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
 }

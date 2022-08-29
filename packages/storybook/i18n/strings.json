@@ -20,7 +20,8 @@
                 "table": {
                     "headings": {
                         "token": "Token",
-                        "value": "Value"
+                        "value": "Value",
+                        "valueMobile": "Value (Mobile)"
                     }
                 },
                 "title": "Design Tokens"
@@ -97,8 +98,8 @@
                     "callout": {
                         "title": "Callout"
                     },
-                    "calloutMemo": {
-                        "title": "Callout Memo"
+                    "calloutBanner": {
+                        "title": "Callout Banner"
                     },
                     "genericError": {
                         "title": "Generic Error"

@@ -8,6 +8,6 @@
     @include bankai-max-line-width;
 
     &__text {
-        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
     }
 }

@@ -5,27 +5,27 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 @mixin bankai-form-input-disabled($has-placeholder: true) {
-    background-color: var(--bankai-color-form-input-disabled-bg, bankai-light-theme('color-form-input-disabled-bg'));
+    background-color: var(--bankai-form-input-disabled-bg-color, bankai-light-theme('form-input-disabled-bg-color'));
     opacity: bankai-light-theme('state-disabled-opacity');
 
     @if $has-placeholder {
         &::placeholder {
-            color: var(--bankai-color-form-input-disabled-placeholder-text, bankai-light-theme('color-form-input-disabled-placeholder-text'));
+            color: var(--bankai-form-input-disabled-placeholder-text-color, bankai-light-theme('form-input-disabled-placeholder-text-color'));
         }
     }
 }
 
 @mixin bankai-form-input-error($has-placeholder: true) {
-    background-color: var(--bankai-color-form-input-error-bg, bankai-light-theme('color-form-input-error-bg'));
-    border-color: var(--bankai-color-form-input-error-border, bankai-light-theme('color-form-input-error-border'));
+    background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
+    border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
 
     @if $has-placeholder {
         &::placeholder {
-            color: var(--bankai-color-form-input-error-placeholder-text, bankai-light-theme('color-form-input-error-placeholder-text'));
+            color: var(--bankai-form-input-error-placeholder-text-color, bankai-light-theme('form-input-error-placeholder-text-color'));
         }
     }
 
     &:focus {
-        @include bankai-focus-state-box-shadow(var(--bankai-color-form-input-error-focus-halo, bankai-light-theme('color-form-input-error-focus-halo')));
+        @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-light-theme('form-input-error-focus-halo-color')));
     }
 }

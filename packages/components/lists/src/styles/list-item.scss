@@ -6,22 +6,22 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-list-item, %bankai-list-item {
-    background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+    background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
 
     &__inner {
         box-sizing: border-box;
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
     }
 
     &__meta {
-        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
-        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+        color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
+        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
     }
 
     &__text,
     &__meta {
         @include bankai-max-line-width;
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
         margin: 0;
     }
 }

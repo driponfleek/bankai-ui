@@ -9,7 +9,7 @@
         .bankai-loading-skeleton {
             width: 320px;
             height: 150px;
-            border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+            border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
         }
     }
 }

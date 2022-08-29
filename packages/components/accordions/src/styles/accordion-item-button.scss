@@ -9,12 +9,12 @@
 
 .bankai-accordion-item-button, %bankai-accordion-item-button {
     @include bankai-focus-state-halo;
-    color: var(--bankai-color-accordion-trigger-text, bankai-light-theme('color-accordion-trigger-text'));
+    color: var(--bankai-accordion-trigger-text-color, bankai-light-theme('accordion-trigger-text-color'));
 
     @media (hover: hover) {
         &:hover {
-            color: var(--bankai-color-accordion-trigger-hover-text, #{bankai-light-theme('color-accordion-trigger-hover-text')});
-            background-color: var(--bankai-color-accordion-trigger-hover-bg, #{bankai-light-theme('color-accordion-trigger-hover-bg')});
+            color: var(--bankai-accordion-trigger-hover-text-color, #{bankai-light-theme('accordion-trigger-hover-text-color')});
+            background-color: var(--bankai-accordion-trigger-hover-bg-color, #{bankai-light-theme('accordion-trigger-hover-bg-color')});
             cursor: pointer;
         }
     }

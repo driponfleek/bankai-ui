@@ -20,30 +20,23 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-yarn add @epr0t0type/bankai-ui-callouts
+npm i @epr0t0type/bankai-ui-callouts
 ```
 
 ## Usage
 
 ### Callout
-For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-callouts--callout-story).
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-callouts--story-callout).
 
 ```
 import { Callout } from '@epr0t0type/bankai-ui-callouts';
 ```
 
-### CalloutMemo
-For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-callouts--callout-memo-story).
+### CalloutBanner
+For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-callouts--story-callout-banner).
 
 ```
-import { CalloutMemo, VARIANTS } from '@epr0t0type/bankai-ui-callouts';
-```
-
-### GenericError
-For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-callouts--generic-error-story).
-
-```
-import { GenericError } from '@epr0t0type/bankai-ui-callouts';
+import { CalloutBanner, VARIANTS } from '@epr0t0type/bankai-ui-callouts';
 ```
 
 ## Built With

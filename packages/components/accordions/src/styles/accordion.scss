@@ -8,11 +8,11 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-accordion, %bankai-accordion {
-    background-color: var(--bankai-color-accordion-bg, #{bankai-light-theme('color-accordion-bg')});
-    border-bottom: 1px solid var(--bankai-color-accordion-border, bankai-light-theme('color-accordion-border'));
+    background-color: var(--bankai-accordion-bg-color, #{bankai-light-theme('accordion-bg-color')});
+    border-bottom: 1px solid var(--bankai-accordion-border-color, bankai-light-theme('accordion-border-color'));
 
     &-item + &-item {
-        border-top: 1px solid var(--bankai-color-accordion-border, bankai-light-theme('color-accordion-border'));
+        border-top: 1px solid var(--bankai-accordion-border-color, bankai-light-theme('accordion-border-color'));
     }
 
     &-item-panel {

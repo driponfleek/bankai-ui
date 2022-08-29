@@ -8,12 +8,12 @@
 
 .bankai-sb-color-picker-with-variants {
     @include bankai-flex-column;
-    gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+    gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
 
     .bankai-sb-color-results__comp-container {
         .bankai-sb-color-compatibilities-list {
             @include bankai-flex-row;
-            gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 6)};
+            gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 6)};
         }
 
         .bankai-sb-color-picker-with-compatibilities__section {
@@ -25,7 +25,7 @@
         }
 
         + .bankai-sb-color-results__variants-container {
-            margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+            margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
         }
     }
 }

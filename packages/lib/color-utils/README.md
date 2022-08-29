@@ -3,7 +3,7 @@ Utilities for dealing with color.
 
 ## Installing
 ```
-yarn add @epr0t0type/bankai-lib-color-utils
+npm i @epr0t0type/bankai-lib-color-utils
 ```
 
 ## Usage

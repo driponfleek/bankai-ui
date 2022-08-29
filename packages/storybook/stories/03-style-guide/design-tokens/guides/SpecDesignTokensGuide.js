@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { linkTo } from '@storybook/addon-links';
 import { LinkButton } from '@epr0t0type/bankai-ui-buttons';
 import {
+    BTN_STYLE_TOKEN_NAMES,
+    CALLOUT_STYLE_TOKEN_DEFAULTS,
     SPEC_TOKEN_NAMES,
     SPEC_TOKEN_DEFAULTS,
 } from '@epr0t0type/bankai-lib-theme-utils';
@@ -19,10 +21,10 @@ import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
 import './styles/spec-design-tokens-guide.scss';
 
 const { bankaiUI: locale } = strings;
+const { BTN_BORDER_RADIUS } = BTN_STYLE_TOKEN_NAMES;
+const { CALLOUT_BANNER_BORDER_RADIUS } = CALLOUT_STYLE_TOKEN_DEFAULTS;
 const {
     BADGE_BORDER_RADIUS,
-    BTN_BORDER_RADIUS,
-    CALLOUT_MEMO_BORDER_RADIUS,
     FORM_CHECKBOX_BORDER_RADIUS,
     FORM_INPUT_BORDER_RADIUS,
     FORM_INPUT_PLACEHOLDER_FONT_STYLE,
@@ -188,7 +190,7 @@ class SpecDesignTokensGuide extends PureComponent {
     getLayoutTokensTableData = () => {
         return [
             {
-                id: 'dt-layout-grid-base',
+                id: 'dt-core-system-scale',
                 name: 'Grid (Base)',
                 description:
                     'Provides a base unit to scale measurements for things like paddings, margins, space between elements, border radius, etc.',
@@ -211,9 +213,9 @@ class SpecDesignTokensGuide extends PureComponent {
                 isAlt: true,
             },
             {
-                id: 'dt-border-radius-callout-memos',
-                name: 'Callout Memos',
-                value: `${SPEC_TOKEN_DEFAULTS[CALLOUT_MEMO_BORDER_RADIUS]}px`,
+                id: 'dt-border-radius-callout-banner',
+                name: 'Callout Banners',
+                value: `${SPEC_TOKEN_DEFAULTS[CALLOUT_BANNER_BORDER_RADIUS]}px`,
             },
             {
                 id: 'dt-border-radius-checkboxes',
