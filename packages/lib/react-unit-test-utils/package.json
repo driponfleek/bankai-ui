@@ -9,8 +9,8 @@
     "main": "index.js",
     "name": "@epr0t0type/bankai-lib-react-unit-test-utils",
     "peerDependencies": {
-        "react": "16 - 17",
-        "react-dom": "16 - 17"
+        "react": "18",
+        "react-dom": "18"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/epr0t0type"
