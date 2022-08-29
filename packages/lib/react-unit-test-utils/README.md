@@ -8,8 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "react": "16 - 17",
-    "react-dom": "16 - 17",
+    "react": "18",
+    "react-dom": "18",
     ...
 },
 ```

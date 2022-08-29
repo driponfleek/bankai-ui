@@ -18,8 +18,8 @@
     "peerDependencies": {
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2",
-        "react": "16 - 17",
-        "react-dom": "16 - 17"
+        "react": "18",
+        "react-dom": "18"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/epr0t0type"
