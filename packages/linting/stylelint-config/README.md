@@ -3,7 +3,7 @@ Reusable Stylelint configs for linting CSS and SASS.
 
 ## Installing
 ```
-yarn add @epr0t0type/stylelint-config
+npm i @epr0t0type/stylelint-config
 ```
 
 ## Usage

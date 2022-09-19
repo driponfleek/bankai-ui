@@ -16,7 +16,7 @@
     }
 
     &__legend + * {
-        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+        margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
     }
 
     &__content-container {
@@ -24,6 +24,6 @@
     }
 
     &--should-indent-content &__content-container {
-        padding-left: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+        padding-left: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
     }
 }

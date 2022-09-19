@@ -11,8 +11,8 @@
 
 .bankai-toaster, %bankai-toaster {
     @include bankai-box-shadow-elevated;
-    color: var(--bankai-color-toaster-text, bankai-light-theme('color-toaster-text'));
-    background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+    color: var(--bankai-toaster-text-color, bankai-light-theme('toaster-text-color'));
+    background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
     border-radius: var(--bankai-toaster-border-radius, bankai-light-theme('toaster-border-radius'));
     padding: 0;
 
@@ -22,7 +22,7 @@
     }
 
     [class*='progress-bar'] {
-        background: var(--bankai-color-toaster-progress-bar, bankai-light-theme('color-toaster-progress-bar'));
+        background: var(--bankai-toaster-progress-bar-color, bankai-light-theme('toaster-progress-bar-color'));
     }
 
     &__close-btn {
@@ -32,7 +32,7 @@
         border-radius: 0 var(--bankai-toaster-border-radius, bankai-light-theme('toaster-border-radius')) 0 0;
 
         .bankai-button__content-container {
-            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+            padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
         }
 
         .bankai-button__icon {
@@ -70,7 +70,7 @@
 
     &__msg-container {
         min-width: 1px;
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 2)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 2)};
         flex: 1 1 auto;
     }
 
@@ -81,43 +81,43 @@
 
     &__msg {
         @include bankai-max-line-width;
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
         margin: 0;
     }
 
     &--error {
-        color: var(--bankai-color-toaster-error-text, bankai-light-theme('color-toaster-error-text'));
-        background-color: var(--bankai-color-toaster-error-bg, bankai-light-theme('color-toaster-error-bg'));
+        color: var(--bankai-toaster-error-text-color, bankai-light-theme('toaster-error-text-color'));
+        background-color: var(--bankai-toaster-error-bg-color, bankai-light-theme('toaster-error-bg-color'));
 
         [class*='progress-bar'] {
-            background: var(--bankai-color-toaster-error-progress-bar, bankai-light-theme('color-toaster-error-progress-bar'));
+            background: var(--bankai-toaster-error-progress-bar-color, bankai-light-theme('toaster-error-progress-bar-color'));
         }
     }
 
     &--info {
-        color: var(--bankai-color-toaster-info-text, bankai-light-theme('color-toaster-info-text'));
-        background-color: var(--bankai-color-toaster-info-bg, bankai-light-theme('color-toaster-info-bg'));
+        color: var(--bankai-toaster-info-text-color, bankai-light-theme('toaster-info-text-color'));
+        background-color: var(--bankai-toaster-info-bg-color, bankai-light-theme('toaster-info-bg-color'));
 
         [class*='progress-bar'] {
-            background: var(--bankai-color-toaster-info-progress-bar, bankai-light-theme('color-toaster-info-progress-bar'));
+            background: var(--bankai-toaster-info-progress-bar-color, bankai-light-theme('toaster-info-progress-bar-color'));
         }
     }
 
     &--success {
-        color: var(--bankai-color-toaster-success-text, bankai-light-theme('color-toaster-success-text'));
-        background-color: var(--bankai-color-toaster-success-bg, bankai-light-theme('color-toaster-success-bg'));
+        color: var(--bankai-toaster-success-text-color, bankai-light-theme('toaster-success-text-color'));
+        background-color: var(--bankai-toaster-success-bg-color, bankai-light-theme('toaster-success-bg-color'));
 
         [class*='progress-bar'] {
-            background: var(--bankai-color-toaster-success-progress-bar, bankai-light-theme('color-toaster-success-progress-bar'));
+            background: var(--bankai-toaster-success-progress-bar-color, bankai-light-theme('toaster-success-progress-bar-color'));
         }
     }
 
     &--warning {
-        color: var(--bankai-color-toaster-warning-text, bankai-light-theme('color-toaster-warning-text'));
-        background-color: var(--bankai-color-toaster-warning-bg, bankai-light-theme('color-toaster-warning-bg'));
+        color: var(--bankai-toaster-warning-text-color, bankai-light-theme('toaster-warning-text-color'));
+        background-color: var(--bankai-toaster-warning-bg-color, bankai-light-theme('toaster-warning-bg-color'));
 
         [class*='progress-bar'] {
-            background: var(--bankai-color-toaster-warning-progress-bar, bankai-light-theme('color-toaster-warning-progress-bar'));
+            background: var(--bankai-toaster-warning-progress-bar-color, bankai-light-theme('toaster-warning-progress-bar-color'));
         }
     }
 }

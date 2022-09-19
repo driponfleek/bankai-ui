@@ -7,43 +7,43 @@
 
 .bankai-sb-typography-system-guide {
     .bankai-sb-typography-list + .bankai-sb-section {
-        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+        margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
     }
 
     .bankai-sb-component-preview {
         // ========================================================
         // Headings
         // ========================================================
-        --bankai-typography-h5-font-size: calc(var(--bankai-typography-size-base) * var(--bankai-typography-size-ratio));
-        --bankai-typography-h4-font-size: calc(var(--bankai-typography-h5-font-size) * var(--bankai-typography-size-ratio));
-        --bankai-typography-h3-font-size: calc(var(--bankai-typography-h4-font-size) * var(--bankai-typography-size-ratio));
-        --bankai-typography-h2-font-size: calc(var(--bankai-typography-h3-font-size) * var(--bankai-typography-size-ratio));
-        --bankai-typography-h1-font-size: calc(var(--bankai-typography-h2-font-size) * var(--bankai-typography-size-ratio));
+        --bankai-core-typography-headings-level5-font-size: calc(var(--bankai-core-typography-font-size) * var(--bankai-core-typography-size-ratio));
+        --bankai-core-typography-headings-level4-font-size: calc(var(--bankai-core-typography-headings-level5-font-size) * var(--bankai-core-typography-size-ratio));
+        --bankai-core-typography-headings-level3-font-size: calc(var(--bankai-core-typography-headings-level4-font-size) * var(--bankai-core-typography-size-ratio));
+        --bankai-core-typography-headings-level2-font-size: calc(var(--bankai-core-typography-headings-level3-font-size) * var(--bankai-core-typography-size-ratio));
+        --bankai-core-typography-headings-level1-font-size: calc(var(--bankai-core-typography-headings-level2-font-size) * var(--bankai-core-typography-size-ratio));
         // ========================================================
         // Body
         // ========================================================
-        --bankai-typography-sub-text-font-size: calc(var(--bankai-typography-size-base, bankai-light-theme('typography-size-base')) / var(--bankai-typography-size-ratio, bankai-light-theme('typography-size-ratio')));
-        --bankai-typography-footnote-font-size: calc(var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size')) / var(--bankai-typography-size-ratio, bankai-light-theme('typography-size-ratio')));
+        --bankai-core-typography-sub-text-font-size: calc(var(--bankai-core-typography-font-size, bankai-light-theme('core-typography-font-size')) / var(--bankai-core-typography-size-ratio, bankai-light-theme('typography-size-ratio')));
+        --bankai-core-typography-footnote-font-size: calc(var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size')) / var(--bankai-core-typography-size-ratio, bankai-light-theme('typography-size-ratio')));
 
         .bankai-heading + .bankai-heading {
-            margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+            margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
         }
     }
 
     &__paragraph {
-        font-size: var(--bankai-typography-size-base, bankai-light-theme('typography-size-base'));
+        font-size: var(--bankai-core-typography-font-size, bankai-light-theme('core-typography-font-size'));
     }
 
     &__sub-text {
-        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
     }
 
     &__footnote {
-        font-size: var(--bankai-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
+        font-size: var(--bankai-core-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
     }
 
     &__sub-text,
     &__footnote {
-        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
+        color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
     }
 }

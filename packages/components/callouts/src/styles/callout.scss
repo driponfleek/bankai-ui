@@ -8,10 +8,11 @@
 .bankai-callout, %bankai-callout {
     box-sizing: border-box;
     text-align: center;
-    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 8)};
+    padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
+    $this: '.bankai-callout';
 
     &__icon {
-        color: var(--bankai-color-callout-icon, bankai-light-theme('color-callout-icon'));
+        color: var(--bankai-callout-icon-color, bankai-light-theme('callout-icon-color'));
         margin: 0 auto;
     }
 
@@ -20,13 +21,13 @@
         font-size: 8rem;
     }
 
-    &__title {
-        color: var(--bankai-color-text, bankai-light-theme('color-text'));
+    #{$this}__title {
+        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
     }
 
     &__msg {
-        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
         margin: 0;
     }
 
@@ -43,10 +44,34 @@
     }
 
     &__title-container + &__msg-container {
-        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+        margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
     }
 
     &__icon-container + &__text-container {
-        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+        margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
+    }
+
+    &--affirmative {
+        #{$this}__icon {
+            color: var(--bankai-callout-affirmative-icon-color, bankai-light-theme('callout-affirmative-icon-color'));
+        }
+    }
+
+    &--cautionary {
+        #{$this}__icon {
+            color: var(--bankai-callout-cautionary-icon-color, bankai-light-theme('callout-cautionary-icon-color'));
+        }
+    }
+
+    &--error {
+        #{$this}__icon {
+            color: var(--bankai-callout-error-icon-color, bankai-light-theme('callout-error-icon-color'));
+        }
+    }
+
+    &--info {
+        #{$this}__icon {
+            color: var(--bankai-callout-info-icon-color, bankai-light-theme('callout-info-icon-color'));
+        }
     }
 }

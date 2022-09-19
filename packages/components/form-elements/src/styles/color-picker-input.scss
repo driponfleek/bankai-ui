@@ -11,7 +11,7 @@
 .bankai-color-picker-input {
     @include bankai-inline-flex-row;
     position: relative;
-    $bankai-form-border-style: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+    $bankai-form-border-style: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
     $bankai-form-border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
     $this: '.bankai-color-picker-input';
 
@@ -85,7 +85,7 @@
 
     &--has-error {
         #{$this}__trigger {
-            border-color: var(--bankai-color-form-input-error-border, bankai-light-theme('color-form-input-error-border'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
         }
     }
 }

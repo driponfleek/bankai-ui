@@ -34,7 +34,9 @@ class WorkingWithColorGuide extends PureComponent {
         const defaultTheme = getThemeDefaults(isDarkMode);
 
         this.state = {
-            color: genColorsData(defaultTheme[THEME_TOKEN_NAMES.COLOR_PRIMARY]),
+            color: genColorsData({
+                hex: defaultTheme[THEME_TOKEN_NAMES.COLOR_PRIMARY],
+            }),
         };
     }
 
@@ -228,7 +230,7 @@ class WorkingWithColorGuide extends PureComponent {
     // };
 
     handleColorChange = (color) => {
-        const newColorData = genColorsData(color);
+        const newColorData = genColorsData({ hex: color });
 
         this.setState({ color: newColorData });
     };

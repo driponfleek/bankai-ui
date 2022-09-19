@@ -1,78 +1,94 @@
 import { getNewColorByChangingLightness } from '@epr0t0type/bankai-lib-color-utils';
-import { getTextColor } from '../colorUtils';
-import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
+import { getTextColor } from '../helperUtils';
+import { getThemeAPIKeyFromName } from '../dataUtils';
+import { BADGE_TOKEN_NAMES } from '../../const/tokens/badgeTokensConst';
+import { BADGE_STYLE_TOKEN_DEFAULTS } from '../../const/tokens/defaults/badgeTokenDefaultsConst';
 
 const {
-    COLOR_BADGE_BG,
-    COLOR_BADGE_TEXT,
-    COLOR_BADGE_AFFIRMATIVE_BG,
-    COLOR_BADGE_AFFIRMATIVE_TEXT,
-    COLOR_BADGE_CAUTIONARY_BG,
-    COLOR_BADGE_CAUTIONARY_TEXT,
-    COLOR_BADGE_ERROR_BG,
-    COLOR_BADGE_ERROR_TEXT,
-    COLOR_BADGE_INFO_BG,
-    COLOR_BADGE_INFO_TEXT,
-} = THEME_TOKEN_NAMES;
+    BADGE_AFFIRMATIVE_BG_COLOR,
+    BADGE_AFFIRMATIVE_TEXT_COLOR,
+    BADGE_BG_COLOR,
+    BADGE_BORDER_RADIUS,
+    BADGE_CAUTIONARY_BG_COLOR,
+    BADGE_CAUTIONARY_TEXT_COLOR,
+    BADGE_ERROR_BG_COLOR,
+    BADGE_ERROR_TEXT_COLOR,
+    BADGE_INFO_BG_COLOR,
+    BADGE_INFO_TEXT_COLOR,
+    BADGE_TEXT_COLOR,
+} = BADGE_TOKEN_NAMES;
 
-const getBadgeColors = (colorData = {}) => {
-    const { base = {} } = colorData;
-    const { hex } = base;
+const getBadgeColors = (sourceColors = {}, config = {}) => {
+    const { base = {}, recommendedNonTextColor = {} } = sourceColors;
+    const { shouldAutoCorrectColors } = config;
+    const BG = shouldAutoCorrectColors ? recommendedNonTextColor.hex : base.hex;
 
     return {
-        BG: hex,
-        TEXT: getTextColor(hex),
+        BG,
+        TEXT: getTextColor(BG),
     };
 };
 
-export const getBadgeAffirmativeTheme = (sourceColorData = {}) => {
-    const { BG, TEXT } = getBadgeColors(sourceColorData);
+export const getBadgeStyle = (data = {}) => {
+    const apiKeyRadius = getThemeAPIKeyFromName(BADGE_BORDER_RADIUS);
+    const defaultRadius = BADGE_STYLE_TOKEN_DEFAULTS[BADGE_BORDER_RADIUS];
+    const { [apiKeyRadius]: radius = defaultRadius } = data;
+
+    return { [apiKeyRadius]: radius };
+};
+
+export const getBadgeAffirmativeTheme = (colors = {}) => {
+    const { sourceColors } = colors;
+    const { BG, TEXT } = getBadgeColors(sourceColors);
 
     return {
-        [getThemeAPIKeyFromName(COLOR_BADGE_AFFIRMATIVE_BG)]: BG,
-        [getThemeAPIKeyFromName(COLOR_BADGE_AFFIRMATIVE_TEXT)]: TEXT,
+        [getThemeAPIKeyFromName(BADGE_AFFIRMATIVE_BG_COLOR)]: BG,
+        [getThemeAPIKeyFromName(BADGE_AFFIRMATIVE_TEXT_COLOR)]: TEXT,
     };
 };
 
-export const getBadgeCautionaryTheme = (sourceColorData = {}) => {
-    const { BG, TEXT } = getBadgeColors(sourceColorData);
+export const getBadgeCautionaryTheme = (colors = {}) => {
+    const { sourceColors } = colors;
+    const { BG, TEXT } = getBadgeColors(sourceColors);
 
     return {
-        [getThemeAPIKeyFromName(COLOR_BADGE_CAUTIONARY_BG)]: BG,
-        [getThemeAPIKeyFromName(COLOR_BADGE_CAUTIONARY_TEXT)]: TEXT,
+        [getThemeAPIKeyFromName(BADGE_CAUTIONARY_BG_COLOR)]: BG,
+        [getThemeAPIKeyFromName(BADGE_CAUTIONARY_TEXT_COLOR)]: TEXT,
     };
 };
 
-export const getBadgeErrorTheme = (sourceColorData = {}) => {
-    const { BG, TEXT } = getBadgeColors(sourceColorData);
+export const getBadgeErrorTheme = (colors = {}) => {
+    const { sourceColors } = colors;
+    const { BG, TEXT } = getBadgeColors(sourceColors);
 
     return {
-        [getThemeAPIKeyFromName(COLOR_BADGE_ERROR_BG)]: BG,
-        [getThemeAPIKeyFromName(COLOR_BADGE_ERROR_TEXT)]: TEXT,
+        [getThemeAPIKeyFromName(BADGE_ERROR_BG_COLOR)]: BG,
+        [getThemeAPIKeyFromName(BADGE_ERROR_TEXT_COLOR)]: TEXT,
     };
 };
 
-export const getBadgeInfoTheme = (sourceColorData = {}) => {
-    const { BG, TEXT } = getBadgeColors(sourceColorData);
+export const getBadgeInfoTheme = (colors = {}) => {
+    const { sourceColors } = colors;
+    const { BG, TEXT } = getBadgeColors(sourceColors);
 
     return {
-        [getThemeAPIKeyFromName(COLOR_BADGE_INFO_BG)]: BG,
-        [getThemeAPIKeyFromName(COLOR_BADGE_INFO_TEXT)]: TEXT,
+        [getThemeAPIKeyFromName(BADGE_INFO_BG_COLOR)]: BG,
+        [getThemeAPIKeyFromName(BADGE_INFO_TEXT_COLOR)]: TEXT,
     };
 };
 
-export const getBadgeDefaultTheme = (canvasColor = {}, config = {}) => {
+export const getBadgeDefaultTheme = (colors = {}, config = {}) => {
+    const { sourceColors } = colors;
     const { isDarkMode } = config;
     const bgLightness = isDarkMode ? 20 : 80;
     const bgColor = getNewColorByChangingLightness(
-        canvasColor.hex,
+        sourceColors.hex,
         bgLightness,
     );
     const textColor = getTextColor(bgColor);
 
     return {
-        [getThemeAPIKeyFromName(COLOR_BADGE_BG)]: bgColor,
-        [getThemeAPIKeyFromName(COLOR_BADGE_TEXT)]: textColor,
+        [getThemeAPIKeyFromName(BADGE_BG_COLOR)]: bgColor,
+        [getThemeAPIKeyFromName(BADGE_TEXT_COLOR)]: textColor,
     };
 };

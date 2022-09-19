@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { GenericError } from '@epr0t0type/bankai-ui-callouts';
+import { Callout, VARIANTS } from '@epr0t0type/bankai-ui-callouts';
 import LoadingState from './LoadingState';
 
 class LoadingFlow extends PureComponent {
@@ -69,8 +69,9 @@ class LoadingFlow extends PureComponent {
         }
 
         return (
-            <GenericError
+            <Callout
                 {...errorStateLocale}
+                variant={VARIANTS.ERROR}
                 contextCls={cx(this.baseCls, modCls, contextCls)}
             />
         );

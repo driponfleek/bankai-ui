@@ -15,7 +15,7 @@
 
     &__dot {
         @include bankai-loading-grid-item-dimensions;
-        background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+        background-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
         border-radius: 100%;
         flex: 0 0 auto;
     }

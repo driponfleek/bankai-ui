@@ -30,7 +30,7 @@ import {
     VARIANTS as BTN_VARIANTS,
 } from '@epr0t0type/bankai-ui-buttons';
 import {
-    CalloutMemo,
+    CalloutBanner,
     GenericError,
     VARIANTS as CALLOUT_VARIANTS,
 } from '@epr0t0type/bankai-ui-callouts';
@@ -102,7 +102,7 @@ class ApplyingThemesGuide extends PureComponent {
             colorPrimary: defaultTheme[THEME_TOKEN_NAMES.COLOR_PRIMARY],
             colorSecondary: defaultTheme[THEME_TOKEN_NAMES.COLOR_SECONDARY],
             colorAccent: defaultTheme[THEME_TOKEN_NAMES.COLOR_ACCENT],
-            colorLink: defaultTheme[THEME_TOKEN_NAMES.COLOR_LINK],
+            colorLink: defaultTheme[THEME_TOKEN_NAMES.LINK_TEXT_COLOR],
             colorAffirmative: defaultTheme[THEME_TOKEN_NAMES.COLOR_AFFIRMATIVE],
             colorCautionary: defaultTheme[THEME_TOKEN_NAMES.COLOR_CAUTIONARY],
             colorError: defaultTheme[THEME_TOKEN_NAMES.COLOR_ERROR],
@@ -518,7 +518,7 @@ class ApplyingThemesGuide extends PureComponent {
                     <FormLayoutSection>
                         <ComponentPreview contextCls={this.demoCls}>
                             <div>
-                                {this.renderCalloutMemo(
+                                {this.renderCalloutBanner(
                                     CALLOUT_VARIANTS.AFFIRMATIVE,
                                 )}
                             </div>
@@ -596,7 +596,7 @@ class ApplyingThemesGuide extends PureComponent {
                     <FormLayoutSection>
                         <ComponentPreview contextCls={this.demoCls}>
                             <div>
-                                {this.renderCalloutMemo(
+                                {this.renderCalloutBanner(
                                     CALLOUT_VARIANTS.CAUTIONARY,
                                 )}
                             </div>
@@ -653,7 +653,9 @@ class ApplyingThemesGuide extends PureComponent {
                                 />
                             </div>
                             <div>
-                                {this.renderCalloutMemo(CALLOUT_VARIANTS.ERROR)}
+                                {this.renderCalloutBanner(
+                                    CALLOUT_VARIANTS.ERROR,
+                                )}
                             </div>
                             <div>
                                 <ComposedTextInput
@@ -701,7 +703,9 @@ class ApplyingThemesGuide extends PureComponent {
                     <FormLayoutSection>
                         <ComponentPreview contextCls={this.demoCls}>
                             <div>
-                                {this.renderCalloutMemo(CALLOUT_VARIANTS.INFO)}
+                                {this.renderCalloutBanner(
+                                    CALLOUT_VARIANTS.INFO,
+                                )}
                             </div>
                             <div>{this.renderBadge(BADGE_VARIANTS.INFO)}</div>
                         </ComponentPreview>
@@ -723,48 +727,48 @@ class ApplyingThemesGuide extends PureComponent {
         return <Badge variant={VARIANT}>Badge</Badge>;
     };
 
-    renderCalloutMemo = (VARIANT) => {
+    renderCalloutBanner = (VARIANT) => {
         return (
-            <CalloutMemo
-                title="Callout Memo"
+            <CalloutBanner
+                title="Callout Banner"
                 msg="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 variant={VARIANT}
-                renderIcon={this.renderCalloutMemoIconByVariant(VARIANT)}
+                renderIcon={this.renderCalloutBannerIconByVariant(VARIANT)}
             />
         );
     };
 
-    renderCalloutMemoIconByVariant = (VARIANT) => {
+    renderCalloutBannerIconByVariant = (VARIANT) => {
         let iconRenderer;
 
         switch (VARIANT) {
             case CALLOUT_VARIANTS.AFFIRMATIVE:
-                iconRenderer = this.renderAffirmativeCalloutMemoIcon;
+                iconRenderer = this.renderAffirmativeCalloutBannerIcon;
                 break;
             case CALLOUT_VARIANTS.CAUTIONARY:
             case CALLOUT_VARIANTS.ERROR:
-                iconRenderer = this.renderCautionaryErrorCalloutMemoIcon;
+                iconRenderer = this.renderCautionaryErrorCalloutBannerIcon;
                 break;
             case CALLOUT_VARIANTS.INFO:
-                iconRenderer = this.renderInfoCalloutMemoIcon;
+                iconRenderer = this.renderInfoCalloutBannerIcon;
                 break;
             default:
-                iconRenderer = this.renderAffirmativeCalloutMemoIcon;
+                iconRenderer = this.renderAffirmativeCalloutBannerIcon;
                 break;
         }
 
         return iconRenderer;
     };
 
-    renderAffirmativeCalloutMemoIcon = (iconCls) => {
+    renderAffirmativeCalloutBannerIcon = (iconCls) => {
         return <BankaiCheck contextCls={iconCls} />;
     };
 
-    renderCautionaryErrorCalloutMemoIcon = (iconCls) => {
+    renderCautionaryErrorCalloutBannerIcon = (iconCls) => {
         return <BankaiTriangleAlert contextCls={iconCls} />;
     };
 
-    renderInfoCalloutMemoIcon = (iconCls) => {
+    renderInfoCalloutBannerIcon = (iconCls) => {
         return <BankaiCircleInfo contextCls={iconCls} />;
     };
 
@@ -887,7 +891,7 @@ class ApplyingThemesGuide extends PureComponent {
                     colorPrimary,
                 [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_SECONDARY)]:
                     colorSecondary,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_LINK)]:
+                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.LINK_TEXT_COLOR)]:
                     colorLink,
                 [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_ACCENT)]:
                     colorAccent,

@@ -20,7 +20,7 @@
     &--circular-dotted,
     &--circular-dual {
         border-radius: 100%;
-        border: 0.0667em solid rgba(var(--bankai-color-neutral-50, bankai-light-theme('color-neutral-50')), 0.2);
+        border: 0.0667em solid rgba(var(--bankai-core-color-neutral-50, bankai-light-theme('core-color-neutral-50')), 0.2);
         animation: bankai-rotate-clockwise 1s infinite;
 
         &::after {
@@ -38,7 +38,7 @@
             content: '';
             border-radius: 100%;
             border: 0.0667em solid transparent;
-            border-top-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            border-top-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
             display: block;
             position: absolute;
             top: -0.0667em;
@@ -98,7 +98,7 @@
             width: 70%;
             height: 70%;
             content: '';
-            border: 2px solid var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            border: 2px solid var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
             border-radius: 10%;
             box-sizing: border-box;
             opacity: 0.7;
@@ -121,13 +121,13 @@
 
         // stylelint-disable-next-line no-duplicate-selectors
         & {
-            border-top-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            border-top-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
         }
 
         &::before {
             width: 0.8em;
             height: 0.8em;
-            border-top-color: var(--bankai-color-loading-icon-secondary, bankai-light-theme('color-loading-icon-secondary'));
+            border-top-color: var(--bankai-loading-icon-secondary-color, bankai-light-theme('loading-icon-secondary-color'));
             animation: bankai-rotate-clockwise 1s linear infinite;
             top: 0.05em;
             left: 0.05em;
@@ -136,7 +136,7 @@
         &::after {
             width: 0.6em;
             height: 0.6em;
-            border-top-color: var(--bankai-color-loading-icon-accent, bankai-light-theme('color-loading-icon-accent'));
+            border-top-color: var(--bankai-loading-icon-accent-color, bankai-light-theme('loading-icon-accent-color'));
             animation: bankai-rotate-clockwise 2s linear infinite;
             top: 0.15em;
             left: 0.15em;
@@ -174,8 +174,8 @@
         &,
         &::before,
         &::after {
-            border: 0.0667em solid var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
-            border-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary')) transparent;
+            border: 0.0667em solid var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
+            border-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color')) transparent;
             border-radius: 100%;
         }
 
@@ -235,7 +235,7 @@
         &::before {
             width: 20%;
             height: 20%;
-            background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            background-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
             content: '';
             border-radius: 100%;
             // margin: -10%;
@@ -254,7 +254,7 @@
         #{$this}__inner {
             width: 100%;
             height: 100%;
-            border: 1px solid var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            border: 1px solid var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
             box-sizing: border-box;
             opacity: 0.3;
             display: block;
@@ -283,7 +283,7 @@
 
         &::after,
         &::before {
-            background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            background-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
             content: '';
             display: block;
             position: absolute;
@@ -332,16 +332,16 @@
         }
 
         &::before {
-            background-color: var(--bankai-color-loading-icon-primary, bankai-light-theme('color-loading-icon-primary'));
+            background-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
         }
 
         #{$this}__inner {
-            background-color: var(--bankai-color-loading-icon-secondary, bankai-light-theme('color-loading-icon-secondary'));
+            background-color: var(--bankai-loading-icon-secondary-color, bankai-light-theme('loading-icon-secondary-color'));
             animation-delay: 0.8s;
         }
 
         &::after {
-            background-color: var(--bankai-color-loading-icon-accent, bankai-light-theme('color-loading-icon-accent'));
+            background-color: var(--bankai-loading-icon-accent-color, bankai-light-theme('loading-icon-accent-color'));
             animation-delay: 1.6s;
         }
     }

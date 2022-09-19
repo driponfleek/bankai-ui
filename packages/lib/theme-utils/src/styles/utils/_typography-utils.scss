@@ -2,11 +2,11 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../tokens/spec-tokens.scss';
+@import '../tokens/style-tokens.scss';
 
 // Defaults for params
-$bankai-scale-font-base: bankai-get-map-value($bankai-spec-tokens, 'typography-size-base');
-$bankai-scale-font-ratio: var(--bankai-typography-size-ratio, #{bankai-get-map-value($bankai-spec-tokens, 'typography-size-ratio')});
+$bankai-scale-font-base: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-size');
+$bankai-scale-font-ratio: var(--bankai-core-typography-size-ratio, #{bankai-get-map-value($bankai-style-tokens, 'typography-size-ratio')});
 
 @function bankai-scale-up-font-size($base: $bankai-scale-font-base) {
     @return calc($base * $bankai-scale-font-ratio);

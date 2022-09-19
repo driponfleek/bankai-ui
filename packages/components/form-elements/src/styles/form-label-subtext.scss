@@ -6,8 +6,8 @@
 
 .bankai-form-label-subtext, %bankai-form-label-subtext {
     @include bankai-max-line-width;
-    color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
-    font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+    color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
+    font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
     margin: 0;
     display: block;
 }

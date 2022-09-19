@@ -7,8 +7,8 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-status-modal, %bankai-status-modal {
-    color: bankai-light-theme('color-white');
-    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+    color: bankai-light-theme('core-color-neutral-100');
+    padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
 
     &__dialog {
         background-color: transparent;
@@ -22,7 +22,7 @@
 
     .bankai-callout__icon {
         * {
-            background-color: bankai-light-theme('color-white');
+            background-color: bankai-light-theme('core-color-neutral-100');
         }
     }
 

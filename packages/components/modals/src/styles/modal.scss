@@ -11,7 +11,7 @@
 .bankai-modal, %bankai-modal {
     @include bankai-flex-column;
     @include bankai-breakpoint-min-only($bankai-s-min) {
-        @include bankai-box-shadow-elevated(bankai-light-theme('color-black'));
+        @include bankai-box-shadow-elevated(bankai-light-theme('core-color-neutral-0'));
         border-radius: var(--bankai-modal-dialog-border-radius, bankai-light-theme('modal-dialog-border-radius'));
         max-width: 90%;
         max-height: 90%;
@@ -50,7 +50,7 @@
         right: 0;
 
         .bankai-button__content-container {
-            padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+            padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
         }
     }
 
@@ -62,7 +62,7 @@
         margin-left: auto;
 
         .bankai-button + .bankai-button {
-            margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
         }
     }
 
@@ -75,7 +75,7 @@
     &__main-container,
     &__actions-container {
         box-sizing: border-box;
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 4)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
     }
 
     * + &__main-container {
@@ -96,8 +96,8 @@
 
     &__sub-title {
         @include bankai-max-line-width;
-        color: var(--bankai-color-text-alt, bankai-light-theme('color-text-alt'));
-        font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+        color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
+        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
         margin: 0;
     }
 

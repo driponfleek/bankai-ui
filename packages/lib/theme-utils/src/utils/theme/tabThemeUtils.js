@@ -5,77 +5,61 @@ import {
     convertColorToRGBA,
     genColorsData,
 } from '@epr0t0type/bankai-lib-color-utils';
-import {
-    getJuxtaposedColorAgainstCanvases,
-    getCorrectedLightnessAdjustment,
-} from '../colorUtils';
-import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
+import { getCorrectedLightnessAdjustment } from '../helperUtils';
+import { getThemeAPIKeyFromName } from '../dataUtils';
+import { TABS_TOKEN_NAMES } from '../../const/tokens/tabTokensConst';
 
 const {
-    COLOR_TABS_ACTIVE_ACCENT,
-    COLOR_TABS_ACTIVE_BG,
-    COLOR_TABS_ACTIVE_FOCUS_HALO,
-    COLOR_TABS_ACTIVE_TEXT,
-    COLOR_TABS_BORDER,
-    COLOR_TABS_INACTIVE_TEXT,
-    COLOR_TABS_INACTIVE_BG,
-    COLOR_TABS_INACTIVE_HOVER_TEXT,
-    COLOR_TABS_INACTIVE_HOVER_BG,
-    COLOR_TABS_PANEL_BG,
-} = THEME_TOKEN_NAMES;
+    TABS_ACTIVE_ACCENT_COLOR,
+    TABS_ACTIVE_BG_COLOR,
+    TABS_ACTIVE_FOCUS_HALO_COLOR,
+    TABS_ACTIVE_TEXT_COLOR,
+    TABS_BORDER_COLOR,
+    TABS_INACTIVE_TEXT_COLOR,
+    TABS_INACTIVE_BG_COLOR,
+    TABS_INACTIVE_HOVER_TEXT_COLOR,
+    TABS_INACTIVE_HOVER_BG_COLOR,
+    TABS_PANEL_BG_COLOR,
+} = TABS_TOKEN_NAMES;
 
 const getAutoCorrectedColor = (
-    colors = {},
+    baseColor = {},
+    accessibleColor = {},
     shouldAutoCorrectColors = true,
-    shouldEvalForText = false,
 ) => {
-    const { sourceColorData = {}, ...rest } = colors;
-
-    return !shouldAutoCorrectColors
-        ? sourceColorData.base
-        : getJuxtaposedColorAgainstCanvases(
-              {
-                  ...rest,
-                  sourceColorData,
-              },
-              shouldEvalForText,
-          );
+    return shouldAutoCorrectColors ? accessibleColor?.hex : baseColor?.hex;
 };
 
 export const getTabsTheme = (colors = {}, config = {}) => {
     const {
-        primaryColorData = {},
-        canvasColorData = {},
-        canvasAltColorData = {},
-        universalBorderColor = {},
+        borderColor = {},
+        canvasAltColors = {},
+        canvasColors = {},
+        sourceColors = {},
     } = colors;
-    const { shouldAutoCorrectColors = true, isDarkMode } = config;
+    const { isDarkMode, shouldAutoCorrectColors = true } = config;
+    const { base = {}, recommendedTextColor = {} } = sourceColors;
     const recommendedAccentColorData = getAutoCorrectedColor(
-        {
-            canvasColor: canvasColorData?.base,
-            canvasAltColor: canvasAltColorData?.base,
-            sourceColorData: primaryColorData,
-        },
+        base,
+        recommendedTextColor,
         shouldAutoCorrectColors,
-        true,
     );
     const recommendedInactiveTextColor = getRecommendedColor(
-        canvasAltColorData.base,
-        canvasAltColorData.variants,
+        canvasAltColors.base,
+        canvasAltColors.variants,
         true,
     );
     const inactiveHoverLightness = getCorrectedLightnessAdjustment(
-        canvasAltColorData?.base?.lightness,
+        canvasAltColors?.base?.lightness,
         10,
         isDarkMode,
     );
-    const inactiveHoverBGColor = genColorsData(
-        getNewColorByChangingLightness(
-            canvasAltColorData?.base?.hex,
+    const inactiveHoverBGColor = genColorsData({
+        hex: getNewColorByChangingLightness(
+            canvasAltColors?.base?.hex,
             inactiveHoverLightness,
         ),
-    );
+    });
     const recommendedInactiveHoverTextColor = getRecommendedColor(
         inactiveHoverBGColor?.base,
         inactiveHoverBGColor?.variants,
@@ -83,24 +67,22 @@ export const getTabsTheme = (colors = {}, config = {}) => {
     );
 
     return {
-        [getThemeAPIKeyFromName(COLOR_TABS_ACTIVE_BG)]:
-            canvasColorData?.base?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_PANEL_BG)]:
-            canvasColorData?.base?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_ACTIVE_TEXT)]:
-            recommendedAccentColorData?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_ACTIVE_ACCENT)]:
-            recommendedAccentColorData?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_ACTIVE_FOCUS_HALO)]:
-            convertColorToRGBA(recommendedAccentColorData?.hex, 0.4, true),
-        [getThemeAPIKeyFromName(COLOR_TABS_INACTIVE_TEXT)]:
+        [getThemeAPIKeyFromName(TABS_ACTIVE_BG_COLOR)]: canvasColors?.base?.hex,
+        [getThemeAPIKeyFromName(TABS_PANEL_BG_COLOR)]: canvasColors?.base?.hex,
+        [getThemeAPIKeyFromName(TABS_ACTIVE_TEXT_COLOR)]:
+            recommendedAccentColorData,
+        [getThemeAPIKeyFromName(TABS_ACTIVE_ACCENT_COLOR)]:
+            recommendedAccentColorData,
+        [getThemeAPIKeyFromName(TABS_ACTIVE_FOCUS_HALO_COLOR)]:
+            convertColorToRGBA(recommendedAccentColorData, 0.4, true),
+        [getThemeAPIKeyFromName(TABS_INACTIVE_TEXT_COLOR)]:
             recommendedInactiveTextColor?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_INACTIVE_BG)]:
-            canvasAltColorData?.base?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_INACTIVE_HOVER_TEXT)]:
+        [getThemeAPIKeyFromName(TABS_INACTIVE_BG_COLOR)]:
+            canvasAltColors?.base?.hex,
+        [getThemeAPIKeyFromName(TABS_INACTIVE_HOVER_TEXT_COLOR)]:
             recommendedInactiveHoverTextColor?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_INACTIVE_HOVER_BG)]:
+        [getThemeAPIKeyFromName(TABS_INACTIVE_HOVER_BG_COLOR)]:
             inactiveHoverBGColor?.base?.hex,
-        [getThemeAPIKeyFromName(COLOR_TABS_BORDER)]: universalBorderColor?.hex,
+        [getThemeAPIKeyFromName(TABS_BORDER_COLOR)]: borderColor?.hex,
     };
 };

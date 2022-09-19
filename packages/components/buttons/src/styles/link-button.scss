@@ -12,10 +12,10 @@
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
     @include bankai-hover-state;
-    color: var(--bankai-color-link, bankai-light-theme('color-link'));
+    color: var(--bankai-link-text-color, bankai-light-theme('link-text-color'));
     background-color: transparent;
     box-sizing: border-box;
-    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+    border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
     $this: '.bankai-link-button';
 
     @media (hover: hover) {
@@ -33,7 +33,7 @@
     }
 
     &__text-container {
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
     }
 
     &__icon-container {
@@ -49,7 +49,7 @@
 
     &__icon-container + &__text-container {
         vertical-align: middle;
-        margin-left: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+        margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
     }
 
     &__icon-safe-space {

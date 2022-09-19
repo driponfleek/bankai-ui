@@ -9,7 +9,7 @@
     &__examples-preview .bankai-sb-component-preview {
         @include bankai-flex-row;
         flex-wrap: wrap;
-        gap: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
 
         .bankai-text-input {
             flex: 0 0 auto;

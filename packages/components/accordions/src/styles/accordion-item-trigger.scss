@@ -34,7 +34,7 @@
     &__text-container,
     &__icon-container {
         box-sizing: border-box;
-        padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
     }
 
     .bankai-icon-chevron-down {

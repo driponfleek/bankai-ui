@@ -3,7 +3,7 @@ Utilities for common bootstrapping of React applications, MFEs, Webpack and more
 
 ## Installing
 ```
-yarn add @epr0t0type/bankai-lib-app-utils
+npm i @epr0t0type/bankai-lib-app-utils
 ```
 
 ## Usage

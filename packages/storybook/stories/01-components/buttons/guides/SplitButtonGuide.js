@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { linkTo } from '@storybook/addon-links';
 import { SplitButton, LinkButton } from '@epr0t0type/bankai-ui-buttons';
 import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
-import CalloutMemoInfo from '../../../../sb-components/callouts/CalloutMemoInfo';
+import CalloutBannerInfo from '../../../../sb-components/callouts/CalloutBannerInfo';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -73,7 +73,7 @@ class SplitButtonGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
-        const calloutMemoCls = 'bankai-callout-memo';
+        const calloutBannerCls = 'bankai-callout-banner';
 
         return (
             <StorySection>
@@ -85,8 +85,8 @@ class SplitButtonGuide extends PureComponent {
                     actions and you want to prioritize one of them while
                     consolidating the rest in a menu.
                 </Paragraph>
-                <CalloutMemoInfo title="Note">
-                    <p className={`${calloutMemoCls}__msg`}>
+                <CalloutBannerInfo title="Note">
+                    <p className={`${calloutBannerCls}__msg`}>
                         The Split Button is composed from{' '}
                         {locale.designSystemName}&apos;s{' '}
                         <LinkButton
@@ -113,7 +113,7 @@ class SplitButtonGuide extends PureComponent {
                         />
                         .
                     </p>
-                </CalloutMemoInfo>
+                </CalloutBannerInfo>
             </StorySection>
         );
     }

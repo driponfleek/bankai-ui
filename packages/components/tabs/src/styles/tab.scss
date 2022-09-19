@@ -10,7 +10,7 @@
 
 .bankai-tab, %bankai-tab {
     @include bankai-focus-state-halo;
-    color: var(--bankai-color-tabs-inactive-text, bankai-light-theme('color-tabs-inactive-text'));
+    color: var(--bankai-tabs-inactive-text-color, bankai-light-theme('tabs-inactive-text-color'));
     box-sizing: border-box;
     user-select: none;
 
@@ -43,7 +43,7 @@
 
     &__icon-container,
     &__text-container {
-        padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base'))};
+        padding: 0 #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
         vertical-align: middle;
         margin: auto 0;
         display: inline-block;
@@ -56,10 +56,10 @@
     }
 
     &__text {
-        line-height: var(--bankai-typography-line-height, bankai-light-theme('typography-line-height'));
+        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
     }
 
     &--is-active:focus-visible {
-        @include bankai-focus-state-box-shadow(var(--bankai-color-tabs-active-focus-halo, bankai-light-theme('color-tabs-active-focus-halo')));
+        @include bankai-focus-state-box-shadow(var(--bankai-tabs-active-focus-halo-color, bankai-light-theme('tabs-active-focus-halo-color')));
     }
 }

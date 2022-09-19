@@ -4,7 +4,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
 @import '../tokens/color-dark-theme-tokens.scss';
 @import '../tokens/color-neutral-tokens.scss';
-@import '../tokens/spec-tokens.scss';
+@import '../tokens/style-tokens.scss';
 
 // ========================================================
 // Dark Theme
@@ -13,5 +13,5 @@
 $bankai-dark-theme-tokens: bankai-merge-maps(
     $bankai-color-dark-theme-tokens,
     $bankai-color-neutral-tokens,
-    $bankai-spec-tokens,
+    $bankai-style-tokens,
 );

@@ -15,8 +15,8 @@
     position: relative;
 
     .react-toggle-thumb {
-        background-color: var(--bankai-color-form-toggle-switch-knob, bankai-light-theme('color-form-toggle-switch-knob'));
-        border-color: var(--bankai-color-form-toggle-switch-knob-border, bankai-light-theme('color-form-toggle-switch-knob-border'));
+        background-color: var(--bankai-form-toggle-switch-knob-color, bankai-light-theme('form-toggle-switch-knob-color'));
+        border-color: var(--bankai-form-toggle-switch-knob-border-color, bankai-light-theme('form-toggle-switch-knob-border-color'));
     }
 
     .react-toggle--focus .react-toggle-thumb {
@@ -32,7 +32,7 @@
     }
 
     &__toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-        background-color: var(--bankai-color-form-toggle-switch-track-hover, bankai-light-theme('color-form-toggle-switch-track-hover'));
+        background-color: var(--bankai-form-toggle-switch-track-hover-color, bankai-light-theme('form-toggle-switch-track-hover-color'));
     }
 
     .react-toggle--disabled {
@@ -42,29 +42,29 @@
     // stylelint-disable-next-line
     .react-toggle-track,
     .react-toggle--disabled:hover .react-toggle-track {
-        background-color: var(--bankai-color-form-toggle-switch-track, bankai-light-theme('color-form-toggle-switch-track'));
+        background-color: var(--bankai-form-toggle-switch-track-color, bankai-light-theme('form-toggle-switch-track-color'));
     }
 
     // stylelint-disable-next-line no-descending-specificity
     .react-toggle--checked .react-toggle-thumb {
-        background-color: var(--bankai-color-form-toggle-switch-knob-on-state, bankai-light-theme('color-form-toggle-switch-knob-on-state'));
-        border-color: var(--bankai-color-form-toggle-switch-track-on-state, bankai-light-theme('color-form-toggle-switch-track-on-state'));
+        background-color: var(--bankai-form-toggle-switch-on-knob-color, bankai-light-theme('form-toggle-switch-on-knob-color'));
+        border-color: var(--bankai-form-toggle-switch-on-track-color, bankai-light-theme('form-toggle-switch-on-track-color'));
     }
 
     // stylelint-disable-next-line no-descending-specificity
     .react-toggle--checked .react-toggle-track,
     .react-toggle--checked.react-toggle--disabled:hover .react-toggle-track {
-        background-color: var(--bankai-color-form-toggle-switch-track-on-state, bankai-light-theme('color-form-toggle-switch-track-on-state'));
+        background-color: var(--bankai-form-toggle-switch-on-track-color, bankai-light-theme('form-toggle-switch-on-track-color'));
     }
 
     // stylelint-disable-next-line no-descending-specificity
     &:hover .react-toggle--checked .react-toggle-track {
-        background-color: var(--bankai-color-form-toggle-switch-track-hover-on-state, bankai-light-theme('color-form-toggle-switch-track-hover-on-state'));
+        background-color: var(--bankai-form-toggle-switch-on-hover-track-color, bankai-light-theme('form-toggle-switch-on-hover-track-color'));
     }
 
     &__icon-busy {
         @include bankai-rotate-infinite;
-        color: var(--bankai-color-form-toggle-switch-busy-icon, bankai-light-theme('color-form-toggle-switch-busy-icon'));
+        color: var(--bankai-form-toggle-switch-busy-icon-color, bankai-light-theme('form-toggle-switch-busy-icon-color'));
         font-size: 2rem;
         margin: 2px;
         position: absolute;
@@ -72,7 +72,7 @@
     }
 
     .react-toggle--checked + &__icon-busy {
-        color: var(--bankai-color-form-toggle-switch-busy-icon-on-state, bankai-light-theme('color-form-toggle-switch-busy-icon-on-state'));
+        color: var(--bankai-form-toggle-switch-on-busy-icon-color, bankai-light-theme('form-toggle-switch-on-busy-icon-color'));
         left: 0;
     }
 
@@ -82,11 +82,11 @@
 
     // stylelint-disable-next-line
     .react-toggle--checked.react-toggle--focus .react-toggle-thumb {
-        @include bankai-focus-state-box-shadow(var(--bankai-color-form-toggle-switch-on-state-focus-halo, bankai-light-theme('color-form-toggle-switch-on-state-focus-halo')));
+        @include bankai-focus-state-box-shadow(var(--bankai-form-toggle-switch-on-focus-halo-color, bankai-light-theme('form-toggle-switch-on-focus-halo-color')));
     }
 
     .react-toggle--checked:active:not(.react-toggle--disabled) .react-toggle-thumb {
-        box-shadow: 0 0 5px 5px var(--bankai-color-form-toggle-switch-on-state-focus-halo, bankai-light-theme('color-form-toggle-switch-on-state-focus-halo'));
+        box-shadow: 0 0 5px 5px var(--bankai-form-toggle-switch-on-focus-halo-color, bankai-light-theme('form-toggle-switch-on-focus-halo-color'));
     }
 
     &--is-disabled {

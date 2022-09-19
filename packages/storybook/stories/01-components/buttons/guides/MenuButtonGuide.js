@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { MenuButton } from '@epr0t0type/bankai-ui-buttons';
 import packageJSON from '@epr0t0type/bankai-ui-buttons/package.json';
 import { Hyperlink } from '@epr0t0type/bankai-ui-typography';
-import CalloutMemoInfo from '../../../../sb-components/callouts/CalloutMemoInfo';
+import CalloutBannerInfo from '../../../../sb-components/callouts/CalloutBannerInfo';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 // import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -70,7 +70,7 @@ class MenuButtonGuide extends PureComponent {
 
     renderDemo() {
         const { props } = this;
-        const calloutMemoCls = 'bankai-callout-memo';
+        const calloutBannerCls = 'bankai-callout-banner';
 
         return (
             <StorySection>
@@ -86,8 +86,8 @@ class MenuButtonGuide extends PureComponent {
                     used frequently by users and consolidating them in to a menu
                     button improves the overall UI and experience.
                 </Paragraph>
-                <CalloutMemoInfo title="Note">
-                    <p className={`${calloutMemoCls}__msg`}>
+                <CalloutBannerInfo title="Note">
+                    <p className={`${calloutBannerCls}__msg`}>
                         {locale.designSystemName}&apos;s Menu Button uses{' '}
                         <Hyperlink
                             href="https://github.com/davidtheclark/react-aria-menubutton"
@@ -98,7 +98,7 @@ class MenuButtonGuide extends PureComponent {
                         behind the scenes. Additional information beyond the
                         scope shown here can be found in their documentation.
                     </p>
-                </CalloutMemoInfo>
+                </CalloutBannerInfo>
             </StorySection>
         );
     }

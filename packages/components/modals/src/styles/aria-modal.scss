@@ -11,7 +11,7 @@
         @include bankai-scroll-y;
         width: 100%;
         height: 100%;
-        background-color: var(--bankai-color-modal-overlay-bg, bankai-light-theme('color-modal-overlay-bg'));
+        background-color: var(--bankai-modal-overlay-bg-color, bankai-light-theme('modal-overlay-bg-color'));
         box-sizing: border-box;
         position: fixed;
         top: 0;
@@ -21,7 +21,7 @@
 
     &__dialog {
         max-width: 100%;
-        background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
+        background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
         box-sizing: border-box;
         cursor: default;
         display: block;

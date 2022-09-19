@@ -7,8 +7,8 @@
 
 .bankai-inline-form-error, %bankai-inline-form-error {
     @include bankai-max-line-width;
-    color: var(--bankai-color-form-inline-error-text, bankai-light-theme('color-form-inline-error-text'));
-    font-size: var(--bankai-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+    color: var(--bankai-core-color-text-error, bankai-light-theme('core-color-text-error'));
+    font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
     display: block;
 
     &__icon {

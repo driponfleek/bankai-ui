@@ -8,6 +8,6 @@
     @include bankai-list-reset;
 
     &__li + &__li {
-        border-top: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        border-top: 1px solid var(--bankai-core-color-universal-decorative-border, bankai-light-theme('core-color-universal-decorative-border'));
     }
 }

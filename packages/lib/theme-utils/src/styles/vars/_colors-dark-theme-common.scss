@@ -14,11 +14,12 @@ $bankai-color-dt-secondary: #7ab5cc;
 // Accent Colors
 $bankai-color-dt-accent: #737a82;
 // Universal
-$bankai-color-dt-universal-border: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-30');
-$bankai-color-dt-universal-hover-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-20');
+$bankai-color-dt-universal-accessible-border: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-30'), $lightness: 46%);
+$bankai-color-dt-universal-decorative-border: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-30');
+$bankai-color-dt-universal-hover-bg: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-20');
 // Canvas
-$bankai-color-dt-canvas: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-10');
-$bankai-color-dt-canvas-alt: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-20');
+$bankai-color-dt-canvas: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-10');
+$bankai-color-dt-canvas-alt: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-20');
 // Status Colors
 // $bankai-color-dt-affirmative: #81ba45;
 $bankai-color-dt-affirmative: #5db061;
@@ -29,8 +30,8 @@ $bankai-color-dt-destructive: $bankai-color-dt-error;
 $bankai-color-dt-info: #1979e6;
 // Typography
 $bankai-color-dt-link: color.change(#1566b7, $lightness: 60%);
-$bankai-color-dt-text: bankai-get-map-value($bankai-color-neutral-tokens, 'color-white');
-$bankai-color-dt-text-alt: bankai-get-map-value($bankai-color-neutral-tokens, 'color-neutral-60');
+$bankai-color-dt-text: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100');
+$bankai-color-dt-text-alt: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-60');
 // Primary Button
 $bankai-color-dt-btn-primary-hover-bg: color.change($bankai-color-dt-primary, $lightness: 20%);
 // Secondary Button

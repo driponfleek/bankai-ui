@@ -1,0 +1,88 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:color';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import './color-neutral-tokens.scss';
+@import '../vars/typography-common.scss';
+
+// Do not use this directly, only use values from the map!
+$bankai-core-system-scale: 4;
+
+// Button Design Tokens
+$bankai-style-tokens: (
+    // ========================================================
+    // Badges
+    // ========================================================
+    badge-border-radius: bankai-to-px($bankai-core-system-scale * 4),
+    // ========================================================
+    // Buttons
+    // ========================================================
+    btn-border-radius: bankai-to-px($bankai-core-system-scale * 6),
+    btn-icon-font-size: 1.25em,
+    // ========================================================
+    // Callouts
+    // ========================================================
+    callout-banner-border-radius: bankai-to-px($bankai-core-system-scale),
+    // ========================================================
+    // Forms
+    // ========================================================
+    form-checkbox-border-radius: bankai-to-px($bankai-core-system-scale),
+    form-input-border-radius: bankai-to-px($bankai-core-system-scale * 2),
+    form-input-box-shadow: inset 0 1px 1px color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.75),
+    form-input-padding: bankai-to-rem($bankai-core-system-scale * 2),
+    form-input-placeholder-font-style: italic,
+    form-menu-border-radius: bankai-to-px($bankai-core-system-scale),
+    form-toggle-switch-knob-box-shadow: 0 0 5px 5px var(--bankai-core-color-universal-focus-halo, color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.4)),
+    form-toggle-switch-track-box-shadow: inset 0 0 1px 1px color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.1),
+    // ========================================================
+    // Layouts
+    // ========================================================
+    layout-form-controls-gap: bankai-to-px($bankai-core-system-scale * 5),
+    layout-form-sections-gap: bankai-to-px($bankai-core-system-scale * 12),
+    layout-section-border-radius: bankai-to-px($bankai-core-system-scale * 5),
+    core-system-scale: $bankai-core-system-scale,
+    // ========================================================
+    // Modals
+    // ========================================================
+    modal-dialog-border-radius: bankai-to-px($bankai-core-system-scale * 5),
+    // ========================================================
+    // States
+    // ========================================================
+    state-disabled-opacity: 0.3,
+    // ========================================================
+    // Toasters
+    // ========================================================
+    toaster-border-radius: bankai-to-px($bankai-core-system-scale * 2),
+    // ========================================================
+    // Typography
+    // ========================================================
+    // -- Text
+    core-typography-font-size: $bankai-core-typography-font-size,
+    typography-size-ratio: $bankai-typography-size-ratio,
+    // -- Headings (General)
+    typography-heading-font-name: $bankai-typography-heading-font-name,
+    typography-heading-font-fallback: $bankai-typography-font-fallback,
+    // typography-heading-font: #{$bankai-typography-heading-font-name, $bankai-typography-font-fallback},
+    typography-heading-font-style: normal,
+    typography-heading-font-weight: normal,
+    typography-heading-line-height: $bankai-typography-heading-line-height,
+    // -- Headings (Levels)
+    typography-h5-font-size: $bankai-typography-h5-font-size,
+    typography-h4-font-size: $bankai-typography-h4-font-size,
+    typography-h3-font-size: $bankai-typography-h3-font-size,
+    typography-h2-font-size: $bankai-typography-h2-font-size,
+    typography-h1-font-size: $bankai-typography-h1-font-size,
+    // -- Misc
+    core-typography-sub-text-font-size: $bankai-typography-sub-text-font-size,
+    core-typography-footnote-font-size: $bankai-typography-footnote-font-size,
+    typography-sub-text-font-size: $bankai-typography-sub-text-font-size,
+    typography-footnote-font-size: $bankai-typography-footnote-font-size,
+    core-typography-line-height: $bankai-core-typography-line-height,
+    // -- Body (General)
+    core-typography-font-family: $bankai-typography-font-body-name,
+    core-typography-font-family-fallback: $bankai-typography-font-fallback,
+);

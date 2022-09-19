@@ -13,8 +13,8 @@
     min-height: 190px;
     box-sizing: border-box;
     border: 1px solid transparent;
-    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
-    padding: #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
+    border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
+    padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
 
     &__name {
         @include bankai-h5;
@@ -23,7 +23,7 @@
     }
 
     &__details {
-        font-size: var(--bankai-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
+        font-size: var(--bankai-core-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
     }
 
     &__hex,
@@ -33,7 +33,7 @@
     }
 
     .bankai-sb-color-compatibilities-list {
-        margin-top: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 4)};
+        margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
     }
 
     &--light-text .bankai-sb-color-compatibilities-list__icon-wrapper {

@@ -54,7 +54,7 @@
     },
     "private": true,
     "scripts": {
-        "build": "yarn build-storybook",
+        "build": "npm run build-storybook",
         "build-storybook": "cross-env NODE_PATH=src build-storybook",
         "pre:build": "../../node_modules/.bin/rimraf storybook-static/",
         "start": "cross-env NODE_PATH=src start-storybook -p 6006"

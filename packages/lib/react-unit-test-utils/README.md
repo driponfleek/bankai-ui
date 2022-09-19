@@ -16,7 +16,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-yarn add @epr0t0type/bankai-lib-react-unit-test-utils
+npm i @epr0t0type/bankai-lib-react-unit-test-utils
 ```
 
 **Note:** You'll need to set up a `.npmrc` file with the appropriate Authentication Token in order to install private Github Packages.

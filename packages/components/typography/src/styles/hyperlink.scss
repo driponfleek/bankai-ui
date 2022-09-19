@@ -7,13 +7,13 @@
 
 .bankai-hyperlink, %bankai-hyperlink {
     @include bankai-focus-state-halo;
-    color: var(--bankai-color-link, bankai-light-theme('color-link'));
+    color: var(--bankai-link-text-color, bankai-light-theme('link-text-color'));
     text-decoration: none;
-    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+    border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
     $this: '.bankai-hyperlink';
 
     &:focus-visible {
-        @include bankai-focus-state-box-shadow(var(--bankai-color-link-focus-halo, bankai-light-theme('color-link-focus-halo')));
+        @include bankai-focus-state-box-shadow(var(--bankai-link-focus-halo-color, bankai-light-theme('link-focus-halo-color')));
     }
 
     @media (hover: hover) {

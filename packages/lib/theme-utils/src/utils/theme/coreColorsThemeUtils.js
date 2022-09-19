@@ -1,136 +1,277 @@
+import { getColorSeedData } from '@epr0t0type/bankai-lib-color-utils';
+import { getThemeAPIKeyFromName, getColorData } from '../dataUtils';
+import { getFocusHaloRGBA } from '../helperUtils';
+import { getThemeDefaults } from '../../const/tokens/defaults/coreTokenDefaultsConst';
 import {
-    genColorsData,
-    getColorSeedData,
-} from '@epr0t0type/bankai-lib-color-utils';
-import { getThemeAPIKeyFromName } from '../dataMassageUtils';
-import { getThemeDefaults, getFocusHaloRGBA } from '../colorUtils';
-import { THEME_TOKEN_NAMES } from '../../const/themeTokensConst';
+    CORE_COLOR_TOKEN_NAMES,
+    CORE_NEUTRAL_COLOR_TOKEN_NAMES,
+} from '../../const/tokens/coreTokensConst';
 
 const {
-    COLOR_ACCENT,
-    COLOR_AFFIRMATIVE,
-    COLOR_BRAND,
-    COLOR_CANVAS,
-    COLOR_CANVAS_ALT,
-    COLOR_CAUTIONARY,
-    COLOR_DESTRUCTIVE,
-    COLOR_ERROR,
-    COLOR_INFO,
-    COLOR_LINK,
-    COLOR_NEUTRAL_10,
-    COLOR_NEUTRAL_20,
-    COLOR_NEUTRAL_30,
-    COLOR_NEUTRAL_40,
-    COLOR_NEUTRAL_50,
-    COLOR_NEUTRAL_60,
-    COLOR_NEUTRAL_70,
-    COLOR_NEUTRAL_80,
-    COLOR_NEUTRAL_90,
-    COLOR_PRIMARY,
-    COLOR_SECONDARY,
-    COLOR_TEXT,
-    COLOR_TEXT_ALT,
-    COLOR_UNIVERSAL_BORDER,
-    COLOR_UNIVERSAL_FOCUS_HALO,
-    COLOR_UNIVERSAL_HOVER_BG,
-} = THEME_TOKEN_NAMES;
+    CORE_COLOR_ACCENT,
+    CORE_COLOR_AFFIRMATIVE,
+    CORE_COLOR_BRAND,
+    CORE_COLOR_CANVAS,
+    CORE_COLOR_CANVAS_ALT,
+    CORE_COLOR_CAUTIONARY,
+    CORE_COLOR_DESTRUCTIVE,
+    CORE_COLOR_ERROR,
+    CORE_COLOR_TEXT_ERROR,
+    CORE_COLOR_INFO,
+    CORE_COLOR_PRIMARY,
+    CORE_COLOR_SECONDARY,
+    CORE_COLOR_HEADINGS_TEXT,
+    CORE_COLOR_TEXT,
+    CORE_COLOR_TEXT_ALT,
+    CORE_COLOR_UNIVERSAL_ACCESSIBLE_BORDER,
+    CORE_COLOR_UNIVERSAL_DECORATIVE_BORDER,
+    CORE_COLOR_UNIVERSAL_FOCUS_HALO,
+    CORE_COLOR_UNIVERSAL_HOVER_BG,
+} = CORE_COLOR_TOKEN_NAMES;
+const {
+    CORE_COLOR_NEUTRAL_0,
+    CORE_COLOR_NEUTRAL_10,
+    CORE_COLOR_NEUTRAL_20,
+    CORE_COLOR_NEUTRAL_30,
+    CORE_COLOR_NEUTRAL_40,
+    CORE_COLOR_NEUTRAL_50,
+    CORE_COLOR_NEUTRAL_60,
+    CORE_COLOR_NEUTRAL_70,
+    CORE_COLOR_NEUTRAL_80,
+    CORE_COLOR_NEUTRAL_90,
+    CORE_COLOR_NEUTRAL_100,
+} = CORE_NEUTRAL_COLOR_TOKEN_NAMES;
+// const { LINK_TEXT_COLOR } = THEME_TOKEN_NAMES;
 
-export const getCoreColorsData = (data, isDarkMode) => {
+export const getCoreColorsData = (data, config = {}) => {
+    const { isDarkMode, isMobile } = config;
     const DEFAULTS = getThemeDefaults(isDarkMode);
     const {
-        [`${getThemeAPIKeyFromName(COLOR_ACCENT)}`]:
-            THEME_COLOR_ACCENT = DEFAULTS[COLOR_ACCENT],
-        [`${getThemeAPIKeyFromName(COLOR_AFFIRMATIVE)}`]:
-            THEME_COLOR_AFFIRMATIVE = DEFAULTS[COLOR_AFFIRMATIVE],
-        [`${getThemeAPIKeyFromName(COLOR_BRAND)}`]:
-            THEME_COLOR_BRAND = DEFAULTS[COLOR_BRAND],
-        [`${getThemeAPIKeyFromName(COLOR_CANVAS)}`]:
-            THEME_COLOR_CANVAS = DEFAULTS[COLOR_CANVAS],
-        [`${getThemeAPIKeyFromName(COLOR_CANVAS_ALT)}`]:
-            THEME_COLOR_CANVAS_ALT = DEFAULTS[COLOR_CANVAS_ALT],
-        [`${getThemeAPIKeyFromName(COLOR_CAUTIONARY)}`]:
-            THEME_COLOR_CAUTIONARY = DEFAULTS[COLOR_CAUTIONARY],
-        [`${getThemeAPIKeyFromName(COLOR_DESTRUCTIVE)}`]:
-            THEME_COLOR_DESTRUCTIVE = DEFAULTS[COLOR_DESTRUCTIVE],
-        [`${getThemeAPIKeyFromName(COLOR_ERROR)}`]:
-            THEME_COLOR_ERROR = DEFAULTS[COLOR_ERROR],
-        [`${getThemeAPIKeyFromName(COLOR_INFO)}`]: THEME_COLOR_INFO = DEFAULTS[
-            COLOR_INFO
+        [`${getThemeAPIKeyFromName(CORE_COLOR_ACCENT)}`]: accentHex = DEFAULTS[
+            CORE_COLOR_ACCENT
         ],
-        [`${getThemeAPIKeyFromName(COLOR_LINK)}`]: THEME_COLOR_LINK = DEFAULTS[
-            COLOR_LINK
+        [`${getThemeAPIKeyFromName(CORE_COLOR_AFFIRMATIVE)}`]:
+            affirmativeHex = DEFAULTS[CORE_COLOR_AFFIRMATIVE],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_BRAND)}`]: brandHex = DEFAULTS[
+            CORE_COLOR_BRAND
         ],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_10)}`]:
-            THEME_COLOR_NEUTRAL_10 = DEFAULTS[COLOR_NEUTRAL_10],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_20)}`]:
-            THEME_COLOR_NEUTRAL_20 = DEFAULTS[COLOR_NEUTRAL_20],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_30)}`]:
-            THEME_COLOR_NEUTRAL_30 = DEFAULTS[COLOR_NEUTRAL_30],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_40)}`]:
-            THEME_COLOR_NEUTRAL_40 = DEFAULTS[COLOR_NEUTRAL_40],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_50)}`]:
-            THEME_COLOR_NEUTRAL_50 = DEFAULTS[COLOR_NEUTRAL_50],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_60)}`]:
-            THEME_COLOR_NEUTRAL_60 = DEFAULTS[COLOR_NEUTRAL_60],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_70)}`]:
-            THEME_COLOR_NEUTRAL_70 = DEFAULTS[COLOR_NEUTRAL_70],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_80)}`]:
-            THEME_COLOR_NEUTRAL_80 = DEFAULTS[COLOR_NEUTRAL_80],
-        [`${getThemeAPIKeyFromName(COLOR_NEUTRAL_90)}`]:
-            THEME_COLOR_NEUTRAL_90 = DEFAULTS[COLOR_NEUTRAL_90],
-        [`${getThemeAPIKeyFromName(COLOR_PRIMARY)}`]:
-            THEME_COLOR_PRIMARY = DEFAULTS[COLOR_PRIMARY],
-        [`${getThemeAPIKeyFromName(COLOR_SECONDARY)}`]:
-            THEME_COLOR_SECONDARY = DEFAULTS[COLOR_SECONDARY],
-        [`${getThemeAPIKeyFromName(COLOR_TEXT)}`]: THEME_COLOR_TEXT = DEFAULTS[
-            COLOR_TEXT
+        [`${getThemeAPIKeyFromName(CORE_COLOR_CANVAS)}`]: canvasHex = DEFAULTS[
+            CORE_COLOR_CANVAS
         ],
-        [`${getThemeAPIKeyFromName(COLOR_TEXT_ALT)}`]:
-            THEME_COLOR_TEXT_ALT = DEFAULTS[COLOR_TEXT_ALT],
-        [`${getThemeAPIKeyFromName(COLOR_UNIVERSAL_BORDER)}`]:
-            THEME_COLOR_UNIVERSAL_BORDER = DEFAULTS[COLOR_UNIVERSAL_BORDER],
-        [`${getThemeAPIKeyFromName(COLOR_UNIVERSAL_HOVER_BG)}`]:
-            THEME_COLOR_UNIVERSAL_HOVER_BG = DEFAULTS[COLOR_UNIVERSAL_HOVER_BG],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_CANVAS_ALT)}`]:
+            canvasAltHex = DEFAULTS[CORE_COLOR_CANVAS_ALT],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_CAUTIONARY)}`]:
+            cautionaryHex = DEFAULTS[CORE_COLOR_CAUTIONARY],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_DESTRUCTIVE)}`]:
+            destructiveHex = DEFAULTS[CORE_COLOR_DESTRUCTIVE],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_ERROR)}`]: errorHex = DEFAULTS[
+            CORE_COLOR_ERROR
+        ],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_INFO)}`]: infoHex = DEFAULTS[
+            CORE_COLOR_INFO
+        ],
+        // [`${getThemeAPIKeyFromName(LINK_TEXT_COLOR)}`]: linkHex = DEFAULTS[
+        //     LINK_TEXT_COLOR
+        // ],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_0)}`]:
+            neutral0Hex = DEFAULTS[CORE_COLOR_NEUTRAL_0],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_10)}`]:
+            neutral10Hex = DEFAULTS[CORE_COLOR_NEUTRAL_10],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_20)}`]:
+            neutral20Hex = DEFAULTS[CORE_COLOR_NEUTRAL_20],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_30)}`]:
+            neutral30Hex = DEFAULTS[CORE_COLOR_NEUTRAL_30],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_40)}`]:
+            neutral40Hex = DEFAULTS[CORE_COLOR_NEUTRAL_40],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_50)}`]:
+            neutral50Hex = DEFAULTS[CORE_COLOR_NEUTRAL_50],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_60)}`]:
+            neutral60Hex = DEFAULTS[CORE_COLOR_NEUTRAL_60],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_70)}`]:
+            neutral70Hex = DEFAULTS[CORE_COLOR_NEUTRAL_70],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_80)}`]:
+            neutral80Hex = DEFAULTS[CORE_COLOR_NEUTRAL_80],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_90)}`]:
+            neutral90Hex = DEFAULTS[CORE_COLOR_NEUTRAL_90],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_100)}`]:
+            neutral100Hex = DEFAULTS[CORE_COLOR_NEUTRAL_100],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_PRIMARY)}`]:
+            primaryHex = DEFAULTS[CORE_COLOR_PRIMARY],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_SECONDARY)}`]:
+            secondaryHex = DEFAULTS[CORE_COLOR_SECONDARY],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_HEADINGS_TEXT)}`]:
+            headingsTextHex = DEFAULTS[CORE_COLOR_HEADINGS_TEXT],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_TEXT)}`]: textHex = DEFAULTS[
+            CORE_COLOR_TEXT
+        ],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_TEXT_ALT)}`]:
+            textAltHex = DEFAULTS[CORE_COLOR_TEXT_ALT],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_UNIVERSAL_ACCESSIBLE_BORDER)}`]:
+            universalBorderAccessibleHex = DEFAULTS[
+                CORE_COLOR_UNIVERSAL_ACCESSIBLE_BORDER
+            ],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_UNIVERSAL_DECORATIVE_BORDER)}`]:
+            universalBorderDecorativeHex = DEFAULTS[
+                CORE_COLOR_UNIVERSAL_DECORATIVE_BORDER
+            ],
+        [`${getThemeAPIKeyFromName(CORE_COLOR_UNIVERSAL_HOVER_BG)}`]:
+            universalHoverBgHex = DEFAULTS[CORE_COLOR_UNIVERSAL_HOVER_BG],
     } = data ?? {};
-    const accentColorData = genColorsData(THEME_COLOR_ACCENT);
-    const affirmativeColorData = genColorsData(THEME_COLOR_AFFIRMATIVE);
-    const brandColorData = genColorsData(THEME_COLOR_BRAND);
-    const canvasColorData = genColorsData(THEME_COLOR_CANVAS);
-    const canvasAltColorData = genColorsData(THEME_COLOR_CANVAS_ALT);
-    const cautionaryColorData = genColorsData(THEME_COLOR_CAUTIONARY);
-    const destructiveColorData = genColorsData(THEME_COLOR_DESTRUCTIVE);
-    const errorColorData = genColorsData(THEME_COLOR_ERROR);
-    const infoColorData = genColorsData(THEME_COLOR_INFO);
-    const linkColorData = genColorsData(THEME_COLOR_LINK);
-    const neutral10Color = getColorSeedData(THEME_COLOR_NEUTRAL_10);
-    const neutral20Color = getColorSeedData(THEME_COLOR_NEUTRAL_20);
-    const neutral30Color = getColorSeedData(THEME_COLOR_NEUTRAL_30);
-    const neutral40Color = getColorSeedData(THEME_COLOR_NEUTRAL_40);
-    const neutral50Color = getColorSeedData(THEME_COLOR_NEUTRAL_50);
-    const neutral60Color = getColorSeedData(THEME_COLOR_NEUTRAL_60);
-    const neutral70Color = getColorSeedData(THEME_COLOR_NEUTRAL_70);
-    const neutral80Color = getColorSeedData(THEME_COLOR_NEUTRAL_80);
-    const neutral90Color = getColorSeedData(THEME_COLOR_NEUTRAL_90);
-    const primaryColorData = genColorsData(THEME_COLOR_PRIMARY);
-    const secondaryColorData = genColorsData(THEME_COLOR_SECONDARY);
-    const textColor = getColorSeedData(THEME_COLOR_TEXT);
-    const textAltColor = getColorSeedData(THEME_COLOR_TEXT_ALT);
-    const universalBorderColor = getColorSeedData(THEME_COLOR_UNIVERSAL_BORDER);
+
+    // Canvas Colors
+    const canvasColors = getColorData({
+        hex: canvasHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_CANVAS),
+    });
+    const canvasAltColors = getColorData({
+        hex: canvasAltHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_CANVAS_ALT),
+    });
+    const { base: canvasColor } = canvasColors;
+    const { base: canvasAltColor } = canvasAltColors;
+    // Main Colors
+    const accentColors = getColorData({
+        hex: accentHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_ACCENT),
+        canvasColor,
+        canvasAltColor,
+    });
+    const brandColors = getColorData({
+        hex: brandHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_BRAND),
+        canvasColor,
+        canvasAltColor,
+    });
+    const primaryColors = getColorData({
+        hex: primaryHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_PRIMARY),
+        canvasColor,
+        canvasAltColor,
+    });
+    const secondaryColors = getColorData({
+        hex: secondaryHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_SECONDARY),
+        canvasColor,
+        canvasAltColor,
+    });
+    // Status Colors
+    const affirmativeColors = getColorData({
+        hex: affirmativeHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_AFFIRMATIVE),
+        canvasColor,
+        canvasAltColor,
+    });
+    const cautionaryColors = getColorData({
+        hex: cautionaryHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_CAUTIONARY),
+        canvasColor,
+        canvasAltColor,
+    });
+    const errorColors = getColorData({
+        hex: errorHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_ERROR),
+        canvasColor,
+        canvasAltColor,
+    });
+    // Informative Colors
+    const destructiveColors = getColorData({
+        hex: destructiveHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_DESTRUCTIVE),
+        canvasColor,
+        canvasAltColor,
+    });
+    const infoColors = getColorData({
+        hex: infoHex,
+        tokenId: getThemeAPIKeyFromName(CORE_COLOR_INFO),
+        canvasColor,
+        canvasAltColor,
+    });
+    // Text Colors
+    const headingsTextColor = getColorSeedData(
+        headingsTextHex,
+        getThemeAPIKeyFromName(CORE_COLOR_HEADINGS_TEXT),
+    );
+    // const linkColors = getColorData({
+    //     hex: linkHex,
+    //     tokenId: getThemeAPIKeyFromName(LINK_TEXT_COLOR),
+    //     step: 2,
+    //     canvasColor,
+    //     canvasAltColor,
+    // });
+    const textAltColor = getColorSeedData(textAltHex, CORE_COLOR_TEXT_ALT);
+    const textColor = getColorSeedData(textHex, CORE_COLOR_TEXT);
+    // Neutrals
+    const neutral0Color = getColorSeedData(
+        neutral0Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_0),
+    );
+    const neutral10Color = getColorSeedData(
+        neutral10Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_10),
+    );
+    const neutral20Color = getColorSeedData(
+        neutral20Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_20),
+    );
+    const neutral30Color = getColorSeedData(
+        neutral30Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_30),
+    );
+    const neutral40Color = getColorSeedData(
+        neutral40Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_40),
+    );
+    const neutral50Color = getColorSeedData(
+        neutral50Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_50),
+    );
+    const neutral60Color = getColorSeedData(
+        neutral60Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_60),
+    );
+    const neutral70Color = getColorSeedData(
+        neutral70Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_70),
+    );
+    const neutral80Color = getColorSeedData(
+        neutral80Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_80),
+    );
+    const neutral90Color = getColorSeedData(
+        neutral90Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_90),
+    );
+    const neutral100Color = getColorSeedData(
+        neutral100Hex,
+        getThemeAPIKeyFromName(CORE_COLOR_NEUTRAL_100),
+    );
+    // Universal
+    const universalBorderAccessibleColor = getColorSeedData(
+        universalBorderAccessibleHex,
+        getThemeAPIKeyFromName(CORE_COLOR_UNIVERSAL_ACCESSIBLE_BORDER),
+    );
+    const universalBorderDecorativeColor = getColorSeedData(
+        universalBorderDecorativeHex,
+        getThemeAPIKeyFromName(CORE_COLOR_UNIVERSAL_DECORATIVE_BORDER),
+    );
     const universalHoverColor = getColorSeedData(
-        THEME_COLOR_UNIVERSAL_HOVER_BG,
+        universalHoverBgHex,
+        getThemeAPIKeyFromName(CORE_COLOR_UNIVERSAL_HOVER_BG),
     );
 
     return {
-        accentColorData,
-        affirmativeColorData,
-        brandColorData,
-        canvasAltColorData,
-        canvasColorData,
-        cautionaryColorData,
-        destructiveColorData,
-        errorColorData,
-        infoColorData,
-        linkColorData,
+        accentColors,
+        affirmativeColors,
+        brandColors,
+        canvasAltColors,
+        canvasColors,
+        cautionaryColors,
+        destructiveColors,
+        errorColors,
+        headingsTextColor,
+        infoColors,
+        // linkColors,
+        neutral0Color,
         neutral10Color,
         neutral20Color,
         neutral30Color,
@@ -140,48 +281,65 @@ export const getCoreColorsData = (data, isDarkMode) => {
         neutral70Color,
         neutral80Color,
         neutral90Color,
-        primaryColorData,
-        secondaryColorData,
+        neutral100Color,
+        primaryColors,
+        secondaryColors,
         textColor,
         textAltColor,
-        universalBorderColor,
-        universalHoverColor,
+        universalBorderAccessibleColor,
+        universalBorderDecorativeColor,
+        ...(!isMobile && { universalHoverColor }),
+    };
+};
+
+export const getErrorTextColor = (colors = {}, config = {}) => {
+    const { sourceColors = {} } = colors;
+    const { shouldAutoCorrectColors } = config;
+    const { base = {}, recommendedTextColor = {} } = sourceColors;
+
+    return {
+        [getThemeAPIKeyFromName(CORE_COLOR_TEXT_ERROR)]: shouldAutoCorrectColors
+            ? recommendedTextColor.hex
+            : base.hex,
     };
 };
 
 export const getCoreColorsTheme = (data = {}, config = {}) => {
-    const { isDarkMode } = config;
+    const { isDarkMode, isMobile } = config;
     const DEFAULTS = getThemeDefaults(isDarkMode);
     const themeData = {
-        [getThemeAPIKeyFromName(COLOR_UNIVERSAL_FOCUS_HALO)]: getFocusHaloRGBA(
-            isDarkMode ? '#ffffff' : '#000000',
-        ),
+        [getThemeAPIKeyFromName(CORE_COLOR_UNIVERSAL_FOCUS_HALO)]:
+            getFocusHaloRGBA(isDarkMode ? '#ffffff' : '#000000'),
     };
     const coreColorKeys = [
-        COLOR_ACCENT,
-        COLOR_AFFIRMATIVE,
-        COLOR_BRAND,
-        COLOR_CANVAS,
-        COLOR_CANVAS_ALT,
-        COLOR_CAUTIONARY,
-        COLOR_DESTRUCTIVE,
-        COLOR_ERROR,
-        COLOR_INFO,
-        COLOR_NEUTRAL_10,
-        COLOR_NEUTRAL_20,
-        COLOR_NEUTRAL_30,
-        COLOR_NEUTRAL_40,
-        COLOR_NEUTRAL_50,
-        COLOR_NEUTRAL_60,
-        COLOR_NEUTRAL_70,
-        COLOR_NEUTRAL_80,
-        COLOR_NEUTRAL_90,
-        COLOR_PRIMARY,
-        COLOR_SECONDARY,
-        COLOR_TEXT,
-        COLOR_TEXT_ALT,
-        COLOR_UNIVERSAL_BORDER,
-        COLOR_UNIVERSAL_HOVER_BG,
+        CORE_COLOR_ACCENT,
+        CORE_COLOR_AFFIRMATIVE,
+        CORE_COLOR_BRAND,
+        CORE_COLOR_CANVAS,
+        CORE_COLOR_CANVAS_ALT,
+        CORE_COLOR_CAUTIONARY,
+        CORE_COLOR_DESTRUCTIVE,
+        CORE_COLOR_ERROR,
+        CORE_COLOR_HEADINGS_TEXT,
+        CORE_COLOR_INFO,
+        CORE_COLOR_NEUTRAL_0,
+        CORE_COLOR_NEUTRAL_10,
+        CORE_COLOR_NEUTRAL_20,
+        CORE_COLOR_NEUTRAL_30,
+        CORE_COLOR_NEUTRAL_40,
+        CORE_COLOR_NEUTRAL_50,
+        CORE_COLOR_NEUTRAL_60,
+        CORE_COLOR_NEUTRAL_70,
+        CORE_COLOR_NEUTRAL_80,
+        CORE_COLOR_NEUTRAL_90,
+        CORE_COLOR_NEUTRAL_100,
+        CORE_COLOR_PRIMARY,
+        CORE_COLOR_SECONDARY,
+        CORE_COLOR_TEXT,
+        CORE_COLOR_TEXT_ALT,
+        CORE_COLOR_UNIVERSAL_ACCESSIBLE_BORDER,
+        CORE_COLOR_UNIVERSAL_DECORATIVE_BORDER,
+        ...(!isMobile ? [CORE_COLOR_UNIVERSAL_HOVER_BG] : []),
     ];
 
     for (let index = 0; index < coreColorKeys.length; index += 1) {

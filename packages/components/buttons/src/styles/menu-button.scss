@@ -27,8 +27,8 @@
 
     &__menu {
         @include bankai-box-shadow-elevated;
-        background-color: var(--bankai-color-canvas, bankai-light-theme('color-canvas'));
-        border: 1px solid var(--bankai-color-universal-border, bankai-light-theme('color-universal-border'));
+        background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
+        border: 1px solid var(--bankai-core-color-universal-decorative-border, bankai-light-theme('core-color-universal-decorative-border'));
         border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));
         position: absolute;
         top: calc(100% + 3px);

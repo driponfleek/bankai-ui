@@ -5,13 +5,13 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-code-tag {
-    background-color: var(--bankai-color-neutral-80, bankai-light-theme('color-neutral-80'));
-    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base'))};
+    background-color: var(--bankai-core-color-neutral-80, bankai-light-theme('core-color-neutral-80'));
+    border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
     box-sizing: border-box;
-    padding: 0 #{bankai-to-rem(bankai-light-theme('layout-grid-base') * 3)};
+    padding: 0 #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
     display: inline-block;
 
     @at-root .bankai-sb--dark & {
-        background-color: var(--bankai-color-neutral-20, bankai-light-theme('color-neutral-20'));
+        background-color: var(--bankai-core-color-neutral-20, bankai-light-theme('core-color-neutral-20'));
     }
 }

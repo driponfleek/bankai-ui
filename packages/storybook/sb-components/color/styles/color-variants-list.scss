@@ -9,7 +9,7 @@
 .bankai-sb-color-variants-list {
     @include bankai-flex-row;
     // @include bankai-box-shadow-slightly-elevated;
-    border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+    border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
     box-shadow: 0 0 5px rgba(0, 0, 0, 25%);
 
     .bankai-sb-color-swatch-detailed {
@@ -18,16 +18,16 @@
     }
 
     &__empty-state {
-        background-color: var(--bankai-color-canvas-alt, bankai-light-theme('color-canvas-alt'));
+        background-color: var(--bankai-core-color-canvas-alt, bankai-light-theme('core-color-canvas-alt'));
         min-height: 190px;
     }
 
     > :first-child {
-        border-radius: #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} 0 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)};
+        border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)} 0 0 #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
     }
 
     > :last-child {
-        border-radius: 0 #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} #{bankai-to-px(bankai-light-theme('layout-grid-base') * 3)} 0;
+        border-radius: 0 #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)} #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)} 0;
     }
 
     &--should-scroll {
