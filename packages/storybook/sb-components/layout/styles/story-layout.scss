@@ -6,6 +6,7 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/index.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 // stylelint-disable-next-line selector-max-id
 html,
@@ -49,7 +50,8 @@ body,
         margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 2)};
     }
 
-    &__header-subtitle {
+    &__header-sub-title {
+        @include bankai-sub-text;
         color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
         font-style: italic;
         margin: 0;

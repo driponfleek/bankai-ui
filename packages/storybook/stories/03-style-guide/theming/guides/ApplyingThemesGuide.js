@@ -2,10 +2,11 @@ import React, { PureComponent } from 'react';
 import { linkTo } from '@storybook/addon-links';
 import { Avatar } from '@epr0t0type/bankai-ui-avatars';
 import {
+    CORE_COLOR_TOKEN_NAMES,
+    LINK_COLOR_TOKEN_NAMES,
     getThemeCSS,
     getThemeAPIKeyFromName,
     getThemeDefaults,
-    THEME_TOKEN_NAMES,
 } from '@epr0t0type/bankai-lib-theme-utils';
 import {
     Checkbox,
@@ -31,7 +32,7 @@ import {
 } from '@epr0t0type/bankai-ui-buttons';
 import {
     CalloutBanner,
-    GenericError,
+    Callout,
     VARIANTS as CALLOUT_VARIANTS,
 } from '@epr0t0type/bankai-ui-callouts';
 import {
@@ -99,15 +100,20 @@ class ApplyingThemesGuide extends PureComponent {
         const defaultTheme = getThemeDefaults(isDarkMode);
 
         this.state = {
-            colorPrimary: defaultTheme[THEME_TOKEN_NAMES.COLOR_PRIMARY],
-            colorSecondary: defaultTheme[THEME_TOKEN_NAMES.COLOR_SECONDARY],
-            colorAccent: defaultTheme[THEME_TOKEN_NAMES.COLOR_ACCENT],
-            colorLink: defaultTheme[THEME_TOKEN_NAMES.LINK_TEXT_COLOR],
-            colorAffirmative: defaultTheme[THEME_TOKEN_NAMES.COLOR_AFFIRMATIVE],
-            colorCautionary: defaultTheme[THEME_TOKEN_NAMES.COLOR_CAUTIONARY],
-            colorError: defaultTheme[THEME_TOKEN_NAMES.COLOR_ERROR],
-            colorDestructive: defaultTheme[THEME_TOKEN_NAMES.COLOR_DESTRUCTIVE],
-            colorInfo: defaultTheme[THEME_TOKEN_NAMES.COLOR_INFO],
+            colorPrimary:
+                defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_PRIMARY],
+            colorSecondary:
+                defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_SECONDARY],
+            colorAccent: defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_ACCENT],
+            colorLink: defaultTheme[LINK_COLOR_TOKEN_NAMES.LINK_TEXT_COLOR],
+            colorAffirmative:
+                defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_AFFIRMATIVE],
+            colorCautionary:
+                defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_CAUTIONARY],
+            colorError: defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_ERROR],
+            colorDestructive:
+                defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_DESTRUCTIVE],
+            colorInfo: defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_INFO],
             isDarkMode,
             isRoundedUI: true,
             shouldAutoCorrectColors: true,
@@ -172,7 +178,7 @@ class ApplyingThemesGuide extends PureComponent {
     };
 
     renderConfigs = () => {
-        const { shouldAutoCorrectColors, isRoundedUI } = this.state;
+        const { shouldAutoCorrectColors } = this.state;
 
         return (
             <StorySection>
@@ -186,10 +192,10 @@ class ApplyingThemesGuide extends PureComponent {
                     contextCls={`${this.baseCls}__config-container`}
                     scrollingContainerCSSClass={this.baseCls}
                 >
-                    <FormLayout>
+                    <FormLayout shouldPadContent={false}>
                         <Fieldset legend="Theme Configurations">
                             <FormLayoutRow>
-                                <FormLayoutFieldContainer>
+                                {/* <FormLayoutFieldContainer>
                                     <ComposedToggleSwitch
                                         labelProps={{
                                             labelText: 'Round Corners?',
@@ -202,7 +208,7 @@ class ApplyingThemesGuide extends PureComponent {
                                             this.handleShouldRoundCornersChange
                                         }
                                     />
-                                </FormLayoutFieldContainer>
+                                </FormLayoutFieldContainer> */}
                                 <FormLayoutFieldContainer>
                                     <ComposedToggleSwitch
                                         labelProps={{
@@ -635,9 +641,10 @@ class ApplyingThemesGuide extends PureComponent {
                     <FormLayoutSection>
                         <ComponentPreview contextCls={this.demoCls}>
                             <div>
-                                <GenericError
+                                <Callout
                                     title="Something Went Wrong"
                                     msg="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                    variant={CALLOUT_VARIANTS.ERROR}
                                 />
                             </div>
                             <div>
@@ -779,14 +786,6 @@ class ApplyingThemesGuide extends PureComponent {
         e?.stopPropagation();
     };
 
-    handleShouldRoundCornersChange = () => {
-        const { isRoundedUI } = this.state;
-
-        this.setState({
-            isRoundedUI: !isRoundedUI,
-        });
-    };
-
     handleShouldAutoCorrectColorsChange = () => {
         const { shouldAutoCorrectColors } = this.state;
 
@@ -887,24 +886,33 @@ class ApplyingThemesGuide extends PureComponent {
 
         return getThemeCSS(
             {
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_PRIMARY)]:
-                    colorPrimary,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_SECONDARY)]:
-                    colorSecondary,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.LINK_TEXT_COLOR)]:
-                    colorLink,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_ACCENT)]:
-                    colorAccent,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_AFFIRMATIVE)]:
-                    colorAffirmative,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_CAUTIONARY)]:
-                    colorCautionary,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_ERROR)]:
-                    colorError,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_DESTRUCTIVE)]:
-                    colorDestructive,
-                [getThemeAPIKeyFromName(THEME_TOKEN_NAMES.COLOR_INFO)]:
-                    colorInfo,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_PRIMARY,
+                )]: colorPrimary,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_SECONDARY,
+                )]: colorSecondary,
+                [getThemeAPIKeyFromName(
+                    LINK_COLOR_TOKEN_NAMES.LINK_TEXT_COLOR,
+                )]: colorLink,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_ACCENT,
+                )]: colorAccent,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_AFFIRMATIVE,
+                )]: colorAffirmative,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_CAUTIONARY,
+                )]: colorCautionary,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_ERROR,
+                )]: colorError,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_DESTRUCTIVE,
+                )]: colorDestructive,
+                [getThemeAPIKeyFromName(
+                    CORE_COLOR_TOKEN_NAMES.CORE_COLOR_INFO,
+                )]: colorInfo,
             },
             themeConfig,
         );

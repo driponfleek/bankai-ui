@@ -7,4 +7,4 @@ export default {
     title: getComponentsTitle(locale.stories.components.toasters.categoryTitle),
 };
 
-export { default as ToasterStory } from './ToasterStory';
+export { default as Toaster } from './StoryToaster';

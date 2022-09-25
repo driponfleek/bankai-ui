@@ -37,8 +37,6 @@ AvatarGroup.propTypes = {
         PropTypes.shape({
             id: PropTypes.string,
             imgURL: PropTypes.string,
-            text: PropTypes.string,
-            renderIcon: PropTypes.func,
         }),
     ),
 };

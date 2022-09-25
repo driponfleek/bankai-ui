@@ -1,0 +1,67 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.banka-sb-color-design-tokens-ux-guide {
+    $this: &;
+
+    &__color-with-variants {
+        @include bankai-flex-row;
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 8)};
+        flex-wrap: wrap;
+    }
+
+    &__color-desc-container {
+        margin-top: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__brand-color-description {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__brand-color &__section-content {
+        @include bankai-flex-row;
+        flex-wrap: wrap;
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
+    }
+
+    &__neutral-colors-container,
+    &__text-colors-container,
+    &__canvas-colors-container,
+    &__universal-colors-container {
+        @include bankai-flex-row;
+        flex-wrap: wrap;
+        gap: #{bankai-to-px(bankai-light-theme('core-system-scale') * 5)};
+
+        .bankai-sb-color-swatch-simple {
+            flex: 0 0 auto;
+        }
+    }
+
+    .bankai-sb-sticky-section--slim .bankai-sb-sticky-section__inner {
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)} #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
+
+        @include bankai-breakpoint-max-only($bankai-s-min) {
+            padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
+        }
+    }
+}

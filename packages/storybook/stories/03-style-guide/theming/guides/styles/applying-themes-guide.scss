@@ -21,7 +21,7 @@
     }
 
     .bankai-sb-sticky-section--slim .bankai-sb-sticky-section__inner {
-        padding: 0 #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 8)};
 
         @include bankai-breakpoint-max-only($bankai-s-min) {
             padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};

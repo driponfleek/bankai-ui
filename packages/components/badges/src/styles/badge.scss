@@ -7,7 +7,7 @@
 .bankai-badge, %bankai-badge {
     color: var(--bankai-badge-text-color, bankai-light-theme('badge-text-color'));
     background-color: var(--bankai-badge-bg-color, bankai-light-theme('badge-bg-color'));
-    font-size: var(--bankai-core-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
+    font-size: var(--bankai-core-typography-footnote-font-size, bankai-light-theme('core-typography-footnote-font-size'));
     line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
     box-sizing: border-box;
     border-radius: var(--bankai-badge-border-radius, bankai-light-theme('badge-border-radius'));

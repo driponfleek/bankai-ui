@@ -23,7 +23,7 @@
     }
 
     &__details {
-        font-size: var(--bankai-core-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
+        font-size: var(--bankai-core-typography-footnote-font-size, bankai-light-theme('core-typography-footnote-font-size'));
     }
 
     &__hex,

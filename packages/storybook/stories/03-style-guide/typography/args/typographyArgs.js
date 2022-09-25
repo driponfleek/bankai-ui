@@ -1,5 +1,9 @@
 import { genArgType } from '../../../../utils/argTypesUtils';
-import TYPE_RATIOS from '../guides/const/typeRatiosConst';
+import {
+    TYPE_RATIO_VALUES,
+    TYPE_RATIO_NAMES,
+    READABLE_TYPE_RATIO_NAMES,
+} from '../guides/const/typeRatiosConst';
 
 // Constants
 import {
@@ -9,11 +13,13 @@ import {
     CONTROL_OPS,
 } from '../../../../const/controlsConst';
 
-const TYPE_RATIO_NAMES = Object.keys(TYPE_RATIOS);
+const { MINOR_THIRD } = TYPE_RATIO_NAMES;
+const READABLE_RATIO_NAME = READABLE_TYPE_RATIO_NAMES;
+const typeRatioNameKeys = Object.keys(TYPE_RATIO_NAMES);
 
 export const args = {
-    baseTypeSize: 16,
-    typeScaleRatio: 'minor third (1.2)',
+    baseSize: 16,
+    scale: `${READABLE_RATIO_NAME[MINOR_THIRD]} (${TYPE_RATIO_VALUES[MINOR_THIRD]})`,
 };
 
 export const argTypes = {
@@ -24,16 +30,14 @@ export const argTypes = {
             [CONTROL_OPS[CONTROL_OP_NAMES.MAX]]: 25,
             [CONTROL_OPS[CONTROL_OP_NAMES.STEP]]: 1,
         },
-        propName: 'baseTypeSize',
+        propName: 'baseSize',
     }),
     ...genArgType({
         controlType: CONTROL_TYPES[CONTROL_TYPE_NAMES.RADIO],
-        options: TYPE_RATIO_NAMES.map(
+        options: typeRatioNameKeys.map(
             (NAME) =>
-                `${NAME.toLowerCase().replace('_', ' ')} (${
-                    TYPE_RATIOS[NAME]
-                })`,
+                `${READABLE_RATIO_NAME[NAME]} (${TYPE_RATIO_VALUES[NAME]})`,
         ),
-        propName: 'typeScaleRatio',
+        propName: 'scale',
     }),
 };

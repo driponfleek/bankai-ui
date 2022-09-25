@@ -7,7 +7,7 @@ import {
 } from '@epr0t0type/bankai-lib-color-utils';
 import {
     getThemeDefaults,
-    THEME_TOKEN_NAMES,
+    CORE_COLOR_TOKEN_NAMES,
 } from '@epr0t0type/bankai-lib-theme-utils';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
@@ -35,7 +35,7 @@ class WorkingWithColorGuide extends PureComponent {
 
         this.state = {
             color: genColorsData({
-                hex: defaultTheme[THEME_TOKEN_NAMES.COLOR_PRIMARY],
+                hex: defaultTheme[CORE_COLOR_TOKEN_NAMES.CORE_COLOR_PRIMARY],
             }),
         };
     }

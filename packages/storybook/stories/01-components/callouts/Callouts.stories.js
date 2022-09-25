@@ -7,5 +7,5 @@ export default {
     title: getComponentsTitle(locale.stories.components.callouts.categoryTitle),
 };
 
-export { default as StoryCallout } from './StoryCallout';
-export { default as StoryCalloutBanner } from './StoryCalloutBanner';
+export { default as Callout } from './StoryCallout';
+export { default as CalloutBanner } from './StoryCalloutBanner';

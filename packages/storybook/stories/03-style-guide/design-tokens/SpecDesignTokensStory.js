@@ -1,5 +1,5 @@
 import React from 'react';
-import Guide from './guides/SpecDesignTokensGuide';
+import Guide from './guides/GuideStyleDesignTokens';
 import { storyConfig } from '../../../utils/storiesConfig';
 import strings from '../../../i18n/strings.json';
 

@@ -9,6 +9,6 @@ export default {
     ),
 };
 
-export { default as WhatAreDesignTokensStory } from './WhatAreDesignTokensStory';
-export { default as ColorDesignTokensStory } from './ColorDesignTokensStory';
-export { default as SpecDesignTokensStory } from './SpecDesignTokensStory';
+export { default as AboutDesignTokens } from './StoryAboutDesignTokens';
+export { default as ColorDesignTokens } from './StoryColorDesignTokens';
+// export { default as SpecDesignTokens } from './SpecDesignTokensStory';

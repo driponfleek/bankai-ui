@@ -7,5 +7,5 @@ export default {
     title: getComponentsTitle(locale.stories.components.lists.categoryTitle),
 };
 
-export { default as ListStory } from './ListStory';
-export { default as ListItemStory } from './ListItemStory';
+export { default as List } from './StoryList';
+export { default as ListItem } from './StoryListItem';

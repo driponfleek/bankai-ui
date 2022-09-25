@@ -130,6 +130,7 @@ describe('<CalloutBanner />', () => {
             [`${baseCls}--cautionary`]: false,
             [`${baseCls}--error`]: false,
             [`${baseCls}--info`]: false,
+            [`${baseCls}--has-title`]: false,
         };
         const result = compRef.getModCls();
 
@@ -152,6 +153,7 @@ describe('<CalloutBanner />', () => {
             [`${baseCls}--cautionary`]: true,
             [`${baseCls}--error`]: false,
             [`${baseCls}--info`]: false,
+            [`${baseCls}--has-title`]: false,
         };
         const result = compRef.getModCls();
 
@@ -174,6 +176,7 @@ describe('<CalloutBanner />', () => {
             [`${baseCls}--cautionary`]: false,
             [`${baseCls}--error`]: true,
             [`${baseCls}--info`]: false,
+            [`${baseCls}--has-title`]: false,
         };
         const result = compRef.getModCls();
 
@@ -196,6 +199,30 @@ describe('<CalloutBanner />', () => {
             [`${baseCls}--cautionary`]: false,
             [`${baseCls}--error`]: false,
             [`${baseCls}--info`]: true,
+            [`${baseCls}--has-title`]: false,
+        };
+        const result = compRef.getModCls();
+
+        expect(result).toEqual(expected);
+    });
+
+    it('should only set the title modifier class to true when props.title has a value', () => {
+        const props = {
+            title: 'Test',
+        };
+        let compRef;
+        const setRef = (el) => {
+            compRef = el;
+        };
+        act(() => {
+            render(<CalloutBanner {...props} ref={setRef} />);
+        });
+        const expected = {
+            [`${baseCls}--affirmative`]: false,
+            [`${baseCls}--cautionary`]: false,
+            [`${baseCls}--error`]: false,
+            [`${baseCls}--info`]: false,
+            [`${baseCls}--has-title`]: true,
         };
         const result = compRef.getModCls();
 

@@ -9,5 +9,5 @@ export default {
     ),
 };
 
-export { default as HeadingStory } from './HeadingStory';
-export { default as HyperlinkStory } from './HyperlinkStory';
+export { default as HeadingStory } from './StoryHeading';
+export { default as HyperlinkStory } from './StoryHyperlink';

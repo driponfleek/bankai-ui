@@ -41,7 +41,7 @@ const avatars = [
     {
         ...baseAvatarProps,
         id: '06',
-        text: 'DY',
+        children: 'DY',
     },
     {
         ...baseAvatarProps,
@@ -51,7 +51,7 @@ const avatars = [
     {
         ...baseAvatarProps,
         id: '11',
-        renderIcon,
+        children: renderIcon(),
     },
 ];
 

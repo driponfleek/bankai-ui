@@ -79,7 +79,7 @@ class StoryLayout extends PureComponent {
                         {title}
                     </Heading>
                     {subTitle && (
-                        <span className={`${this.baseCls}__header-subtitle`}>
+                        <span className={`${this.baseCls}__header-sub-title`}>
                             {subTitle}
                         </span>
                     )}

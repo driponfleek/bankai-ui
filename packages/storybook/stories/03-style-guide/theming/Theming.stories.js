@@ -7,5 +7,5 @@ export default {
     title: getStyleGuideTitle(locale.stories.styleGuide.theming.categoryTitle),
 };
 
-export { default as ApplyingThemesStory } from './ApplyingThemesStory';
+export { default as ApplyingThemes } from './ApplyingThemesStory';
 export { default as WorkingWithColor } from './WorkingWithColorStory';

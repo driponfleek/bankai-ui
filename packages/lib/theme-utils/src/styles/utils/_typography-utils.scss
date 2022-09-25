@@ -6,7 +6,7 @@
 
 // Defaults for params
 $bankai-scale-font-base: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-size');
-$bankai-scale-font-ratio: var(--bankai-core-typography-size-ratio, #{bankai-get-map-value($bankai-style-tokens, 'typography-size-ratio')});
+$bankai-scale-font-ratio: var(--bankai-core-core-typography-font-size-scale, #{bankai-get-map-value($bankai-style-tokens, 'core-typography-font-size-scale')});
 
 @function bankai-scale-up-font-size($base: $bankai-scale-font-base) {
     @return calc($base * $bankai-scale-font-ratio);

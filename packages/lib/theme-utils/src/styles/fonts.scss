@@ -1,44 +1,49 @@
 // ========================================================
 // Dependencies
 // ========================================================
+@use 'sass:meta';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
 @import '../styles/tokens/style-tokens.scss';
 
 // ========================================================
 // Paths
 // ========================================================
-$bankai-heading-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/exo' !default;
-$bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/titillium-web' !default;
+$bankai-heading-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/headings' !default;
+$bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body' !default;
 
 // ========================================================
 // Heading Font
 // ========================================================
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-name');
-    src: url('#{$bankai-heading-font-path}/Exo-Regular.ttf') format('truetype');
+    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    src: url('#{$bankai-heading-font-path}/regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: fallback;
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-name');
-    src: url('#{$bankai-heading-font-path}/Exo-Italic.ttf') format('truetype');
+    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    src: url('#{$bankai-heading-font-path}/italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
+    font-display: fallback;
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-name');
-    src: url('#{$bankai-heading-font-path}/Exo-Bold.ttf') format('truetype');
+    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    src: url('#{$bankai-heading-font-path}/bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+    font-display: fallback;
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-name');
-    src: url('#{$bankai-heading-font-path}/Exo-BoldItalic.ttf') format('truetype');
+    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    src: url('#{$bankai-heading-font-path}/bold-italic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
+    font-display: fallback;
 }
 
 // ========================================================
@@ -46,28 +51,32 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/titi
 // ========================================================
 @font-face {
     font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
-    src: url('#{$bankai-body-font-path}/TitilliumWeb-Regular.ttf') format('truetype');
+    src: url('#{$bankai-body-font-path}/regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: fallback;
 }
 
 @font-face {
     font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
-    src: url('#{$bankai-body-font-path}/TitilliumWeb-Italic.ttf') format('truetype');
+    src: url('#{$bankai-body-font-path}/italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
+    font-display: fallback;
 }
 
 @font-face {
     font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
-    src: url('#{$bankai-body-font-path}/TitilliumWeb-Bold.ttf') format('truetype');
+    src: url('#{$bankai-body-font-path}/bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+    font-display: fallback;
 }
 
 @font-face {
     font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
-    src: url('#{$bankai-body-font-path}/TitilliumWeb-BoldItalic.ttf') format('truetype');
+    src: url('#{$bankai-body-font-path}/bold-italic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
+    font-display: fallback;
 }

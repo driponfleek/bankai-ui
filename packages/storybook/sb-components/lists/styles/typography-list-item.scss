@@ -6,18 +6,23 @@
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-sb-typography-list-item {
+    width: 15rem;
     background-color: var(--bankai-core-color-canvas-alt, bankai-light-theme('core-color-canvas-alt'));
-    width: 140px;
     box-shadow: inset 0 1px 3px 1px color.change(bankai-light-theme('core-color-neutral-0'), $alpha: 0.1);
     box-sizing: border-box;
     border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
     padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
 
     &__category {
+        @include bankai-footnote;
         font-style: italic;
-        font-size: var(--bankai-core-typography-footnote-font-size, bankai-light-theme('typography-footnote-font-size'));
+    }
+
+    &__font-family-name {
+        @include bankai-sub-text;
     }
 
     &__example {
@@ -36,11 +41,11 @@
         display: block;
     }
 
-    &--exo .bankai-sb-typography-list-item__example {
-        font-family: var(--bankai-core-typography-headings-font-family, bankai-light-theme('typography-heading-font-name')), var(--bankai-core-typography-headings-font-family-fallback, bankai-light-theme('typography-heading-font-fallback'));
+    &--headings .bankai-sb-typography-list-item__example {
+        font-family: var(--bankai-core-typography-headings-font-family, bankai-light-theme('core-typography-headings-font-family')), var(--bankai-core-typography-headings-font-family-fallback, bankai-light-theme('core-typography-headings-font-family-fallback'));
     }
 
-    &--titillium-web .bankai-sb-typography-list-item__example {
+    &--body .bankai-sb-typography-list-item__example {
         font-family: var(--bankai-core-typography-font-family, bankai-light-theme('core-typography-font-family')), var(--bankai-core-typography-font-family-fallback, bankai-light-theme('core-typography-font-family-fallback'));
     }
 }

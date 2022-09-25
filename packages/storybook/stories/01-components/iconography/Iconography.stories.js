@@ -9,4 +9,4 @@ export default {
     ),
 };
 
-export { default as IconographyStory } from './IconographyStory';
+export { default as Icons } from './StoryIconography';

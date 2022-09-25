@@ -7,11 +7,11 @@ export default {
     title: getComponentsTitle(locale.stories.components.loading.categoryTitle),
 };
 
-export { default as LoadingBarsStory } from './LoadingBarsStory';
-export { default as LoadingDotsStory } from './LoadingDotsStory';
-export { default as LoadingFlowStory } from './LoadingFlowStory';
-export { default as LoadingSkeletonStory } from './LoadingSkeletonStory';
-export { default as LoadingSpheresStory } from './LoadingSpheresStory';
-export { default as LoadingSpinnersStory } from './LoadingSpinnersStory';
-export { default as LoadingSquaresStory } from './LoadingSquaresStory';
-export { default as LoadingStateStory } from './LoadingStateStory';
+export { default as LoadingBars } from './StoryLoadingBars';
+export { default as LoadingDots } from './StoryLoadingDots';
+export { default as LoadingFlow } from './StoryLoadingFlow';
+export { default as LoadingSkeleton } from './StoryLoadingSkeleton';
+export { default as LoadingSpheres } from './StoryLoadingSpheres';
+export { default as LoadingSpinners } from './StoryLoadingSpinners';
+export { default as LoadingSquares } from './StoryLoadingSquares';
+export { default as LoadingState } from './StoryLoadingState';

@@ -3,8 +3,8 @@
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-callout-banner, %bankai-callout-banner {
     color: var(--bankai-callout-banner-text-color, bankai-light-theme('callout-banner-text-color'));
@@ -42,7 +42,7 @@
     &__icon {
         color: var(--bankai-callout-banner-icon-color, bankai-light-theme('callout-banner-icon-color'));
         font-size: 1.25em;
-        display: block;
+        vertical-align: top;
         margin: 0 auto;
     }
 
@@ -58,7 +58,6 @@
 
     #{$this}__title {
         @include bankai-h5;
-        font-size: var(--bankai-core-typography-font-size, bankai-light-theme('core-typography-font-size'));
         font-weight: bold;
         margin: 0;
     }
@@ -84,6 +83,10 @@
         .bankai-link-button__text {
             text-decoration: underline;
         }
+    }
+
+    &--has-title &__icon {
+        vertical-align: middle;
     }
 
     &--affirmative &__icon {
