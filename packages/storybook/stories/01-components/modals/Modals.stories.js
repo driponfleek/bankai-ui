@@ -7,5 +7,5 @@ export default {
     title: getComponentsTitle(locale.stories.components.modals.categoryTitle),
 };
 
-export { default as ModalStory } from './ModalStory';
-export { default as StatusModalStory } from './StatusModalStory';
+export { default as Modal } from './StoryModal';
+export { default as StatusModal } from './StoryStatusModal';

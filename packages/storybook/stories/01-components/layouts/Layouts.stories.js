@@ -7,5 +7,5 @@ export default {
     title: getComponentsTitle(locale.stories.components.layouts.categoryTitle),
 };
 
-export { default as FormLayoutStory } from './FormLayoutStory';
-export { default as SectionStory } from './SectionStory';
+export { default as FormLayout } from './StoryFormLayout';
+export { default as Section } from './StorySection';

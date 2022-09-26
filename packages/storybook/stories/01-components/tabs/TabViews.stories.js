@@ -7,4 +7,4 @@ export default {
     title: getComponentsTitle(locale.stories.components.tabViews.categoryTitle),
 };
 
-export { default as TabsStory } from './TabsStory';
+export { default as Tabs } from './StoryTabs';

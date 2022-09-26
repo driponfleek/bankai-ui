@@ -62,25 +62,23 @@ $bankai-style-tokens: (
     // ========================================================
     // -- Text
     core-typography-font-size: $bankai-core-typography-font-size,
-    typography-size-ratio: $bankai-typography-size-ratio,
+    core-typography-font-size-scale: $bankai-core-typography-font-size-scale,
     // -- Headings (General)
-    typography-heading-font-name: $bankai-typography-heading-font-name,
-    typography-heading-font-fallback: $bankai-typography-font-fallback,
-    // typography-heading-font: #{$bankai-typography-heading-font-name, $bankai-typography-font-fallback},
-    typography-heading-font-style: normal,
-    typography-heading-font-weight: normal,
-    typography-heading-line-height: $bankai-typography-heading-line-height,
+    core-typography-headings-font-family: $bankai-core-typography-headings-font-family,
+    core-typography-headings-font-family-fallback: $bankai-typography-font-fallback,
+    // typography-heading-font: #{$bankai-core-typography-headings-font-family, $bankai-typography-font-fallback},
+    core-typography-headings-font-style: normal,
+    core-typography-headings-font-weight: bold,
+    core-typography-headings-line-height: $bankai-core-typography-headings-line-height,
     // -- Headings (Levels)
-    typography-h5-font-size: $bankai-typography-h5-font-size,
-    typography-h4-font-size: $bankai-typography-h4-font-size,
-    typography-h3-font-size: $bankai-typography-h3-font-size,
-    typography-h2-font-size: $bankai-typography-h2-font-size,
-    typography-h1-font-size: $bankai-typography-h1-font-size,
+    core-typography-headings-level5-font-size: $bankai-core-typography-headings-level5-font-size,
+    core-typography-headings-level4-font-size: $bankai-core-typography-headings-level4-font-size,
+    core-typography-headings-level3-font-size: $bankai-core-typography-headings-level3-font-size,
+    core-typography-headings-level2-font-size: $bankai-core-typography-headings-level2-font-size,
+    core-typography-headings-level1-font-size: $bankai-core-typography-headings-level1-font-size,
     // -- Misc
     core-typography-sub-text-font-size: $bankai-typography-sub-text-font-size,
     core-typography-footnote-font-size: $bankai-typography-footnote-font-size,
-    typography-sub-text-font-size: $bankai-typography-sub-text-font-size,
-    typography-footnote-font-size: $bankai-typography-footnote-font-size,
     core-typography-line-height: $bankai-core-typography-line-height,
     // -- Body (General)
     core-typography-font-family: $bankai-typography-font-body-name,

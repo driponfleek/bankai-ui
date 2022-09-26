@@ -97,7 +97,7 @@
     &__sub-title {
         @include bankai-max-line-width;
         color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
-        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('typography-sub-text-font-size'));
+        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('core-typography-sub-text-font-size'));
         margin: 0;
     }
 

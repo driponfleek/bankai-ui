@@ -21,10 +21,10 @@
 
 @mixin bankai-heading-font-shared() {
     box-sizing: border-box;
-    font-family: var(--bankai-core-typography-headings-font-family, bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-name')), var(--bankai-core-typography-headings-font-family-fallback, bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-fallback'));
-    font-style: var(--bankai-core-typography-headings-font-style, bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-style'));
-    font-weight: var(--bankai-core-typography-headings-font-weight, bankai-get-map-value($bankai-style-tokens, 'typography-heading-font-weight'));
-    line-height: bankai-get-map-value($bankai-style-tokens, 'typography-heading-line-height');
+    font-family: var(--bankai-core-typography-headings-font-family, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family')), var(--bankai-core-typography-headings-font-family-fallback, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family-fallback'));
+    font-style: var(--bankai-core-typography-headings-font-style, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-style'));
+    font-weight: var(--bankai-core-typography-headings-font-weight, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-weight'));
+    line-height: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height');
     margin: 0;
 }
 
@@ -35,32 +35,32 @@
 
 @mixin bankai-h1() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'typography-heading-line-height'));
-    font-size: var(--bankai-core-typography-headings-level1-font-size, bankai-get-map-value($bankai-style-tokens, 'typography-h1-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
+    font-size: var(--bankai-core-typography-headings-level1-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level1-font-size'));
 }
 
 @mixin bankai-h2() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'typography-heading-line-height'));
-    font-size: var(--bankai-core-typography-headings-level2-font-size, bankai-get-map-value($bankai-style-tokens, 'typography-h2-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
+    font-size: var(--bankai-core-typography-headings-level2-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level2-font-size'));
 }
 
 @mixin bankai-h3() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'typography-heading-line-height'));
-    font-size: var(--bankai-core-typography-headings-level3-font-size, bankai-get-map-value($bankai-style-tokens, 'typography-h3-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
+    font-size: var(--bankai-core-typography-headings-level3-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level3-font-size'));
 }
 
 @mixin bankai-h4() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'typography-heading-line-height'));
-    font-size: var(--bankai-core-typography-headings-level4-font-size, bankai-get-map-value($bankai-style-tokens, 'typography-h4-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
+    font-size: var(--bankai-core-typography-headings-level4-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level4-font-size'));
 }
 
 @mixin bankai-h5() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'typography-heading-line-height'));
-    font-size: var(--bankai-core-typography-headings-level5-font-size, bankai-get-map-value($bankai-style-tokens, 'typography-h5-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
+    font-size: var(--bankai-core-typography-headings-level5-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level5-font-size'));
 }
 
 @mixin bankai-sub-text() {

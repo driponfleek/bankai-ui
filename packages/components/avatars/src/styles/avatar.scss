@@ -11,6 +11,7 @@
     color: var(--bankai-avatar-text-color, bankai-light-theme('avatar-text-color'));
     background-color: var(--bankai-avatar-bg-color, bankai-light-theme('avatar-bg-color'));
     box-sizing: border-box;
+    border-radius: 100%;
     font-size: 50px;
     text-align: center;
 
@@ -27,14 +28,6 @@
     &--img {
         background-position: center;
         background-size: cover;
-    }
-
-    &--circle {
-        border-radius: 100%;
-    }
-
-    &--rounded-square {
-        border-radius: calc(1em * 0.1);
     }
 
     &--has-border {

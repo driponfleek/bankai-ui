@@ -7,4 +7,4 @@ export default {
     title: getComponentsTitle(locale.stories.components.badges.categoryTitle),
 };
 
-export { default as BadgeStory } from './BadgeStory';
+export { default as Badge } from './StoryBadge';

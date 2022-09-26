@@ -7,7 +7,7 @@ export default {
     title: getComponentsTitle(locale.stories.components.buttons.categoryTitle),
 };
 
-export { default as StoryButton } from './StoryButton';
-export { default as LinkButtonStory } from './LinkButtonStory';
-export { default as MenuButtonStory } from './MenuButtonStory';
-export { default as SplitButtonStory } from './SplitButtonStory';
+export { default as Button } from './StoryButton';
+export { default as LinkButton } from './StoryLinkButton';
+export { default as MenuButton } from './StoryMenuButton';
+export { default as SplitButton } from './StorySplitButton';

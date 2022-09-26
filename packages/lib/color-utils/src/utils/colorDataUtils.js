@@ -42,7 +42,7 @@ export const getColorSeedData = (hex) => {
  * @param {number} step - how much to modify the lightness of a color by per variant. This will used to generate variants between 0 and 100
  * @return {array}
  */
-const getLightnessArray = (step = 10) => {
+const getLightnessArray = (step = 5) => {
     if (!step || step === 0) {
         return [];
     }

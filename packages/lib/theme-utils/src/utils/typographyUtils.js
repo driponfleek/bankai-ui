@@ -1,4 +1,24 @@
-/* eslint-disable import/prefer-default-export */
+import { CORE_STYLE_TOKEN_DEFAULTS } from '../const/tokens/defaults/coreTokenDefaultsConst';
+import { CORE_STYLE_TOKEN_NAMES } from '../const/tokens/coreTokensConst';
+
+const {
+    CORE_TYPOGRAPHY_FONT_SIZE,
+    CORE_TYPOGRAPHY_FONT_FAMILY_FALLBACK,
+    CORE_TYPOGRAPHY_FONT_SIZE_SCALE,
+    CORE_TYPOGRAPHY_MOBILE_FONT_SIZE_SCALE,
+} = CORE_STYLE_TOKEN_NAMES;
+
+export const getBaseFontSize = () =>
+    CORE_STYLE_TOKEN_DEFAULTS[CORE_TYPOGRAPHY_FONT_SIZE];
+
+export const getFallbackFontFamily = () =>
+    CORE_STYLE_TOKEN_DEFAULTS[CORE_TYPOGRAPHY_FONT_FAMILY_FALLBACK];
+
+export const getFontSizeScale = () =>
+    CORE_STYLE_TOKEN_DEFAULTS[CORE_TYPOGRAPHY_FONT_SIZE_SCALE];
+
+export const getMobileFontSizeScale = () =>
+    CORE_STYLE_TOKEN_DEFAULTS[CORE_TYPOGRAPHY_MOBILE_FONT_SIZE_SCALE];
 
 /**
  * This is used to generate core font sizes for the
@@ -18,7 +38,8 @@
  * @returns {object} [object.subText] Sub-text font size
  */
 export const getCoreFontSizes = (params) => {
-    const { baseSize = 16, scale = 1.2 } = params ?? {};
+    const { baseSize = getBaseFontSize(), scale = getFontSizeScale() } =
+        params ?? {};
     // Form inputs should not be sized below 16px in font size
     // due to accessibility requirements
     const formInput = Math.max(baseSize, 16);

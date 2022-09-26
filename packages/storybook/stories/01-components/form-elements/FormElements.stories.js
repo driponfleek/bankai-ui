@@ -9,18 +9,18 @@ export default {
     ),
 };
 
-export { default as CheckboxStory } from './CheckboxStory';
-export { default as ColorPickerStory } from './ColorPickerStory';
-export { default as ColorPickerInputStory } from './ColorPickerInputStory';
-export { default as ComboboxStory } from './ComboboxStory';
-export { default as DatePickerStory } from './DatePickerStory';
-export { default as DnDFileUploaderStory } from './DnDFileUploaderStory';
-export { default as DropdownStory } from './DropdownStory';
-export { default as FieldsetStory } from './FieldsetStory';
-export { default as FormFieldComposerStory } from './FormFieldComposerStory';
-export { default as MultiselectStory } from './MultiselectStory';
-export { default as NumberPickerStory } from './NumberPickerStory';
-export { default as RadioStory } from './RadioStory';
-export { default as TextareaStory } from './TextareaStory';
-export { default as TextInputStory } from './TextInputStory';
-export { default as ToggleSwitchStory } from './ToggleSwitchStory';
+export { default as Checkbox } from './StoryCheckbox';
+export { default as ColorPicker } from './StoryColorPicker';
+export { default as ColorPickerInput } from './StoryColorPickerInput';
+export { default as Combobox } from './StoryCombobox';
+export { default as DatePickerStory } from './StoryDatePicker';
+export { default as DnDFileUploader } from './StoryDnDFileUploader';
+export { default as Dropdown } from './StoryDropdown';
+export { default as Fieldset } from './StoryFieldset';
+export { default as FormFieldComposer } from './StoryFormFieldComposer';
+export { default as Multiselect } from './StoryMultiselect';
+export { default as NumberPicker } from './StoryNumberPicker';
+export { default as Radio } from './StoryRadio';
+export { default as Textarea } from './StoryTextarea';
+export { default as TextInput } from './StoryTextInput';
+export { default as ToggleSwitch } from './StoryToggleSwitch';

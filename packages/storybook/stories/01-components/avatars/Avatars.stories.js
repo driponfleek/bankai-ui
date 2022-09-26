@@ -7,5 +7,5 @@ export default {
     title: getComponentsTitle(locale.stories.components.avatars.categoryTitle),
 };
 
-export { default as AvatarStory } from './AvatarStory';
-export { default as AvatarGroupStory } from './AvatarGroupStory';
+export { default as Avatar } from './StoryAvatar';
+export { default as AvatarGroup } from './StoryAvatarGroup';

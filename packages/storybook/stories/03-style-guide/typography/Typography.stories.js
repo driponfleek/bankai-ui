@@ -9,4 +9,4 @@ export default {
     ),
 };
 
-export { default as TypographySystemStory } from './TypographySystemStory';
+export { default as TypographySystem } from './TypographySystemStory';

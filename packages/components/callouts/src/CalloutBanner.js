@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-
+import { Heading } from '@epr0t0type/bankai-ui-typography';
 // Constants
 import VARIANTS from './const/variantsConst';
 
@@ -11,11 +11,16 @@ import './styles/callout-banner.scss';
 const { AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = VARIANTS;
 
 class CalloutBanner extends PureComponent {
+    static defaultProps = {
+        headingLvl: 3,
+    };
+
     static propTypes = {
         contextCls: PropTypes.string,
+        variant: PropTypes.string,
         msg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-        variant: PropTypes.string,
+        headingLvl: PropTypes.number,
         renderIcon: PropTypes.func,
     };
 
@@ -50,13 +55,18 @@ class CalloutBanner extends PureComponent {
     };
 
     renderMain = () => {
-        const { title, msg } = this.props;
+        const { title, msg, headingLvl } = this.props;
 
         return (
             <div className={`${this.baseCls}__text-container`}>
                 {title && (
                     <div className={`${this.baseCls}__title-container`}>
-                        <p className={`${this.baseCls}__title`}>{title}</p>
+                        <Heading
+                            contextCls={`${this.baseCls}__title`}
+                            headingLvl={headingLvl}
+                        >
+                            {title}
+                        </Heading>
                     </div>
                 )}
                 {msg && (
@@ -69,12 +79,13 @@ class CalloutBanner extends PureComponent {
     };
 
     getModCls = () => {
-        const { variant } = this.props;
+        const { variant, title } = this.props;
 
         return {
             [`${this.baseCls}--affirmative`]: variant === AFFIRMATIVE,
             [`${this.baseCls}--cautionary`]: variant === CAUTIONARY,
             [`${this.baseCls}--error`]: variant === ERROR,
+            [`${this.baseCls}--has-title`]: !!title,
             [`${this.baseCls}--info`]: variant === INFO,
         };
     };

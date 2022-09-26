@@ -7,4 +7,4 @@ export default {
     title: getIntroTitle(locale.stories.intro.categoryTitle),
 };
 
-export { default as WelcomeStory } from './WelcomeStory';
+export { default as Welcome } from './StoryWelcome';

@@ -9,7 +9,7 @@ const TypographyListItem = (props) => {
     const { contextCls, categoryText, fontFamilyName } = props;
     const baseCls = 'bankai-sb-typography-list-item';
     const testRegEx = / /g;
-    const modCls = `${baseCls}--${fontFamilyName
+    const modCls = `${baseCls}--${categoryText
         .toLowerCase()
         .replace(testRegEx, '-')}`;
 

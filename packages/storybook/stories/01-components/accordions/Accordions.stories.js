@@ -9,4 +9,4 @@ export default {
     ),
 };
 
-export { default as AccordionStory } from './AccordionStory';
+export { default as Accordion } from './StoryAccordion';
