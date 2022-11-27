@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
@@ -61,7 +61,7 @@
     }
 
     .bankai-color-picker {
-        @include bankai-box-shadow-elevated;
+        @include bankai-shadow-elevation-high;
     }
 
     &__picker-container {

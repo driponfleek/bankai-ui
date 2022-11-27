@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, act } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import FormControlHint from '../FormControlHint';
 
 const baseCls = 'bankai-form-control-hint';
@@ -10,30 +9,22 @@ describe('<FormControlHint />', () => {
     });
 
     it('should render hint when props.hintText is defined', () => {
-        act(() => {
-            render(<FormControlHint hintText="I'm a hint" />);
-        });
-        const defaultTextDOMs = document.getElementsByClassName(
-            `${baseCls}__text`,
-        );
+        const { container } = render(<FormControlHint hintText="I'm a hint" />);
+        const defaultTextDOMs = container.querySelector(`.${baseCls}__text`);
 
-        expect(defaultTextDOMs).toHaveLength(1);
+        expect(defaultTextDOMs).toBeDefined();
     });
 
     it('should render hint when props.renderHint is defined', () => {
         const testCls = 'custom-hint-text';
-        act(() => {
-            render(
-                <FormControlHint
-                    renderHint={() => (
-                        <span className={testCls}>Hint Text</span>
-                    )}
-                />,
-            );
-        });
-        const customTextDOMs = document.getElementsByClassName(testCls);
+        const { container } = render(
+            <FormControlHint
+                renderHint={() => <span className={testCls}>Hint Text</span>}
+            />,
+        );
+        const customTextDOMs = container.querySelector(testCls);
 
-        expect(customTextDOMs).toHaveLength(1);
+        expect(customTextDOMs).toBeDefined();
     });
 
     it('should set the appropriate ARIA props when getARIAExtantProps is called', () => {
@@ -41,16 +32,14 @@ describe('<FormControlHint />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(
-                <FormControlHint
-                    hintARIALive="polite"
-                    hintARIARelevant="additions removals"
-                    ref={setRef}
-                    isHintARIAAtomic
-                />,
-            );
-        });
+        render(
+            <FormControlHint
+                hintARIALive="polite"
+                hintARIARelevant="additions removals"
+                ref={setRef}
+                isHintARIAAtomic
+            />,
+        );
         const expected = {
             'aria-atomic': true,
             'aria-live': 'polite',

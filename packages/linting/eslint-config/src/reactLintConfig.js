@@ -6,6 +6,7 @@ module.exports = {
         '@epr0t0type/eslint-config/src/jsLintConfig',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
+        'prettier',
     ],
     parserOptions: {
         babelOptions: {
@@ -29,6 +30,86 @@ module.exports = {
                     'render',
                     'shouldComponentUpdate',
                 ],
+            },
+        ],
+        'import/order': [
+            2,
+            {
+                groups: [
+                    'external',
+                    'builtin',
+                    'internal',
+                    'sibling',
+                    'parent',
+                    'index',
+                    'object',
+                ],
+                pathGroups: [
+                    {
+                        group: 'external',
+                        pattern: 'react',
+                        position: 'before',
+                    },
+                    {
+                        group: 'external',
+                        pattern: 'prop-types',
+                        position: 'before',
+                    },
+                    {
+                        group: 'external',
+                        pattern: 'classnames',
+                        position: 'before',
+                    },
+                    {
+                        group: 'external',
+                        pattern: '@epr0t0type/**',
+                        position: 'before',
+                    },
+                    {
+                        group: 'external',
+                        pattern: '@*/**',
+                        patternOptions: { partial: true },
+                        position: 'before',
+                    },
+                    {
+                        group: 'external',
+                        pattern: '*',
+                        position: 'before',
+                    },
+                    {
+                        group: 'internal',
+                        pattern: '{.,..}/**/components/**',
+                        position: 'before',
+                    },
+                    {
+                        group: 'internal',
+                        pattern: '{.,..}/**/services/**',
+                        position: 'after',
+                    },
+                    {
+                        group: 'internal',
+                        pattern: '{.,..}/utils/**',
+                        position: 'after',
+                    },
+                    {
+                        group: 'internal',
+                        pattern: '{.,..}/**/const/**',
+                        position: 'after',
+                    },
+                    {
+                        group: 'internal',
+                        pattern: '{.,..}/**/media/**',
+                        position: 'after',
+                    },
+                    {
+                        group: 'unknown',
+                        pattern: '{.,..}/**/*.scss',
+                        patternOptions: { dot: true },
+                        position: 'after',
+                    },
+                ],
+                pathGroupsExcludedImportTypes: ['react'],
+                warnOnUnassignedImports: true,
             },
         ],
         'jsx-a11y/anchor-is-valid': [

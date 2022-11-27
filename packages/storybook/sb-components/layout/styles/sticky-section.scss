@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
@@ -11,7 +11,7 @@
     $this: &;
 
     &--slim &__inner {
-        @include bankai-box-shadow-slightly-elevated;
+        @include bankai-shadow-elevation-medium;
         width: 100%;
         background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
         box-sizing: border-box;

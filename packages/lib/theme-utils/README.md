@@ -93,6 +93,7 @@ import {
 ```
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/fonts.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/index.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/resets/document.scss';

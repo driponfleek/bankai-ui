@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
-import React from 'react';
-import { render, act } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import ColorPicker from '../ColorPicker';
 
 const originalConsoleError = console.error.bind(console.error);
-
-jest.useFakeTimers();
+const sleep = async (ms) =>
+    new Promise((r) => {
+        setTimeout(r, ms);
+    });
 
 describe('<ColorPicker />', () => {
     it('should render without crashing', () => {
@@ -14,7 +15,7 @@ describe('<ColorPicker />', () => {
         console.error = originalConsoleError;
     });
 
-    it('should call props.onChange and props.onChangeComplete when handleChange method is called', () => {
+    it('should call props.onChange and props.onChangeComplete when handleChange method is called', async () => {
         const changeSpy = jest.fn(ColorPicker.defaultProps.onChange);
         const changeCompleteSpy = jest.fn(
             ColorPicker.defaultProps.onChangeComplete,
@@ -27,17 +28,15 @@ describe('<ColorPicker />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ColorPicker {...props} ref={setRef} />);
-        });
-        compRef.handleChange();
-        jest.runAllTimers();
+        render(<ColorPicker {...props} ref={setRef} />);
+        await compRef.handleChange();
+        await sleep(250);
 
         expect(changeSpy).toHaveBeenCalled();
         expect(changeCompleteSpy).toHaveBeenCalled();
     });
 
-    it('should only call onChangeComplete once when handleChange method is called multiple times', () => {
+    it('should only call onChangeComplete once when handleChange method is called multiple times', async () => {
         const changeSpy = jest.fn(ColorPicker.defaultProps.onChange);
         const changeCompleteSpy = jest.fn(
             ColorPicker.defaultProps.onChangeComplete,
@@ -50,13 +49,10 @@ describe('<ColorPicker />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ColorPicker {...props} ref={setRef} />);
-        });
+        render(<ColorPicker {...props} ref={setRef} />);
         compRef.handleChange();
-        jest.advanceTimersByTime(100);
         compRef.handleChange();
-        jest.runOnlyPendingTimers();
+        await sleep(250);
 
         expect(changeSpy).toHaveBeenCalledTimes(2);
         expect(changeCompleteSpy).toHaveBeenCalledTimes(1);
@@ -67,9 +63,7 @@ describe('<ColorPicker />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ColorPicker ref={setRef} />);
-        });
+        render(<ColorPicker ref={setRef} />);
         const expected = {
             r: 0,
             g: 0,
@@ -82,28 +76,24 @@ describe('<ColorPicker />', () => {
     });
 
     it('should use the react-colorful rgb color picker when props.hasAlpha is false', () => {
-        act(() => {
-            render(<ColorPicker />);
-        });
-        const alphaSliderDOMs = document.getElementsByClassName(
-            'react-colorful__alpha',
+        const { container } = render(<ColorPicker />);
+        const alphaSliderDOMs = container.querySelector(
+            '.react-colorful__alpha',
         );
 
-        expect(alphaSliderDOMs).toHaveLength(0);
+        expect(alphaSliderDOMs).toBeNull();
     });
 
     it('should use the react-colorful rgba color picker when props.hasAlpha is true', () => {
-        act(() => {
-            render(<ColorPicker hasAlpha />);
-        });
-        const alphaSliderDOMs = document.getElementsByClassName(
-            'react-colorful__alpha',
+        const { container } = render(<ColorPicker hasAlpha />);
+        const alphaSliderDOMs = container.querySelector(
+            '.react-colorful__alpha',
         );
 
-        expect(alphaSliderDOMs).toHaveLength(1);
+        expect(alphaSliderDOMs).toBeDefined();
     });
 
-    it('should return hex color value when calling handleChange method and props.hasAlpha is false', () => {
+    it('should return hex color value when calling handleChange method and props.hasAlpha is false', async () => {
         const changeSpy = jest.fn(ColorPicker.defaultProps.onChange);
         const changeCompleteSpy = jest.fn(
             ColorPicker.defaultProps.onChangeComplete,
@@ -116,18 +106,16 @@ describe('<ColorPicker />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ColorPicker {...props} ref={setRef} />);
-        });
+        render(<ColorPicker {...props} ref={setRef} />);
         const expected = '#000000';
-        compRef.handleChange({ r: 0, g: 0, b: 0, a: 1 });
-        jest.runAllTimers();
+        await compRef.handleChange({ r: 0, g: 0, b: 0, a: 1 });
+        await sleep(250);
 
         expect(changeSpy).toHaveBeenCalledWith(expected);
         expect(changeCompleteSpy).toHaveBeenCalledWith(expected);
     });
 
-    it('should return rgba string value when calling handleChange method and props.hasAlpha is true', () => {
+    it('should return rgba string value when calling handleChange method and props.hasAlpha is true', async () => {
         const changeSpy = jest.fn(ColorPicker.defaultProps.onChange);
         const changeCompleteSpy = jest.fn(
             ColorPicker.defaultProps.onChangeComplete,
@@ -140,12 +128,10 @@ describe('<ColorPicker />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ColorPicker {...props} ref={setRef} hasAlpha />);
-        });
+        render(<ColorPicker {...props} ref={setRef} hasAlpha />);
         const expected = 'rgba(0, 0, 0, 0.5)';
-        compRef.handleChange({ r: 0, g: 0, b: 0, a: 0.5 });
-        jest.runAllTimers();
+        await compRef.handleChange({ r: 0, g: 0, b: 0, a: 0.5 });
+        await sleep(250);
 
         expect(changeSpy).toHaveBeenCalledWith(expected);
         expect(changeCompleteSpy).toHaveBeenCalledWith(expected);

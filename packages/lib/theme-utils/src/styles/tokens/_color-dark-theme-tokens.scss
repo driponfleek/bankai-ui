@@ -9,57 +9,99 @@
 
 // Light Theme Color Tokens
 $bankai-color-dark-theme-tokens: (
+    /**********************************************************
+    CORE
+    **********************************************************/
+    // ********************************************************
     // Main
+    // ********************************************************
     core-color-brand: $bankai-color-dt-brand,
     core-color-primary: $bankai-color-dt-primary,
     core-color-secondary: $bankai-color-dt-secondary,
+    // ********************************************************
     // Accent
+    // ********************************************************
     core-color-accent: $bankai-color-dt-accent,
+    // ********************************************************
+    // Effects
+    // ********************************************************
+    core-color-box-shadow: color.hue(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-05')) color.saturation(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-05')) color.lightness(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-05')),
+    // ********************************************************
     // Universal
+    // ********************************************************
     core-color-universal-accessible-border: $bankai-color-dt-universal-accessible-border,
     core-color-universal-decorative-border: $bankai-color-dt-universal-decorative-border,
     core-color-universal-hover-bg: $bankai-color-dt-universal-hover-bg,
+    // ********************************************************
     // Canvas
+    // ********************************************************
     core-color-canvas: $bankai-color-dt-canvas,
     core-color-canvas-alt: $bankai-color-dt-canvas-alt,
+    // ********************************************************
     // Status
+    // ********************************************************
     core-color-affirmative: $bankai-color-dt-affirmative,
     core-color-cautionary: $bankai-color-dt-cautionary,
     core-color-error: $bankai-color-dt-error,
+    // ********************************************************
     // Informative
+    // ********************************************************
     core-color-destructive: $bankai-color-dt-error,
     core-color-info: $bankai-color-dt-info,
+    // ********************************************************
     // Typography
-    link-text-color: $bankai-color-dt-link,
-    link-focus-halo-color: color.change($bankai-color-dt-link, $alpha: 0.4),
+    // ********************************************************
     core-color-text: $bankai-color-dt-text,
     core-color-text-alt: $bankai-color-dt-text-alt,
+    core-color-text-error: $bankai-color-dt-error,
+    /**********************************************************
+    COMPONENTS
+    **********************************************************/
+    // ********************************************************
     // Accordions
+    // ********************************************************
     accordion-border-color: $bankai-color-dt-universal-decorative-border,
     accordion-bg-color: $bankai-color-dt-canvas,
     accordion-trigger-text-color: inherit,
     accordion-trigger-hover-bg-color: $bankai-color-dt-universal-hover-bg,
     accordion-trigger-hover-text-color: inherit,
+    // ********************************************************
     // Avatars
+    // ********************************************************
     avatar-bg-color: $bankai-color-dt-accent,
     avatar-border-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     avatar-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
-    // Badge (Default)
+    // ********************************************************
+    // Badges
+    // ********************************************************
     badge-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-90'),
     badge-text-color: $bankai-color-dt-text,
-    // Badge (Affirmative)
+    // - ******************************************************
+    // - Affirmative
+    // - ******************************************************
     badge-affirmative-bg-color: $bankai-color-dt-affirmative,
     badge-affirmative-text-color: $bankai-color-dt-text,
-    // Badge (Cautionary)
+    // - ******************************************************
+    // - Cautionary
+    // - ******************************************************
     badge-cautionary-bg-color: $bankai-color-dt-cautionary,
     badge-cautionary-text-color: $bankai-color-dt-text,
-    // Badge (Error)
+    // - ******************************************************
+    // - Error
+    // - ******************************************************
     badge-error-bg-color: $bankai-color-dt-error,
     badge-error-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
-    // Badge (Info)
+    // - ******************************************************
+    // - Info
+    // - ******************************************************
     badge-info-bg-color: $bankai-color-dt-info,
     badge-info-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
-    // Button - Primary
+    // ********************************************************
+    // Buttons
+    // ********************************************************
+    // - ******************************************************
+    // - Primary
+    // - ******************************************************
     btn-primary-bg-color: $bankai-color-dt-primary,
     btn-primary-border-color: transparent,
     btn-primary-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'),
@@ -71,19 +113,9 @@ $bankai-color-dark-theme-tokens: (
     btn-primary-hover-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     btn-primary-focus-halo-color: color.change($bankai-color-dt-primary, $alpha: 0.4),
     btn-split-primary-border-color: $bankai-color-dt-btn-primary-hover-bg,
-    // Button - Secondary
-    btn-secondary-bg-color: $bankai-color-dt-canvas,
-    btn-secondary-text-color: $bankai-color-dt-btn-secondary-default-text,
-    btn-secondary-border-color: $bankai-color-dt-btn-secondary-default-text,
-    btn-secondary-active-bg-color: color.change($bankai-color-dt-secondary, $lightness: 20%),
-    btn-secondary-active-text-color: $bankai-color-dt-btn-secondary-hover-text,
-    btn-secondary-active-border-color: $bankai-color-dt-btn-secondary-hover-text,
-    btn-secondary-hover-bg-color: color.change($bankai-color-dt-secondary, $lightness: 20%),
-    btn-secondary-hover-text-color: $bankai-color-dt-btn-secondary-hover-text,
-    btn-secondary-hover-border-color: $bankai-color-dt-btn-secondary-hover-text,
-    btn-secondary-focus-halo-color: color.change($bankai-color-dt-btn-secondary-default-text, $alpha: 0.4),
-    btn-split-secondary-border-color: $bankai-color-dt-btn-secondary-hover-text,
-    // Button - Primary Destructive
+    // - ******************************************************
+    // - Primary Destructive
+    // - ******************************************************
     btn-primary-destructive-bg-color: $bankai-color-dt-destructive,
     btn-primary-destructive-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     btn-primary-destructive-border-color: transparent,
@@ -95,7 +127,23 @@ $bankai-color-dark-theme-tokens: (
     btn-primary-destructive-hover-border-color: transparent,
     btn-primary-destructive-focus-halo-color: color.change($bankai-color-dt-destructive, $alpha: 0.4),
     btn-split-primary-destructive-border-clor: $bankai-color-dt-btn-secondary-destructive-hover-bg,
-    // Button - Secondary Destructive
+    // - ******************************************************
+    // - Secondary
+    // - ******************************************************
+    btn-secondary-bg-color: $bankai-color-dt-canvas,
+    btn-secondary-text-color: $bankai-color-dt-btn-secondary-default-text,
+    btn-secondary-border-color: $bankai-color-dt-btn-secondary-default-text,
+    btn-secondary-active-bg-color: color.change($bankai-color-dt-secondary, $lightness: 20%),
+    btn-secondary-active-text-color: $bankai-color-dt-btn-secondary-hover-text,
+    btn-secondary-active-border-color: $bankai-color-dt-btn-secondary-hover-text,
+    btn-secondary-hover-bg-color: color.change($bankai-color-dt-secondary, $lightness: 20%),
+    btn-secondary-hover-text-color: $bankai-color-dt-btn-secondary-hover-text,
+    btn-secondary-hover-border-color: $bankai-color-dt-btn-secondary-hover-text,
+    btn-secondary-focus-halo-color: color.change($bankai-color-dt-btn-secondary-default-text, $alpha: 0.4),
+    btn-split-secondary-border-color: $bankai-color-dt-btn-secondary-hover-text,
+    // - ******************************************************
+    // - Secondary Destructive
+    // - ******************************************************
     btn-secondary-destructive-bg-color: $bankai-color-dt-canvas,
     btn-secondary-destructive-text-color: $bankai-color-dt-btn-secondary-destructive-default-text,
     btn-secondary-destructive-border-color: $bankai-color-dt-btn-secondary-destructive-default-text,
@@ -107,48 +155,82 @@ $bankai-color-dark-theme-tokens: (
     btn-secondary-destructive-hover-border-color: $bankai-color-dt-btn-secondary-destructive-hover-text,
     btn-secondary-destructive-focus-halo-color: color.change($bankai-color-dt-btn-secondary-default-text, $alpha: 0.4),
     btn-split-secondary-destructive-border-color: $bankai-color-dt-btn-secondary-destructive-hover-text,
-    // Callout (Default)
+    // ********************************************************
+    // Callouts
+    // ********************************************************
     callout-icon-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-60'),
-    // Callout (Affirmative)
+    // - ******************************************************
+    // - Affirmative
+    // - ******************************************************
     callout-affirmative-icon-color: $bankai-color-dt-affirmative,
-    // Callout (Cautionary)
+    // - ******************************************************
+    // - Cautionary
+    // - ******************************************************
     callout-cautionary-icon-color: $bankai-color-dt-cautionary,
-    // Callout (Error)
+    // - ******************************************************
+    // - Error
+    // - ******************************************************
     callout-error-icon-color: $bankai-color-dt-error,
-    // Callout (Info)
+    // - ******************************************************
+    // - Info
+    // - ******************************************************
     callout-info-icon-color: $bankai-color-dt-info,
-    // Callout Banner (Default)
+    // ********************************************************
+    // Callout Banners
+    // ********************************************************
     callout-banner-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-90'),
     callout-banner-icon-color: $bankai-color-dt-text,
     callout-banner-text-color: $bankai-color-dt-text,
-    // Callout Banner (Affirmative)
+    // - ******************************************************
+    // - Affirmative
+    // - ******************************************************
     callout-banner-affirmative-bg-color: color.change($bankai-color-dt-affirmative, $lightness: 90%),
     callout-banner-affirmative-icon-color: color.change($bankai-color-dt-affirmative, $lightness: 30%),
-    callout-banner-affirmative-text-color: $bankai-color-dt-text,
-    // Callout Banner (Cautionary)
+    callout-banner-affirmative-text-color: inherit,
+    // - ******************************************************
+    // - Cautionary
+    // - ******************************************************
     callout-banner-cautionary-bg-color: color.change($bankai-color-dt-cautionary, $lightness: 90%),
     callout-banner-cautionary-icon-color: color.change($bankai-color-dt-cautionary, $lightness: 30%),
     callout-banner-cautionary-text-color: $bankai-color-dt-text,
-    // Callout Banner (Error)
+    // - ******************************************************
+    // - Error
+    // - ******************************************************
     callout-banner-error-bg-color: color.change($bankai-color-dt-error, $lightness: 90%),
     callout-banner-error-icon-color: color.change($bankai-color-dt-error, $lightness: 30%),
     callout-banner-error-text-color: $bankai-color-dt-text,
-    // Callout Banner (Info)
+    // - ******************************************************
+    // - Info
+    // - ******************************************************
     callout-banner-info-bg-color: color.change($bankai-color-dt-info, $lightness: 90%),
     callout-banner-info-icon-color: $bankai-color-dt-info,
     callout-banner-info-text-color: $bankai-color-dt-text,
+    // ********************************************************
     // Forms
+    // ********************************************************
+    // - ******************************************************
+    // - Checked Inputs
+    // - ******************************************************
     form-checked-accent-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
+    form-checked-accent-compliment-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     form-checked-focus-halo-color: color.change($bankai-color-dt-primary, $alpha: 0.4),
+    // - ******************************************************
+    // - Date Picker
+    // - ******************************************************
     form-date-picker-off-range-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-60'),
+    // - ******************************************************
+    // - Drag and Drop File Uploader
+    // - ******************************************************
     form-dnd-file-uploader-hover-bg-color: $bankai-color-dt-affirmative,
     form-dnd-file-uploader-hover-border-color: color.adjust($bankai-color-dt-affirmative, $lightness: -20%),
     form-dnd-file-uploader-hover-text-color: $bankai-color-dt-text,
     form-dnd-file-uploader-rejected-bg-color: $bankai-color-dt-error,
     form-dnd-file-uploader-rejected-border-color: color.adjust($bankai-color-dt-error, $lightness: -20%),
     form-dnd-file-uploader-rejected-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
-    core-color-text-error: $bankai-color-dt-error,
-    color-form-input-text: 'inherit',
+    // - ******************************************************
+    // - Inputs
+    // - ******************************************************
+    form-input-text-color: 'inherit',
     form-input-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     form-input-disabled-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-90'),
     form-input-disabled-placeholder-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-40'),
@@ -157,12 +239,21 @@ $bankai-color-dark-theme-tokens: (
     form-input-error-placeholder-text-color: color.change($bankai-color-dt-error, $lightness: 40%),
     form-input-error-focus-halo-color: color.change($bankai-color-dt-error, $alpha: 0.4),
     form-input-placeholder-text: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-40'),
+    // - ******************************************************
+    // - Menus
+    // - ******************************************************
     form-menu-selected-bg-color: $bankai-color-dt-primary,
     form-menu-selected-focus-bg-color: color.change($bankai-color-dt-primary, $lightness: 20%),
     form-menu-selected-focus-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     form-menu-selected-text-color: $bankai-color-dt-text,
+    // - ******************************************************
+    // - Pills
+    // - ******************************************************
     form-pill-bg-color: $bankai-color-dt-primary,
     form-pill-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
+    // - ******************************************************
+    // - Toggle Switches
+    // - ******************************************************
     form-toggle-switch-knob-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     form-toggle-switch-knob-border-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-30'),
     form-toggle-switch-track-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-20'),
@@ -173,15 +264,26 @@ $bankai-color-dark-theme-tokens: (
     form-toggle-switch-busy-icon-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     form-toggle-switch-on-busy-icon-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'),
     form-toggle-switch-on-focus-halo-color: color.change($bankai-color-dt-affirmative, $alpha: 0.4),
+    // ********************************************************
+    // Links
+    // ********************************************************
+    link-text-color: $bankai-color-dt-link,
+    link-focus-halo-color: color.change($bankai-color-dt-link, $alpha: 0.4),
+    // ********************************************************
     // Loading
+    // ********************************************************
     loading-icon-primary-color: $bankai-color-dt-primary,
     loading-icon-secondary-color: $bankai-color-dt-secondary,
     loading-icon-accent-color: $bankai-color-dt-accent,
     loading-skeleton-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-80'),
     loading-skeleton-animation-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
-    // Modal
+    // ********************************************************
+    // Modals
+    // ********************************************************
     modal-overlay-bg-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.7),
+    // ********************************************************
     // Tabs
+    // ********************************************************
     tabs-active-accent-color: $bankai-color-dt-primary,
     tabs-active-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     tabs-active-focus-halo-color: color.change($bankai-color-dt-primary, $alpha: 0.4),
@@ -192,20 +294,34 @@ $bankai-color-dark-theme-tokens: (
     tabs-inactive-hover-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-80'),
     tabs-inactive-hover-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-10'),
     tabs-panel-bg-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
+    // ********************************************************
     // Toasters
+    // ********************************************************
     toaster-bg-color: $bankai-color-dt-canvas,
     toaster-text-color: $bankai-color-dt-text,
     toaster-progress-bar-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.3),
+    // - ******************************************************
+    // - Affirmative
+    // - ******************************************************
+    toaster-affirmative-bg-color: $bankai-color-dt-affirmative,
+    toaster-affirmative-text-color: $bankai-color-dt-text,
+    toaster-affirmative-progress-bar-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.3),
+    // - ******************************************************
+    // - Cautionary
+    // - ******************************************************
+    toaster-cautionary-bg-color: $bankai-color-dt-cautionary,
+    toaster-cautionary-text-color: $bankai-color-dt-text,
+    toaster-cautionary-progress-bar-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.3),
+    // - ******************************************************
+    // - Error
+    // - ******************************************************
     toaster-error-bg-color: $bankai-color-dt-error,
     toaster-error-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     toaster-error-progress-bar-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.3),
+    // - ******************************************************
+    // - Info
+    // - ******************************************************
     toaster-info-bg-color: $bankai-color-dt-info,
     toaster-info-text-color: bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-100'),
     toaster-info-progress-bar-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.3),
-    toaster-success-bg-color: $bankai-color-dt-affirmative,
-    toaster-success-text-color: $bankai-color-dt-text,
-    toaster-success-progress-bar-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.3),
-    toaster-warning-bg-color: $bankai-color-dt-cautionary,
-    toaster-warning-text-color: $bankai-color-dt-text,
-    toaster-warning-progress-bar-color: color.change(bankai-get-map-value($bankai-color-neutral-tokens, 'core-color-neutral-0'), $alpha: 0.3),
 );

@@ -11,7 +11,6 @@ npm i @epr0t0type/bankai-lib-style-utils
 ### SASS
 ```
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';

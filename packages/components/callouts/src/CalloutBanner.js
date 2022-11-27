@@ -71,7 +71,7 @@ class CalloutBanner extends PureComponent {
                 )}
                 {msg && (
                     <div className={`${this.baseCls}__msg-container`}>
-                        <p className={`${this.baseCls}__msg`}>{msg}</p>
+                        <div className={`${this.baseCls}__msg`}>{msg}</div>
                     </div>
                 )}
             </div>

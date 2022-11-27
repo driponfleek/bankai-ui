@@ -2,7 +2,7 @@
 // Dependencies
 // ========================================================
 @use 'sass:color';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
@@ -12,7 +12,7 @@
 .bankai-sb-iconography-list-item {
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
-    @include bankai-box-shadow-subtle;
+    @include bankai-shadow-elevation-low;
     width: 180px;
     color: inherit;
     background-color: var(--bankai-core-color-canvas-alt, bankai-light-theme('core-color-canvas-alt'));

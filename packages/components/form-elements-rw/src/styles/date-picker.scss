@@ -12,7 +12,7 @@
     display: inline-block;
 
     &.rw-widget {
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
     }
 
     .rw-widget-picker {
@@ -26,7 +26,7 @@
     }
 
     .rw-calendar-grid {
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
         background-color: transparent;
     }
 
@@ -75,7 +75,7 @@
     }
 
     .rw-cell {
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
         border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
 
         @media (hover: hover) {
@@ -112,7 +112,7 @@
 
     .rw-widget-input {
         min-width: 1px;
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
         background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         text-overflow: ellipsis;
         line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));

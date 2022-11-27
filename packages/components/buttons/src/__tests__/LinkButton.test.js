@@ -1,9 +1,4 @@
-import React from 'react';
-import {
-    act,
-    userEvent,
-    render,
-} from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
 import LinkButton from '../LinkButton';
 
@@ -11,18 +6,6 @@ const baseCls = 'bankai-link-button';
 const renderIcon = () => <BankaiCirclePlus />;
 
 describe('<LinkButton />', () => {
-    let container;
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-    });
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container = undefined;
-    });
-
     it('should render without crashing', () => {
         render(<LinkButton />);
     });
@@ -31,19 +14,15 @@ describe('<LinkButton />', () => {
         const props = {
             renderIcon,
         };
-        act(() => {
-            render(<LinkButton {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole, container } = render(<LinkButton {...props} />);
+        const button = getByRole('button');
         const iconDOM = container.querySelector(`.${baseCls}__icon`);
 
         expect(button).toContainElement(iconDOM);
     });
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
-        act(() => {
-            render(<LinkButton />, { container });
-        });
+        const { container } = render(<LinkButton />);
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
         );
@@ -55,9 +34,9 @@ describe('<LinkButton />', () => {
         const props = {
             renderIcon,
         };
-        act(() => {
-            render(<LinkButton {...props}>Test</LinkButton>, { container });
-        });
+        const { container } = render(
+            <LinkButton {...props}>Click Me</LinkButton>,
+        );
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
         );
@@ -69,19 +48,15 @@ describe('<LinkButton />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(<LinkButton {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole, container } = render(<LinkButton {...props} />);
+        const button = getByRole('button');
         const textDOM = container.querySelector(`.${baseCls}__text-container`);
 
         expect(button).toContainElement(textDOM);
     });
 
     it('should not render text container DOM when props.text is not provided', () => {
-        act(() => {
-            render(<LinkButton />, { container });
-        });
+        const { container } = render(<LinkButton />);
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
         );
@@ -93,9 +68,9 @@ describe('<LinkButton />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(<LinkButton {...props}>Test</LinkButton>, { container });
-        });
+        const { container } = render(
+            <LinkButton {...props}>Click Me</LinkButton>,
+        );
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
         );
@@ -103,39 +78,37 @@ describe('<LinkButton />', () => {
         expect(textContainerEls).toHaveLength(0);
     });
 
-    it('should call onClick handler when link button is clicked', () => {
+    it('should call onClick handler when link button is clicked', async () => {
         const clickSpy = jest.fn(LinkButton.defaultProps.onClick);
         const props = {
             text: 'Click Me!',
             onClick: clickSpy,
         };
-        act(() => {
-            render(<LinkButton {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
-        userEvent.click(button);
+        const { getByRole, user } = render(<LinkButton {...props} />);
+        const button = getByRole('button');
+        await user.click(button);
 
         expect(clickSpy).toHaveBeenCalled();
     });
 
-    it('should return props.data in the props.onClick call when the link button is clicked', () => {
+    it('should return props.data in the props.onClick call when the button is clicked', async () => {
         const data = {
             action: 'SAVE',
         };
         let result;
+        const onClick = (params) => {
+            const { data: dataResult } = params ?? {};
+            result = dataResult;
+        };
         const props = {
             data,
-            onClick: (params) => {
-                result = params;
-            },
+            onClick,
         };
-        act(() => {
-            render(<LinkButton {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
-        userEvent.click(button);
+        const { getByRole, user } = render(<LinkButton {...props} />);
+        const button = getByRole('button');
+        await user.click(button);
 
-        expect(result?.data).toEqual(data);
+        expect(result).toEqual(data);
     });
 
     // it('should ', () => {});

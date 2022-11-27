@@ -1,0 +1,11 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+
+.bankai-sb-mock-accordion-content {
+    p {
+        @include bankai-max-line-width;
+    }
+}

@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
@@ -26,7 +26,7 @@
     }
 
     &__menu {
-        @include bankai-box-shadow-elevated;
+        @include bankai-shadow-elevation-high;
         background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
         border: 1px solid var(--bankai-core-color-universal-decorative-border, bankai-light-theme('core-color-universal-decorative-border'));
         border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));

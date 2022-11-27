@@ -1,44 +1,17 @@
-import React from 'react';
-import {
-    act,
-    userEvent,
-    render,
-} from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
+import { VARIANTS } from '../const/variantsConst';
+import menuOps from '../mocks/menuOptions';
 import MenuButton from '../MenuButton';
 import MenuButtonOption from '../MenuButtonOption';
-import { VARIANTS } from '../const/variantsConst';
 
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
     VARIANTS;
-const menuOps = [
-    {
-        text: 'Edit',
-        value: 'EDIT_BUTTON',
-    },
-    {
-        text: 'Delete',
-        isDestructive: true,
-        value: 'DELETE_BUTTON',
-    },
-];
 const baseCls = 'bankai-menu-button';
 const btnCls = 'bankai-button';
 const renderIcon = () => <BankaiCirclePlus />;
 
 describe('<MenuButton />', () => {
-    let container;
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-    });
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container = undefined;
-    });
-
     it('should render without crashing', () => {
         render(<MenuButton />);
     });
@@ -47,9 +20,7 @@ describe('<MenuButton />', () => {
         const props = {
             variant: PRIMARY,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
 
         expect(button).toHaveClass(`${btnCls}--primary`);
@@ -59,9 +30,7 @@ describe('<MenuButton />', () => {
         const props = {
             variant: PRIMARY_DESTRUCTIVE,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
 
         expect(button).toHaveClass(`${btnCls}--primary-destructive`);
@@ -71,9 +40,7 @@ describe('<MenuButton />', () => {
         const props = {
             variant: SECONDARY,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
 
         expect(button).toHaveClass(`${btnCls}--secondary`);
@@ -83,9 +50,7 @@ describe('<MenuButton />', () => {
         const props = {
             variant: SECONDARY_DESTRUCTIVE,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
 
         expect(button).toHaveClass(`${btnCls}--secondary-destructive`);
@@ -95,9 +60,7 @@ describe('<MenuButton />', () => {
         const props = {
             renderIcon,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
         const iconDOM = container.querySelector(`.${btnCls}__icon`);
 
@@ -105,9 +68,7 @@ describe('<MenuButton />', () => {
     });
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
-        act(() => {
-            render(<MenuButton />, { container });
-        });
+        const { container } = render(<MenuButton />);
         const iconContainerEls = container.getElementsByClassName(
             `${btnCls}__icon-container`,
         );
@@ -119,9 +80,9 @@ describe('<MenuButton />', () => {
         const props = {
             renderIcon,
         };
-        act(() => {
-            render(<MenuButton {...props}>Test</MenuButton>, { container });
-        });
+        const { container } = render(
+            <MenuButton {...props}>Click me</MenuButton>,
+        );
         const iconContainerEls = container.getElementsByClassName(
             `${btnCls}__icon-container`,
         );
@@ -133,9 +94,7 @@ describe('<MenuButton />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
         const textDOM = container.querySelector(`.${btnCls}__text-container`);
 
@@ -143,9 +102,7 @@ describe('<MenuButton />', () => {
     });
 
     it('should not render text container DOM when props.text is not provided', () => {
-        act(() => {
-            render(<MenuButton />, { container });
-        });
+        const { container } = render(<MenuButton />);
         const textContainerEls = container.getElementsByClassName(
             `${btnCls}__text-container`,
         );
@@ -157,9 +114,9 @@ describe('<MenuButton />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(<MenuButton {...props}>Test</MenuButton>, { container });
-        });
+        const { container } = render(
+            <MenuButton {...props}>Click me</MenuButton>,
+        );
         const textContainerEls = container.getElementsByClassName(
             `${btnCls}__text-container`,
         );
@@ -176,52 +133,44 @@ describe('<MenuButton />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<MenuButton {...props} ref={setRef} />, { container });
-        });
+        render(<MenuButton {...props} ref={setRef} />);
         compRef.props.onSelection();
 
         expect(selectionSpy).toHaveBeenCalled();
     });
 
-    it('should call props.onMenuToggle handler when menu button is clicked', () => {
+    it('should call props.onMenuToggle handler when menu button is clicked', async () => {
         const menuToggleSpy = jest.fn(MenuButton.defaultProps.onMenuToggle);
         const props = {
             onMenuToggle: menuToggleSpy,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container, user } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
-        userEvent.click(button);
+        await user.click(button);
 
         expect(menuToggleSpy).toHaveBeenCalled();
     });
 
-    it('should not call props.onMenuToggle handler when menu button is clicked and props.isDisabled is true', () => {
+    it('should not call props.onMenuToggle handler when menu button is clicked and props.isDisabled is true', async () => {
         const menuToggleSpy = jest.fn(MenuButton.defaultProps.onMenuToggle);
         const props = {
             onMenuToggle: menuToggleSpy,
             isDisabled: true,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container, user } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
-        userEvent.click(button);
+        await user.click(button);
 
         expect(menuToggleSpy).not.toHaveBeenCalled();
     });
 
-    it('should render default menu options when props.renderMenuOption is not defined', () => {
+    it('should render default menu options when props.renderMenuOption is not defined', async () => {
         const props = {
             menuOptions: menuOps,
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container, user } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
-        userEvent.click(button);
+        await user.click(button);
         const optionEls = container.getElementsByClassName(
             `${baseCls}__menu-list-option`,
         );
@@ -229,18 +178,16 @@ describe('<MenuButton />', () => {
         expect(optionEls).toHaveLength(2);
     });
 
-    it('should render custom menu option UI when using props.renderMenuOption', () => {
+    it('should render custom menu option UI when using props.renderMenuOption', async () => {
         const props = {
             menuOptions: menuOps,
             renderMenuOption: (opProps) => (
                 <MenuButtonOption {...opProps} contextCls="custom-op" />
             ),
         };
-        act(() => {
-            render(<MenuButton {...props} />, { container });
-        });
+        const { container, user } = render(<MenuButton {...props} />);
         const button = container.querySelector(`.${baseCls}__button`);
-        userEvent.click(button);
+        await user.click(button);
         const optionEls = container.getElementsByClassName('custom-op');
 
         expect(optionEls).toHaveLength(2);

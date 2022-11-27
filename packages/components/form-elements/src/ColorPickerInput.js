@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-// import { HexColorInput } from 'react-colorful';
 import {
     convertColorToHex,
     fixHexMissingHash,
     isValidHexColor,
 } from '@epr0t0type/bankai-lib-color-utils';
+import { debounce } from '@epr0t0type/bankai-lib-helper-utils';
 import TextInput from './TextInput';
 import ColorPicker from './ColorPicker';
-
-// Utils
-import { onChangeCompleteDebounce } from './utils/performanceUtils';
 
 // Styles
 import './styles/color-picker-input.scss';
@@ -170,17 +167,9 @@ class ColorPickerInput extends Component {
         this.handleChangeCompleteDebounce(checkedColor);
     };
 
-    handleChangeCompleteDebounce = (color) => {
-        const { changeCompleteThreshold } = this.props;
-
-        if (this.handleChangeCompleteTimeout) {
-            clearTimeout(this.handleChangeCompleteTimeout);
-        }
-
-        this.handleChangeCompleteTimeout = onChangeCompleteDebounce(() => {
-            this.handleChangeComplete(color);
-        }, changeCompleteThreshold);
-    };
+    handleChangeCompleteDebounce = debounce((color) => {
+        this.handleChangeComplete(color);
+    }, this.props.changeCompleteThreshold);
 
     handleChangeComplete = (color) => {
         const { onChangeComplete } = this.props;

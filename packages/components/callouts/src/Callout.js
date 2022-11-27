@@ -75,7 +75,8 @@ class Callout extends PureComponent {
             case VARIANTS.INFO:
                 Icon = BankaiCircleInfo;
                 break;
-
+            case VARIANTS.CAUTIONARY:
+            case VARIANTS.ERROR:
             default:
                 Icon = BankaiTriangleAlert;
                 break;

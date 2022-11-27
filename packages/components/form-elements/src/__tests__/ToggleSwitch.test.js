@@ -1,9 +1,4 @@
-import React from 'react';
-import {
-    render,
-    act,
-    userEvent,
-} from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import ToggleSwitch from '../ToggleSwitch';
 
 describe('<ToggleSwitch />', () => {
@@ -11,7 +6,7 @@ describe('<ToggleSwitch />', () => {
         render(<ToggleSwitch />);
     });
 
-    it('should call props.onChange when toggled', () => {
+    it('should call props.onChange when toggled', async () => {
         const changeSpy = jest.fn(ToggleSwitch.defaultProps.onChange);
         const expected = {
             id: 'test-id',
@@ -22,13 +17,9 @@ describe('<ToggleSwitch />', () => {
             ...expected,
             onChange: changeSpy,
         };
-        act(() => {
-            render(<ToggleSwitch {...props} />);
-        });
-        const checkboxDOM = document.getElementsByClassName(
-            'react-toggle-screenreader-only',
-        )[0];
-        userEvent.click(checkboxDOM);
+        const { getByRole, user } = render(<ToggleSwitch {...props} />);
+        const checkboxDOM = getByRole('checkbox');
+        await user.click(checkboxDOM);
 
         expect(changeSpy).toHaveBeenCalledWith(expected);
     });
@@ -46,9 +37,7 @@ describe('<ToggleSwitch />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ToggleSwitch {...props} ref={setRef} />);
-        });
+        render(<ToggleSwitch {...props} ref={setRef} />);
         const { icons: propsIcons } = compRef.getExtantProps();
 
         expect(propsIcons).toBe(false);
@@ -62,9 +51,7 @@ describe('<ToggleSwitch />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ToggleSwitch {...props} ref={setRef} />);
-        });
+        render(<ToggleSwitch {...props} ref={setRef} />);
         const { disabled } = compRef.getExtantProps();
 
         expect(disabled).toBe(true);
@@ -78,9 +65,7 @@ describe('<ToggleSwitch />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<ToggleSwitch {...props} ref={setRef} />);
-        });
+        render(<ToggleSwitch {...props} ref={setRef} />);
         const { disabled } = compRef.getExtantProps();
 
         expect(disabled).toBe(true);
