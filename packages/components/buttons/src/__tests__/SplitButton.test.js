@@ -1,25 +1,10 @@
-import React from 'react';
-import {
-    act,
-    userEvent,
-    render,
-} from '@epr0t0type/bankai-lib-react-unit-test-utils';
-import SplitButton from '../SplitButton';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { VARIANTS } from '../const/variantsConst';
+import menuOps from '../mocks/menuOptions';
+import SplitButton from '../SplitButton';
 
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
     VARIANTS;
-const menuOps = [
-    {
-        text: 'Edit',
-        value: 'EDIT_BUTTON',
-    },
-    {
-        text: 'Delete',
-        isDestructive: true,
-        value: 'DELETE_BUTTON',
-    },
-];
 const baseProps = {
     menuButtonARIALabel: 'More Options',
     menuOptions: menuOps,
@@ -29,33 +14,19 @@ const menuBtnCls = 'bankai-menu-button';
 const btnCls = 'bankai-button';
 
 describe('<SplitButton />', () => {
-    let container;
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-    });
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container = undefined;
-    });
-
     it('should render without crashing', () => {
         render(<SplitButton {...baseProps} />);
     });
 
-    it('should call props.onMainButtonClick handler when it is clicked and not disabled', () => {
+    it('should call props.onMainButtonClick handler when it is clicked and not disabled', async () => {
         const clickSpy = jest.fn(SplitButton.defaultProps.onMainButtonClick);
         const props = {
             ...baseProps,
             onMainButtonClick: clickSpy,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container, user } = render(<SplitButton {...props} />);
         const button = container.querySelector(`.${btnCls}`);
-        userEvent.click(button);
+        await user.click(button);
 
         expect(clickSpy).toHaveBeenCalled();
     });
@@ -70,25 +41,21 @@ describe('<SplitButton />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(<SplitButton {...props} ref={setRef} />, { container });
-        });
+        render(<SplitButton {...props} ref={setRef} />);
         compRef.props.onSelection();
 
         expect(selectionSpy).toHaveBeenCalled();
     });
 
-    it('should call props.onMenuToggle handler when menu button is clicked', () => {
+    it('should call props.onMenuToggle handler when menu button is clicked', async () => {
         const menuToggleSpy = jest.fn(SplitButton.defaultProps.onMenuToggle);
         const props = {
             ...baseProps,
             onMenuToggle: menuToggleSpy,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container, user } = render(<SplitButton {...props} />);
         const button = container.querySelector(`.${menuBtnCls}__button`);
-        userEvent.click(button);
+        await user.click(button);
 
         expect(menuToggleSpy).toHaveBeenCalled();
     });
@@ -98,9 +65,7 @@ describe('<SplitButton />', () => {
             ...baseProps,
             isDisabled: true,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
         const mainButton = container.querySelector(`.${btnCls}`);
 
@@ -115,9 +80,7 @@ describe('<SplitButton />', () => {
                 isDisabled: true,
             },
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
         const mainButton = container.querySelector(`.${btnCls}`);
 
@@ -132,9 +95,7 @@ describe('<SplitButton />', () => {
                 isDisabled: true,
             },
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
         const mainButton = container.querySelector(`.${btnCls}`);
 
@@ -147,9 +108,7 @@ describe('<SplitButton />', () => {
             ...baseProps,
             variant: PRIMARY,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
@@ -164,9 +123,7 @@ describe('<SplitButton />', () => {
             ...baseProps,
             variant: PRIMARY_DESTRUCTIVE,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
@@ -181,9 +138,7 @@ describe('<SplitButton />', () => {
             ...baseProps,
             variant: SECONDARY,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
@@ -198,9 +153,7 @@ describe('<SplitButton />', () => {
             ...baseProps,
             variant: SECONDARY_DESTRUCTIVE,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const splitButton = container.querySelector(`.${baseCls}`);
         const mainButton = container.querySelector(`.${btnCls}`);
         const menuButton = container.querySelector(`.${menuBtnCls}__button`);
@@ -215,9 +168,7 @@ describe('<SplitButton />', () => {
             ...baseProps,
             isDisabled: true,
         };
-        act(() => {
-            render(<SplitButton {...props} />, { container });
-        });
+        const { container } = render(<SplitButton {...props} />);
         const splitButton = container.querySelector(`.${baseCls}`);
 
         expect(splitButton).toHaveClass(`${baseCls}--is-disabled`);

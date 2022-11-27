@@ -6,14 +6,15 @@ import {
     AccordionContentComposer,
 } from '@epr0t0type/bankai-ui-accordions';
 import { v4 as uuidv4 } from 'uuid';
-import CollapsibleSectionContentContainer from './CollapsibleSectionContentContainer';
+import CollapsibleSectionContent from './CollapsibleSectionContent';
 
 // Styles
 import './styles/collapsible-design-tokens-section.scss';
 
 const baseCls = 'bankai-sb-collapsible-dt-section';
 const ComposedContentContainer = AccordionContentComposer(
-    CollapsibleSectionContentContainer,
+    CollapsibleSectionContent,
+    { shouldPadContent: true },
 );
 const id = uuidv4();
 

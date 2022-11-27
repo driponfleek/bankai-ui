@@ -2,13 +2,13 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-sb-color-variants-list {
     @include bankai-flex-row;
-    // @include bankai-box-shadow-slightly-elevated;
+    // @include bankai-shadow-elevation-medium;
     border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
     box-shadow: 0 0 5px rgba(0, 0, 0, 25%);
 

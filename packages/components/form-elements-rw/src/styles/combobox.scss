@@ -13,7 +13,7 @@
     display: inline-block;
 
     &.rw-widget {
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
     }
 
     .rw-widget-picker {
@@ -42,7 +42,7 @@
 
     .rw-list-option {
         @include bankai-rw-list-option;
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
 
         @media (hover: hover) {
             &:hover {
@@ -86,7 +86,7 @@
 
     .rw-combobox-input {
         width: initial;
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
         max-width: initial;
         min-width: 1px;
         line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));

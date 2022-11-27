@@ -1,9 +1,4 @@
-import React from 'react';
-import {
-    render,
-    act,
-    userEvent,
-} from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import ColorPickerInput from '../ColorPickerInput';
 
 const baseCls = 'bankai-color-picker-input';
@@ -17,14 +12,17 @@ jest.mock('../ColorPicker', () => (props) => {
 
     return <input className={colorPickerCls} onChange={handleChange} />;
 });
-jest.useFakeTimers();
+const sleep = async (ms) =>
+    new Promise((r) => {
+        setTimeout(r, ms);
+    });
 
 describe('<ColorPickerInput />', () => {
     it('should render without crashing', () => {
         render(<ColorPickerInput />);
     });
 
-    it('should call props.onChange and props.onChangeComplete with auto-corrected value when handleChange method is called with missing hash', () => {
+    it('should call props.onChange and props.onChangeComplete with auto-corrected value when handleChange method is called with missing hash', async () => {
         const changeSpy = jest.fn(ColorPickerInput.defaultProps.onChange);
         const changeCompleteSpy = jest.fn(
             ColorPickerInput.defaultProps.onChangeComplete,
@@ -33,20 +31,16 @@ describe('<ColorPickerInput />', () => {
             onChange: changeSpy,
             onChangeComplete: changeCompleteSpy,
         };
-        act(() => {
-            render(<ColorPickerInput {...props} />);
-        });
-        const inputDOM = document.getElementsByClassName(
-            `${baseCls}__input`,
-        )[0];
-        userEvent.type(inputDOM, 'f');
-        jest.runAllTimers();
+        const { getByRole, user } = render(<ColorPickerInput {...props} />);
+        const inputDOM = getByRole('textbox');
+        await user.type(inputDOM, 'f');
+        await sleep(250);
 
         expect(changeSpy).toHaveBeenCalledWith('#f');
         expect(changeCompleteSpy).toHaveBeenCalledWith('#f');
     });
 
-    it('should call props.onChange and props.onChangeComplete when ColorPicker onChangeComplete is called', () => {
+    it('should call props.onChange and props.onChangeComplete when ColorPicker onChangeComplete is called', async () => {
         const changeSpy = jest.fn(ColorPickerInput.defaultProps.onChange);
         const changeCompleteSpy = jest.fn(
             ColorPickerInput.defaultProps.onChangeComplete,
@@ -55,22 +49,18 @@ describe('<ColorPickerInput />', () => {
             onChange: changeSpy,
             onChangeComplete: changeCompleteSpy,
         };
-        act(() => {
-            render(<ColorPickerInput {...props} />);
-        });
-        const triggerDOM = document.getElementsByClassName(
-            `${baseCls}__trigger`,
-        )[0];
-        userEvent.click(triggerDOM);
-        const mockInputDOM = document.getElementsByClassName(colorPickerCls)[0];
-        userEvent.type(mockInputDOM, 'f');
-        jest.runAllTimers();
+        const { container, user } = render(<ColorPickerInput {...props} />);
+        const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
+        await user.click(triggerDOM);
+        const mockInputDOM = container.querySelector(`.${colorPickerCls}`);
+        await user.type(mockInputDOM, 'f');
+        await sleep(250);
 
         expect(changeSpy).toHaveBeenCalled();
         expect(changeCompleteSpy).toHaveBeenCalled();
     });
 
-    it('should only call onChangeComplete once when handleChange method is called multiple times', () => {
+    it('should only call onChangeComplete once when handleChange method is called multiple times', async () => {
         const changeSpy = jest.fn(ColorPickerInput.defaultProps.onChange);
         const changeCompleteSpy = jest.fn(
             ColorPickerInput.defaultProps.onChangeComplete,
@@ -79,171 +69,129 @@ describe('<ColorPickerInput />', () => {
             onChange: changeSpy,
             onChangeComplete: changeCompleteSpy,
         };
-        act(() => {
-            render(<ColorPickerInput {...props} />);
-        });
-        const inputDOM = document.getElementsByClassName(
-            `${baseCls}__input`,
-        )[0];
-        userEvent.type(inputDOM, 'f');
-        jest.advanceTimersByTime(100);
-        userEvent.type(inputDOM, '0');
-        jest.runOnlyPendingTimers();
+        const { container, user } = render(<ColorPickerInput {...props} />);
+        const inputDOM = container.querySelector(`.${baseCls}__input`);
+        await user.type(inputDOM, 'f');
+        // jest.advanceTimersByTime(100);
+        await user.type(inputDOM, '0');
+        await sleep(250);
+        // jest.runOnlyPendingTimers();
 
         expect(changeSpy).toHaveBeenCalledTimes(2);
         expect(changeCompleteSpy).toHaveBeenCalledTimes(1);
     });
 
     it('should show the color picker when the trigger is clicked and the picker is not currently visible', () => {
-        act(() => {
-            render(<ColorPickerInput />);
-        });
-        const triggerDOM = document.getElementsByClassName(
-            `${baseCls}__trigger`,
-        )[0];
-        let pickerContainerDOMs =
-            document.getElementsByClassName(colorPickerCls);
+        const { container, user } = render(<ColorPickerInput />);
+        const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
+        let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
 
-        userEvent.click(triggerDOM);
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.click(triggerDOM);
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(1);
+        expect(pickerContainerDOM).toBeDefined();
     });
 
     it('should hide the color picker when the trigger is clicked and the picker is currently visible', () => {
-        act(() => {
-            render(<ColorPickerInput />);
-        });
-        const triggerDOM = document.getElementsByClassName(
-            `${baseCls}__trigger`,
-        )[0];
-        let pickerContainerDOMs =
-            document.getElementsByClassName(colorPickerCls);
+        const { container, user } = render(<ColorPickerInput />);
+        const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
+        let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
 
-        userEvent.click(triggerDOM);
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.click(triggerDOM);
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(1);
+        expect(pickerContainerDOM).toBeDefined();
 
-        userEvent.click(triggerDOM);
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.click(triggerDOM);
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
     });
 
     it('should hide the color picker when the user presses the escape key and the picker is currently visible', () => {
-        act(() => {
-            render(<ColorPickerInput />);
-        });
-        const triggerDOM = document.getElementsByClassName(
-            `${baseCls}__trigger`,
-        )[0];
-        let pickerContainerDOMs =
-            document.getElementsByClassName(colorPickerCls);
+        const { container, user } = render(<ColorPickerInput />);
+        const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
+        let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
 
-        userEvent.click(triggerDOM);
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.click(triggerDOM);
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(1);
+        expect(pickerContainerDOM).toBeDefined();
 
-        userEvent.keyboard('[Escape]');
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.keyboard('[Escape]');
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
     });
 
     it('should hide the color picker when the user clicks outside of the picker and the picker is currently visible', () => {
-        act(() => {
-            render(<ColorPickerInput />);
-        });
-        const triggerDOM = document.getElementsByClassName(
-            `${baseCls}__trigger`,
-        )[0];
-        let pickerContainerDOMs =
-            document.getElementsByClassName(colorPickerCls);
+        const { container, user } = render(<ColorPickerInput />);
+        const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
+        let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
 
-        userEvent.click(triggerDOM);
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.click(triggerDOM);
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(1);
+        expect(pickerContainerDOM).toBeDefined();
 
-        userEvent.click(document.body);
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.click(document.body);
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
     });
 
     it('should not allow user to show the color picker when props.isDisabled is true', () => {
-        act(() => {
-            render(<ColorPickerInput isDisabled />);
-        });
-        const triggerDOM = document.getElementsByClassName(
-            `${baseCls}__trigger`,
-        )[0];
-        let pickerContainerDOMs =
-            document.getElementsByClassName(colorPickerCls);
+        const { container, user } = render(<ColorPickerInput />);
+        const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
+        let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
 
-        userEvent.click(triggerDOM);
-        pickerContainerDOMs = document.getElementsByClassName(colorPickerCls);
+        user.click(triggerDOM);
+        pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
-        expect(pickerContainerDOMs).toHaveLength(0);
+        expect(pickerContainerDOM).toBeNull();
     });
 
-    it('should only allow the user to type in 7 characters when props.hasAlpha is false', () => {
-        act(() => {
-            render(<ColorPickerInput />);
-        });
-        const inputDOM = document.getElementsByClassName(
-            `${baseCls}__input`,
-        )[0];
-        userEvent.type(inputDOM, '#ffffffff');
+    it('should only allow the user to type in 7 characters when props.hasAlpha is false', async () => {
+        const { container, user } = render(<ColorPickerInput />);
+        const inputDOM = container.querySelector(`.${baseCls}__input`);
+        await user.type(inputDOM, '#ffffffff');
         const result = inputDOM.value;
 
         expect(result).toBe('#ffffff');
     });
 
-    it('should only allow the user to type in 9 characters when props.hasAlpha is true', () => {
-        act(() => {
-            render(<ColorPickerInput hasAlpha />);
-        });
-        const inputDOM = document.getElementsByClassName(
-            `${baseCls}__input`,
-        )[0];
-        userEvent.type(inputDOM, '#ffffffff00');
+    it('should only allow the user to type in 9 characters when props.hasAlpha is true', async () => {
+        const { container, user } = render(<ColorPickerInput hasAlpha />);
+        const inputDOM = container.querySelector(`.${baseCls}__input`);
+        await user.type(inputDOM, '#ffffffff00');
         const result = inputDOM.value;
 
         expect(result).toBe('#ffffffff');
     });
 
     it('should render the trigger as a span instead of button to prevent user interaction when props.isReadOnly is true', () => {
-        act(() => {
-            render(<ColorPickerInput isReadOnly />);
-        });
-        const triggerDOM = document.getElementsByClassName(
-            `${baseCls}__trigger`,
-        )[0];
+        const { container } = render(<ColorPickerInput isReadOnly />);
+        const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
         const result = triggerDOM.tagName;
 
         expect(result).toBe('SPAN');
     });
 
     it('should render a transparent trigger swatch color when props.color is not a valid color', () => {
-        act(() => {
-            render(<ColorPickerInput color="#f" />);
-        });
-        const triggerSwatchDOM = document.getElementsByClassName(
-            `${baseCls}__trigger-swatch`,
-        )[0];
+        const { container } = render(<ColorPickerInput color="#f" />);
+        const triggerSwatchDOM = container.querySelector(
+            `.${baseCls}__trigger-swatch`,
+        );
         const expected = 'background-color: transparent;';
         const result = triggerSwatchDOM.getAttribute('style');
 
@@ -251,12 +199,10 @@ describe('<ColorPickerInput />', () => {
     });
 
     it('should render a trigger swatch color set to props.color when it is a valid color', () => {
-        act(() => {
-            render(<ColorPickerInput color="#f00" />);
-        });
-        const triggerSwatchDOM = document.getElementsByClassName(
-            `${baseCls}__trigger-swatch`,
-        )[0];
+        const { container } = render(<ColorPickerInput color="#f00" />);
+        const triggerSwatchDOM = container.querySelector(
+            `.${baseCls}__trigger-swatch`,
+        );
         const expected = 'background-color: rgb(255, 0, 0);';
         const result = triggerSwatchDOM.getAttribute('style');
 
@@ -264,12 +210,8 @@ describe('<ColorPickerInput />', () => {
     });
 
     it('should set aria-invalid attribute on the input when props.hasError is true', () => {
-        act(() => {
-            render(<ColorPickerInput hasError />);
-        });
-        const inputDOM = document.getElementsByClassName(
-            `${baseCls}__input`,
-        )[0];
+        const { container } = render(<ColorPickerInput hasError />);
+        const inputDOM = container.querySelector(`.${baseCls}__input`);
         const expected = 'true';
         const result = inputDOM.getAttribute('aria-invalid');
 

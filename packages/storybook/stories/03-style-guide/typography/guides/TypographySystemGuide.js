@@ -6,6 +6,11 @@ import {
     getCoreFontSizes,
 } from '@epr0t0type/bankai-lib-theme-utils';
 import { Helmet } from 'react-helmet';
+import {
+    TYPE_RATIO_VALUES,
+    TYPE_RATIO_NAMES,
+    READABLE_TYPE_RATIO_NAMES,
+} from './const/typeRatiosConst';
 import CalloutBannerInfo from '../../../../sb-components/callouts/CalloutBannerInfo';
 import ComponentPreview from '../../../../sb-components/content/ComponentPreview';
 import List from '../../../../sb-components/content/List';
@@ -22,11 +27,6 @@ import strings from '../../../../i18n/strings.json';
 import { getStyleGuideTitle } from '../../../../utils/storiesConfig';
 
 // Constants
-import {
-    TYPE_RATIO_VALUES,
-    TYPE_RATIO_NAMES,
-    READABLE_TYPE_RATIO_NAMES,
-} from './const/typeRatiosConst';
 
 // Styles
 import './styles/typography-system-guide.scss';
@@ -386,6 +386,14 @@ class TypographySystemGuide extends Component {
             <StorySection>
                 <SectionTitle>Further reading</SectionTitle>
                 <List>
+                    <ListItem>
+                        <Hyperlink
+                            href="https://dev.to/colabottles/whats-your-heading-2eak"
+                            shouldOpenInNewWindow
+                        >
+                            What&apos;s Your Heading?
+                        </Hyperlink>
+                    </ListItem>
                     <ListItem>
                         <Hyperlink
                             href="https://medium.com/sketch-app-sources/exploring-responsive-type-scales-cf1da541be54"

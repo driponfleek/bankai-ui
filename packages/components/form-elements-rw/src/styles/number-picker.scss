@@ -13,7 +13,7 @@
     display: inline-block;
 
     &.rw-widget {
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
     }
 
     .rw-widget-picker {
@@ -32,7 +32,7 @@
 
     .rw-widget-input {
         width: initial;
-        color: var(--bankai-color-form-input-text, bankai-light-theme('color-form-input-text'));
+        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
         background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
         max-width: initial;
         min-width: 1px;

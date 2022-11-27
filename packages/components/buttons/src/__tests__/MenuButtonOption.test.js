@@ -1,5 +1,4 @@
-import React from 'react';
-import { act, render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
 import MenuButtonOption from '../MenuButtonOption';
 
@@ -15,18 +14,6 @@ jest.mock('react-aria-menubutton', () => ({
 }));
 
 describe('<MenuButtonOption />', () => {
-    let container;
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-    });
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container = undefined;
-    });
-
     it('should render without crashing', () => {
         render(<MenuButtonOption />);
     });
@@ -35,9 +22,7 @@ describe('<MenuButtonOption />', () => {
         const props = {
             renderIcon: (iconCls) => <BankaiCirclePlus contextCls={iconCls} />,
         };
-        act(() => {
-            render(<MenuButtonOption {...props} />, { container });
-        });
+        const { container } = render(<MenuButtonOption {...props} />);
         const option = container.querySelector(`.${baseCls}`);
         const iconDOM = container.querySelector(`.${baseCls}__icon`);
 
@@ -45,9 +30,7 @@ describe('<MenuButtonOption />', () => {
     });
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
-        act(() => {
-            render(<MenuButtonOption />, { container });
-        });
+        const { container } = render(<MenuButtonOption />);
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
         );
@@ -59,12 +42,9 @@ describe('<MenuButtonOption />', () => {
         const props = {
             renderIcon: (iconCls) => <BankaiCirclePlus contextCls={iconCls} />,
         };
-        act(() => {
-            render(
-                <MenuButtonOption {...props}>Test</MenuButtonOption>,
-                container,
-            );
-        });
+        const { container } = render(
+            <MenuButtonOption {...props}>Test</MenuButtonOption>,
+        );
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
         );
@@ -76,9 +56,7 @@ describe('<MenuButtonOption />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(<MenuButtonOption {...props} />, { container });
-        });
+        const { container } = render(<MenuButtonOption {...props} />);
         const option = container.querySelector(`.${baseCls}`);
         const textDOM = container.querySelector(`.${baseCls}__text-container`);
 
@@ -86,9 +64,7 @@ describe('<MenuButtonOption />', () => {
     });
 
     it('should not render text container DOM when props.text is not provided', () => {
-        act(() => {
-            render(<MenuButtonOption />, { container });
-        });
+        const { container } = render(<MenuButtonOption />);
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
         );
@@ -100,12 +76,9 @@ describe('<MenuButtonOption />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(
-                <MenuButtonOption {...props}>Test</MenuButtonOption>,
-                container,
-            );
-        });
+        const { container } = render(
+            <MenuButtonOption {...props}>Test</MenuButtonOption>,
+        );
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
         );

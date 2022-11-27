@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import DnDFileUploader from '../DnDFileUploader';
 // import { DND_FILE_UPLOADER_MODES as MODES } from '../const/dndFileUploaderConst';

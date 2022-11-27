@@ -7,43 +7,15 @@
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-accordion-item-trigger, %bankai-accordion-item-trigger {
-    .bankai-accordion-item-button {
-        @include bankai-flex-row;
-    }
-
-    &__text-container {
-        min-width: 1px;
-        flex: 1 1 auto;
-    }
-
-    &__text {
+    .bankai-base-accordion-item-trigger__text {
         @include bankai-h5;
     }
 
-    &__icon-container {
-        @include bankai-flex-column;
-        flex: 0 0 auto;
-    }
-
-    &__icon {
-        font-size: 1.25em;
-        margin: auto;
-        flex: 0 0 auto;
-    }
-
-    &__text-container,
-    &__icon-container {
-        box-sizing: border-box;
-        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
-    }
-
-    .bankai-icon-chevron-down {
-        transition: transform 0.25s ease;
+    &--is-collapsed {
+        border-radius: calc(var(--bankai-accordion-border-radius, bankai-light-theme('accordion-border-radius')) - 1px);
     }
 
     &--is-expanded {
-        .bankai-icon-chevron-down {
-            transform: scaleY(-1);
-        }
+        border-radius: calc(var(--bankai-accordion-border-radius, bankai-light-theme('accordion-border-radius')) - 1px) calc(var(--bankai-accordion-border-radius, bankai-light-theme('accordion-border-radius')) - 1px) 0 0;
     }
 }

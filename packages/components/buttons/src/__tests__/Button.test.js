@@ -1,12 +1,7 @@
-import React from 'react';
-import {
-    act,
-    userEvent,
-    render,
-} from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
-import Button from '../Button';
 import { VARIANTS } from '../const/variantsConst';
+import Button from '../Button';
 
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
     VARIANTS;
@@ -14,18 +9,6 @@ const baseCls = 'bankai-button';
 const renderIcon = () => <BankaiCirclePlus />;
 
 describe('<Button />', () => {
-    let container;
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-    });
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container = undefined;
-    });
-
     it('should render without crashing', () => {
         render(<Button />);
     });
@@ -34,10 +17,8 @@ describe('<Button />', () => {
         const props = {
             variant: PRIMARY,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
 
         expect(button).toHaveClass(`${baseCls}--primary`);
     });
@@ -46,10 +27,8 @@ describe('<Button />', () => {
         const props = {
             variant: PRIMARY_DESTRUCTIVE,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
 
         expect(button).toHaveClass(`${baseCls}--primary-destructive`);
     });
@@ -58,10 +37,8 @@ describe('<Button />', () => {
         const props = {
             variant: SECONDARY,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
 
         expect(button).toHaveClass(`${baseCls}--secondary`);
     });
@@ -70,10 +47,8 @@ describe('<Button />', () => {
         const props = {
             variant: SECONDARY_DESTRUCTIVE,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
 
         expect(button).toHaveClass(`${baseCls}--secondary-destructive`);
     });
@@ -82,19 +57,15 @@ describe('<Button />', () => {
         const props = {
             renderIcon,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole, container } = render(<Button {...props} />);
+        const button = getByRole('button');
         const iconDOM = container.querySelector(`.${baseCls}__icon`);
 
         expect(button).toContainElement(iconDOM);
     });
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
-        act(() => {
-            render(<Button />, { container });
-        });
+        const { container } = render(<Button />);
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
         );
@@ -106,9 +77,7 @@ describe('<Button />', () => {
         const props = {
             renderIcon,
         };
-        act(() => {
-            render(<Button {...props}>Test</Button>, { container });
-        });
+        const { container } = render(<Button {...props}>Click Me</Button>);
         const iconContainerEls = container.getElementsByClassName(
             `${baseCls}__icon-container`,
         );
@@ -120,10 +89,8 @@ describe('<Button />', () => {
         const props = {
             isBusy: true,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole, container } = render(<Button {...props} />);
+        const button = getByRole('button');
         const iconDOM = container.querySelector('.bankai-icon-spinner');
 
         expect(button).toContainElement(iconDOM);
@@ -133,19 +100,15 @@ describe('<Button />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole, container } = render(<Button {...props} />);
+        const button = getByRole('button');
         const textDOM = container.querySelector(`.${baseCls}__text-container`);
 
         expect(button).toContainElement(textDOM);
     });
 
     it('should not render text container DOM when props.text is not provided', () => {
-        act(() => {
-            render(<Button />, { container });
-        });
+        const { container } = render(<Button />);
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
         );
@@ -157,9 +120,7 @@ describe('<Button />', () => {
         const props = {
             text: 'Click Me',
         };
-        act(() => {
-            render(<Button {...props}>Test</Button>, { container });
-        });
+        const { container } = render(<Button {...props}>Click this</Button>);
         const textContainerEls = container.getElementsByClassName(
             `${baseCls}__text-container`,
         );
@@ -172,37 +133,31 @@ describe('<Button />', () => {
             'aria-label': 'Click me to do a thing',
             text: 'Click Me!',
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
 
         expect(button).not.toHaveAttribute('aria-label');
     });
 
-    it('should have aria-label provided and props.text is not provided', () => {
+    it('should have aria-label provided when props["aria-label"] is defined and props.text is not provided', () => {
         const props = {
             'aria-label': 'Click me to do a thing',
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
+        const { getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
 
         expect(button).toHaveAttribute('aria-label');
     });
 
-    it('should call onClick handler when button is clicked and not disabled', () => {
+    it('should call onClick handler when button is clicked and not disabled', async () => {
         const clickSpy = jest.fn(Button.defaultProps.onClick);
         const props = {
             text: 'Click Me!',
             onClick: clickSpy,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
-        userEvent.click(button);
+        const { getByRole, user } = render(<Button {...props} />);
+        const button = getByRole('button');
+        await user.click(button);
 
         expect(clickSpy).toHaveBeenCalled();
     });
@@ -213,11 +168,9 @@ describe('<Button />', () => {
             isDisabled: true,
             onClick: clickSpy,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
-        userEvent.click(button);
+        const { getByRole, user } = render(<Button {...props} />);
+        const button = getByRole('button');
+        user.click(button);
 
         expect(clickSpy).not.toHaveBeenCalled();
     });
@@ -228,33 +181,31 @@ describe('<Button />', () => {
             isBusy: true,
             onClick: clickSpy,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
-        userEvent.click(button);
+        const { getByRole, user } = render(<Button {...props} />);
+        const button = getByRole('button');
+        user.click(button);
 
         expect(clickSpy).not.toHaveBeenCalled();
     });
 
-    it('should return props.data in the props.onClick call when the button is clicked', () => {
+    it('should return props.data in the props.onClick call when the button is clicked', async () => {
         const data = {
             action: 'SAVE',
         };
         let result;
+        const onClick = (params) => {
+            const { data: dataResult } = params ?? {};
+            result = dataResult;
+        };
         const props = {
             data,
-            onClick: (params) => {
-                result = params;
-            },
+            onClick,
         };
-        act(() => {
-            render(<Button {...props} />, { container });
-        });
-        const button = container.querySelector(`.${baseCls}`);
-        userEvent.click(button);
+        const { getByRole, user } = render(<Button {...props} />);
+        const button = getByRole('button');
+        await user.click(button);
 
-        expect(result?.data).toEqual(data);
+        expect(result).toEqual(data);
     });
 
     // it('should ', () => {});

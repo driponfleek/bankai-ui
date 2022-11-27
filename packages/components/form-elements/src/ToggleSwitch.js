@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Toggle from 'react-toggle';
 import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';
+import Toggle from 'react-toggle';
 
 // Styles
 import './styles/toggle-switch.scss';

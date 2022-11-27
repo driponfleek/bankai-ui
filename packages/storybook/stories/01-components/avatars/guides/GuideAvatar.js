@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Avatar } from '@epr0t0type/bankai-ui-avatars';
 import packageJSON from '@epr0t0type/bankai-ui-avatars/package.json';
 import { BankaiUser } from '@epr0t0type/bankai-ui-icons';
+import { examplesCodeStr } from './codeStr/codeStrAvatar';
 import StoryLayout from '../../../../sb-components/layout/StoryLayout';
 import StorySection from '../../../../sb-components/layout/StorySection';
 import SectionTitle from '../../../../sb-components/content/SectionTitle';
@@ -16,14 +17,11 @@ import strings from '../../../../i18n/strings.json';
 import { getComponentsTitle } from '../../../../utils/storiesConfig';
 import { getAvatarTokenData } from '../../../../utils/designTokens/avatarTokenUtils';
 
-// Code Strings
-import { examplesCodeStr } from './codeStr/codeStrAvatar';
+// Media
+import avatar from '../../../../media/images/avatars/avatar07.jpg';
 
 // Styles
 import './styles/avatar-guide.scss';
-
-// Media
-import avatar from '../../../../media/images/avatars/avatar07.jpg';
 
 const { bankaiUI: locale } = strings;
 

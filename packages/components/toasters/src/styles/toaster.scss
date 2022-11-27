@@ -3,14 +3,14 @@
 // ========================================================
 @import 'react-toastify/dist/ReactToastify.css';
 // @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-toaster, %bankai-toaster {
-    @include bankai-box-shadow-elevated;
+    @include bankai-shadow-elevation-high;
     color: var(--bankai-toaster-text-color, bankai-light-theme('toaster-text-color'));
     background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
     border-radius: var(--bankai-toaster-border-radius, bankai-light-theme('toaster-border-radius'));
@@ -104,20 +104,20 @@
     }
 
     &--success {
-        color: var(--bankai-toaster-success-text-color, bankai-light-theme('toaster-success-text-color'));
-        background-color: var(--bankai-toaster-success-bg-color, bankai-light-theme('toaster-success-bg-color'));
+        color: var(--bankai-toaster-affirmative-text-color, bankai-light-theme('toaster-affirmative-text-color'));
+        background-color: var(--bankai-toaster-affirmative-bg-color, bankai-light-theme('toaster-affirmative-bg-color'));
 
         [class*='progress-bar'] {
-            background: var(--bankai-toaster-success-progress-bar-color, bankai-light-theme('toaster-success-progress-bar-color'));
+            background: var(--bankai-toaster-affirmative-progress-bar-color, bankai-light-theme('toaster-affirmative-progress-bar-color'));
         }
     }
 
     &--warning {
-        color: var(--bankai-toaster-warning-text-color, bankai-light-theme('toaster-warning-text-color'));
-        background-color: var(--bankai-toaster-warning-bg-color, bankai-light-theme('toaster-warning-bg-color'));
+        color: var(--bankai-toaster-cautionary-text-color, bankai-light-theme('toaster-cautionary-text-color'));
+        background-color: var(--bankai-toaster-cautionary-bg-color, bankai-light-theme('toaster-cautionary-bg-color'));
 
         [class*='progress-bar'] {
-            background: var(--bankai-toaster-warning-progress-bar-color, bankai-light-theme('toaster-warning-progress-bar-color'));
+            background: var(--bankai-toaster-cautionary-progress-bar-color, bankai-light-theme('toaster-cautionary-progress-bar-color'));
         }
     }
 }

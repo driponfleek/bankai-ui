@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { RgbColorPicker, RgbaColorPicker } from 'react-colorful';
 import {
     convertColorToRGB,
     convertColorToHex,
 } from '@epr0t0type/bankai-lib-color-utils';
-
-// Utils
-import { onChangeCompleteDebounce } from './utils/performanceUtils';
+import { debounce } from '@epr0t0type/bankai-lib-helper-utils';
+import { RgbColorPicker, RgbaColorPicker } from 'react-colorful';
 
 // Styles
 import './styles/color-picker.scss';
@@ -55,17 +53,9 @@ class ColorPicker extends PureComponent {
         this.handleChangeCompleteDebounce(returnedColor);
     };
 
-    handleChangeCompleteDebounce = (color) => {
-        const { changeCompleteThreshold } = this.props;
-
-        if (this.handleChangeCompleteTimeout) {
-            clearTimeout(this.handleChangeCompleteTimeout);
-        }
-
-        this.handleChangeCompleteTimeout = onChangeCompleteDebounce(() => {
-            this.handleChangeComplete(color);
-        }, changeCompleteThreshold);
-    };
+    handleChangeCompleteDebounce = debounce((color) => {
+        this.handleChangeComplete(color);
+    }, this.props.changeCompleteThreshold);
 
     handleChangeComplete = (color) => {
         const { onChangeComplete } = this.props;

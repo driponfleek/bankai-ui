@@ -1,0 +1,20 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-accordion-content-container, %bankai-accordion-content-container {
+    box-sizing: border-box;
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    &--pad-content {
+        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
+    }
+}

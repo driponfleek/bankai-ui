@@ -15,12 +15,12 @@ const {
     TOASTER_INFO_BG_COLOR,
     TOASTER_INFO_TEXT_COLOR,
     TOASTER_INFO_PROGRESS_BAR_COLOR,
-    TOASTER_SUCCESS_BG_COLOR,
-    TOASTER_SUCCESS_TEXT_COLOR,
-    TOASTER_SUCCESS_PROGRESS_BAR_COLOR,
-    TOASTER_WARNING_BG_COLOR,
-    TOASTER_WARNING_TEXT_COLOR,
-    TOASTER_WARNING_PROGRESS_BAR_COLOR,
+    TOASTER_AFFIRMATIVE_BG_COLOR,
+    TOASTER_AFFIRMATIVE_TEXT_COLOR,
+    TOASTER_AFFIRMATIVE_PROGRESS_BAR_COLOR,
+    TOASTER_CAUTIONARY_BG_COLOR,
+    TOASTER_CAUTIONARY_TEXT_COLOR,
+    TOASTER_CAUTIONARY_PROGRESS_BAR_COLOR,
 } = TOASTER_TOKEN_NAMES;
 
 export const getToasterStyles = (data = {}) => {
@@ -53,9 +53,10 @@ export const getToasterAffirmativeTheme = (colors = {}) => {
     const { TEXT, PROGRESS } = getToasterColors(sourceColors);
 
     return {
-        [getThemeAPIKeyFromName(TOASTER_SUCCESS_PROGRESS_BAR_COLOR)]: PROGRESS,
-        [getThemeAPIKeyFromName(TOASTER_SUCCESS_TEXT_COLOR)]: TEXT,
-        [getThemeAPIKeyFromName(TOASTER_SUCCESS_BG_COLOR)]: base.hex,
+        [getThemeAPIKeyFromName(TOASTER_AFFIRMATIVE_PROGRESS_BAR_COLOR)]:
+            PROGRESS,
+        [getThemeAPIKeyFromName(TOASTER_AFFIRMATIVE_TEXT_COLOR)]: TEXT,
+        [getThemeAPIKeyFromName(TOASTER_AFFIRMATIVE_BG_COLOR)]: base.hex,
     };
 };
 
@@ -65,9 +66,10 @@ export const getToasterCautionaryTheme = (colors = {}) => {
     const { TEXT, PROGRESS } = getToasterColors(sourceColors);
 
     return {
-        [getThemeAPIKeyFromName(TOASTER_WARNING_PROGRESS_BAR_COLOR)]: PROGRESS,
-        [getThemeAPIKeyFromName(TOASTER_WARNING_TEXT_COLOR)]: TEXT,
-        [getThemeAPIKeyFromName(TOASTER_WARNING_BG_COLOR)]: base.hex,
+        [getThemeAPIKeyFromName(TOASTER_CAUTIONARY_PROGRESS_BAR_COLOR)]:
+            PROGRESS,
+        [getThemeAPIKeyFromName(TOASTER_CAUTIONARY_TEXT_COLOR)]: TEXT,
+        [getThemeAPIKeyFromName(TOASTER_CAUTIONARY_BG_COLOR)]: base.hex,
     };
 };
 

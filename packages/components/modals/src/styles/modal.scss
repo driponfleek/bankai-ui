@@ -2,7 +2,7 @@
 // Dependencies
 // ========================================================
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/effects.scss';
+@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
 @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
@@ -11,7 +11,7 @@
 .bankai-modal, %bankai-modal {
     @include bankai-flex-column;
     @include bankai-breakpoint-min-only($bankai-s-min) {
-        @include bankai-box-shadow-elevated(bankai-light-theme('core-color-neutral-0'));
+        @include bankai-shadow-elevation-high(bankai-light-theme('core-color-neutral-0'));
         border-radius: var(--bankai-modal-dialog-border-radius, bankai-light-theme('modal-dialog-border-radius'));
         max-width: 90%;
         max-height: 90%;

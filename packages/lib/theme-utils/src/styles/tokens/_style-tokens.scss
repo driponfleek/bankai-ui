@@ -15,6 +15,11 @@ $bankai-core-system-scale: 4;
 // Button Design Tokens
 $bankai-style-tokens: (
     // ========================================================
+    // Accordions
+    // ========================================================
+    accordion-border-radius: bankai-to-px($bankai-core-system-scale * 2),
+    accordion-border-width: 1px,
+    // ========================================================
     // Badges
     // ========================================================
     badge-border-radius: bankai-to-px($bankai-core-system-scale * 4),
