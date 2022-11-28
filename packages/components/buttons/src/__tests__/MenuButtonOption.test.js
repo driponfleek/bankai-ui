@@ -31,11 +31,11 @@ describe('<MenuButtonOption />', () => {
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
         const { container } = render(<MenuButtonOption />);
-        const iconContainerEls = container.getElementsByClassName(
-            `${baseCls}__icon-container`,
+        const iconContainerEls = container.querySelector(
+            `.${baseCls}__icon-container`,
         );
 
-        expect(iconContainerEls).toHaveLength(0);
+        expect(iconContainerEls).toBeNull();
     });
 
     it('should not render icon container DOM when children are nested in the menu button and props.renderIcon is provided', () => {
@@ -45,11 +45,11 @@ describe('<MenuButtonOption />', () => {
         const { container } = render(
             <MenuButtonOption {...props}>Test</MenuButtonOption>,
         );
-        const iconContainerEls = container.getElementsByClassName(
-            `${baseCls}__icon-container`,
+        const iconContainerEls = container.querySelector(
+            `.${baseCls}__icon-container`,
         );
 
-        expect(iconContainerEls).toHaveLength(0);
+        expect(iconContainerEls).toBeNull();
     });
 
     it('should render text container DOM when props.text is provided', () => {
@@ -65,11 +65,11 @@ describe('<MenuButtonOption />', () => {
 
     it('should not render text container DOM when props.text is not provided', () => {
         const { container } = render(<MenuButtonOption />);
-        const textContainerEls = container.getElementsByClassName(
-            `${baseCls}__text-container`,
+        const textContainerEls = container.querySelector(
+            `.${baseCls}__text-container`,
         );
 
-        expect(textContainerEls).toHaveLength(0);
+        expect(textContainerEls).toBeNull();
     });
 
     it('should not render text container DOM when children are nested in the menu button and props.text is provided', () => {
@@ -79,11 +79,11 @@ describe('<MenuButtonOption />', () => {
         const { container } = render(
             <MenuButtonOption {...props}>Test</MenuButtonOption>,
         );
-        const textContainerEls = container.getElementsByClassName(
-            `${baseCls}__text-container`,
+        const textContainerEls = container.querySelector(
+            `.${baseCls}__text-container`,
         );
 
-        expect(textContainerEls).toHaveLength(0);
+        expect(textContainerEls).toBeNull();
     });
 
     // it('should ', () => {});

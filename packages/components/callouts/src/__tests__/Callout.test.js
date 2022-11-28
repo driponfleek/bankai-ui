@@ -1,7 +1,7 @@
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiUser } from '@epr0t0type/bankai-ui-icons';
-import VARIANTS from '../const/variantsConst';
 import Callout from '../Callout';
+import VARIANTS from '../const/variantsConst';
 
 const baseCls = 'bankai-callout';
 const renderIcon = (iconCls) => <BankaiUser contextCls={iconCls} />;

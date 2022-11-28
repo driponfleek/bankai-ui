@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import DateField from 'react-widgets/DatePicker';
 import { BankaiCalendarClear } from '@epr0t0type/bankai-ui-icons';
+import DateField from 'react-widgets/DatePicker';
 
 // Localizer
 import { defaultFormats as dFormats } from './nls/RWDateLocalizer';
@@ -71,7 +71,18 @@ class DatePicker extends PureComponent {
     };
 
     render() {
-        const { contextCls, hasError } = this.props;
+        const {
+            contextCls,
+            hasError,
+            onBlur,
+            onChange,
+            onCurrentDateChange,
+            onFocus,
+            onKeyDown,
+            onKeyPress,
+            onSelect,
+            onToggle,
+        } = this.props;
         const props = this.getExtantProps();
         const modCls = {
             [`${this.baseCls}--error`]: hasError,
@@ -82,14 +93,14 @@ class DatePicker extends PureComponent {
                 {...props}
                 className={cx(this.baseCls, modCls, contextCls)}
                 selectIcon={this.renderSelectIcon()}
-                onBlur={this.handleBlur}
-                onChange={this.handleChange}
-                onCurrentDateChange={this.handleCurrentDateChange}
-                onFocus={this.handleFocus}
-                onKeyDown={this.handleKeyDown}
-                onKeyPress={this.handleKeyPress}
-                onSelect={this.handleSelect}
-                onToggle={this.handleToggle}
+                onBlur={onBlur}
+                onChange={onChange}
+                onCurrentDateChange={onCurrentDateChange}
+                onFocus={onFocus}
+                onKeyDown={onKeyDown}
+                onKeyPress={onKeyPress}
+                onSelect={onSelect}
+                onToggle={onToggle}
             />
         );
     }
@@ -103,60 +114,11 @@ class DatePicker extends PureComponent {
     };
 
     renderDefaultSelectIcon = () => {
-        // BankaiCalendarClear
         return (
             <span className={cx(`${this.baseCls}__select-icon`)}>
                 <BankaiCalendarClear />
             </span>
         );
-    };
-
-    handleChange = (e) => {
-        const { onChange } = this.props;
-
-        onChange(e);
-    };
-
-    handleCurrentDateChange = (e) => {
-        const { onCurrentDateChange } = this.props;
-
-        onCurrentDateChange(e);
-    };
-
-    handleBlur = (e) => {
-        const { onBlur } = this.props;
-
-        onBlur(e);
-    };
-
-    handleFocus = (e) => {
-        const { onFocus } = this.props;
-
-        onFocus(e);
-    };
-
-    handleKeyDown = (e) => {
-        const { onKeyDown } = this.props;
-
-        onKeyDown(e);
-    };
-
-    handleKeyPress = (e) => {
-        const { onKeyPress } = this.props;
-
-        onKeyPress(e);
-    };
-
-    handleSelect = (e) => {
-        const { onSelect } = this.props;
-
-        onSelect(e);
-    };
-
-    handleToggle = (e) => {
-        const { onToggle } = this.props;
-
-        onToggle(e);
     };
 
     getExtantProps = () => {

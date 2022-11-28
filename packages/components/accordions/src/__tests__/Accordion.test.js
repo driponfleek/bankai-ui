@@ -35,9 +35,9 @@ describe('<Accordion />', () => {
                 />
             </Accordion>,
         );
-        const childItems = container.getElementsByClassName(containerCls);
+        const childItems = container.querySelector(`.${containerCls}`);
 
-        expect(childItems).toHaveLength(1);
+        expect(childItems).toBeDefined();
     });
 
     it('should render custom trigger if props.renderTrigger is provided', () => {

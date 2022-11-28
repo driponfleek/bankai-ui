@@ -1,7 +1,9 @@
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
-import { VARIANTS } from '../const/variantsConst';
 import Button from '../Button';
+
+// Constants
+import { VARIANTS } from '../const/variantsConst';
 
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
     VARIANTS;
@@ -66,11 +68,11 @@ describe('<Button />', () => {
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
         const { container } = render(<Button />);
-        const iconContainerEls = container.getElementsByClassName(
-            `${baseCls}__icon-container`,
+        const iconContainerEls = container.querySelector(
+            `.${baseCls}__icon-container`,
         );
 
-        expect(iconContainerEls).toHaveLength(0);
+        expect(iconContainerEls).toBeNull();
     });
 
     it('should not render icon container DOM when children are nested in the Button and props.renderIcon is provided', () => {
@@ -78,11 +80,11 @@ describe('<Button />', () => {
             renderIcon,
         };
         const { container } = render(<Button {...props}>Click Me</Button>);
-        const iconContainerEls = container.getElementsByClassName(
-            `${baseCls}__icon-container`,
+        const iconContainerEls = container.querySelector(
+            `.${baseCls}__icon-container`,
         );
 
-        expect(iconContainerEls).toHaveLength(0);
+        expect(iconContainerEls).toBeNull();
     });
 
     it('should render busy spinner icon when props.isBusy is true', () => {
@@ -109,11 +111,11 @@ describe('<Button />', () => {
 
     it('should not render text container DOM when props.text is not provided', () => {
         const { container } = render(<Button />);
-        const textContainerEls = container.getElementsByClassName(
-            `${baseCls}__text-container`,
+        const textContainerEls = container.querySelector(
+            `.${baseCls}__text-container`,
         );
 
-        expect(textContainerEls).toHaveLength(0);
+        expect(textContainerEls).toBeNull();
     });
 
     it('should not render text container DOM when children are nested in the Button and props.text is provided', () => {
@@ -121,11 +123,11 @@ describe('<Button />', () => {
             text: 'Click Me',
         };
         const { container } = render(<Button {...props}>Click this</Button>);
-        const textContainerEls = container.getElementsByClassName(
-            `${baseCls}__text-container`,
+        const textContainerEls = container.querySelector(
+            `.${baseCls}__text-container`,
         );
 
-        expect(textContainerEls).toHaveLength(0);
+        expect(textContainerEls).toBeNull();
     });
 
     it('should not allow aria-label to be set when props.text is provided', () => {

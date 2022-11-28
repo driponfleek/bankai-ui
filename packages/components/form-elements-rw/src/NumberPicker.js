@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { debounce } from '@epr0t0type/bankai-lib-helper-utils';
 import RWNumberPicker from 'react-widgets/NumberPicker';
 
 // Styles
@@ -50,7 +51,15 @@ class NumberPicker extends PureComponent {
     };
 
     render() {
-        const { contextCls, hasError } = this.props;
+        const {
+            contextCls,
+            hasError,
+            onFocus,
+            onBlur,
+            onKeyDown,
+            onKeyPress,
+            onKeyUp,
+        } = this.props;
         const props = this.getExtantProps();
         const modCls = {
             [`${this.baseCls}--error`]: hasError,
@@ -60,12 +69,12 @@ class NumberPicker extends PureComponent {
             <RWNumberPicker
                 {...props}
                 className={cx(this.baseCls, modCls, contextCls)}
+                onBlur={onBlur}
                 onChange={this.handleChange}
-                onKeyDown={this.handleKeyDown}
-                onKeyPress={this.handleKeyPress}
-                onKeyUp={this.handleKeyUp}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
+                onFocus={onFocus}
+                onKeyDown={onKeyDown}
+                onKeyPress={onKeyPress}
+                onKeyUp={onKeyUp}
             />
         );
     }
@@ -84,44 +93,11 @@ class NumberPicker extends PureComponent {
         }
     };
 
-    handleChangeComplete = (params) => {
+    handleChangeComplete = debounce((params) => {
         const { onChangeComplete } = this.props;
-        clearTimeout(this.handleChangeTimeout);
 
-        this.handleChangeTimeout = setTimeout(() => {
-            onChangeComplete(params);
-        }, 300);
-    };
-
-    handleKeyDown = (params) => {
-        const { onKeyDown } = this.props;
-
-        onKeyDown(params);
-    };
-
-    handleKeyPress = (params) => {
-        const { onKeyPress } = this.props;
-
-        onKeyPress(params);
-    };
-
-    handleKeyUp = (params) => {
-        const { onKeyUp } = this.props;
-
-        onKeyUp(params);
-    };
-
-    handleFocus = (params) => {
-        const { onFocus } = this.props;
-
-        onFocus(params);
-    };
-
-    handleBlur = (params) => {
-        const { onBlur } = this.props;
-
-        onBlur(params);
-    };
+        onChangeComplete(params);
+    }, 200);
 
     getExtantProps = () => {
         const { isDisabled, isReadOnly, shouldAutoFocus, ...rest } = this.props;

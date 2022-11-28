@@ -1,7 +1,7 @@
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import SplitButton from '../SplitButton';
 import { VARIANTS } from '../const/variantsConst';
 import menuOps from '../mocks/menuOptions';
-import SplitButton from '../SplitButton';
 
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
     VARIANTS;

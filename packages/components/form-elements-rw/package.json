@@ -2,9 +2,10 @@
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
         "@epr0t0type/bankai-lib-date-time-utils": "^0.0.0",
-        "@epr0t0type/bankai-ui-icons": "^0.0.0",
+        "@epr0t0type/bankai-lib-helper-utils": "^0.0.0",
         "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
         "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
+        "@epr0t0type/bankai-ui-icons": "^0.0.0",
         "react-widgets": "5.3.0",
         "react-widgets-simple-number": "5.0.8"
     },

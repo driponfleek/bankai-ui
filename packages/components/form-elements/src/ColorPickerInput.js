@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
@@ -188,7 +188,7 @@ class ColorPickerInput extends Component {
         }
     };
 
-    handleMouseClick = (e) => {
+    handleMouseClick = (e = {}) => {
         const { shouldShowPicker } = this.state;
         const el = e.srcElement || e.target;
 
