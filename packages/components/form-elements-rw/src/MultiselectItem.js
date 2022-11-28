@@ -1,6 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+
+// Utils
+import searchTextParserUtil from './utils/searchTextParserUtil';
 
 // Styles
 import './styles/multiselect-item.scss';
@@ -14,33 +16,10 @@ const MultiselectItem = (props) => {
         return <span className={baseCls} />;
     }
 
-    const descLowerCase = description.toLowerCase();
-    const searchTermLowerCase = searchTerm
-        ? searchTerm.toLowerCase()
-        : undefined;
-    const idxOfSearchTerm = descLowerCase.indexOf(searchTermLowerCase);
-    const searchTermLen = searchTerm ? searchTerm.length : 0;
-    const descriptionLen = description.length;
-    let boldText;
-    let startText;
-    let endText;
-
-    if (idxOfSearchTerm > -1) {
-        startText = description.substring(0, idxOfSearchTerm);
-        boldText = description.substring(
-            idxOfSearchTerm,
-            idxOfSearchTerm + searchTermLen,
-        );
-
-        if (idxOfSearchTerm + searchTermLen < descriptionLen) {
-            endText = description.substring(
-                idxOfSearchTerm + searchTermLen,
-                descriptionLen,
-            );
-        }
-    } else {
-        startText = description;
-    }
+    const { boldText, endText, startText } = searchTextParserUtil(
+        description,
+        searchTerm,
+    );
 
     return (
         <span className={baseCls}>

@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import MultiselectField from 'react-widgets/Multiselect';
 import { BankaiX } from '@epr0t0type/bankai-ui-icons';
+import MultiselectField from 'react-widgets/Multiselect';
 
 // Styles
 import './styles/multiselect.scss';
@@ -74,7 +74,8 @@ class Multiselect extends PureComponent {
     };
 
     render() {
-        const { contextCls, hasError } = this.props;
+        const { contextCls, hasError, onChange, onCreate, onSearch, onSelect } =
+            this.props;
         const props = this.getExtantProps();
         const modCls = {
             [`${this.baseCls}--error`]: hasError,
@@ -84,12 +85,12 @@ class Multiselect extends PureComponent {
             <MultiselectField
                 {...props}
                 className={cx(this.baseCls, modCls, contextCls)}
-                onChange={this.handleChange}
-                onCreate={this.handleCreate}
-                onSearch={this.handleSearch}
-                onSelect={this.handleSelect}
                 busySpinner={this.renderBusySpinner()}
                 clearTagIcon={this.renderClearTagIcon()}
+                onChange={onChange}
+                onCreate={onCreate}
+                onSearch={onSearch}
+                onSelect={onSelect}
             />
         );
     }
@@ -122,30 +123,6 @@ class Multiselect extends PureComponent {
                 />
             )
         );
-    };
-
-    handleChange = (e) => {
-        const { onChange } = this.props;
-
-        onChange(e);
-    };
-
-    handleCreate = (e) => {
-        const { onCreate } = this.props;
-
-        onCreate(e);
-    };
-
-    handleSearch = (e) => {
-        const { onSearch } = this.props;
-
-        onSearch(e);
-    };
-
-    handleSelect = (e) => {
-        const { onSelect } = this.props;
-
-        onSelect(e);
     };
 
     getExtantProps = () => {

@@ -77,9 +77,14 @@ module.exports = {
                         position: 'before',
                     },
                     {
+                        group: 'external',
+                        pattern: '{.,..}/*',
+                        position: 'before',
+                    },
+                    {
                         group: 'internal',
                         pattern: '{.,..}/**/components/**',
-                        position: 'before',
+                        position: 'after',
                     },
                     {
                         group: 'internal',
@@ -88,7 +93,7 @@ module.exports = {
                     },
                     {
                         group: 'internal',
-                        pattern: '{.,..}/utils/**',
+                        pattern: '{.,..}/**/utils/**',
                         position: 'after',
                     },
                     {

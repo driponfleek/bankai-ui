@@ -81,81 +81,81 @@ describe('<ColorPickerInput />', () => {
         expect(changeCompleteSpy).toHaveBeenCalledTimes(1);
     });
 
-    it('should show the color picker when the trigger is clicked and the picker is not currently visible', () => {
+    it('should show the color picker when the trigger is clicked and the picker is not currently visible', async () => {
         const { container, user } = render(<ColorPickerInput />);
         const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
         let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
 
-        user.click(triggerDOM);
+        await user.click(triggerDOM);
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeDefined();
     });
 
-    it('should hide the color picker when the trigger is clicked and the picker is currently visible', () => {
+    it('should hide the color picker when the trigger is clicked and the picker is currently visible', async () => {
         const { container, user } = render(<ColorPickerInput />);
         const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
         let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
 
-        user.click(triggerDOM);
+        await user.click(triggerDOM);
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeDefined();
 
-        user.click(triggerDOM);
+        await user.click(triggerDOM);
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
     });
 
-    it('should hide the color picker when the user presses the escape key and the picker is currently visible', () => {
+    it('should hide the color picker when the user presses the escape key and the picker is currently visible', async () => {
         const { container, user } = render(<ColorPickerInput />);
         const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
         let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
 
-        user.click(triggerDOM);
+        await user.click(triggerDOM);
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeDefined();
 
-        user.keyboard('[Escape]');
+        await user.keyboard('[Escape]');
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
     });
 
-    it('should hide the color picker when the user clicks outside of the picker and the picker is currently visible', () => {
+    it('should hide the color picker when the user clicks outside of the picker and the picker is currently visible', async () => {
         const { container, user } = render(<ColorPickerInput />);
         const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
         let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
 
-        user.click(triggerDOM);
+        await user.click(triggerDOM);
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeDefined();
 
-        user.click(document.body);
+        await user.click(document.body);
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
     });
 
-    it('should not allow user to show the color picker when props.isDisabled is true', () => {
-        const { container, user } = render(<ColorPickerInput />);
+    it('should not allow user to show the color picker when props.isDisabled is true', async () => {
+        const { container, user } = render(<ColorPickerInput isDisabled />);
         const triggerDOM = container.querySelector(`.${baseCls}__trigger`);
         let pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
 
-        user.click(triggerDOM);
+        await user.click(triggerDOM);
         pickerContainerDOM = container.querySelector(`.${colorPickerCls}`);
 
         expect(pickerContainerDOM).toBeNull();
@@ -216,6 +216,27 @@ describe('<ColorPickerInput />', () => {
         const result = inputDOM.getAttribute('aria-invalid');
 
         expect(result).toBe(expected);
+    });
+
+    it('should not crash when calling handleMouseClick with no params', async () => {
+        let compRef;
+        const setRef = (el) => {
+            compRef = el;
+        };
+        render(<ColorPickerInput ref={setRef} />);
+        await compRef.handleMouseClick();
+    });
+
+    it('should call onChange with rgba converted to 8-digit hex value when props.hasAlpha is true and user sets color and alpha values via the color picker', async () => {
+        const changeSpy = jest.fn(ColorPickerInput.defaultProps.onChange);
+        let compRef;
+        const setRef = (el) => {
+            compRef = el;
+        };
+        render(<ColorPickerInput ref={setRef} onChange={changeSpy} hasAlpha />);
+        await compRef.handlePickerChange('rgba(113, 13, 13, 0.51)');
+
+        expect(changeSpy).toHaveBeenCalledWith('#710d0d82');
     });
 
     // it('should ', () => {});

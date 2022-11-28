@@ -1,9 +1,9 @@
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiCirclePlus } from '@epr0t0type/bankai-ui-icons';
-import { VARIANTS } from '../const/variantsConst';
-import menuOps from '../mocks/menuOptions';
 import MenuButton from '../MenuButton';
 import MenuButtonOption from '../MenuButtonOption';
+import { VARIANTS } from '../const/variantsConst';
+import menuOps from '../mocks/menuOptions';
 
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
     VARIANTS;
@@ -69,11 +69,11 @@ describe('<MenuButton />', () => {
 
     it('should not render icon container DOM when props.renderIcon is not provided', () => {
         const { container } = render(<MenuButton />);
-        const iconContainerEls = container.getElementsByClassName(
-            `${btnCls}__icon-container`,
+        const iconContainerEls = container.querySelector(
+            `.${btnCls}__icon-container`,
         );
 
-        expect(iconContainerEls).toHaveLength(0);
+        expect(iconContainerEls).toBeNull();
     });
 
     it('should not render icon container DOM when children are nested in the menu button and props.renderIcon is provided', () => {
@@ -83,11 +83,11 @@ describe('<MenuButton />', () => {
         const { container } = render(
             <MenuButton {...props}>Click me</MenuButton>,
         );
-        const iconContainerEls = container.getElementsByClassName(
-            `${btnCls}__icon-container`,
+        const iconContainerEls = container.querySelector(
+            `.${btnCls}__icon-container`,
         );
 
-        expect(iconContainerEls).toHaveLength(0);
+        expect(iconContainerEls).toBeNull();
     });
 
     it('should render text container DOM when props.text is provided', () => {
@@ -103,11 +103,11 @@ describe('<MenuButton />', () => {
 
     it('should not render text container DOM when props.text is not provided', () => {
         const { container } = render(<MenuButton />);
-        const textContainerEls = container.getElementsByClassName(
-            `${btnCls}__text-container`,
+        const textContainerEls = container.querySelector(
+            `.${btnCls}__text-container`,
         );
 
-        expect(textContainerEls).toHaveLength(0);
+        expect(textContainerEls).toBeNull();
     });
 
     it('should not render text container DOM when children are nested in the menu button and props.text is provided', () => {
@@ -117,11 +117,11 @@ describe('<MenuButton />', () => {
         const { container } = render(
             <MenuButton {...props}>Click me</MenuButton>,
         );
-        const textContainerEls = container.getElementsByClassName(
-            `${btnCls}__text-container`,
+        const textContainerEls = container.querySelector(
+            `.${btnCls}__text-container`,
         );
 
-        expect(textContainerEls).toHaveLength(0);
+        expect(textContainerEls).toBeNull();
     });
 
     it('should call props.onSelection handler', () => {

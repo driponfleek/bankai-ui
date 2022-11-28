@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import RWCombobox from 'react-widgets/Combobox';
@@ -74,7 +74,8 @@ class Combobox extends PureComponent {
     };
 
     render() {
-        const { contextCls, hasError } = this.props;
+        const { contextCls, hasError, onChange, onSelect, onToggle } =
+            this.props;
         const props = this.getExtantProps();
         const modCls = {
             [`${this.baseCls}--error`]: hasError,
@@ -85,9 +86,9 @@ class Combobox extends PureComponent {
                 {...props}
                 className={cx(this.baseCls, modCls, contextCls)}
                 busySpinner={this.renderBusySpinner()}
-                onChange={this.handleChange}
-                onSelect={this.handleSelect}
-                onToggle={this.handleToggle}
+                onChange={onChange}
+                onSelect={onSelect}
+                onToggle={onToggle}
             />
         );
     }
@@ -105,24 +106,6 @@ class Combobox extends PureComponent {
                 />
             )
         );
-    };
-
-    handleChange = (e) => {
-        const { onChange } = this.props;
-
-        onChange(e);
-    };
-
-    handleSelect = (e) => {
-        const { onSelect } = this.props;
-
-        onSelect(e);
-    };
-
-    handleToggle = (e) => {
-        const { onToggle } = this.props;
-
-        onToggle(e);
     };
 
     getExtantProps = () => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { BankaiSpinner } from '@epr0t0type/bankai-ui-icons';

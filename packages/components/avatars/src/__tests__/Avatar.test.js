@@ -20,10 +20,10 @@ describe('<Avatar />', () => {
         };
         const { container } = render(<Avatar {...props} />);
         const avatarDOM = container.querySelector(`.${baseCls}`);
-        const innerDOMs = document.getElementsByClassName(`${baseCls}__inner`);
+        const innerDOMs = container.querySelector(`.${baseCls}__inner`);
 
-        expect(innerDOMs).toHaveLength(0);
         expect(avatarDOM.classList.contains(`${baseCls}--img`)).toBe(true);
+        expect(innerDOMs).toBeNull();
     });
 
     it('should render text passed to props.children', () => {

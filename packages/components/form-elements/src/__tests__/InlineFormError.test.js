@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
-import React from 'react';
-import { render, act } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import InlineFormError from '../InlineFormError';
 
 const originalConsoleError = console.error.bind(console.error);
@@ -21,9 +20,7 @@ describe('<InlineFormError />', () => {
             'aria-atomic': true,
             'aria-live': 'polite',
         };
-        act(() => {
-            render(<InlineFormError isErrorPolite ref={setRef} />);
-        });
+        render(<InlineFormError isErrorPolite ref={setRef} />);
         const result = compRef.getARIAExtantProps();
 
         expect(result).toEqual(expected);
@@ -39,9 +36,7 @@ describe('<InlineFormError />', () => {
             'aria-live': 'assertive',
             'aria-relevant': 'additions removals',
         };
-        act(() => {
-            render(<InlineFormError ref={setRef} />);
-        });
+        render(<InlineFormError ref={setRef} />);
         const result = compRef.getARIAExtantProps();
 
         expect(result).toEqual(expected);
@@ -57,43 +52,37 @@ describe('<InlineFormError />', () => {
             'aria-live': 'assertive',
             'aria-relevant': 'all',
         };
-        act(() => {
-            render(<InlineFormError errorARIARelevant="all" ref={setRef} />);
-        });
+        render(<InlineFormError errorARIARelevant="all" ref={setRef} />);
         const result = compRef.getARIAExtantProps();
 
         expect(result).toEqual(expected);
     });
 
     it('should render custom error UI when props.renderError is defined', () => {
-        act(() => {
-            render(
-                <InlineFormError
-                    renderError={() => <span className="test-error" />}
-                />,
-            );
-        });
-        const customErrorDOMs = document.getElementsByClassName('test-error');
+        const { container } = render(
+            <InlineFormError
+                renderError={() => <span className="test-error" />}
+            />,
+        );
+        const customErrorDOMs = container.querySelector('test-error');
 
-        expect(customErrorDOMs).toHaveLength(1);
+        expect(customErrorDOMs).toBeDefined();
     });
 
     it('should only render icon container DOM when props.renderErrorIcon is defined', () => {
-        act(() => {
-            render(
-                <InlineFormError
-                    errorText="This field is required."
-                    renderErrorIcon={() => <span className="test-icon" />}
-                />,
-            );
-        });
-        const iconContainerDOMs = document.getElementsByClassName(
+        const { container } = render(
+            <InlineFormError
+                errorText="This field is required."
+                renderErrorIcon={() => <span className="test-icon" />}
+            />,
+        );
+        const iconContainerDOMs = container.querySelector(
             'bankai-inline-form-error__icon-container',
         );
-        const iconDOMs = document.getElementsByClassName('test-icon');
+        const iconDOMs = container.querySelector('test-icon');
 
-        expect(iconContainerDOMs).toHaveLength(1);
-        expect(iconDOMs).toHaveLength(1);
+        expect(iconContainerDOMs).toBeDefined();
+        expect(iconDOMs).toBeDefined();
     });
 
     it('should return true when calling getHasError and props.errorText is defined', () => {
@@ -101,14 +90,12 @@ describe('<InlineFormError />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(
-                <InlineFormError
-                    errorText="This field is required."
-                    ref={setRef}
-                />,
-            );
-        });
+        render(
+            <InlineFormError
+                errorText="This field is required."
+                ref={setRef}
+            />,
+        );
         const result = compRef.getHasError();
 
         expect(result).toBe(true);
@@ -119,14 +106,12 @@ describe('<InlineFormError />', () => {
         const setRef = (el) => {
             compRef = el;
         };
-        act(() => {
-            render(
-                <InlineFormError
-                    renderError={() => <span className="test-error" />}
-                    ref={setRef}
-                />,
-            );
-        });
+        render(
+            <InlineFormError
+                renderError={() => <span className="test-error" />}
+                ref={setRef}
+            />,
+        );
         const result = compRef.getHasError();
 
         expect(result).toBe(true);

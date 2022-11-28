@@ -1,7 +1,7 @@
 import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiUser } from '@epr0t0type/bankai-ui-icons';
-import VARIANTS from '../const/variantsConst';
 import CalloutBanner from '../CalloutBanner';
+import VARIANTS from '../const/variantsConst';
 
 const { AFFIRMATIVE, CAUTIONARY, ERROR, INFO } = VARIANTS;
 const baseCls = 'bankai-callout-banner';

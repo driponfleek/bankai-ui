@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, act } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { render } from '@epr0t0type/bankai-lib-react-unit-test-utils';
 import { BankaiUser } from '@epr0t0type/bankai-ui-icons';
 import AvatarGroup from '../AvatarGroup';
 
@@ -20,26 +19,12 @@ const avatars = [
 ];
 
 describe('<AvatarGroup />', () => {
-    let container;
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-    });
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container = undefined;
-    });
-
     it('should render without crashing', () => {
         render(<AvatarGroup />);
     });
 
     it('should render avatars based on data passed', () => {
-        act(() => {
-            render(<AvatarGroup avatars={avatars} />, { container });
-        });
+        render(<AvatarGroup avatars={avatars} />);
         const childItems = document.getElementsByClassName(`bankai-avatar`);
 
         expect(childItems).toHaveLength(3);
