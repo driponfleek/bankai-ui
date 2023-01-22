@@ -61,7 +61,7 @@
         // stylelint-disable-next-line
         .bankai-checkbox__container,
         .bankai-checkbox__input:disabled + .bankai-checkbox__container {
-            color: var(--bankai-form-checked-accent-color, bankai-light-theme('form-checked-accent-color'));
+            color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
             background-color: var(--bankai-form-checked-accent-color, bankai-light-theme('form-checked-accent-color'));
             border-color: var(--bankai-form-checked-accent-color, bankai-light-theme('form-checked-accent-color'));
         }
