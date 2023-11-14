@@ -1,90 +1,144 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss';
 @import './mixins.scss';
 @import './rw-styles.scss';
 
 .bankai-number-picker, %bankai-number-picker {
+    @include bankai-floating-label-fix;
     display: inline-block;
+    $this: '.bankai-number-picker';
 
     &.rw-widget {
-        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
+        @include bankai-form-input-font-size;
+        color: var(--bankai-form-input-text-color, bankai-get-light-theme-map-value('form-input-text-color'));
     }
 
     .rw-widget-picker {
         @include bankai-flex-row;
-        border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
+        min-height: bankai-to-px($bankai-core-system-scale * 8);
+        border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
+        gap: bankai-to-rem($bankai-core-spacing-02-x);
     }
 
     &.rw-state-focus .rw-widget-picker {
-        @include bankai-rw-focus-state-halo;
+        @include bankai-rw-focus-state-halo(var(--bankai-form-input-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-focus-halo-inner-color')), var(--bankai-form-input-focus-halo-outer-color, bankai-get-light-theme-map-value('form-input-focus-halo-outer-color')));
+        border-color: var(--bankai-form-input-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-focus-halo-inner-color'));
     }
 
     .rw-number-picker-spinners {
         width: 30px;
+        border-left: none;
         flex: 0 0 auto;
     }
 
     .rw-widget-input {
         width: initial;
-        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
-        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+        color: var(--bankai-form-input-text-color, bankai-get-light-theme-map-value('form-input-text-color'));
+        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
         max-width: initial;
         min-width: 1px;
-        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
+        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        text-align: right;
         text-overflow: ellipsis;
-        padding: bankai-light-theme('form-input-padding');
+        padding: bankai-to-rem($bankai-core-spacing-02-x);
         display: block;
         flex: 1 1 auto;
 
         &::placeholder {
-            color: var(--bankai-form-input-placeholder-text, bankai-light-theme('form-input-placeholder-text'));
-            font-style: bankai-light-theme('form-input-placeholder-font-style');
+            color: var(--bankai-form-input-placeholder-text-color, bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
+            // font-style: var(--bankai-form-input-placeholder-font-style, bankai-get-light-theme-map-value('form-input-placeholder-font-style'));
         }
     }
 
     .rw-picker-btn {
-        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
-        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+        color: var(--bankai-semantic-color-text, bankai-get-light-theme-map-value('semantic-color-text'));
+        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
 
         @media (hover: hover) {
-            &:hover {
-                background-color: var(--bankai-core-color-universal-hover-bg, bankai-light-theme('core-color-universal-hover-bg'));
+            &:enabled:hover {
+                background-color: var(--bankai-semantic-color-hover-bg, bankai-get-light-theme-map-value('semantic-color-hover-bg'));
+
+                #{$this}__increment-icon,
+                #{$this}__decrement-icon {
+                    color: var(--bankai-semantic-color-text, bankai-get-light-theme-map-value('semantic-color-text'));
+                }
             }
         }
     }
 
-    .rw-widget-container,
-    .rw-number-picker-spinners {
-        border-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
+    .rw-widget-container {
+        border-color: var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
     }
 
-    &.rw-state-disabled {
-        opacity: bankai-light-theme('state-disabled-opacity');
-        background-color: var(--bankai-form-input-disabled-bg-color, bankai-light-theme('form-input-disabled-bg-color'));
+    &.rw-state-disabled,
+    fieldset:disabled & {
+        opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+
+        // stylelint-disable-next-line no-descending-specificity
+        .rw-widget-input {
+            background-color: transparent;
+        }
+
+        // stylelint-disable-next-line no-descending-specificity
+        > .rw-widget-picker {
+            background-color: var(--bankai-form-input-disabled-bg-color, bankai-get-light-theme-map-value('form-input-disabled-bg-color'));
+        }
+
+        // stylelint-disable-next-line no-descending-specificity
+        .rw-number-picker-spinners, .rw-picker-btn {
+            background-color: transparent;
+        }
+    }
+
+    &__increment-icon,
+    &__decrement-icon {
+        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        font-size: 16px;
     }
 
     &--error {
+        // stylelint-disable-next-line no-descending-specificity
         &.rw-state-focus .rw-widget-picker {
-            @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-light-theme('form-input-error-focus-halo-color')));
+            @include bankai-rw-focus-state-halo(var(--bankai-form-input-error-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-inner-color')), var(--bankai-form-input-error-focus-halo-outer-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-outer-color')));
         }
 
-        .rw-widget-container,
-        &.rw-state-focus .rw-widget-container,
-        .rw-number-picker-spinners {
-            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
+        // stylelint-disable-next-line no-descending-specificity
+        .rw-picker-btn {
+            background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
+
+            @media (hover: hover) {
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+
+            #{$this}__decrement-icon,
+            #{$this}__increment-icon {
+                color: var(--bankai-form-input-error-placeholder-text-color, bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
+            }
         }
 
+        // stylelint-disable-next-line no-descending-specificity
+        .rw-widget-container, &.rw-state-focus .rw-widget-container, .rw-number-picker-spinners {
+            border-color: var(--bankai-form-input-error-border-color, bankai-get-light-theme-map-value('form-input-error-border-color'));
+        }
+
+        // stylelint-disable-next-line no-descending-specificity
         .rw-widget-input {
-            background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
+            background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
 
             &::placeholder {
-                color: var(--bankai-form-input-error-placeholder-text-color, bankai-light-theme('form-input-error-placeholder-text-color'));
+                color: var(--bankai-form-input-error-placeholder-text-color, bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
             }
         }
     }

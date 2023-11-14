@@ -1,0 +1,33 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+
+.bankai-sb-color-variant-generator {
+    $this: &;
+
+    &__settings-container {
+        > * {
+            margin: auto 0;
+        }
+    }
+
+    .bankai-sb-color-variants-list__inner {
+        max-width: initial;
+    }
+
+    .bankai-form-layout-field-container {
+        @include bankai-flex-row;
+        flex: 0 1 auto;
+
+        > * {
+            min-width: 1px;
+            flex: 1 1 auto;
+            margin: auto 0;
+        }
+    }
+
+    .bankai-color-picker-input__input {
+        max-width: 11.4rem;
+    }
+}

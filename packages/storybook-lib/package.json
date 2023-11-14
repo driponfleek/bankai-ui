@@ -1,0 +1,46 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "dependencies": {
+        "@driponfleek/bankai-lib-color-utils": "^0.1.0",
+        "@driponfleek/bankai-lib-style-utils": "^0.1.0",
+        "@driponfleek/bankai-lib-theme-utils": "^0.1.0",
+        "@driponfleek/bankai-ui-callouts": "^0.1.0",
+        "@driponfleek/bankai-ui-icons": "^0.1.0",
+        "@driponfleek/bankai-ui-typography": "^0.1.0",
+        "classnames": "2.3.2",
+        "react-element-to-jsx-string": "^15.0.0",
+        "react-helmet": "6.1.0",
+        "react-syntax-highlighter": "15.5.0",
+        "uuid": "9.0.0"
+    },
+    "description": "Bankai UI shared resources, components and utilities for Storybook",
+    "exports": {
+        "node": {
+            "module": "dist/esm/index.js",
+            "require": "dist/index.cjs.min.js"
+        },
+        "default": "index.js"
+    },
+    "license": "MIT",
+    "name": "@driponfleek/bankai-lib-storybook",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/driponfleek"
+    },
+    "repository": {
+        "directory": "packages/components/accordions",
+        "type": "git",
+        "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
+    },
+    "scripts": {
+        "build-disabled": "npm run pre:build && rollup -c",
+        "pre:build": "rimraf dist/"
+    },
+    "sideEffects": [
+        "**/*.css",
+        "**/*.scss",
+        "**/*.css.js",
+        "**/*.scss.js"
+    ],
+    "type": "module",
+    "version": "0.1.0"
+}

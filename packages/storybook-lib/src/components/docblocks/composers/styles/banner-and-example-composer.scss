@@ -1,0 +1,33 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+
+.bankai-sb-banner-and-example-composer {
+    border: 1px solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+    border-radius: bankai-to-px($bankai-core-spacing-01-x);
+
+    .bankai-banner {
+        border-radius: bankai-to-px($bankai-core-spacing-01-x - 1) bankai-to-px($bankai-core-spacing-01-x - 1) 0 0;
+    }
+
+    .bankai-banner__icon {
+        font-size: bankai-to-rem($bankai-core-system-scale * 6);
+    }
+
+    .bankai-sb-component-preview {
+        border: none;
+        border-top: 1px solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+        border-radius: 0 0 bankai-to-px($bankai-core-spacing-01-x - 1) bankai-to-px($bankai-core-spacing-01-x - 1);
+    }
+
+    + * {
+        margin-top: bankai-to-rem($bankai-core-system-scale * 6);
+    }
+
+    @at-root * + & {
+        margin-top: bankai-to-rem($bankai-core-system-scale * 6);
+    }
+}

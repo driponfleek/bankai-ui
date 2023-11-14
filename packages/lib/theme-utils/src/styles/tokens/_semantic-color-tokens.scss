@@ -1,0 +1,40 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@use 'sass:map';
+@use 'sass:color';
+@import '../vars/core-colors-vars.scss';
+@import '../vars/semantic-colors-vars.scss';
+
+// Semantic Light Theme Color Tokens
+$bankai-semantic-color-tokens: (
+    /* Main*/
+    semantic-color-accent: $bankai-semantic-color-accent-primary,
+    semantic-color-brand: $bankai-semantic-color-brand,
+    semantic-color-primary: $bankai-semantic-color-primary,
+    semantic-color-secondary: $bankai-semantic-color-secondary,
+    /* Effects*/
+    semantic-color-box-shadow: $bankai-core-color-neutral-0,
+    /* Universal*/
+    semantic-color-accessible-border: $bankai-semantic-color-accessible-border,
+    semantic-color-decorative-border: $bankai-semantic-color-decorative-border,
+    semantic-color-universal-focus-halo-inner: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    semantic-color-focus-halo-outer: color.change($bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
+    semantic-color-hover-bg: $bankai-semantic-color-hover-bg,
+    /* Canvas*/
+    semantic-color-canvas: $bankai-semantic-color-canvas,
+    semantic-color-canvas-alt: $bankai-semantic-color-canvas-alt,
+    semantic-color-canvas-brand: $bankai-semantic-color-canvas-brand,
+    /* Status*/
+    semantic-color-affirmative: $bankai-semantic-color-affirmative,
+    semantic-color-cautionary: $bankai-semantic-color-cautionary,
+    semantic-color-error: $bankai-semantic-color-error,
+    /* Informative*/
+    semantic-color-destructive: $bankai-semantic-color-destructive,
+    semantic-color-info: $bankai-semantic-color-info,
+    /* Typography*/
+    semantic-color-text: $bankai-core-color-neutral-10,
+    semantic-color-text-alt: color.change($bankai-core-color-neutral-40, $lightness: 44%),
+    semantic-color-canvas-brand-text: $bankai-semantic-color-canvas-brand-text,
+    semantic-color-text-error: $bankai-semantic-color-error,
+);

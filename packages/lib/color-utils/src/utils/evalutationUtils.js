@@ -1,43 +1,29 @@
-import tinycolor from 'tinycolor2';
-import {
-    VALID_HEX_REGEX,
-    VALID_HEX_WITH_ALPHA_REGEX,
-} from '../const/colorConst';
+import chroma from 'chroma-js';
+import { getRecommendedColor } from './recommendationUtils';
+import { isValidHexColor } from './validationUtils';
+import { getSanitizedHex } from './dataSanitizerUtils';
 
 /**
- * Used to validate hex
- * @param {string} hex - 4/7 digit hex (must include hash) or
- * 6/9 digit hex (with alpha, must include hash)
+ *
+ * @param {number} contrast
+ * @returns {number} - sanitized contrast value
  */
-export const isValidHexColor = (hex, hasAlpha) => {
-    const regexPattern = hasAlpha
-        ? VALID_HEX_WITH_ALPHA_REGEX
-        : VALID_HEX_REGEX;
-
-    return hex ? !!hex.match(regexPattern) : false;
-};
-
-/**
- * Used to check for missing hex on value provided
- * @param {string} hex - 4 or 7 digit hex (must include hash)
- */
-export const fixHexMissingHash = (val) => {
-    // const regex = /^([0-9a-f]{3}|[0-9a-f]{6})$/i;
-    // const isMissingHash = !!val.match(regex);
-    if (!val) {
-        return val;
+export const getContrastAsFloat = (contrast) => {
+    if (contrast === undefined) {
+        return contrast;
     }
-    const isMissingHash = !val.startsWith('#');
 
-    return isMissingHash ? `#${val}` : val;
+    return parseFloat(contrast.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]);
 };
 
 /**
  * Use to get contrast ratio between 2 colors.
  * @param {string} hex1 - 4 or 7 digit hex (must include hash)
  * @param {string} hex2 - 4 or 7 digit hex (must include hash)
+ * @param {boolean} isSanatized
+ * @returns {number} - contrast value
  */
-export const getColorContrastRatio = (hex1, hex2) => {
+export const getColorContrast = (hex1, hex2, isSanatized = false) => {
     const isHex1Valid = isValidHexColor(hex1);
     const isHex2Valid = isValidHexColor(hex2);
 
@@ -45,7 +31,11 @@ export const getColorContrastRatio = (hex1, hex2) => {
         return 0;
     }
 
-    return tinycolor.readability(hex1, hex2);
+    if (isSanatized) {
+        return getContrastAsFloat(chroma.contrast(hex1, hex2));
+    }
+
+    return chroma.contrast(hex1, hex2);
 };
 
 /**
@@ -53,14 +43,12 @@ export const getColorContrastRatio = (hex1, hex2) => {
  * @param {string} hex1 - 4 or 7 digit hex (must include hash)
  * @param {string} hex2 - 4 or 7 digit hex (must include hash)
  */
-export const getUserFriendlyRatio = (hex1, hex2) => {
-    const ratio = getColorContrastRatio(hex1, hex2);
-    const ratioAsFloat = parseFloat(
-        ratio.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0],
-    );
-    const isInteger = Number.isInteger(parseFloat(ratioAsFloat));
+export const getReadableContrastRatio = (hex1, hex2) => {
+    const contrast = getColorContrast(hex1, hex2);
+    const contrastAsFloat = getContrastAsFloat(contrast);
+    const isInteger = Number.isInteger(parseFloat(contrastAsFloat));
 
-    return `${isInteger ? Math.floor(ratioAsFloat) : ratioAsFloat}:1`;
+    return `${isInteger ? Math.floor(contrastAsFloat) : contrastAsFloat}:1`;
 };
 
 /**
@@ -69,25 +57,74 @@ export const getUserFriendlyRatio = (hex1, hex2) => {
  * @param {string} hex1 - 4 or 7 digit hex (must include hash)
  * @param {string} hex2 - 4 or 7 digit hex (must include hash)
  * @param {object} config
- * @param {boolean} config.isTripleA - Change from `AA` to `AAA` compliance check
- * @param {boolean} config.isLargeText - Change from `small` to `large` text size
+ * @param {boolean} config.isAAA - Change from `AA` to `AAA` compliance check
+ * @param {boolean} config.isLargeText - Adjust passing contrast threshold based on text size
+ * @returns {boolean}
  */
-export const getIsReadable = (
+export const getIsA11yReadable = (
     hex1,
     hex2,
-    config = { isTripleA: false, isLargeText: false },
+    config = { isAAA: false, isLargeText: false },
 ) => {
-    const { isTripleA, isLargeText } = config;
     const isHex1Valid = isValidHexColor(hex1);
     const isHex2Valid = isValidHexColor(hex2);
-    const level = isTripleA ? 'AAA' : 'AA';
-    const size = isLargeText ? 'large' : 'small';
 
     if (!isHex1Valid || !isHex2Valid) {
         return false;
     }
 
-    return tinycolor.isReadable(hex1, hex2, { level, size });
+    const { isAAA = false, isLargeText = false } = config;
+    const colorContrast = getColorContrast(hex1, hex2);
+    let passingContrast = isLargeText ? 3 : 4.5;
+
+    if (isAAA) {
+        passingContrast = isLargeText ? 4.5 : 7;
+    }
+
+    return colorContrast >= passingContrast;
+};
+
+export const getAPCAContrast = (hex1, hex2) => {
+    const sanitizedHex1 = getSanitizedHex(hex1);
+    const sanitizedHex2 = getSanitizedHex(hex2);
+
+    return chroma.contrastAPCA(sanitizedHex1, sanitizedHex2);
+};
+
+export const getIsAPCAReadable = (hex1, hex2, isMinimumLC = false) => {
+    // https://git.apcacontrast.com/documentation/WhyAPCA.html
+    const passingLC = isMinimumLC ? 75 : 90;
+    let apcaContrast = getAPCAContrast(hex1, hex2);
+    apcaContrast = apcaContrast < 0 ? apcaContrast * -1 : apcaContrast; // APCA Contrasts can be negative and still compliant.
+
+    return apcaContrast >= passingLC;
+};
+
+export const getIsAPCACompliantForUI = (hex1, hex2) => {
+    let apcaContrast = getAPCAContrast(hex1, hex2);
+    apcaContrast = apcaContrast < 0 ? apcaContrast * -1 : apcaContrast; // APCA Contrasts can be negative and still compliant.
+
+    return apcaContrast >= 60;
+};
+
+export const getIsLinkAPCAReadable = ({
+    linkHex,
+    surroundingTextHex,
+    backgroundColorHex,
+    isMinimumLC = false,
+}) => {
+    // https://git.apcacontrast.com/documentation/WhyAPCA.html
+    const isPassingAgainstBgColor = getIsAPCAReadable(
+        linkHex,
+        backgroundColorHex,
+        isMinimumLC,
+    );
+
+    if (!isPassingAgainstBgColor) {
+        return isPassingAgainstBgColor;
+    }
+
+    return getIsAPCACompliantForUI(linkHex, surroundingTextHex);
 };
 
 /**
@@ -97,54 +134,202 @@ export const getIsReadable = (
  * @param {string} hex2 - 4 or 7 digit hex (must include hash)
  * @returns {boolean}
  */
-export const getIsValidNonTextContrast = (hex1, hex2) => {
+export const getIsA11yForUI = (hex1, hex2) => {
     // Contrast ratio for non-text is the same as Large Text (3.0)
-    return getIsReadable(hex1, hex2, { isLargeText: true });
+    return getIsA11yReadable(hex1, hex2, { isLargeText: true });
 };
 
 /**
- * Evaluate a list of colors against a source color
+ * Use to evalute a control color against a list of options for accessible text/UI pairing compatabilities.
+ * @param {object} controlColorData
+ * @param {array} variants
+ * @returns {object}
+ * @returns {array} object.controlColor.compatibleTextColors
+ * @returns {array} object.controlColor.compatibleNonTextColors
+ * @returns {number} object.options[0].contrast
+ * @returns {boolean} object.options[0].isReadable
+ * @returns {boolean} object.options[0].isUIAccessible
+ */
+export const getControlVsOptionsA11yEvals = (
+    controlColor = {},
+    options = [],
+    shouldUseMinimumAPCATextCompliance = true,
+) => {
+    const { hex: controlHex } = controlColor;
+    const { compatibleTextColors, compatibleNonTextColors, evals } =
+        options.reduce(
+            (acc, op) => {
+                const accClone = { ...acc };
+                const { hex: opHex, tokenId } = op;
+                const isA11yReadable =
+                    getIsA11yReadable(opHex, controlHex) &&
+                    getIsAPCAReadable(
+                        opHex,
+                        controlHex,
+                        shouldUseMinimumAPCATextCompliance,
+                    );
+                const isA11yUICompatible =
+                    isA11yReadable || // Automatically UI Compatible if it's readable.
+                    (getIsA11yForUI(opHex, controlHex) &&
+                        getIsAPCACompliantForUI(opHex, controlHex));
+                const wcagContrast = getColorContrast(opHex, controlHex, true);
+                const apcaContrast = getAPCAContrast(opHex, controlHex);
+                accClone.evals[tokenId] = {
+                    isA11yReadable,
+                    isA11yUICompatible,
+                    wcagContrast,
+                    apcaContrast,
+                };
+
+                if (isA11yReadable) {
+                    accClone.compatibleTextColors.push(tokenId);
+                    accClone.compatibleNonTextColors.push(tokenId);
+                }
+
+                if (!isA11yReadable && isA11yUICompatible) {
+                    accClone.compatibleNonTextColors.push(tokenId);
+                }
+
+                return accClone;
+            },
+            {
+                compatibleTextColors: [],
+                compatibleNonTextColors: [],
+                evals: {},
+            },
+        );
+
+    return {
+        controlColor: {
+            ...controlColor,
+            compatibleTextColors,
+            compatibleNonTextColors,
+        },
+        evals,
+    };
+};
+
+/**
+ * Use to evaluate a list of colors against each other for accessible text/UI compatabilities.
  * @param {object} sourceColor
  * @param {array of objects} otherColors
  * @returns {object}
  * @returns {array} object.compatibleTextColors
  * @returns {array} object.compatibleNonTextColors
  */
-export const evaluateColorCompatibilities = (sourceColor, otherColors) => {
-    const compatibleTextColors = [];
-    const compatibleNonTextColors = [];
+export const getColorsA11yEvals = (colors = []) => {
+    const opsLength = colors.length;
+    // Clone the list and add compatibilities to each color
+    const results = colors.map((colorOp) => {
+        const compatibilities = {
+            compatibleTextColors: [],
+            compatibleNonTextColors: [],
+        };
 
-    (otherColors || []).forEach((c) => {
-        const canBeUsedForText = getIsReadable(c.hex, sourceColor.hex);
-        const canBeUsedForNonText = getIsValidNonTextContrast(
-            c.hex,
-            sourceColor.hex,
-        );
+        return {
+            ...colorOp,
+            ...compatibilities,
+        };
+    });
 
-        // Check if color combination can be used for Text.
-        // Any color that can be used for text can also be used for Non-Text.
-        if (canBeUsedForText) {
-            compatibleTextColors.push(c.id);
-            compatibleNonTextColors.push(c.id);
+    // Do the evals
+    results.forEach((controlColor, idx) => {
+        const { id: controlColorId } = controlColor;
 
-            // Check if color combination can be used for Non
-        } else if (canBeUsedForNonText) {
-            compatibleNonTextColors.push(c.id);
+        if (idx !== opsLength - 1) {
+            for (let index = idx + 1; index < opsLength; index += 1) {
+                const colorOp = results[index];
+                const { id: colorOpId } = colorOp;
+
+                switch (true) {
+                    case getIsA11yReadable(controlColor.hex, colorOp.hex):
+                        controlColor.compatibleTextColors.push(colorOpId);
+                        controlColor.compatibleNonTextColors.push(colorOpId);
+                        colorOp.compatibleTextColors.push(controlColorId);
+                        colorOp.compatibleNonTextColors.push(controlColorId);
+                        break;
+                    case getIsA11yForUI(controlColor.hex, colorOp.hex):
+                        controlColor.compatibleNonTextColors.push(colorOpId);
+                        colorOp.compatibleNonTextColors.push(controlColorId);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     });
 
+    return results;
+};
+
+/**
+ * Use to evaluate a preferred color against a list of variants.
+ * @param {object} preferredColorData
+ * @param {array} options
+ * @returns {object} - Evaulated preferred color data
+ */
+export const getColorCorrelations = (preferredColorData, options) => {
+    return getControlVsOptionsA11yEvals(preferredColorData, options);
+};
+
+export const genEvaluatedColorMetadata = (
+    colorMetadata = {},
+    bgColorMetadata = {},
+) => {
+    const { baseColor, variants = [] } = colorMetadata;
+
+    const { tokenId: baseColorTokenId } = baseColor ?? {};
+    // Evaluate the color against the background color
+    const { controlColor, evals } = getControlVsOptionsA11yEvals(
+        bgColorMetadata,
+        [
+            // TODO: Check what is passing an empty object to this and remove Object.keys check once fixed.
+            ...(baseColor ? [baseColor] : []),
+            ...variants,
+        ],
+    );
+    // Separate the base color eval from the variant colors
+    const { [baseColorTokenId]: baseEval, ...variantEvals } = evals;
+    // Update the base color to include the eval result against canvas alt
+    const evaluatedBaseColor = { ...baseColor, evalsAgainstBGColor: baseEval };
+    // Update all the variants to include the eval result against canvas alt
+    const evaluatedVariants = [...variants].map((variant) => ({
+        ...variant,
+        evalsAgainstBGColor: variantEvals[variant.tokenId],
+    }));
+
+    const recommendedColorForText = getRecommendedColor(
+        evaluatedBaseColor,
+        evaluatedVariants,
+        true,
+    );
+
+    const recommendedColorForNonText = getRecommendedColor(
+        evaluatedBaseColor,
+        evaluatedVariants,
+    );
+
     return {
-        compatibleTextColors,
-        compatibleNonTextColors,
+        baseColor: evaluatedBaseColor,
+        variants: evaluatedVariants,
+        recommendedColorForNonText,
+        recommendedColorForText,
+        bgColor: controlColor,
     };
 };
 
 export const getDarkerColor = (val1, val2) => {
-    const color1 = tinycolor(val1);
-    const color2 = tinycolor(val2);
+    const color1 = chroma(val1);
+    const color2 = chroma(val2);
     const color1Lum = color1.getLuminance();
     const color2Lum = color2.getLuminance();
     const isColor2Darker = color2Lum < color1Lum;
 
     return isColor2Darker ? val2 : val1;
+};
+
+export const getIsDarkWCAG = (color) => {
+    const luminance = chroma(color).luminance();
+
+    return luminance < 0.179;
 };

@@ -1,14 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../tokens/dark-theme-tokens.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
 @import '../tokens/light-theme-tokens.scss';
 
-@function bankai-light-theme($key) {
-    @return bankai-get-map-value($bankai-light-theme-tokens, $key);
-}
-
-@function bankai-dark-theme($key) {
-    @return bankai-get-map-value($bankai-dark-theme-tokens, $key);
+@function bankai-get-light-theme-map-value($key) {
+    @return bankai-get-map-value($bankai-get-light-theme-map-value-tokens, $key);
 }

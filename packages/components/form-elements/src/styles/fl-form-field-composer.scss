@@ -1,0 +1,314 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:color';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import './mixins.scss';
+
+.bankai-fl-form-field-composer, %bankai-fl-form-field-composer {
+    display: inline;
+    $this: '.bankai-fl-form-field-composer';
+
+    &__inner {
+        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+        box-sizing: border-box;
+        border: 1px solid var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
+        border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
+    }
+
+    &__content-container {
+        @include bankai-flex-row;
+        position: relative;
+    }
+
+    &__control-container {
+        min-width: 1px;
+        box-sizing: border-box;
+        position: relative;
+        flex: 1 1 auto;
+
+        &-inner {
+            @include bankai-flex-row;
+            position: relative;
+
+            > * {
+                flex: 1 1 auto;
+            }
+        }
+    }
+
+    .bankai-form-label {
+        color: var(--bankai-form-input-placeholder-text-color, bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
+        padding: 0 bankai-to-rem($bankai-core-spacing-02-x) bankai-to-rem($bankai-core-spacing-02-x);
+    }
+
+    .bankai-form-label__content {
+        transition: font-size 200ms;
+        user-select: none;
+    }
+
+    &__inner + &__hints-container--is-displaying-hint {
+        margin-top: bankai-to-rem($bankai-core-spacing-01-x);
+    }
+
+    &:not(&--disabled):has(&__control-container:focus-within) &__inner {
+        @include bankai-focus-state-inner-outer-box-shadow(var(--bankai-form-input-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-focus-halo-inner-color')), var(--bankai-form-input-focus-halo-outer-color, bankai-get-light-theme-map-value('form-input-focus-halo-outer-color')));
+        opacity: 1;
+    }
+
+    &__label-container {
+        box-sizing: border-box;
+        transition: top 200ms;
+        position: absolute;
+        top: 1.2rem;
+        left: 0;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    &__before-content-container,
+    &__after-content-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    &--has-value,
+    &:not(&--disabled) &__control-container:focus-within {
+        #{$this}__label-container {
+            top: 0.2rem;
+        }
+
+        .bankai-form-label {
+            @include bankai-sub-text;
+            padding: 0 bankai-to-rem($bankai-core-spacing-02-x);
+        }
+    }
+
+    // Reset styles from nested controls
+    .bankai-text-input {
+        min-height: bankai-to-px($bankai-core-system-scale * 8);
+    }
+
+    .bankai-textarea {
+        display: block;
+    }
+
+    .rw-widget-picker,
+    .bankai-date-picker > .rw-widget-picker {
+        border: none;
+        background-color: transparent;
+    }
+
+    .bankai-text-input,
+    .bankai-textarea,
+    .bankai-protected-input,
+    .bankai-combobox .rw-widget-picker,
+    .bankai-number-picker .rw-picker-btn {
+        background-color: transparent;
+
+        &[aria-invalid] {
+            background-color: transparent;
+        }
+    }
+
+    .bankai-text-input,
+    .bankai-textarea,
+    .bankai-text-input[aria-invalid],
+    .bankai-textarea[aria-invalid] {
+        border: none;
+        box-shadow: none;
+        padding: 0;;
+
+        &:focus,
+        &:focus-visible {
+            box-shadow: none;
+        }
+    }
+
+    .bankai-color-picker-input {
+        &__trigger-container {
+            width: 22px;
+            height: 22px;
+        }
+
+        &__trigger {
+            border-radius: 100%;
+        }
+    }
+
+    .rw-widget-input,
+    .bankai-number-picker .rw-widget-input,
+    .bankai-date-picker .rw-widget-input,
+    .bankai-combobox .rw-widget-input,
+    .bankai-dropdown .rw-widget-picker.rw-widget-input {
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .bankai-dropdown .rw-dropdown-list-input {
+        padding: bankai-to-rem($bankai-core-spacing-01-x) 0;
+        background-color: transparent;
+    }
+
+    .rw-picker-btn.rw-input-addon,
+    .bankai-dropdown .rw-picker-caret {
+        border-radius: 0 calc(var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius')) - 1px) calc(var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius')) - 1px) 0;
+        margin-top: 1px;
+        margin-right: 1px;
+        margin-bottom: 1px;
+    }
+
+    .bankai-date-picker .rw-picker-btn.rw-input-addon {
+        border-radius: calc(var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius')) - 1px);
+    }
+
+    .bankai-dropdown .rw-dropdown-list-value {
+        min-height: 2.278rem;
+    }
+
+    .rw-number-picker-spinners {
+        border-radius: 0 calc(var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius')) - 1px) calc(var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius')) - 1px) 0;
+        margin-top: 1px;
+        margin-right: 1px;
+        margin-bottom: 1px;
+
+        .rw-picker-btn {
+            &:first-child {
+                border-top-right-radius: calc(var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius')) - 1px);
+            }
+
+            &:last-child {
+                border-bottom-right-radius: calc(var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius')) - 1px);
+            }
+        }
+    }
+
+    .bankai-multiselect .rw-widget-picker {
+        background-color: transparent;
+    }
+
+    .bankai-multiselect .rw-multiselect-taglist {
+        padding: 0;
+    }
+
+    .bankai-multiselect .rw-multiselect-input {
+        height: calc(bankai-to-px($bankai-core-system-scale * 8) - 1px * 2);
+    }
+
+    .bankai-dropdown,
+    .bankai-number-picker,
+    .bankai-combobox,
+    .bankai-date-picker,
+    .bankai-multiselect {
+        &.rw-state-focus {
+            .rw-widget-picker,
+            .rw-widget-picker.rw-widget-input {
+                box-shadow: none;
+            }
+        }
+
+        &.rw-state-disabled {
+            opacity: 1;
+
+            > .rw-widget-picker,
+            .rw-picker-caret {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &:not(&--no-label) {
+        .bankai-text-input,
+        .bankai-textarea,
+        .bankai-protected-input,
+        .bankai-number-picker .rw-widget-input,
+        .bankai-combobox .rw-widget-input,
+        .bankai-date-picker .rw-widget-input,
+        .bankai-dropdown .rw-dropdown-list-input {
+            padding: bankai-to-rem($bankai-core-spacing-05-x) bankai-to-rem($bankai-core-spacing-03-x) bankai-to-rem($bankai-core-spacing-01-x);
+        }
+
+        .bankai-multiselect {
+            .rw-multiselect-input {
+                height: initial;
+                padding: 0;
+            }
+
+            .rw-multiselect-taglist {
+                padding: 2rem 1.2rem 0.4rem;
+            }
+
+            .rw-multiselect-tag + .rw-multiselect-input {
+                padding: 0 0.8rem;
+            }
+        }
+    }
+
+    &--error {
+        // stylelint-disable-next-line no-descending-specificity
+        .bankai-form-label {
+            color: var(--bankai-form-input-error-placeholder-text-color, bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
+        }
+
+        #{$this}__focus-halo {
+            border-color: var(--bankai-form-input-error-border-color, bankai-get-light-theme-map-value('form-input-error-border-color'));
+        }
+
+        #{$this}__inner {
+            background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
+        }
+
+        .bankai-dropdown--error,
+        .bankai-multiselect--error {
+            &.rw-state-focus .rw-widget-picker.rw-widget-input {
+                background-color: transparent;
+            }
+        }
+
+        .bankai-date-picker--error {
+            &.rw-state-focus .rw-widget-picker {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &--error:not(&--disabled):has(#{$this}__control-container:focus-within) #{$this}__inner {
+        @include bankai-focus-state-inner-outer-box-shadow(var(--bankai-form-input-error-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-inner-color')), var(--bankai-form-input-error-focus-halo-outer-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-outer-color')));
+    }
+
+    &--disabled,
+    fieldset:disabled & {
+        opacity: var(--bankai-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+
+        #{$this}__inner {
+            background-color: var(--bankai-form-input-disabled-bg-color, bankai-get-light-theme-map-value('form-input-disabled-bg-color'));
+        }
+
+        // stylelint-disable-next-line no-descending-specificity
+        .bankai-form-label {
+            color: var(--bankai-form-input-disabled-placeholder-text-color, bankai-get-light-theme-map-value('form-input-disabled-placeholder-text-color'));
+        }
+
+        #{$this}__inner,
+        #{$this}__label-container,
+        #{$this}__control-container,
+        #{$this}__before-content-container,
+        #{$this}__after-content-container,
+        .bankai-form-label {
+            @media (hover: hover) {
+
+                // stylelint-disable-next-line no-descending-specificity
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

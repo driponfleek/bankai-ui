@@ -1,0 +1,37 @@
+{
+    "author": "dyearwood@envisionedprototype.com",
+    "dependencies": {},
+    "description": "Bankai ARIA components",
+    "devDependencies": {
+        "@driponfleek/bankai-lib-react-unit-test-utils": "^0.1.0"
+    },
+    "exports": {
+        ".": {
+            "storybook-dev":"./index.js",
+            "default": "./dist/bankai-ui-aria.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "license": "MIT",
+    "name": "@driponfleek/bankai-ui-aria",
+    "peerDependencies": {
+        "classnames": "^2.3.1",
+        "prop-types": "^15.7.2",
+        "react": "18",
+        "react-dom": "18"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/driponfleek"
+    },
+    "repository": {
+        "directory": "packages/components/aria",
+        "type": "git",
+        "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
+    },
+    "scripts": {
+        "pre:build": "rimraf dist/",
+        "build": "npm run pre:build && node ../../../scripts/build/build-packages.js"
+    },
+    "type": "module",
+    "version": "0.1.0"
+}

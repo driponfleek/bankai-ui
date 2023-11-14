@@ -1,0 +1,86 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-banner, %bankai-banner {
+    color: var(--bankai-banner-text-color, bankai-get-light-theme-map-value('banner-text-color'));
+    background-color: var(--bankai-banner-bg-color, bankai-get-light-theme-map-value('banner-bg-color'));
+    box-sizing: border-box;
+    border-radius: var(--bankai-banner-border-radius, bankai-get-light-theme-map-value('banner-border-radius'));
+    $this: '.bankai-banner';
+
+    &__inner {
+        @include bankai-flex-row;
+        box-sizing: border-box;
+        padding: bankai-to-rem($bankai-core-spacing-03-x);
+        gap: bankai-to-rem($bankai-core-spacing-03-x);
+    }
+
+    &__icon-container {
+        min-width: 2.5em;
+        text-align: center;
+        flex: 0 0 auto;
+    }
+
+    &__text-container {
+        flex: 1 1 auto;
+        margin: auto 0;
+    }
+
+    &__icon-container,
+    &__text-container {
+        box-sizing: border-box;
+    }
+
+    &__icon-container + &__text-container {
+        padding-left: 0;
+    }
+
+    &__icon {
+        color: var(--bankai-banner-icon-color, bankai-get-light-theme-map-value('banner-icon-color'));
+        font-size: 2.5em;
+        vertical-align: top;
+        margin: 0 auto;
+    }
+
+    &__msg-container {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__title-container + &__msg-container {
+        margin-top: bankai-to-rem($bankai-core-spacing-01-x);
+    }
+
+    #{$this}__title {
+        @include bankai-h5;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__msg {
+        @include bankai-max-line-width;
+        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        display: block;
+    }
+
+    .bankai-hyperlink,
+    .bankai-link-button {
+        color: inherit;
+    }
+
+    .bankai-hyperlink,
+    .bankai-link-button__text {
+        text-decoration: underline;
+    }
+}

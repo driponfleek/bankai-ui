@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './button.scss';
 
 .bankai-menu-button-option, %bankai-menu-button-option {
@@ -14,48 +14,53 @@
     box-sizing: border-box;
     border: 1px solid transparent;
     text-align: left;
+    // Necessary to enforce proper line height. Without this the CSS reset will set line-height to 1.15
+    line-height: inherit;
     white-space: nowrap;
     $this: '.bankai-menu-button-option';
 
     @media (hover: hover) {
         &:enabled:hover {
-            background-color: var(--bankai-core-color-universal-hover-bg, bankai-light-theme('core-color-universal-hover-bg'));
+            background-color: var(--bankai-semantic-color-hover-bg, bankai-get-light-theme-map-value('semantic-color-hover-bg'));
         }
     }
 
     &__content-container {
         @extend %bankai-button__content-container;
-        display: block;
     }
 
     &__text-container {
         @extend %bankai-button__text-container;
     }
 
+    &__text {
+        @extend %bankai-button__text;
+    }
+
     &__icon-container {
         @extend %bankai-button__icon-container;
     }
 
-    &__icon-container + &__text-container {
-        vertical-align: middle;
-    }
-
     &__icon-safe-space {
-        @extend %bankai-button__icon-safe-space;
+        @extend %bankai-button__icon-container-safe-space;
     }
 
-    &__icon {
-        @extend %bankai-button__icon;
+    &__icon-container-inner {
+        @extend %bankai-button__icon-container-inner;
         font-size: 100%;
     }
 
-    &--is-destructive {
-        color: var(--bankai-btn-secondary-destructive-text-color, bankai-light-theme('btn-secondary-destructive-text-color'));
+    &--destructive {
+        color: var(--bankai-button-secondary-destructive-text-color, bankai-get-light-theme-map-value('button-secondary-destructive-text-color'));
 
         @media (hover: hover) {
             &:enabled:hover {
-                color: var(--bankai-btn-secondary-destructive-hover-text-color, bankai-light-theme('btn-secondary-destructive-hover-text-color'));
+                color: var(--bankai-button-secondary-destructive-hover-text-color, bankai-get-light-theme-map-value('button-secondary-destructive-hover-text-color'));
             }
         }
+    }
+
+    .bankai-icon {
+        display: block;
     }
 }

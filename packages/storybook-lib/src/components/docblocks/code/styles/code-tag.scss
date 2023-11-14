@@ -1,0 +1,15 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss';
+
+.bankai-sb-code-tag {
+    background-color: var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+    border-radius: bankai-to-px($bankai-core-radius-01-x);
+    box-sizing: border-box;
+    padding: 0 bankai-to-rem($bankai-core-spacing-01-x);
+    display: inline-block;
+}

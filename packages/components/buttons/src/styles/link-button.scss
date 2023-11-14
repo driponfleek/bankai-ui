@@ -1,21 +1,21 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+// @import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './mixins.scss';
 
 .bankai-link-button, %bankai-link-button {
     @include bankai-button-reset;
     @include bankai-focus-state-halo;
-    @include bankai-hover-state;
-    color: var(--bankai-link-text-color, bankai-light-theme('link-text-color'));
+    color: var(--bankai-link-text-color, bankai-get-light-theme-map-value('link-text-color'));
     background-color: transparent;
     box-sizing: border-box;
-    border-radius: #{bankai-to-px(bankai-light-theme('core-system-scale'))};
+    // Necessary to enforce proper line height. Without this the CSS reset will set it to 1.15
+    line-height: inherit;
     $this: '.bankai-link-button';
 
     @media (hover: hover) {
@@ -32,40 +32,40 @@
         display: inline-block;
     }
 
-    &__text-container {
-        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
-    }
+    // &__text-container {
+    //     line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+    // }
 
-    &__icon-container {
-        vertical-align: middle;
-    }
+    // &__icon-container {
+    //     vertical-align: middle;
+    // }
 
-    &__text-container,
-    &__icon-container {
-        box-sizing: border-box;
-        user-select: none;
-        display: inline-block;
-    }
+    // &__text-container,
+    // &__icon-container {
+    //     box-sizing: border-box;
+    //     user-select: none;
+    //     display: inline-block;
+    // }
 
-    &__icon-container + &__text-container {
-        vertical-align: middle;
-        margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 4)};
-    }
+    // &__icon-container + &__text-container {
+    //     vertical-align: middle;
+    //     margin-left: #{bankai-to-px($bankai-core-system-scale * 4)};
+    // }
 
-    &__icon-safe-space {
-        @include bankai-flex-row;
-        vertical-align: middle;
-        box-sizing: border-box;
-    }
+    // &__icon-safe-space {
+    //     @include bankai-flex-row;
+    //     vertical-align: middle;
+    //     box-sizing: border-box;
+    // }
 
-    &__icon {
-        @include bankai-flex-row;
-        vertical-align: middle;
-        margin: auto;
-        flex: 0 0 auto;
+    // &__icon {
+    //     @include bankai-flex-row;
+    //     vertical-align: middle;
+    //     margin: auto;
+    //     flex: 0 0 auto;
 
-        .bankai-icon {
-            margin: auto;
-        }
-    }
+    //     .bankai-icon {
+    //         margin: auto;
+    //     }
+    // }
 }

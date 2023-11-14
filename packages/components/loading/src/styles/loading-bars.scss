@@ -1,12 +1,13 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 // @import './animations.scss';
 @import './mixins.scss';
 
 .bankai-loading-bars, %bankai-loading-bars {
+    color: var(--bankai-loading-icon-primary-color, bankai-get-light-theme-map-value('loading-icon-primary-color'));
     font-size: 60px;
     $this: '.bankai-loading-bars';
     $bar-width: 0.0667em;
@@ -14,7 +15,7 @@
     &__bar {
         width: $bar-width;
         height: 100%;
-        background-color: var(--bankai-loading-icon-primary-color, bankai-light-theme('loading-icon-primary-color'));
+        background-color: currentColor;
         border-radius: $bar-width;
         display: block;
     }

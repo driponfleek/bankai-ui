@@ -1,4 +1,4 @@
-# @epr0t0type/bankai-ui-avatars
+# @driponfleek/bankai-ui-avatars
 Avatar components for your UIs.
 
 ## Getting Started
@@ -8,8 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
+    "@driponfleek/bankai-lib-style-utils": "^0.1.0",
+    "@driponfleek/bankai-lib-theme-utils": "^0.1.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "18",
@@ -20,7 +20,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-ui-avatars
+npm i @driponfleek/bankai-ui-avatars
 ```
 
 ## Usage
@@ -29,14 +29,14 @@ npm i @epr0t0type/bankai-ui-avatars
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-avatars--avatar-story).
 
 ```
-import { Avatar, VARIANTS } from '@epr0t0type/bankai-ui-avatars';
+import { Avatar } from '@driponfleek/bankai-ui-avatars';
 ```
 
 ### AvatarGroup
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-avatars--avatar-group-story).
 
 ```
-import { AvatarGroup } from '@epr0t0type/bankai-ui-avatars';
+import { AvatarGroup } from '@driponfleek/bankai-ui-avatars';
 ```
 
 ## Built With

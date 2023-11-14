@@ -1,138 +1,201 @@
-import tinycolor from 'tinycolor2';
 import {
     convertColorToHex,
+    convertColorToLCH,
     convertColorToHSL,
     convertColorToRGB,
 } from './colorFormatConversionUtils';
-import { evaluateColorCompatibilities } from './evalutationUtils';
+import { getIsDarkWCAG } from './evalutationUtils';
+import { getSanitizedHex } from './dataSanitizerUtils';
 
 /**
- *
- * @param {string} color - hex or rgb string
- * @returns {number} lightness of color
+ * Generate an array of numbers used to seed the lightness adjustments for a color's variants.
+ * @param {number} step - Amount to increment lightness by
+ * @returns {array}
  */
-export const getColorLightness = (color) => {
-    const { l } = convertColorToHSL(color);
-
-    return Math.round(l * 100);
-};
-
-/**
- * Use to get foundation data for a color.
- * @param {string} hex - 4 or 7 digit hex (must include hash)
- */
-export const getColorSeedData = (hex) => {
-    const color = tinycolor(hex);
-    const hsl = convertColorToHSL(hex);
-
-    return {
-        hex,
-        hsl,
-        hslString: convertColorToHSL(hex, true),
-        rgb: convertColorToRGB(hex),
-        rgbString: convertColorToRGB(hex, true),
-        isDark: color.isDark(),
-        lightness: getColorLightness(hex),
-    };
-};
-
-/**
- * Use to generate an array of numbers used to seed the
- * lightness of variant colors.
- * @param {number} step - how much to modify the lightness of a color by per variant. This will used to generate variants between 0 and 100
- * @return {array}
- */
-const getLightnessArray = (step = 5) => {
+const createVariantLightnessesArray = (step = 2) => {
     if (!step || step === 0) {
         return [];
     }
-    // 40 is the max the step can be to get a minimum of 2 variants.
-    const safeStep = Math.min(step, 40);
-    // Stick to whole numbers
-    const numOfVariants = Math.round(100 / safeStep);
 
-    return [...Array.from(Array(numOfVariants).keys())]
-        .filter((k) => k !== 0)
-        .map((l) => l * safeStep)
-        .reverse();
-};
+    const adjustedStep = Math.min(step, 40);
+    const results = [];
 
-export const getNewColorByChangingLightness = (hex, lightness) => {
-    if (!hex || lightness === undefined) {
-        return hex;
+    for (let i = adjustedStep; i < 100; i += adjustedStep) {
+        results.push(i);
     }
-    const { h, s } = convertColorToHSL(hex);
 
-    return convertColorToHex({ h, s, l: lightness });
+    return results.reverse();
 };
 
 /**
- * Use to get foundation data for an array of color variants for a given base color.
- * @param {string} hex - 4 or 7 digit hex (must include hash)
- * @param {number} step - must be divisible by 100 or will default to 10
- * @return {array}
+ *
+ * @param {object} baseLCH
+ * @param {number} adjustedLightness
+ * @param {boolean} isLighter
+ * @returns
  */
-export const getColorVariantsSeedData = ({ hex, step, tokenId }) => {
-    if (!hex) {
-        return [];
-    }
-    const lightnessArr = getLightnessArray(step);
+const getAdjustedChromaAndHueWithCaps = (
+    baseLCH,
+    adjustedLightness,
+    isLighter = false,
+) => {
+    const { l: baseL, c: baseC, h: baseH } = baseLCH ?? {};
+    let adjustedC = baseC;
+    let adjustedH = baseH;
+    const blueChromaReductionFactor =
+        1 - (adjustedLightness - baseL) / (100 - baseL);
+    const blueChromaScaleFactor = Math.max(
+        1 - (baseL - adjustedLightness) / baseL,
+        0,
+    );
 
-    return lightnessArr.map((l) => ({
-        ...getColorSeedData(getNewColorByChangingLightness(hex, l)),
-        tokenId: `${tokenId}_${l}`,
-        id: `${l}`,
-    }));
+    switch (true) {
+        case baseH >= 60 && baseH <= 90: // Yellow range
+            if (isLighter) {
+                adjustedH -= Math.abs(baseL - adjustedLightness) * 0.8; // Shift downward when darkening
+            }
+            adjustedC = Math.min(adjustedC, 90); // Cap Chroma for yellows
+            adjustedH = Math.max(Math.min(adjustedH, 90), 50); // Cap Hue for yellows
+            break;
+        case baseH >= 180 && baseH <= 270: // Blue range
+            // adjustedC = baseC * blueChromaScaleFactor;
+            if (isLighter) {
+                adjustedC = Math.max(
+                    baseC * blueChromaReductionFactor,
+                    baseC * 0.5,
+                ); // Retain at least 50% of original Chroma
+                adjustedH -= Math.min(
+                    1,
+                    Math.abs(adjustedLightness - baseL) * 0.05,
+                ); // Small downward Hue shift for harmony
+            }
+
+            if (!isLighter) {
+                adjustedC = baseC * blueChromaScaleFactor; // Aggressively reduce Chroma for darker variants
+                adjustedH = adjustedC < 5 ? 250 : adjustedH;
+                adjustedC =
+                    adjustedC < 5
+                        ? 0
+                        : (adjustedC -= Math.min(
+                              3,
+                              Math.abs(baseL - adjustedLightness) * 0.1,
+                          )); // Slight downward Hue shift;
+            }
+            adjustedC = Math.min(adjustedC, 70); // Avoid oversaturation
+            break;
+        case baseH <= 30 || baseH >= 330: // Red range
+            adjustedC = Math.min(adjustedC, 80); // Prevent neon-like reds
+            adjustedH = Math.max(Math.min(adjustedH, 30), 0); // Constrain to red
+        default: // General case for other hues
+            if (isLighter) {
+                adjustedH += Math.min(
+                    5,
+                    Math.abs(baseL - adjustedLightness) * 0.1,
+                );
+            } else {
+                adjustedH -= Math.min(
+                    5,
+                    Math.abs(baseL - adjustedLightness) * 0.1,
+                );
+            }
+            break;
+    }
+    adjustedH = (adjustedH + 360) % 360; // Wrap Hue within 0-360
+
+    return { l: adjustedLightness, c: adjustedC, h: adjustedH };
 };
 
-/**
- * Use to evaluate a base color against a list of options.
- * @param {object} baseColorData
- * @param {array} options
- * @returns {object} evaulated base color
- */
-export const getColorCorrelationsData = (baseColorData, options) => {
+export const genColorMetadata = (hex) => {
+    const sanitizedHex = getSanitizedHex(hex);
+    const lch = convertColorToLCH(sanitizedHex);
+
     return {
-        ...baseColorData,
-        ...evaluateColorCompatibilities(baseColorData, options),
+        hex: sanitizedHex,
+        // TODO: Get rid of HSL and RGB if no longer needed
+        hsl: convertColorToHSL(sanitizedHex),
+        hslString: convertColorToHSL(sanitizedHex, true),
+        lch,
+        lchString: convertColorToLCH(sanitizedHex, true),
+        rgb: convertColorToRGB(sanitizedHex),
+        rgbString: convertColorToRGB(sanitizedHex, true),
+        isDark: getIsDarkWCAG(sanitizedHex),
     };
 };
 
-/**
- * Use to evalute a base color as well as
- * a list of options against each other
- * @param {object} baseColorData
- * @param {array} options
- * @returns {object} evaluated base and options
- */
-export const getColorAndVariantCorrelationsData = (
-    baseColorData,
-    options = [],
-) => {
-    return {
-        base: getColorCorrelationsData(baseColorData, options),
-        variants: options.map((variant) => {
-            const otherColors = options.filter((v) => v.id !== variant.id);
-            otherColors.unshift(baseColorData);
+export const getNewColorByLightnessAdjustment = (hex, newLightness) => {
+    const sanitizedHex = getSanitizedHex(hex);
+    const baseLCH = convertColorToLCH(sanitizedHex);
+    const { l: baseLightness } = baseLCH;
+    const isLighter = newLightness > baseLightness;
+    const adjustedLCH = getAdjustedChromaAndHueWithCaps(
+        baseLCH,
+        newLightness,
+        isLighter,
+    );
 
-            return getColorCorrelationsData(variant, otherColors);
+    let newHex = convertColorToHex(adjustedLCH);
+    let newLCH = convertColorToLCH(newHex);
+
+    // Attempt to correct color to bring closer to newLightness value
+    // due to ChromaJS auto-correcting when exceeding RGB Gamut limits
+    // for hex conversion
+    if (newLCH.l !== newLightness) {
+        newLCH = { ...newLCH, l: newLightness };
+        newHex = convertColorToHex(newLCH);
+    }
+
+    return newHex;
+};
+
+export const genColorVariantsWithMetadata = ({
+    hex,
+    step = 2,
+    tokenId,
+    shouldRemoveBaseColor = false,
+}) => {
+    const sanitizedHex = getSanitizedHex(hex);
+    const { l: baseLightness } = convertColorToLCH(sanitizedHex); // l = lightness, c = chroma, h = hue
+    const lightnessValues = createVariantLightnessesArray(step);
+    const variants = lightnessValues.map((adjustedLightness) => {
+        if (adjustedLightness === baseLightness) {
+            return genColorMetadata(sanitizedHex);
+        }
+
+        const newHex = getNewColorByLightnessAdjustment(hex, adjustedLightness);
+
+        return {
+            tokenId: tokenId
+                ? `${tokenId}.${adjustedLightness}`
+                : `${adjustedLightness}`,
+            ...genColorMetadata(newHex),
+        };
+    });
+
+    if (shouldRemoveBaseColor) {
+        return variants.filter((variant) => variant.hex !== hex);
+    }
+
+    return variants;
+};
+
+export const genColorAndVariantsWithMetadata = ({
+    hex,
+    tokenId,
+    step = 2,
+    shouldRemoveBaseColorFromVariants = true,
+}) => {
+    const sanitizedHex = getSanitizedHex(hex);
+
+    return {
+        baseColor: {
+            ...genColorMetadata(sanitizedHex),
+            tokenId: tokenId ? `${tokenId}.base` : 'base',
+        },
+        variants: genColorVariantsWithMetadata({
+            hex: sanitizedHex,
+            step,
+            tokenId,
+            shouldRemoveBaseColor: shouldRemoveBaseColorFromVariants,
         }),
     };
-};
-
-/**
- * Use to generate color data for provided hex and returns
- * base color data, variant colors and compatibility results.
- * @param {string} hex - 4 or 7 digit hex (must include hash)
- * @param {number} step - must be divisible by 100 or will default to 10
- * @return {object}
- */
-export const genColorsData = ({ hex, step, tokenId }) => {
-    const baseColor = {
-        ...getColorSeedData(hex),
-        id: 'base',
-    };
-    const variantColors = getColorVariantsSeedData({ hex, step, tokenId });
-
-    return getColorAndVariantCorrelationsData(baseColor, variantColors);
 };

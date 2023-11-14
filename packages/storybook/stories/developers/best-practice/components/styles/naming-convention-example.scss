@@ -1,0 +1,25 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+// @import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-naming-convention-example {
+    .bankai-paragraph {
+        // color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt')); 
+        margin-bottom: 0;
+    }
+
+    .bankai-paragraph + .bankai-sb-code-block {
+        margin-top: bankai-to-rem($bankai-core-spacing-01-x);
+    }
+
+    + .bankai-sb-naming-convention-example {
+        margin-top: bankai-to-rem($bankai-core-spacing-06-x);
+    }
+
+    @at-root * + & {
+        margin-top: bankai-to-rem($bankai-core-spacing-06-x);
+    }
+}

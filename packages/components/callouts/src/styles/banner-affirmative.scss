@@ -1,0 +1,17 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-banner {
+    $this: &;
+
+    &#{$this}--affirmative {
+        color: var(--bankai-banner-affirmative-text-color, bankai-get-light-theme-map-value('banner-affirmative-text-color'));
+        background-color: var(--bankai-banner-affirmative-bg-color, bankai-get-light-theme-map-value('banner-affirmative-bg-color'));
+
+        #{$this}__icon {
+            color: var(--bankai-banner-affirmative-icon-color, bankai-get-light-theme-map-value('banner-affirmative-icon-color'));
+        }
+    }
+}

@@ -1,3 +1,10 @@
 export { default as Callout } from './src/Callout';
-export { default as CalloutBanner } from './src/CalloutBanner';
-export { default as VARIANTS } from './src/const/variantsConst';
+export { default as CalloutAffirmative } from './src/CalloutAffirmative';
+export { default as CalloutCautionary } from './src/CalloutCautionary';
+export { default as CalloutDanger } from './src/CalloutDanger';
+export { default as CalloutInfo } from './src/CalloutInfo';
+export { default as Banner } from './src/Banner';
+export { default as BannerAffirmative } from './src/BannerAffirmative';
+export { default as BannerCautionary } from './src/BannerCautionary';
+export { default as BannerDanger } from './src/BannerDanger';
+export { default as BannerInfo } from './src/BannerInfo';

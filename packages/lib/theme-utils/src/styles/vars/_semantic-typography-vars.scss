@@ -1,0 +1,73 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@use 'sass:math';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import './core-scales-vars.scss';
+
+// ================================================================
+// !!! DO NOT USE !!!
+// These are here simply for making it easier to reference values
+// for tokens in maps.
+// ================================================================
+// Font Families and Fallbacks
+$bankai-semantic-typography-font-family: 'Bankai UI Body';
+$bankai-semantic-typography-font-family-fallback: sans-serif;
+$bankai-semantic-typography-headings-font-family: 'Bankai UI Headings';
+$bankai-semantic-typography-headings-font-family-fallback: $bankai-semantic-typography-font-family-fallback;
+// Font Size
+$bankai-semantic-typography-font-size: 1.6rem;
+$bankai-semantic-typography-font-size-unitless: bankai-strip-unit($bankai-semantic-typography-font-size) * 10;
+// Font Size Scales
+$bankai-semantic-typography-font-size-scale: $bankai-core-typography-scale-major-second;
+$bankai-semantic-typography-mobile-font-size-scale: $bankai-core-typography-scale-major-second;
+// Font Weights
+$bankai-semantic-typography-font-weight: normal;
+$bankai-semantic-typography-headings-font-weight: bold;
+// Font Sytles
+$bankai-semantic-headings-font-style: normal;
+// Footnotes
+$bankai-semantic-typography-footnote-font-size: math.round(math.div($bankai-semantic-typography-font-size-unitless, math.pow($bankai-semantic-typography-font-size-scale, 3)));
+$bankai-semantic-typography-footnote-mobile-font-size: math.round(math.div($bankai-semantic-typography-font-size-unitless, math.pow($bankai-semantic-typography-font-size-scale, 3)));
+// Form Inputs
+$bankai-semantic-typography-form-input-font-size: math.round($bankai-semantic-typography-font-size-unitless);
+$bankai-semantic-typography-form-input-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * $bankai-semantic-typography-mobile-font-size-scale);
+// Display XLarge
+$bankai-semantic-typography-display-xlarge-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 10));
+$bankai-semantic-typography-display-xlarge-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 10));
+// Display Large
+$bankai-semantic-typography-display-large-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 9));
+$bankai-semantic-typography-display-large-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 9));
+// Display Medium
+$bankai-semantic-typography-display-medium-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 8));
+$bankai-semantic-typography-display-medium-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 8));
+// Display Small
+$bankai-semantic-typography-display-small-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 7));
+$bankai-semantic-typography-display-small-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 7));
+// H1
+$bankai-semantic-typography-headings-level1-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 6));
+$bankai-semantic-typography-headings-level1-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 6));
+// H2
+$bankai-semantic-typography-headings-level2-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 5));
+$bankai-semantic-typography-headings-level2-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 5));
+// H3
+$bankai-semantic-typography-headings-level3-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 4));
+$bankai-semantic-typography-headings-level3-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 4));
+// H4
+$bankai-semantic-typography-headings-level4-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 3));
+$bankai-semantic-typography-headings-level4-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 3));
+// H5
+$bankai-semantic-typography-headings-level5-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-font-size-scale, 2));
+$bankai-semantic-typography-headings-level5-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * math.pow($bankai-semantic-typography-mobile-font-size-scale, 2));
+// H6
+$bankai-semantic-typography-headings-level6-font-size: math.round($bankai-semantic-typography-font-size-unitless * $bankai-semantic-typography-font-size-scale);
+$bankai-semantic-typography-headings-level6-mobile-font-size: math.round($bankai-semantic-typography-font-size-unitless * $bankai-semantic-typography-font-size-scale);
+// Line Heights
+$bankai-semantic-typography-headings-line-height: 1.2;
+$bankai-semantic-typography-line-height: 1.5;
+// Small
+$bankai-semantic-typography-small-font-size: math.round(math.div($bankai-semantic-typography-font-size-unitless, $bankai-semantic-typography-font-size-scale));
+$bankai-semantic-typography-small-mobile-font-size: math.round(math.div($bankai-semantic-typography-font-size-unitless, $bankai-semantic-typography-mobile-font-size-scale));
+// Sub-Text
+$bankai-semantic-typography-sub-text-font-size: math.round(math.div($bankai-semantic-typography-font-size-unitless, math.pow($bankai-semantic-typography-font-size-scale, 2)));
+$bankai-semantic-typography-sub-text-mobile-font-size: math.round(math.div($bankai-semantic-typography-font-size-unitless, math.pow($bankai-semantic-typography-font-size-scale, 2)));

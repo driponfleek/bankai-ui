@@ -1,0 +1,43 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-tile, %bankai-tile {
+    @include bankai-shadow-elevation-low;
+    background-color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
+    border-radius: var(--bankai-tile-border-radius, bankai-get-light-theme-map-value('tile-border-radius'));
+
+    // &__heading-container {
+    //     border-bottom: var(--bankai-tile-heading-border-width, bankai-get-light-theme-map-value('tile-heading-border-width')) solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+    // }
+
+    &__heading-container,
+    &__content-container,
+    &__content-container-inner {
+        box-sizing: border-box;
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__heading {
+        @include bankai-h5;
+        font-weight: var(--bankai-tile-heading-font-weight, bankai-get-light-theme-map-value('tile-heading-font-weight'));
+        font-style: var(--bankai-tile-heading-font-style, bankai-get-light-theme-map-value('tile-heading-font-style'));
+    }
+
+    &__heading-container,
+    &--pad-content &__content-container-inner {
+        padding: bankai-to-rem($bankai-core-spacing-03-x) bankai-to-rem($bankai-core-spacing-04-x);
+    }
+}

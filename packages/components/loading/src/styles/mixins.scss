@@ -4,7 +4,7 @@
 @import './animations.scss';
 
 @mixin bankai-loading-grid-gap {
-    gap: calc(1ex / 10);
+    gap: calc(1ex / 10.6);
 }
 
 @mixin bankai-loading-grid-item-dimensions {

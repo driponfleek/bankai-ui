@@ -1,0 +1,9 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-badge.bankai-badge--danger {
+    color: var(--bankai-badge-error-text-color, bankai-get-light-theme-map-value('badge-error-text-color'));
+    background-color: var(--bankai-badge-error-bg-color, bankai-get-light-theme-map-value('badge-error-bg-color'));
+}

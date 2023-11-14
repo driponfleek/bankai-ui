@@ -1,9 +1,9 @@
-# @epr0t0type/bankai-lib-color-utils
+# @driponfleek/bankai-lib-color-utils
 Utilities for dealing with color.
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-lib-color-utils
+npm i @driponfleek/bankai-lib-color-utils
 ```
 
 ## Usage
@@ -11,14 +11,14 @@ npm i @epr0t0type/bankai-lib-color-utils
 ### Color Data Utils
 ```
 import {
-    getColorSeedData,
+    genColorSeedData,
     getColorLightness,
     getNewColorByChangingLightness,
     getColorVariantsSeedData,
-    getColorCorrelationsData,
-    getColorAndVariantCorrelationsData,
+    getColorCorrelations,
+    getPreferredColorAndVariantsCorrelations,
     genColorsData,
-} from '@epr0t0type/bankai-lib-color-utils';
+} from '@driponfleek/bankai-lib-color-utils';
 ```
 
 ### Color Format Conversion Utils
@@ -27,7 +27,7 @@ import {
     convertColorToHSL,
     convertColorToHex,
     convertColorToRGB,
-} from '@epr0t0type/bankai-lib-color-utils';
+} from '@driponfleek/bankai-lib-color-utils';
 ```
 
 ### Evaluation Utils
@@ -35,25 +35,25 @@ import {
 import {
     isValidHexColor,
     fixHexMissingHash,
-    getColorContrastRatio,
-    getUserFriendlyRatio,
-    getIsReadable,
-    getIsValidNonTextContrast,
-    evaluateColorCompatibilities,
+    getColorContrast,
+    getReadableContrastRatio,
+    getIsA11yReadable,
+    getIsA11yForUI,
+    getControlVsOptionsA11yEvals,
     getDarkerColor,
-} from '@epr0t0type/bankai-lib-color-utils';
+} from '@driponfleek/bankai-lib-color-utils';
 ```
 
 ### Recommendation Utils
 ```
-import { getRecommendedColor } from '@epr0t0type/bankai-lib-color-utils';
+import { getRecommendedColor } from '@driponfleek/bankai-lib-color-utils';
 ```
 
 ### tinycolor2
 The `tinycolor2` library is also exported for your convenience if you should need something beyond what is provided here.
 
 ```
-import { tinycolor2 } from '@epr0t0type/bankai-lib-color-utils';
+import { tinycolor2 } from '@driponfleek/bankai-lib-color-utils';
 ```
 
 ## Built With

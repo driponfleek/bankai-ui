@@ -1,11 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 
 .bankai-tabs-list, %bankai-tabs-list {
     @include bankai-flex-row;

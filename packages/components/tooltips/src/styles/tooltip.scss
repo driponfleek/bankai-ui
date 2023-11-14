@@ -1,0 +1,59 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import 'tippy.js/dist/tippy.css';
+
+.bankai-tooltip, %bankai-tooltip {
+    box-sizing: border-box;
+    display: inline-block;
+
+    &__trigger {
+        @include bankai-button-reset;
+        @include bankai-focus-state-halo;
+        @include bankai-disabled-state;
+        box-sizing: border-box;
+        display: inline-block;
+    }
+
+    &__content-container {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &[data-theme~='bankai'] {
+        @include bankai-shadow-elevation-high;
+        background-color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
+        border-radius: var(--bankai-tooltip-border-radius, bankai-get-light-theme-map-value('tooltip-border-radius'));
+        font-size: inherit;
+
+        &.tippy-box {
+            color: inherit;
+        }
+
+        > .tippy-content {
+            @include bankai-sub-text;
+            padding: bankai-to-rem($bankai-core-spacing-04-x);
+        }
+
+        > .tippy-arrow {
+            color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
+
+            &::before {
+                transform: scale(2);
+            }
+        }
+    }
+}

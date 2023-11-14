@@ -1,0 +1,45 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-do-and-do-not-do {
+    container: do-and-do-not-do / inline-size;
+    $this: &;
+
+    &__inner {
+        @include bankai-flex-column;
+        gap: #{bankai-to-px($bankai-core-spacing-04-x)};
+    }
+
+    &__list-container {
+        @include bankai-flex-row;
+    }
+
+    &__list {
+        min-width: 1px;
+        flex: 1 1 auto;
+    }
+
+    &--side-by-side {
+        @container do-and-do-not-do (max-width: 587px) {
+            #{$this}__inner {
+                @include bankai-flex-column;
+            }
+        }
+    
+        @container do-and-do-not-do (min-width: 588px) {
+            #{$this}__inner {
+                @include bankai-flex-row;
+
+                > * {
+                    width: 50%;
+                    flex: 1 1 auto;
+                }
+            }
+        }
+
+    }
+}
