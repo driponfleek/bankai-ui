@@ -1,0 +1,41 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-color-design-token-list-item {
+    $this: '.bankai-sb-color-design-token-list-item';
+
+    .bankai-list-item {
+        &__after-content {
+            @include bankai-flex-column;
+        }
+    }
+
+    &__copy-btn {
+        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        margin: auto 0;
+
+        .bankai-button {
+            &__content-container {
+                padding: bankai-to-px($bankai-core-spacing-02-x);
+            }
+                
+            &__content-container,
+            &__icon-container,
+            &__icon-container-safe-space,
+            &__icon-container-inner {
+                display: block;
+            }
+        }
+
+        &--copied {
+            color: var(--bankai-banner-affirmative-icon-color, bankai-get-light-theme-map-value('banner-affirmative-icon-color'));
+            background-color: var(--bankai-banner-affirmative-bg-color, bankai-get-light-theme-map-value('banner-affirmative-bg-color'));
+            border-radius: var(--bankai-btn-border-radius, bankai-get-light-theme-map-value('btn-border-radius'));
+        }
+    }
+}

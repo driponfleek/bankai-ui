@@ -1,0 +1,123 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import 'react-toastify/dist/ReactToastify.css';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-toaster, %bankai-toaster {
+    @include bankai-shadow-elevation-high;
+    color: var(--bankai-toaster-text-color, bankai-get-light-theme-map-value('toaster-text-color'));
+    background-color: var(--bankai-toaster-bg-color, bankai-get-light-theme-map-value('toaster-bg-color'));
+    border-radius: var(--bankai-toaster-border-radius, bankai-get-light-theme-map-value('toaster-border-radius'));
+    padding: 0;
+
+    // stylelint-disable-next-line
+    .Toastify__toast-body {
+        padding: 0;
+    }
+
+    [class*='progress-bar'] {
+        background: var(--bankai-toaster-progress-bar-color, bankai-get-light-theme-map-value('toaster-progress-bar-color'));
+    }
+
+    &__close-btn {
+        color: inherit;
+        background-color: transparent;
+        align-self: flex-start;
+        border-radius: 0 var(--bankai-toaster-border-radius, bankai-get-light-theme-map-value('toaster-border-radius')) 0 0;
+
+        .bankai-button__content-container {
+            padding: bankai-to-rem($bankai-core-spacing-01-x);
+        }
+
+        .bankai-button__icon {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__content-container {
+        @include bankai-flex-row;
+    }
+
+    &__icon-container {
+        @include bankai-flex-row;
+        width: 70px;
+        min-height: 50px;
+        flex: 0 0 auto;
+    }
+
+    &__icon-safe-space {
+        width: 1em;
+        height: 1em;
+        font-size: 3rem;
+        margin: auto;
+    }
+
+    &__icon {
+        font-size: inherit;
+    }
+
+    &__icon-container,
+    &__icon-safe-space,
+    &__icon {
+        line-height: 0;
+    }
+
+    &__msg-container {
+        min-width: 1px;
+        padding: bankai-to-rem($bankai-core-spacing-02-x);
+        flex: 1 1 auto;
+    }
+
+    &__title {
+        @include bankai-h5;
+        font-weight: bold;
+    }
+
+    &__msg {
+        @include bankai-max-line-width;
+        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        margin: 0;
+    }
+
+    &--error {
+        color: var(--bankai-toaster-error-text-color, bankai-get-light-theme-map-value('toaster-error-text-color'));
+        background-color: var(--bankai-toaster-error-bg-color, bankai-get-light-theme-map-value('toaster-error-bg-color'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-toaster-error-progress-bar-color, bankai-get-light-theme-map-value('toaster-error-progress-bar-color'));
+        }
+    }
+
+    &--info {
+        color: var(--bankai-toaster-info-text-color, bankai-get-light-theme-map-value('toaster-info-text-color'));
+        background-color: var(--bankai-toaster-info-bg-color, bankai-get-light-theme-map-value('toaster-info-bg-color'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-toaster-info-progress-bar-color, bankai-get-light-theme-map-value('toaster-info-progress-bar-color'));
+        }
+    }
+
+    &--success {
+        color: var(--bankai-toaster-affirmative-text-color, bankai-get-light-theme-map-value('toaster-affirmative-text-color'));
+        background-color: var(--bankai-toaster-affirmative-bg-color, bankai-get-light-theme-map-value('toaster-affirmative-bg-color'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-toaster-affirmative-progress-bar-color, bankai-get-light-theme-map-value('toaster-affirmative-progress-bar-color'));
+        }
+    }
+
+    &--warning {
+        color: var(--bankai-toaster-cautionary-text-color, bankai-get-light-theme-map-value('toaster-cautionary-text-color'));
+        background-color: var(--bankai-toaster-cautionary-bg-color, bankai-get-light-theme-map-value('toaster-cautionary-bg-color'));
+
+        [class*='progress-bar'] {
+            background: var(--bankai-toaster-cautionary-progress-bar-color, bankai-get-light-theme-map-value('toaster-cautionary-progress-bar-color'));
+        }
+    }
+}

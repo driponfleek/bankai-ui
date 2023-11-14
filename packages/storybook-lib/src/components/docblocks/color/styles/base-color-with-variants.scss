@@ -1,0 +1,69 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-base-color-with-variants {
+    $this: &;
+    
+    &--standard {
+        container: base-color-with-variants / inline-size;
+
+        #{$this}__inner {
+            @include bankai-flex-row;
+            max-width: 747px;
+            flex-wrap: wrap;
+
+        }
+
+        #{$this}__base-container {
+            @include bankai-flex-row;
+            max-width: 100%;
+            flex: 1 0 auto;
+
+            .bankai-sb-color-swatch {
+                @include bankai-flex-column;
+                min-width: 185px;
+                flex: 1 0 auto;
+
+                &__inner {
+                    padding-top: bankai-to-rem($bankai-core-spacing-10-x);
+                    margin-top: auto;
+                }
+    
+                &__details-main {
+                    @include bankai-h3;
+                }
+            }
+        }
+            
+        @container base-color-with-variants (min-width: 555px) and (max-width: 746px) {
+            #{$this}__inner {
+                max-width: 555px;
+            }
+        }
+            
+        @container base-color-with-variants (min-width: 370px) and (max-width: 554px) {
+            #{$this}__inner {
+                max-width: 370px;
+            }
+        }
+            
+        @container base-color-with-variants (max-width: 369px) {
+            #{$this}__inner {
+                max-width: 185px;
+            }
+        }
+    }
+
+    &--fancy {
+        #{$this}__inner {
+            @include bankai-flex-row;
+            gap: bankai-to-px($bankai-core-spacing-08-x);
+            flex-wrap: wrap;
+        }
+    }
+}

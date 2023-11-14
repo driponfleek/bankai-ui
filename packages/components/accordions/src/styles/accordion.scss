@@ -1,27 +1,24 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 
 .bankai-accordion, %bankai-accordion {
-    .bankai-accordion-item {
-        // @include bankai-shadow-elevation-low;
-        background-color: var(--bankai-accordion-bg-color, #{bankai-light-theme('accordion-bg-color')});
-        border: var(--bankai-border-width, #{bankai-light-theme('accordion-border-width')}) solid var(--bankai-core-color-universal-decorative-border, #{bankai-light-theme('core-color-universal-decorative-border')});
-        border-radius: var(--bankai-accordion-border-radius, bankai-light-theme('accordion-border-radius'));
+    .bankai-accordion__item {
+        @include bankai-shadow-elevation-low;
+        box-sizing: border-box;
+        background-color: var(--bankai-accordion-bg-color, #{bankai-get-light-theme-map-value('accordion-bg-color')});
+        border-radius: var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius'));
     }
 
-    .bankai-accordion-item-panel {
-        // background-color: var(--bankai-core-color-canvas-alt, #{bankai-light-theme('core-color-canvas-alt')});
-        border-radius: 0 0 var(--bankai-accordion-border-radius, bankai-light-theme('accordion-border-radius')) var(--bankai-accordion-border-radius, bankai-light-theme('accordion-border-radius'));
+    .bankai-accordion__item-panel {
+        border-radius: 0 0 var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius')) var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius'));
     }
 
-    .bankai-accordion-item + .bankai-accordion-item {
-        margin-top: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
+    .bankai-accordion__item + .bankai-accordion__item {
+        margin-top: #{bankai-to-rem($bankai-core-spacing-03-x)};
     }
 }

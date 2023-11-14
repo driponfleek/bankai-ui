@@ -2,71 +2,85 @@
 // Dependencies
 // ========================================================
 @use 'sass:math';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../tokens/style-tokens.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@import '../tokens/semantic-typography-tokens.scss';
 
 @mixin bankai-line-height($isHeading: false) {
     @if $isHeading {
-        line-height: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height');
+        line-height: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height');
     } @else {
-        line-height: bankai-get-map-value($bankai-style-tokens, 'core-core-typography-line-height');
+        line-height: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-line-height');
     }
 }
 
-@mixin bankai-max-line-width($lineheight: bankai-get-map-value($bankai-style-tokens, 'core-typography-line-height')) {
-    // $div-form: 1em / #{$lineheight};
+@mixin bankai-max-line-width($lineheight: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-line-height')) {
+    // Reference: https://medium.com/@zkareemz/golden-ratio-62b3b6d4282a
     $div-formula: math.div(1em, $lineheight); // font-size divided by lineheight
     max-width: calc(70 * #{$div-formula}); // max characters * (font-size / line-height)
 }
 
 @mixin bankai-heading-font-shared() {
     box-sizing: border-box;
-    font-family: var(--bankai-core-typography-headings-font-family, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family')), var(--bankai-core-typography-headings-font-family-fallback, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family-fallback'));
-    font-style: var(--bankai-core-typography-headings-font-style, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-style'));
-    font-weight: var(--bankai-core-typography-headings-font-weight, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-weight'));
-    line-height: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height');
+    font-family: var(--bankai-semantic-typography-headings-font-family, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-family')), var(--bankai-semantic-typography-headings-font-family-fallback, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-family-fallback'));
+    font-style: var(--bankai-semantic-typography-headings-font-style, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-style'));
+    font-weight: var(--bankai-semantic-typography-headings-font-weight, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-weight'));
+    line-height: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height');
     margin: 0;
 }
 
 @mixin bankai-body-font-shared() {
-    font-family: var(--bankai-core-typography-body-font, bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family'), bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family-fallback'));
-    line-height: bankai-get-map-value($bankai-style-tokens, 'core-typography-line-height');
+    font-family: var(--bankai-semantic-typography-body-font, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-font-family'), bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-font-family-fallback'));
+    line-height: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-line-height');
 }
 
 @mixin bankai-h1() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
-    font-size: var(--bankai-core-typography-headings-level1-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level1-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height'));
+    font-size: var(--bankai-semantic-typography-headings-level1-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-level1-font-size'));
 }
 
 @mixin bankai-h2() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
-    font-size: var(--bankai-core-typography-headings-level2-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level2-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height'));
+    font-size: var(--bankai-semantic-typography-headings-level2-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-level2-font-size'));
 }
 
 @mixin bankai-h3() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
-    font-size: var(--bankai-core-typography-headings-level3-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level3-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height'));
+    font-size: var(--bankai-semantic-typography-headings-level3-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-level3-font-size'));
 }
 
 @mixin bankai-h4() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
-    font-size: var(--bankai-core-typography-headings-level4-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level4-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height'));
+    font-size: var(--bankai-semantic-typography-headings-level4-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-level4-font-size'));
 }
 
 @mixin bankai-h5() {
     @include bankai-heading-font-shared;
-    @include bankai-max-line-width(bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-line-height'));
-    font-size: var(--bankai-core-typography-headings-level5-font-size, bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-level5-font-size'));
+    @include bankai-max-line-width(bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height'));
+    font-size: var(--bankai-semantic-typography-headings-level5-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-level5-font-size'));
+}
+
+@mixin bankai-h6() {
+    @include bankai-heading-font-shared;
+    @include bankai-max-line-width(bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-line-height'));
+    font-size: var(--bankai-semantic-typography-headings-level6-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-level6-font-size'));
 }
 
 @mixin bankai-sub-text() {
-    font-size: var(--bankai-core-typography-sub-text-font-size, bankai-to-rem(bankai-get-map-value($bankai-style-tokens, 'core-typography-sub-text-font-size')));
+    font-size: var(--bankai-semantic-typography-sub-text-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-sub-text-font-size'));
+}
+
+@mixin bankai-small() {
+    font-size: var(--bankai-semantic-typography-small-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-small-font-size'));
 }
 
 @mixin bankai-footnote() {
-    font-size: var(--bankai-core-typography-footnote-font-size, bankai-to-rem(bankai-get-map-value($bankai-style-tokens, 'core-typography-footnote-font-size')));
+    font-size: var(--bankai-semantic-typography-footnote-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-footnote-font-size'));
+}
+
+@mixin bankai-form-input-font-size() {
+    font-size: var(--bankai-semantic-typography-form-input-font-size, bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-form-input-font-size'));
 }

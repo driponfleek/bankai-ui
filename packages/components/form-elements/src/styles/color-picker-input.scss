@@ -1,19 +1,23 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 @import './mixins.scss';
 
-.bankai-color-picker-input {
+.bankai-color-picker-input, %bankai-color-picker-input {
     @include bankai-inline-flex-row;
     position: relative;
-    $bankai-form-border-style: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
-    $bankai-form-border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
+    $bankai-form-border-style: 1px solid var(--bankai-semantic-color-universal-accessible-border, bankai-get-light-theme-map-value('semantic-color-universal-accessible-border'));
+    $bankai-form-border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
     $this: '.bankai-color-picker-input';
+
+    > * {
+        margin: auto 0;
+    }
 
     &__input-container {
         min-width: 1px;
@@ -54,10 +58,8 @@
     &__trigger-swatch {
         display: block;
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#position_properties
+        inset: 0;
     }
 
     .bankai-color-picker {
@@ -67,7 +69,7 @@
     &__picker-container {
         position: absolute;
         top: calc(100% + 3px);
-        z-index: 2;
+        z-index: 3;
     }
 
     &--should-open-up {
@@ -85,7 +87,8 @@
 
     &--has-error {
         #{$this}__trigger {
-            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-get-light-theme-map-value('form-input-error-border-color'));
         }
     }
 }
+

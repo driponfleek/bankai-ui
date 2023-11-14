@@ -5,6 +5,7 @@ export { default as LoadingSkeleton } from './src/LoadingSkeleton';
 export { default as LoadingSpheres } from './src/LoadingSpheres';
 export { default as LoadingSpinners } from './src/LoadingSpinners';
 export { default as LoadingSquares } from './src/LoadingSquares';
+export { default as LoadingErrorState } from './src/LoadingErrorState';
 export { default as LoadingState } from './src/LoadingState';
 export {
     LOADING_BARS_VARIANTS,

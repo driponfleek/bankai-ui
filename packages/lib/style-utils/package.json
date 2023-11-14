@@ -1,22 +1,29 @@
 {
     "author": "dyearwood@envisionedprototype.com",
+    "description": "SASS Utilities for Common Styling Patterns",
+    "devDependencies": {
+        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+    },
+    "exports": {
+        ".": "./index.scss",
+        "./src/styles/*.scss": "./src/styles/*.scss"
+    },
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@driponfleek/bankai-lib-style-utils",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/driponfleek"
+    },
+    "repository": {
+        "directory": "packages/lib/style-utils",
+        "type": "git",
+        "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
+    },
     "sideEffects": [
         "**/*.css",
         "**/*.scss",
         "**/*.css.js",
         "**/*.scss.js"
     ],
-    "description": "SASS Utilities for Common Styling Patterns",
-    "license": "MIT",
-    "main": "index.js",
-    "name": "@epr0t0type/bankai-lib-style-utils",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/epr0t0type"
-    },
-    "repository": {
-        "directory": "packages/lib/style-utils",
-        "type": "git",
-        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
-    },
-    "version": "0.0.0"
+    "version": "0.1.0"
 }

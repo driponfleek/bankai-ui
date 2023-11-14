@@ -1,8 +1,0 @@
-// ========================================================
-// Dependencies
-// ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-
-.bankai-sb-paragraph {
-    @include bankai-max-line-width;
-}

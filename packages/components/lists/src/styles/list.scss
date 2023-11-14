@@ -1,13 +1,13 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-list, %bankai-list {
     @include bankai-list-reset;
 
     &__li + &__li {
-        border-top: 1px solid var(--bankai-core-color-universal-decorative-border, bankai-light-theme('core-color-universal-decorative-border'));
+        border-top: 1px solid var(--bankai-semantic-color-universal-decorative-border, bankai-get-light-theme-map-value('semantic-color-universal-decorative-border'));
     }
 }

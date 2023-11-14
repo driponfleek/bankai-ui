@@ -1,16 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 
 .bankai-tab, %bankai-tab {
     @include bankai-focus-state-halo;
-    color: var(--bankai-tabs-inactive-text-color, bankai-light-theme('tabs-inactive-text-color'));
+    color: var(--bankai-tabs-inactive-text-color, bankai-get-light-theme-map-value('tabs-inactive-text-color'));
     box-sizing: border-box;
     user-select: none;
 
@@ -43,7 +42,7 @@
 
     &__icon-container,
     &__text-container {
-        padding: 0 #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
+        padding: 0 bankai-to-rem($bankai-core-spacing-01-x);
         vertical-align: middle;
         margin: auto 0;
         display: inline-block;
@@ -56,10 +55,10 @@
     }
 
     &__text {
-        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
+        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
     }
 
     &--is-active:focus-visible {
-        @include bankai-focus-state-box-shadow(var(--bankai-tabs-active-focus-halo-color, bankai-light-theme('tabs-active-focus-halo-color')));
+        @include bankai-focus-state-inner-outer-box-shadow(var(--bankai-tabs-active-focus-halo-inner-color, bankai-get-light-theme-map-value('tabs-active-focus-halo-inner-color')), var(--bankai-tabs-active-focus-halo-outer-color, bankai-get-light-theme-map-value('tabs-active-focus-halo-outer-color')));
     }
 }

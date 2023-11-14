@@ -1,0 +1,7 @@
+export const LIST_TOKEN_NAMES = {
+    LIST_BORDER_WIDTH: 'LIST_BORDER_WIDTH',
+};
+
+export const LIST_TOKEN_DEFAULTS = {
+    LIST_BORDER_WIDTH: 1,
+};
