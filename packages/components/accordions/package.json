@@ -6,7 +6,7 @@
         "@driponfleek/bankai-ui-icons": "^0.1.0",
         "react-accessible-accordion": "5.0.0"
     },
-    "description": "Bankai accordions",
+    "description": "Bankai UI accordions",
     "devDependencies": {
         "@driponfleek/bankai-lib-react-unit-test-utils": "^0.1.0"
     },

@@ -76,9 +76,9 @@
         background-color: var(--bankai-btn-primary-bg-color, bankai-get-light-theme-map-value('btn-primary-bg-color'));
         border-color: var(--bankai-btn-primary-border-color, bankai-get-light-theme-map-value('btn-primary-border-color'));
 
-        &:focus-visible {
-            @include bankai-button-primary-focus-visible;
-        }
+        // &:focus-visible {
+        //     @include bankai-button-primary-focus-visible;
+        // }
 
         &:not(#{$this}--disabled):active {
             @include bankai-button-primary-active;
@@ -96,9 +96,9 @@
         background-color: var(--bankai-btn-secondary-bg-color, bankai-get-light-theme-map-value('btn-secondary-bg-color'));
         border-color: var(--bankai-btn-secondary-border-color, bankai-get-light-theme-map-value('btn-secondary-border-color'));
 
-        &:focus-visible {
-            @include bankai-button-secondary-focus-visible;
-        }
+        // &:focus-visible {
+        //     @include bankai-button-secondary-focus-visible;
+        // }
 
         &:not(#{$this}--disabled):active {
             @include bankai-button-secondary-active;
@@ -116,9 +116,9 @@
         background-color: var(--bankai-btn-primary-destructive-bg-color, bankai-get-light-theme-map-value('btn-primary-destructive-bg-color'));
         border-color: var(--bankai-btn-primary-destructive-border-color, bankai-get-light-theme-map-value('btn-primary-destructive-border-color'));
 
-        &:focus-visible {
-            @include bankai-button-destructive-focus-visible;
-        }
+        // &:focus-visible {
+        //     @include bankai-button-destructive-focus-visible;
+        // }
 
         &:not(#{$this}--disabled):active {
             @include bankai-button-primary-destructive-active;
@@ -136,9 +136,9 @@
         background-color: var(--bankai-btn-secondary-destructive-bg-color, bankai-get-light-theme-map-value('btn-secondary-destructive-bg-color'));
         border-color: var(--bankai-btn-secondary-destructive-border-color, bankai-get-light-theme-map-value('btn-secondary-destructive-border-color'));
 
-        &:focus-visible {
-            @include bankai-button-destructive-focus-visible;
-        }
+        // &:focus-visible {
+        //     @include bankai-button-destructive-focus-visible;
+        // }
 
         &:not(#{$this}--disabled):active {
             @include bankai-button-secondary-destructive-active;
