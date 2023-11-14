@@ -1,5 +1,5 @@
+import { getBtnVariantModCls } from '../buttonUtils';
 import { VARIANTS } from '../../const/variantsConst';
-import { getBtnModCls } from '../buttonUtils';
 
 const baseCls = 'bankai-button';
 const { PRIMARY, PRIMARY_DESTRUCTIVE, SECONDARY, SECONDARY_DESTRUCTIVE } =
@@ -13,7 +13,7 @@ describe('getBtnModCls', () => {
             [`${baseCls}--primary-destructive`]: false,
             [`${baseCls}--secondary-destructive`]: false,
         };
-        const result = getBtnModCls(PRIMARY, baseCls);
+        const result = getBtnVariantModCls(PRIMARY, baseCls);
 
         expect(result).toEqual(expected);
     });
@@ -25,7 +25,7 @@ describe('getBtnModCls', () => {
             [`${baseCls}--primary-destructive`]: false,
             [`${baseCls}--secondary-destructive`]: false,
         };
-        const result = getBtnModCls(SECONDARY, baseCls);
+        const result = getBtnVariantModCls(SECONDARY, baseCls);
 
         expect(result).toEqual(expected);
     });
@@ -37,7 +37,7 @@ describe('getBtnModCls', () => {
             [`${baseCls}--primary-destructive`]: true,
             [`${baseCls}--secondary-destructive`]: false,
         };
-        const result = getBtnModCls(PRIMARY_DESTRUCTIVE, baseCls);
+        const result = getBtnVariantModCls(PRIMARY_DESTRUCTIVE, baseCls);
 
         expect(result).toEqual(expected);
     });
@@ -49,7 +49,7 @@ describe('getBtnModCls', () => {
             [`${baseCls}--primary-destructive`]: false,
             [`${baseCls}--secondary-destructive`]: true,
         };
-        const result = getBtnModCls(SECONDARY_DESTRUCTIVE, baseCls);
+        const result = getBtnVariantModCls(SECONDARY_DESTRUCTIVE, baseCls);
 
         expect(result).toEqual(expected);
     });

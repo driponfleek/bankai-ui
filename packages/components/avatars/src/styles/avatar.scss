@@ -1,22 +1,21 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-avatar, %bankai-avatar {
     @include bankai-flex-row;
     width: 1em;
     height: 1em;
-    color: var(--bankai-avatar-text-color, bankai-light-theme('avatar-text-color'));
-    background-color: var(--bankai-avatar-bg-color, bankai-light-theme('avatar-bg-color'));
+    color: var(--bankai-avatar-text-color, bankai-get-light-theme-map-value('avatar-text-color'));
+    background-color: var(--bankai-avatar-bg-color, bankai-get-light-theme-map-value('avatar-bg-color'));
     box-sizing: border-box;
     border-radius: 100%;
     font-size: 50px;
     text-align: center;
 
     &__inner {
-        // width: 1em;
         height: 1em;
         font-size: calc(1em * 0.44);
         line-height: 1;
@@ -31,6 +30,6 @@
     }
 
     &--has-border {
-        border: Min(0.04em, 1px) solid var(--bankai-avatar-border-color, bankai-light-theme('avatar-border-color'));
+        border: Min(0.04em, 1px) solid var(--bankai-avatar-border-color, bankai-get-light-theme-map-value('avatar-border-color'));
     }
 }

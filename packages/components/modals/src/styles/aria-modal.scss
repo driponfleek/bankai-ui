@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-aria-modal, %bankai-aria-modal {
     $this: '.bankai-aria-modal';
@@ -11,7 +11,7 @@
         @include bankai-scroll-y;
         width: 100%;
         height: 100%;
-        background-color: var(--bankai-modal-overlay-bg-color, bankai-light-theme('modal-overlay-bg-color'));
+        background-color: var(--bankai-modal-overlay-bg-color, bankai-get-light-theme-map-value('modal-overlay-bg-color'));
         box-sizing: border-box;
         position: fixed;
         top: 0;
@@ -21,7 +21,7 @@
 
     &__dialog {
         max-width: 100%;
-        background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
+        background-color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
         box-sizing: border-box;
         cursor: default;
         display: block;

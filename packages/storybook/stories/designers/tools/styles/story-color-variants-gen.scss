@@ -1,0 +1,14 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+
+.bankai-sb-color-variant-generator {
+    $this: &;
+
+    &__settings-container {
+        > * {
+            margin: auto 0;
+        }
+    }
+}

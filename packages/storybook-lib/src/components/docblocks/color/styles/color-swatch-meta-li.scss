@@ -1,0 +1,17 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-color-swatch__meta-list-item {
+    $this: &;
+    
+    &--contrast-ratio {
+        text-align: right;
+
+        @at-root * + & {
+            margin-top: bankai-to-rem($bankai-core-spacing-02-x);
+        }
+    }
+}

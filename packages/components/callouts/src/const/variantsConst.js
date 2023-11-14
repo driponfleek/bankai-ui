@@ -1,6 +1,6 @@
 export default {
     AFFIRMATIVE: 'AFFIRMATIVE',
     CAUTIONARY: 'CAUTIONARY',
-    ERROR: 'ERROR',
+    DANGER: 'DANGER',
     INFO: 'INFO',
 };

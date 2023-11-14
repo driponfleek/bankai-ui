@@ -1,0 +1,16 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:color';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+
+.bankai-sb-component-preview {
+    background-color: var(--bankai-semantic-color-canvas-alt, bankai-get-light-theme-map-value('semantic-color-canvas-alt'));
+    border: 1px solid var(--bankai-semantic-color-universal-decorative-border, bankai-get-light-theme-map-value('semantic-color-universal-decorative-border'));
+    border-radius: #{bankai-to-px($bankai-core-system-scale)};
+    // box-shadow: inset 0 1px 3px 1px color.change(bankai-get-light-theme-map-value('core-color-neutral-0'), $alpha: 0.1);
+    box-sizing: border-box;
+    padding: #{bankai-to-rem($bankai-core-system-scale * 4)};
+}

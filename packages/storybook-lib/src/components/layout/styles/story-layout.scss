@@ -1,0 +1,99 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/index.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+// stylelint-disable-next-line selector-max-id
+html,
+body,
+#root,
+#storybook-root {
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sb-show-main.sb-main-padded {
+    padding: 0;
+}
+
+.bankai-sb-layout {
+    @include bankai-scroll-y;
+    height: 100%;
+    background-color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
+    box-sizing: border-box;
+    $this: &;
+
+    &__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    &__header {
+        box-sizing: border-box;
+        padding: bankai-to-rem($bankai-core-spacing-08-x) bankai-to-rem($bankai-core-spacing-08-x) bankai-to-rem($bankai-core-spacing-04-x);
+    }
+
+    &__content {
+        box-sizing: border-box;
+        padding: bankai-to-rem($bankai-core-spacing-08-x);
+    }
+
+    &__header + &__content {
+        padding-top: bankai-to-rem($bankai-core-spacing-04-x);
+    }
+
+    .bankai-sb-section + .bankai-sb-section {
+        margin-top: bankai-to-px($bankai-core-spacing-11-x);
+    }
+
+    * + .bankai-sb-code-block,
+    .bankai-sb-code-block + *,
+    * + .bankai-sb-banner,
+    .bankai-sb-banner + * {
+        margin-top: bankai-to-rem($bankai-core-spacing-07-x);
+    }
+
+    * + &__package-badges {
+        margin-top: bankai-to-px($bankai-core-spacing-02-x);
+    }
+
+    &__header-sub-title {
+        @include bankai-sub-text;
+        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        font-style: italic;
+        margin: 0;
+    }
+
+    * + .bankai-sb-collapsible-dt-section,
+    .bankai-sb-collapsible-dt-section + * {
+        margin-top: bankai-to-rem($bankai-core-spacing-07-x);
+    }
+
+    * + .bankai-sb-base-color-with-variants,
+    .bankai-sb-base-color-with-variants + * {
+        margin-top: bankai-to-rem($bankai-core-spacing-09-x);
+    }
+
+    .bankai-list__item > * + .bankai-list {
+        margin-top: 0.8rem;
+    }
+
+    @include bankai-breakpoint-max-only($bankai-s-min) {
+        &__header {
+            padding: bankai-to-rem($bankai-core-spacing-08-x) bankai-to-rem($bankai-core-spacing-04-x) bankai-to-rem($bankai-core-spacing-04-x);
+        }
+
+        &__content {
+            box-sizing: border-box;
+            padding: bankai-to-rem($bankai-core-spacing-08-x) bankai-to-rem($bankai-core-spacing-04-x);
+        }
+    }
+}

@@ -1,4 +1,4 @@
-# @epr0t0type/bankai-ui-tabs
+# @driponfleek/bankai-ui-tabs
 Tab components for your UIs.
 
 ## Getting Started
@@ -8,8 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
+    "@driponfleek/bankai-lib-style-utils": "^0.1.0",
+    "@driponfleek/bankai-lib-theme-utils": "^0.1.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "18",
@@ -20,7 +20,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-ui-tabs
+npm i @driponfleek/bankai-ui-tabs
 ```
 
 ## Usage
@@ -29,42 +29,42 @@ npm i @epr0t0type/bankai-ui-tabs
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { Tabs, VARIANTS } from '@epr0t0type/bankai-ui-tabs';
+import { Tabs, VARIANTS } from '@driponfleek/bankai-ui-tabs';
 ```
 
 ### TabsWrapper
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { TabsWrapper } from '@epr0t0type/bankai-ui-tabs';
+import { TabsWrapper } from '@driponfleek/bankai-ui-tabs';
 ```
 
 ### TabsList
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { TabsList } from '@epr0t0type/bankai-ui-tabs';
+import { TabsList } from '@driponfleek/bankai-ui-tabs';
 ```
 
 ### Tab
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { Tab } from '@epr0t0type/bankai-ui-tabs';
+import { Tab } from '@driponfleek/bankai-ui-tabs';
 ```
 
 ### TabPanel
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { TabPanel } from '@epr0t0type/bankai-ui-tabs';
+import { TabPanel } from '@driponfleek/bankai-ui-tabs';
 ```
 
 ### TabPanelContentComposer
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { TabPanelContentComposer } from '@epr0t0type/bankai-ui-tabs';
+import { TabPanelContentComposer } from '@driponfleek/bankai-ui-tabs';
 ```
 
 ## Built With

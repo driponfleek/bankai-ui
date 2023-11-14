@@ -1,18 +1,20 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
 
 .bankai-modal, %bankai-modal {
     @include bankai-flex-column;
     @include bankai-breakpoint-min-only($bankai-s-min) {
-        @include bankai-shadow-elevation-high(bankai-light-theme('core-color-neutral-0'));
-        border-radius: var(--bankai-modal-dialog-border-radius, bankai-light-theme('modal-dialog-border-radius'));
+        @include bankai-shadow-elevation-high($bankai-core-color-neutral-0);
+        border-radius: var(--bankai-modal-dialog-border-radius, bankai-get-light-theme-map-value('modal-dialog-border-radius'));
         max-width: 90%;
         max-height: 90%;
 
@@ -22,7 +24,7 @@
         }
 
         &__close-button {
-            border-radius: 0 var(--bankai-modal-dialog-border-radius, bankai-light-theme('modal-dialog-border-radius')) 0 0;
+            border-radius: 0 var(--bankai-modal-dialog-border-radius, bankai-get-light-theme-map-value('modal-dialog-border-radius')) 0 0;
         }
     }
     @include bankai-breakpoint-max-only($bankai-xs-max) {
@@ -50,7 +52,7 @@
         right: 0;
 
         .bankai-button__content-container {
-            padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
+            padding: bankai-to-rem($bankai-core-spacing-01-x);
         }
     }
 
@@ -62,7 +64,7 @@
         margin-left: auto;
 
         .bankai-button + .bankai-button {
-            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
+            margin-left: bankai-to-rem($bankai-core-spacing-03-x);
         }
     }
 
@@ -75,7 +77,7 @@
     &__main-container,
     &__actions-container {
         box-sizing: border-box;
-        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
+        padding: bankai-to-rem($bankai-core-spacing-04-x);
     }
 
     * + &__main-container {
@@ -96,8 +98,8 @@
 
     &__sub-title {
         @include bankai-max-line-width;
-        color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
-        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('core-typography-sub-text-font-size'));
+        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        font-size: var(--bankai-semantic-typography-sub-text-font-size, bankai-get-light-theme-map-value('semantic-typography-sub-text-font-size'));
         margin: 0;
     }
 

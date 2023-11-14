@@ -1,0 +1,13 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-tooltip-icon {
+    box-sizing: border-box;
+    color: var(--bankai-tooltip-icon-color, bankai-get-light-theme-map-value('tooltip-icon-color'));
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: top;
+    display: inline-block;
+}

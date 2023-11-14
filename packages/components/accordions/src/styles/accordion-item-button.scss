@@ -1,20 +1,20 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-// @import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+// @import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+// @import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+// @import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
-.bankai-accordion-item-button, %bankai-accordion-item-button {
+.bankai-accordion__item-button, %bankai-accordion__item-button {
     @include bankai-focus-state-halo;
-    color: var(--bankai-accordion-trigger-text-color, bankai-light-theme('accordion-trigger-text-color'));
+    color: var(--bankai-accordion-trigger-text-color, bankai-get-light-theme-map-value('accordion-trigger-text-color'));
 
     @media (hover: hover) {
         &:hover {
-            color: var(--bankai-accordion-trigger-hover-text-color, #{bankai-light-theme('accordion-trigger-hover-text-color')});
-            background-color: var(--bankai-accordion-trigger-hover-bg-color, #{bankai-light-theme('accordion-trigger-hover-bg-color')});
+            color: var(--bankai-accordion-trigger-hover-text-color, #{bankai-get-light-theme-map-value('accordion-trigger-hover-text-color')});
+            background-color: var(--bankai-accordion-trigger-hover-bg-color, #{bankai-get-light-theme-map-value('accordion-trigger-hover-bg-color')});
             cursor: pointer;
         }
     }

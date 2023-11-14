@@ -1,40 +1,49 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss';
 @import './mixins.scss';
 @import './rw-styles.scss';
 
 .bankai-combobox, %bankai-combobox {
+    @include bankai-floating-label-fix;
     display: inline-block;
+    $this: '.bankai-combobox';
 
     &.rw-widget {
-        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
+        @include bankai-form-input-font-size;
+        color: var(--bankai-form-input-text-color, bankai-get-light-theme-map-value('form-input-text-color'));
     }
 
     .rw-widget-picker {
-        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
-        border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
+        min-height: bankai-to-px($bankai-core-system-scale * 8);
+        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+        border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
     }
 
     .rw-popup {
-        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
-        border: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
-        border-radius: var(--bankai-form-menu-border-radius, bankai-light-theme('form-menu-border-radius'));
+        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+        border: 1px solid var(--bankai-semantic-color-universal-accessible-border, bankai-get-light-theme-map-value('semantic-color-universal-accessible-border'));
+        border-radius: var(--bankai-form-menu-border-radius, bankai-get-light-theme-map-value('form-menu-border-radius'));
     }
 
     .rw-widget-picker,
     .rw-picker-btn {
-        border-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
+        border-color: var(--bankai-semantic-color-universal-accessible-border, bankai-get-light-theme-map-value('semantic-color-universal-accessible-border'));
     }
 
-    &.rw-state-focus .rw-widget-picker {
-        @include bankai-rw-focus-state-halo;
-    }
+    // &.rw-state-focus .rw-widget-picker {
+    //     @include bankai-rw-focus-state-halo(var(--bankai-form-input-focus-color-halo, bankai-get-light-theme-map-value('form-input-focus-color-halo')));
+    //     border-color: var(--bankai-form-input-focus-color-border, bankai-get-light-theme-map-value('form-input-focus-color-border'));
+    // }
 
     .rw-widget-container {
         @include bankai-flex-row;
@@ -42,7 +51,7 @@
 
     .rw-list-option {
         @include bankai-rw-list-option;
-        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
+        color: var(--bankai-form-input-text-color, bankai-get-light-theme-map-value('form-input-text-color'));
 
         @media (hover: hover) {
             &:hover {
@@ -52,57 +61,78 @@
     }
 
     .rw-picker-btn {
-        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
-        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+        color: var(--bankai-semantic-color-text, bankai-get-light-theme-map-value('semantic-color-text'));
+        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
         width: 30px;
 
         &.rw-input-addon {
-            border-left-color: var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
+            // border-left: none;
+            border-left-color: var(--bankai-semantic-color-universal-accessible-border, bankai-get-light-theme-map-value('semantic-color-universal-accessible-border'));
         }
 
         &:active {
-            background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+            background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+        }
+
+        &:disabled {
+            background-color: transparent;
         }
 
         @media (hover: hover) {
-            &:hover {
-                background-color: var(--bankai-core-color-universal-hover-bg, bankai-light-theme('core-color-universal-hover-bg'));
+            &:enabled:hover {
+                background-color: var(--bankai-semantic-color-universal-hover-bg, bankai-get-light-theme-map-value('semantic-color-universal-hover-bg'));
             }
         }
     }
-
-    &__busy-spinner {
+    
+    &__busy-icon {
         @include bankai-rotate-infinite;
-        display: inline-block;
     }
 
-    &.rw-state-disabled {
-        opacity: bankai-light-theme('state-disabled-opacity');
+    &__busy-icon,
+    &__select-icon {
+        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        font-size: 20px;
+    }
 
+    .bankai-loading-dots__dot {
+        background-color: currentColor;
+    }
+
+    &.rw-state-disabled,
+    fieldset:disabled & {
+        opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+
+        // stylelint-disable-next-line no-descending-specificity
+        .rw-widget-input {
+            background-color: transparent;
+        }
+
+        // stylelint-disable-next-line no-descending-specificity
         > .rw-widget-picker {
-            background-color: var(--bankai-form-input-disabled-bg-color, bankai-light-theme('form-input-disabled-bg-color'));
+            background-color: var(--bankai-form-input-disabled-bg-color, bankai-get-light-theme-map-value('form-input-disabled-bg-color'));
         }
     }
 
     .rw-combobox-input {
         width: initial;
-        color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
+        color: var(--bankai-form-input-text-color, bankai-get-light-theme-map-value('form-input-text-color'));
         max-width: initial;
         min-width: 1px;
-        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
-        padding: bankai-light-theme('form-input-padding');
+        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        padding: bankai-to-rem($bankai-core-spacing-02-x);
         display: block;
-        flex: 0 1 auto;
+        flex: 1 1 auto;
         text-overflow: ellipsis;
 
         &::placeholder {
-            color: var(--bankai-form-input-placeholder-text, bankai-light-theme('form-input-placeholder-text'));
-            font-style: bankai-light-theme('form-input-placeholder-font-style');
+            color: var(--bankai-form-input-placeholder-text-color, bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
+            // font-style: var(--bankai-form-input-placeholder-font-style, bankai-get-light-theme-map-value('form-input-placeholder-font-style'));
             flex: 0 0 auto;
         }
 
         &:disabled::placeholder {
-            color: var(--bankai-form-input-disabled-placeholder-text-color, bankai-light-theme('form-input-disabled-placeholder-text-color'));
+            color: var(--bankai-form-input-disabled-placeholder-text-color, bankai-get-light-theme-map-value('form-input-disabled-placeholder-text-color'));
         }
     }
 
@@ -115,26 +145,38 @@
     }
 
     &--error {
-        &.rw-state-focus .rw-widget-picker {
-            @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-light-theme('form-input-error-focus-halo-color')));
-        }
+        // stylelint-disable-next-line no-descending-specificity
+        // &.rw-state-focus .rw-widget-picker {
+        //     @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-color-halo, bankai-get-light-theme-map-value('form-input-error-focus-color-halo')));
+        // }
 
-        .rw-widget-container,
-        &.rw-state-focus .rw-widget-picker {
-            background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
-            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
+        // stylelint-disable-next-line no-descending-specificity
+        .rw-widget-container,  &.rw-state-focus .rw-widget-picker {
+            background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-get-light-theme-map-value('form-input-error-border-color'));
         }
 
         .rw-input-addon.rw-picker-btn {
-            border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
+            background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
+            border-color: var(--bankai-form-input-error-border-color, bankai-get-light-theme-map-value('form-input-error-border-color'));
+
+            @media (hover: hover) {
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        #{$this}__select-icon {
+            color: var(--bankai-form-input-error-placeholder-text-color, bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
         }
 
         .rw-combobox-input {
-            background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
+            background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
 
             // stylelint-disable-next-line no-descending-specificity
             &::placeholder {
-                color: var(--bankai-form-input-error-placeholder-text-color, bankai-light-theme('form-input-error-placeholder-text-color'));
+                color: var(--bankai-form-input-error-placeholder-text-color, bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
             }
         }
     }

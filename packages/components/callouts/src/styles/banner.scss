@@ -1,0 +1,153 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+
+.bankai-banner, %bankai-banner {
+    color: var(--bankai-banner-text-color, bankai-get-light-theme-map-value('banner-text-color'));
+    background-color: var(--bankai-banner-bg-color, bankai-get-light-theme-map-value('banner-bg-color'));
+    box-sizing: border-box;
+    border-radius: var(--bankai-banner-border-radius, bankai-get-light-theme-map-value('banner-border-radius'));
+    $this: '.bankai-banner';
+
+    &__inner {
+        @include bankai-flex-row;
+        box-sizing: border-box;
+    }
+
+    &__icon-container {
+        min-width: 1.25em;
+        text-align: center;
+        flex: 0 0 auto;
+    }
+
+    &__text-container {
+        flex: 1 1 auto;
+        margin: auto 0;
+    }
+
+    &__icon-container,
+    &__text-container {
+        box-sizing: border-box;
+        padding: #{bankai-to-rem($bankai-core-system-scale * 3)};
+    }
+
+    &__icon-container + &__text-container {
+        padding-left: 0;
+    }
+
+    &__icon {
+        color: var(--bankai-banner-icon-color, bankai-get-light-theme-map-value('banner-icon-color'));
+        font-size: 1.25em;
+        vertical-align: top;
+        margin: 0 auto;
+    }
+
+    &__msg-container {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    #{$this}__title {
+        @include bankai-h5;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__title,
+    &__msg {
+        @include bankai-max-line-width;
+        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        display: block;
+    }
+
+    // Mods
+    &--has-title &__icon {
+        vertical-align: middle;
+    }
+
+    &--affirmative {
+        color: var(--bankai-banner-affirmative-text-color, bankai-get-light-theme-map-value('banner-affirmative-text-color'));
+        background-color: var(--bankai-banner-affirmative-bg-color, bankai-get-light-theme-map-value('banner-affirmative-bg-color'));
+
+        .bankai-hyperlink,
+        .bankai-link-button {
+            color: var(--bankai-banner-affirmative-text-color, bankai-get-light-theme-map-value('banner-affirmative-text-color'));
+        }
+
+        .bankai-hyperlink,
+        .bankai-link-button__text {
+            text-decoration: underline;
+        }
+    }
+
+    &--affirmative &__icon {
+        color: var(--bankai-banner-affirmative-icon-color, bankai-get-light-theme-map-value('banner-affirmative-icon-color'));
+    }
+
+    &--cautionary {
+        color: var(--bankai-banner-cautionary-text-color, bankai-get-light-theme-map-value('banner-cautionary-text-color'));
+        background-color: var(--bankai-banner-cautionary-bg-color, bankai-get-light-theme-map-value('banner-cautionary-bg-color'));
+
+        .bankai-hyperlink,
+        .bankai-link-button {
+            color: var(--bankai-banner-cautionary-text-color, bankai-get-light-theme-map-value('banner-cautionary-text-color'));
+        }
+
+        .bankai-hyperlink,
+        .bankai-link-button__text {
+            text-decoration: underline;
+        }
+    }
+
+    &--cautionary &__icon {
+        color: var(--bankai-banner-cautionary-icon-color, bankai-get-light-theme-map-value('banner-cautionary-icon-color'));
+    }
+
+    &--danger {
+        color: var(--bankai-banner-danger-text-color, bankai-get-light-theme-map-value('banner-danger-text-color'));
+        background-color: var(--bankai-banner-danger-bg-color, bankai-get-light-theme-map-value('banner-danger-bg-color'));
+
+        .bankai-hyperlink,
+        .bankai-link-button {
+            color: var(--bankai-banner-danger-text-color, bankai-get-light-theme-map-value('banner-danger-text-color'));
+        }
+
+        .bankai-hyperlink,
+        .bankai-link-button__text {
+            text-decoration: underline;
+        }
+    }
+
+    &--danger &__icon {
+        color: var(--bankai-banner-danger-icon-color, bankai-get-light-theme-map-value('banner-danger-icon-color'));
+    }
+
+    &--info {
+        color: var(--bankai-banner-info-text-color, bankai-get-light-theme-map-value('banner-info-text-color'));
+        background-color: var(--bankai-banner-info-bg-color, bankai-get-light-theme-map-value('banner-info-bg-color'));
+
+        .bankai-hyperlink,
+        .bankai-link-button {
+            color: var(--bankai-banner-info-text-color, bankai-get-light-theme-map-value('banner-info-text-color'));
+        }
+
+        .bankai-hyperlink,
+        .bankai-link-button__text {
+            text-decoration: underline;
+        }
+    }
+
+    &--info &__icon {
+        color: var(--bankai-banner-info-icon-color, bankai-get-light-theme-map-value('banner-info-icon-color'));
+    }
+}

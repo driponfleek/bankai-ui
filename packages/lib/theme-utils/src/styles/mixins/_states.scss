@@ -1,15 +1,19 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../tokens/style-tokens.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@import '../vars/core-state-vars.scss';
 
-@mixin bankai-focus-state-box-shadow($color: var(--bankai-core-color-universal-focus-halo, rgba(0, 0, 0, 0.4))) {
+@mixin bankai-focus-state-box-shadow($color: var(--bankai-semantic-color-universal-focus-halo, rgba(0, 0, 0, 0.4))) {
     box-shadow: 0 0 0 3px $color;
 }
 
-@mixin bankai-focus-state-halo($color: var(--bankai-core-color-universal-focus-halo, rgba(0, 0, 0, 0.4))) {
+@mixin bankai-focus-state-inner-outer-box-shadow($inner-color: var(--bankai-semantic-color-universal-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-universal-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
+    box-shadow: 0 0 0 2px $inner-color, 0 0 4px 6px $outer-color;
+}
+
+@mixin bankai-focus-state-halo($color: var(--bankai-semantic-color-universal-focus-halo, rgba(0, 0, 0, 0.4))) {
     transition: box-shadow 0.15s ease-in-out;
 
     &:focus {
@@ -23,22 +27,35 @@
 
 @mixin bankai-hover-state() {
     @media (hover: hover) {
-        &:enabled:hover {
+        &:hover {
             cursor: pointer;
         }
     }
 }
 
-@mixin bankai-disabled-state($has-hover: true) {
-    &:disabled {
-        opacity: var(--bankai-state-disabled-opacity, bankai-get-map-value($bankai-style-tokens, 'state-disabled-opacity'));
+// Use this when targeting elements that are not disabled via the 'disabled' attribute.
+@mixin bankai-enabled-hover-state() {
+    &:enabled {
+        @include bankai-hover-state;
+    }
+}
 
-        @if $has-hover {
-            @media (hover: hover) {
-                &:hover {
-                    cursor: not-allowed;
-                }
+// Use this when simulating a disabled state and you cannot use the 'disabled' attribute.
+@mixin bankai-faux-disabled-state($has-hover: true) {
+    opacity: var(--bankai-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+
+    @if $has-hover {
+        @media (hover: hover) {
+            &:hover {
+                cursor: not-allowed;
             }
         }
+    }
+}
+
+// Use this when targeting elements that are disabled via the 'disabled' attribute.
+@mixin bankai-disabled-state($has-hover: true) {
+    &:disabled {
+        @include bankai-faux-disabled-state($has-hover);
     }
 }

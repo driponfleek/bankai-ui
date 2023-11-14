@@ -1,0 +1,12 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-sb-typeset__li-meta-list {
+    @include bankai-list-reset;
+    @include bankai-sub-text;
+    color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+}

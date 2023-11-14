@@ -1,0 +1,27 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+
+.bankai-sb-component-preview-with-code-block {
+    border: 1px solid var(--bankai-semantic-color-universal-decorative-border, bankai-get-light-theme-map-value('semantic-color-universal-decorative-border'));
+    border-radius: #{bankai-to-px($bankai-core-system-scale * 2)};
+
+    .bankai-sb-component-preview {
+        border: none;
+        border-radius: #{bankai-to-px(($bankai-core-system-scale * 2) - 1px)} #{bankai-to-px(($bankai-core-system-scale * 2) - 1px)} 0 0;
+    }
+
+    .bankai-sb-code-block__syntax-highlighter {
+        box-shadow: none;
+        border-radius: 0 0 #{bankai-to-px(($bankai-core-system-scale * 2) - 1px)} #{bankai-to-px(($bankai-core-system-scale * 2) - 1px)};
+    }
+
+    .bankai-sb-component-preview,
+    .bankai-sb-code-block__syntax-highlighter {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

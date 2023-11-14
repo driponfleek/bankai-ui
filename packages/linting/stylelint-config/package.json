@@ -1,23 +1,23 @@
 {
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
-        "stylelint": "14.8.0",
-        "stylelint-config-standard-scss": "3.0.0"
+        "stylelint": "15.10.1",
+        "stylelint-config-standard-scss": "10.0.0"
     },
-    "description": "Envisioned Prototype stylelint configs",
+    "description": "Bankai UI stylelint configs",
     "keywords": [
         "stylelint-config"
     ],
     "license": "MIT",
     "main": "index.js",
-    "name": "@epr0t0type/stylelint-config",
+    "name": "@driponfleek/stylelint-config",
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com/epr0t0type"
+        "registry": "https://npm.pkg.github.com/driponfleek"
     },
     "repository": {
         "directory": "packages/linting/stylelint-config",
         "type": "git",
-        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
+        "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
     },
-    "version": "0.0.0"
+    "version": "0.1.0"
 }

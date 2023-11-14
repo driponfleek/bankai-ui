@@ -1,0 +1,63 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-tabs {
+    .bankai-sb-tabs-demo-panel-content {
+        box-sizing: border-box;
+    }
+
+    &__panel-content-img {
+        max-height: 220px;
+    }
+
+    .bankai-tabs {
+        &--fill-up,
+        &--line-box,
+        &--overline,
+        &--pointer,
+        &--underline {
+            .bankai-sb-tabs-demo-panel-content {
+                padding-top: bankai-to-rem($bankai-core-spacing-04-x);
+            }
+        }
+
+        &--bar,
+        &--flip,
+        &--folder,
+        &--overline-segmented,
+        &--pointer-outline,
+        &--traditional,
+        &--traditional-gapped,
+        &--underline-segmented {
+            .bankai-sb-tabs-demo-panel-content {
+                padding: bankai-to-rem($bankai-core-spacing-05-x) bankai-to-rem($bankai-core-spacing-04-x);
+            }
+        }
+
+        &--bar,
+        &--overline-segmented,
+        &--underline-segmented {
+            .bankai-sb-tabs-demo-panel-content {
+                border: 1px solid var(--bankai-tabs-border-color, bankai-get-light-theme-map-value('tabs-border-color'));
+                border-top: none;
+            }
+        }
+
+        &--is-vertical-tabs {
+            &.bankai-tabs--fill-up,
+            &.bankai-tabs--line-box,
+            &.bankai-tabs--overline,
+            &.bankai-tabs--pointer,
+            &.bankai-tabs--underline {
+                .bankai-sb-tabs-demo-panel-content {
+                    padding-top: 0;
+                    padding-left: bankai-to-rem($bankai-core-spacing-04-x);
+                }
+            }
+        }
+    }
+}

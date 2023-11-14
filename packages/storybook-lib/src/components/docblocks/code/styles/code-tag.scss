@@ -1,0 +1,14 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+
+.bankai-sb-code-tag {
+    background-color: var(--bankai-semantic-color-universal-decorative-border, bankai-get-light-theme-map-value('semantic-color-universal-decorative-border'));
+    border-radius: #{bankai-to-px($bankai-core-system-scale)};
+    box-sizing: border-box;
+    padding: 0 #{bankai-to-rem($bankai-core-system-scale)};
+    display: inline-block;
+}

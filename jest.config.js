@@ -1,4 +1,25 @@
 module.exports = {
+    transform: {
+        // '^.+\\.(t|j)sx?$': [
+        '^.+\\.(js|jsx)$': [
+            '@swc/jest',
+            {
+                jsc: {
+                    transform: {
+                        react: {
+                            runtime: 'automatic',
+                        },
+                    },
+                    parser: {
+                        syntax: 'ecmascript',
+                        jsx: true,
+                        decorators: false,
+                        dynamicImport: true,
+                    },
+                },
+            },
+        ],
+    },
     coverageThreshold: {
         './packages/components/**/*.js': {
             branches: 90,

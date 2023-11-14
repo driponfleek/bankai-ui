@@ -1,4 +1,4 @@
-# @epr0t0type/bankai-ui-buttons
+# @driponfleek/bankai-ui-buttons
 Button components for your UIs.
 
 ## Getting Started
@@ -8,8 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
+    "@driponfleek/bankai-lib-style-utils": "^0.1.0",
+    "@driponfleek/bankai-lib-theme-utils": "^0.1.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "18",
@@ -20,7 +20,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-ui-buttons
+npm i @driponfleek/bankai-ui-buttons
 ```
 
 ## Usage
@@ -29,28 +29,28 @@ npm i @epr0t0type/bankai-ui-buttons
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--button-story).
 
 ```
-import { Button, ButtonIcon, ButtonText, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { Button, ButtonIcon, ButtonText, VARIANTS } from '@driponfleek/bankai-ui-buttons';
 ```
 
 ### LinkButton
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--link-button-story).
 
 ```
-import { LinkButton } from '@epr0t0type/bankai-ui-buttons';
+import { LinkButton } from '@driponfleek/bankai-ui-buttons';
 ```
 
 ### MenuButton and MenuButtonOption
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--menu-button-story).
 
 ```
-import { MenuButton, MenuButtonOption, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { MenuButton, MenuButtonOption, VARIANTS } from '@driponfleek/bankai-ui-buttons';
 ```
 
 ### SplitButton
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-buttons--split-button-story).
 
 ```
-import { SplitButton, VARIANTS } from '@epr0t0type/bankai-ui-buttons';
+import { SplitButton, VARIANTS } from '@driponfleek/bankai-ui-buttons';
 ```
 
 ## Built With

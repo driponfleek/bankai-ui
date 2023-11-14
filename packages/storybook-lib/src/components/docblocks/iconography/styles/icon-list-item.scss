@@ -1,0 +1,71 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use 'sass:color';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
+
+.bankai-sb-icons-list__item {
+    @include bankai-button-reset;
+    @include bankai-focus-state-halo;
+    @include bankai-shadow-elevation-low;
+    width: 180px;
+    color: inherit;
+    background-color: var(--bankai-semantic-color-canvas-alt, bankai-get-light-theme-map-value('semantic-color-canvas-alt'));
+    box-sizing: border-box;
+    border-radius: #{bankai-to-px($bankai-core-system-scale * 4)};
+    padding: #{bankai-to-rem($bankai-core-system-scale * 3)};
+
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.03);
+            cursor: pointer;
+        }
+    }
+
+    &:active {
+        @include bankai-shadow-elevation-low;
+        // box-shadow: inset 0 0 2px color.change(bankai-get-light-theme-map-value('core-color-neutral-0'), $alpha: 0.4);
+        transform: scale(0.975);
+    }
+
+    &-icon-container {
+        font-size: 4.5rem;
+    }
+
+    &-icon-safe-area {
+        @include bankai-flex-row;
+        width: 4.5rem;
+        height: 4.5rem;
+        margin: auto;
+    }
+
+    &-text-container {
+        font-size: 1.2rem;
+    }
+
+    &-text {
+        text-align: center;
+        margin: auto;
+    }
+
+    &-icon-container,
+    &-text-container {
+        @include bankai-flex-row;
+    }
+
+    &-icon-container + &-text-container {
+        margin-top: #{bankai-to-px($bankai-core-system-scale * 3)};
+    }
+
+    // MODS
+    &--copied {
+        background-color: var(--bankai-semantic-color-affirmative, bankai-get-light-theme-map-value('semantic-color-affirmative'));
+        border-color: var(--bankai-semantic-color-affirmative, bankai-get-light-theme-map-value('semantic-color-affirmative'));
+    }
+}

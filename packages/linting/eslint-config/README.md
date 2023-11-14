@@ -1,22 +1,11 @@
-# @epr0t0type/eslint-config
+# @driponfleek/eslint-config
 Reusable Linting configs for JavaScript and React.
 
 ## Getting Started
 
-### Prerequisites
-Check the `peerDependencies` section of the `package.json` and ensure that they are available somewhere in your project before using these components.
-
-```
-"peerDependencies": {
-    "@babel/core": "^7.16.10",
-    "@babel/preset-react": "^7.12.10"
-    ...
-},
-```
-
 ## Installing
 ```
-npm i @epr0t0type/eslint-config
+npm i @driponfleek/eslint-config
 ```
 
 ## Usage
@@ -25,7 +14,7 @@ In the root of your project create a `.eslintrc` file and add the following:
 ```
 {
     "extends": [
-        "@epr0t0type/eslint-config/src/reactLintConfig",
+        "@driponfleek/eslint-config/src/reactLintConfig",
         "plugin:prettier/recommended"
     ],
     "parserOptions": {

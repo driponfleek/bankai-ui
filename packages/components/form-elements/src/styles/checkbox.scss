@@ -1,73 +1,36 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
 @import './mixins.scss';
 
 .bankai-checkbox, %bankai-checkbox {
-    width: 25px;
-    height: 25px;
-    box-sizing: border-box;
-    border-radius: var(--bankai-form-checkbox-border-radius, bankai-light-theme('form-checkbox-border-radius'));
-    position: relative;
-    display: inline-block;
+    border-radius: var(--bankai-form-checkbox-border-radius, bankai-get-light-theme-map-value('form-checkbox-border-radius'));
+    $this: '.bankai-checkbox';
 
-    &__input {
-        opacity: 0;
-        z-index: 3;
-    }
-
-    &__container {
-        background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
-        box-sizing: border-box;
-        border: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
-        border-radius: var(--bankai-form-checkbox-border-radius, bankai-light-theme('form-checkbox-border-radius'));
-        display: block;
-        z-index: 1;
-    }
-
-    &__input,
-    &__container {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    &__input:disabled {
-        cursor: not-allowed;
-    }
-
-    &__input:focus-visible + &__container {
-        @include bankai-focus-state-box-shadow;
-    }
-
-    &__input:disabled + &__container {
-        @include bankai-form-input-disabled(false);
-    }
-
-    &__icon {
-        font-size: 20px;
-        margin-top: 50%;
-        margin-left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        position: absolute;
-        z-index: 2;
-    }
-
-    &--checked {
-        // stylelint-disable-next-line
-        .bankai-checkbox__container,
-        .bankai-checkbox__input:disabled + .bankai-checkbox__container {
-            color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
-            background-color: var(--bankai-form-checked-accent-color, bankai-light-theme('form-checked-accent-color'));
-            border-color: var(--bankai-form-checked-accent-color, bankai-light-theme('form-checked-accent-color'));
+    .bankai-universal-toggle-input {
+        &__container {
+            border-radius: var(--bankai-form-checkbox-border-radius, bankai-get-light-theme-map-value('form-checkbox-border-radius'));
         }
+    
+        &__icon {
+            font-size: 20px;
+            margin-top: 50%;
+            margin-left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            position: absolute;
+            z-index: 2;
+        }
+    }
 
-        .bankai-checkbox__input:focus + .bankai-checkbox__container {
-            @include bankai-focus-state-box-shadow(var(--bankai-form-checked-focus-halo-color, bankai-light-theme('form-checked-focus-halo-color')));
+    &.bankai-universal-toggle-input--checked {
+        .bankai-universal-toggle-input__container,
+        .bankai-universal-toggle-input__input:disabled + .bankai-universal-toggle-input__container {
+            color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+            border-color: var(--bankai-form-checked-accent-color, bankai-get-light-theme-map-value('form-checked-accent-color'));
         }
     }
 }

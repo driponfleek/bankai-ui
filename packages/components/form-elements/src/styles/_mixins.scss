@@ -1,31 +1,32 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss';
 
 @mixin bankai-form-input-disabled($has-placeholder: true) {
-    background-color: var(--bankai-form-input-disabled-bg-color, bankai-light-theme('form-input-disabled-bg-color'));
-    opacity: bankai-light-theme('state-disabled-opacity');
+    background-color: var(--bankai-form-input-disabled-bg-color, bankai-get-light-theme-map-value('form-input-disabled-bg-color'));
+    opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
 
     @if $has-placeholder {
         &::placeholder {
-            color: var(--bankai-form-input-disabled-placeholder-text-color, bankai-light-theme('form-input-disabled-placeholder-text-color'));
+            color: var(--bankai-form-input-disabled-placeholder-text-color, bankai-get-light-theme-map-value('form-input-disabled-placeholder-text-color'));
         }
     }
 }
 
 @mixin bankai-form-input-error($has-placeholder: true) {
-    background-color: var(--bankai-form-input-error-bg-color, bankai-light-theme('form-input-error-bg-color'));
-    border-color: var(--bankai-form-input-error-border-color, bankai-light-theme('form-input-error-border-color'));
+    background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
+    border-color: var(--bankai-form-input-error-border-color, bankai-get-light-theme-map-value('form-input-error-border-color'));
 
     @if $has-placeholder {
         &::placeholder {
-            color: var(--bankai-form-input-error-placeholder-text-color, bankai-light-theme('form-input-error-placeholder-text-color'));
+            color: var(--bankai-form-input-error-placeholder-text-color, bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
         }
     }
 
-    &:focus {
-        @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-light-theme('form-input-error-focus-halo-color')));
-    }
+    // &:focus {
+    //     @include bankai-focus-state-box-shadow(var(--bankai-form-input-error-focus-halo-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-color')));
+    // }
 }

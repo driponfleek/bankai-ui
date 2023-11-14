@@ -11,7 +11,6 @@ module.exports = {
         'plugin:prettier/recommended',
         'plugin:import/recommended',
     ],
-    parser: '@babel/eslint-parser',
     plugins: ['prettier', 'filenames', 'no-null'],
     rules: {
         'arrow-body-style': 0,
@@ -58,6 +57,7 @@ module.exports = {
                 allowElseIf: true,
             },
         ],
+        'no-fallthrough': 0,
         'no-null/no-null': 2,
         'no-plusplus': 2,
         'no-underscore-dangle': 2,

@@ -1,4 +1,4 @@
-# @epr0t0type/bankai-ui-modals
+# @driponfleek/bankai-ui-modals
 Modal components for your UIs.
 
 ## Getting Started
@@ -8,8 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
+    "@driponfleek/bankai-lib-style-utils": "^0.1.0",
+    "@driponfleek/bankai-lib-theme-utils": "^0.1.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "18",
@@ -20,7 +20,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-ui-modals
+npm i @driponfleek/bankai-ui-modals
 ```
 
 ## Usage
@@ -29,21 +29,21 @@ npm i @epr0t0type/bankai-ui-modals
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-modals--modal-story).
 
 ```
-import { Modal } from '@epr0t0type/bankai-ui-modals';
+import { Modal } from '@driponfleek/bankai-ui-modals';
 ```
 
 ### StatusModal
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-modals--status-modal-story).
 
 ```
-import { StatusModal } from '@epr0t0type/bankai-ui-modals';
+import { StatusModal } from '@driponfleek/bankai-ui-modals';
 ```
 
 ### ARIAModal
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { ARIAModal } from '@epr0t0type/bankai-ui-modals';
+import { ARIAModal } from '@driponfleek/bankai-ui-modals';
 ```
 
 ## Built With
