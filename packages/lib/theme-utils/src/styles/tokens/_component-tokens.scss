@@ -1,0 +1,239 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:color';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '../vars/core-colors-vars.scss';
+@import '../vars/core-radii-vars.scss';
+@import '../vars/core-scales-vars.scss';
+@import '../vars/semantic-typography-vars.scss';
+@import '../vars/semantic-colors-vars.scss';
+
+// Component Design Tokens
+$bankai-component-tokens: (
+    // Accordions
+    accordion-border-color: $bankai-semantic-color-universal-decorative-border,
+    accordion-border-radius: bankai-to-px($bankai-core-radius-02-x),
+    accordion-border-width: 1px,
+    accordion-bg-color: $bankai-semantic-color-canvas,
+    accordion-trigger-text-color: inherit,
+    accordion-trigger-hover-bg-color: $bankai-semantic-color-universal-hover-bg,
+    accordion-trigger-hover-text-color: inherit,
+    // Avatars
+    avatar-bg-color: $bankai-semantic-color-accent,
+    avatar-border-color: $bankai-core-color-neutral-100,
+    avatar-text-color: $bankai-core-color-neutral-100,
+    // Badges
+    badge-bg-color: $bankai-core-color-neutral-80,
+    badge-border-radius: bankai-to-px($bankai-core-radius-04-x),
+    badge-text-color: inherit,
+    // - Affirmative
+    badge-affirmative-bg-color: $bankai-semantic-color-affirmative,
+    badge-affirmative-text-color: $bankai-core-color-neutral-100,
+    // - Cautionary
+    badge-cautionary-bg-color: $bankai-semantic-color-cautionary,
+    badge-cautionary-text-color: $bankai-semantic-color-text,
+    // - Error
+    badge-error-bg-color: $bankai-semantic-color-error,
+    badge-error-text-color: $bankai-core-color-neutral-100,
+    // - Info
+    badge-info-bg-color: $bankai-semantic-color-info,
+    badge-info-text-color: $bankai-core-color-neutral-0,
+    // Buttons
+    btn-border-radius: bankai-to-px($bankai-core-radius-06-x),
+    btn-border-width: 1px,
+    btn-font-weight: normal,
+    // - Primary
+    btn-primary-active-bg-color: color.change($bankai-semantic-color-primary, $lightness: 20%),
+    btn-primary-active-border-color: transparent,
+    btn-primary-active-text-color: $bankai-core-color-neutral-100,
+    btn-primary-bg-color: color.change($bankai-semantic-color-primary, $lightness: 32%),
+    btn-primary-border-color: transparent,
+    btn-primary-hover-bg-color: color.change($bankai-semantic-color-primary, $lightness: 20%),
+    btn-primary-hover-border-color: transparent,
+    btn-primary-hover-text-color: $bankai-core-color-neutral-100,
+    btn-primary-text-color: $bankai-core-color-neutral-100,
+    btn-split-primary-border-color: color.change($bankai-semantic-color-primary, $lightness: 20%),
+    btn-primary-focus-halo-inner-color: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    btn-primary-focus-halo-outer-color: color.change($bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
+    // - Primary Destructive
+    btn-primary-destructive-active-bg-color: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-primary-destructive-active-border-color: transparent,
+    btn-primary-destructive-active-text-color: $bankai-core-color-neutral-100,
+    btn-primary-destructive-bg-color: $bankai-semantic-color-error,
+    btn-primary-destructive-hover-bg-color: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-primary-destructive-hover-text-color: $bankai-core-color-neutral-100,
+    btn-primary-destructive-hover-border-color: transparent,
+    btn-primary-destructive-text-color: $bankai-core-color-neutral-100,
+    btn-primary-destructive-border-color: transparent,
+    btn-split-primary-destructive-border-clor: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-primary-destructive-focus-halo-inner-color: color.change($bankai-semantic-color-destructive, $lightness: 30%),
+    btn-primary-destructive-focus-halo-outer-color: color.change($bankai-semantic-color-destructive, $lightness: 70%, $alpha: 0.8),
+    // - Secondary
+    btn-secondary-active-bg-color: color.change($bankai-semantic-color-secondary, $lightness: 80%),
+    btn-secondary-active-border-color: color.change($bankai-semantic-color-secondary, $lightness: 26%),
+    btn-secondary-active-text-color: color.change($bankai-semantic-color-secondary, $lightness: 26%),
+    btn-secondary-bg-color: $bankai-semantic-color-canvas,
+    btn-secondary-border-color: color.change($bankai-semantic-color-secondary, $lightness: 38%),
+    btn-secondary-hover-bg-color: color.change($bankai-semantic-color-secondary, $lightness: 80%),
+    btn-secondary-hover-text-color: color.change($bankai-semantic-color-secondary, $lightness: 26%),
+    btn-secondary-hover-border-color: color.change($bankai-semantic-color-secondary, $lightness: 26%),
+    btn-secondary-text-color: color.change($bankai-semantic-color-secondary, $lightness: 38%),
+    btn-split-secondary-border-color: color.change($bankai-semantic-color-secondary, $lightness: 26%),
+    btn-secondary-focus-halo-inner-color: color.change($bankai-semantic-color-secondary, $lightness: 30%),
+    btn-secondary-focus-halo-outer-color: color.change($bankai-semantic-color-secondary, $lightness: 70%, $alpha: 0.8),
+    // - Secondary Destructive
+    btn-secondary-destructive-active-bg-color: color.change($bankai-semantic-color-error, $lightness: 80%),
+    btn-secondary-destructive-active-border-color: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-secondary-destructive-active-text-color: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-secondary-destructive-bg-color: $bankai-semantic-color-canvas,
+    btn-secondary-destructive-border-color: $bankai-semantic-color-error,
+    btn-secondary-destructive-hover-bg-color: color.change($bankai-semantic-color-error, $lightness: 80%),
+    btn-secondary-destructive-hover-text-color: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-secondary-destructive-hover-border-color: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-secondary-destructive-text-color: $bankai-semantic-color-error,
+    btn-split-secondary-destructive-border-color: color.change($bankai-semantic-color-error, $lightness: 38%),
+    btn-secondary-destructive-focus-halo-inner-color: color.change($bankai-semantic-color-destructive, $lightness: 30%),
+    btn-secondary-destructive-focus-halo-outer-color: color.change($bankai-semantic-color-destructive, $lightness: 70%, $alpha: 0.8),
+    // Callouts
+    callout-icon-color: $bankai-core-color-neutral-30,
+    // - Affirmative
+    callout-affirmative-icon-color: color.change($bankai-semantic-color-affirmative, $lightness: 36%),
+    // - Cautionary
+    callout-cautionary-icon-color: color.change($bankai-semantic-color-cautionary, $lightness: 32%),
+    // - Danger
+    callout-danger-icon-color: $bankai-semantic-color-error,
+    // - Info
+    callout-info-icon-color: color.change($bankai-semantic-color-info, $lightness: 50%),
+    // Banners
+    banner-border-radius: bankai-to-px($bankai-core-radius-02-x),
+    banner-bg-color: $bankai-core-color-neutral-80,
+    banner-icon-color: color.change($bankai-core-color-neutral-80, $lightness: 56%),
+    banner-text-color: $bankai-core-color-neutral-0,
+    // - Affirmative
+    banner-affirmative-bg-color: color.change($bankai-semantic-color-affirmative, $lightness: 80%),
+    banner-affirmative-icon-color: color.change($bankai-semantic-color-affirmative, $lightness: 36%),
+    banner-affirmative-text-color: $bankai-core-color-neutral-0,
+    // - Cautionary
+    banner-cautionary-bg-color: color.change($bankai-semantic-color-cautionary, $lightness: 80%),
+    banner-cautionary-icon-color: color.change($bankai-semantic-color-cautionary, $lightness: 30%),
+    banner-cautionary-text-color: $bankai-core-color-neutral-0,
+    // - Danger
+    banner-danger-bg-color: color.change($bankai-semantic-color-error, $lightness: 80%),
+    banner-danger-icon-color: color.change($bankai-semantic-color-error, $lightness: 46%),
+    banner-danger-text-color: $bankai-core-color-neutral-0,
+    // - Info
+    banner-info-bg-color: color.change($bankai-semantic-color-info, $lightness: 80%),
+    banner-info-icon-color: color.change($bankai-semantic-color-info, $lightness: 44%),
+    banner-info-text-color: $bankai-core-color-neutral-0,
+    // Forms
+    // - Toggle Inputs
+    form-checked-accent-color: $bankai-semantic-color-primary,
+    form-checked-accent-compliment-color: $bankai-semantic-color-canvas,
+    form-checked-focus-halo-inner-color: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    form-checked-focus-halo-outer-color: color.change($bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
+    form-checkbox-border-radius: bankai-to-px($bankai-core-radius-01-x),
+    // - Date Picker
+    form-date-picker-off-range-text-color: $bankai-core-color-neutral-60,
+    // // - Drag and Drop File Uploader
+    // form-dnd-file-uploader-hover-bg-color: $bankai-semantic-color-affirmative,
+    // form-dnd-file-uploader-hover-border-color: color.change($bankai-semantic-color-affirmative, $lightness: 30%),
+    // form-dnd-file-uploader-hover-text-color: $bankai-semantic-color-text,
+    // form-dnd-file-uploader-rejected-bg-color: $bankai-semantic-color-error,
+    // form-dnd-file-uploader-rejected-border-color: color.change($bankai-semantic-color-error, $lightness: 30%),
+    // form-dnd-file-uploader-rejected-text-color: $bankai-semantic-color-canvas,
+    // Inputs
+    form-input-border-radius: bankai-to-px($bankai-core-radius-02-x),
+    form-input-bg-color: $bankai-semantic-color-canvas,
+    form-input-disabled-bg-color: $bankai-core-color-neutral-80,
+    form-input-disabled-placeholder-text-color: $bankai-core-color-neutral-30,
+    form-input-error-border-color: $bankai-semantic-color-error,
+    form-input-error-bg-color: color.change($bankai-semantic-color-error, $lightness: 80%),
+    form-input-error-focus-halo-inner-color: color.change($bankai-semantic-color-error, $lightness: 30%),
+    form-input-error-focus-halo-outer-color: color.change($bankai-semantic-color-error, $lightness: 70%, $alpha: 0.8),
+    form-input-error-placeholder-text-color: color.change($bankai-semantic-color-error, $lightness: 30%),
+    form-input-focus-halo-inner-color: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    form-input-focus-halo-outer-color: color.change($bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
+    form-input-placeholder-text-color: $bankai-semantic-color-text-alt,
+    form-input-text-color: 'inherit',
+    // // - Menus÷
+    form-menu-border-radius: bankai-to-px($bankai-core-radius-02-x),
+    form-menu-selected-bg-color: $bankai-semantic-color-primary,
+    form-menu-selected-focus-bg-color: color.change($bankai-semantic-color-primary, $lightness: 20%),
+    form-menu-selected-focus-text-color: $bankai-core-color-neutral-100,
+    form-menu-selected-text-color: inherit,
+    // - Pills
+    form-pill-bg-color: $bankai-semantic-color-primary,
+    form-pill-focus-halo-inner-color: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    form-pill-focus-halo-outer-color: color.change($bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
+    form-pill-text-color: $bankai-core-color-neutral-100,
+    // - Toggle Switches
+    form-toggle-switch-knob-color: $bankai-semantic-color-canvas,
+    form-toggle-switch-knob-border-color: $bankai-core-color-neutral-30,
+    form-toggle-switch-track-color: $bankai-core-color-neutral-20,
+    form-toggle-switch-track-hover-color: $bankai-core-color-neutral-10,
+    form-toggle-switch-on-knob-color: $bankai-semantic-color-canvas,
+    form-toggle-switch-on-track-color: $bankai-semantic-color-affirmative,
+    form-toggle-switch-on-track-hover-color: color.change($bankai-semantic-color-affirmative, $lightness: 40%),
+    form-toggle-switch-busy-icon-color: $bankai-core-color-neutral-100,
+    form-toggle-switch-on-busy-icon-color: $bankai-core-color-neutral-100,
+    form-toggle-switch-on-focus-halo-inner-color: color.change($bankai-semantic-color-affirmative, $lightness: 30%),
+    form-toggle-switch-on-focus-halo-outer-color: color.change($bankai-semantic-color-affirmative, $lightness: 70%, $alpha: 0.8),
+    // Layouts
+    tile-border-radius: bankai-to-px($bankai-core-radius-06-x),
+    tile-heading-border-width: 1px,
+    tile-heading-font-weight: bold,
+    tile-heading-font-style: normal,
+    // Links
+    link-text-color: #1461b8,
+    link-focus-halo-inner-color: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    link-focus-halo-outer-color: color.change($bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
+    // Loading
+    loading-icon-primary-color: $bankai-semantic-color-primary,
+    loading-icon-secondary-color: $bankai-semantic-color-secondary,
+    loading-icon-accent-color: $bankai-semantic-color-accent,
+    loading-skeleton-bg-color: $bankai-core-color-neutral-80,
+    loading-skeleton-animation-color: (255, 255, 255),
+    // Modals
+    modal-dialog-border-radius: bankai-to-px($bankai-core-radius-04-x),
+    modal-overlay-bg-color: color.change($bankai-core-color-neutral-0, $alpha: 0.7),
+    // Tabs
+    tabs-active-accent-color: $bankai-semantic-color-primary,
+    tabs-active-bg-color: $bankai-semantic-color-canvas,
+    tabs-active-focus-halo-inner-color: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    tabs-active-focus-halo-outer-color: color.change($bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
+    tabs-active-text-color: color.change($bankai-semantic-color-primary, $lightness: 30%),
+    tabs-border-color: $bankai-semantic-color-universal-decorative-border,
+    tabs-inactive-bg-color: $bankai-semantic-color-canvas-alt,
+    tabs-inactive-text-color: $bankai-core-color-neutral-40,
+    tabs-inactive-hover-bg-color: $bankai-core-color-neutral-80,
+    tabs-inactive-hover-text-color: $bankai-core-color-neutral-10,
+    tabs-panel-bg-color: $bankai-semantic-color-canvas,
+    // Toasters
+    toaster-border-radius: bankai-to-px($bankai-core-radius-02-x),
+    toaster-bg-color: $bankai-semantic-color-canvas,
+    toaster-text-color: $bankai-semantic-color-text,
+    toaster-progress-bar-color: color.change($bankai-core-color-neutral-0, $alpha: 0.5),
+    // - Affirmative
+    toaster-affirmative-bg-color: $bankai-semantic-color-affirmative,
+    toaster-affirmative-text-color: $bankai-core-color-neutral-100,
+    toaster-affirmative-progress-bar-color: color.change($bankai-core-color-neutral-0, $alpha: 0.5),
+    // - Cautionary
+    toaster-cautionary-bg-color: $bankai-semantic-color-cautionary,
+    toaster-cautionary-text-color: $bankai-semantic-color-text,
+    toaster-cautionary-progress-bar-color: color.change($bankai-core-color-neutral-0, $alpha: 0.5),
+    // - Error
+    toaster-error-bg-color: $bankai-semantic-color-error,
+    toaster-error-text-color: $bankai-core-color-neutral-100,
+    toaster-error-progress-bar-color: color.change($bankai-core-color-neutral-0, $alpha: 0.5),
+    // - Info
+    toaster-info-bg-color: $bankai-semantic-color-info,
+    toaster-info-text-color: $bankai-core-color-neutral-100,
+    toaster-info-progress-bar-color: color.change($bankai-core-color-neutral-0, $alpha: 0.5),
+    // Tooltips
+    tooltip-border-radius: bankai-to-px($bankai-core-radius-02-x),
+    tooltip-icon-color: $bankai-semantic-color-info,
+);

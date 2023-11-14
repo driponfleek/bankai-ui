@@ -2,20 +2,20 @@
 // Dependencies
 // ========================================================
 @use 'sass:meta';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../styles/tokens/style-tokens.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@import './tokens/semantic-typography-tokens.scss';
 
 // ========================================================
 // Paths
 // ========================================================
-$bankai-heading-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/headings' !default;
-$bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body' !default;
+$bankai-heading-font-path: '@driponfleek/bankai-lib-theme-utils/src/media/fonts/headings' !default;
+$bankai-body-font-path: '@driponfleek/bankai-lib-theme-utils/src/media/fonts/body' !default;
 
 // ========================================================
 // Heading Font
 // ========================================================
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-family');
     src: url('#{$bankai-heading-font-path}/regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -23,7 +23,7 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-family');
     src: url('#{$bankai-heading-font-path}/italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
@@ -31,7 +31,7 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-family');
     src: url('#{$bankai-heading-font-path}/bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
@@ -39,7 +39,7 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-headings-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-headings-font-family');
     src: url('#{$bankai-heading-font-path}/bold-italic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
@@ -50,7 +50,7 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body
 // Body Font
 // ========================================================
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-font-family');
     src: url('#{$bankai-body-font-path}/regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -58,7 +58,7 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-font-family');
     src: url('#{$bankai-body-font-path}/italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
@@ -66,7 +66,7 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-font-family');
     src: url('#{$bankai-body-font-path}/bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
@@ -74,7 +74,7 @@ $bankai-body-font-path: '@epr0t0type/bankai-lib-theme-utils/src/media/fonts/body
 }
 
 @font-face {
-    font-family: bankai-get-map-value($bankai-style-tokens, 'core-typography-font-family');
+    font-family: bankai-get-map-value($bankai-semantic-typography-tokens, 'semantic-typography-font-family');
     src: url('#{$bankai-body-font-path}/bold-italic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;

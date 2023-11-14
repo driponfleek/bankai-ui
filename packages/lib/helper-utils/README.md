@@ -1,9 +1,9 @@
-# @Green-Dot-Corporation/eureka-lib-helper-utils
+# @driponfleek/bankai-lib-helper-utils
 Helper utilities.
 
 ## Installing
 ```
-npm i @Green-Dot-Corporation/eureka-lib-helper-utils
+npm i @driponfleek/bankai-lib-helper-utils
 ```
 
 ## Usage
@@ -11,13 +11,13 @@ npm i @Green-Dot-Corporation/eureka-lib-helper-utils
 ### debounce
 
 ```
-import { debounce } from '@Green-Dot-Corporation/eureka-lib-helper-utils';
+import { debounce } from '@driponfleek/bankai-lib-helper-utils';
 ```
 
 ### throttle
 
 ```
-import { throttle } from '@Green-Dot-Corporation/eureka-lib-helper-utils';
+import { throttle } from '@driponfleek/bankai-lib-helper-utils';
 ```
 
 ## Built With

@@ -8,7 +8,6 @@
 // @return {Number} - Unitless number
 @function bankai-strip-unit($number) {
     @if type-of($number) == 'number' and not unitless($number) {
-        // @return $number / ($number * 0 + 1);
         @return math.div($number, ($number * 0 + 1));
     }
 
@@ -16,6 +15,9 @@
 }
 
 @function bankai-to-rem($value) {
+    // @debug 'typeof: #{type-of($value)}';
+    // @debug 'typeof: #{$value}';
+
     @return math.div(bankai-strip-unit($value), 10) + rem;
 }
 

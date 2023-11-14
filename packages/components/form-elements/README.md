@@ -1,4 +1,4 @@
-# @epr0t0type/bankai-ui-form-elements
+# @driponfleek/bankai-ui-form-elements
 Form Element components for your UIs.
 
 ## Getting Started
@@ -8,8 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
+    "@driponfleek/bankai-lib-style-utils": "^0.1.0",
+    "@driponfleek/bankai-lib-theme-utils": "^0.1.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "18",
@@ -20,7 +20,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-ui-form-elements
+npm i @driponfleek/bankai-ui-form-elements
 ```
 
 ## Usage
@@ -29,91 +29,91 @@ npm i @epr0t0type/bankai-ui-form-elements
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/docs/components-form-elements--checkbox-story).
 
 ```
-import { Checkbox } from '@epr0t0type/bankai-ui-form-elements';
+import { Checkbox } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### ColorPicker
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--color-picker-story).
 
 ```
-import { ColorPicker } from '@epr0t0type/bankai-ui-form-elements';
+import { ColorPicker } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### ColorPickerInput
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--color-picker-input-story).
 
 ```
-import { ColorPickerInput } from '@epr0t0type/bankai-ui-form-elements';
+import { ColorPickerInput } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### DnDFileUploader
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--dn-d-file-uploader-story).
 
 ```
-import { DnDFileUploader } from '@epr0t0type/bankai-ui-form-elements';
+import { DnDFileUploader } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### Fieldset
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--fieldset-story).
 
 ```
-import { Fieldset } from '@epr0t0type/bankai-ui-form-elements';
+import { Fieldset } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### FormControlHint
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { FormControlHint } from '@epr0t0type/bankai-ui-form-elements';
+import { FormControlHint } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### FormFieldComposer
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--form-field-composer-story).
 
 ```
-import { FormFieldComposer, FORM_FIELD_COMP_VARIANTS } from '@epr0t0type/bankai-ui-form-elements';
+import { FormFieldComposer, FORM_FIELD_COMP_VARIANTS } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### FormLabel
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { FormLabel } from '@epr0t0type/bankai-ui-form-elements';
+import { FormLabel } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### InlineFormError
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { InlineFormError } from '@epr0t0type/bankai-ui-form-elements';
+import { InlineFormError } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### Radio
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--radio-story).
 
 ```
-import { Radio } from '@epr0t0type/bankai-ui-form-elements';
+import { Radio } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### Textarea
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--textarea-story).
 
 ```
-import { Textarea } from '@epr0t0type/bankai-ui-form-elements';
+import { Textarea } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### TextInput
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--text-input-story).
 
 ```
-import { TextInput } from '@epr0t0type/bankai-ui-form-elements';
+import { TextInput } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### ToggleSwitch
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/?path=/story/components-form-elements--toggle-switch-story).
 
 ```
-import { ToggleSwitch } from '@epr0t0type/bankai-ui-form-elements';
+import { ToggleSwitch } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ### Utilities
@@ -122,7 +122,7 @@ import { ToggleSwitch } from '@epr0t0type/bankai-ui-form-elements';
 For more information and guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { genFileTypeMeta } from '@epr0t0type/bankai-ui-form-elements';
+import { genFileTypeMeta } from '@driponfleek/bankai-ui-form-elements';
 ```
 
 ## Built With

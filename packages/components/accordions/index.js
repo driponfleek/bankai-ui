@@ -7,5 +7,5 @@ export { default as AccordionItemButton } from './src/AccordionItemButton';
 export { default as AccordionItemPanel } from './src/AccordionItemPanel';
 export { AccordionItemState } from 'react-accessible-accordion';
 export { default as AccordionContentComposer } from './src/AccordionContentComposer';
-export { default as BaseAccordion } from './src/BaseAccordion';
-export { default as BaseAccordionItemTrigger } from './src/BaseAccordionItemTrigger';
+export { default as BaseAccordion } from './src/components/BaseAccordion';
+export { default as BaseAccordionItemTrigger } from './src/components/BaseAccordionItemTrigger';

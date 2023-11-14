@@ -1,0 +1,26 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-foundation-accessible-color-palettes {
+    &__bg-and-text-colors-container {
+        @include bankai-flex-row;
+        gap: bankai-to-px($bankai-core-spacing-06-x);
+    }
+
+    &__eval-result {
+        font-size: var(--bankai-semantic-typography-headings-level6-font-size, bankai-get-light-theme-map-value('semantic-typography-headings-level6-font-size'));
+    }
+
+    &--negative {
+        color: var(--bankai-semantic-color-text-error, bankai-get-light-theme-map-value('semantic-color-text-error'));
+    }
+
+    &--positive {
+        color: var(--bankai-semantic-color-affirmative, bankai-get-light-theme-map-value('semantic-color-affirmative'));
+    }
+}

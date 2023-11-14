@@ -1,0 +1,33 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+
+.bankai-sb-color-variants-list {
+    $this: &;
+
+    &__inner {
+        @include bankai-list-reset;
+        @include bankai-flex-row;
+        max-width: 555px;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 185px;
+    }
+
+    &--scrollable {
+        #{$this}__inner {
+            @include bankai-scroll-y;
+            max-height: 443px;
+        }
+    }
+
+    .bankai-sb-color-swatch {
+        min-height: 100%;
+    }
+}

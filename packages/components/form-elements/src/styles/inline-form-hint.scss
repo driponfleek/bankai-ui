@@ -1,0 +1,14 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-form-control-hint, %bankai-form-control-hint {
+    @include bankai-max-line-width;
+    color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+    font-size: var(--bankai-semantic-typography-sub-text-font-size, bankai-get-light-theme-map-value('semantic-typography-sub-text-font-size'));
+    // font-style: italic;
+    // text-align: right;
+    display: block;
+}

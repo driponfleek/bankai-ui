@@ -1,0 +1,10 @@
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss';
+
+.bankai-sb-loading-skeleton {
+    .bankai-loading-skeleton {
+        width: 320px;
+        height: 150px;
+        border-radius: bankai-to-px($bankai-core-radius-04-x);
+    }
+}

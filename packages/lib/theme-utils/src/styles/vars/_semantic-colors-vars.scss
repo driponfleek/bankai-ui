@@ -1,0 +1,31 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import './core-colors-vars.scss';
+
+// Main
+$bankai-semantic-color-accent: #283154;
+$bankai-semantic-color-brand: #006fa3;
+// $bankai-semantic-color-brand: #68768d;
+$bankai-semantic-color-primary: $bankai-semantic-color-brand;
+$bankai-semantic-color-secondary: #397a93;
+// $bankai-semantic-color-secondary: $bankai-semantic-color-brand;
+// Canvas
+$bankai-semantic-color-canvas: $bankai-core-color-neutral-100;
+$bankai-semantic-color-canvas-alt: $bankai-core-color-neutral-95;
+$bankai-semantic-color-canvas-brand: $bankai-semantic-color-accent;
+$bankai-semantic-color-canvas-brand-text: $bankai-core-color-neutral-100;
+// Status
+$bankai-semantic-color-affirmative: #3c7b3f;
+$bankai-semantic-color-cautionary: #b58102;
+$bankai-semantic-color-error: #c33;
+// Informative Colors
+$bankai-semantic-color-destructive: $bankai-semantic-color-error;
+$bankai-semantic-color-info: #1979e6;
+// Text
+$bankai-semantic-color-text: $bankai-core-color-neutral-10;
+$bankai-semantic-color-text-alt: $bankai-core-color-neutral-40;
+// Universal
+$bankai-semantic-color-universal-accessible-border: #818a9c;
+$bankai-semantic-color-universal-decorative-border: $bankai-core-color-neutral-80;
+$bankai-semantic-color-universal-hover-bg: $bankai-core-color-neutral-80;

@@ -1,0 +1,23 @@
+.bankai-sb-banner {
+    &.bankai-banner {
+        .bankai-sb-code-tag {
+            background-color: color-mix(in sRGB, currentColor 85%, transparent);
+        }
+
+        &--affirmative .bankai-sb-code-tag__content {
+            color: var(--bankai-banner-affirmative-bg-color);
+        }
+
+        &--cautionary .bankai-sb-code-tag__content {
+            color: var(--bankai-banner-cautionary-bg-color);
+        }
+
+        &--danger .bankai-sb-code-tag__content {
+            color: var(--bankai-banner-danger-bg-color);
+        }
+
+        &--info .bankai-sb-code-tag__content {
+            color: var(--bankai-banner-info-bg-color);
+        }
+    }
+}

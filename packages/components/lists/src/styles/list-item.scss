@@ -1,27 +1,39 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 
 .bankai-list-item, %bankai-list-item {
-    background-color: var(--bankai-core-color-canvas, bankai-light-theme('core-color-canvas'));
+    @include bankai-flex-row;
+    background-color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
 
-    &__inner {
+    &__before-content,
+    &__after-content {
+        flex: 0 0 auto;
+    }
+
+    &__content {
+        min-width: 1px;
         box-sizing: border-box;
-        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 3)};
+        padding: bankai-to-rem($bankai-core-spacing-03-x) bankai-to-rem($bankai-core-spacing-04-x);
+        flex: 1 1 auto;
     }
 
     &__meta {
-        color: var(--bankai-core-color-text-alt, bankai-light-theme('core-color-text-alt'));
-        font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('core-typography-sub-text-font-size'));
+        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        font-size: var(--bankai-semantic-typography-sub-text-font-size, bankai-get-light-theme-map-value('semantic-typography-sub-text-font-size'));
     }
 
     &__text,
     &__meta {
         @include bankai-max-line-width;
-        line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
-        margin: 0;
+    }
+
+    &__text + &__meta {
+        margin-top:bankai-to-rem($bankai-core-spacing-01-x);
     }
 }

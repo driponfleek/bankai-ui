@@ -1,4 +1,4 @@
-# @epr0t0type/bankai-ui-badges
+# @driponfleek/bankai-ui-badges
 Badge components for your UIs.
 
 ## Getting Started
@@ -8,8 +8,8 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ```
 "peerDependencies": {
-    "@epr0t0type/bankai-lib-style-utils": "^0.0.0",
-    "@epr0t0type/bankai-lib-theme-utils": "^0.0.0",
+    "@driponfleek/bankai-lib-style-utils": "^0.0.0",
+    "@driponfleek/bankai-lib-theme-utils": "^0.0.0",
     "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "18",
@@ -21,7 +21,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-ui-badges
+npm i @driponfleek/bankai-ui-badges
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ npm i @epr0t0type/bankai-ui-badges
 For the full list of component props, examples, guidance on usage and more please reference the the [Bankai UI documentation](https://bankai-ui.com/).
 
 ```
-import { Badge, VARIANTS } from '@epr0t0type/bankai-ui-badges';
+import { Badge, VARIANTS } from '@driponfleek/bankai-ui-badges';
 ```
 
 ## Built With

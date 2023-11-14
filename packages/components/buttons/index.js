@@ -6,3 +6,4 @@ export { default as MenuButton } from './src/MenuButton';
 export { default as MenuButtonOption } from './src/MenuButtonOption';
 export { default as SplitButton } from './src/SplitButton';
 export { VARIANTS } from './src/const/variantsConst';
+export * from './src/const/baseClsConst';

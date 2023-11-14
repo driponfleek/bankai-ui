@@ -1,0 +1,12 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-icons-list {
+    @include bankai-flex-row;
+    flex-wrap: wrap;
+    gap: bankai-to-px($bankai-core-spacing-03-x);
+}

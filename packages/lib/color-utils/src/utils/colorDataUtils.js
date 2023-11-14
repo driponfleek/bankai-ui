@@ -4,12 +4,11 @@ import {
     convertColorToHSL,
     convertColorToRGB,
 } from './colorFormatConversionUtils';
-import { evaluateColorCompatibilities } from './evalutationUtils';
 
 /**
- *
- * @param {string} color - hex or rgb string
- * @returns {number} lightness of color
+ * Use to get the lightness of a HSL color
+ * @param {string} color - Hex or rgb string
+ * @returns {number} - Lightness of color (0 - 100)
  */
 export const getColorLightness = (color) => {
     const { l } = convertColorToHSL(color);
@@ -21,7 +20,7 @@ export const getColorLightness = (color) => {
  * Use to get foundation data for a color.
  * @param {string} hex - 4 or 7 digit hex (must include hash)
  */
-export const getColorSeedData = (hex) => {
+export const genColorSeedData = (hex) => {
     const color = tinycolor(hex);
     const hsl = convertColorToHSL(hex);
 
@@ -37,12 +36,11 @@ export const getColorSeedData = (hex) => {
 };
 
 /**
- * Use to generate an array of numbers used to seed the
- * lightness of variant colors.
- * @param {number} step - how much to modify the lightness of a color by per variant. This will used to generate variants between 0 and 100
+ * Generate an array of numbers used to seed the lightness of color variants.
+ * @param {number} step - Lightness modifier (max 40). This will be used to increment lightness values for color variants between 0 and 100
  * @return {array}
  */
-const getLightnessArray = (step = 5) => {
+const getLightnessArray = (step = 2) => {
     if (!step || step === 0) {
         return [];
     }
@@ -52,24 +50,33 @@ const getLightnessArray = (step = 5) => {
     const numOfVariants = Math.round(100 / safeStep);
 
     return [...Array.from(Array(numOfVariants).keys())]
-        .filter((k) => k !== 0)
+        .filter((k) => k !== 0 && k !== 100)
         .map((l) => l * safeStep)
         .reverse();
 };
 
+/**
+ * Use to get the hex value of a new color by adjusting a starting color's lightness.
+ * @param {string} hex - Starting color hex value.
+ * @param {number} lightness - Lightness to adjust the starting color to.
+ * @returns {string} - Hex value of new adjusted color
+ */
 export const getNewColorByChangingLightness = (hex, lightness) => {
     if (!hex || lightness === undefined) {
         return hex;
     }
     const { h, s } = convertColorToHSL(hex);
+    // Need to convert to a range from 0 - 1.
+    // https://github.com/bgrins/TinyColor/issues/200
+    const l = lightness / 100;
 
-    return convertColorToHex({ h, s, l: lightness });
+    return convertColorToHex({ h, s, l });
 };
 
 /**
- * Use to get foundation data for an array of color variants for a given base color.
+ * Use to get foundation data for an array of color variants for a given preferred color.
  * @param {string} hex - 4 or 7 digit hex (must include hash)
- * @param {number} step - must be divisible by 100 or will default to 10
+ * @param {number} step - Must be divisible by 100 or will default to 10
  * @return {array}
  */
 export const getColorVariantsSeedData = ({ hex, step, tokenId }) => {
@@ -79,60 +86,35 @@ export const getColorVariantsSeedData = ({ hex, step, tokenId }) => {
     const lightnessArr = getLightnessArray(step);
 
     return lightnessArr.map((l) => ({
-        ...getColorSeedData(getNewColorByChangingLightness(hex, l)),
-        tokenId: `${tokenId}_${l}`,
+        ...genColorSeedData(getNewColorByChangingLightness(hex, l)),
+        ...(tokenId && { tokenId: `${tokenId}_${l}` }),
         id: `${l}`,
     }));
 };
 
 /**
- * Use to evaluate a base color against a list of options.
- * @param {object} baseColorData
- * @param {array} options
- * @returns {object} evaulated base color
- */
-export const getColorCorrelationsData = (baseColorData, options) => {
-    return {
-        ...baseColorData,
-        ...evaluateColorCompatibilities(baseColorData, options),
-    };
-};
-
-/**
- * Use to evalute a base color as well as
- * a list of options against each other
- * @param {object} baseColorData
- * @param {array} options
- * @returns {object} evaluated base and options
- */
-export const getColorAndVariantCorrelationsData = (
-    baseColorData,
-    options = [],
-) => {
-    return {
-        base: getColorCorrelationsData(baseColorData, options),
-        variants: options.map((variant) => {
-            const otherColors = options.filter((v) => v.id !== variant.id);
-            otherColors.unshift(baseColorData);
-
-            return getColorCorrelationsData(variant, otherColors);
-        }),
-    };
-};
-
-/**
  * Use to generate color data for provided hex and returns
- * base color data, variant colors and compatibility results.
- * @param {string} hex - 4 or 7 digit hex (must include hash)
- * @param {number} step - must be divisible by 100 or will default to 10
+ * preferred color data, variant colors and compatibility results.
+ * @param {string} Object.hex - 4 or 7 digit hex (must include hash)
+ * @param {number} Object.step - must be divisible by 100 or will default to 10
+ * @param {boolean} Object.shouldRemoveDups - Default `true`. When `true` will check variants for duplicates of the preferred color and remove them
  * @return {object}
  */
-export const genColorsData = ({ hex, step, tokenId }) => {
-    const baseColor = {
-        ...getColorSeedData(hex),
-        id: 'base',
+export const genColorsData = ({
+    hex,
+    step = 2,
+    shouldRemoveDups = true,
+    tokenId,
+}) => {
+    const preferred = {
+        ...genColorSeedData(hex),
+        id: 'preferred',
     };
-    const variantColors = getColorVariantsSeedData({ hex, step, tokenId });
+    let variants = getColorVariantsSeedData({ hex, step, tokenId });
 
-    return getColorAndVariantCorrelationsData(baseColor, variantColors);
+    if (shouldRemoveDups) {
+        variants = variants.filter((variant) => variant.hex !== hex);
+    }
+
+    return { preferred, variants };
 };

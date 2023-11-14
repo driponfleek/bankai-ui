@@ -1,16 +1,16 @@
-# @epr0t0type/stylelint-config
+# @driponfleek/stylelint-config
 Reusable Stylelint configs for linting CSS and SASS.
 
 ## Installing
 ```
-npm i @epr0t0type/stylelint-config
+npm i @driponfleek/stylelint-config
 ```
 
 ## Usage
 In the root of your project create a `stylelint.config.js` file and add the following:
 
 ```
-module.exports = require('@epr0t0type/stylelint-config');
+module.exports = require('@driponfleek/stylelint-config');
 ```
 
 ## Built With

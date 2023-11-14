@@ -6,7 +6,7 @@ import {
     DAY_OF_MONTH,
     CALENDAR_YEAR,
     MONTH_FORMATTING,
-} from '@epr0t0type/bankai-lib-date-time-utils';
+} from '@driponfleek/bankai-lib-date-time-utils';
 
 const { MONTH_FULL, MONTH_ABBREVIATED } = MONTH_FORMATTING;
 const { YEAR_FULL } = CALENDAR_YEAR;

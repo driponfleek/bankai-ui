@@ -1,19 +1,4 @@
 {
-    "command": {
-        "bootsrap": {
-            "npmClientArgs": [
-                "--legacy-peer-deps"
-            ]
-        },
-        "publish": {
-            "allowBranch": "main",
-            "message": "chore(release): publish",
-            "registry": "https://npm.pkg.github.com/"
-        }
-    },
-    "packages": [
-        "packages/*"
-    ],
-    "useWorkspaces": true,
-    "version": "independent"
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent"
 }

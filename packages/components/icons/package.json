@@ -4,10 +4,21 @@
         "react-icons": "4.3.1"
     },
     "description": "Bankai icons",
+    "devDependencies": {
+        "@driponfleek/bankai-lib-react-unit-test-utils": "^0.1.0"
+    },
+    "exports": {
+        ".": "./index.js",
+        "./package.json": "./package.json",
+        "node": {
+            "module": "dist/esm/index.js",
+            "require": "dist/index.cjs.min.js"
+        },
+        "default": "index.js"
+    },
     "license": "MIT",
     "main": "dist/index.cjs.min.js",
-    "module": "dist/esm/index.js",
-    "name": "@epr0t0type/bankai-ui-icons",
+    "name": "@driponfleek/bankai-ui-icons",
     "peerDependencies": {
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2",
@@ -15,12 +26,12 @@
         "react-dom": "18"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com/epr0t0type"
+        "registry": "https://npm.pkg.github.com/driponfleek"
     },
     "repository": {
         "directory": "packages/components/icons",
         "type": "git",
-        "url": "ssh://git@github.com:epr0t0type/bankai-ui.git"
+        "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
     },
     "scripts": {
         "build": "npm run pre:build && rollup -c",
@@ -32,5 +43,6 @@
         "**/*.css.js",
         "**/*.scss.js"
     ],
-    "version": "0.0.0"
+    "type": "module",
+    "version": "0.1.0"
 }
