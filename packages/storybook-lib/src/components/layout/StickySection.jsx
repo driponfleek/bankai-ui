@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
-import './styles/sticky-section.scss';
+import './styles/stick-section.scss';
 
 class StickySection extends PureComponent {
     static defaultProps = {
