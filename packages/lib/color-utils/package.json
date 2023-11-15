@@ -3,9 +3,11 @@
     "dependencies": {
         "tinycolor2": "1.6.0"
     },
+    "devDependencies": {
+        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+    },
     "description": "Utilities for Management Colors",
     "license": "MIT",
-    "main": "index.js",
     "name": "@driponfleek/bankai-lib-color-utils",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/driponfleek"

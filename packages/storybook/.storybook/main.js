@@ -1,4 +1,6 @@
 import { dirname, join } from 'path';
+import { mergeConfig } from 'vite';
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
     stories: ['../stories/**/**/*.mdx', '../stories/**/**/*.stories.@(js|jsx)'],
@@ -24,6 +26,13 @@ const config = {
     },
     docs: {
         autodocs: 'tag',
+    },
+    async viteFinal(config) {
+        return mergeConfig(config, {
+            resolve: {
+                conditions: ['storybook-dev']
+            }
+        });
     },
 };
 export default config;

@@ -4,6 +4,9 @@
         "@driponfleek/bankai-lib-style-utils": "0.1.0",
         "normalize.css": "8.0.1"
     },
+    "devDependencies": {
+        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+    },
     "description": "Theme Defaults and Generators for Apps",
     "license": "MIT",
     "main": "index.js",

@@ -2,20 +2,21 @@
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
         "lodash.debounce": "4.0.8",
-        "lodash.throttle": "4.1.1"
+        "lodash.throttle": "4.1.1",
+        "lodash-es": "4.17.21"
+    },
+    "devDependencies": {
+        "@driponfleek/bankai-lib-build-internal": "0.0.1"
     },
     "description": "Bankai helper utilities",
     "exports": {
-        ".": "./index.js",
-        "./package.json": "./package.json",
-        "node": {
-            "module": "dist/esm/index.js",
-            "require": "dist/index.cjs.min.js"
+        ".": {
+            "storybook-dev":"./index.js",
+            "default": "./dist/bankai-lib-helper-utils.js"
         },
-        "default": "index.js"
+        "./package.json": "./package.json"
     },
     "license": "MIT",
-    "main": "dist/index.cjs.min.js",
     "name": "@driponfleek/bankai-lib-helper-utils",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/driponfleek"
@@ -26,8 +27,8 @@
         "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
     },
     "scripts": {
-        "build": "npm run pre:build && rollup -c",
-        "pre:build": "rimraf dist/"
+        "pre:build": "rimraf dist/",
+        "build": "npm run pre:build && bankai-lib-build-internal"
     },
     "version": "0.1.0"
 }

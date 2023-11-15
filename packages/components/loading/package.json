@@ -7,19 +7,17 @@
     },
     "description": "Bankai loading",
     "devDependencies": {
-        "@driponfleek/bankai-lib-react-unit-test-utils": "^0.1.0"
+        "@driponfleek/bankai-lib-react-unit-test-utils": "^0.1.0",
+        "@driponfleek/bankai-lib-build-internal": "0.0.1"
     },
     "exports": {
-        ".": "./index.js",
-        "./package.json": "./package.json",
-        "node": {
-            "module": "dist/esm/index.js",
-            "require": "dist/index.cjs.min.js"
+        ".": {
+            "storybook-dev":"./index.js",
+            "default": "./dist/bankai-ui-loading.js"
         },
-        "default": "index.js"
+        "./package.json": "./package.json"
     },
     "license": "MIT",
-    "main": "dist/index.cjs.min.js",
     "name": "@driponfleek/bankai-ui-loading",
     "peerDependencies": {
         "classnames": "^2.3.1",
@@ -36,8 +34,8 @@
         "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
     },
     "scripts": {
-        "build": "npm run pre:build && rollup -c",
-        "pre:build": "rimraf dist/"
+        "pre:build": "rimraf dist/",
+        "build": "npm run pre:build && bankai-lib-build-internal"
     },
     "sideEffects": [
         "**/*.css",
