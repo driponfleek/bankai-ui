@@ -49,7 +49,7 @@
         "build": "npm run build-storybook",
         "build-storybook": "cross-env NODE_PATH=src storybook build",
         "pre:build": "../../node_modules/.bin/rimraf storybook-static/",
-        "start": "cross-env NODE_PATH=src storybook dev -p 6006",
+        "start": "cross-env NODE_OPTIONS=\"-C storybook-dev\" storybook dev -p 6006",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "version": "1.0.0"

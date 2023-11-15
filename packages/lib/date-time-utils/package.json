@@ -3,18 +3,18 @@
     "dependencies": {
         "date-fns": "2.30.0"
     },
+    "devDependencies": {
+        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+    },
     "description": "Bankai utilities for formatting or otherwise manipulating date and time",
     "exports": {
-        ".": "./index.js",
-        "./package.json": "./package.json",
-        "node": {
-            "module": "dist/esm/index.js",
-            "require": "dist/index.cjs.min.js"
+        ".": {
+            "storybook-dev":"./index.js",
+            "default": "./dist/bankai-lib-date-time-utils.js"
         },
-        "default": "index.js"
+        "./package.json": "./package.json"
     },
     "license": "MIT",
-    "main": "dist/index.cjs.min.js",
     "name": "@driponfleek/bankai-lib-date-time-utils",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/driponfleek"
@@ -25,8 +25,8 @@
         "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
     },
     "scripts": {
-        "build": "npm run pre:build && rollup -c",
-        "pre:build": "rimraf dist/"
+        "pre:build": "rimraf dist/",
+        "build": "npm run pre:build && bankai-lib-build-internal"
     },
     "type": "module",
     "version": "0.1.0"

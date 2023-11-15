@@ -22,7 +22,6 @@
         "default": "index.js"
     },
     "license": "MIT",
-    "main": "dist/index.cjs.min.js",
     "name": "@driponfleek/bankai-lib-storybook",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/driponfleek"
@@ -33,7 +32,7 @@
         "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
     },
     "scripts": {
-        "build": "npm run pre:build && rollup -c",
+        "build-disabled": "npm run pre:build && rollup -c",
         "pre:build": "rimraf dist/"
     },
     "sideEffects": [
