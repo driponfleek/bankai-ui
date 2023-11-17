@@ -4,7 +4,7 @@
         "date-fns": "2.30.0"
     },
     "devDependencies": {
-        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+
     },
     "description": "Bankai utilities for formatting or otherwise manipulating date and time",
     "exports": {
@@ -26,7 +26,7 @@
     },
     "scripts": {
         "pre:build": "rimraf dist/",
-        "build": "npm run pre:build && bankai-lib-build-internal"
+        "build": "npm run pre:build && node ../../../scripts/build/build-packages.js"
     },
     "type": "module",
     "version": "0.1.0"

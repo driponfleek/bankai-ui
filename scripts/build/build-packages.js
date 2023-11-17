@@ -1,11 +1,9 @@
-#!/usr/bin/env node
-
-import react from '@vitejs/plugin-react-swc';
-import { resolve } from 'node:path';
-import { readFileSync } from 'node:fs';
-import { build } from 'vite';
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
-import process from 'node:process';
+const react = require('@vitejs/plugin-react-swc');
+const { resolve } = require('node:path');
+const { readFileSync } = require('node:fs');
+const { build } = require('vite');
+const { libInjectCss } = require('vite-plugin-lib-inject-css');
+const process = require('node:process');
 
 const cwd = process.cwd();
 const FORMAT_EXTENSION = {

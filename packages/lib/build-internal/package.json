@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "name": "@driponfleek/bankai-lib-build-internal",
-  "bin": "./buildPackage",
-  "version": "0.0.1",
-  "type": "module"
-}

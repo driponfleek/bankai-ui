@@ -2,7 +2,7 @@
     "author": "dyearwood@envisionedprototype.com",
     "description": "SASS Utilities for Common Styling Patterns",
     "devDependencies": {
-        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+
     },
     "exports": {
         ".": "./index.scss",

@@ -13,8 +13,7 @@
         "./package.json": "./package.json"
     },
     "devDependencies": {
-        "@driponfleek/bankai-lib-react-unit-test-utils": "^0.1.0",
-        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+        "@driponfleek/bankai-lib-react-unit-test-utils": "^0.1.0"
     },
     "license": "MIT",
     "name": "@driponfleek/bankai-ui-typography",
@@ -34,7 +33,7 @@
     },
     "scripts": {
         "pre:build": "rimraf dist/",
-        "build": "npm run pre:build && bankai-lib-build-internal"
+        "build": "npm run pre:build && node ../../../scripts/build/build-packages.js"
     },
     "sideEffects": [
         "**/*.css",

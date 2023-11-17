@@ -47,7 +47,7 @@
     "name": "storybook",
     "private": true,
     "scripts": {
-        "build": "npm run build-storybook",
+        "build1": "npm run build-storybook",
         "build-storybook": "cross-env NODE_PATH=src storybook build",
         "pre:build": "../../node_modules/.bin/rimraf storybook-static/",
         "start": "cross-env NODE_OPTIONS=\"-C storybook-dev\" storybook dev -p 6006",

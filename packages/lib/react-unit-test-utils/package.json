@@ -5,7 +5,7 @@
         "@testing-library/user-event": "14.5.1"
     },
     "devDependencies": {
-        "@driponfleek/bankai-lib-build-internal": "0.0.1"
+
     },
     "description": "Bankai UI library of helper utilities for unit testing applications with React framework",
     "license": "MIT",
