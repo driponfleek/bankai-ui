@@ -1,0 +1,24 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+
+.bankai-sb-color-swatch__contrast-ratio-meta {
+    @include bankai-sub-text;
+    text-align: right;
+    display: block;
+
+    &-value,
+    &-color {
+        display: inline-block;
+        line-height: 1;
+        vertical-align: middle;
+        margin: auto 0;
+    }
+
+    &-color {
+        width: 1em;
+        height: 1em;
+        border-radius: 100%;
+    }
+}

@@ -1,0 +1,26 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@use 'sass:color';
+
+// ================================================================
+// !!! DO NOT USE !!!
+// These are here simply for mapping to design token aliases.
+// Core tokens should never be used directly.
+// ================================================================
+// Neutrals
+$bankai-core-color-neutral: #576375;
+$bankai-core-color-neutral-0: #000;
+$bankai-core-color-neutral-05: #111;
+$bankai-core-color-neutral-10: #1b1b1b;
+$bankai-core-color-neutral-20: #2e3135;
+$bankai-core-color-neutral-30: #404752;
+$bankai-core-color-neutral-40: #545f70;
+$bankai-core-color-neutral-50: #6d7888;
+$bankai-core-color-neutral-60: #89919e;
+$bankai-core-color-neutral-70: #a5acb6;
+$bankai-core-color-neutral-80: #c1c7d1;
+$bankai-core-color-neutral-90: #dce3ed;
+$bankai-core-color-neutral-95: #ebf1fc;
+$bankai-core-color-neutral-100: #fff;
+

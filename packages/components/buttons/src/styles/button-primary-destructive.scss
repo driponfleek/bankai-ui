@@ -1,0 +1,32 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import './mixins.scss';
+
+.bankai-button {
+    $this: '.bankai-button';
+
+    &#{$this}--primary-destructive {
+        color: var(--bankai-button-primary-destructive-text-color, bankai-get-light-theme-map-value('button-primary-destructive-text-color'));
+        background-color: var(--bankai-button-primary-destructive-bg-color, bankai-get-light-theme-map-value('button-primary-destructive-bg-color'));
+        border-color: var(--bankai-button-primary-destructive-border-color, bankai-get-light-theme-map-value('button-primary-destructive-border-color'));
+        border-radius: var(--bankai-button-border-radius, bankai-get-light-theme-map-value('button-border-radius'));
+
+        &:focus-visible {
+            @include bankai-button-destructive-focus-visible;
+        }
+    
+        &:not(#{$this}--disabled):active {
+            @include bankai-button-active;
+            @include bankai-button-primary-destructive-active;
+        }
+    
+        @media (hover: hover) {
+            &:not(#{$this}--disabled):hover {
+                @include bankai-button-primary-destructive-hover;
+            }
+        }
+    }
+}

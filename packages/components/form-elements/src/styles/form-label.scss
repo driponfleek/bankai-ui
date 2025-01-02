@@ -1,13 +1,3 @@
-// ========================================================
-// Dependencies
-// ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-
-.bankai-form-label, %bankai-form-label {
-    @include bankai-max-line-width;
-
-    &__text {
-        color: var(--bankai-core-color-text, bankai-light-theme('core-color-text'));
-    }
+.bankai-form-label {
+    user-select: none;
 }

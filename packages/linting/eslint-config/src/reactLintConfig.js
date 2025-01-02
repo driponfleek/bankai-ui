@@ -3,15 +3,13 @@
 // 2 = error
 module.exports = {
     extends: [
-        '@epr0t0type/eslint-config/src/jsLintConfig',
+        '@driponfleek/eslint-config/src/jsLintConfig',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'prettier',
     ],
     parserOptions: {
-        babelOptions: {
-            presets: ['@babel/preset-react'],
-        },
+        ecmaVersion: '2023',
         requireConfigFile: false,
     },
     rules: {
@@ -62,7 +60,7 @@ module.exports = {
                     },
                     {
                         group: 'external',
-                        pattern: '@epr0t0type/**',
+                        pattern: '@driponfleek/**',
                         position: 'before',
                     },
                     {
@@ -134,7 +132,7 @@ module.exports = {
             },
         ],
         'react/button-has-type': 1,
-        'react/default-props-match-prop-types': 2,
+        'react/default-props-match-prop-types': 0,
         'react/destructuring-assignment': [
             2,
             'always',
@@ -159,7 +157,7 @@ module.exports = {
         'react/jsx-curly-brace-presence': [2, 'never'],
         'react/jsx-curly-spacing': [2, { when: 'never' }],
         'react/jsx-equals-spacing': [2, 'never'],
-        'react/jsx-filename-extension': [2, { extensions: ['.js'] }],
+        'react/jsx-filename-extension': [2, { extensions: ['.jsx'] }],
         'react/jsx-fragments': 0,
         'react/jsx-handler-names': 2,
         'react/jsx-indent': [2, 4],
@@ -193,7 +191,7 @@ module.exports = {
         'react/prefer-es6-class': [2, 'always'],
         'react/prefer-stateless-function': 2,
         'react/prop-types': [
-            2,
+            0,
             {
                 ignore: ['children'],
             },

@@ -1,0 +1,9 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-badge.bankai-badge--info {
+    color: var(--bankai-badge-info-text-color, bankai-get-light-theme-map-value('badge-info-text-color'));
+    background-color: var(--bankai-badge-info-bg-color, bankai-get-light-theme-map-value('badge-info-bg-color'));
+}

@@ -1,9 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 
-.bankai-accordion-content-container, %bankai-accordion-content-container {
+.bankai-accordion__content-container, %bankai-accordion__content-container {
     box-sizing: border-box;
 
     > :first-child {
@@ -15,6 +16,6 @@
     }
 
     &--pad-content {
-        padding: #{bankai-to-rem(bankai-light-theme('core-system-scale') * 4)};
+        padding: #{bankai-to-rem($bankai-core-spacing-04-x)};
     }
 }

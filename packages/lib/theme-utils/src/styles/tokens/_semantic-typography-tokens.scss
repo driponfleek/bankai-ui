@@ -1,0 +1,63 @@
+// ================================================================
+// Dependencies
+// ================================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '../vars/semantic-typography-vars.scss';
+
+// Semantic Typography Tokens
+$bankai-semantic-typography-tokens: (
+    // Font Families and Fallbacks
+    semantic-typography-font-family: $bankai-semantic-typography-font-family,
+    semantic-typography-font-family-fallback: $bankai-semantic-typography-font-family-fallback,
+    semantic-typography-headings-font-family: $bankai-semantic-typography-headings-font-family,
+    semantic-typography-headings-font-family-fallback: $bankai-semantic-typography-headings-font-family-fallback,
+    // Font Size
+    semantic-typography-font-size: $bankai-semantic-typography-font-size,
+    // Font Weights
+    semantic-typography-font-weight: $bankai-semantic-typography-font-weight,
+    semantic-typography-headings-font-weight: $bankai-semantic-typography-headings-font-weight,
+    // Font Styles
+    semantic-typography-headings-font-style: $bankai-semantic-headings-font-style,
+    // Form Inputs
+    semantic-typography-form-input-font-size: bankai-to-rem($bankai-semantic-typography-form-input-font-size),
+    semantic-typography-form-input-mobile-font-size: bankai-to-rem($bankai-semantic-typography-form-input-mobile-font-size),
+    // Footnotes
+    semantic-typography-footnote-font-size: bankai-to-rem($bankai-semantic-typography-footnote-font-size),
+    semantic-typography-footnote-mobile-font-size: bankai-to-rem($bankai-semantic-typography-footnote-mobile-font-size),
+    // Display XLarge
+    semantic-typography-display-xlarge-font-size: bankai-to-rem($bankai-semantic-typography-display-xlarge-font-size),
+    semantic-typography-display-xlarge-mobile-font-size: bankai-to-rem($bankai-semantic-typography-display-xlarge-mobile-font-size),
+    // Display Large
+    semantic-typography-display-large-font-size: bankai-to-rem($bankai-semantic-typography-display-large-font-size),
+    semantic-typography-display-large-mobile-font-size: bankai-to-rem($bankai-semantic-typography-display-large-mobile-font-size),
+    // Display Medium
+    semantic-typography-display-medium-font-size: bankai-to-rem($bankai-semantic-typography-display-medium-font-size),
+    semantic-typography-display-medium-mobile-font-size: bankai-to-rem($bankai-semantic-typography-display-medium-mobile-font-size),
+    // Display Small
+    semantic-typography-display-small-font-size: bankai-to-rem($bankai-semantic-typography-display-small-font-size),
+    semantic-typography-display-small-mobile-font-size: bankai-to-rem($bankai-semantic-typography-display-small-mobile-font-size),
+    // H1
+    semantic-typography-headings-level1-font-size: bankai-to-rem($bankai-semantic-typography-headings-level1-font-size),
+    semantic-typography-headings-level1-mobile-font-size: bankai-to-rem($bankai-semantic-typography-headings-level1-mobile-font-size),
+    // H2
+    semantic-typography-headings-level2-font-size: bankai-to-rem($bankai-semantic-typography-headings-level2-font-size),
+    semantic-typography-headings-level2-mobile-font-size: bankai-to-rem($bankai-semantic-typography-headings-level2-mobile-font-size),
+    // H3
+    semantic-typography-headings-level3-font-size: bankai-to-rem($bankai-semantic-typography-headings-level3-font-size),
+    semantic-typography-headings-level3-mobile-font-size: bankai-to-rem($bankai-semantic-typography-headings-level3-mobile-font-size),
+    // H4
+    semantic-typography-headings-level4-font-size: bankai-to-rem($bankai-semantic-typography-headings-level4-font-size),
+    semantic-typography-headings-level4-mobile-font-size: bankai-to-rem($bankai-semantic-typography-headings-level4-mobile-font-size),
+    // H5
+    semantic-typography-headings-level5-font-size: bankai-to-rem($bankai-semantic-typography-headings-level5-font-size),
+    semantic-typography-headings-level5-mobile-font-size: bankai-to-rem($bankai-semantic-typography-headings-level5-mobile-font-size),
+    // H6
+    semantic-typography-headings-level6-font-size: bankai-to-rem($bankai-semantic-typography-headings-level6-font-size),
+    semantic-typography-headings-level6-mobile-font-size: bankai-to-rem($bankai-semantic-typography-headings-level6-mobile-font-size),
+    // Line Heights
+    semantic-typography-headings-line-height: $bankai-semantic-typography-headings-line-height,
+    semantic-typography-line-height: $bankai-semantic-typography-line-height,
+    // Sub-Text
+    semantic-typography-sub-text-font-size: bankai-to-rem($bankai-semantic-typography-sub-text-font-size),
+    semantic-typography-sub-text-mobile-font-size: bankai-to-rem($bankai-semantic-typography-sub-text-mobile-font-size),
+);

@@ -1,0 +1,34 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-button-guidelines__btn-hierarchy-inline-ex {
+    .bankai-sb-component-preview {
+        @include bankai-flex-row;
+        // justify-content: center;
+
+        .bankai-button {
+            width: 8rem;
+        }
+    }
+}
+
+.bankai-sb-button-guidelines__btn-hierarchy-stacked-ex {
+    .bankai-sb-component-preview {
+        @include bankai-flex-column;
+        // align-items: center;
+
+        .bankai-button {
+            width: 16.8rem;
+            max-width: 100%;
+        }
+    }
+}
+
+.bankai-sb-button-guidelines__btn-hierarchy-inline-ex .bankai-sb-component-preview,
+.bankai-sb-button-guidelines__btn-hierarchy-stacked-ex .bankai-sb-component-preview {
+    gap: bankai-to-rem($bankai-core-spacing-02-x);
+}

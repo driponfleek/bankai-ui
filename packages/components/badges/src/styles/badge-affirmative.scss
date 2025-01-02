@@ -1,0 +1,9 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+
+.bankai-badge.bankai-badge--affirmative {
+    color: var(--bankai-badge-affirmative-text-color, bankai-get-light-theme-map-value('badge-affirmative-text-color'));
+    background-color: var(--bankai-badge-affirmative-bg-color, bankai-get-light-theme-map-value('badge-affirmative-bg-color'));
+}

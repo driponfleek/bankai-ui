@@ -1,4 +1,4 @@
-import tinycolor from 'tinycolor2';
+import chroma from 'chroma-js';
 
 /**
  * Use to get the HSL format of a provided color.
@@ -6,9 +6,21 @@ import tinycolor from 'tinycolor2';
  * @param {boolean} isString - Use to return string instead of object
  */
 export const convertColorToHSL = (val = '#000000', isString = false) => {
-    const color = tinycolor(val);
+    const [h, s, l] = chroma(val).hsl() ?? [];
 
-    return isString ? color.toHslString() : color.toHsl();
+    return isString ? `hsl(${h}, ${s * 100}%, ${l * 100}%)` : { h, s, l };
+};
+
+export const convertColorToLCH = (val = '#000000', isString = false) => {
+    const [l, c, h] = chroma(val).lch() ?? [];
+
+    return isString ? `lch(${l}, ${c}, ${h})` : { l, c, h };
+};
+
+export const convertColorToHSB = (val = '#000000', isString = false) => {
+    const [h, s, b] = chroma(val).lch() ?? [];
+
+    return isString ? `hsb(${h}, ${s}, ${b})` : { h, s, b };
 };
 
 /**
@@ -16,11 +28,7 @@ export const convertColorToHSL = (val = '#000000', isString = false) => {
  * @param {string, object} val
  */
 export const convertColorToHex = (val = { r: 0, g: 0, b: 0 }) => {
-    const color = tinycolor(val);
-    const alpha = color.getAlpha();
-    const hex = alpha < 1 ? color.toHex8String() : color.toHexString();
-
-    return hex;
+    return chroma(val).hex();
 };
 
 /**
@@ -29,16 +37,18 @@ export const convertColorToHex = (val = { r: 0, g: 0, b: 0 }) => {
  * @param {boolean} isString - Use to return string instead of object
  */
 export const convertColorToRGB = (val = '#000000', isString = false) => {
-    const color = tinycolor(val);
+    const [r, g, b, a] = chroma(val).rgba() ?? [];
 
-    return isString ? color.toRgbString() : color.toRgb();
+    return isString
+        ? `rgb${a < 1 ? 'a' : ''}(${r}, ${g}, ${b}${a < 1 ? `, ${a}` : ''})`
+        : { r, g, b, ...(a < 1 && { a }) };
 };
 
 /**
  * Use to convert hex value that need alpha transperancy to RGBA
  * @param {*} val
- * @param {*} alpha - alpha transparency (0 - 1)
- * @param {*} isString - When true will return rgba string instead of object
+ * @param {number} alpha - alpha transparency (0 - 1)
+ * @param {boolean} isString - When true will return rgba string instead of object
  * @returns string if isString is true, otherwise object { r, g, b, a }
  */
 export const convertColorToRGBA = (
@@ -46,8 +56,5 @@ export const convertColorToRGBA = (
     alpha = 1,
     isString = false,
 ) => {
-    const color = tinycolor(val);
-    color.setAlpha(alpha);
-
-    return isString ? color.toRgbString() : color.toRgb();
+    return convertColorToRGB(chroma(val).alpha(alpha).hex(), isString);
 };

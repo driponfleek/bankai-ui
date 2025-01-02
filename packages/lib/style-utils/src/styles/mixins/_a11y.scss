@@ -1,0 +1,10 @@
+// This mixin is used to hide content visibily from users while keeping it
+// accessible to assistive technology like screen readers.
+@mixin bankai-visibly-hidden() {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: -10000px;
+}

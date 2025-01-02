@@ -1,90 +1,79 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss';
 
 .bankai-form-field-composer, %bankai-form-field-composer {
-    display: inline-block;
-    $bankai-form-label-control-space: 2px;
+    // display: inline-block;
     $this: '.bankai-form-field-composer';
 
-    .bankai-form-control-hint {
-        margin-left: auto;
+    .bankai-form-label {
+        display: block;
     }
 
-    &--is-stacked {
-        .bankai-form-field-composer__label-container + .bankai-form-field-composer__control-container {
-            margin-top: $bankai-form-label-control-space;
+    &--stacked {
+        #{$this}__label-container + #{$this}__control-container,
+        #{$this}__control-container + #{$this}__hints-container--displaying-hint {
+            margin-top: bankai-to-rem($bankai-core-spacing-half-x);
         }
 
-        .bankai-form-field-composer__control-container + .bankai-form-field-composer__hints-container--is-displaying-hint {
-            margin-top: $bankai-form-label-control-space;
+        * + #{$this}__hints-container {
+            margin-top: bankai-to-rem($bankai-core-spacing-01-x);
         }
     }
 
-    &--is-inline-left {
-        .bankai-form-field-composer__inner {
+    &--stacked-hint-top {
+        #{$this}__label-container + #{$this}__control-container,
+        #{$this}__hints-container + #{$this}__control-container {
+            margin-top: bankai-to-rem($bankai-core-spacing-half-x);
+        }
+    }
+
+    &--inline-left {
+        #{$this}__inner {
+            @include bankai-flex-row;
+            gap: bankai-to-rem($bankai-core-spacing-03-x);
+        }
+
+        #{$this}__label-container {
             @include bankai-flex-row;
         }
 
-        .bankai-form-field-composer__label-container {
-            @include bankai-flex-row;
+        #{$this}__label-container,
+        #{$this}__hints-container {
             text-align: right;
         }
 
         .bankai-form-label {
             margin: auto 0;
         }
-
-        .bankai-form-field-composer__label-container + .bankai-form-field-composer__control-hint-container {
-            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
-        }
     }
 
-    &--is-inline-right {
-        .bankai-form-field-composer__inner {
+    &--inline-right {
+        #{$this}__inner {
             @include bankai-flex-row;
+            gap: bankai-to-rem($bankai-core-spacing-03-x);
         }
 
-        .bankai-form-field-composer__label-container {
+        #{$this}__label-container {
             @include bankai-flex-row;
         }
 
         .bankai-form-label {
             margin: auto 0;
         }
-
-        .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__label-container {
-            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
-        }
     }
 
-    &--is-toggle {
-        // stylelint-disable-next-line no-descending-specificity
-        .bankai-form-field-composer__control-hint-container {
-            @include bankai-flex-row;
-        }
-
-        .bankai-form-field-composer__control-container + .bankai-form-field-composer__label-container {
-            margin-left: #{bankai-to-px(bankai-light-theme('core-system-scale') * 3)};
-        }
-
-        .bankai-form-control-hint {
-            text-align: left;
-        }
-
-        .bankai-form-field-composer__control-hint-container + .bankai-form-field-composer__hints-container {
-            margin-top: $bankai-form-label-control-space;
-        }
-    }
-
-    &--is-disabled,
+    &--disabled,
     fieldset:disabled & {
         #{$this}__label-container,
         #{$this}__hints-container {
-            opacity: bankai-light-theme('state-disabled-opacity');
+            opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
         }
     }
 }

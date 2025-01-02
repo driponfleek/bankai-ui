@@ -1,14 +1,16 @@
 // ========================================================
 // Dependencies
 // ========================================================
-// @import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+// @import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 
 .bankai-status-modal, %bankai-status-modal {
-    color: bankai-light-theme('core-color-neutral-100');
-    padding: #{bankai-to-rem(bankai-light-theme('core-system-scale'))};
+    color: $bankai-core-color-neutral-100;
+    padding: bankai-to-rem($bankai-core-spacing-01-x);
 
     &__dialog {
         background-color: transparent;
@@ -20,13 +22,12 @@
         align-items: center;
     }
 
-    .bankai-callout__icon {
-        * {
-            background-color: bankai-light-theme('core-color-neutral-100');
-        }
+    .bankai-loading-spinners--cube {
+        color: $bankai-core-color-neutral-100;
     }
 
     .bankai-callout__title {
+        color: $bankai-core-color-neutral-100;
         font-style: italic;
     }
 

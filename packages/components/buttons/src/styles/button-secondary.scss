@@ -1,0 +1,59 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import './mixins.scss';
+
+.bankai-button {
+    $this: '.bankai-button';
+
+    &#{$this}--secondary {
+        color: var(--bankai-button-secondary-text-color, bankai-get-light-theme-map-value('button-secondary-text-color'));
+        background-color: var(--bankai-button-secondary-bg-color, bankai-get-light-theme-map-value('button-secondary-bg-color'));
+        border-color: var(--bankai-button-secondary-border-color, bankai-get-light-theme-map-value('button-secondary-border-color'));
+        border-radius: var(--bankai-button-border-radius, bankai-get-light-theme-map-value('button-border-radius'));
+    
+        &:focus-visible {
+            @include bankai-button-secondary-focus-visible;
+        }
+    
+        &:not(#{$this}--disabled):active {
+            @include bankai-button-secondary-active;
+        }
+    
+        @media (hover: hover) {
+            &:not(#{$this}--disabled):hover {
+                @include bankai-button-secondary-hover;
+            }
+        }
+    }
+
+    &#{$this}--secondary-destructive {
+        color: var(--bankai-button-secondary-destructive-text-color, bankai-get-light-theme-map-value('button-secondary-destructive-text-color'));
+        background-color: var(--bankai-button-secondary-destructive-bg-color, bankai-get-light-theme-map-value('button-secondary-destructive-bg-color'));
+        border-color: var(--bankai-button-secondary-destructive-border-color, bankai-get-light-theme-map-value('button-secondary-destructive-border-color'));
+        border-radius: var(--bankai-button-border-radius, bankai-get-light-theme-map-value('button-border-radius'));
+
+        &:focus-visible {
+            @include bankai-button-destructive-focus-visible;
+        }
+    
+        &:not(#{$this}--disabled):active {
+            @include bankai-button-secondary-destructive-active;
+        }
+    
+        @media (hover: hover) {
+            &:not(#{$this}--disabled):hover {
+                @include bankai-button-secondary-destructive-hover;
+            }
+        }
+    }
+
+    &#{$this}--secondary,
+    &#{$this}--secondary-destructive {
+        &:not(#{$this}--disabled):active {
+            @include bankai-button-active;
+        }
+    }
+}

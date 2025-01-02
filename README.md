@@ -72,17 +72,17 @@ npm run test -- --watch
 
 **Run a Specific Test**
 ```
-npm run test packages/components/buttons/src/__tests__/Button.test.js
+npm run test packages/components/buttons/src/__tests__/Button.test.jsx
 ```
 
 **Run All Tests in a Package**
 ```
-npm run test packages/components/buttons/src/**/*.js
+npm run test packages/components/buttons/src/**/*.jsx
 ```
 
 **Get Coverage For All Tests in a Package**
 ```
-npm run test packages/components/buttons/src/**/*.js -- --coverage --collectCoverageFrom="packages/components/buttons/src/**/*.js"
+npm run test packages/components/buttons/src/**/*.jsx -- --coverage --collectCoverageFrom="packages/components/buttons/src/**/*.jsx"
 ```
 
 ## Developer Workflow

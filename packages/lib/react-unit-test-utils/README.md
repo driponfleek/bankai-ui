@@ -16,7 +16,7 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-lib-react-unit-test-utils
+npm i @driponfleek/bankai-lib-react-unit-test-utils
 ```
 
 **Note:** You'll need to set up a `.npmrc` file with the appropriate Authentication Token in order to install private Github Packages.
@@ -26,7 +26,7 @@ npm i @epr0t0type/bankai-lib-react-unit-test-utils
 Used to grab the default props from a React component.
 
 ```
-import { getDefaultProps } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { getDefaultProps } from '@driponfleek/bankai-lib-react-unit-test-utils';
 
 const defaultProps = getDefaultProps(MyComponent);
 ```
@@ -36,7 +36,7 @@ const defaultProps = getDefaultProps(MyComponent);
 Used for mocking different user agents in unit tests. Helpful when you need to write unit tests for mobile scenarios (ex: iPhone, Android, etc.).
 
 ```
-import { userAgentMocks } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { userAgentMocks } from '@driponfleek/bankai-lib-react-unit-test-utils';
 
 const { mobileAndroidUA, mobileIOSUA, setUA } = userAgentMocks;
 ```
@@ -45,7 +45,7 @@ const { mobileAndroidUA, mobileIOSUA, setUA } = userAgentMocks;
 Used for mocking [uuid](https://github.com/uuidjs/uuid#readme) 3rd party library (uuid/v4 only).
 
 ```
-import { uuidMock } from '@epr0t0type/bankai-lib-react-unit-test-utils';
+import { uuidMock } from '@driponfleek/bankai-lib-react-unit-test-utils';
 ```
 
 ## React Testing Library
@@ -56,7 +56,7 @@ import {
     act,
     userEvent,
     render,
-} from '@epr0t0type/bankai-lib-react-unit-test-utils';
+} from '@driponfleek/bankai-lib-react-unit-test-utils';
 ```
 
 ## Built With

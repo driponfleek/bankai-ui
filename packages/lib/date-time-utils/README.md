@@ -1,9 +1,9 @@
-# @epr0t0type/bankai-lib-date-time-utils
+# @driponfleek/bankai-lib-date-time-utils
 Utilities for dealing with color.
 
 ## Installing
 ```
-npm i @epr0t0type/bankai-lib-date-time-utils
+npm i @driponfleek/bankai-lib-date-time-utils
 ```
 
 ## Usage
@@ -12,7 +12,7 @@ npm i @epr0t0type/bankai-lib-date-time-utils
 The `date-fns` libraries are also exported for your convenience.
 
 ```
-import { dateFNS, dateFNSLocales } from '@epr0t0type/bankai-lib-date-time-utils';
+import { dateFNS, dateFNSLocales } from '@driponfleek/bankai-lib-date-time-utils';
 ```
 
 ### Constants
@@ -41,7 +41,7 @@ import {
     MINUTE,
     SECOND,
     ORDINAL_CHAR,
-} from '@epr0t0type/bankai-lib-date-time-utils';
+} from '@driponfleek/bankai-lib-date-time-utils';
 ```
 
 ## Built With

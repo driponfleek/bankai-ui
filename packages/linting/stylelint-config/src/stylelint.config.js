@@ -26,6 +26,7 @@ module.exports = {
             {
                 ignoreAtRules: [
                     'at-root',
+                    'container',
                     'each',
                     'extend',
                     'else',

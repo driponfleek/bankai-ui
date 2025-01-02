@@ -2,20 +2,26 @@
 // Dependencies
 // ========================================================
 @use 'sass:color';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 @import './mixins.scss';
 
 .bankai-text-input, %bankai-text-input {
     @include bankai-focus-state-halo;
-    color: var(--bankai-form-input-text-color, bankai-light-theme('form-input-text-color'));
-    background-color: var(--bankai-form-input-bg-color, bankai-light-theme('form-input-bg-color'));
+    @include bankai-form-input-font-size;
+    @include bankai-disabled-state;
+    color: var(--bankai-form-input-text-color, bankai-get-light-theme-map-value('form-input-text-color'));
+    background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
     box-sizing: border-box;
-    box-shadow: inset 0 1px 1px color.change(bankai-light-theme('core-color-neutral-0'), $alpha: 0.075);
-    border: 1px solid var(--bankai-core-color-universal-accessible-border, bankai-light-theme('core-color-universal-accessible-border'));
-    border-radius: var(--bankai-form-input-border-radius, bankai-light-theme('form-input-border-radius'));
-    line-height: var(--bankai-core-typography-line-height, bankai-light-theme('core-typography-line-height'));
-    padding: bankai-light-theme('form-input-padding');
+    box-shadow: inset 0 1px 1px color.change($bankai-core-color-neutral-0, $alpha: 0.075);
+    border: 1px solid var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
+    border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
+    line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+    padding: bankai-to-rem($bankai-core-spacing-02-x);
 
     &:disabled {
         @include bankai-form-input-disabled;
@@ -26,7 +32,6 @@
     }
 
     &::placeholder {
-        color: var(--bankai-form-input-placeholder-text, bankai-light-theme('form-input-placeholder-text'));
-        font-style: bankai-light-theme('form-input-placeholder-font-style');
+        color: var(--bankai-form-input-placeholder-text-color, bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
     }
 }

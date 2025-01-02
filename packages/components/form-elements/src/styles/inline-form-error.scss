@@ -1,14 +1,14 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '~@epr0t0type/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '~@epr0t0type/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-inline-form-error, %bankai-inline-form-error {
     @include bankai-max-line-width;
-    color: var(--bankai-core-color-text-error, bankai-light-theme('core-color-text-error'));
-    font-size: var(--bankai-core-typography-sub-text-font-size, bankai-light-theme('core-typography-sub-text-font-size'));
+    color: var(--bankai-semantic-color-text-error, bankai-get-light-theme-map-value('semantic-color-text-error'));
+    font-size: var(--bankai-semantic-typography-sub-text-font-size, bankai-get-light-theme-map-value('semantic-typography-sub-text-font-size'));
     display: block;
 
     &__icon {
@@ -20,7 +20,7 @@
     }
 
     &__icon,
-    &__text {
+    &__content {
         vertical-align: middle;
     }
 }
