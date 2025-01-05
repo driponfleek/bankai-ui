@@ -1,4 +1,4 @@
-> **Warning** 
+> [!WARNING] 
 > THIS REPO IS CURRENTLY UNDER CONSTRUCTION.
 
 # bankai-ui

@@ -5,7 +5,7 @@ export default {
 };
 
 export const CreatingColorPalettes = {
-    name: 'Creating Color Palettes',
+    name: 'Color Palette Generator',
     render: StoryCreatingColorPalettes,
     parameters: {
         a11y: {
