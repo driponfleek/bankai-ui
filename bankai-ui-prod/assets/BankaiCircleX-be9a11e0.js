@@ -1,0 +1,2 @@
+import{j as c}from"./localeUtils-d4c6437e.js";import{P as e}from"./index-f9722e9b.js";import{m as o,c as n,b as l}from"./shared-76b286eb.js";const s=a=>{const{contextCls:r,className:t,...i}=a;return c(o,{...i,className:n(`${l}-circle-x`,t,r)})};s.propTypes={contextCls:e.string,className:e.string};const C=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiCircleX",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{C as B};
+//# sourceMappingURL=BankaiCircleX-be9a11e0.js.map
