@@ -15,7 +15,7 @@ const StoryColorVariantsGen = () => {
     const [sourceColor, setSourceColor] = useState(
         CORE_COLOR_NEUTRAL_SEED_DEFAULT,
     );
-    const [shouldShowMaxVariants, setShouldShowMaxVariants] = useState(false);
+    const [shouldShowMaxVariants, setShouldShowMaxVariants] = useState(true);
     const baseCls = genSBBaseCls('color-variant-generator');
     const massagedVariants = useMemo(
         () => getColorVariants(sourceColor, shouldShowMaxVariants ? 1 : 5),

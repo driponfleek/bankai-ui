@@ -1,82 +1,91 @@
-# name: Bankai CI/CD
+name: Bankai CI/CD
 
-# on:
-#   push:
-#     branches:
-#       - main
-#       - develop
-#       - features/*
-#       - bugfix/*
-#   workflow_dispatch:
-#     inputs:
-#       type:
-#         description: 'Type of build(release/snapshot)'
-#         required: true
-#         default: 'snapshot'
-# jobs:
-#   setup-build-push:
-#     name: Setup, Build and Push to Github
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Checkout
-#       uses: actions/checkout@v2
-#       with:
-#         fetch-depth: 0
-#     - name: setup variables
-#       id: vars
-#       shell: bash
-#       run: |
-#         echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-#         echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-#     - name: Build Project
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: '16.x'
-#     - name: Install, Validate & Build
-#       run: |
-#         npm config set save-exact true
-#         npm config set legacy-peer-deps true
-#         npm i -f
-#         npm run lint:js
-#         npm run lint:scss
-#         npm run test
-#         npm run build
-#         git status
-#     - name: publish-snapshot
-#       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
-#       run: |
-#         echo "@driponfleek:registry=https://npm.pkg.github.com/driponfleek" > ./.npmrc
-#         echo "//npm.pkg.github.com/:_authToken=${{ secrets.GIT_AUTH_TOKEN }}" >> ./.npmrc
-#         npm run publish-snapshot -- --no-verify-access --preid alpha.${{ github.run_number }}
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - features/*
+      - bugfix/*
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Type of build(release/snapshot)'
+        required: true
+        default: 'snapshot'
+jobs:
+  setup-build-push:
+    name: Setup, Build and Push to Github
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: setup variables
+      id: vars
+      shell: bash
+      run: |
+        echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+    - name: Build Project
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+    - name: Install, Validate & Build
+      run: |
+        npm config set save-exact true
+        npm config set legacy-peer-deps true
+        npm i -f
+        npm run lint:js
+        npm run lint:scss
+        npm run test
+        npm run build
+        git status
+    - name: publish-snapshot
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      run: |
+        echo "@driponfleek:registry=https://npm.pkg.github.com/driponfleek" > ./.npmrc
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GIT_AUTH_TOKEN }}" >> ./.npmrc
+        npm run publish-snapshot -- --no-verify-access --preid alpha.${{ github.run_number }}
 
-#     - name: publish-release
-#       if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
-#       run: |
-#         git config --global user.name 'github-actions[bot]'
-#         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-#         echo "@driponfleek:registry=https://npm.pkg.github.com/driponfleek" > ./.npmrc
-#         echo "//npm.pkg.github.com/:_authToken=${{ secrets.GIT_AUTH_TOKEN }}" >> ./.npmrc
-#         npm run publish-release
+    - name: publish-release
+      if: steps.vars.outputs.branch == 'main' && github.event.inputs.type == 'release'
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        echo "@driponfleek:registry=https://npm.pkg.github.com/driponfleek" > ./.npmrc
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GIT_AUTH_TOKEN }}" >> ./.npmrc
+        npm run publish-release
+    - name: Deploy to Github Pages
+      if: steps.vars.outputs.branch == 'main'
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./packages/storybook/storybook-static
+        destination_dir: bankai-ui-prod
 
 
-#     # Simply extracts the project version from the supplied pom.xml
-#     # NOTE: It does not use maven for this, to prevent unexpected failures/updates/side effects
-#     - name: Get project version from package.json
-#       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
-#       id: get-version
-#       shell: bash
-#       run: |-
-#         export VERSION=$(awk -F'"' '/"version": ".+"/{ print $4; exit; }' ./package.json)
-#         echo "::set-output name=version::$VERSION"
+    # Simply extracts the project version from the supplied pom.xml
+    # NOTE: It does not use maven for this, to prevent unexpected failures/updates/side effects
+    - name: Get project version from package.json
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      id: get-version
+      shell: bash
+      run: |-
+        export VERSION=$(awk -F'"' '/"version": ".+"/{ print $4; exit; }' ./package.json)
+        echo "::set-output name=version::$VERSION"
 
-#     - name: Show Version
-#       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
-#       run: |-
-#         echo "${{steps.get-version.outputs.version}}"
+    - name: Show Version
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      run: |-
+        echo "${{steps.get-version.outputs.version}}"
 
-#     # Output the fully specified location of the built image
-#     - name: Output full image
-#       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
-#       shell: bash
-#       run: echo ${{ steps.build-and-push.outputs.image-location }}
+    # Output the fully specified location of the built image
+    - name: Output full image
+      if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
+      shell: bash
+      run: echo ${{ steps.build-and-push.outputs.image-location }}
 
