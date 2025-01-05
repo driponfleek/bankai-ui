@@ -5,9 +5,7 @@
         "lodash.throttle": "4.1.1",
         "lodash-es": "4.17.21"
     },
-    "devDependencies": {
-
-    },
+    "devDependencies": {},
     "description": "Bankai helper utilities",
     "exports": {
         ".": {

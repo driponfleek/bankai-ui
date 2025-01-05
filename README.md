@@ -102,7 +102,7 @@ flowchart TD
     style newBranchSyncWithMain text-align:left
 ```
 
-> **Note**
+> [!NOTE]
 > When committing code make sure to use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). This automates the versioning of packages and updating of CHANGELOGs.
 
 ## The Tech Stack
