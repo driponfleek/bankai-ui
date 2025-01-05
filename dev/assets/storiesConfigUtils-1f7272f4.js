@@ -1,0 +1,2 @@
+import{g as t}from"./localeUtils-d4c6437e.js";import"./chunk-S4VUQJ4A-4a8084e7.js";import{a as s,g as o}from"./storiesConfigUtils-656c85e3.js";const l=(e="")=>s([t("titles.components"),e]),r=(e="")=>s([t("titles.developers"),e]),g=(e="")=>s([t("titles.designers"),e]),c=(e="")=>s([t("titles.everyone"),e]),m=(e="")=>s([t("titles.foundation"),e]),d=()=>document.getElementsByTagName("html")[0].classList.contains(`${o()}-dark`);export{g as a,l as b,m as c,d,r as e,c as g};
+//# sourceMappingURL=storiesConfigUtils-1f7272f4.js.map
