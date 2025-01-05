@@ -63,12 +63,12 @@ jobs:
         echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ./.npmrc
         npm run publish-release
     - name: Deploy to Github Pages
-      if: steps.vars.outputs.branch == 'main'
+      if: steps.vars.outputs.branch == 'main' || steps.vars.outputs.branch == 'develop'
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./packages/storybook/storybook-static
-        destination_dir: bankai-ui-prod
+        destination_dir: ${{ github.ref_name == 'develop' && 'dev' || 'prod' }}
 
 
     # Simply extracts the project version from the supplied pom.xml
