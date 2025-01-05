@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -48,7 +49,7 @@ jobs:
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
       run: |
         echo "@driponfleek:registry=https://npm.pkg.github.com/driponfleek" > ./.npmrc
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GIT_AUTH_TOKEN }}" >> ./.npmrc
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ./.npmrc
         npm run publish-snapshot -- --no-verify-access --preid alpha.${{ github.run_number }}
 
     - name: publish-release
@@ -57,7 +58,7 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         echo "@driponfleek:registry=https://npm.pkg.github.com/driponfleek" > ./.npmrc
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GIT_AUTH_TOKEN }}" >> ./.npmrc
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ./.npmrc
         npm run publish-release
     - name: Deploy to Github Pages
       if: steps.vars.outputs.branch == 'main'
