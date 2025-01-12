@@ -1,0 +1,2 @@
+import{a as s,b as i}from"./localeUtils-0070de19.js";const c=a=>{const{hex:t,lch:e,isDark:n,tokenId:o}=a??{},{l:r}=e??{};return{color:t,id:`${Math.round(r)}`,isDark:n,lightness:r,mainContent:o==null?void 0:o.replace("."," "),metaList:[t]}},h=(a,t=5)=>{const e=s(a);return i({hex:e,step:t,tokenId:"Variant"}).map(n=>c(n))};export{c as a,h as g};
+//# sourceMappingURL=colorVariantsGenStoryUtils-de75b17c.js.map
