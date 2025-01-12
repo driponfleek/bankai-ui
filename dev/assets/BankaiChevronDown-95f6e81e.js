@@ -1,0 +1,2 @@
+import{j as t}from"./localeUtils-0070de19.js";import{P as e}from"./index-f9722e9b.js";import{i,c,b as p}from"./shared-4aaf5970.js";const s=o=>{const{contextCls:n,className:a,...r}=o;return t(i,{...r,className:c(`${p}-chevron-down`,a,n)})};s.propTypes={contextCls:e.string,className:e.string};const C=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiChevronDown",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{C as B};
+//# sourceMappingURL=BankaiChevronDown-95f6e81e.js.map
