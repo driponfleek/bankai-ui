@@ -27,8 +27,26 @@ export const genTokens = (fieldValues = {}) => {
         shouldAutoCorrectForA11y,
         shouldUseMinimumAPCATextCompliance,
         avatarSourceColorToken,
-        btnSecondarySourceColorToken,
-        btnSecondaryStyle,
+        badgeAffirmativeSourceColorToken,
+        badgeCautionarySourceColorToken,
+        badgeDangerSourceColorToken,
+        badgeInfoSourceColorToken,
+        bannerAffirmativeSourceColorToken,
+        bannerCautionarySourceColorToken,
+        bannerDangerSourceColorToken,
+        bannerInfoSourceColorToken,
+        buttonPrimarySourceColorToken,
+        buttonPrimaryStyle,
+        buttonPrimaryDestructiveSourceColorToken,
+        buttonPrimaryDestructiveStyle,
+        buttonSecondarySourceColorToken,
+        buttonSecondaryStyle,
+        buttonSecondaryDestructiveSourceColorToken,
+        buttonSecondaryDestructiveStyle,
+        calloutAffirmativeSourceColorToken,
+        calloutCautionarySourceColorToken,
+        calloutDangerSourceColorToken,
+        calloutInfoSourceColorToken,
         ...fieldVals
     } = fieldValues;
     const presets = {};
@@ -50,9 +68,58 @@ export const genTokens = (fieldValues = {}) => {
                 avatar: {
                     sourceColorToken: avatarSourceColorToken,
                 },
+                btnPrimary: {
+                    style: buttonPrimaryStyle,
+                    sourceColorToken: buttonPrimarySourceColorToken,
+                },
+                btnPrimaryDestructive: {
+                    style: buttonPrimaryDestructiveStyle,
+                    sourceColorToken: buttonPrimaryDestructiveSourceColorToken,
+                },
                 btnSecondary: {
-                    style: btnSecondaryStyle,
-                    sourceColorToken: btnSecondarySourceColorToken,
+                    style: buttonSecondaryStyle,
+                    sourceColorToken: buttonSecondarySourceColorToken,
+                },
+                btnSecondaryDestructive: {
+                    style: buttonSecondaryDestructiveStyle,
+                    sourceColorToken:
+                        buttonSecondaryDestructiveSourceColorToken,
+                },
+                badgeAffirmative: {
+                    sourceColorToken: badgeAffirmativeSourceColorToken,
+                },
+                badgeCautionary: {
+                    sourceColorToken: badgeCautionarySourceColorToken,
+                },
+                badgeDanger: {
+                    sourceColorToken: badgeDangerSourceColorToken,
+                },
+                badgeInfo: {
+                    sourceColorToken: badgeInfoSourceColorToken,
+                },
+                bannerAffirmative: {
+                    sourceColorToken: bannerAffirmativeSourceColorToken,
+                },
+                bannerCautionary: {
+                    sourceColorToken: bannerCautionarySourceColorToken,
+                },
+                bannerDanger: {
+                    sourceColorToken: bannerDangerSourceColorToken,
+                },
+                bannerInfo: {
+                    sourceColorToken: bannerInfoSourceColorToken,
+                },
+                calloutAffirmative: {
+                    sourceColorToken: calloutAffirmativeSourceColorToken,
+                },
+                calloutCautionary: {
+                    sourceColorToken: calloutCautionarySourceColorToken,
+                },
+                calloutDanger: {
+                    sourceColorToken: calloutDangerSourceColorToken,
+                },
+                calloutInfo: {
+                    sourceColorToken: calloutInfoSourceColorToken,
                 },
             },
         }),

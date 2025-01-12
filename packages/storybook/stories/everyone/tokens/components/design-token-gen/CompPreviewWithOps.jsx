@@ -14,6 +14,7 @@ const CompPreviewWithOps = (props) => {
     const {
         contextCls,
         tokensData = [],
+        semanticTokens,
         renderOps: Ops,
         opsProps,
         children,
@@ -21,8 +22,8 @@ const CompPreviewWithOps = (props) => {
     const baseCls = genSBBaseCls('comp-preview-with-ops');
     const hasTokens = tokensData.length > 0;
     const theme = genCSSVars(
-        getCompTheme(tokensData),
-        `.${contextCls ?? baseCls}`,
+        getCompTheme([...tokensData, ...(semanticTokens || [])]),
+        `.${contextCls ?? baseCls} .${baseCls}__preview-container`,
     );
 
     return (

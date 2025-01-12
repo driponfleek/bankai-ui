@@ -9,7 +9,7 @@
 .bankai-sb-design-token-generator {
     flex-wrap: wrap;
 
-    .bankai-form-layout-field-container {
+    &__form-container .bankai-form-layout-field-container {
         @include bankai-flex-row;
         min-width: 280px;
         flex: 0 1 auto;
