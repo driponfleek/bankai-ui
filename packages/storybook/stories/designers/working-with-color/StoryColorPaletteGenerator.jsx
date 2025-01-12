@@ -20,7 +20,7 @@ import ColorPickerField from '../../../sb-components/form-elements/ColorPickerFi
 // Styles
 import './styles/story-color-variants-gen.scss';
 
-const StoryCreatingColorPalettes = () => {
+const StoryColorPaletteGenerator = () => {
     const baseCls = genSBBaseCls('color-palette-gen');
     const [baseColor, setBaseColor] = useState('#006fa3');
     const [mainColorsCount, setMainColorsCount] = useState(2);
@@ -165,4 +165,4 @@ const StoryCreatingColorPalettes = () => {
     );
 };
 
-export default StoryCreatingColorPalettes;
+export default StoryColorPaletteGenerator;

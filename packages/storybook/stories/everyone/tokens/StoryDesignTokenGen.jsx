@@ -1,17 +1,14 @@
-import { useReducer } from 'react';
+import { useReducer, useMemo } from 'react';
 import { genSBBaseCls } from '@driponfleek/bankai-lib-storybook';
 import {
     genConstToDotNotationMap,
     BUTTON_STYLES,
 } from '@driponfleek/bankai-lib-theme-utils';
-import { IFLFormFieldComposer } from '@driponfleek/bankai-ui-form-elements';
-import {
-    FormLayout,
-    FormLayoutSection,
-    DynamicFormRow,
-} from '@driponfleek/bankai-ui-layouts';
-import { Dropdown } from '@driponfleek/bankai-ui-form-elements-rw';
 import AvatarCompPreview from './components/design-token-gen/AvatarCompPreview';
+import BadgeCompPreview from './components/design-token-gen/BadgeCompPreview';
+import BannerCompPreview from './components/design-token-gen/BannerCompPreview';
+import ButtonCompPreview from './components/design-token-gen/ButtonCompPreview';
+import CalloutCompPreview from './components/design-token-gen/CalloutCompPreview';
 import {
     genTokens,
     getTokensByCategory,
@@ -90,22 +87,26 @@ const tokenDropdownListData = [
         id: constToTokenMap[SEMANTIC_COLOR_ACCENT_TERTIARY],
         text: 'Accent (Tertiary)',
     },
-    // {
-    //     id: constToTokenMap[SEMANTIC_COLOR_AFFIRMATIVE],
-    //     text: 'Affirmative',
-    // },
-    // {
-    //     id: constToTokenMap[SEMANTIC_COLOR_CAUTIONARY],
-    //     text: 'Cautionary',
-    // },
-    // {
-    //     id: constToTokenMap[SEMANTIC_COLOR_ERROR],
-    //     text: 'Error',
-    // },
-    // {
-    //     id: constToTokenMap[SEMANTIC_COLOR_INFO],
-    //     text: 'Info',
-    // },
+    {
+        id: constToTokenMap[SEMANTIC_COLOR_AFFIRMATIVE],
+        text: 'Affirmative',
+    },
+    {
+        id: constToTokenMap[SEMANTIC_COLOR_CAUTIONARY],
+        text: 'Cautionary',
+    },
+    {
+        id: constToTokenMap[SEMANTIC_COLOR_DESTRUCTIVE],
+        text: 'Destructive',
+    },
+    {
+        id: constToTokenMap[SEMANTIC_COLOR_ERROR],
+        text: 'Error',
+    },
+    {
+        id: constToTokenMap[SEMANTIC_COLOR_INFO],
+        text: 'Info',
+    },
 ];
 const btnStyleDropdownData = [
     {
@@ -117,7 +118,6 @@ const btnStyleDropdownData = [
         text: 'Ghost',
     },
 ];
-const DropdownField = IFLFormFieldComposer(Dropdown);
 
 const initialState = {
     [CORE_COLOR_NEUTRAL_SEED]: DEFAULTS[CORE_COLOR_NEUTRAL_SEED],
@@ -135,8 +135,33 @@ const initialState = {
     [SEMANTIC_COLOR_PRIMARY]: DEFAULTS[SEMANTIC_COLOR_PRIMARY],
     [SEMANTIC_COLOR_SECONDARY]: DEFAULTS[SEMANTIC_COLOR_SECONDARY],
     avatarSourceColorToken: constToTokenMap[SEMANTIC_COLOR_CANVAS_BRAND],
-    btnSecondarySourceColorToken: constToTokenMap[SEMANTIC_COLOR_SECONDARY],
-    btnSecondaryStyle: BUTTON_STYLES.GHOST,
+    badgeAffirmativeSourceColorToken:
+        constToTokenMap[SEMANTIC_COLOR_AFFIRMATIVE],
+    badgeCautionarySourceColorToken: constToTokenMap[SEMANTIC_COLOR_CAUTIONARY],
+    badgeDangerSourceColorToken: constToTokenMap[SEMANTIC_COLOR_ERROR],
+    badgeInfoSourceColorToken: constToTokenMap[SEMANTIC_COLOR_INFO],
+    bannerAffirmativeSourceColorToken:
+        constToTokenMap[SEMANTIC_COLOR_AFFIRMATIVE],
+    bannerCautionarySourceColorToken:
+        constToTokenMap[SEMANTIC_COLOR_CAUTIONARY],
+    bannerDangerSourceColorToken: constToTokenMap[SEMANTIC_COLOR_ERROR],
+    bannerInfoSourceColorToken: constToTokenMap[SEMANTIC_COLOR_INFO],
+    buttonPrimarySourceColorToken: constToTokenMap[SEMANTIC_COLOR_PRIMARY],
+    buttonPrimaryStyle: BUTTON_STYLES.FLAT,
+    buttonPrimaryDestructiveSourceColorToken:
+        constToTokenMap[SEMANTIC_COLOR_DESTRUCTIVE],
+    buttonPrimaryDestructiveStyle: BUTTON_STYLES.FLAT,
+    buttonSecondarySourceColorToken: constToTokenMap[SEMANTIC_COLOR_SECONDARY],
+    buttonSecondaryStyle: BUTTON_STYLES.GHOST,
+    buttonSecondaryDestructiveSourceColorToken:
+        constToTokenMap[SEMANTIC_COLOR_DESTRUCTIVE],
+    buttonSecondaryDestructiveStyle: BUTTON_STYLES.GHOST,
+    calloutAffirmativeSourceColorToken:
+        constToTokenMap[SEMANTIC_COLOR_AFFIRMATIVE],
+    calloutCautionarySourceColorToken:
+        constToTokenMap[SEMANTIC_COLOR_CAUTIONARY],
+    calloutDangerSourceColorToken: constToTokenMap[SEMANTIC_COLOR_ERROR],
+    calloutInfoSourceColorToken: constToTokenMap[SEMANTIC_COLOR_INFO],
     isDarkMode: false,
     shouldAutoCorrectForA11y: true,
     shouldUseMinimumAPCATextCompliance: true,
@@ -148,6 +173,7 @@ const StoryDesignTokenGen = () => {
         return { ...state, ...updatedField };
     };
     const [fieldValues, dispatch] = useReducer(reducer, initialState);
+    // TODO: Pass dispatch to form and let it handle the state updates
     const handleChange = (value, fieldId) => {
         dispatch({ [fieldId]: value });
     };
@@ -166,22 +192,8 @@ const StoryDesignTokenGen = () => {
 
         dispatch({ [fieldId]: !shouldUseMinimumAPCATextCompliance });
     };
-    const handleAvatarSourceColorChange = (value = {}) => {
-        if (value?.id) {
-            dispatch({ avatarSourceColorToken: value.id });
-        }
-    };
-    const handleBtnSecondarySourceColorChange = (value = {}) => {
-        if (value?.id) {
-            dispatch({ btnSecondarySourceColorToken: value.id });
-        }
-    };
-    const handleBtnSecondaryStyleChange = (value = {}) => {
-        if (value?.id) {
-            dispatch({ btnSecondaryStyle: value.id });
-        }
-    };
-    const tokensData = genTokens(fieldValues);
+    // TODO: To improve performance here we need to have every section
+    // generate its own tokens and memoize them instead of doing all at once
     const {
         accordionTokens,
         avatarTokens,
@@ -219,8 +231,21 @@ const StoryDesignTokenGen = () => {
         toasterErrorTokens,
         toasterInfoTokens,
         tooltipTokens,
-    } = getTokensByCategory(tokensData);
+    } = useMemo(
+        () => getTokensByCategory(genTokens(fieldValues)),
+        [fieldValues],
+    );
+    // console.log('fieldValues: ', fieldValues);
 
+    // TODO: Add Core Neutral Colors and move input from SectionForm to preview
+    // of components that are impacted by that change (ex. Banner, Badge, Callout)
+    // TODO: A lot of the preview props are common, see about defining once
+    // instead of every time.
+    // TODO: Variants need to be in constants instead of hard-coded
+    // TODO: Consider defining the source color token label this in the comp preview where possible
+    // TODO: Consider limiting the tokens available to certain components
+    // TODO: Change "Error" to "Danger"? (ex. SEMANTIC_COLOR_ERROR)
+    // TODO: Need to consider overall page design to make it more user-friendly.
     return (
         <StoryLayout
             contextCls={baseCls}
@@ -250,18 +275,18 @@ const StoryDesignTokenGen = () => {
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={avatarTokens}
-                sectionTitle="Avatar Test"
+                sectionTitle="Avatar"
             >
                 <AvatarCompPreview
                     baseCls={baseCls}
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
                     tokensData={avatarTokens}
+                    dispatch={dispatch}
                     opsProps={{
+                        label: 'Avatar Source Color Token',
                         sourceTokenOps: tokenDropdownListData,
-                        value: tokenDropdownListData.find(
-                            (token) =>
-                                token.id === fieldValues.avatarSourceColorToken,
-                        ),
-                        onChange: handleAvatarSourceColorChange,
+                        value: fieldValues.avatarSourceColorToken,
                     }}
                 />
             </SectionTokens>
@@ -269,126 +294,350 @@ const StoryDesignTokenGen = () => {
                 baseCls={baseCls}
                 tokensData={badgeTokens}
                 sectionTitle="Badge"
-            />
+            >
+                <BadgeCompPreview
+                    baseCls={baseCls}
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={badgeTokens}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={badgeAffirmativeTokens}
                 sectionTitle="Badge (Affirmative)"
-            />
+            >
+                <BadgeCompPreview
+                    baseCls={baseCls}
+                    variant="Affirmative"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={badgeAffirmativeTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Badge (Affirmative) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.badgeAffirmativeSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={badgeCautionaryTokens}
                 sectionTitle="Badge (Cautionary)"
-            />
+            >
+                <BadgeCompPreview
+                    baseCls={baseCls}
+                    variant="Cautionary"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={badgeCautionaryTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Badge (Cautionary) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.badgeCautionarySourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={badgeDangerTokens}
                 sectionTitle="Badge (Danger)"
-            />
+            >
+                <BadgeCompPreview
+                    baseCls={baseCls}
+                    variant="Danger"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={badgeDangerTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Badge (Danger) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.badgeDangerSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={badgeInfoTokens}
                 sectionTitle="Badge (Info)"
-            />
+            >
+                <BadgeCompPreview
+                    baseCls={baseCls}
+                    variant="Info"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={badgeInfoTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Badge (Info) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.badgeInfoSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={bannerTokens}
                 sectionTitle="Banner"
-            />
+            >
+                <BannerCompPreview
+                    baseCls={baseCls}
+                    semanticTokens={semanticTokens}
+                    tokensData={bannerTokens}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={bannerAffirmativeTokens}
                 sectionTitle="Banner (Affirmative)"
-            />
+            >
+                <BannerCompPreview
+                    baseCls={baseCls}
+                    variant="Affirmative"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={bannerAffirmativeTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Banner (Affirmative) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.bannerAffirmativeSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={bannerCautionaryTokens}
                 sectionTitle="Banner (Cautionary)"
-            />
+            >
+                <BannerCompPreview
+                    baseCls={baseCls}
+                    variant="Cautionary"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={bannerCautionaryTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Banner (Cautionary) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.bannerCautionarySourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={bannerDangerTokens}
                 sectionTitle="Banner (Danger)"
-            />
+            >
+                <BannerCompPreview
+                    baseCls={baseCls}
+                    variant="Danger"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={bannerDangerTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Banner (Danger) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.bannerDangerSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={bannerInfoTokens}
                 sectionTitle="Banner (Info)"
-            />
+            >
+                <BannerCompPreview
+                    baseCls={baseCls}
+                    variant="Info"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={bannerInfoTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Banner (Info) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.bannerInfoSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionButtonTokens
                 baseCls={baseCls}
                 tokensData={btnPrimaryTokens}
                 sectionTitle="Button (Primary)"
-            />
+            >
+                <ButtonCompPreview
+                    baseCls={baseCls}
+                    variant="Primary"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={btnPrimaryTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        sourceTokenLabel: 'Button (Primary) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        sourceTokenValue:
+                            fieldValues.buttonPrimarySourceColorToken,
+                        styleLabel: 'Button (Primary) Style',
+                        styleOps: btnStyleDropdownData,
+                        styleValue: fieldValues.buttonPrimaryStyle,
+                    }}
+                />
+            </SectionButtonTokens>
             <SectionButtonTokens
                 baseCls={baseCls}
                 tokensData={btnPrimaryDestructiveTokens}
                 sectionTitle="Button (Primary Destructive)"
-            />
+            >
+                <ButtonCompPreview
+                    baseCls={baseCls}
+                    variant="Primary"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={btnPrimaryDestructiveTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        sourceTokenLabel:
+                            'Button (Primary Destructive) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        sourceTokenValue:
+                            fieldValues.buttonPrimaryDestructiveSourceColorToken,
+                        styleLabel: 'Button (Primary Destructive) Style',
+                        styleOps: btnStyleDropdownData,
+                        styleValue: fieldValues.buttonPrimaryDestructiveStyle,
+                    }}
+                    isDestructive
+                />
+            </SectionButtonTokens>
             <SectionButtonTokens
                 baseCls={baseCls}
                 tokensData={btnSecondaryTokens}
                 sectionTitle="Button (Secondary)"
             >
-                <FormLayout>
-                    <FormLayoutSection>
-                        <DynamicFormRow>
-                            <DropdownField
-                                labelProps={{
-                                    content:
-                                        'Button Secondary Source Color Token',
-                                }}
-                                data={tokenDropdownListData}
-                                value={tokenDropdownListData.find(
-                                    (token) =>
-                                        token.id ===
-                                        fieldValues.btnSecondarySourceColorToken,
-                                )}
-                                textField="text"
-                                onChange={handleBtnSecondarySourceColorChange}
-                            />
-                            <DropdownField
-                                labelProps={{
-                                    content: 'Button Secondary Style',
-                                }}
-                                data={btnStyleDropdownData}
-                                value={btnStyleDropdownData.find(
-                                    (token) =>
-                                        token.id ===
-                                        fieldValues.btnSecondaryStyle,
-                                )}
-                                textField="text"
-                                onChange={handleBtnSecondaryStyleChange}
-                            />
-                        </DynamicFormRow>
-                    </FormLayoutSection>
-                </FormLayout>
+                <ButtonCompPreview
+                    baseCls={baseCls}
+                    variant="Secondary"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={btnSecondaryTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        sourceTokenLabel:
+                            'Button (Secondary) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        sourceTokenValue:
+                            fieldValues.buttonSecondarySourceColorToken,
+                        styleLabel: 'Button (Secondary) Style',
+                        styleOps: btnStyleDropdownData,
+                        styleValue: fieldValues.buttonSecondaryStyle,
+                    }}
+                />
             </SectionButtonTokens>
             <SectionButtonTokens
                 baseCls={baseCls}
                 tokensData={btnSecondaryDestructiveTokens}
                 sectionTitle="Button (Secondary Destructive)"
-            />
+            >
+                <ButtonCompPreview
+                    baseCls={baseCls}
+                    variant="Secondary"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={btnSecondaryDestructiveTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        sourceTokenLabel:
+                            'Button (Secondary Destructive) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        sourceTokenValue:
+                            fieldValues.buttonSecondaryDestructiveSourceColorToken,
+                        styleLabel: 'Button (Secondary Destructive) Style',
+                        styleOps: btnStyleDropdownData,
+                        styleValue: fieldValues.buttonSecondaryDestructiveStyle,
+                    }}
+                    isDestructive
+                />
+            </SectionButtonTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={calloutAffirmativeTokens}
                 sectionTitle="Callout (Affirmative)"
-            />
+            >
+                <CalloutCompPreview
+                    baseCls={baseCls}
+                    variant="Affirmative"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={calloutAffirmativeTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Callout (Affirmative) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.calloutAffirmativeSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={calloutCautionaryTokens}
                 sectionTitle="Callout (Cautionary)"
-            />
+            >
+                <CalloutCompPreview
+                    baseCls={baseCls}
+                    variant="Cautionary"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={calloutCautionaryTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Callout (Cautionary) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.calloutCautionarySourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={calloutDangerTokens}
                 sectionTitle="Callout (Danger)"
-            />
+            >
+                <CalloutCompPreview
+                    baseCls={baseCls}
+                    variant="Danger"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={calloutDangerTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Callout (Danger) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.calloutDangerSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={calloutInfoTokens}
                 sectionTitle="Callout (Info)"
-            />
+            >
+                <CalloutCompPreview
+                    baseCls={baseCls}
+                    variant="Info"
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={calloutInfoTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Callout (Info) Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.calloutInfoSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={dndDropzoneTokens}
