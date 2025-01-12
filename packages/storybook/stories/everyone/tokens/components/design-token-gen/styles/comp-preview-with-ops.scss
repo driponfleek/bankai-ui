@@ -13,9 +13,14 @@
     border-radius: bankai-to-px($bankai-core-radius-01-x);
 
     &__preview-container {
+        @include bankai-flex-row;
         min-width: 1px;
         border: 0;
         flex: 1 1 auto;
+
+        > * {
+            margin: auto;
+        }
     }
 
     &__ops-container {

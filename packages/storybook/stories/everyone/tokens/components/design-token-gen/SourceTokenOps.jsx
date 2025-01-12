@@ -8,10 +8,11 @@ import {
 
 const DropdownField = IFLFormFieldComposer(Dropdown);
 
-const AvatarCompOps = (props) => {
+const SourceTokenOps = (props) => {
     const {
-        sourceTokenOps = [],
+        label,
         value,
+        sourceTokenOps = [],
         onChange = () => Promise.resolve(),
     } = props;
 
@@ -21,7 +22,7 @@ const AvatarCompOps = (props) => {
                 <DynamicFormRow>
                     <DropdownField
                         labelProps={{
-                            content: 'Avatar Source Color Token',
+                            content: label,
                         }}
                         data={sourceTokenOps}
                         value={value}
@@ -34,4 +35,4 @@ const AvatarCompOps = (props) => {
     );
 };
 
-export default AvatarCompOps;
+export default SourceTokenOps;

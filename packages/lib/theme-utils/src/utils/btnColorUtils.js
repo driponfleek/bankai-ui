@@ -5,7 +5,7 @@ import {
 
 export const genFlatBtnColors = ({ sourceColors, preferredTextColors }) => {
     const { background, text = {} } = sourceColors;
-    const { recommendedColor } = background ?? {};
+    const { recommendedColor = {} } = background ?? {};
     const { dark: preferredDarkTextColor, light: preferredLightTextColor } =
         preferredTextColors ?? {};
     const bgInteractionColor = getDecorativeComplimentaryColor(background);

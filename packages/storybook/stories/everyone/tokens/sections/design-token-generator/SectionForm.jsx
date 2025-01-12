@@ -133,7 +133,7 @@ const SectionForm = (props) => {
                             />
                             <ToggleSwitchField
                                 labelProps={{
-                                    content: 'Generate for dark mode',
+                                    content: 'Generate For Dark Mode',
                                 }}
                                 isChecked={isDarkMode}
                                 onChange={onDarkModeChange}
@@ -141,7 +141,7 @@ const SectionForm = (props) => {
                             />
                             <ToggleSwitchField
                                 labelProps={{
-                                    content: 'Auto-Correct for accessibility',
+                                    content: 'Auto-Correct For Accessibility',
                                 }}
                                 isChecked={shouldAutoCorrectForA11y}
                                 onChange={onAutoCorrectForA11yChange}
@@ -150,7 +150,7 @@ const SectionForm = (props) => {
                             <ToggleSwitchField
                                 labelProps={{
                                     content:
-                                        'Use Minimum APCA Contrast for Text',
+                                        'Use Minimum APCA Contrast For Text',
                                 }}
                                 isChecked={shouldUseMinimumAPCATextCompliance}
                                 onChange={onAPCAChange}

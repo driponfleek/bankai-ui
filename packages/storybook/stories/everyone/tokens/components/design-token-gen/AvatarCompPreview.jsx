@@ -1,15 +1,29 @@
+import { useMemo } from 'react';
 import { Avatar } from '@driponfleek/bankai-ui-avatars';
 import CompPreviewWithOps from './CompPreviewWithOps';
-import AvatarCompOps from './AvatarCompOps';
+import SourceTokenOps from './SourceTokenOps';
 
 const AvatarCompPreview = (props) => {
-    const { baseCls } = props;
+    const { baseCls, opsProps, dispatch, ...rest } = props;
+    const handleChange = (value = {}) => {
+        if (value?.id) {
+            dispatch({ avatarSourceColorToken: value.id });
+        }
+    };
+    const opsVal = useMemo(
+        () =>
+            opsProps?.sourceTokenOps.find(
+                (token) => token.id === opsProps?.value,
+            ),
+        [opsProps],
+    );
 
     return (
         <CompPreviewWithOps
-            {...props}
+            {...rest}
             contextCls={`${baseCls}__avatar-preview`}
-            renderOps={AvatarCompOps}
+            renderOps={SourceTokenOps}
+            opsProps={{ ...opsProps, onChange: handleChange, value: opsVal }}
         >
             <Avatar>DY</Avatar>
         </CompPreviewWithOps>
