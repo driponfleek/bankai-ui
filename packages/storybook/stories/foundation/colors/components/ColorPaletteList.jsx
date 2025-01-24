@@ -9,7 +9,7 @@ const ColorPaletteList = ({ listData = [] }) => (
         {Children.toArray(
             useMemo(
                 () =>
-                    listData.map((color) => <ColorSwatch {...color} isFancy />),
+                    listData.map((color) => <ColorSwatch {...color} isCard />),
                 [listData],
             ),
         )}

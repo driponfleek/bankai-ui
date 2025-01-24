@@ -68,7 +68,7 @@ const SectionAccessibleColorsHowToS3 = (props) => {
                         mainContent={TEXT_COLOR_NAME}
                         color={preferredClone.color}
                         metaList={preferredClone.metaList}
-                        isFancy
+                        isCard
                     />
                 </div>
                 <Paragraph>

@@ -1,0 +1,24 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-color-palette-gen-swatch {
+    &__menu-op {
+        @include bankai-flex-row;
+        gap: bankai-to-rem($bankai-core-spacing-02-x);
+    }
+
+    &__menu-op-swatch {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        display: block;
+    }
+
+    &__menu-op-value {
+        margin: auto 0;
+    }
+}

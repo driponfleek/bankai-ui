@@ -97,14 +97,14 @@ export const genSemanticCanvasColorsTokens = ({
 
     return {
         [massageConstToDotNotation(SEMANTIC_COLOR_CANVAS)]: isDarkMode
-            ? NEUTRAL_COLORS['core.color.neutral.5']
+            ? NEUTRAL_COLORS['core.color.neutral.10']
             : NEUTRAL_COLORS[
                   massageConstToDotNotation(
                       CORE_NEUTRAL_COLOR_TOKEN_NAMES.CORE_COLOR_NEUTRAL_100,
                   )
               ],
         [massageConstToDotNotation(SEMANTIC_COLOR_CANVAS_ALT)]: isDarkMode
-            ? NEUTRAL_COLORS['core.color.neutral.10']
+            ? NEUTRAL_COLORS['core.color.neutral.15']
             : NEUTRAL_COLORS['core.color.neutral.95'],
     };
 };

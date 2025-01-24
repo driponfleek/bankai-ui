@@ -4,6 +4,7 @@ import {
     genConstToDotNotationMap,
     BUTTON_STYLES,
 } from '@driponfleek/bankai-lib-theme-utils';
+import { reducer } from '@driponfleek/bankai-lib-helper-utils';
 import AvatarCompPreview from './components/design-token-gen/AvatarCompPreview';
 import BadgeCompPreview from './components/design-token-gen/BadgeCompPreview';
 import BannerCompPreview from './components/design-token-gen/BannerCompPreview';
@@ -169,9 +170,6 @@ const initialState = {
 
 const StoryDesignTokenGen = () => {
     const baseCls = genSBBaseCls('design-token-generator');
-    const reducer = (state, updatedField) => {
-        return { ...state, ...updatedField };
-    };
     const [fieldValues, dispatch] = useReducer(reducer, initialState);
     // TODO: Pass dispatch to form and let it handle the state updates
     const handleChange = (value, fieldId) => {

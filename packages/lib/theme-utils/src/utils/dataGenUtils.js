@@ -23,24 +23,14 @@ export const genCoreNeutralColors = (
     const hexVals = {};
     const keyPrefix = 'core.color.neutral.';
     const neutralColors = [
-        { tokenId: `${keyPrefix}0`, ...genColorMetadata('#000000') },
+        { tokenId: `${keyPrefix}100`, ...genColorMetadata('#ffffff') },
         ...genColorVariantsWithMetadata({
             hex: seedColor,
             step,
             tokenId: 'core.color.neutral',
         }),
-        { tokenId: `${keyPrefix}100`, ...genColorMetadata('#ffffff') },
-    ].sort((neutralColorA, neutralColorB) => {
-        if (neutralColorA.tokenId < neutralColorB.tokenId) {
-            return -1;
-        }
-
-        if (neutralColorA.tokenId > neutralColorB.tokenId) {
-            return 1;
-        }
-
-        return 0;
-    });
+        { tokenId: `${keyPrefix}0`, ...genColorMetadata('#000000') },
+    ];
 
     if (isHexValsOnly) {
         return neutralColors;

@@ -12,18 +12,18 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 import './styles/base-color-with-variants.scss';
 
 const BaseColorWithVariants = (props) => {
-    const { contextCls, isFancy, shouldScrollList, base, variants } = props;
+    const { contextCls, isCard, shouldScrollList, base, variants } = props;
     const baseCls = genSBBaseCls('base-color-with-variants');
     const modCls = {
-        [`${baseCls}--fancy`]: isFancy,
-        [`${baseCls}--standard`]: !isFancy,
+        [`${baseCls}--fancy`]: isCard,
+        [`${baseCls}--standard`]: !isCard,
     };
 
     return (
         <div className={cx(baseCls, modCls, contextCls)}>
             <div className={`${baseCls}__inner`}>
                 <div className={`${baseCls}__base-container`}>
-                    <ColorSwatch {...base} isFancy={isFancy} />
+                    <ColorSwatch {...base} isCard={isCard} />
                 </div>
                 <div className={`${baseCls}__variants-container`}>
                     <ColorVariantsList
@@ -37,14 +37,14 @@ const BaseColorWithVariants = (props) => {
 };
 
 BaseColorWithVariants.defaultProps = {
-    isFancy: false,
+    isCard: false,
     shouldScrollList: true,
     variants: [],
 };
 
 BaseColorWithVariants.propTypes = {
     contextCls: PropTypes.string,
-    isFancy: PropTypes.bool,
+    isCard: PropTypes.bool,
     shouldScrollList: PropTypes.bool,
     base: PropTypes.shape({
         color: PropTypes.string,

@@ -1,0 +1,15 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+
+.bankai-sb-color-palette-gen-choices {
+    .bankai-form-layout-row > .bankai-form-layout-field-container {
+        flex: 0 0 auto;
+    }
+
+    .bankai-form-layout-row:has(.bankai-universal-toggle-input) {
+        gap: bankai-to-rem($bankai-core-spacing-08-x);
+    }
+}
