@@ -1,2 +1,0 @@
-import{j as t,c as o}from"./localeUtils-0070de19.js";import{P as n}from"./index-f9722e9b.js";const s=a=>{const{contextCls:r,children:e,...p}=a;return t("p",{...p,className:o("bankai-paragraph",r),children:e})};s.defaultProps={};s.propTypes={contextCls:n.string};const d=s;s.__docgenInfo={description:"",methods:[],displayName:"Paragraph",props:{contextCls:{type:{name:"string"},required:!1,description:""}}};export{d as P};
-//# sourceMappingURL=Paragraph-c54937d8.js.map

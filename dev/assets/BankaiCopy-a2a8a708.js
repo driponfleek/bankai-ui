@@ -1,2 +1,0 @@
-import{j as p}from"./localeUtils-0070de19.js";import{P as e}from"./index-f9722e9b.js";import{d as n,c as i,b as c}from"./shared-4aaf5970.js";const s=a=>{const{contextCls:o,className:t,...r}=a;return p(n,{...r,className:i(`${c}-copy`,t,o)})};s.propTypes={contextCls:e.string,className:e.string};const d=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiCopy",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{d as B};
-//# sourceMappingURL=BankaiCopy-a2a8a708.js.map
