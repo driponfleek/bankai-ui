@@ -13,7 +13,7 @@ import ColorPaletteList from '../../components/ColorPaletteList';
 const SectionNeutrals = () => {
     const neutralColors = genCustomNeutralColors();
     const listData = Object.keys(neutralColors).map((neutralKey) => ({
-        mainContent: `Neutral ${neutralKey.replace('CORE_COLOR_NEUTRAL_', '')}`,
+        mainContent: `Neutral ${neutralKey.replace('core.color.neutral.', '')}`,
         color: neutralColors[neutralKey],
         metaList: [
             massageConstToDotNotation(neutralKey),

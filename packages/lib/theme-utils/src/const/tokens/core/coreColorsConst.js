@@ -1,9 +1,7 @@
 import { genCoreNeutralColors } from '../../../utils/dataGenUtils';
 
 export const CORE_COLOR_NEUTRAL_SEED = 'CORE_COLOR_NEUTRAL_SEED';
-
-export const CORE_COLOR_NEUTRAL_SEED_DEFAULT = '#576375';
-
+export const CORE_COLOR_NEUTRAL_SEED_DEFAULT = '#ebf1fc';
 export const CORE_NEUTRAL_COLOR_TOKEN_NAMES = {
     CORE_COLOR_NEUTRAL_0: 'CORE_COLOR_NEUTRAL_0',
     CORE_COLOR_NEUTRAL_10: 'CORE_COLOR_NEUTRAL_10',
@@ -17,7 +15,6 @@ export const CORE_NEUTRAL_COLOR_TOKEN_NAMES = {
     CORE_COLOR_NEUTRAL_90: 'CORE_COLOR_NEUTRAL_90',
     CORE_COLOR_NEUTRAL_100: 'CORE_COLOR_NEUTRAL_100',
 };
-
 export const CORE_NEUTRAL_COLOR_TOKEN_DEFAULTS = {
     ...genCoreNeutralColors(),
 };

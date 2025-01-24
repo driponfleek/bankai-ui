@@ -49,13 +49,13 @@ const SectionAccessibleColorsHowTo = (props) => {
                         mainContent={TEXT_COLOR_NAME}
                         color={textColor}
                         metaList={[textColor]}
-                        isFancy
+                        isCard
                     />
                     <ColorSwatch
                         mainContent={BG_COLOR_NAME}
                         color={bgColor}
                         metaList={[bgColor]}
-                        isFancy
+                        isCard
                     />
                 </div>
                 <Paragraph>

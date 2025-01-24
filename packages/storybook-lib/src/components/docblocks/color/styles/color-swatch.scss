@@ -16,7 +16,7 @@
         padding: bankai-to-rem($bankai-core-spacing-03-x) bankai-to-rem($bankai-core-spacing-02-x);
     }
 
-    &--fancy {
+    &--swatch-card {
         @include bankai-shadow-elevation-low;
         width: 160px;
         border-radius: bankai-to-rem($bankai-core-spacing-03-x);
@@ -44,7 +44,7 @@
         }
     }
 
-    &--standard {
+    &--swatch-block {
         position: relative;
 
         #{$this}__swatch-color {
@@ -57,5 +57,9 @@
             position: relative;
             z-index: 2;
         }
+    }
+
+    &--no-color &__swatch-color {
+        background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZhw1gGGYhAGBZIA/nYDCgBDAm9BGDWAAJyRCgLaBCAAgXwixzAS0pgAAAABJRU5ErkJggg==') left center;
     }
 }

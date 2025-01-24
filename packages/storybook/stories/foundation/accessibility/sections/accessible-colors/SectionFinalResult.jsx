@@ -24,13 +24,13 @@ const SectionFinalResult = (props) => {
                         mainContent={recommendedColor.mainContent}
                         color={recommendedColor.color}
                         metaList={recommendedColor.metaList}
-                        isFancy
+                        isCard
                     />
                     <ColorSwatch
                         mainContent={bgColor.mainContent}
                         color={bgColor.color}
                         metaList={bgColor.metaList}
-                        isFancy
+                        isCard
                     />
                 </div>
             </StorySection>

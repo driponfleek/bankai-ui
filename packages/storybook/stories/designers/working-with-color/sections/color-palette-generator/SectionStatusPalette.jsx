@@ -21,7 +21,7 @@ const SectionStatusPalette = (props) => {
 
     return (
         <StorySection contextCls={baseCls}>
-            <SectionTitle>Status Colors</SectionTitle>
+            <SectionTitle>Status And Informative</SectionTitle>
             <List renderListItem={renderListItem} data={data} />
         </StorySection>
     );

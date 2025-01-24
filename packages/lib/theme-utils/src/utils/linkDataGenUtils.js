@@ -64,8 +64,9 @@ export const genLinkData = ({ sourceColor = {}, textColor, config = {} }) => {
         };
     }
 
+    // TODO: Need to refactor due to new data structure
     const compatibleColors = identicalIds.map((id) =>
-        testOps.find((op) => op.id === id),
+        testOps.find((op) => op.tokenId === id),
     );
 
     const recommendedLinkColor = getRecommendedColorFromVariants(

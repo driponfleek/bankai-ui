@@ -72,11 +72,13 @@ const calculateLightnessShiftWithCaps = (baseLightness, min, max) => {
 const calcStatusColorLightnessShift = (role, baseLightness) => {
     switch (role) {
         case SEMANTIC_COLOR_AFFIRMATIVE:
-            return calculateLightnessShiftWithCaps(baseLightness, 40, 50);
+            return calculateLightnessShiftWithCaps(baseLightness, 50, 60);
         case SEMANTIC_COLOR_CAUTIONARY:
             return calculateLightnessShiftWithCaps(baseLightness, 60, 80);
         case SEMANTIC_COLOR_ERROR:
-            return calculateLightnessShiftWithCaps(baseLightness, 20, 40);
+            return calculateLightnessShiftWithCaps(baseLightness, 40, 50);
+        case SEMANTIC_COLOR_INFO:
+            return calculateLightnessShiftWithCaps(baseLightness, 40, 45);
         default:
             return 0;
     }
@@ -90,6 +92,8 @@ const calcStatusColorChromaAdjustment = (role, baseChroma) => {
             return baseChroma < 60 ? 60 - baseChroma : 0;
         case SEMANTIC_COLOR_ERROR:
             return baseChroma < 30 ? 30 : 10;
+        case SEMANTIC_COLOR_INFO:
+            return Math.max(baseChroma, 50);
         default:
             return 0;
     }
@@ -126,6 +130,10 @@ export const reservedStatusColorHues = [
     [
         STATUS_HUE_RANGES[SEMANTIC_COLOR_ERROR].min,
         STATUS_HUE_RANGES[SEMANTIC_COLOR_ERROR].max,
+    ],
+    [
+        STATUS_HUE_RANGES[SEMANTIC_COLOR_INFO].min,
+        STATUS_HUE_RANGES[SEMANTIC_COLOR_INFO].max,
     ],
 ].flatMap(([min, max]) =>
     Array.from({ length: max - min + 1 }, (_, i) => min + i),
@@ -363,6 +371,11 @@ export const generateStatusPalette = (baseHex) => {
             ...sharedParams,
             hueRange: STATUS_HUE_RANGES[SEMANTIC_COLOR_ERROR],
             role: SEMANTIC_COLOR_ERROR,
+        }),
+        info: getStatusColor({
+            ...sharedParams,
+            hueRange: STATUS_HUE_RANGES[SEMANTIC_COLOR_INFO],
+            role: SEMANTIC_COLOR_INFO,
         }),
     };
 };
