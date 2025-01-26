@@ -6,6 +6,7 @@ import {
 } from './colorFormatConversionUtils';
 import { getIsDarkWCAG } from './evalutationUtils';
 import { getSanitizedHex } from './dataSanitizerUtils';
+import { genColorScale } from './colorPaletteUtils';
 
 /**
  * Generate an array of numbers used to seed the lightness adjustments for a color's variants.
@@ -154,20 +155,19 @@ export const genColorVariantsWithMetadata = ({
     shouldRemoveBaseColor = false,
 }) => {
     const sanitizedHex = getSanitizedHex(hex);
-    const { l: baseLightness } = convertColorToLCH(sanitizedHex); // l = lightness, c = chroma, h = hue
     const lightnessValues = createVariantLightnessesArray(step);
-    const variants = lightnessValues.map((adjustedLightness) => {
-        if (adjustedLightness === baseLightness) {
-            return genColorMetadata(sanitizedHex);
-        }
+    const variantsScale = genColorScale(sanitizedHex);
+    // const baseLCH = convertColorToLCH(sanitizedHex);
 
-        const newHex = getNewColorByLightnessAdjustment(hex, adjustedLightness);
+    const variants = lightnessValues.map((lightnessValue) => {
+        // const variant = convertColorToHex({ ...baseLCH, l: lightnessValue });
+        const variant = variantsScale(lightnessValue).hex();
 
         return {
             tokenId: tokenId
-                ? `${tokenId}.${adjustedLightness}`
-                : `${adjustedLightness}`,
-            ...genColorMetadata(newHex),
+                ? `${tokenId}.${lightnessValue}`
+                : `${lightnessValue}`,
+            ...genColorMetadata(variant),
         };
     });
 

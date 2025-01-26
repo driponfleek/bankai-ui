@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { genSBBaseCls } from '@driponfleek/bankai-lib-storybook';
-import { getColors } from './utils/guideUtils';
+// import { getColors } from './utils/guideUtils';
 import SectionIntro from './sections/accessible-colors/SectionIntro';
-import SectionAccessibleColorsHowTo from './sections/accessible-colors/SectionAccessibleColorsHowTo';
+// import SectionAccessibleColorsHowTo from './sections/accessible-colors/SectionAccessibleColorsHowTo';
 import StoryLayout from '../../../sb-components/layout/StoryLayout';
 
 // Utils
@@ -23,7 +23,7 @@ const StoryAccessibleColorPalettes = () => {
             setIsDarkMode(isNewModeDark);
         }
     };
-    const { bgColor, textColor } = getColors(isDarkMode);
+    // const { bgColor, textColor } = getColors(isDarkMode);
     const baseCls = genSBBaseCls('foundation-accessible-color-palettes');
 
     return (
@@ -36,11 +36,11 @@ const StoryAccessibleColorPalettes = () => {
             onColorSchemeChange={handleColorSchemeChange}
         >
             <SectionIntro />
-            <SectionAccessibleColorsHowTo
+            {/* <SectionAccessibleColorsHowTo
                 baseCls={baseCls}
                 textColor={textColor}
                 bgColor={bgColor}
-            />
+            /> */}
         </StoryLayout>
     );
 };

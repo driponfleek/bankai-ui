@@ -1,95 +1,75 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useReducer } from 'react';
+import { reducer } from '@driponfleek/bankai-lib-helper-utils';
+import { IFLFormFieldComposer } from '@driponfleek/bankai-ui-form-elements';
+import {
+    Dropdown,
+    NumberPicker,
+} from '@driponfleek/bankai-ui-form-elements-rw';
 import { StorySection, genSBBaseCls } from '@driponfleek/bankai-lib-storybook';
 import {
     genColorMetadata,
-    generateHarmonyPalette,
-    COLOR_HARMONIES,
+    genHarmonyColors,
 } from '@driponfleek/bankai-lib-color-utils';
-import {
-    reservedStatusColorHues,
-    generateStatusPalette,
-} from '@driponfleek/bankai-lib-theme-utils/';
-import { DynamicFormLayout } from '@driponfleek/bankai-ui-layouts';
+import { generateStatusPalette } from '@driponfleek/bankai-lib-theme-utils';
+import { DynamicFormRow } from '@driponfleek/bankai-ui-layouts';
+// import { v4 as uuidv4 } from 'uuid';
 import { getColorSwatchData } from './utils/colorVariantsGenStoryUtils';
+import {
+    getColorPaletteListData,
+    getShouldShowNumberOfColors,
+    getShouldShowOffset,
+    harmonyDropdownOps,
+    initialState,
+} from './utils/colorPaletteGenStoryUtils';
 import { STORY_SUB_TITLE } from './const/storyConst';
 import SectionStatusPalette from './sections/color-palette-generator/SectionStatusPalette';
 import SectionPalette from './sections/color-palette-generator/SectionPalette';
+import SectionPaletteChoices from './sections/color-palette-generator/SectionPaletteChoices';
 import StoryLayout from '../../../sb-components/layout/StoryLayout';
 import ColorPickerField from '../../../sb-components/form-elements/ColorPickerField';
 
 // Styles
-import './styles/story-color-variants-gen.scss';
+import './styles/story-color-palette-gen.scss';
+
+const DropdownInput = IFLFormFieldComposer(Dropdown);
+const NumberPickerInput = IFLFormFieldComposer(NumberPicker);
 
 const StoryColorPaletteGenerator = () => {
     const baseCls = genSBBaseCls('color-palette-gen');
-    const [baseColor, setBaseColor] = useState('#006fa3');
-    const [mainColorsCount, setMainColorsCount] = useState(2);
-    const [mainColorsHarmony, setMainColorsHarmony] = useState(
-        COLOR_HARMONIES.ANALOGOUS,
+    const [fieldValues, dispatch] = useReducer(reducer, initialState);
+    const { baseColor, harmony, numberOfColors, offset } = fieldValues;
+    const shouldShowNumberOfColors = getShouldShowNumberOfColors(harmony);
+    const shouldShowOffset = getShouldShowOffset(harmony);
+    // TODO: Need to add Brewer stuff for data vis.
+    // When doing Brewer need to hide palette choices
+    const harmonyColors = useMemo(
+        () =>
+            genHarmonyColors(harmony, {
+                baseHex: baseColor,
+                numberOfColors,
+                offset,
+            }),
+        [harmony, baseColor, numberOfColors, offset],
     );
-    const [supplementaryColorsCount, setSupplementaryColorsCount] = useState(4);
-    const [supplementaryColorsHarmony, setSupplementaryColorsHarmony] =
-        useState(COLOR_HARMONIES.SQUARE);
+    const harmonyListData = useMemo(
+        () => getColorPaletteListData(harmonyColors),
+        [harmonyColors],
+    );
     const statusColors = useMemo(
         () => generateStatusPalette(baseColor),
         [baseColor],
     );
-    const statusColorsArr = useMemo(
-        () => [
-            ...Object.entries(statusColors).map(
-                (statusColor) => statusColor[1],
-            ),
-        ],
-        [statusColors],
-    );
-    const mainColorsPaletteOps = useMemo(
-        () => ({
-            baseHex: baseColor,
-            numberOfColors: mainColorsCount,
-            existingColors: statusColorsArr,
-            reservedHues: reservedStatusColorHues,
-        }),
-        [baseColor, statusColorsArr, mainColorsCount],
-    );
-    const mainColors = useMemo(
-        () => generateHarmonyPalette(mainColorsHarmony, mainColorsPaletteOps),
-        [mainColorsHarmony, mainColorsPaletteOps],
-    );
-    const supplementaryColorsPaletteOps = useMemo(
-        () => ({
-            baseHex: baseColor,
-            numberOfColors: supplementaryColorsCount,
-            existingColors: [...statusColorsArr, ...mainColors],
-            reservedHues: reservedStatusColorHues,
-        }),
-        [baseColor, statusColorsArr, mainColors, supplementaryColorsCount],
-    );
-    const supplementaryColors = useMemo(
-        () =>
-            generateHarmonyPalette(
-                supplementaryColorsHarmony,
-                supplementaryColorsPaletteOps,
-            ),
-        [supplementaryColorsHarmony, supplementaryColorsPaletteOps],
-    );
+    // TODO: Add neutral seed color by reducing chroma so that base color slightly is present in the gray
     const statusPalette = useMemo(
         () => ({
             Affirmative: statusColors.affirmative,
             Cautionary: statusColors.cautionary,
             Danger: statusColors.error,
+            Info: statusColors.info,
         }),
         [statusColors],
     );
-    const mainColorsListData = useMemo(() => {
-        return mainColors.map((color) =>
-            getColorSwatchData(genColorMetadata(color)),
-        );
-    }, [mainColors]);
-    const supplementaryColorsListData = useMemo(() => {
-        return supplementaryColors.map((color) =>
-            getColorSwatchData(genColorMetadata(color)),
-        );
-    }, [supplementaryColors]);
+    // TODO: Move to utility file
     const statusListData = useMemo(() => {
         return Object.keys(statusPalette).map((colorName) =>
             getColorSwatchData({
@@ -100,31 +80,22 @@ const StoryColorPaletteGenerator = () => {
     }, [statusPalette]);
 
     const handleBaseColorChange = (value) => {
-        setBaseColor(value);
+        dispatch({ baseColor: value });
     };
 
-    const handleMainColorsHarmonyChange = (params) => {
+    const handleHarmonyChange = (params) => {
         if (params?.id) {
-            setMainColorsHarmony(params?.id);
+            dispatch({ harmony: params?.id });
         }
     };
 
-    const handleNumberOfMainColorsChange = (params) => {
+    const handleNumberOfColorsChange = (params) => {
         const { newValue } = params ?? {};
-
-        setMainColorsCount(newValue || 1);
+        dispatch({ numberOfColors: newValue });
     };
-
-    const handleSupplementaryColorsHarmonyChange = (params) => {
-        if (params?.id) {
-            setSupplementaryColorsHarmony(params?.id);
-        }
-    };
-
-    const handleNumberOfSupplementaryColorsChange = (params) => {
+    const handleOffsetChange = (params) => {
         const { newValue } = params ?? {};
-
-        setSupplementaryColorsCount(newValue || 1);
+        dispatch({ offset: newValue });
     };
 
     return (
@@ -133,34 +104,61 @@ const StoryColorPaletteGenerator = () => {
             title="Color Palette Generator"
             subTitle={STORY_SUB_TITLE}
         >
-            <StorySection>
-                <DynamicFormLayout>
-                    <ColorPickerField
-                        color={baseColor}
-                        value={baseColor}
-                        onChange={handleBaseColorChange}
-                        labelProps={{ content: 'Base Color' }}
-                        isLeftAlignedLabel
-                    />
-                </DynamicFormLayout>
-            </StorySection>
-            <SectionPalette
-                title="Main Colors"
-                data={mainColorsListData}
-                harmony={mainColorsHarmony}
-                numberOfColors={mainColorsCount}
-                onHarmonyChange={handleMainColorsHarmonyChange}
-                onNumberOfColorsChange={handleNumberOfMainColorsChange}
+            <div className={`${baseCls}__form-and-results-container`}>
+                <StorySection contextCls={`${baseCls}__form-container`}>
+                    <DynamicFormRow>
+                        <ColorPickerField
+                            color={baseColor}
+                            value={baseColor}
+                            labelProps={{ content: 'Base Color' }}
+                            onChange={handleBaseColorChange}
+                            isLeftAlignedLabel
+                        />
+                    </DynamicFormRow>
+                    <DynamicFormRow>
+                        <DropdownInput
+                            dataKey="id"
+                            textField="text"
+                            data={harmonyDropdownOps}
+                            value={harmony}
+                            labelProps={{ content: 'Color Harmony' }}
+                            onChange={handleHarmonyChange}
+                            isLeftAlignedLabel
+                        />
+                    </DynamicFormRow>
+                    {shouldShowNumberOfColors && (
+                        <DynamicFormRow>
+                            <NumberPickerInput
+                                labelProps={{ content: 'Number of Colors' }}
+                                value={numberOfColors}
+                                onChange={handleNumberOfColorsChange}
+                                min={2}
+                                max={99}
+                                isLeftAlignedLabel
+                            />
+                        </DynamicFormRow>
+                    )}
+                    {shouldShowOffset && (
+                        <DynamicFormRow>
+                            <NumberPickerInput
+                                labelProps={{ content: 'Offset' }}
+                                value={offset}
+                                onChange={handleOffsetChange}
+                                min={10}
+                                max={150}
+                                isLeftAlignedLabel
+                            />
+                        </DynamicFormRow>
+                    )}
+                </StorySection>
+                <SectionPalette listData={harmonyListData} />
+                <SectionStatusPalette data={statusListData} />
+            </div>
+            <SectionPaletteChoices
+                contextCls={`${baseCls}__palette-choices`}
+                colors={[baseColor, ...harmonyColors]}
+                statusColors={statusColors}
             />
-            <SectionPalette
-                title="Supplementary Colors"
-                data={supplementaryColorsListData}
-                harmony={supplementaryColorsHarmony}
-                numberOfColors={supplementaryColorsCount}
-                onHarmonyChange={handleSupplementaryColorsHarmonyChange}
-                onNumberOfColorsChange={handleNumberOfSupplementaryColorsChange}
-            />
-            <SectionStatusPalette data={statusListData} />
         </StoryLayout>
     );
 };

@@ -17,11 +17,27 @@ export const getSanitizedA11yColorVariants = (
     variants = [],
     shouldEvalForText = false,
 ) => {
+    if (variants.length === 0) {
+        return variants;
+    }
+
+    const contrastThreshold = shouldEvalForText ? 4.5 : 3;
+
     const sanitizerKey = getEvalsA11yKey(shouldEvalForText);
 
-    return variants.filter(
+    let result = variants.filter(
         (variant) => variant.evalsAgainstBGColor[sanitizerKey],
     );
+
+    if (result.length === 0) {
+        // Fallback to wcag eval only if no results are found
+        result = variants.filter(
+            (variant) =>
+                variant.evalsAgainstBGColor.wcagContrast >= contrastThreshold,
+        );
+    }
+
+    return result;
 };
 
 /**
@@ -55,6 +71,6 @@ export const getLighterDarkerVariants = (baseColorLightness, variants = []) => {
  * Useful for when users are entering values in to a form input to keep the app from crashing.
  * @param {string} hex
  */
-export const getSanitizedHex = (hex) => {
-    return isValidHexColor(hex) ? hex : '#000000';
+export const getSanitizedHex = (hex, hasAlpha = false) => {
+    return isValidHexColor(hex, hasAlpha) ? hex : '#000000';
 };

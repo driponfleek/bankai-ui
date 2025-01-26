@@ -19,12 +19,12 @@ export const genDisabledInputColorData = (
     const variants = genColorVariantsWithMetadata({
         hex: coreColorNeutralSeed,
         step: 2,
-        tokenId: 'disabled-color',
+        tokenId: 'disabled.color',
     });
     const disabledColorData = {
         ...genColorAndVariantsWithMetadata({
             hex: disabledColor,
-            tokenId: 'disabled-color',
+            tokenId: 'disabled.color',
         }),
         variants,
     };
