@@ -118,6 +118,21 @@ const getStatusColor = ({
     return convertColorToHex({ l: lightness, c: chroma, h: newHue });
 };
 
+const getCompatibleDecorativeAccentVariants = (variants) => {
+    const results = variants.filter(
+        (variant) => variant.evalsAgainstBGColor.isA11yUICompatible,
+    );
+
+    if (results > 0) {
+        return results;
+    }
+
+    // Fall back to wcag eval only if no results
+    return variants.filter(
+        (variant) => variant.evalsAgainstBGColor.wcagContrast >= 3,
+    );
+};
+
 export const reservedStatusColorHues = [
     [
         STATUS_HUE_RANGES[SEMANTIC_COLOR_AFFIRMATIVE].min,
@@ -179,13 +194,14 @@ const getSemanticDecorativeColors = (
         { baseColor: decorativeColor, variants: remainingVariants },
         decorativeColor,
     );
+    const { variants: evaluatedDecorativeAccents } = evaluatedColorMetadata;
 
     let { recommendedColorForNonText: decorativeAccentColor } =
         evaluatedColorMetadata;
 
     if (!decorativeAccentColor.evalsAgainstBGColor.isA11yUICompatible) {
-        const compatibleVariants = variants.filter(
-            (variant) => variant.evalsAgainstBGColor.isA11yUICompatible,
+        const compatibleVariants = getCompatibleDecorativeAccentVariants(
+            evaluatedDecorativeAccents,
         );
         const variantColorLightnesses = [
             ...new Set(compatibleVariants.map((variant) => variant.lch.l)),
