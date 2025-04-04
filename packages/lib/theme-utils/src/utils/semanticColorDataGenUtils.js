@@ -157,7 +157,7 @@ export const reservedStatusColorHues = [
 const getSemanticDecorativeColors = (
     colorMetadata,
     preferredTextColors = {},
-    shouldUseMinimumAPCATextCompliance = true,
+    // shouldUseMinimumAPCATextCompliance = true,
 ) => {
     const { variants, recommendedColor } = colorMetadata ?? {};
     const { decorativeColor, remainingVariants } = variants.reduce(
@@ -186,7 +186,7 @@ const getSemanticDecorativeColors = (
             baseHex: decorativeColor.hex,
             preferredDarkTextColor: preferredTextColors.dark,
             preferredLightTextColor: preferredTextColors.light,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         }),
     };
 
@@ -219,7 +219,7 @@ const getSemanticDecorativeColors = (
             baseHex: decorativeAccentColor.hex,
             preferredDarkTextColor: preferredTextColors.dark,
             preferredLightTextColor: preferredTextColors.light,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         }),
     };
 
@@ -228,7 +228,7 @@ const getSemanticDecorativeColors = (
             baseHex: recommendedColor.hex,
             preferredDarkTextColor: preferredTextColors.dark,
             preferredLightTextColor: preferredTextColors.light,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         }),
     };
 
@@ -249,7 +249,7 @@ export const genSemanticColorsMetadata = ({
     const {
         evaluateForTextCompliance = {},
         shouldAutoCorrectColors = true,
-        shouldUseMinimumAPCATextCompliance = true,
+        // shouldUseMinimumAPCATextCompliance = true,
         variantsStep = 2,
     } = config;
     const canvasToken = massageConstToDotNotation(SEMANTIC_COLOR_CANVAS);
@@ -307,7 +307,7 @@ export const genSemanticColorsMetadata = ({
         const { evals } = getControlVsOptionsA11yEvals(
             canvasAltColorMetadata.baseColor,
             [tokenMetadata.baseColor, ...tokenMetadata.variants],
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         );
         // Separate base eval from variant evals
         const { [`${colorToken}.base`]: baseEval, ...variantEvals } = evals;
@@ -342,7 +342,7 @@ export const genSemanticColorsMetadata = ({
         } = getSemanticDecorativeColors(
             finalizedMetadata,
             preferredTextColors,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         );
         semanticColors[decorativeToken] = decorativeColor;
         semanticTokens[decorativeToken] = decorativeColor.hex;
