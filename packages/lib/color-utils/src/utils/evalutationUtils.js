@@ -161,20 +161,24 @@ export const getControlVsOptionsA11yEvals = (
             (acc, op) => {
                 const accClone = { ...acc };
                 const { hex: opHex, tokenId } = op;
-                const isA11yReadable =
-                    getIsA11yReadable(opHex, controlHex) &&
-                    getIsAPCAReadable(
-                        opHex,
-                        controlHex,
-                        shouldUseMinimumAPCATextCompliance,
-                    );
+                // TODO: APCA is the future, revisit once it is the standard.
+                const isAPCAReadable = getIsAPCAReadable(
+                    opHex,
+                    controlHex,
+                    shouldUseMinimumAPCATextCompliance,
+                );
+                // TODO: APCA is the future, revisit once it is the standard.
+                const isAPCAUICompatible =
+                    isAPCAReadable ||
+                    getIsAPCACompliantForUI(opHex, controlHex);
+                const isA11yReadable = getIsA11yReadable(opHex, controlHex);
                 const isA11yUICompatible =
-                    isA11yReadable || // Automatically UI Compatible if it's readable.
-                    (getIsA11yForUI(opHex, controlHex) &&
-                        getIsAPCACompliantForUI(opHex, controlHex));
+                    isA11yReadable || getIsA11yForUI(opHex, controlHex);
                 const wcagContrast = getColorContrast(opHex, controlHex, true);
                 const apcaContrast = getAPCAContrast(opHex, controlHex);
                 accClone.evals[tokenId] = {
+                    isAPCAReadable,
+                    isAPCAUICompatible,
                     isA11yReadable,
                     isA11yUICompatible,
                     wcagContrast,

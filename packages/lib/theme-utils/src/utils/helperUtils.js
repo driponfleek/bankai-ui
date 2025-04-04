@@ -2,8 +2,8 @@ import {
     getIsA11yReadable,
     getIsA11yForUI,
     convertColorToRGBA,
-    getIsAPCAReadable,
-    getIsAPCACompliantForUI,
+    // getIsAPCAReadable,
+    // getIsAPCACompliantForUI,
     getAPCAContrast,
 } from '@driponfleek/bankai-lib-color-utils';
 
@@ -29,38 +29,43 @@ export const getCorrectedLightnessAdjustment = (
 export const getAccessibleWhiteOrBlackColor = (
     baseHex,
     shouldEvalForText,
-    shouldUseMinimumAPCATextCompliance,
+    // shouldUseMinimumAPCATextCompliance,
 ) => {
     const whiteHex = '#ffffff';
     const blackHex = '#000000';
     const wcagValidator = shouldEvalForText
         ? getIsA11yReadable
         : getIsA11yForUI;
-    const apcaValidator = shouldEvalForText
-        ? getIsAPCAReadable
-        : getIsAPCACompliantForUI;
+    // TODO: APCA is the future, revisit once it is the standard.
+    // const apcaValidator = shouldEvalForText
+    //     ? getIsAPCAReadable
+    //     : getIsAPCACompliantForUI;
     const isValidWCAGWithWhite = wcagValidator(whiteHex, baseHex);
-    const isValidWCAGWithBlack = wcagValidator(blackHex, baseHex);
-    const isValidWithWhite =
-        isValidWCAGWithWhite &&
-        apcaValidator(whiteHex, baseHex, shouldUseMinimumAPCATextCompliance);
-    const isValidWithBlack =
-        isValidWCAGWithBlack &&
-        apcaValidator(blackHex, baseHex, shouldUseMinimumAPCATextCompliance);
+    // const isValidWCAGWithBlack = wcagValidator(blackHex, baseHex);
+    // const isValidWithWhite =
+    //     isValidWCAGWithWhite &&
+    //     apcaValidator(whiteHex, baseHex, shouldUseMinimumAPCATextCompliance);
+    // const isValidWithBlack =
+    //     isValidWCAGWithBlack &&
+    //     apcaValidator(blackHex, baseHex, shouldUseMinimumAPCATextCompliance);
 
-    if (!isValidWithWhite && !isValidWithBlack) {
-        // Fall back to WCAG only validation
-        return isValidWCAGWithWhite ? whiteHex : blackHex;
-    }
+    // if (!isValidWithWhite && !isValidWithBlack) {
+    //     // Fall back to WCAG only validation
+    //     return isValidWCAGWithWhite ? whiteHex : blackHex;
+    // }
 
-    return isValidWithWhite ? whiteHex : blackHex;
+    return isValidWCAGWithWhite ? whiteHex : blackHex;
 };
 
-export const getTextColor = (baseHex, shouldUseMinimumAPCATextCompliance) => {
+export const getTextColor = (
+    baseHex,
+    // shouldUseMinimumAPCATextCompliance,
+) => {
     return getAccessibleWhiteOrBlackColor(
         baseHex,
         true,
-        shouldUseMinimumAPCATextCompliance,
+        // TODO: APCA is the future, revisit once it is the standard.
+        // shouldUseMinimumAPCATextCompliance,
     );
 };
 
@@ -76,11 +81,11 @@ export const getPrioritizedAppTextColor = ({
     baseHex,
     preferredDarkTextColor,
     preferredLightTextColor,
-    shouldUseMinimumAPCATextCompliance,
+    // shouldUseMinimumAPCATextCompliance,
 }) => {
     const evalTextColor = getTextColor(
         baseHex,
-        shouldUseMinimumAPCATextCompliance,
+        // shouldUseMinimumAPCATextCompliance,
     );
 
     if (
@@ -99,17 +104,20 @@ export const getPrioritizedAppTextColor = ({
         preferredTextColor,
         baseHex,
     );
-    const isValidWithAppTextColor =
-        isValidWCAGWithAppTextColor &&
-        getIsAPCAReadable(
-            preferredTextColor,
-            baseHex,
-            shouldUseMinimumAPCATextCompliance,
-        );
+    // TODO: APCA is the future, revisit once it is the standard.
+    // const isValidWithAppTextColor =
+    //     isValidWCAGWithAppTextColor &&
+    //     getIsAPCAReadable(
+    //         preferredTextColor,
+    //         baseHex,
+    //         shouldUseMinimumAPCATextCompliance,
+    //     );
 
-    return isValidWithAppTextColor || isValidWCAGWithAppTextColor
-        ? preferredTextColor
-        : evalTextColor;
+    // return isValidWithAppTextColor || isValidWCAGWithAppTextColor
+    //     ? preferredTextColor
+    //     : evalTextColor;
+
+    return isValidWCAGWithAppTextColor ? preferredTextColor : evalTextColor;
 };
 
 export const getFocusHaloRGBA = (colorHex) => {

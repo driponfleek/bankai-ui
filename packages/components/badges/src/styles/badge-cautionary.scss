@@ -6,4 +6,9 @@
 .bankai-badge.bankai-badge--cautionary {
     color: var(--bankai-badge-cautionary-text-color, bankai-get-light-theme-map-value('badge-cautionary-text-color'));
     background-color: var(--bankai-badge-cautionary-bg-color, bankai-get-light-theme-map-value('badge-cautionary-bg-color'));
+    border: 1px solid var(--bankai-badge-cautionary-icon-color, bankai-get-light-theme-map-value('badge-cautionary-icon-color'));
+
+    .bankai-badge__icon {
+        color: var(--bankai-badge-cautionary-icon-color, bankai-get-light-theme-map-value('badge-cautionary-icon-color'));
+    }
 }

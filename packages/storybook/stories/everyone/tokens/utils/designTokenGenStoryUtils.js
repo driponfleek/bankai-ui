@@ -25,7 +25,7 @@ export const genTokens = (fieldValues = {}) => {
     const {
         isDarkMode,
         shouldAutoCorrectForA11y,
-        shouldUseMinimumAPCATextCompliance,
+        // shouldUseMinimumAPCATextCompliance,
         avatarSourceColorToken,
         badgeAffirmativeSourceColorToken,
         badgeCautionarySourceColorToken,
@@ -63,7 +63,7 @@ export const genTokens = (fieldValues = {}) => {
         genDesignTokens(presets, {
             isDarkMode,
             shouldAutoCorrectColors: shouldAutoCorrectForA11y,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
             componentConfigs: {
                 avatar: {
                     sourceColorToken: avatarSourceColorToken,

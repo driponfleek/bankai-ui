@@ -7,18 +7,25 @@ export const BADGE_VARIANTS = {
     INFO: 'INFO',
 };
 
+const { AFFIRMATIVE, CAUTIONARY, DANGER, INFO } = BADGE_VARIANTS;
+
+const getBadgeVariantTokenNames = (variant) => {
+    const formattedVariant = variant ? `${variant}_` : '';
+
+    return {
+        [`BADGE_${formattedVariant}BG_COLOR`]: `BADGE_${formattedVariant}BG_COLOR`,
+        [`BADGE_${formattedVariant}ICON_COLOR`]: `BADGE_${formattedVariant}ICON_COLOR`,
+        [`BADGE_${formattedVariant}TEXT_COLOR`]: `BADGE_${formattedVariant}TEXT_COLOR`,
+    };
+};
+
 export const BADGE_TOKEN_NAMES = {
-    BADGE_BG_COLOR: 'BADGE_BG_COLOR',
     BADGE_BORDER_RADIUS: 'BADGE_BORDER_RADIUS',
-    BADGE_TEXT_COLOR: 'BADGE_TEXT_COLOR',
-    BADGE_AFFIRMATIVE_BG_COLOR: 'BADGE_AFFIRMATIVE_BG_COLOR',
-    BADGE_AFFIRMATIVE_TEXT_COLOR: 'BADGE_AFFIRMATIVE_TEXT_COLOR',
-    BADGE_CAUTIONARY_BG_COLOR: 'BADGE_CAUTIONARY_BG_COLOR',
-    BADGE_CAUTIONARY_TEXT_COLOR: 'BADGE_CAUTIONARY_TEXT_COLOR',
-    BADGE_DANGER_BG_COLOR: 'BADGE_DANGER_BG_COLOR',
-    BADGE_DANGER_TEXT_COLOR: 'BADGE_DANGER_TEXT_COLOR',
-    BADGE_INFO_BG_COLOR: 'BADGE_INFO_BG_COLOR',
-    BADGE_INFO_TEXT_COLOR: 'BADGE_INFO_TEXT_COLOR',
+    ...getBadgeVariantTokenNames(),
+    ...getBadgeVariantTokenNames(AFFIRMATIVE),
+    ...getBadgeVariantTokenNames(CAUTIONARY),
+    ...getBadgeVariantTokenNames(DANGER),
+    ...getBadgeVariantTokenNames(INFO),
 };
 
 export const BADGE_TOKEN_DEFAULTS = {
