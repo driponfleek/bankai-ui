@@ -116,7 +116,7 @@ class StoryLayout extends PureComponent {
         const { isDarkMode } = this.state;
 
         if (isDarkMode !== prevState.isDarkMode) {
-            genDesignTokens(themeData, { isDarkMode });
+            genDesignTokens(themeData, { isDarkMode, variantsStep: 1 });
         }
     }
 
@@ -128,7 +128,7 @@ class StoryLayout extends PureComponent {
         this.classChangeObserver.observe(this.getHMTLDOMEl(), {
             attributes: true,
         });
-        genDesignTokens(themeData, { isDarkMode });
+        genDesignTokens(themeData, { isDarkMode, variantsStep: 1 });
     }
 
     componentWillUnmount() {

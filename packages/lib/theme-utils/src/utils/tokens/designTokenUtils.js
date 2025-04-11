@@ -4,7 +4,15 @@ import {
     genSemanticTextBorderHoverColorTokens,
     genSemanticFocusColorTokens,
 } from './semanticColorTokenUtils';
+// Semantic Colors
 import { genSemanticColorsMetadata } from '../semanticColorDataGenUtils';
+// Data Vis
+import {
+    genDataVisTokens,
+    genBrewerQualitativeTokens,
+    genBrewerDivergingTokens,
+    genBrewerSequentialTokens,
+} from './dataVisTokenUtils';
 // Accordions
 import { genAccordionTokens } from './accordionTokenUtils';
 // Avatars
@@ -182,6 +190,14 @@ export const genDesignTokens = (
     const results = sortDesignTokens({
         // Semantic Tokens
         ...semanticColorTokens,
+        // Data Vis Tokens
+        ...genDataVisTokens({
+            ...semanticColorTokens,
+            ...textBorderHoverTokens,
+        }),
+        ...genBrewerDivergingTokens(),
+        ...genBrewerQualitativeTokens(),
+        ...genBrewerSequentialTokens(),
         // Text and Border design tokens
         ...textBorderHoverTokens,
         // Focus Inner/Outer design tokens

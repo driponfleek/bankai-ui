@@ -8,7 +8,7 @@ import {
     massageConstToDotNotation,
 } from '@driponfleek/bankai-lib-theme-utils';
 import SectionWhenToUseNeutrals from './SectionWhenToUseNeutrals';
-import ColorPaletteList from '../../components/ColorPaletteList';
+import ColorTokenCardList from '../../../../../sb-components/lists/ColorTokenCardList';
 
 const SectionNeutrals = () => {
     const neutralColors = genCustomNeutralColors();
@@ -25,7 +25,7 @@ const SectionNeutrals = () => {
         <StorySection contextCls={genSBBaseCls('color-swatch-list')}>
             <SectionTitle>Neutrals</SectionTitle>
             <StorySection>
-                <ColorPaletteList listData={listData} />
+                <ColorTokenCardList listData={listData} />
             </StorySection>
             <SectionWhenToUseNeutrals />
         </StorySection>

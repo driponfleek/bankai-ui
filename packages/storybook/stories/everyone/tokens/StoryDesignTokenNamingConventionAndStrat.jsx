@@ -6,6 +6,7 @@ import SectionIntro from './sections/naming-convention-and-strat/SectionIntro';
 import SectionComponentTokens from './sections/naming-convention-and-strat/SectionComponentTokens';
 import SectionCoreTokens from './sections/naming-convention-and-strat/SectionCoreTokens';
 import SectionSemanticTokens from './sections/naming-convention-and-strat/SectionSemanticTokens';
+import SectionUtilityTokens from './sections/naming-convention-and-strat/SectionUtilityTokens';
 import StoryLayout from '../../../sb-components/layout/StoryLayout';
 
 // Utils
@@ -22,6 +23,7 @@ const StoryDesignTokenNamingConventionAndStrat = () => {
         >
             <SectionIntro />
             <SectionCoreTokens />
+            <SectionUtilityTokens />
             <SectionSemanticTokens />
             <SectionComponentTokens />
         </StoryLayout>
