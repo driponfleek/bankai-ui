@@ -1,2 +1,0 @@
-import{j as o}from"./localeUtils-d2d3068e.js";import{P as e}from"./index-f9722e9b.js";import{h as n,c as i,b as p}from"./shared-3e287694.js";const s=a=>{const{contextCls:t,className:r,...c}=a;return o(n,{...c,className:i(`${p}-check`,r,t)})};s.propTypes={contextCls:e.string,className:e.string};const k=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiCheck",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{k as B};
-//# sourceMappingURL=BankaiCheck-211871f4.js.map
