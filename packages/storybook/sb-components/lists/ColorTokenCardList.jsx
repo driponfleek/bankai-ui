@@ -2,10 +2,10 @@ import { Children, useMemo } from 'react';
 import { ColorSwatch, genSBBaseCls } from '@driponfleek/bankai-lib-storybook';
 
 // Styles
-import './styles/color-palette-list.scss';
+import './styles/color-token-card-list.scss';
 
-const ColorPaletteList = ({ listData = [] }) => (
-    <div className={genSBBaseCls('color-palette-list')}>
+const ColorTokenCardList = ({ listData = [] }) => (
+    <div className={genSBBaseCls('color-token-card-list')}>
         {Children.toArray(
             useMemo(
                 () =>
@@ -16,4 +16,4 @@ const ColorPaletteList = ({ listData = [] }) => (
     </div>
 );
 
-export default ColorPaletteList;
+export default ColorTokenCardList;

@@ -5,5 +5,6 @@ export * from './src/utils/evalutationUtils';
 export * from './src/utils/recommendationUtils';
 export * from './src/utils/dataSanitizerUtils';
 export * from './src/utils/validationUtils';
+export * from './src/const/brewerConst';
 export * from './src/const/colorConst';
 export { default as chromajs } from 'chroma-js';

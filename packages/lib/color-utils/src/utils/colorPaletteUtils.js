@@ -6,6 +6,12 @@ import {
 } from './colorFormatConversionUtils';
 import { getSanitizedHex } from './dataSanitizerUtils';
 import { COLOR_HARMONIES } from '../const/colorConst';
+import {
+    BREWER_CATEGORY,
+    DIVERGING_PALETTE,
+    QUALITATIVE_PALETTE,
+    SEQUENTIAL_PALETTE,
+} from '../const/brewerConst';
 
 export const getShiftedHue = (baseHue, shiftAmount) => {
     let adjustedHue = (baseHue + shiftAmount) % 360;
@@ -212,19 +218,6 @@ const genTintsShadesTones = (
                 chromaColor.tint(amount / 100, 'hsl').hex(),
             );
     }
-
-    // return generateColorAdjustmentIncrements(numberOfColors).map((amount) =>
-    //     (isShades
-    //         ? chromaColor.shade(amount / 100, 'hsl')
-    //         : chromaColor.tint(amount / 100, 'hsl')
-    //     ).hex(),
-    // );
-    // return generateColorAdjustmentIncrements(numberOfColors).map((amount) =>
-    //     (isShades
-    //         ? chromaColor.shade(amount / 100)
-    //         : chromaColor.tint(amount / 100)
-    //     ).hex(),
-    // );
 };
 
 export const genColorShades = (baseHex, numberOfColors = 5) => {
@@ -266,5 +259,139 @@ export const genHarmonyColors = (harmony, ops) => {
         case COLOR_HARMONIES.ANALOGOUS:
         default:
             return genAnalogousColors(baseHex, offset);
+    }
+};
+
+const genBrewerDivergingColors = (palette) => {
+    const { BRBG, PIYG, PRGN, PUOR, RDBU, RDYLBU } = DIVERGING_PALETTE;
+    const { BrBG, PiYG, PRGn, PuOr, RdBu, RdYlBu } = chromajs.brewer;
+
+    switch (palette) {
+        case BRBG:
+            return BrBG;
+        case PIYG:
+            return PiYG;
+        case PRGN:
+            return PRGn;
+        case PUOR:
+            return PuOr;
+        case RDYLBU:
+            return RdYlBu;
+        case RDBU:
+        default:
+            return RdBu;
+    }
+};
+
+const genBrewerQualitativeColors = (palette) => {
+    const { DARK2, PAIRED, SET2 } = QUALITATIVE_PALETTE;
+    const { Dark2, Paired, Set2 } = chromajs.brewer;
+
+    switch (palette) {
+        case DARK2:
+            return Dark2;
+        case PAIRED:
+            return Paired;
+        case SET2:
+        default:
+            return Set2;
+    }
+};
+
+const genBrewerSequentialColors = (palette) => {
+    const {
+        BLUES,
+        BUGN,
+        BUPU,
+        GNBU,
+        GREENS,
+        GREYS,
+        ORANGES,
+        ORRD,
+        PUBU,
+        PUBUGN,
+        PURD,
+        PURPLES,
+        RDPU,
+        REDS,
+        YLGN,
+        YLGNBU,
+        YLORBR,
+        YLORRD,
+    } = SEQUENTIAL_PALETTE;
+    const {
+        Blues,
+        BuGn,
+        BuPu,
+        GnBu,
+        Greens,
+        Greys,
+        Oranges,
+        OrRd,
+        PuBu,
+        PuBuGn,
+        PuRd,
+        Purples,
+        RdPu,
+        Reds,
+        YlGn,
+        YlGnBu,
+        YlOrBr,
+        YlOrRd,
+    } = chromajs.brewer;
+
+    switch (palette) {
+        case BUGN:
+            return BuGn;
+        case BUPU:
+            return BuPu;
+        case GNBU:
+            return GnBu;
+        case GREENS:
+            return Greens;
+        case GREYS:
+            return Greys;
+        case ORANGES:
+            return Oranges;
+        case ORRD:
+            return OrRd;
+        case PUBU:
+            return PuBu;
+        case PUBUGN:
+            return PuBuGn;
+        case PURD:
+            return PuRd;
+        case PURPLES:
+            return Purples;
+        case RDPU:
+            return RdPu;
+        case REDS:
+            return Reds;
+        case YLGN:
+            return YlGn;
+        case YLGNBU:
+            return YlGnBu;
+        case YLORBR:
+            return YlOrBr;
+        case YLORRD:
+            return YlOrRd;
+        case BLUES:
+        default:
+            return Blues;
+    }
+};
+
+export const genBrewerColors = (category, palette) => {
+    const { DIVERGING, QUALITATIVE, SEQUENTIAL } = BREWER_CATEGORY;
+
+    switch (category) {
+        case DIVERGING:
+            return genBrewerDivergingColors(palette);
+        case QUALITATIVE:
+            return genBrewerQualitativeColors(palette);
+        case SEQUENTIAL:
+            return genBrewerSequentialColors(palette);
+        default:
+            return [];
     }
 };

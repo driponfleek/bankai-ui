@@ -1,10 +1,10 @@
-import { List } from '@driponfleek/bankai-ui-lists';
 import {
     StorySection,
     SectionTitle,
     genSBBaseCls,
 } from '@driponfleek/bankai-lib-storybook';
-import ColorDesignTokenListItem from '../../../../../sb-components/lists/ColorDesignTokenListItem';
+import StatusColorPaletteListItem from '../../components/StatusColorPaletteListItem';
+import ColorTokenTileList from '../../../../../sb-components/lists/ColorTokenTileList';
 
 // Styles
 import './styles/section-palette.scss';
@@ -13,16 +13,13 @@ const SectionStatusPalette = (props) => {
     const { data = [] } = props;
     const baseCls = genSBBaseCls('section-color-palette');
 
-    const renderListItem = (item) => {
-        const { color, mainContent } = item ?? {};
-
-        return <ColorDesignTokenListItem token={mainContent} color={color} />;
-    };
-
     return (
         <StorySection contextCls={baseCls}>
             <SectionTitle>Status And Informative</SectionTitle>
-            <List renderListItem={renderListItem} data={data} />
+            <ColorTokenTileList
+                renderListItem={StatusColorPaletteListItem}
+                data={data}
+            />
         </StorySection>
     );
 };
