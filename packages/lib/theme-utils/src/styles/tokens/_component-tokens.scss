@@ -27,20 +27,25 @@ $bankai-component-tokens: (
     avatar-border-color: $bankai-core-color-neutral-100,
     avatar-text-color: $bankai-core-color-neutral-100,
     // Badges
-    badge-bg-color: $bankai-core-color-neutral-80,
     badge-border-radius: bankai-to-px($bankai-core-radius-04-x),
-    badge-text-color: inherit,
+    badge-bg-color: $bankai-core-color-neutral-80,
+    badge-icon-color: color.change($bankai-core-color-neutral-80, $lightness: 56%),
+    badge-text-color: $bankai-core-color-neutral-0,
     // - Affirmative
-    badge-affirmative-bg-color: $bankai-semantic-color-affirmative,
-    badge-affirmative-text-color: $bankai-core-color-neutral-100,
+    badge-affirmative-bg-color: color.change($bankai-semantic-color-affirmative, $lightness: 80%),
+    badge-affirmative-icon-color: color.change($bankai-semantic-color-affirmative, $lightness: 36%),
+    badge-affirmative-text-color: $bankai-core-color-neutral-0,
     // - Cautionary
-    badge-cautionary-bg-color: $bankai-semantic-color-cautionary,
-    badge-cautionary-text-color: $bankai-semantic-color-text,
-    // - Error
-    badge-danger-bg-color: $bankai-semantic-color-error,
-    badge-danger-text-color: $bankai-core-color-neutral-100,
+    badge-cautionary-bg-color: color.change($bankai-semantic-color-cautionary, $lightness: 80%),
+    badge-cautionary-icon-color: color.change($bankai-semantic-color-cautionary, $lightness: 30%),
+    badge-cautionary-text-color: $bankai-core-color-neutral-0,
+    // - Danger
+    badge-danger-bg-color: color.change($bankai-semantic-color-error, $lightness: 80%),
+    badge-danger-icon-color: color.change($bankai-semantic-color-error, $lightness: 46%),
+    badge-danger-text-color: $bankai-core-color-neutral-0,
     // - Info
-    badge-info-bg-color: $bankai-semantic-color-info,
+    badge-info-bg-color: color.change($bankai-semantic-color-info, $lightness: 80%),
+    badge-info-icon-color: color.change($bankai-semantic-color-info, $lightness: 44%),
     badge-info-text-color: $bankai-core-color-neutral-0,
     // Buttons
     button-border-radius: bankai-to-px($bankai-core-radius-06-x),

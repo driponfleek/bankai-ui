@@ -1,4 +1,5 @@
 import StoryColorCore from './StoryColorCore';
+import StoryColorDataVis from './StoryColorDataVis';
 import StoryColorSemantic from './StoryColorSemantic';
 
 const parameters = {
@@ -20,6 +21,12 @@ export default {
 export const Core = {
     name: 'Core',
     render: StoryColorCore,
+    parameters,
+};
+
+export const DataVisualization = {
+    name: 'Data Vsiualization',
+    render: StoryColorDataVis,
     parameters,
 };
 

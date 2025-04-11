@@ -118,6 +118,21 @@ const getStatusColor = ({
     return convertColorToHex({ l: lightness, c: chroma, h: newHue });
 };
 
+const getCompatibleDecorativeAccentVariants = (variants) => {
+    const results = variants.filter(
+        (variant) => variant.evalsAgainstBGColor.isA11yUICompatible,
+    );
+
+    if (results > 0) {
+        return results;
+    }
+
+    // Fall back to wcag eval only if no results
+    return variants.filter(
+        (variant) => variant.evalsAgainstBGColor.wcagContrast >= 3,
+    );
+};
+
 export const reservedStatusColorHues = [
     [
         STATUS_HUE_RANGES[SEMANTIC_COLOR_AFFIRMATIVE].min,
@@ -142,7 +157,7 @@ export const reservedStatusColorHues = [
 const getSemanticDecorativeColors = (
     colorMetadata,
     preferredTextColors = {},
-    shouldUseMinimumAPCATextCompliance = true,
+    // shouldUseMinimumAPCATextCompliance = true,
 ) => {
     const { variants, recommendedColor } = colorMetadata ?? {};
     const { decorativeColor, remainingVariants } = variants.reduce(
@@ -171,7 +186,7 @@ const getSemanticDecorativeColors = (
             baseHex: decorativeColor.hex,
             preferredDarkTextColor: preferredTextColors.dark,
             preferredLightTextColor: preferredTextColors.light,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         }),
     };
 
@@ -179,13 +194,14 @@ const getSemanticDecorativeColors = (
         { baseColor: decorativeColor, variants: remainingVariants },
         decorativeColor,
     );
+    const { variants: evaluatedDecorativeAccents } = evaluatedColorMetadata;
 
     let { recommendedColorForNonText: decorativeAccentColor } =
         evaluatedColorMetadata;
 
     if (!decorativeAccentColor.evalsAgainstBGColor.isA11yUICompatible) {
-        const compatibleVariants = variants.filter(
-            (variant) => variant.evalsAgainstBGColor.isA11yUICompatible,
+        const compatibleVariants = getCompatibleDecorativeAccentVariants(
+            evaluatedDecorativeAccents,
         );
         const variantColorLightnesses = [
             ...new Set(compatibleVariants.map((variant) => variant.lch.l)),
@@ -203,7 +219,7 @@ const getSemanticDecorativeColors = (
             baseHex: decorativeAccentColor.hex,
             preferredDarkTextColor: preferredTextColors.dark,
             preferredLightTextColor: preferredTextColors.light,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         }),
     };
 
@@ -212,7 +228,7 @@ const getSemanticDecorativeColors = (
             baseHex: recommendedColor.hex,
             preferredDarkTextColor: preferredTextColors.dark,
             preferredLightTextColor: preferredTextColors.light,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         }),
     };
 
@@ -233,7 +249,7 @@ export const genSemanticColorsMetadata = ({
     const {
         evaluateForTextCompliance = {},
         shouldAutoCorrectColors = true,
-        shouldUseMinimumAPCATextCompliance = true,
+        // shouldUseMinimumAPCATextCompliance = true,
         variantsStep = 2,
     } = config;
     const canvasToken = massageConstToDotNotation(SEMANTIC_COLOR_CANVAS);
@@ -291,7 +307,7 @@ export const genSemanticColorsMetadata = ({
         const { evals } = getControlVsOptionsA11yEvals(
             canvasAltColorMetadata.baseColor,
             [tokenMetadata.baseColor, ...tokenMetadata.variants],
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         );
         // Separate base eval from variant evals
         const { [`${colorToken}.base`]: baseEval, ...variantEvals } = evals;
@@ -326,7 +342,7 @@ export const genSemanticColorsMetadata = ({
         } = getSemanticDecorativeColors(
             finalizedMetadata,
             preferredTextColors,
-            shouldUseMinimumAPCATextCompliance,
+            // shouldUseMinimumAPCATextCompliance,
         );
         semanticColors[decorativeToken] = decorativeColor;
         semanticTokens[decorativeToken] = decorativeColor.hex;

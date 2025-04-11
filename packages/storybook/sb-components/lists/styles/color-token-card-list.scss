@@ -5,7 +5,7 @@
 @import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
 @import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 
-.bankai-sb-color-palette-list {
+.bankai-sb-color-token-card-list {
     @include bankai-flex-row;
     gap: bankai-to-rem($bankai-core-spacing-04-x);
     flex-wrap: wrap;

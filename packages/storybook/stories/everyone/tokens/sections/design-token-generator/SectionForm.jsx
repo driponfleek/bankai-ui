@@ -53,14 +53,14 @@ const SectionForm = (props) => {
         baseCls,
         fieldValues = {},
         onChange = () => Promise.resolve(),
-        onAPCAChange = () => Promise.resolve(),
+        // onAPCAChange = () => Promise.resolve(),
         onAutoCorrectForA11yChange = () => Promise.resolve(),
         onDarkModeChange = () => Promise.resolve(),
     } = props;
     const {
         isDarkMode = false,
         shouldAutoCorrectForA11y = true,
-        shouldUseMinimumAPCATextCompliance = true,
+        // shouldUseMinimumAPCATextCompliance = true,
     } = fieldValues;
     const pickerCommonProps = {
         fieldValues,
@@ -147,7 +147,7 @@ const SectionForm = (props) => {
                                 onChange={onAutoCorrectForA11yChange}
                                 fieldId="shouldAutoCorrectForA11y"
                             />
-                            <ToggleSwitchField
+                            {/* <ToggleSwitchField
                                 labelProps={{
                                     content:
                                         'Use Minimum APCA Contrast For Text',
@@ -155,7 +155,7 @@ const SectionForm = (props) => {
                                 isChecked={shouldUseMinimumAPCATextCompliance}
                                 onChange={onAPCAChange}
                                 fieldId="shouldUseMinimumAPCATextCompliance"
-                            />
+                            /> */}
                         </DynamicFormRow>
                     </FormLayoutSection>
                 </FormLayout>

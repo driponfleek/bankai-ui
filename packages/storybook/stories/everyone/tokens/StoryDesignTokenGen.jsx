@@ -165,7 +165,7 @@ const initialState = {
     calloutInfoSourceColorToken: constToTokenMap[SEMANTIC_COLOR_INFO],
     isDarkMode: false,
     shouldAutoCorrectForA11y: true,
-    shouldUseMinimumAPCATextCompliance: true,
+    // shouldUseMinimumAPCATextCompliance: true,
 };
 
 const StoryDesignTokenGen = () => {
@@ -185,11 +185,14 @@ const StoryDesignTokenGen = () => {
 
         dispatch({ [fieldId]: !shouldAutoCorrectForA11y });
     };
-    const handleAPCAChange = (value, fieldId) => {
-        const { shouldUseMinimumAPCATextCompliance } = fieldValues;
 
-        dispatch({ [fieldId]: !shouldUseMinimumAPCATextCompliance });
-    };
+    // TODO: APCA is the future, revisit once it is the standard.
+    // const handleAPCAChange = (value, fieldId) => {
+    //     const { shouldUseMinimumAPCATextCompliance } = fieldValues;
+
+    //     dispatch({ [fieldId]: !shouldUseMinimumAPCATextCompliance });
+    // };
+
     // TODO: To improve performance here we need to have every section
     // generate its own tokens and memoize them instead of doing all at once
     const {
@@ -258,7 +261,6 @@ const StoryDesignTokenGen = () => {
                 onChange={handleChange}
                 onDarkModeChange={handleDarkModeChange}
                 onAutoCorrectForA11yChange={handleAutoCorrectForA11yChange}
-                onAPCAChange={handleAPCAChange}
             />
             <SectionTokens
                 baseCls={baseCls}

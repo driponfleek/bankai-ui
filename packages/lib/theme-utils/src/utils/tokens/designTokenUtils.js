@@ -4,7 +4,15 @@ import {
     genSemanticTextBorderHoverColorTokens,
     genSemanticFocusColorTokens,
 } from './semanticColorTokenUtils';
+// Semantic Colors
 import { genSemanticColorsMetadata } from '../semanticColorDataGenUtils';
+// Data Vis
+import {
+    genDataVisTokens,
+    genBrewerQualitativeTokens,
+    genBrewerDivergingTokens,
+    genBrewerSequentialTokens,
+} from './dataVisTokenUtils';
 // Accordions
 import { genAccordionTokens } from './accordionTokenUtils';
 // Avatars
@@ -85,7 +93,7 @@ const genDesignTokenConfigsWithFallbacks = (config = {}) => {
     return {
         variantsStep: 2,
         shouldAutoCorrectColors: true,
-        shouldUseMinimumAPCATextCompliance: true,
+        // shouldUseMinimumAPCATextCompliance: true,
         ...config,
         evaluateForTextCompliance: {
             ...getEvaluateForTextComplianceDefaults(),
@@ -182,6 +190,14 @@ export const genDesignTokens = (
     const results = sortDesignTokens({
         // Semantic Tokens
         ...semanticColorTokens,
+        // Data Vis Tokens
+        ...genDataVisTokens({
+            ...semanticColorTokens,
+            ...textBorderHoverTokens,
+        }),
+        ...genBrewerDivergingTokens(),
+        ...genBrewerQualitativeTokens(),
+        ...genBrewerSequentialTokens(),
         // Text and Border design tokens
         ...textBorderHoverTokens,
         // Focus Inner/Outer design tokens
@@ -209,8 +225,8 @@ export const genDesignTokens = (
         ...genBadgeTokens(tokenPresets),
         // Badge (Default) Tokens
         ...genDefaultBadgeColorTokens({
-            coreColorNeutralSeed,
             config: configWithFallbacks,
+            coreColorNeutralSeed,
             preferredTextColors,
         }),
         // Badge (Affirmative) Tokens
@@ -218,10 +234,13 @@ export const genDesignTokens = (
             sourceColors: {
                 background:
                     semanticColors[
-                        componentConfigs?.badgeAffirmative?.sourceColorToken
+                        `${componentConfigs?.badgeAffirmative?.sourceColorToken}.decorative`
                     ],
                 text: semanticColors[
-                    `${componentConfigs?.badgeAffirmative?.sourceColorToken}.text`
+                    `${componentConfigs?.badgeAffirmative?.sourceColorToken}.decorative.text`
+                ],
+                icon: semanticColors[
+                    `${componentConfigs?.badgeAffirmative?.sourceColorToken}.decorative.accent`
                 ],
             },
             variant: BADGE_VARIANTS.AFFIRMATIVE,
@@ -231,10 +250,13 @@ export const genDesignTokens = (
             sourceColors: {
                 background:
                     semanticColors[
-                        componentConfigs?.badgeCautionary?.sourceColorToken
+                        `${componentConfigs?.badgeCautionary?.sourceColorToken}.decorative`
                     ],
                 text: semanticColors[
-                    `${componentConfigs?.badgeCautionary?.sourceColorToken}.text`
+                    `${componentConfigs?.badgeCautionary?.sourceColorToken}.decorative.text`
+                ],
+                icon: semanticColors[
+                    `${componentConfigs?.badgeCautionary?.sourceColorToken}.decorative.accent`
                 ],
             },
             variant: BADGE_VARIANTS.CAUTIONARY,
@@ -244,10 +266,13 @@ export const genDesignTokens = (
             sourceColors: {
                 background:
                     semanticColors[
-                        componentConfigs?.badgeDanger?.sourceColorToken
+                        `${componentConfigs?.badgeDanger?.sourceColorToken}.decorative`
                     ],
                 text: semanticColors[
-                    `${componentConfigs?.badgeDanger?.sourceColorToken}.text`
+                    `${componentConfigs?.badgeDanger?.sourceColorToken}.decorative.text`
+                ],
+                icon: semanticColors[
+                    `${componentConfigs?.badgeDanger?.sourceColorToken}.decorative.accent`
                 ],
             },
             variant: BADGE_VARIANTS.DANGER,
@@ -257,10 +282,13 @@ export const genDesignTokens = (
             sourceColors: {
                 background:
                     semanticColors[
-                        componentConfigs?.badgeInfo?.sourceColorToken
+                        `${componentConfigs?.badgeInfo?.sourceColorToken}.decorative`
                     ],
                 text: semanticColors[
-                    `${componentConfigs?.badgeInfo?.sourceColorToken}.text`
+                    `${componentConfigs?.badgeInfo?.sourceColorToken}.decorative.text`
+                ],
+                icon: semanticColors[
+                    `${componentConfigs?.badgeInfo?.sourceColorToken}.decorative.accent`
                 ],
             },
             variant: BADGE_VARIANTS.INFO,

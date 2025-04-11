@@ -12,6 +12,15 @@
     line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
     box-sizing: border-box;
     border-radius: var(--bankai-badge-border-radius, bankai-get-light-theme-map-value('badge-border-radius'));
-    display: inline-block;
     padding: bankai-to-rem($bankai-core-spacing-01-x) bankai-to-rem($bankai-core-spacing-02-x);
+    border: 1px solid var(--bankai-badge-icon-color, bankai-get-light-theme-map-value('badge-icon-color'));
+    display: inline-block;
+
+    // TODO: Add icon support
+    &__icon {
+        color: var(--bankai-badge-icon-color, bankai-get-light-theme-map-value('badge-icon-color'));
+        // font-size: 2.5em;
+        vertical-align: top;
+        margin: 0 auto;
+    }
 }

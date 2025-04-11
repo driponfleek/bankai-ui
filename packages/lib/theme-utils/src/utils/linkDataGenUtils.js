@@ -15,7 +15,8 @@ const genLinkDataEasy = (sourceColor = {}, shouldUnderlineLinks = false) => {
     };
 };
 
-export const genLinkData = ({ sourceColor = {}, textColor, config = {} }) => {
+export const genLinkData = (params) => {
+    const { sourceColor = {}, textColor, config = {} } = params;
     const { shouldAutoCorrectColors = true, shouldUnderlineLinks = false } =
         config;
 
@@ -39,6 +40,7 @@ export const genLinkData = ({ sourceColor = {}, textColor, config = {} }) => {
         testOps,
     );
 
+    // TODO: Link color evaluation is not working...
     // Color only needs 3:1 contrast ratio against text
     const { compatibleNonTextColors = [] } = evalTextColor;
     // Color needs 4.5:1 contrast ratio against background

@@ -6,4 +6,9 @@
 .bankai-badge.bankai-badge--info {
     color: var(--bankai-badge-info-text-color, bankai-get-light-theme-map-value('badge-info-text-color'));
     background-color: var(--bankai-badge-info-bg-color, bankai-get-light-theme-map-value('badge-info-bg-color'));
+    border: 1px solid var(--bankai-badge-info-icon-color, bankai-get-light-theme-map-value('badge-info-icon-color'));
+
+    .bankai-badge__icon {
+        color: var(--bankai-badge-info-icon-color, bankai-get-light-theme-map-value('badge-info-icon-color'));
+    }
 }

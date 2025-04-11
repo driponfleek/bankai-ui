@@ -1,34 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 @import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss';
 @import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
 
 .bankai-sb-section-color-palette {
-    .bankai-list {
-        @include bankai-flex-row;
-        gap: bankai-to-rem($bankai-core-spacing-02-x);
-        flex-wrap: wrap;
-
-        > .bankai-list__li {
-            border: none;
-
-            > .bankai-list-item {
-                border: 1px solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-                border-radius: bankai-to-px($bankai-core-radius-02-x);
-                overflow: hidden;
-
-                .bankai-sb-color-design-token-list-item__copy-btn {
-                    height: 100%;
-                    border-radius: 0 bankai-to-px($bankai-core-radius-02-x) bankai-to-px($bankai-core-radius-02-x) 0;
-                }
-            }
-        }
-    }
-
     .bankai-form-layout-row {
         > :first-child {
             flex: 1 1 auto;
