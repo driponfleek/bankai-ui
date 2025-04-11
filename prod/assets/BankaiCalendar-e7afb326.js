@@ -1,2 +1,0 @@
-import{j as o}from"./localeUtils-f8841aa9.js";import{P as a}from"./index-f9722e9b.js";import{f as i,c as l,b as c}from"./shared-06e4991e.js";const s=e=>{const{contextCls:r,className:n,...t}=e;return o(i,{...t,className:l(`${c}-calendar`,n,r)})};s.propTypes={contextCls:a.string,className:a.string};const C=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiCalendar",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{C as B};
-//# sourceMappingURL=BankaiCalendar-e7afb326.js.map

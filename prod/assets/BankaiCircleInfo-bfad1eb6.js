@@ -1,2 +1,0 @@
-import{j as n}from"./localeUtils-f8841aa9.js";import{P as e}from"./index-f9722e9b.js";import{l as t,c,b as l}from"./shared-06e4991e.js";const s=a=>{const{contextCls:r,className:o,...i}=a;return n(t,{...i,className:c(`${l}-circle-info`,o,r)})};s.propTypes={contextCls:e.string,className:e.string};const d=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiCircleInfo",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{d as B};
-//# sourceMappingURL=BankaiCircleInfo-bfad1eb6.js.map

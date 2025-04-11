@@ -1,0 +1,2 @@
+import{j as n}from"./localeUtils-69cdffc3.js";import{P as e}from"./index-f9722e9b.js";import{n as i,c as l,b as c}from"./shared-95b0092f.js";const s=a=>{const{contextCls:o,className:t,...r}=a;return n(i,{...r,className:l(`${c}-cloud`,t,o)})};s.propTypes={contextCls:e.string,className:e.string};const u=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiCloud",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{u as B};
+//# sourceMappingURL=BankaiCloud-2a54e7f9.js.map
