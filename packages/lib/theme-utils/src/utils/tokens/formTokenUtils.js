@@ -154,6 +154,7 @@ export const genInputColorTokens = ({
                   CORE_NEUTRAL_COLOR_TOKEN_NAMES.CORE_COLOR_NEUTRAL_70,
               )
           ];
+
     const disabledInputColorData = genDisabledInputColorData(
         disabledBGColor,
         coreColorNeutralSeed,
@@ -252,6 +253,7 @@ export const genMenuTokens = ({ sourceColor = {}, preferredTextColors }) => {
 export const genMultiselectTokens = ({
     semanticTokens,
     preferredTextColors,
+    coreColorNeutralSeed,
 }) => {
     const {
         [massageConstToDotNotation(
@@ -275,7 +277,7 @@ export const genMultiselectTokens = ({
             preferredLightTextColor,
         }),
         ...genFocusTokens({
-            sourceColor: { recommendedColor: { hex: textAltColor } },
+            sourceColor: { baseColor: { hex: coreColorNeutralSeed } },
             FOCUS_INNER_TOKEN: FORM_PILL_FOCUS_HALO_INNER_COLOR,
             FOCUS_OUTER_TOKEN: FORM_PILL_FOCUS_HALO_OUTER_COLOR,
         }),
@@ -287,7 +289,9 @@ export const genToggleSwitchTokens = ({
     coreColorNeutralSeed,
     sourceColor = {},
     semanticColors = {},
+    config = {},
 }) => {
+    const { isDarkMode = false } = config;
     const { recommendedColor = {} } = sourceColor;
     const formConstToTokenMap = genConstToDotNotationMap({
         FORM_TOGGLE_SWITCH_KNOB_BORDER_COLOR,
@@ -302,15 +306,26 @@ export const genToggleSwitchTokens = ({
         FORM_TOGGLE_SWITCH_ON_FOCUS_HALO_INNER_COLOR,
         FORM_TOGGLE_SWITCH_ON_FOCUS_HALO_OUTER_COLOR,
     });
-    const { recommendedColorForNonText: trackColorMetadata } =
+    const { recommendedColorForNonText: trackColorMetadata, ...rest } =
         genEvaluatedColorMetadata(
             genColorAndVariantsWithMetadata({
                 hex: coreColorNeutralSeed,
-                step: 5,
+                step: 1,
             }),
             canvasAltColor,
         );
-    const trackColor = trackColorMetadata.hex;
+    let trackColor = trackColorMetadata.hex;
+
+    if (trackColor === coreColorNeutralSeed) {
+        const compliantVariants =
+            rest?.variants?.filter(
+                (variant) => variant.evalsAgainstBGColor.isA11yUICompatible,
+            ) || [];
+
+        trackColor =
+            compliantVariants[isDarkMode ? compliantVariants.length - 1 : 0]
+                ?.hex;
+    }
     const { baseColor: canvasColor = {} } =
         semanticColors[
             massageConstToDotNotation(
@@ -319,6 +334,10 @@ export const genToggleSwitchTokens = ({
         ];
     const { hoverColor, hoverOnColor } = genToggleSwitchHoverColorsData({
         trackColor,
+        evaluatedNeutrals: {
+            recommendedColorForNonText: trackColorMetadata,
+            ...rest,
+        },
         trackOnColor: sourceColor,
     });
 

@@ -466,9 +466,14 @@ export const genDesignTokens = (
         ...genDNDDropzoneTokens({
             sourceColors: {
                 background:
-                    semanticColors[componentConfigs?.dnd?.sourceColorToken],
+                    semanticColors[
+                        `${componentConfigs?.dnd?.sourceColorToken}.decorative`
+                    ],
+                border: semanticColors[
+                    `${componentConfigs?.dnd?.sourceColorToken}.decorative.accent`
+                ],
                 text: semanticColors[
-                    `${componentConfigs?.dnd?.sourceColorToken}.text`
+                    `${componentConfigs?.dnd?.sourceColorToken}.decorative.text`
                 ],
             },
         }),
@@ -476,10 +481,13 @@ export const genDesignTokens = (
             sourceColors: {
                 background:
                     semanticColors[
-                        componentConfigs?.dndDenied?.sourceColorToken
+                        `${componentConfigs?.dndDenied?.sourceColorToken}.decorative`
                     ],
+                border: semanticColors[
+                    `${componentConfigs?.dndDenied?.sourceColorToken}.decorative.accent`
+                ],
                 text: semanticColors[
-                    `${componentConfigs?.dndDenied?.sourceColorToken}.text`
+                    `${componentConfigs?.dndDenied?.sourceColorToken}.decorative.text`
                 ],
             },
             isDenied: true,
@@ -495,6 +503,7 @@ export const genDesignTokens = (
                 ...semanticColorTokens,
                 ...textBorderHoverTokens,
             },
+            coreColorNeutralSeed,
         }),
         ...genToggleInputTokens({
             sourceColor:
@@ -517,6 +526,7 @@ export const genDesignTokens = (
                 ...semanticColorTokens,
                 ...textBorderHoverTokens,
             },
+            coreColorNeutralSeed,
         }),
         ...genToggleSwitchTokens({
             sourceColor:
@@ -526,6 +536,7 @@ export const genDesignTokens = (
             semanticColors,
             canvasAltColor: canvasAltColorMetadata,
             coreColorNeutralSeed,
+            config: configWithFallbacks,
         }),
         // Lists
         ...genListTokens(tokenPresets),
