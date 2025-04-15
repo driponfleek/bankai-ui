@@ -1,5 +1,4 @@
 import { genConstToDotNotationMap } from '../dataGenUtils';
-import { getDecorativeComplimentaryColor } from '../helperUtils';
 import {
     DND_TOKEN_DEFAULTS,
     DND_TOKEN_NAMES,
@@ -22,16 +21,14 @@ export const genDNDDropzoneTokens = ({
     sourceColors = {},
     isDenied = false,
 }) => {
-    const { background, text = {} } = sourceColors ?? {};
+    const { background = {}, text = {}, border = {} } = sourceColors ?? {};
     const formattedVariant = isDenied ? `DENIED_` : '';
-    const { recommendedColor } = background ?? {};
-    const borderColor = getDecorativeComplimentaryColor(background) ?? {};
 
     return {
         [dndConstToTokenMap[`DND_DROPZONE_${formattedVariant}BG_COLOR`]]:
-            recommendedColor?.hex,
+            background.hex,
         [dndConstToTokenMap[`DND_DROPZONE_${formattedVariant}BORDER_COLOR`]]:
-            borderColor.hex,
+            border.hex,
         [dndConstToTokenMap[`DND_DROPZONE_${formattedVariant}TEXT_COLOR`]]:
             text.hex,
     };

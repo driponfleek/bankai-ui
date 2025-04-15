@@ -10,17 +10,14 @@ export const genFocusTokens = ({
     FOCUS_INNER_TOKEN,
     FOCUS_OUTER_TOKEN,
 }) => {
-    const { recommendedColor = {} } = sourceColor ?? {};
+    const { baseColor = {} } = sourceColor ?? {};
     const constTokenMap = genConstToDotNotationMap({
         [FOCUS_INNER_TOKEN]: FOCUS_INNER_TOKEN,
         [FOCUS_OUTER_TOKEN]: FOCUS_OUTER_TOKEN,
     });
-    const darkColor = getNewColorByLightnessAdjustment(
-        recommendedColor.hex,
-        30,
-    );
+    const darkColor = getNewColorByLightnessAdjustment(baseColor.hex, 30);
     const lightColor = convertColorToRGBA(
-        getNewColorByLightnessAdjustment(recommendedColor.hex, 70),
+        getNewColorByLightnessAdjustment(baseColor.hex, 70),
         0.8,
         true,
     );

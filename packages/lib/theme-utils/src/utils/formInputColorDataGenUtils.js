@@ -18,7 +18,7 @@ export const genDisabledInputColorData = (
     // const neutralColorsKeys = Object.keys(NEUTRAL_COLORS);
     const variants = genColorVariantsWithMetadata({
         hex: coreColorNeutralSeed,
-        step: 2,
+        step: 1,
         tokenId: 'disabled.color',
     });
     const disabledColorData = {
@@ -54,15 +54,31 @@ export const genErrorInputColorData = (errorColor, bgColor) => {
 
 export const genToggleSwitchHoverColorsData = ({
     trackColor,
+    evaluatedNeutrals = {},
     trackOnColor,
 }) => {
     const { bgColor } = trackOnColor ?? {};
     const bgColorClone = { ...bgColor };
     delete bgColorClone.compatibleNonTextColors;
     delete bgColorClone.compatibleTextColors;
-    const trackOffColorMetadata = genColorAndVariantsWithMetadata({
+    const { variants: neutralVariants = [] } = evaluatedNeutrals;
+    const sanitizedNeutralVariants = neutralVariants.filter((variant) => {
+        const { evalsAgainstBGColor = {} } = variant;
+        const { isA11yUICompatible = false } = evalsAgainstBGColor;
+
+        if (variant.hex === trackColor) {
+            return false;
+        }
+
+        return isA11yUICompatible;
+    });
+    const { baseColor: trackOffBaseColor } = genColorAndVariantsWithMetadata({
         hex: trackColor,
     });
+    const trackOffColorMetadata = {
+        baseColor: trackOffBaseColor,
+        variants: sanitizedNeutralVariants,
+    };
     const evalTrackData = finalizeColorMetadata(
         genEvaluatedColorMetadata(trackOffColorMetadata, bgColorClone),
     );

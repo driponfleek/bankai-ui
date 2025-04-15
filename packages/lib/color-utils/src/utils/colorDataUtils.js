@@ -1,5 +1,5 @@
 import {
-    convertColorToHex,
+    // convertColorToHex,
     convertColorToLCH,
     convertColorToHSL,
     convertColorToRGB,
@@ -35,76 +35,76 @@ const createVariantLightnessesArray = (step = 2) => {
  * @param {boolean} isLighter
  * @returns
  */
-const getAdjustedChromaAndHueWithCaps = (
-    baseLCH,
-    adjustedLightness,
-    isLighter = false,
-) => {
-    const { l: baseL, c: baseC, h: baseH } = baseLCH ?? {};
-    let adjustedC = baseC;
-    let adjustedH = baseH;
-    const blueChromaReductionFactor =
-        1 - (adjustedLightness - baseL) / (100 - baseL);
-    const blueChromaScaleFactor = Math.max(
-        1 - (baseL - adjustedLightness) / baseL,
-        0,
-    );
+// const getAdjustedChromaAndHueWithCaps = (
+//     baseLCH,
+//     adjustedLightness,
+//     isLighter = false,
+// ) => {
+//     const { l: baseL, c: baseC, h: baseH } = baseLCH ?? {};
+//     let adjustedC = baseC;
+//     let adjustedH = baseH;
+//     const blueChromaReductionFactor =
+//         1 - (adjustedLightness - baseL) / (100 - baseL);
+//     const blueChromaScaleFactor = Math.max(
+//         1 - (baseL - adjustedLightness) / baseL,
+//         0,
+//     );
 
-    switch (true) {
-        case baseH >= 60 && baseH <= 90: // Yellow range
-            if (isLighter) {
-                adjustedH -= Math.abs(baseL - adjustedLightness) * 0.8; // Shift downward when darkening
-            }
-            adjustedC = Math.min(adjustedC, 90); // Cap Chroma for yellows
-            adjustedH = Math.max(Math.min(adjustedH, 90), 50); // Cap Hue for yellows
-            break;
-        case baseH >= 180 && baseH <= 270: // Blue range
-            // adjustedC = baseC * blueChromaScaleFactor;
-            if (isLighter) {
-                adjustedC = Math.max(
-                    baseC * blueChromaReductionFactor,
-                    baseC * 0.5,
-                ); // Retain at least 50% of original Chroma
-                adjustedH -= Math.min(
-                    1,
-                    Math.abs(adjustedLightness - baseL) * 0.05,
-                ); // Small downward Hue shift for harmony
-            }
+//     switch (true) {
+//         case baseH >= 60 && baseH <= 90: // Yellow range
+//             if (isLighter) {
+//                 adjustedH -= Math.abs(baseL - adjustedLightness) * 0.8; // Shift downward when darkening
+//             }
+//             adjustedC = Math.min(adjustedC, 90); // Cap Chroma for yellows
+//             adjustedH = Math.max(Math.min(adjustedH, 90), 50); // Cap Hue for yellows
+//             break;
+//         case baseH >= 180 && baseH <= 270: // Blue range
+//             // adjustedC = baseC * blueChromaScaleFactor;
+//             if (isLighter) {
+//                 adjustedC = Math.max(
+//                     baseC * blueChromaReductionFactor,
+//                     baseC * 0.5,
+//                 ); // Retain at least 50% of original Chroma
+//                 adjustedH -= Math.min(
+//                     1,
+//                     Math.abs(adjustedLightness - baseL) * 0.05,
+//                 ); // Small downward Hue shift for harmony
+//             }
 
-            if (!isLighter) {
-                adjustedC = baseC * blueChromaScaleFactor; // Aggressively reduce Chroma for darker variants
-                adjustedH = adjustedC < 5 ? 250 : adjustedH;
-                adjustedC =
-                    adjustedC < 5
-                        ? 0
-                        : (adjustedC -= Math.min(
-                              3,
-                              Math.abs(baseL - adjustedLightness) * 0.1,
-                          )); // Slight downward Hue shift;
-            }
-            adjustedC = Math.min(adjustedC, 70); // Avoid oversaturation
-            break;
-        case baseH <= 30 || baseH >= 330: // Red range
-            adjustedC = Math.min(adjustedC, 80); // Prevent neon-like reds
-            adjustedH = Math.max(Math.min(adjustedH, 30), 0); // Constrain to red
-        default: // General case for other hues
-            if (isLighter) {
-                adjustedH += Math.min(
-                    5,
-                    Math.abs(baseL - adjustedLightness) * 0.1,
-                );
-            } else {
-                adjustedH -= Math.min(
-                    5,
-                    Math.abs(baseL - adjustedLightness) * 0.1,
-                );
-            }
-            break;
-    }
-    adjustedH = (adjustedH + 360) % 360; // Wrap Hue within 0-360
+//             if (!isLighter) {
+//                 adjustedC = baseC * blueChromaScaleFactor; // Aggressively reduce Chroma for darker variants
+//                 adjustedH = adjustedC < 5 ? 250 : adjustedH;
+//                 adjustedC =
+//                     adjustedC < 5
+//                         ? 0
+//                         : (adjustedC -= Math.min(
+//                               3,
+//                               Math.abs(baseL - adjustedLightness) * 0.1,
+//                           )); // Slight downward Hue shift;
+//             }
+//             adjustedC = Math.min(adjustedC, 70); // Avoid oversaturation
+//             break;
+//         case baseH <= 30 || baseH >= 330: // Red range
+//             adjustedC = Math.min(adjustedC, 80); // Prevent neon-like reds
+//             adjustedH = Math.max(Math.min(adjustedH, 30), 0); // Constrain to red
+//         default: // General case for other hues
+//             if (isLighter) {
+//                 adjustedH += Math.min(
+//                     5,
+//                     Math.abs(baseL - adjustedLightness) * 0.1,
+//                 );
+//             } else {
+//                 adjustedH -= Math.min(
+//                     5,
+//                     Math.abs(baseL - adjustedLightness) * 0.1,
+//                 );
+//             }
+//             break;
+//     }
+//     adjustedH = (adjustedH + 360) % 360; // Wrap Hue within 0-360
 
-    return { l: adjustedLightness, c: adjustedC, h: adjustedH };
-};
+//     return { l: adjustedLightness, c: adjustedC, h: adjustedH };
+// };
 
 export const genColorMetadata = (hex) => {
     const sanitizedHex = getSanitizedHex(hex);
@@ -125,27 +125,29 @@ export const genColorMetadata = (hex) => {
 
 export const getNewColorByLightnessAdjustment = (hex, newLightness) => {
     const sanitizedHex = getSanitizedHex(hex);
-    const baseLCH = convertColorToLCH(sanitizedHex);
-    const { l: baseLightness } = baseLCH;
-    const isLighter = newLightness > baseLightness;
-    const adjustedLCH = getAdjustedChromaAndHueWithCaps(
-        baseLCH,
-        newLightness,
-        isLighter,
-    );
+    const variantScale = genColorScale(sanitizedHex);
+    // const baseLCH = convertColorToLCH(sanitizedHex);
+    // const { l: baseLightness } = baseLCH;
+    // const isLighter = newLightness > baseLightness;
+    // const adjustedLCH = getAdjustedChromaAndHueWithCaps(
+    //     baseLCH,
+    //     newLightness,
+    //     isLighter,
+    // );
 
-    let newHex = convertColorToHex(adjustedLCH);
-    let newLCH = convertColorToLCH(newHex);
+    // let newHex = convertColorToHex(adjustedLCH);
+    // let newLCH = convertColorToLCH(newHex);
 
     // Attempt to correct color to bring closer to newLightness value
     // due to ChromaJS auto-correcting when exceeding RGB Gamut limits
     // for hex conversion
-    if (newLCH.l !== newLightness) {
-        newLCH = { ...newLCH, l: newLightness };
-        newHex = convertColorToHex(newLCH);
-    }
+    // if (newLCH.l !== newLightness) {
+    //     newLCH = { ...newLCH, l: newLightness };
+    //     newHex = convertColorToHex(newLCH);
+    // }
 
-    return newHex;
+    // return newHex;
+    return variantScale(newLightness).hex();
 };
 
 export const genColorVariantsWithMetadata = ({

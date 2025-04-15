@@ -1,4 +1,4 @@
-import { getNewColorByLightnessAdjustment } from '@driponfleek/bankai-lib-color-utils';
+import { genColorScale } from '@driponfleek/bankai-lib-color-utils';
 import {
     CORE_NEUTRAL_COLOR_TOKEN_DEFAULTS,
     CORE_COLOR_NEUTRAL_SEED_DEFAULT,
@@ -157,6 +157,7 @@ export const SEMANTIC_COLOR_TOKEN_NAMES = {
     SEMANTIC_COLOR_HOVER_BG: 'SEMANTIC_COLOR_HOVER_BG',
 };
 
+const neutralVariantScale = genColorScale(CORE_COLOR_NEUTRAL_SEED_DEFAULT);
 const ACCENT_COLOR_PRIMARY = '#a33400';
 const ACCENT_COLOR_SECONDARY = '#8500a3';
 const ACCENT_COLOR_TERTIARY = '#a3006f';
@@ -185,7 +186,7 @@ export const SEMANTIC_COLOR_TOKEN_DEFAULTS = {
     // CANVAS
     [SEMANTIC_COLOR_TOKEN_NAMES.SEMANTIC_COLOR_CANVAS]: CORE_COLOR_NEUTRAL_100,
     [SEMANTIC_COLOR_TOKEN_NAMES.SEMANTIC_COLOR_CANVAS_ALT]:
-        getNewColorByLightnessAdjustment(CORE_COLOR_NEUTRAL_SEED_DEFAULT, 95),
+        neutralVariantScale(95).hex(),
     [SEMANTIC_COLOR_TOKEN_NAMES.SEMANTIC_COLOR_CANVAS_BRAND]: '#00344d',
     [SEMANTIC_COLOR_TOKEN_NAMES.SEMANTIC_COLOR_CANVAS_BRAND_TEXT]:
         CORE_COLOR_NEUTRAL_90,
