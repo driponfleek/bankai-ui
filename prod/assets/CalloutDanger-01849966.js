@@ -1,0 +1,2 @@
+import{j as e,c as n}from"./localeUtils-d4452531.js";import{P as r}from"./index-f9722e9b.js";import{B as l}from"./Callout-c74a3a39.js";const t=o=>{const{contextCls:s,...a}=o;return e(l,{...a,contextCls:n("bankai-callout--danger",s)})};t.propTypes={contextCls:r.string};const m=t;t.__docgenInfo={description:"",methods:[],displayName:"CalloutDanger",props:{contextCls:{type:{name:"string"},required:!1,description:""}}};export{m as C};
+//# sourceMappingURL=CalloutDanger-01849966.js.map

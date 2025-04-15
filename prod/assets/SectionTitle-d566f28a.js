@@ -1,2 +1,0 @@
-import{j as i,H as r,c}from"./localeUtils-69cdffc3.js";import{P as p}from"./index-f9722e9b.js";import{S as a}from"./storiesConfigUtils-656c85e3.js";const t=e=>{const{contextCls:s,...o}=e,n=`${a}section-title`;return i(r,{contextCls:c(n,s),...o})};t.propTypes={contextCls:p.string};const d=t;t.__docgenInfo={description:"",methods:[],displayName:"SectionTitle",props:{contextCls:{type:{name:"string"},required:!1,description:""}}};export{d as S};
-//# sourceMappingURL=SectionTitle-d566f28a.js.map
