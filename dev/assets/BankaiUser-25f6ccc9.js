@@ -1,0 +1,2 @@
+import{j as n}from"./localeUtils-d4452531.js";import{P as e}from"./index-f9722e9b.js";import{r as i,c as p,b as c}from"./shared-2f79c10d.js";const s=r=>{const{contextCls:a,className:t,...o}=r;return n(i,{...o,className:p(`${c}-user`,t,a)})};s.propTypes={contextCls:e.string,className:e.string};const f=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiUser",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{f as B};
+//# sourceMappingURL=BankaiUser-25f6ccc9.js.map
