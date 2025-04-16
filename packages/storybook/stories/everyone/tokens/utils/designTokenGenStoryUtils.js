@@ -47,6 +47,7 @@ export const genTokens = (fieldValues = {}) => {
         calloutCautionarySourceColorToken,
         calloutDangerSourceColorToken,
         calloutInfoSourceColorToken,
+        linkSourceColorToken,
         ...fieldVals
     } = fieldValues;
     const presets = {};
@@ -120,6 +121,9 @@ export const genTokens = (fieldValues = {}) => {
                 },
                 calloutInfo: {
                     sourceColorToken: calloutInfoSourceColorToken,
+                },
+                link: {
+                    sourceColorToken: linkSourceColorToken,
                 },
             },
         }),
