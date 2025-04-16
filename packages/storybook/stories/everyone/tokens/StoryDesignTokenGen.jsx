@@ -10,6 +10,7 @@ import BadgeCompPreview from './components/design-token-gen/BadgeCompPreview';
 import BannerCompPreview from './components/design-token-gen/BannerCompPreview';
 import ButtonCompPreview from './components/design-token-gen/ButtonCompPreview';
 import CalloutCompPreview from './components/design-token-gen/CalloutCompPreview';
+import LinkCompPreview from './components/design-token-gen/LinkCompPreview';
 import {
     genTokens,
     getTokensByCategory,
@@ -163,6 +164,7 @@ const initialState = {
         constToTokenMap[SEMANTIC_COLOR_CAUTIONARY],
     calloutDangerSourceColorToken: constToTokenMap[SEMANTIC_COLOR_ERROR],
     calloutInfoSourceColorToken: constToTokenMap[SEMANTIC_COLOR_INFO],
+    linkSourceColorToken: constToTokenMap[SEMANTIC_COLOR_PRIMARY],
     isDarkMode: false,
     shouldAutoCorrectForA11y: true,
     // shouldUseMinimumAPCATextCompliance: true,
@@ -667,7 +669,20 @@ const StoryDesignTokenGen = () => {
                 baseCls={baseCls}
                 tokensData={linkTokens}
                 sectionTitle="Links"
-            />
+            >
+                <LinkCompPreview
+                    baseCls={baseCls}
+                    isDarkMode={fieldValues.isDarkMode}
+                    semanticTokens={semanticTokens}
+                    tokensData={linkTokens}
+                    dispatch={dispatch}
+                    opsProps={{
+                        label: 'Link Source Color Token',
+                        sourceTokenOps: tokenDropdownListData,
+                        value: fieldValues.linkSourceColorToken,
+                    }}
+                />
+            </SectionTokens>
             <SectionTokens
                 baseCls={baseCls}
                 tokensData={loadingTokens}
