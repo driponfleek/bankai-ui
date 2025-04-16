@@ -174,19 +174,19 @@ const SectionPaletteChoices = (props) => {
                         <DynamicFormRow>
                             <ColorPaletteGenSwatch
                                 token={SEMANTIC_COLOR_AFFIRMATIVE}
-                                options={[statusColors.affirmative]}
+                                options={[statusColors.affirmative, ...colors]}
                                 onChange={handleChange}
                                 color={fieldValues[SEMANTIC_COLOR_AFFIRMATIVE]}
                             />
                             <ColorPaletteGenSwatch
                                 token={SEMANTIC_COLOR_CAUTIONARY}
-                                options={[statusColors.cautionary]}
+                                options={[statusColors.cautionary, ...colors]}
                                 onChange={handleChange}
                                 color={fieldValues[SEMANTIC_COLOR_CAUTIONARY]}
                             />
                             <ColorPaletteGenSwatch
                                 token={SEMANTIC_COLOR_ERROR}
-                                options={[statusColors.error]}
+                                options={[statusColors.error, ...colors]}
                                 onChange={handleChange}
                                 color={fieldValues[SEMANTIC_COLOR_ERROR]}
                             />
