@@ -12,6 +12,9 @@ import {
     genBrewerQualitativeTokens,
     genBrewerDivergingTokens,
     genBrewerSequentialTokens,
+    genCartoColorDivergingTokens,
+    genCartoColorQualitativeTokens,
+    genCartoColorSequentialTokens,
 } from './dataVisTokenUtils';
 // Accordions
 import { genAccordionTokens } from './accordionTokenUtils';
@@ -198,6 +201,9 @@ export const genDesignTokens = (
         ...genBrewerDivergingTokens(),
         ...genBrewerQualitativeTokens(),
         ...genBrewerSequentialTokens(),
+        ...genCartoColorDivergingTokens(),
+        ...genCartoColorQualitativeTokens(),
+        ...genCartoColorSequentialTokens(),
         // Text and Border design tokens
         ...textBorderHoverTokens,
         // Focus Inner/Outer design tokens

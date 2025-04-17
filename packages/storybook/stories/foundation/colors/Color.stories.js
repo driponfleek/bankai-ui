@@ -25,7 +25,7 @@ export const Core = {
 };
 
 export const DataVisualization = {
-    name: 'Data Vsiualization',
+    name: 'Data Visualization',
     render: StoryColorDataVis,
     parameters,
 };
