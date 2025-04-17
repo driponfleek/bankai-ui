@@ -1,0 +1,2 @@
+import{j as o,c}from"./localeUtils-28c44f90.js";import{P as r}from"./index-f9722e9b.js";import{g as p}from"./storiesConfigUtils-656c85e3.js";const s=t=>{const{contextCls:n,children:a}=t,e=p("code-tag");return o("code",{className:c(e,n),children:o("span",{className:`${e}__content`,children:a})})};s.propTypes={contextCls:r.string};const m=s;s.__docgenInfo={description:"",methods:[],displayName:"CodeTag",props:{contextCls:{type:{name:"string"},required:!1,description:""}}};export{m as C};
+//# sourceMappingURL=CodeTag-ecc57618.js.map

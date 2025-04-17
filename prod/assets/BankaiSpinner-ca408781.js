@@ -1,0 +1,2 @@
+import{j as i}from"./localeUtils-28c44f90.js";import{P as e}from"./index-f9722e9b.js";import{o,c as p,b as c}from"./shared-19764471.js";const s=a=>{const{contextCls:n,className:r,...t}=a;return i(o,{...t,className:p(`${c}-spinner`,r,n)})};s.propTypes={contextCls:e.string,className:e.string};const f=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiSpinner",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{f as B};
+//# sourceMappingURL=BankaiSpinner-ca408781.js.map
