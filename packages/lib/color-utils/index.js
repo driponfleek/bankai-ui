@@ -8,3 +8,4 @@ export * from './src/utils/validationUtils';
 export * from './src/const/brewerConst';
 export * from './src/const/colorConst';
 export { default as chromajs } from 'chroma-js';
+export * as cartoColor from 'cartocolor';

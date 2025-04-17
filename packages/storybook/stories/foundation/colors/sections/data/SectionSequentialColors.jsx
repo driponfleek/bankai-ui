@@ -43,7 +43,7 @@ const SectionSequentialColors = () => {
         <StorySection>
             <SectionTitle>
                 {getLocale(
-                    'stories.foundation.color.dataVis.brewerCategory.sequential.title',
+                    'stories.foundation.color.dataVis.sequential.title',
                 )}
             </SectionTitle>
             <StorySection>
@@ -72,7 +72,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.blues',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.blues',
                     )}
                 </SectionTitle>
                 {renderPalette(blues)}
@@ -80,7 +80,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.bugn',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.bugn',
                     )}
                 </SectionTitle>
                 {renderPalette(bugn)}
@@ -88,7 +88,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.bupu',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.bupu',
                     )}
                 </SectionTitle>
                 {renderPalette(bupu)}
@@ -96,7 +96,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.gnbu',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.gnbu',
                     )}
                 </SectionTitle>
                 {renderPalette(gnbu)}
@@ -104,7 +104,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.greens',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.greens',
                     )}
                 </SectionTitle>
                 {renderPalette(greens)}
@@ -112,7 +112,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.greys',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.greys',
                     )}
                 </SectionTitle>
                 {renderPalette(greys)}
@@ -120,7 +120,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.oranges',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.oranges',
                     )}
                 </SectionTitle>
                 {renderPalette(oranges)}
@@ -128,7 +128,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.orrd',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.orrd',
                     )}
                 </SectionTitle>
                 {renderPalette(orrd)}
@@ -136,7 +136,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.pubu',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.pubu',
                     )}
                 </SectionTitle>
                 {renderPalette(pubu)}
@@ -144,7 +144,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.pubugn',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.pubugn',
                     )}
                 </SectionTitle>
                 {renderPalette(pubugn)}
@@ -152,7 +152,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.purd',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.purd',
                     )}
                 </SectionTitle>
                 {renderPalette(purd)}
@@ -160,7 +160,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.purples',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.purples',
                     )}
                 </SectionTitle>
                 {renderPalette(purples)}
@@ -168,7 +168,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.rdpu',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.rdpu',
                     )}
                 </SectionTitle>
                 {renderPalette(rdpu)}
@@ -176,7 +176,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.reds',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.reds',
                     )}
                 </SectionTitle>
                 {renderPalette(reds)}
@@ -184,7 +184,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.ylgn',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.ylgn',
                     )}
                 </SectionTitle>
                 {renderPalette(ylgn)}
@@ -192,7 +192,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.ylgnbu',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.ylgnbu',
                     )}
                 </SectionTitle>
                 {renderPalette(ylgnbu)}
@@ -200,7 +200,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.ylorbr',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.ylorbr',
                     )}
                 </SectionTitle>
                 {renderPalette(ylorbr)}
@@ -208,7 +208,7 @@ const SectionSequentialColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.sequential.palette.ylorrd',
+                        'stories.foundation.color.dataVis.sequential.brewer.palette.ylorrd',
                     )}
                 </SectionTitle>
                 {renderPalette(ylorrd)}
