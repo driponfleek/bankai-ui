@@ -24,7 +24,7 @@ const SectionQualitativeColors = () => {
         <StorySection>
             <SectionTitle>
                 {getLocale(
-                    'stories.foundation.color.dataVis.brewerCategory.qualitative.title',
+                    'stories.foundation.color.dataVis.qualitative.title',
                 )}
             </SectionTitle>
             <StorySection>
@@ -54,7 +54,7 @@ const SectionQualitativeColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.qualitative.palette.dark2',
+                        'stories.foundation.color.dataVis.qualitative.brewer.palette.dark2',
                     )}
                 </SectionTitle>
                 {renderPalette(dark2)}
@@ -62,7 +62,7 @@ const SectionQualitativeColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.qualitative.palette.paired',
+                        'stories.foundation.color.dataVis.qualitative.brewer.palette.paired',
                     )}
                 </SectionTitle>
                 {renderPalette(paired)}
@@ -70,7 +70,7 @@ const SectionQualitativeColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.qualitative.palette.set2',
+                        'stories.foundation.color.dataVis.qualitative.brewer.palette.set2',
                     )}
                 </SectionTitle>
                 {renderPalette(set2)}

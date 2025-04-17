@@ -7,10 +7,10 @@ import {
 import { getSanitizedHex } from './dataSanitizerUtils';
 import { COLOR_HARMONIES } from '../const/colorConst';
 import {
-    BREWER_CATEGORY,
-    DIVERGING_PALETTE,
-    QUALITATIVE_PALETTE,
-    SEQUENTIAL_PALETTE,
+    DATA_VIS_CATEGORY,
+    BREWER_DIVERGING_PALETTE,
+    BREWER_QUALITATIVE_PALETTE,
+    BREWER_SEQUENTIAL_PALETTE,
 } from '../const/brewerConst';
 
 export const getShiftedHue = (baseHue, shiftAmount) => {
@@ -263,7 +263,7 @@ export const genHarmonyColors = (harmony, ops) => {
 };
 
 const genBrewerDivergingColors = (palette) => {
-    const { BRBG, PIYG, PRGN, PUOR, RDBU, RDYLBU } = DIVERGING_PALETTE;
+    const { BRBG, PIYG, PRGN, PUOR, RDBU, RDYLBU } = BREWER_DIVERGING_PALETTE;
     const { BrBG, PiYG, PRGn, PuOr, RdBu, RdYlBu } = chromajs.brewer;
 
     switch (palette) {
@@ -284,7 +284,7 @@ const genBrewerDivergingColors = (palette) => {
 };
 
 const genBrewerQualitativeColors = (palette) => {
-    const { DARK2, PAIRED, SET2 } = QUALITATIVE_PALETTE;
+    const { DARK2, PAIRED, SET2 } = BREWER_QUALITATIVE_PALETTE;
     const { Dark2, Paired, Set2 } = chromajs.brewer;
 
     switch (palette) {
@@ -318,7 +318,7 @@ const genBrewerSequentialColors = (palette) => {
         YLGNBU,
         YLORBR,
         YLORRD,
-    } = SEQUENTIAL_PALETTE;
+    } = BREWER_SEQUENTIAL_PALETTE;
     const {
         Blues,
         BuGn,
@@ -382,7 +382,7 @@ const genBrewerSequentialColors = (palette) => {
 };
 
 export const genBrewerColors = (category, palette) => {
-    const { DIVERGING, QUALITATIVE, SEQUENTIAL } = BREWER_CATEGORY;
+    const { DIVERGING, QUALITATIVE, SEQUENTIAL } = DATA_VIS_CATEGORY;
 
     switch (category) {
         case DIVERGING:

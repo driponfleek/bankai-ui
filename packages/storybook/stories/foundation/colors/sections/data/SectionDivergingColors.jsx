@@ -23,9 +23,7 @@ const SectionDivergingColors = () => {
     return (
         <StorySection>
             <SectionTitle>
-                {getLocale(
-                    'stories.foundation.color.dataVis.brewerCategory.diverging.title',
-                )}
+                {getLocale('stories.foundation.color.dataVis.diverging.title')}
             </SectionTitle>
             <StorySection>
                 <Paragraph>
@@ -57,7 +55,7 @@ const SectionDivergingColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.diverging.palette.brbg',
+                        'stories.foundation.color.dataVis.diverging.brewer.palette.brbg',
                     )}
                 </SectionTitle>
                 {renderPalette(brbg)}
@@ -65,7 +63,7 @@ const SectionDivergingColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.diverging.palette.piyg',
+                        'stories.foundation.color.dataVis.diverging.brewer.palette.piyg',
                     )}
                 </SectionTitle>
                 {renderPalette(piyg)}
@@ -79,7 +77,7 @@ const SectionDivergingColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.diverging.palette.puor',
+                        'stories.foundation.color.dataVis.diverging.brewer.palette.puor',
                     )}
                 </SectionTitle>
                 {renderPalette(puor)}
@@ -87,7 +85,7 @@ const SectionDivergingColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.diverging.palette.rdbu',
+                        'stories.foundation.color.dataVis.diverging.brewer.palette.rdbu',
                     )}
                 </SectionTitle>
                 {renderPalette(rdbu)}
@@ -95,7 +93,7 @@ const SectionDivergingColors = () => {
             <StorySection>
                 <SectionTitle headingLvl={3}>
                     {getLocale(
-                        'stories.foundation.color.dataVis.brewerCategory.diverging.palette.rdylbu',
+                        'stories.foundation.color.dataVis.diverging.brewer.palette.rdylbu',
                     )}
                 </SectionTitle>
                 {renderPalette(rdylbu)}
