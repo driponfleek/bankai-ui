@@ -1,0 +1,2 @@
+import{j as n}from"./localeUtils-28c44f90.js";import{P as e}from"./index-f9722e9b.js";import{g as i,c,b as p}from"./shared-19764471.js";const s=a=>{const{contextCls:t,className:r,...o}=a;return n(i,{...o,className:c(`${p}-caret-down`,r,t)})};s.propTypes={contextCls:e.string,className:e.string};const C=s;s.__docgenInfo={description:"",methods:[],displayName:"BankaiCaretDown",props:{contextCls:{type:{name:"string"},required:!1,description:""},className:{type:{name:"string"},required:!1,description:""}}};export{C as B};
+//# sourceMappingURL=BankaiCaretDown-2ac2fd2d.js.map
