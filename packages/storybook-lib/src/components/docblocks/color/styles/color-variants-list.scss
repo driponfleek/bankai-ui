@@ -1,17 +1,15 @@
 // ================================================================
 // Dependencies
 // ================================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
 
 .bankai-sb-color-variants-list {
     $this: &;
 
     &__inner {
-        @include bankai-list-reset;
-        @include bankai-flex-row;
+        @include resets.bankai-list-reset;
+        @include layout.bankai-flex-row;
         max-width: 555px;
         flex-wrap: wrap;
     }
@@ -22,7 +20,7 @@
 
     &--scrollable {
         #{$this}__inner {
-            @include bankai-scroll-y;
+            @include layout.bankai-scroll-y;
             max-height: 443px;
         }
     }

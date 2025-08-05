@@ -6,8 +6,7 @@ import {
 } from '@driponfleek/bankai-lib-theme-utils';
 
 export const getFoundationalTokenVals = () => {
-    const htmlDOM = document.getElementsByTagName('html')[0];
-    const styles = window.getComputedStyle(htmlDOM);
+    const styles = window.getComputedStyle(document.documentElement);
     const axisColor = styles.getPropertyValue(
         '--bankai-utility-color-data-axis',
     );

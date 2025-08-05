@@ -1,103 +1,104 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 @mixin bankai-button-active {
     transform: scale(0.95);
 }
 
 @mixin bankai-button-hover {
-    color: var(--bankai-semantic-color-text, bankai-get-light-theme-map-value('semantic-color-text'));
-    background-color: var(--bankai-semantic-color-hover-bg, bankai-get-light-theme-map-value('semantic-color-hover-bg'));
+    color: var(--bankai-semantic-color-text, theme-utils.bankai-get-light-theme-map-value('semantic-color-text'));
+    background-color: var(--bankai-semantic-color-hover-bg, theme-utils.bankai-get-light-theme-map-value('semantic-color-hover-bg'));
 }
 
 @mixin bankai-button-primary-focus-visible {
-    @include bankai-focus-state-inner-outer-box-shadow(
-        var(--bankai-button-primary-focus-halo-inner-color, bankai-get-light-theme-map-value('button-primary-focus-halo-inner-color')),
-        var(--bankai-button-primary-focus-halo-outer-color, bankai-get-light-theme-map-value('button-primary-focus-halo-outer-color'))
+    @include states.bankai-focus-state-inner-outer-box-shadow(
+        var(--bankai-button-primary-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('button-primary-focus-halo-inner-color')),
+        var(--bankai-button-primary-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('button-primary-focus-halo-outer-color'))
     );
 }
 
 @mixin bankai-button-primary-hover {
-    color: var(--bankai-button-primary-hover-text-color, bankai-get-light-theme-map-value('button-primary-hover-text-color'));
-    background-color: var(--bankai-button-primary-hover-bg-color, bankai-get-light-theme-map-value('button-primary-hover-bg-color'));
-    border-color: var(--bankai-button-primary-hover-border-color, bankai-get-light-theme-map-value('button-primary-hover-border-color'));
+    color: var(--bankai-button-primary-hover-text-color, theme-utils.bankai-get-light-theme-map-value('button-primary-hover-text-color'));
+    background-color: var(--bankai-button-primary-hover-bg-color, theme-utils.bankai-get-light-theme-map-value('button-primary-hover-bg-color'));
+    border-color: var(--bankai-button-primary-hover-border-color, theme-utils.bankai-get-light-theme-map-value('button-primary-hover-border-color'));
 }
 
 @mixin bankai-button-primary-active {
-    color: var(--bankai-button-primary-active-text-color, bankai-get-light-theme-map-value('button-primary-active-text-color'));
-    background-color: var(--bankai-button-primary-active-bg-color, bankai-get-light-theme-map-value('button-primary-active-bg-color'));
-    border-color: var(--bankai-button-primary-active-border-color, bankai-get-light-theme-map-value('button-primary-active-border-color'));
+    color: var(--bankai-button-primary-active-text-color, theme-utils.bankai-get-light-theme-map-value('button-primary-active-text-color'));
+    background-color: var(--bankai-button-primary-active-bg-color, theme-utils.bankai-get-light-theme-map-value('button-primary-active-bg-color'));
+    border-color: var(--bankai-button-primary-active-border-color, theme-utils.bankai-get-light-theme-map-value('button-primary-active-border-color'));
 }
 
 @mixin bankai-button-secondary-focus-visible {
-    @include bankai-focus-state-inner-outer-box-shadow(
-        var(--bankai-button-secondary-focus-halo-inner-color, bankai-get-light-theme-map-value('button-secondary-focus-halo-inner-color')),
-        var(--bankai-button-secondary-focus-halo-outer-color, bankai-get-light-theme-map-value('button-secondary-focus-halo-outer-color'))
+    @include states.bankai-focus-state-inner-outer-box-shadow(
+        var(--bankai-button-secondary-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-focus-halo-inner-color')),
+        var(--bankai-button-secondary-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-focus-halo-outer-color'))
     );
 }
 
 @mixin bankai-button-secondary-hover {
-    color: var(--bankai-button-secondary-hover-text-color, bankai-get-light-theme-map-value('button-secondary-hover-text-color'));
-    background-color: var(--bankai-button-secondary-hover-bg-color, bankai-get-light-theme-map-value('button-secondary-hover-bg-color'));
-    border-color: var(--bankai-button-secondary-hover-border-color, bankai-get-light-theme-map-value('button-secondary-hover-border-color'));
+    color: var(--bankai-button-secondary-hover-text-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-hover-text-color'));
+    background-color: var(--bankai-button-secondary-hover-bg-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-hover-bg-color'));
+    border-color: var(--bankai-button-secondary-hover-border-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-hover-border-color'));
 }
 
 @mixin bankai-button-secondary-active {
-    color: var(--bankai-button-secondary-active-text-color, bankai-get-light-theme-map-value('button-secondary-active-text-color'));
-    background-color: var(--bankai-button-secondary-active-bg-color, bankai-get-light-theme-map-value('button-secondary-active-bg-color'));
-    border-color: var(--bankai-button-secondary-active-border-color, bankai-get-light-theme-map-value('button-secondary-active-border-color'));
+    color: var(--bankai-button-secondary-active-text-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-active-text-color'));
+    background-color: var(--bankai-button-secondary-active-bg-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-active-bg-color'));
+    border-color: var(--bankai-button-secondary-active-border-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-active-border-color'));
 }
 
 @mixin bankai-button-destructive-focus-visible {
-    @include bankai-focus-state-inner-outer-box-shadow(
-        var(--bankai-button-primary-destructive-focus-halo-inner-color, bankai-get-light-theme-map-value('button-primary-destructive-focus-halo-inner-color')),
-        var(--bankai-button-primary-destructive-focus-halo-outer-color, bankai-get-light-theme-map-value('button-primary-destructive-focus-halo-outer-color'))
+    @include states.bankai-focus-state-inner-outer-box-shadow(
+        var(--bankai-button-primary-destructive-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-focus-halo-inner-color')),
+        var(--bankai-button-primary-destructive-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-focus-halo-outer-color'))
     );
 }
 
 @mixin bankai-button-primary-destructive-hover {
-    color: var(--bankai-button-primary-destructive-hover-text-color, bankai-get-light-theme-map-value('button-primary-destructive-hover-text-color'));
-    background-color: var(--bankai-button-primary-destructive-hover-bg-color, bankai-get-light-theme-map-value('button-primary-destructive-hover-bg-color'));
-    border-color: var(--bankai-button-primary-destructive-hover-border-color, bankai-get-light-theme-map-value('button-primary-destructive-hover-border-color'));
+    color: var(--bankai-button-primary-destructive-hover-text-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-hover-text-color'));
+    background-color: var(--bankai-button-primary-destructive-hover-bg-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-hover-bg-color'));
+    border-color: var(--bankai-button-primary-destructive-hover-border-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-hover-border-color'));
 }
 
 @mixin bankai-button-primary-destructive-active {
-    color: var(--bankai-button-primary-destructive-active-text-color, bankai-get-light-theme-map-value('button-primary-destructive-active-text-color'));
-    background-color: var(--bankai-button-primary-destructive-active-bg-color, bankai-get-light-theme-map-value('button-primary-destructive-active-bg-color'));
-    border-color: var(--bankai-button-primary-destructive-active-border-color, bankai-get-light-theme-map-value('button-primary-destructive-active-border-color'));
+    color: var(--bankai-button-primary-destructive-active-text-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-active-text-color'));
+    background-color: var(--bankai-button-primary-destructive-active-bg-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-active-bg-color'));
+    border-color: var(--bankai-button-primary-destructive-active-border-color, theme-utils.bankai-get-light-theme-map-value('button-primary-destructive-active-border-color'));
 }
 
 @mixin bankai-button-secondary-destructive-focus-visible {
-    @include bankai-focus-state-inner-outer-box-shadow(
-        var(--bankai-button-secondary--focus-halo-inner-color, bankai-get-light-theme-map-value('button-secondary--focus-halo-inner-color')),
-        var(--bankai-button-secondary--focus-halo-outer-color, bankai-get-light-theme-map-value('button-secondary--focus-halo-outer-color'))
+    @include states.bankai-focus-state-inner-outer-box-shadow(
+        var(--bankai-button-secondary--focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('button-secondary--focus-halo-inner-color')),
+        var(--bankai-button-secondary--focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('button-secondary--focus-halo-outer-color'))
     );
 }
 
 @mixin bankai-button-secondary-destructive-hover {
-    color: var(--bankai-button-secondary-destructive-hover-text-color, bankai-get-light-theme-map-value('button-secondary-destructive-hover-text-color'));
-    background-color: var(--bankai-button-secondary-destructive-hover-bg-color, bankai-get-light-theme-map-value('button-secondary-destructive-hover-bg-color'));
-    border-color: var(--bankai-button-secondary-destructive-hover-border-color, bankai-get-light-theme-map-value('button-secondary-destructive-hover-border-color'));
+    color: var(--bankai-button-secondary-destructive-hover-text-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-destructive-hover-text-color'));
+    background-color: var(--bankai-button-secondary-destructive-hover-bg-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-destructive-hover-bg-color'));
+    border-color: var(--bankai-button-secondary-destructive-hover-border-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-destructive-hover-border-color'));
 }
 
 @mixin bankai-button-secondary-destructive-active {
-    color: var(--bankai-button-secondary-destructive-active-text-color, bankai-get-light-theme-map-value('button-secondary-destructive-active-text-color'));
-    background-color: var(--bankai-button-secondary-destructive-active-bg-color, bankai-get-light-theme-map-value('button-secondary-destructive-active-bg-color'));
-    border-color: var(--bankai-button-secondary-destructive-active-border-color, bankai-get-light-theme-map-value('button-secondary-destructive-active-border-color'));
+    color: var(--bankai-button-secondary-destructive-active-text-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-destructive-active-text-color'));
+    background-color: var(--bankai-button-secondary-destructive-active-bg-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-destructive-active-bg-color'));
+    border-color: var(--bankai-button-secondary-destructive-active-border-color, theme-utils.bankai-get-light-theme-map-value('button-secondary-destructive-active-border-color'));
 }
 
 @mixin bankai-link-button-focus-visible {
-    @include bankai-focus-state-inner-outer-box-shadow(
-        var(--bankai-link-focus-halo-inner-color, bankai-get-light-theme-map-value('link-focus-halo-inner-color')),
-        var(--bankai-link-focus-halo-outer-color, bankai-get-light-theme-map-value('link-focus-halo-outer-color'))
+    @include states.bankai-focus-state-inner-outer-box-shadow(
+        var(--bankai-link-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('link-focus-halo-inner-color')),
+        var(--bankai-link-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('link-focus-halo-outer-color'))
     );
 }
 
 @mixin bankai-link-button-hover {
     text-decoration: underline;
+
     @media (hover: hover) {
         &:hover {
             cursor: pointer;

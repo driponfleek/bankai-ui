@@ -1,18 +1,18 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-inline-form-error, %bankai-inline-form-error {
-    @include bankai-max-line-width;
-    color: var(--bankai-semantic-color-text-error, bankai-get-light-theme-map-value('semantic-color-text-error'));
-    font-size: var(--bankai-semantic-typography-sub-text-font-size, bankai-get-light-theme-map-value('semantic-typography-sub-text-font-size'));
+    @include typography.bankai-max-line-width;
+    color: var(--bankai-semantic-color-text-error, theme-utils.bankai-get-light-theme-map-value('semantic-color-text-error'));
+    font-size: var(--bankai-semantic-typography-sub-text-font-size, theme-utils.bankai-get-light-theme-map-value('semantic-typography-sub-text-font-size'));
     display: block;
 
     &__icon {
-        @include bankai-inline-flex-row;
+        @include layout.bankai-inline-flex-row;
     }
 
     .bankai-icon {

@@ -1,15 +1,14 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-tab, %bankai-tab {
-    @include bankai-focus-state-halo;
-    color: var(--bankai-tabs-inactive-text-color, bankai-get-light-theme-map-value('tabs-inactive-text-color'));
+    @include states.bankai-focus-state-halo;
+    color: var(--bankai-tabs-inactive-text-color, theme-utils.bankai-get-light-theme-map-value('tabs-inactive-text-color'));
     box-sizing: border-box;
     user-select: none;
 
@@ -42,7 +41,7 @@
 
     &__icon-container,
     &__text-container {
-        padding: 0 bankai-to-rem($bankai-core-spacing-01-x);
+        padding: 0 unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
         vertical-align: middle;
         margin: auto 0;
         display: inline-block;
@@ -55,10 +54,10 @@
     }
 
     &__text {
-        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        line-height: var(--bankai-semantic-typography-line-height, theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height'));
     }
 
     &--is-active:focus-visible {
-        @include bankai-focus-state-inner-outer-box-shadow(var(--bankai-tabs-active-focus-halo-inner-color, bankai-get-light-theme-map-value('tabs-active-focus-halo-inner-color')), var(--bankai-tabs-active-focus-halo-outer-color, bankai-get-light-theme-map-value('tabs-active-focus-halo-outer-color')));
+        @include states.bankai-focus-state-inner-outer-box-shadow(var(--bankai-tabs-active-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('tabs-active-focus-halo-inner-color')), var(--bankai-tabs-active-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('tabs-active-focus-halo-outer-color')));
     }
 }

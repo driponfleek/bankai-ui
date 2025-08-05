@@ -1,6 +1,6 @@
-/** @type { import('@storybook/react').Preview } */
+/** @type { import('@storybook/react-vite').Preview } */
 import { genSBBaseCls } from '@driponfleek/bankai-lib-storybook';
-import { themes } from '@storybook/theming';
+import { themes } from 'storybook/theming';
 import { getLocale } from '../utils/localeUtils';
 
 const brandTitle = 'Bankai UI';
@@ -8,9 +8,9 @@ const preview = {
     parameters: {
         a11y: {
             disable: false,
-            element: `.${genSBBaseCls('component-preview--check-a11y')}`,
+            context: `.${genSBBaseCls('component-preview--check-a11y')}`,
         },
-        actions: { argTypesRegex: '^on[A-Z].*' },
+        // actions: { argTypesRegex: '^on[A-Z].*' },
         controls: {
             // https://storybook.js.org/docs/react/essentials/controls#show-full-documentation-for-each-property
             expanded: true,

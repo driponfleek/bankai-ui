@@ -1,17 +1,17 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-banner {
     $this: &;
 
     &#{$this}--affirmative {
-        color: var(--bankai-banner-affirmative-text-color, bankai-get-light-theme-map-value('banner-affirmative-text-color'));
-        background-color: var(--bankai-banner-affirmative-bg-color, bankai-get-light-theme-map-value('banner-affirmative-bg-color'));
+        color: var(--bankai-banner-affirmative-text-color, theme-utils.bankai-get-light-theme-map-value('banner-affirmative-text-color'));
+        background-color: var(--bankai-banner-affirmative-bg-color, theme-utils.bankai-get-light-theme-map-value('banner-affirmative-bg-color'));
 
         #{$this}__icon {
-            color: var(--bankai-banner-affirmative-icon-color, bankai-get-light-theme-map-value('banner-affirmative-icon-color'));
+            color: var(--bankai-banner-affirmative-icon-color, theme-utils.bankai-get-light-theme-map-value('banner-affirmative-icon-color'));
         }
     }
 }

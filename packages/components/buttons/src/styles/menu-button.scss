@@ -1,12 +1,12 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import './button.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use './base-button-mixin.scss' as base-button;
 
 .bankai-menu-button, %bankai-menu-button {
     display: inline-block;
@@ -14,35 +14,29 @@
     $this: '.bankai-menu-button';
 
     &__button {
-        @extend %bankai-button;
+        @include base-button.bankai-button-base;
 
         &#{$this}--disabled {
-            @include bankai-faux-disabled-state;
+            @include states.bankai-faux-disabled-state;
         }
     }
 
     &__content-container {
-        @extend %bankai-button__content-container;
+        @include base-button.bankai-button-base-content-container;
     }
 
-    &__text-container {
-        @extend %bankai-button__text-container;
+    &__text,
+    &__icon-safe-space,
+    &__icon-container-inner {
+        @include base-button.bankai-button-box-sizing-display-block
     }
 
-    &__text {
-        @extend %bankai-button__text;
-    }
-
+    &__text-container,
     &__icon-container {
-        @extend %bankai-button__icon-container;
-    }
-
-    &__icon-safe-space {
-        @extend %bankai-button__icon-container-safe-space;
+        @include base-button.bankai-button-base-text-icon-container;
     }
 
     &__icon-container-inner {
-        @extend %bankai-button__icon-container-inner;
         font-size: 100%;
     }
 
@@ -57,29 +51,29 @@
     }
 
     &__menu {
-        @include bankai-shadow-elevation-high;
+        @include effects.bankai-shadow-elevation-high;
         min-width: 100%;
-        background-color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
-        border: 1px solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-        border-radius: var(--bankai-form-menu-border-radius, bankai-get-light-theme-map-value('form-menu-border-radius'));
+        background-color: var(--bankai-semantic-color-canvas, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas'));
+        border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+        border-radius: var(--bankai-form-menu-border-radius, theme-utils.bankai-get-light-theme-map-value('form-menu-border-radius'));
         position: absolute;
         top: calc(100% + 3px);
         z-index: 1000;
     }
 
     &__menu-list {
-        @include bankai-list-reset;
+        @include resets.bankai-list-reset;
     }
 
     &__menu-list-option {
-        @include bankai-flex-column;
+        @include layout.bankai-flex-column;
     }
 
     &__menu-list-option:first-child .bankai-menu-button-option {
-        border-radius: calc(var(--bankai-form-menu-border-radius, bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px) calc(var(--bankai-form-menu-border-radius, bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px) 0 0;
+        border-radius: calc(var(--bankai-form-menu-border-radius, theme-utils.bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px) calc(var(--bankai-form-menu-border-radius, theme-utils.bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px) 0 0;
     }
 
     &__menu-list-option:last-child .bankai-menu-button-option {
-        border-radius: 0 0 calc(var(--bankai-form-menu-border-radius, bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px) calc(var(--bankai-form-menu-border-radius, bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px);
+        border-radius: 0 0 calc(var(--bankai-form-menu-border-radius, theme-utils.bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px) calc(var(--bankai-form-menu-border-radius, theme-utils.bankai-get-light-theme-map-value('form-menu-border-radius')) - 1px);
     }
 }

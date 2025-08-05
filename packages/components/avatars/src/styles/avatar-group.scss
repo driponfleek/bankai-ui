@@ -1,16 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-avatar-group, %bankai-avatar-group {
-    @include bankai-flex-row;
+    @include layout.bankai-flex-row;
     box-sizing: border-box;
-    gap: bankai-to-rem($bankai-core-spacing-03-x);
+    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
 
     > * {
         flex: 0 0 auto;
@@ -20,7 +19,7 @@
         gap: 0;
 
         > * {
-            @include bankai-shadow-elevation-medium;
+            @include effects.bankai-shadow-elevation-medium;
             margin-left: -0.25em;
         }
 

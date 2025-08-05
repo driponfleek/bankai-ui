@@ -1,14 +1,14 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-callout {
     $this: &;
 
     &#{$this}--info {
         #{$this}__icon {
-            color: var(--bankai-callout-info-icon-color, bankai-get-light-theme-map-value('callout-info-icon-color'));
+            color: var(--bankai-callout-info-icon-color, theme-utils.bankai-get-light-theme-map-value('callout-info-icon-color'));
         }
     }
 }

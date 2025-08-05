@@ -1,9 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../vars/core-state-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@use '../vars/core-state-vars.scss' as state-vars;
 
 @mixin bankai-focus-state-inner-outer-box-shadow($inner-color: var(--bankai-semantic-color-universal-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
     box-shadow: 0 0 0 1px $inner-color, 0 0 3px 6px $outer-color;
@@ -14,11 +14,11 @@
     transition: box-shadow 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
     &:focus {
-        @include bankai-focus-state-reset;
+        @include resets.bankai-focus-state-reset;
     }
 
     &:focus-visible {
-        @include bankai-focus-state-reset;
+        @include resets.bankai-focus-state-reset;
         @include bankai-focus-state-inner-outer-box-shadow($inner-color, $outer-color);
     }
 }
@@ -40,7 +40,7 @@
 
 // Use this when simulating a disabled state and you cannot use the 'disabled' attribute.
 @mixin bankai-faux-disabled-state($has-hover: true) {
-    opacity: var(--bankai-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+    opacity: var(--bankai-state-disabled-opacity, state-vars.$bankai-core-state-disabled-opacity);
 
     @if $has-hover {
         @media (hover: hover) {

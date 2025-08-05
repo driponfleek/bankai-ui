@@ -1,15 +1,14 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import './button.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use './base-button-mixin.scss' as base-button;
 
 .bankai-menu-button-option, %bankai-menu-button-option {
-    @include bankai-button-reset;
-    @include bankai-focus-state-halo;
-    @include bankai-hover-state;
-    @include bankai-disabled-state;
+    @include resets.bankai-button-reset;
+    @include states.bankai-focus-state-halo;
     color: inherit;
     box-sizing: border-box;
     border: 1px solid transparent;
@@ -17,36 +16,38 @@
     // Necessary to enforce proper line height. Without this the CSS reset will set line-height to 1.15
     line-height: inherit;
     white-space: nowrap;
+    // Moved includes here to remove warnings about this breaking change:
+    // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
+    @include states.bankai-disabled-state;
+    @include states.bankai-hover-state;
     $this: '.bankai-menu-button-option';
 
     @media (hover: hover) {
         &:enabled:hover {
-            background-color: var(--bankai-semantic-color-hover-bg, bankai-get-light-theme-map-value('semantic-color-hover-bg'));
+            background-color: var(--bankai-semantic-color-hover-bg, theme-utils.bankai-get-light-theme-map-value('semantic-color-hover-bg'));
         }
     }
 
     &__content-container {
-        @extend %bankai-button__content-container;
+        @include base-button.bankai-button-base-content-container;
     }
 
-    &__text-container {
-        @extend %bankai-button__text-container;
-    }
-
-    &__text {
-        @extend %bankai-button__text;
+    &__text,
+    &__icon-safe-space,
+    &__icon-container-inner {
+        @include base-button.bankai-button-box-sizing-display-block
     }
 
     &__icon-container {
-        @extend %bankai-button__icon-container;
+        font-size: 2rem;
     }
 
-    &__icon-safe-space {
-        @extend %bankai-button__icon-container-safe-space;
+    &__text-container,
+    &__icon-container {
+        @include base-button.bankai-button-base-text-icon-container;
     }
 
     &__icon-container-inner {
-        @extend %bankai-button__icon-container-inner;
         font-size: 100%;
     }
 

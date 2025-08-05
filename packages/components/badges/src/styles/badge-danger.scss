@@ -1,14 +1,14 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-badge.bankai-badge--danger {
-    color: var(--bankai-badge-danger-text-color, bankai-get-light-theme-map-value('badge-danger-text-color'));
-    background-color: var(--bankai-badge-danger-bg-color, bankai-get-light-theme-map-value('badge-danger-bg-color'));
-    border: 1px solid var(--bankai-badge-danger-icon-color, bankai-get-light-theme-map-value('badge-danger-icon-color'));
+    color: var(--bankai-badge-danger-text-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-text-color'));
+    background-color: var(--bankai-badge-danger-bg-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-bg-color'));
+    border: 1px solid var(--bankai-badge-danger-icon-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-icon-color'));
 
     .bankai-badge__icon {
-        color: var(--bankai-badge-danger-icon-color, bankai-get-light-theme-map-value('badge-danger-icon-color'));
+        color: var(--bankai-badge-danger-icon-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-icon-color'));
     }
 }

@@ -2,7 +2,7 @@
 // Dependencies
 // ================================================================
 @use 'sass:math';
-@import './core-scales-vars.scss';
+@use './core-scales-vars.scss' as scales;
 
 // ================================================================
 // !!! DO NOT USE !!!
@@ -14,18 +14,18 @@
 // applied in CSS.
 // ================================================================
 // Spacing
-$bankai-core-spacing-01-x: $bankai-core-system-scale;
-$bankai-core-spacing-02-x: math.round($bankai-core-system-scale * 2);
-$bankai-core-spacing-03-x: math.round($bankai-core-system-scale * 3);
-$bankai-core-spacing-04-x: math.round($bankai-core-system-scale * 4);
-$bankai-core-spacing-05-x: math.round($bankai-core-system-scale * 5);
-$bankai-core-spacing-06-x: math.round($bankai-core-system-scale * 6);
-$bankai-core-spacing-07-x: math.round($bankai-core-system-scale * 7);
-$bankai-core-spacing-08-x: math.round($bankai-core-system-scale * 8);
-$bankai-core-spacing-09-x: math.round($bankai-core-system-scale * 9);
-$bankai-core-spacing-10-x: math.round($bankai-core-system-scale * 10);
-$bankai-core-spacing-11-x: math.round($bankai-core-system-scale * 11);
-$bankai-core-spacing-12-x: math.round($bankai-core-system-scale * 12);
-$bankai-core-spacing-half-x: math.round(math.div($bankai-core-system-scale, 2));
+$bankai-core-spacing-01-x: scales.$bankai-core-system-scale;
+$bankai-core-spacing-02-x: math.round(scales.$bankai-core-system-scale * 2);
+$bankai-core-spacing-03-x: math.round(scales.$bankai-core-system-scale * 3);
+$bankai-core-spacing-04-x: math.round(scales.$bankai-core-system-scale * 4);
+$bankai-core-spacing-05-x: math.round(scales.$bankai-core-system-scale * 5);
+$bankai-core-spacing-06-x: math.round(scales.$bankai-core-system-scale * 6);
+$bankai-core-spacing-07-x: math.round(scales.$bankai-core-system-scale * 7);
+$bankai-core-spacing-08-x: math.round(scales.$bankai-core-system-scale * 8);
+$bankai-core-spacing-09-x: math.round(scales.$bankai-core-system-scale * 9);
+$bankai-core-spacing-10-x: math.round(scales.$bankai-core-system-scale * 10);
+$bankai-core-spacing-11-x: math.round(scales.$bankai-core-system-scale * 11);
+$bankai-core-spacing-12-x: math.round(scales.$bankai-core-system-scale * 12);
+$bankai-core-spacing-half-x: math.round(math.div(scales.$bankai-core-system-scale, 2));
 $bankai-core-spacing-none-x: 0;
-$bankai-core-spacing-quarter-x: math.round(math.div($bankai-core-system-scale, 4));
+$bankai-core-spacing-quarter-x: math.round(math.div(scales.$bankai-core-system-scale, 4));

@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import './animations.scss';
+@use './animations.scss';
 
 @mixin bankai-loading-grid-gap {
     gap: calc(1ex / 10.6);

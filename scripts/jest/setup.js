@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom';
-import 'regenerator-runtime/runtime';
 
 const crypto = require('crypto');
 

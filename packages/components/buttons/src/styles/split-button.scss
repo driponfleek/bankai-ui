@@ -1,23 +1,23 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss' as state-vars;
 
 .bankai-split-button, %bankai-split-button {
     box-sizing: border-box;
-    border-radius: var(--bankai-button-border-radius, bankai-get-light-theme-map-value('button-border-radius'));
+    border-radius: var(--bankai-button-border-radius, theme-utils.bankai-get-light-theme-map-value('button-border-radius'));
     display: inline-block;
-    padding: var(--bankai-button-border-width, bankai-get-light-theme-map-value('button-border-width'));
+    padding: var(--bankai-button-border-width, theme-utils.bankai-get-light-theme-map-value('button-border-width'));
     $this: '.bankai-split-button';
-    $inner-border-radius: calc(var(--bankai-button-border-radius, bankai-get-light-theme-map-value('button-border-radius')) - var(--bankai-button-border-width, bankai-get-light-theme-map-value('button-border-width')));
+    $inner-border-radius: calc(var(--bankai-button-border-radius, theme-utils.bankai-get-light-theme-map-value('button-border-radius')) - var(--bankai-button-border-width, theme-utils.bankai-get-light-theme-map-value('button-border-width')));
 
     &__inner {
-        @include bankai-flex-row;
-        gap: var(--bankai-button-border-width, bankai-get-light-theme-map-value('button-border-width'));
+        @include layout.bankai-flex-row;
+        gap: var(--bankai-button-border-width, theme-utils.bankai-get-light-theme-map-value('button-border-width'));
     }
 
     &__menu-btn,
@@ -43,7 +43,7 @@
         }
 
         .bankai-button__content-container {
-            padding: bankai-to-rem($bankai-core-spacing-01-x);
+            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
         }
     }
 
@@ -71,7 +71,7 @@
     }
 
     &--disabled {
-        opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+        opacity: var(--bankai-semantic-state-disabled-opacity, state-vars.$bankai-core-state-disabled-opacity);
 
         #{$this}__main-btn[aria-disabled],
         .bankai-menu-button__button:disabled {
@@ -80,10 +80,10 @@
     }
 
     &--primary {
-        background-color: var(--bankai-btn-split-primary-border-color, bankai-get-light-theme-map-value('btn-split-primary-border-color'));
+        background-color: var(--bankai-btn-split-primary-border-color, theme-utils.bankai-get-light-theme-map-value('btn-split-primary-border-color'));
     }
 
     &--secondary {
-        background-color: var(--bankai-btn-split-secondary-border-color, bankai-get-light-theme-map-value('btn-split-secondary-border-color'));
+        background-color: var(--bankai-btn-split-secondary-border-color, theme-utils.bankai-get-light-theme-map-value('btn-split-secondary-border-color'));
     }
 }

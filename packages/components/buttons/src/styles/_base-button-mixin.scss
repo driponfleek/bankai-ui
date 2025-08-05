@@ -1,0 +1,91 @@
+// ========================================================
+// Dependencies
+// ========================================================
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
+@use './mixins.scss' as button-mixins;
+
+@mixin bankai-button-base-content-container {
+    box-sizing: border-box;
+    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
+    display: block;
+}
+
+@mixin bankai-button-base-text-icon-container {
+    box-sizing: border-box;
+    vertical-align: middle;
+    user-select: none;
+    display: inline-block;
+    padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x)};
+}
+
+@mixin bankai-button-box-sizing-display-block {
+    box-sizing: border-box;
+    display: block;
+}
+
+@mixin bankai-button-base {
+    @include resets.bankai-button-reset;
+    @include states.bankai-focus-state-halo;
+    color: var(--bankai-semantic-color-text-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-text-alt'));
+    background-color: var(--bankai-semantic-color-canvas, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas'));
+    box-sizing: border-box;
+    border: var(--bankai-button-border-width, theme-utils.bankai-get-light-theme-map-value('button-border-width')) solid transparent;
+    font-weight: var(--bankai-button-font-weight, theme-utils.bankai-get-light-theme-map-value('button-font-weight'));
+    // Necessary to enforce proper line height. Without this the CSS reset will set line-height to 1.15
+    line-height: inherit;
+    $this: '.bankai-button';
+    transition: background-color 0.1s ease;
+
+    &:not(&--disabled) {
+        @include states.bankai-hover-state;
+    }
+
+    &__content-container {
+        @include bankai-button-base-content-container;
+    }
+
+    &__icon-container {
+        font-size: 2rem;
+    }
+
+    &__text-container,
+    &__icon-container {
+        @include bankai-button-base-text-icon-container;
+    }
+
+    &__text,
+    &__icon-container-safe-space,
+    &__icon-container-inner,
+    .bankai-icon {
+        @include bankai-button-box-sizing-display-block;
+    }
+
+    &__icon-container-inner .bankai-icon {
+        margin: auto;
+    }
+
+    &--disabled {
+        @include states.bankai-faux-disabled-state;
+    }
+
+    &--busy {
+        .bankai-icon-spinner {
+            @include animations.bankai-rotate-infinite;
+        }
+
+        .bankai-icon-spinner::before {
+            transform: translate3d(0.1px, -0.2px, 0);
+        }
+    }
+    
+    @media (hover: hover) {
+        &:not(#{$this}--disabled):hover {
+            @include button-mixins.bankai-button-hover;
+        }
+    }
+}

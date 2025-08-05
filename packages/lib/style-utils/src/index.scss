@@ -1,7 +1,7 @@
-@import './styles/mixins/a11y.scss';
-@import './styles/mixins/animations.scss';
-@import './styles/mixins/layout.scss';
-@import './styles/mixins/resets.scss';
-@import './styles/utils/map-utils.scss';
-@import './styles/utils/unit-conversion-utils.scss';
-@import './styles/vars/breakpoints.scss';
+@use './styles/mixins/a11y.scss';
+@use './styles/mixins/animations.scss';
+@use './styles/mixins/layout.scss';
+@use './styles/mixins/resets.scss';
+@use './styles/utils/map-utils.scss';
+@use './styles/utils/unit-conversion-utils.scss';
+@use './styles/vars/breakpoints.scss';

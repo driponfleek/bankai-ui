@@ -1,15 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
-@import './mixins.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss' as scales-vars;
+@use './mixins.scss' as form-elements-mixins;
 
 .bankai-universal-toggle-input, %bankai-universal-toggle-input {
-    width: bankai-to-px($bankai-core-system-scale * 6);
-    height: bankai-to-px($bankai-core-system-scale * 6);
+    width: unit-conversion-utils.bankai-to-px(scales-vars.$bankai-core-system-scale * 6);
+    height: unit-conversion-utils.bankai-to-px(scales-vars.$bankai-core-system-scale * 6);
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -21,9 +21,9 @@
     }
 
     &__container {
-        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+        background-color: var(--bankai-form-input-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-bg-color'));
         box-sizing: border-box;
-        border: 1px solid var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
+        border: 1px solid var(--bankai-semantic-color-accessible-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-accessible-border'));
         display: block;
         z-index: 1;
     }
@@ -42,21 +42,21 @@
     }
 
     &__input:focus-visible + &__container {
-        @include bankai-focus-state-inner-outer-box-shadow;
+        @include states.bankai-focus-state-inner-outer-box-shadow;
     }
 
     &__input:disabled + &__container {
-        @include bankai-form-input-disabled(false);
+        @include form-elements-mixins.bankai-form-input-disabled(false);
     }
 
     &--checked {
         #{$this}__container,
         #{$this}__input:disabled + #{$this}__container {
-            background-color: var(--bankai-form-checked-accent-color, bankai-get-light-theme-map-value('form-checked-accent-color'));
+            background-color: var(--bankai-form-checked-accent-color, theme-utils.bankai-get-light-theme-map-value('form-checked-accent-color'));
         }
 
         #{$this}__input:focus + #{$this}__container {
-            @include bankai-focus-state-inner-outer-box-shadow(var(--bankai-form-checked-focus-halo-inner-color, bankai-get-light-theme-map-value('form-checked-focus-halo-inner-color')), var(--bankai-form-checked-focus-halo-outer-color, bankai-get-light-theme-map-value('form-checked-focus-halo-outer-color')));
+            @include states.bankai-focus-state-inner-outer-box-shadow(var(--bankai-form-checked-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-checked-focus-halo-inner-color')), var(--bankai-form-checked-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('form-checked-focus-halo-outer-color')));
         }
     }
 }

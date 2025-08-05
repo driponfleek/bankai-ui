@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-comp-import-and-usage {
     .bankai-paragraph {
@@ -10,14 +10,14 @@
     }
 
     .bankai-paragraph + .bankai-sb-code-block {
-        margin-top: bankai-to-rem($bankai-core-spacing-02-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     }
 
     &__import-container + &__usage-container {
-        margin-top: bankai-to-rem($bankai-core-spacing-06-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-06-x);
     }
 
     + * {
-        margin-top: bankai-to-rem($bankai-core-spacing-06-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-06-x);
     }
 }

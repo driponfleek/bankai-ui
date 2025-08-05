@@ -2,10 +2,10 @@
 // Dependencies
 // ================================================================
 @use 'sass:map';
-@import '../vars/core-state-vars.scss';
+@use '../vars/core-state-vars.scss' as state-vars;
 
 // Semantic Light Theme Color Tokens
 $bankai-semantic-state-tokens: (
     // States
-    semantic-state-disabled-opacity: $bankai-core-state-disabled-opacity,
+    semantic-state-disabled-opacity: state-vars.$bankai-core-state-disabled-opacity,
 );

@@ -1,15 +1,12 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss' as state-vars;
 
 .bankai-form-field-composer, %bankai-form-field-composer {
-    // display: inline-block;
     $this: '.bankai-form-field-composer';
 
     .bankai-form-label {
@@ -19,29 +16,29 @@
     &--stacked {
         #{$this}__label-container + #{$this}__control-container,
         #{$this}__control-container + #{$this}__hints-container--displaying-hint {
-            margin-top: bankai-to-rem($bankai-core-spacing-half-x);
+            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-half-x);
         }
 
         * + #{$this}__hints-container {
-            margin-top: bankai-to-rem($bankai-core-spacing-01-x);
+            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
         }
     }
 
     &--stacked-hint-top {
         #{$this}__label-container + #{$this}__control-container,
         #{$this}__hints-container + #{$this}__control-container {
-            margin-top: bankai-to-rem($bankai-core-spacing-half-x);
+            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-half-x);
         }
     }
 
     &--inline-left {
         #{$this}__inner {
-            @include bankai-flex-row;
-            gap: bankai-to-rem($bankai-core-spacing-03-x);
+            @include layout.bankai-flex-row;
+            gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
         }
 
         #{$this}__label-container {
-            @include bankai-flex-row;
+            @include layout.bankai-flex-row;
         }
 
         #{$this}__label-container,
@@ -56,12 +53,12 @@
 
     &--inline-right {
         #{$this}__inner {
-            @include bankai-flex-row;
-            gap: bankai-to-rem($bankai-core-spacing-03-x);
+            @include layout.bankai-flex-row;
+            gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
         }
 
         #{$this}__label-container {
-            @include bankai-flex-row;
+            @include layout.bankai-flex-row;
         }
 
         .bankai-form-label {
@@ -73,7 +70,7 @@
     fieldset:disabled & {
         #{$this}__label-container,
         #{$this}__hints-container {
-            opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+            opacity: var(--bankai-semantic-state-disabled-opacity, state-vars.$bankai-core-state-disabled-opacity);
         }
     }
 }

@@ -1,13 +1,13 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-button-guidelines__btn-hierarchy-inline-ex {
     .bankai-sb-component-preview {
-        @include bankai-flex-row;
+        @include layout.bankai-flex-row;
         // justify-content: center;
 
         .bankai-button {
@@ -18,7 +18,7 @@
 
 .bankai-sb-button-guidelines__btn-hierarchy-stacked-ex {
     .bankai-sb-component-preview {
-        @include bankai-flex-column;
+        @include layout.bankai-flex-column;
         // align-items: center;
 
         .bankai-button {
@@ -30,5 +30,5 @@
 
 .bankai-sb-button-guidelines__btn-hierarchy-inline-ex .bankai-sb-component-preview,
 .bankai-sb-button-guidelines__btn-hierarchy-stacked-ex .bankai-sb-component-preview {
-    gap: bankai-to-rem($bankai-core-spacing-02-x);
+    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
 }

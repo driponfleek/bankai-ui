@@ -2,7 +2,7 @@
 // Dependencies
 // ================================================================
 @use 'sass:math';
-@import './core-scales-vars.scss';
+@use './core-scales-vars.scss' as scales;
 
 // ================================================================
 // !!! DO NOT USE !!!
@@ -14,12 +14,12 @@
 // applied in CSS.
 // ================================================================
 // Radii
-$bankai-core-radius-01-x: $bankai-core-system-scale;
-$bankai-core-radius-02-x: math.round($bankai-core-system-scale * 2);
-$bankai-core-radius-04-x: math.round($bankai-core-system-scale * 4);
-$bankai-core-radius-06-x: math.round($bankai-core-system-scale * 6);
-$bankai-core-radius-08-x: math.round($bankai-core-system-scale * 8);
-$bankai-core-radius-10-x: math.round($bankai-core-system-scale * 10);
+$bankai-core-radius-01-x: scales.$bankai-core-system-scale;
+$bankai-core-radius-02-x: math.round(scales.$bankai-core-system-scale * 2);
+$bankai-core-radius-04-x: math.round(scales.$bankai-core-system-scale * 4);
+$bankai-core-radius-06-x: math.round(scales.$bankai-core-system-scale * 6);
+$bankai-core-radius-08-x: math.round(scales.$bankai-core-system-scale * 8);
+$bankai-core-radius-10-x: math.round(scales.$bankai-core-system-scale * 10);
 $bankai-core-radius-circle: 100%;
-$bankai-core-radius-half-x: math.round(math.div($bankai-core-system-scale, 2));
+$bankai-core-radius-half-x: math.round(math.div(scales.$bankai-core-system-scale, 2));
 $bankai-core-radius-none-x: 0;

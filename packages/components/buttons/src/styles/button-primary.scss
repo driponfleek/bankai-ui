@@ -1,31 +1,30 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import './mixins.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use './mixins.scss' as button-mixins;
 
 .bankai-button {
     $this: '.bankai-button';
 
     &#{$this}--primary {
-        color: var(--bankai-button-primary-text-color, bankai-get-light-theme-map-value('button-primary-text-color'));
-        background-color: var(--bankai-button-primary-bg-color, bankai-get-light-theme-map-value('button-primary-bg-color'));
-        border-color: var(--bankai-button-primary-border-color, bankai-get-light-theme-map-value('button-primary-border-color'));
-        border-radius: var(--bankai-button-border-radius, bankai-get-light-theme-map-value('button-border-radius'));
+        color: var(--bankai-button-primary-text-color, theme-utils.bankai-get-light-theme-map-value('button-primary-text-color'));
+        background-color: var(--bankai-button-primary-bg-color, theme-utils.bankai-get-light-theme-map-value('button-primary-bg-color'));
+        border-color: var(--bankai-button-primary-border-color, theme-utils.bankai-get-light-theme-map-value('button-primary-border-color'));
+        border-radius: var(--bankai-button-border-radius, theme-utils.bankai-get-light-theme-map-value('button-border-radius'));
     
         &:focus-visible {
-            @include bankai-button-primary-focus-visible;
+            @include button-mixins.bankai-button-primary-focus-visible;
         }
     
         &:not(#{$this}--disabled):active {
-            @include bankai-button-active;
-            @include bankai-button-primary-active;
+            @include button-mixins.bankai-button-active;
+            @include button-mixins.bankai-button-primary-active;
         }
     
         @media (hover: hover) {
             &:not(#{$this}--disabled):hover {
-                @include bankai-button-primary-hover;
+                @include button-mixins.bankai-button-primary-hover;
             }
         }
     }

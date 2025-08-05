@@ -1,8 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
 
 .bankai-base-accordion, %bankai-base-accordion {
     .banka-accordion-item-panel {

@@ -1,14 +1,14 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import './animations.scss';
-@import './mixins.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use './animations.scss';
+@use './mixins.scss' as loading-mixins;
 
 .bankai-loading-squares, %bankai-loading-squares {
-    @include bankai-flex-row;
-    color: var(--bankai-loading-icon-primary-color, bankai-get-light-theme-map-value('loading-icon-primary-color'));
+    @include layout.bankai-flex-row;
+    color: var(--bankai-loading-icon-primary-color, theme-utils.bankai-get-light-theme-map-value('loading-icon-primary-color'));
     width: 1em;
     height: 1em;
     font-size: 60px;
@@ -22,7 +22,7 @@
 
     &--fade {
         #{$this}__square {
-            @include bankai-loading-fade;
+            @include loading-mixins.bankai-loading-fade;
         }
     }
 
@@ -77,29 +77,29 @@
 
     &--pulse {
         #{$this}__square {
-            @include bankai-loading-pulse;
+            @include loading-mixins.bankai-loading-pulse;
         }
     }
 
     &--fade,
     &--pulse,
     &--pulse-fade {
-        @include bankai-loading-grid-gap;
+        @include loading-mixins.bankai-loading-grid-gap;
 
         #{$this}__square {
-            @include bankai-loading-grid-item-dimensions;
+            @include loading-mixins.bankai-loading-grid-item-dimensions;
         }
     }
 
     &--pulse-fade {
         #{$this}__square {
-            @include bankai-loading-pulse-fade;
+            @include loading-mixins.bankai-loading-pulse-fade;
         }
     }
 
     &--pulsing-wave {
         #{$this}__square {
-            @include bankai-loading-pulse-wave;
+            @include loading-mixins.bankai-loading-pulse-wave;
             width: calc(1em / 3);
             height: calc(1em / 3);
             display: block;

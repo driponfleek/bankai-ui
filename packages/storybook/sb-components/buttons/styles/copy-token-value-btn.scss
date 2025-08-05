@@ -1,18 +1,18 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-copy-token-value-btn {
-    color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
-    border-radius: var(--bankai-button-border-radius, bankai-get-light-theme-map-value('button-border-radius'));
+    color: var(--bankai-semantic-color-text-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-text-alt'));
+    border-radius: var(--bankai-button-border-radius, theme-utils.bankai-get-light-theme-map-value('button-border-radius'));
 
     .bankai-button {
         &__content-container {
-            padding: bankai-to-px($bankai-core-spacing-02-x);
+            padding: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-02-x);
         }
             
         &__content-container,
@@ -24,7 +24,7 @@
     }
 
     &--copied {
-        color: var(--bankai-banner-affirmative-icon-color, bankai-get-light-theme-map-value('banner-affirmative-icon-color'));
-        background-color: var(--bankai-banner-affirmative-bg-color, bankai-get-light-theme-map-value('banner-affirmative-bg-color'));
+        color: var(--bankai-banner-affirmative-icon-color, theme-utils.bankai-get-light-theme-map-value('banner-affirmative-icon-color'));
+        background-color: var(--bankai-banner-affirmative-bg-color, theme-utils.bankai-get-light-theme-map-value('banner-affirmative-bg-color'));
     }
 }
