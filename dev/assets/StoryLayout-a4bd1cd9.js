@@ -1,2 +1,0 @@
-import{g as s,j as p,S as a}from"./localeUtils-28c44f90.js";import{P as i}from"./index-f9722e9b.js";const e=o=>{const{pkgVer:r}=o,t=r!==void 0?`${s("shared.version")} ${r}`:void 0;return p(a,{...o,pkgVerAltText:t})};e.propTypes={pkgVer:i.string};e.__docgenInfo={description:"",methods:[],displayName:"StoryLayout",props:{pkgVer:{type:{name:"string"},required:!1,description:""}}};export{e as S};
-//# sourceMappingURL=StoryLayout-a4bd1cd9.js.map
