@@ -1,14 +1,14 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-badge.bankai-badge--affirmative {
-    color: var(--bankai-badge-affirmative-text-color, bankai-get-light-theme-map-value('badge-affirmative-text-color'));
-    background-color: var(--bankai-badge-affirmative-bg-color, bankai-get-light-theme-map-value('badge-affirmative-bg-color'));
-    border: 1px solid var(--bankai-badge-affirmative-icon-color, bankai-get-light-theme-map-value('badge-affirmative-icon-color'));
+    color: var(--bankai-badge-affirmative-text-color, theme-utils.bankai-get-light-theme-map-value('badge-affirmative-text-color'));
+    background-color: var(--bankai-badge-affirmative-bg-color, theme-utils.bankai-get-light-theme-map-value('badge-affirmative-bg-color'));
+    border: 1px solid var(--bankai-badge-affirmative-icon-color, theme-utils.bankai-get-light-theme-map-value('badge-affirmative-icon-color'));
 
     .bankai-badge__icon {
-        color: var(--bankai-badge-affirmative-icon-color, bankai-get-light-theme-map-value('badge-affirmative-icon-color'));
+        color: var(--bankai-badge-affirmative-icon-color, theme-utils.bankai-get-light-theme-map-value('badge-affirmative-icon-color'));
     }
 }

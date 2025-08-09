@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { reducer } from '@driponfleek/bankai-lib-helper-utils';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
@@ -13,33 +13,36 @@ const SectionFoundationalColors = () => {
     const [colors, dispatch] = useReducer(reducer, getFoundationalTokenVals());
     const { axisColor, canvasColor, gridColor } = colors;
 
-    const handleMutationChange = useCallback((mutationList = []) => {
-        const hasClassChange =
-            mutationList.findIndex(
-                (mutation) => mutation.attributeName === 'class',
-            ) > -1;
+    // const handleMutationChange = useCallback((mutationList = []) => {
+    //     const hasClassChange =
+    //         mutationList.findIndex(
+    //             (mutation) => mutation.attributeName === 'class',
+    //         ) > -1;
 
-        if (hasClassChange) {
+    //     if (hasClassChange) {
+    //         setTimeout(() => {
+    //             dispatch(getFoundationalTokenVals());
+    //         }, 0);
+    //     }
+    // }, []);
+
+    useEffect(() => {
+        // TODO: When dark them is brought back re-introduce this.
+        // const classChangeObserver = new MutationObserver(handleMutationChange);
+        // classChangeObserver.observe(htmlDOM, {
+        //     attributes: true,
+        // });
+
+        if (!colors?.axisColor) {
             setTimeout(() => {
                 dispatch(getFoundationalTokenVals());
             }, 0);
         }
-    }, []);
 
-    useEffect(() => {
-        const classChangeObserver = new MutationObserver(handleMutationChange);
-        classChangeObserver.observe(htmlDOM, {
-            attributes: true,
-        });
-
-        if (!colors?.axisColor) {
-            dispatch(getFoundationalTokenVals());
-        }
-
-        return () => {
-            classChangeObserver.disconnect();
-        };
-    }, [handleMutationChange, htmlDOM, colors]);
+        // return () => {
+        //     classChangeObserver.disconnect();
+        // };
+    }, [/* handleMutationChange, */ htmlDOM, colors]);
     const data = [
         { mainContent: 'utility.color.data.canvas', color: canvasColor },
         { mainContent: 'utility.color.data.axis', color: axisColor },

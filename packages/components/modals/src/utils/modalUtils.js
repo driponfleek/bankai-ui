@@ -102,7 +102,10 @@ export const getShouldRenderModalUIs = (props) => {
 export const getModalActionsByPriority = (modalActions = []) => {
     const primaryAction = modalActions.find((action) => action.isPrimary);
     const secondaryAction = modalActions.find((action) => !action.isPrimary);
-    delete primaryAction.isPrimary;
+
+    if (primaryAction) {
+        delete primaryAction.isPrimary;
+    }
 
     return { primaryAction, secondaryAction };
 };

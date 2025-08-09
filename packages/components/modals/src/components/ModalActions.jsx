@@ -13,28 +13,29 @@ const ModalActions = (props) => {
         <div className={`${baseCls}__actions-container`}>
             <div className={`${baseCls}__actions-container-inner`}>
                 {!!renderModalActions && renderModalActions()}
-                {!renderModalActions && (
-                    <>
-                        {primaryAction && !primaryAction.isDestructive && (
-                            <ButtonPrimary
-                                {...primaryAction}
-                                onClick={onActionClick}
-                            />
-                        )}
-                        {secondaryAction && (
-                            <ButtonSecondary
-                                {...secondaryAction}
-                                onClick={onActionClick}
-                            />
-                        )}
-                        {primaryAction && primaryAction.isDestructive && (
-                            <ButtonPrimary
-                                {...primaryAction}
-                                onClick={onActionClick}
-                            />
-                        )}
-                    </>
-                )}
+                {!renderModalActions &&
+                    (!!primaryAction || secondaryAction) && (
+                        <>
+                            {primaryAction && !primaryAction.isDestructive && (
+                                <ButtonPrimary
+                                    {...primaryAction}
+                                    onClick={onActionClick}
+                                />
+                            )}
+                            {secondaryAction && (
+                                <ButtonSecondary
+                                    {...secondaryAction}
+                                    onClick={onActionClick}
+                                />
+                            )}
+                            {primaryAction && primaryAction.isDestructive && (
+                                <ButtonPrimary
+                                    {...primaryAction}
+                                    onClick={onActionClick}
+                                />
+                            )}
+                        </>
+                    )}
             </div>
         </div>
     );

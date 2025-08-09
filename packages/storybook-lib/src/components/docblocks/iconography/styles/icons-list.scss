@@ -1,12 +1,12 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-icons-list {
-    @include bankai-flex-row;
+    @include layout.bankai-flex-row;
     flex-wrap: wrap;
-    gap: bankai-to-px($bankai-core-spacing-03-x);
+    gap: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-03-x);
 }

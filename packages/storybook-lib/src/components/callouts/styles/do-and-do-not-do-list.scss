@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 
 .bankai-sb-do-and-do-not-do__list {
     .bankai-banner__msg > .bankai-list {
@@ -17,7 +17,7 @@
     }
 
     .bankai-banner__title-container {
-        @include bankai-flex-column;
+        @include layout.bankai-flex-column;
         min-height: 40px;
 
         > * {

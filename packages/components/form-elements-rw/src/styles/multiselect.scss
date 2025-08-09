@@ -2,72 +2,70 @@
 // Dependencies
 // ========================================================
 @use 'sass:math';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss';
-@import './mixins.scss';
-@import './rw-styles.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss' as scales-vars;
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss' as state-vars;
+@use './mixins.scss' as form-elements-rw-mixins;
+@use './rw-styles.scss';
 
 .bankai-multiselect, %bankai-multiselect {
-    @include bankai-floating-label-fix;
+    @include form-elements-rw-mixins.bankai-floating-label-fix;
     display: inline-block;
     $this: '.bankai-multiselect';
 
     &.rw-widget {
-        @include bankai-form-input-font-size;
+        @include typography.bankai-form-input-font-size;
         color: inherit;
     }
 
     .rw-widget-picker {
-        min-height: bankai-to-px($bankai-core-system-scale * 8);
-        border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
-        border-color: var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
+        min-height: unit-conversion-utils.bankai-to-px(scales-vars.$bankai-core-system-scale * 8);
+        border-radius: var(--bankai-form-input-border-radius, theme-utils.bankai-get-light-theme-map-value('form-input-border-radius'));
+        border-color: var(--bankai-semantic-color-accessible-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-accessible-border'));
     }
 
     .rw-popup {
-        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
-        border: 1px solid var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
-        border-radius: var(--bankai-form-menu-border-radius, bankai-get-light-theme-map-value('form-menu-border-radius'));
+        background-color: var(--bankai-form-input-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-bg-color'));
+        border: 1px solid var(--bankai-semantic-color-accessible-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-accessible-border'));
+        border-radius: var(--bankai-form-menu-border-radius, theme-utils.bankai-get-light-theme-map-value('form-menu-border-radius'));
     }
 
     &.rw-state-focus .rw-widget-picker.rw-widget-input {
-        @include bankai-rw-focus-state-halo(var(--bankai-form-input-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-focus-halo-inner-color')), var(--bankai-form-input-focus-halo-outer-color, bankai-get-light-theme-map-value('form-input-focus-halo-outer-color')));
-        border-color: var(--bankai-form-input-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-focus-halo-inner-color'));
+        @include form-elements-rw-mixins.bankai-rw-focus-state-halo(var(--bankai-form-input-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-input-focus-halo-inner-color')), var(--bankai-form-input-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('form-input-focus-halo-outer-color')));
+        border-color: var(--bankai-form-input-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-input-focus-halo-inner-color'));
     }
 
     .rw-widget-input {
-        background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+        background-color: var(--bankai-form-input-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-bg-color'));
     }
 
     .rw-multiselect-input {
-        height: calc(bankai-to-px($bankai-core-system-scale * 8) - 1px * 2);
-        line-height: bankai-get-light-theme-map-value('semantic-typography-line-height');
-        padding: 0 bankai-to-rem($bankai-core-spacing-02-x);
+        height: calc(unit-conversion-utils.bankai-to-px(scales-vars.$bankai-core-system-scale * 8) - 1px * 2);
+        line-height: theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height');
+        padding: 0 unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
 
         &::placeholder {
-            color: var(--bankai-form-input-placeholder-text-color, bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
+            color: var(--bankai-form-input-placeholder-text-color, theme-utils.bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
             flex: 0 0 auto;
         }
     }
 
     .rw-picker-caret {
-        color: var(--bankai-semantic-color-text, bankai-get-light-theme-map-value('semantic-color-text'));
+        color: var(--bankai-semantic-color-text, theme-utils.bankai-get-light-theme-map-value('semantic-color-text'));
     }
     
     &__busy-icon {
-        @include bankai-rotate-infinite;
+        @include animations.bankai-rotate-infinite;
     }
 
     &__busy-icon,
     &__select-icon {
-        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        color: var(--bankai-semantic-color-text-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-text-alt'));
         font-size: 20px;
     }
 
@@ -81,35 +79,35 @@
     }
 
     &.rw-state-disabled {
-        opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+        opacity: var(--bankai-semantic-state-disabled-opacity, state-vars.$bankai-core-state-disabled-opacity);
 
         > .rw-widget-picker {
-            background-color: var(--bankai-form-input-disabled-bg-color, bankai-get-light-theme-map-value('form-input-disabled-bg-color'));
+            background-color: var(--bankai-form-input-disabled-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-disabled-bg-color'));
         }
     }
 
     .rw-multiselect-taglist {
-        gap: bankai-to-rem($bankai-core-spacing-01-x);
-        padding: bankai-to-rem($bankai-core-spacing-01-x) bankai-to-rem($bankai-core-spacing-02-x);
+        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     }
 
     .rw-multiselect-tag {
         min-height: 32px;
-        color: var(--bankai-form-pill-text-color, bankai-get-light-theme-map-value('form-pill-text-color'));
-        background-color: var(--bankai-form-pill-bg-color, bankai-get-light-theme-map-value('form-pill-bg-color'));
-        border-radius: var(--bankai-form-pill-border-radius, calc(bankai-get-light-theme-map-value('form-input-border-radius') - 1px));
-        border-color: var(--bankai-form-pill-bg-color, bankai-get-light-theme-map-value('form-pill-bg-color'));
+        color: var(--bankai-form-pill-text-color, theme-utils.bankai-get-light-theme-map-value('form-pill-text-color'));
+        background-color: var(--bankai-form-pill-bg-color, theme-utils.bankai-get-light-theme-map-value('form-pill-bg-color'));
+        border-radius: var(--bankai-form-pill-border-radius, calc(theme-utils.bankai-get-light-theme-map-value('form-input-border-radius') - 1px));
+        border-color: var(--bankai-form-pill-bg-color, theme-utils.bankai-get-light-theme-map-value('form-pill-bg-color'));
         user-select: none;
         margin: 0;
 
         &.rw-state-focus {
-            @include bankai-rw-focus-state-halo(var(--bankai-form-pill-focus-halo-inner-color, bankai-get-light-theme-map-value('form-pill-focus-halo-inner-color')), var(--bankai-form-pill-focus-halo-outer-color, bankai-get-light-theme-map-value('form-pill-focus-halo-outer-color')));
-            border-color: var(--bankai-form-pill-focus-halo-inner-color, bankai-get-light-theme-map-value('form-pill-focus-halo-inner-color'));
+            @include form-elements-rw-mixins.bankai-rw-focus-state-halo(var(--bankai-form-pill-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-pill-focus-halo-inner-color')), var(--bankai-form-pill-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('form-pill-focus-halo-outer-color')));
+            border-color: var(--bankai-form-pill-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-pill-focus-halo-inner-color'));
         }
     }
 
     .rw-multiselect-tag-btn {
-        @include bankai-flex-row;
+        @include layout.bankai-flex-row;
 
         .bankai-icon {
             margin: auto;
@@ -118,35 +116,35 @@
     }
 
     .rw-multiselect-tag-label {
-        line-height: bankai-get-light-theme-map-value('semantic-typography-line-height');
+        line-height: theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height');
     }
 
     .rw-list {
-        @include bankai-rw-list;
+        @include form-elements-rw-mixins.bankai-rw-list;
     }
 
     .rw-list-option {
-        @include bankai-rw-list-option($this);
+        @include form-elements-rw-mixins.bankai-rw-list-option($this);
     }
 
     .rw-list-empty {
-        @include bankai-rw-list-empty;
+        @include form-elements-rw-mixins.bankai-rw-list-empty;
     }
 
     &--error {
         &.rw-state-focus .rw-widget-picker.rw-widget-input {
-            @include bankai-rw-focus-state-halo(var(--bankai-form-input-error-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-inner-color')), var(--bankai-form-input-error-focus-halo-outer-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-outer-color')));
+            @include form-elements-rw-mixins.bankai-rw-focus-state-halo(var(--bankai-form-input-error-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-input-error-focus-halo-inner-color')), var(--bankai-form-input-error-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('form-input-error-focus-halo-outer-color')));
         }
 
         .rw-widget-container,
         &.rw-state-focus > .rw-widget-container {
-            background-color: var(--bankai-form-input-error-bg-color, bankai-get-light-theme-map-value('form-input-error-bg-color'));
-            border-color: var(--bankai-form-input-error-focus-halo-inner-color, bankai-get-light-theme-map-value('form-input-error-focus-halo-inner-color'));
+            background-color: var(--bankai-form-input-error-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-error-bg-color'));
+            border-color: var(--bankai-form-input-error-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-input-error-focus-halo-inner-color'));
         }
 
         .rw-multiselect-input {
             &::placeholder {
-                color: var(--bankai-form-input-error-placeholder-text-color, bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
+                color: var(--bankai-form-input-error-placeholder-text-color, theme-utils.bankai-get-light-theme-map-value('form-input-error-placeholder-text-color'));
             }
         }
     }

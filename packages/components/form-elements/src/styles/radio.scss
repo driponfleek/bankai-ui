@@ -1,27 +1,26 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss';
-@import './mixins.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss' as scales-vars;
 
 .bankai-radio, %bankai-radio {
     border-radius: 100%;
 
     .bankai-universal-toggle-input {
         &__container {
-            @include bankai-flex-row;
+            @include layout.bankai-flex-row;
             border-radius: 100%;
         }
     
         &__icon {
-            @include bankai-shadow-elevation-low;
-            width: bankai-to-px($bankai-core-system-scale * 3);
-            height: bankai-to-px($bankai-core-system-scale * 3);
-            background-color: var(--bankai-form-checked-accent-compliment-color, bankai-get-light-theme-map-value('form-checked-accent-compliment-color'));
+            @include effects.bankai-shadow-elevation-low;
+            width: unit-conversion-utils.bankai-to-px(scales-vars.$bankai-core-system-scale * 3);
+            height: unit-conversion-utils.bankai-to-px(scales-vars.$bankai-core-system-scale * 3);
+            background-color: var(--bankai-form-checked-accent-compliment-color, theme-utils.bankai-get-light-theme-map-value('form-checked-accent-compliment-color'));
             border-radius: 100%;
             margin: auto;
             display: block;

@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-accordion__content-container, %bankai-accordion__content-container {
     box-sizing: border-box;
@@ -16,6 +16,6 @@
     }
 
     &--pad-content {
-        padding: #{bankai-to-rem($bankai-core-spacing-04-x)};
+        padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x)};
     }
 }

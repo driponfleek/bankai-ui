@@ -1,11 +1,11 @@
 // ================================================================
 // Dependencies
 // ================================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-color-swatch {
     box-sizing: border-box;
@@ -13,34 +13,34 @@
 
     &__inner {
         box-sizing: border-box;
-        padding: bankai-to-rem($bankai-core-spacing-03-x) bankai-to-rem($bankai-core-spacing-02-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     }
 
     &--swatch-card {
-        @include bankai-shadow-elevation-low;
+        @include effects.bankai-shadow-elevation-low;
         width: 160px;
-        border-radius: bankai-to-rem($bankai-core-spacing-03-x);
+        border-radius: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
 
         #{$this}__swatch-color {
-            @include bankai-flex-row;
-            border-radius: bankai-to-rem($bankai-core-spacing-03-x) bankai-to-rem($bankai-core-spacing-03-x) 0 0;
+            @include layout.bankai-flex-row;
+            border-radius: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) 0 0;
             height: 100px;
 
             #{$this}__meta-list {
                 margin-top: auto;
                 margin-left: auto;
-                padding: bankai-to-rem($bankai-core-spacing-02-x)
+                padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x)
             }
         }
 
         #{$this}__inner {
-            background-color: var(--bankai-semantic-color-canvas, bankai-get-light-theme-map-value('semantic-color-canvas'));
-            border-radius: 0 0 bankai-to-rem($bankai-core-spacing-03-x) bankai-to-rem($bankai-core-spacing-03-x);
-            padding: bankai-to-rem($bankai-core-spacing-02-x);
+            background-color: var(--bankai-semantic-color-canvas, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas'));
+            border-radius: 0 0 unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
         }
 
         #{$this}__inner #{$this}__meta-list {
-            color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+            color: var(--bankai-semantic-color-text-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-text-alt'));
         }
     }
 

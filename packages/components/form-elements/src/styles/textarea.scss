@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import './text-input.scss';
+@use './text-input.scss';
 
 .bankai-textarea, %bankai-textarea {
     @extend %bankai-text-input;

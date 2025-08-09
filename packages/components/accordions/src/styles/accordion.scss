@@ -1,24 +1,25 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-accordion, %bankai-accordion {
     .bankai-accordion__item {
-        @include bankai-shadow-elevation-low;
+        @include effects.bankai-shadow-elevation-low;
         box-sizing: border-box;
-        background-color: var(--bankai-accordion-bg-color, #{bankai-get-light-theme-map-value('accordion-bg-color')});
-        border-radius: var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius'));
+        background-color: var(--bankai-accordion-bg-color, #{theme-utils.bankai-get-light-theme-map-value('accordion-bg-color')});
+        border-radius: var(--bankai-accordion-border-radius, theme-utils.bankai-get-light-theme-map-value('accordion-border-radius'));
     }
 
     .bankai-accordion__item-panel {
-        border-radius: 0 0 var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius')) var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius'));
+        border-radius: 0 0 var(--bankai-accordion-border-radius, theme-utils.bankai-get-light-theme-map-value('accordion-border-radius')) var(--bankai-accordion-border-radius, theme-utils.bankai-get-light-theme-map-value('accordion-border-radius'));
     }
 
     .bankai-accordion__item + .bankai-accordion__item {
-        margin-top: #{bankai-to-rem($bankai-core-spacing-03-x)};
+        margin-top: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x)};
     }
 }

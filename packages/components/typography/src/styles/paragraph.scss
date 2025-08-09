@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-paragraph {
-    @include bankai-max-line-width;
+    @include typography.bankai-max-line-width;
 }

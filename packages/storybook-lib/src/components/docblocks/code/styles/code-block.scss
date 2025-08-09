@@ -1,25 +1,25 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-code-block {
     position: relative;
     $this: &;
 
     &__syntax-highlighter {
-        border-radius: bankai-to-px($bankai-core-spacing-02-x);
+        border-radius: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-02-x);
         margin: 0;
     }
 
     #{$this}__copy-btn {
-        @include bankai-footnote;
+        @include typography.bankai-footnote;
         color: #fff;
         background-color: #000;
         font-weight: bold;
-        border-radius: bankai-to-px($bankai-core-spacing-02-x) 0 bankai-to-px($bankai-core-spacing-02-x) 0;
+        border-radius: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-02-x) 0 unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-02-x) 0;
         position: absolute;
         bottom: 0;
         right: 0;

@@ -1,10 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-base-color-with-variants {
     $this: &;
@@ -13,29 +13,29 @@
         container: base-color-with-variants / inline-size;
 
         #{$this}__inner {
-            @include bankai-flex-row;
+            @include layout.bankai-flex-row;
             max-width: 747px;
             flex-wrap: wrap;
 
         }
 
         #{$this}__base-container {
-            @include bankai-flex-row;
+            @include layout.bankai-flex-row;
             max-width: 100%;
             flex: 1 0 auto;
 
             .bankai-sb-color-swatch {
-                @include bankai-flex-column;
+                @include layout.bankai-flex-column;
                 min-width: 185px;
                 flex: 1 0 auto;
 
                 &__inner {
-                    padding-top: bankai-to-rem($bankai-core-spacing-10-x);
+                    padding-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-10-x);
                     margin-top: auto;
                 }
     
                 &__details-main {
-                    @include bankai-h3;
+                    @include typography.bankai-h3;
                 }
             }
         }
@@ -61,8 +61,8 @@
 
     &--fancy {
         #{$this}__inner {
-            @include bankai-flex-row;
-            gap: bankai-to-px($bankai-core-spacing-08-x);
+            @include layout.bankai-flex-row;
+            gap: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-08-x);
             flex-wrap: wrap;
         }
     }

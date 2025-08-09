@@ -1,10 +1,10 @@
 // ================================================================
 // Dependencies
 // ================================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-sb-color-swatch__contrast-ratio-meta {
-    @include bankai-sub-text;
+    @include typography.bankai-sub-text;
     text-align: right;
     display: block;
 

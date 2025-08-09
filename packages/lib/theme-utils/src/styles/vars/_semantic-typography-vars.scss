@@ -2,8 +2,8 @@
 // Dependencies
 // ================================================================
 @use 'sass:math';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import './core-scales-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use './core-scales-vars.scss' as scales;
 
 // ================================================================
 // !!! DO NOT USE !!!
@@ -17,10 +17,10 @@ $bankai-semantic-typography-headings-font-family: 'Bankai UI Headings';
 $bankai-semantic-typography-headings-font-family-fallback: $bankai-semantic-typography-font-family-fallback;
 // Font Size
 $bankai-semantic-typography-font-size: 1.6rem;
-$bankai-semantic-typography-font-size-unitless: bankai-strip-unit($bankai-semantic-typography-font-size) * 10;
+$bankai-semantic-typography-font-size-unitless: unit-conversion-utils.bankai-strip-unit($bankai-semantic-typography-font-size) * 10;
 // Font Size Scales
-$bankai-semantic-typography-font-size-scale: $bankai-core-typography-scale-major-second;
-$bankai-semantic-typography-mobile-font-size-scale: $bankai-core-typography-scale-major-second;
+$bankai-semantic-typography-font-size-scale: scales.$bankai-core-typography-scale-major-second;
+$bankai-semantic-typography-mobile-font-size-scale: scales.$bankai-core-typography-scale-major-second;
 // Font Weights
 $bankai-semantic-typography-font-weight: normal;
 $bankai-semantic-typography-headings-font-weight: bold;

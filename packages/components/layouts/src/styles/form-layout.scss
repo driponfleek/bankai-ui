@@ -1,22 +1,21 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-form-layout, %bankai-form-layout {
     box-sizing: border-box;
 
     &-row + &-row {
-        margin-top: bankai-to-rem($bankai-core-spacing-05-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05-x);
     }
 
     &-section + &-section {
-        margin-top: bankai-to-rem($bankai-core-spacing-12-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-12-x);
     }
 
     * + .bankai-form-layout-actions-container {
-        margin-top: bankai-to-rem($bankai-core-spacing-08-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08-x);
     }
 }

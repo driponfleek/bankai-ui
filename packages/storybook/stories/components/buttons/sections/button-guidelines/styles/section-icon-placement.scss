@@ -1,12 +1,12 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 
 .bankai-sb-button-guidelines__icon-placement {
     &-right {
         .bankai-button__content-container {
-            @include bankai-flex-row;
+            @include layout.bankai-flex-row;
             flex-direction: row-reverse;
         }
     }

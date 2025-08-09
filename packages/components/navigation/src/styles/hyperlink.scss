@@ -1,17 +1,17 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-hyperlink, %bankai-hyperlink {
-    @include bankai-focus-state-halo;
-    color: var(--bankai-link-text-color, bankai-get-light-theme-map-value('link-text-color'));
+    @include states.bankai-focus-state-halo;
+    color: var(--bankai-link-text-color, theme-utils.bankai-get-light-theme-map-value('link-text-color'));
     text-decoration: none;
     $this: '.bankai-hyperlink';
 
     &:focus-visible {
-        @include bankai-focus-state-inner-outer-box-shadow(var(--bankai-link-focus-halo-inner-color, bankai-get-light-theme-map-value('link-focus-halo-inner-color')), var(--bankai-link-focus-halo-outer-color, bankai-get-light-theme-map-value('link-focus-halo-outer-color')));
+        @include states.bankai-focus-state-inner-outer-box-shadow(var(--bankai-link-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('link-focus-halo-inner-color')), var(--bankai-link-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('link-focus-halo-outer-color')));
     }
 
     @media (hover: hover) {

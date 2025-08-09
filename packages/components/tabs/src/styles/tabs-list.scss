@@ -1,9 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
 
 .bankai-tabs-list, %bankai-tabs-list {
-    @include bankai-flex-row;
+    @include layout.bankai-flex-row;
     box-sizing: border-box;
 }

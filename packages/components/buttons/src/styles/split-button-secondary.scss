@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-split-button--secondary {
-    background-color: var(--bankai-btn-split-secondary-border-color, bankai-get-light-theme-map-value('btn-split-secondary-border-color'));
+    background-color: var(--bankai-btn-split-secondary-border-color, theme-utils.bankai-get-light-theme-map-value('btn-split-secondary-border-color'));
 }

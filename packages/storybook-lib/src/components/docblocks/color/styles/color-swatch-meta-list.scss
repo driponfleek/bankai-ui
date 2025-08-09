@@ -1,13 +1,12 @@
 // ================================================================
 // Dependencies
 // ================================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-sb-color-swatch__meta-list {
-    @include bankai-list-reset;
-    @include bankai-sub-text;
+    @include resets.bankai-list-reset;
+    @include typography.bankai-sub-text;
 
     > :first-child {
         font-style: italic;

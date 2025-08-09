@@ -2,14 +2,15 @@
 // Dependencies
 // ========================================================
 @use 'sass:color';
-@import 'react-toggle/style.css';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
+@use 'react-toggle/style.css';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/animations.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss' as state-vars;
 
 .bankai-toggle-switch, %bankai-toggle-switch {
     width: 50px;
@@ -20,22 +21,22 @@
     }
 
     .react-toggle-thumb {
-        @include bankai-shadow-elevation-low;
-        background-color: var(--bankai-form-toggle-switch-knob-color, bankai-get-light-theme-map-value('form-toggle-switch-knob-color'));
-        border-color: var(--bankai-form-toggle-switch-knob-border-color, bankai-get-light-theme-map-value('form-toggle-switch-knob-border-color'));
+        @include effects.bankai-shadow-elevation-low;
+        background-color: var(--bankai-form-toggle-switch-knob-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-knob-color'));
+        border-color: var(--bankai-form-toggle-switch-knob-border-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-knob-border-color'));
     }
 
     .react-toggle--focus .react-toggle-thumb,
     .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
-        @include bankai-focus-state-inner-outer-box-shadow;
+        @include states.bankai-focus-state-inner-outer-box-shadow;
     }
 
     .react-toggle-track {
-        box-shadow: inset 0 0 1px 1px color.change($bankai-core-color-neutral-0, $alpha: 0.1);
+        box-shadow: inset 0 0 1px 1px color.change(core-colors-vars.$bankai-core-color-neutral-0, $alpha: 0.1);
     }
 
     &__toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-        background-color: var(--bankai-form-toggle-switch-track-hover-color, bankai-get-light-theme-map-value('form-toggle-switch-track-hover-color'));
+        background-color: var(--bankai-form-toggle-switch-track-hover-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-track-hover-color'));
     }
 
     .react-toggle--disabled {
@@ -45,29 +46,29 @@
     // stylelint-disable-next-line
     .react-toggle-track,
     .react-toggle--disabled:hover .react-toggle-track {
-        background-color: var(--bankai-form-toggle-switch-track-color, bankai-get-light-theme-map-value('form-toggle-switch-track-color'));
+        background-color: var(--bankai-form-toggle-switch-track-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-track-color'));
     }
 
     // stylelint-disable-next-line no-descending-specificity
     .react-toggle--checked .react-toggle-thumb {
-        background-color: var(--bankai-form-toggle-switch-on-knob-color, bankai-get-light-theme-map-value('form-toggle-switch-on-knob-color'));
-        border-color: var(--bankai-form-toggle-switch-on-track-color, bankai-get-light-theme-map-value('form-toggle-switch-on-track-color'));
+        background-color: var(--bankai-form-toggle-switch-on-knob-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-on-knob-color'));
+        border-color: var(--bankai-form-toggle-switch-on-track-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-on-track-color'));
     }
 
     // stylelint-disable-next-line no-descending-specificity
     .react-toggle--checked .react-toggle-track,
     .react-toggle--checked.react-toggle--disabled:hover .react-toggle-track {
-        background-color: var(--bankai-form-toggle-switch-on-track-color, bankai-get-light-theme-map-value('form-toggle-switch-on-track-color'));
+        background-color: var(--bankai-form-toggle-switch-on-track-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-on-track-color'));
     }
 
     // stylelint-disable-next-line no-descending-specificity
     &:hover .react-toggle--checked .react-toggle-track {
-        background-color: var(--bankai-form-toggle-switch-on-track-hover-color, bankai-get-light-theme-map-value('form-toggle-switch-on-track-hover-color'));
+        background-color: var(--bankai-form-toggle-switch-on-track-hover-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-on-track-hover-color'));
     }
 
     &__icon-busy {
-        @include bankai-rotate-infinite;
-        color: var(--bankai-form-toggle-switch-busy-icon-color, bankai-get-light-theme-map-value('form-toggle-switch-busy-icon-color'));
+        @include animations.bankai-rotate-infinite;
+        color: var(--bankai-form-toggle-switch-busy-icon-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-busy-icon-color'));
         font-size: 2rem;
         margin: 2px;
         position: absolute;
@@ -76,7 +77,7 @@
     }
 
     .react-toggle--checked + &__icon-busy {
-        color: var(--bankai-form-toggle-switch-on-busy-icon-color, bankai-get-light-theme-map-value('form-toggle-switch-on-busy-icon-color'));
+        color: var(--bankai-form-toggle-switch-on-busy-icon-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-on-busy-icon-color'));
         left: 0;
     }
 
@@ -87,10 +88,10 @@
     // stylelint-disable-next-line
     .react-toggle--checked.react-toggle--focus .react-toggle-thumb,
     .react-toggle--checked:active:not(.react-toggle--disabled) .react-toggle-thumb {
-        @include bankai-focus-state-inner-outer-box-shadow(var(--bankai-form-toggle-switch-on-focus-halo-inner-color, bankai-get-light-theme-map-value('form-toggle-switch-on-focus-halo-inner-color')), var(--bankai-form-toggle-switch-on-focus-halo-outer-color, bankai-get-light-theme-map-value('form-toggle-switch-on-focus-halo-outer-color')));
+        @include states.bankai-focus-state-inner-outer-box-shadow(var(--bankai-form-toggle-switch-on-focus-halo-inner-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-on-focus-halo-inner-color')), var(--bankai-form-toggle-switch-on-focus-halo-outer-color, theme-utils.bankai-get-light-theme-map-value('form-toggle-switch-on-focus-halo-outer-color')));
     }
 
     &--is-disabled {
-        opacity: var(--bankai-semantic-state-disabled-opacity, $bankai-core-state-disabled-opacity);
+        opacity: var(--bankai-semantic-state-disabled-opacity, state-vars.$bankai-core-state-disabled-opacity);
     }
 }
