@@ -1,18 +1,17 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import './mixins.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-color-picker-input, %bankai-color-picker-input {
-    @include bankai-inline-flex-row;
+    @include layout.bankai-inline-flex-row;
     position: relative;
-    $bankai-form-border-style: 1px solid var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
-    $bankai-form-border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
+    $bankai-form-border-style: 1px solid var(--bankai-semantic-color-accessible-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-accessible-border'));
+    $bankai-form-border-radius: var(--bankai-form-input-border-radius, theme-utils.bankai-get-light-theme-map-value('form-input-border-radius'));
     $this: '.bankai-color-picker-input';
 
     > * {
@@ -39,10 +38,10 @@
     }
 
     &__trigger {
-        @include bankai-button-reset;
-        @include bankai-focus-state-halo;
-        @include bankai-hover-state;
-        @include bankai-disabled-state;
+        @include resets.bankai-button-reset;
+        @include states.bankai-focus-state-halo;
+        @include states.bankai-hover-state;
+        @include states.bankai-disabled-state;
         display: block;
         width: 100%;
         height: 100%;
@@ -63,7 +62,7 @@
     }
 
     .bankai-color-picker {
-        @include bankai-shadow-elevation-high;
+        @include effects.bankai-shadow-elevation-high;
     }
 
     &__picker-container {
@@ -87,7 +86,7 @@
 
     &--has-error {
         #{$this}__trigger {
-            border-color: var(--bankai-form-input-error-border-color, bankai-get-light-theme-map-value('form-input-error-border-color'));
+            border-color: var(--bankai-form-input-error-border-color, theme-utils.bankai-get-light-theme-map-value('form-input-error-border-color'));
         }
     }
 }

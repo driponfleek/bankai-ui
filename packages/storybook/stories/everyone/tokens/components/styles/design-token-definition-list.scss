@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-design-token-naming-convention-and-strat__dl {
     &-dd {
@@ -18,6 +18,6 @@
     }
 
     &-dt + &-dd {
-        margin-top: bankai-to-rem($bankai-core-spacing-01-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
     }
 }

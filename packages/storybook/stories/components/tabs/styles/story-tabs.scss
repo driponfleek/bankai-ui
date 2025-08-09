@@ -1,9 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-tabs {
     .bankai-sb-tabs-demo-panel-content {
@@ -21,7 +21,7 @@
         &--pointer,
         &--underline {
             .bankai-sb-tabs-demo-panel-content {
-                padding-top: bankai-to-rem($bankai-core-spacing-04-x);
+                padding-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
             }
         }
 
@@ -34,7 +34,7 @@
         &--traditional-gapped,
         &--underline-segmented {
             .bankai-sb-tabs-demo-panel-content {
-                padding: bankai-to-rem($bankai-core-spacing-05-x) bankai-to-rem($bankai-core-spacing-04-x);
+                padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
             }
         }
 
@@ -42,7 +42,7 @@
         &--overline-segmented,
         &--underline-segmented {
             .bankai-sb-tabs-demo-panel-content {
-                border: 1px solid var(--bankai-tabs-border-color, bankai-get-light-theme-map-value('tabs-border-color'));
+                border: 1px solid var(--bankai-tabs-border-color, theme-utils.bankai-get-light-theme-map-value('tabs-border-color'));
                 border-top: none;
             }
         }
@@ -55,7 +55,7 @@
             &.bankai-tabs--underline {
                 .bankai-sb-tabs-demo-panel-content {
                     padding-top: 0;
-                    padding-left: bankai-to-rem($bankai-core-spacing-04-x);
+                    padding-left: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
                 }
             }
         }

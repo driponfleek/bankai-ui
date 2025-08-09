@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import './text-input.scss';
+@use './text-input.scss';
 
-.bankai-protected-input, %bankai-text-input {
+.bankai-protected-input, %bankai-protected-input {
     @extend %bankai-text-input;
 }

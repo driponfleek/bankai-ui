@@ -1,18 +1,17 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../utils/theme-utils.scss';
+@use '../utils/theme-utils.scss';
 
 html {
     font-size: 62.5%;
 }
 
 body {
-    color: var(--bankai-semantic-color-text, bankai-get-light-theme-map-value('semantic-color-text'));
-    font-family: var(--bankai-semantic-typography-font-family, bankai-get-light-theme-map-value('semantic-typography-font-family')), var(--bankai-semantic-typography-font-family-fallback, bankai-get-light-theme-map-value('semantic-typography-font-family-fallback'));
-    font-size: var(--bankai-semantic-typography-font-size, bankai-get-light-theme-map-value('semantic-typography-font-size'));
-    line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+    color: var(--bankai-semantic-color-text, theme-utils.bankai-get-light-theme-map-value('semantic-color-text'));
+    font-family: var(--bankai-semantic-typography-font-family, theme-utils.bankai-get-light-theme-map-value('semantic-typography-font-family')), var(--bankai-semantic-typography-font-family-fallback, theme-utils.bankai-get-light-theme-map-value('semantic-typography-font-family-fallback'));
+    font-size: var(--bankai-semantic-typography-font-size, theme-utils.bankai-get-light-theme-map-value('semantic-typography-font-size'));
+    line-height: var(--bankai-semantic-typography-line-height, theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height'));
     -webkit-font-smoothing: antialiased;
 }
 

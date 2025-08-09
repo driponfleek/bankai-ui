@@ -1,16 +1,15 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import './mixins.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-checkbox, %bankai-checkbox {
-    border-radius: var(--bankai-form-checkbox-border-radius, bankai-get-light-theme-map-value('form-checkbox-border-radius'));
+    border-radius: var(--bankai-form-checkbox-border-radius, theme-utils.bankai-get-light-theme-map-value('form-checkbox-border-radius'));
     $this: '.bankai-checkbox';
 
     .bankai-universal-toggle-input {
         &__container {
-            border-radius: var(--bankai-form-checkbox-border-radius, bankai-get-light-theme-map-value('form-checkbox-border-radius'));
+            border-radius: var(--bankai-form-checkbox-border-radius, theme-utils.bankai-get-light-theme-map-value('form-checkbox-border-radius'));
         }
     
         &__icon {
@@ -26,8 +25,8 @@
     &.bankai-universal-toggle-input--checked {
         .bankai-universal-toggle-input__container,
         .bankai-universal-toggle-input__input:disabled + .bankai-universal-toggle-input__container {
-            color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
-            border-color: var(--bankai-form-checked-accent-color, bankai-get-light-theme-map-value('form-checked-accent-color'));
+            color: var(--bankai-form-input-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-bg-color'));
+            border-color: var(--bankai-form-checked-accent-color, theme-utils.bankai-get-light-theme-map-value('form-checked-accent-color'));
         }
     }
 }

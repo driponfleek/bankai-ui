@@ -1,9 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import '../tokens/light-theme-tokens.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@use '../tokens/light-theme-tokens.scss';
 
 @function bankai-get-light-theme-map-value($key) {
-    @return bankai-get-map-value($bankai-get-light-theme-map-value-tokens, $key);
+    @return map-utils.bankai-get-map-value(light-theme-tokens.$bankai-get-light-theme-map-value-tokens, $key);
 }

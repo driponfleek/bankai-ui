@@ -36,12 +36,13 @@ jobs:
     - name: Build Project
       uses: actions/setup-node@v4
       with:
-        node-version: 'lts/*'
+        node-version-file: '.nvmrc'
+        cache: 'npm'
     - name: Install, Validate & Build
       run: |
         npm config set save-exact true
         npm config set legacy-peer-deps true
-        npm i -f
+        npm ci
         npm run lint:js
         npm run lint:scss
         npm run test

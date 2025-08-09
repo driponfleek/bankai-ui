@@ -1,23 +1,21 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
 
 .bankai-accordion__item-trigger, %bankai-accordion__item-trigger {
     .bankai-base-accordion__text {
-        @include bankai-h6;
+        @include typography.bankai-h6;
     }
 
     .bankai-base-accordion__item-button {
         &--is-collapsed {
-            border-radius: calc(var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius')) - 1px);
+            border-radius: calc(var(--bankai-accordion-border-radius, theme-utils.bankai-get-light-theme-map-value('accordion-border-radius')) - 1px);
         }
     
         &--is-expanded {
-            border-radius: calc(var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius')) - 1px) calc(var(--bankai-accordion-border-radius, bankai-get-light-theme-map-value('accordion-border-radius')) - 1px) 0 0;
+            border-radius: calc(var(--bankai-accordion-border-radius, theme-utils.bankai-get-light-theme-map-value('accordion-border-radius')) - 1px) calc(var(--bankai-accordion-border-radius, theme-utils.bankai-get-light-theme-map-value('accordion-border-radius')) - 1px) 0 0;
         }
     }
 }

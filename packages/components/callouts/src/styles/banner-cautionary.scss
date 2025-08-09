@@ -1,21 +1,17 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
 
 .bankai-banner {
     $this: &;
 
     &#{$this}--cautionary {
-        color: var(--bankai-banner-cautionary-text-color, bankai-get-light-theme-map-value('banner-cautionary-text-color'));
-        background-color: var(--bankai-banner-cautionary-bg-color, bankai-get-light-theme-map-value('banner-cautionary-bg-color'));
+        color: var(--bankai-banner-cautionary-text-color, theme-utils.bankai-get-light-theme-map-value('banner-cautionary-text-color'));
+        background-color: var(--bankai-banner-cautionary-bg-color, theme-utils.bankai-get-light-theme-map-value('banner-cautionary-bg-color'));
 
         #{$this}__icon {
-            color: var(--bankai-banner-cautionary-icon-color, bankai-get-light-theme-map-value('banner-cautionary-icon-color'));
+            color: var(--bankai-banner-cautionary-icon-color, theme-utils.bankai-get-light-theme-map-value('banner-cautionary-icon-color'));
         }
     }
 }

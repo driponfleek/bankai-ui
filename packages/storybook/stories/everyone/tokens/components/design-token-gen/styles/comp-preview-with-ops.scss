@@ -1,19 +1,19 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss' as radii-vars;
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-comp-preview-with-ops {
-    @include bankai-flex-row;
-    border: 1px solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-    border-radius: bankai-to-px($bankai-core-radius-01-x);
+    @include layout.bankai-flex-row;
+    border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-01-x);
 
     &__preview-container {
-        @include bankai-flex-row;
+        @include layout.bankai-flex-row;
         min-width: 1px;
         border: 0;
         flex: 1 1 auto;
@@ -25,12 +25,12 @@
 
     &__ops-container {
         box-sizing: border-box;
-        padding: bankai-to-px($bankai-core-spacing-04-x);
+        padding: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-04-x);
         flex: 0 0 auto;
     }
 
     &:has(&__ops-container) &__preview-container {
-        border-right: 1px solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+        border-right: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }

@@ -1,16 +1,16 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@import './component-tokens.scss';
-@import './semantic-color-tokens.scss';
-@import './semantic-typography-tokens.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@use './component-tokens.scss';
+@use './semantic-color-tokens.scss';
+@use './semantic-typography-tokens.scss' as typography-tokens;
 
 // ========================================================
 // Light Theme - Consolidate all sub-maps into one flat map
 // ========================================================
-$bankai-get-light-theme-map-value-tokens: bankai-merge-maps(
-    $bankai-component-tokens,
-    $bankai-semantic-color-tokens,
-    $bankai-semantic-typography-tokens,
+$bankai-get-light-theme-map-value-tokens: map-utils.bankai-merge-maps(
+    component-tokens.$bankai-component-tokens,
+    semantic-color-tokens.$bankai-semantic-color-tokens,
+    typography-tokens.$bankai-semantic-typography-tokens,
 );

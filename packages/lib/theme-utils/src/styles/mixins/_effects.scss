@@ -2,13 +2,14 @@
 // Dependencies
 // ========================================================
 @use 'sass:color';
-@import '../utils/theme-utils.scss';
+@use '../utils/theme-utils.scss';
 
 // TODO: Clean up commented code
-@mixin bankai-shadow-elevation-low($color: bankai-get-light-theme-map-value('semantic-color-box-shadow')) {
-    $color-h: color.hue($color);
-    $color-s: color.saturation($color);
-    $color-l: color.lightness($color);
+@mixin bankai-shadow-elevation-low($color: theme-utils.bankai-get-light-theme-map-value('semantic-color-box-shadow')) {
+    $as-hsl: color.to-space($color, hsl);
+    $color-h: color.channel($as-hsl, 'hue');
+    $color-s: color.channel($as-hsl, 'saturation');
+    $color-l: color.channel($as-hsl, 'lightness');
     $color-hsl: #{$color-h}, #{$color-s}, #{$color-l};
     $layer-1-hsla: $color-hsl, 0.084;
     $layer-2-hsla: $color-hsl, 0.12;
@@ -33,10 +34,11 @@
 
 }
 
-@mixin bankai-shadow-elevation-medium($color: bankai-get-light-theme-map-value('semantic-color-box-shadow')) {
-    $color-h: color.hue($color);
-    $color-s: color.saturation($color);
-    $color-l: color.lightness($color);
+@mixin bankai-shadow-elevation-medium($color: theme-utils.bankai-get-light-theme-map-value('semantic-color-box-shadow')) {
+    $as-hsl: color.to-space($color, hsl);
+    $color-h: color.channel($as-hsl, 'hue');
+    $color-s: color.channel($as-hsl, 'saturation');
+    $color-l: color.channel($as-hsl, 'lightness');
     $color-hsl: #{$color-h}, #{$color-s}, #{$color-l};
     // $color-hsla: $color-hsl, 0.11;
     $layer-1-hsla: $color-hsl, 0.045;
@@ -61,10 +63,11 @@
         4px 8px 12px hsla(var(--bankai-semantic-color-box-shadow-medium-layer-6, #{$layer-6-hsla}));
 }
 
-@mixin bankai-shadow-elevation-high($color: bankai-get-light-theme-map-value('semantic-color-box-shadow'), $opacity: 0.34) {
-    $color-h: color.hue($color);
-    $color-s: color.saturation($color);
-    $color-l: color.lightness($color);
+@mixin bankai-shadow-elevation-high($color: theme-utils.bankai-get-light-theme-map-value('semantic-color-box-shadow'), $opacity: 0.34) {
+    $as-hsl: color.to-space($color, hsl);
+    $color-h: color.channel($as-hsl, 'hue');
+    $color-s: color.channel($as-hsl, 'saturation');
+    $color-l: color.channel($as-hsl, 'lightness');
     $color-hsl: #{$color-h}, #{$color-s}, #{$color-l};
     // $color-hsla: $color-hsl, 0.1;
     $layer-1-hsla: $color-hsl, 0.12;

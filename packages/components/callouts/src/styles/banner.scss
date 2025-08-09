@@ -1,24 +1,24 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-banner, %bankai-banner {
-    color: var(--bankai-banner-text-color, bankai-get-light-theme-map-value('banner-text-color'));
-    background-color: var(--bankai-banner-bg-color, bankai-get-light-theme-map-value('banner-bg-color'));
+    color: var(--bankai-banner-text-color, theme-utils.bankai-get-light-theme-map-value('banner-text-color'));
+    background-color: var(--bankai-banner-bg-color, theme-utils.bankai-get-light-theme-map-value('banner-bg-color'));
     box-sizing: border-box;
-    border-radius: var(--bankai-banner-border-radius, bankai-get-light-theme-map-value('banner-border-radius'));
+    border-radius: var(--bankai-banner-border-radius, theme-utils.bankai-get-light-theme-map-value('banner-border-radius'));
     $this: '.bankai-banner';
 
     &__inner {
-        @include bankai-flex-row;
+        @include layout.bankai-flex-row;
         box-sizing: border-box;
-        padding: bankai-to-rem($bankai-core-spacing-03-x);
-        gap: bankai-to-rem($bankai-core-spacing-03-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
     }
 
     &__icon-container {
@@ -42,7 +42,7 @@
     }
 
     &__icon {
-        color: var(--bankai-banner-icon-color, bankai-get-light-theme-map-value('banner-icon-color'));
+        color: var(--bankai-banner-icon-color, theme-utils.bankai-get-light-theme-map-value('banner-icon-color'));
         font-size: 2.5em;
         vertical-align: top;
         margin: 0 auto;
@@ -59,18 +59,18 @@
     }
 
     &__title-container + &__msg-container {
-        margin-top: bankai-to-rem($bankai-core-spacing-01-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
     }
 
     #{$this}__title {
-        @include bankai-h5;
+        @include typography.bankai-h5;
         font-weight: bold;
         margin: 0;
     }
 
     &__msg {
-        @include bankai-max-line-width;
-        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        @include typography.bankai-max-line-width;
+        line-height: var(--bankai-semantic-typography-line-height, theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height'));
         display: block;
     }
 

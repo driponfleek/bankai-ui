@@ -1,28 +1,28 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss' as radii-vars;
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-sb-color-token-palette-list {
-    @include bankai-flex-row;
-    gap: bankai-to-rem($bankai-core-spacing-02-x);
+    @include layout.bankai-flex-row;
+    gap: bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     flex-wrap: wrap;
 
     > .bankai-list__li {
         border: none;
 
         > .bankai-list-item {
-            border: 1px solid var(--bankai-semantic-color-decorative-border, bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-            border-radius: bankai-to-px($bankai-core-radius-02-x);
+            border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
+            border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x);
             overflow: hidden;
 
             .bankai-sb-color-design-token-list-item__copy-btn {
                 height: 100%;
-                border-radius: 0 bankai-to-px($bankai-core-radius-02-x) bankai-to-px($bankai-core-radius-02-x) 0;
+                border-radius: 0 unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x) unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x) 0;
             }
         }
     }

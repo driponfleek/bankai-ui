@@ -1,10 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-callout, %bankai-callout {
     box-sizing: border-box;
@@ -12,7 +12,7 @@
     $this: '.bankai-callout';
 
     &__icon {
-        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        color: var(--bankai-semantic-color-text-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-text-alt'));
         margin: 0 auto;
     }
 
@@ -22,14 +22,14 @@
     }
 
     #{$this}__title {
-        color: var(--bankai-semantic-color-text, bankai-get-light-theme-map-value('semantic-color-text'));
+        color: var(--bankai-semantic-color-text, theme-utils.bankai-get-light-theme-map-value('semantic-color-text'));
         margin: 0 auto;
     }
 
     &__msg {
-        @include bankai-max-line-width;
-        color: var(--bankai-semantic-color-text-alt, bankai-get-light-theme-map-value('semantic-color-text-alt'));
-        line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
+        @include typography.bankai-max-line-width;
+        color: var(--bankai-semantic-color-text-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-text-alt'));
+        line-height: var(--bankai-semantic-typography-line-height, theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height'));
         display: block;
         margin: 0 auto;
     }
@@ -40,10 +40,10 @@
     }
 
     &__title-container + &__msg-container {
-        margin-top: #{bankai-to-rem($bankai-core-spacing-01-x)};
+        margin-top: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x)};
     }
 
     &__icon-container + &__text-container {
-        margin-top: #{bankai-to-rem($bankai-core-spacing-02-x)};
+        margin-top: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x)};
     }
 }

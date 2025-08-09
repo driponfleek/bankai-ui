@@ -1,10 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-fieldset, %bankai-fieldset {
     box-sizing: border-box;
@@ -13,11 +12,11 @@
     margin: 0;
 
     &__legend {
-        @include bankai-h5;
+        @include typography.bankai-h5;
     }
 
     &__legend + * {
-        margin-top: bankai-to-rem($bankai-core-spacing-03-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
     }
 
     &__content-container {
@@ -25,6 +24,6 @@
     }
 
     &--indent &__content-container {
-        padding-left: bankai-to-rem($bankai-core-spacing-04-x);
+        padding-left: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
     }
 }

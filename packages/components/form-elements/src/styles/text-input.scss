@@ -2,36 +2,36 @@
 // Dependencies
 // ========================================================
 @use 'sass:color';
-@import '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
-@import '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
-@import './mixins.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
+@use './mixins.scss' as form-elements-mixins;
 
 .bankai-text-input, %bankai-text-input {
-    @include bankai-focus-state-halo;
-    @include bankai-form-input-font-size;
-    @include bankai-disabled-state;
-    color: var(--bankai-form-input-text-color, bankai-get-light-theme-map-value('form-input-text-color'));
-    background-color: var(--bankai-form-input-bg-color, bankai-get-light-theme-map-value('form-input-bg-color'));
+    @include states.bankai-focus-state-halo;
+    @include typography.bankai-form-input-font-size;
+    @include states.bankai-disabled-state;
+    color: var(--bankai-form-input-text-color, theme-utils.bankai-get-light-theme-map-value('form-input-text-color'));
+    background-color: var(--bankai-form-input-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-bg-color'));
     box-sizing: border-box;
-    box-shadow: inset 0 1px 1px color.change($bankai-core-color-neutral-0, $alpha: 0.075);
-    border: 1px solid var(--bankai-semantic-color-accessible-border, bankai-get-light-theme-map-value('semantic-color-accessible-border'));
-    border-radius: var(--bankai-form-input-border-radius, bankai-get-light-theme-map-value('form-input-border-radius'));
-    line-height: var(--bankai-semantic-typography-line-height, bankai-get-light-theme-map-value('semantic-typography-line-height'));
-    padding: bankai-to-rem($bankai-core-spacing-02-x);
+    box-shadow: inset 0 1px 1px color.change(core-colors-vars.$bankai-core-color-neutral-0, $alpha: 0.075);
+    border: 1px solid var(--bankai-semantic-color-accessible-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-accessible-border'));
+    border-radius: var(--bankai-form-input-border-radius, theme-utils.bankai-get-light-theme-map-value('form-input-border-radius'));
+    line-height: var(--bankai-semantic-typography-line-height, theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height'));
+    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
 
     &:disabled {
-        @include bankai-form-input-disabled;
+        @include form-elements-mixins.bankai-form-input-disabled;
     }
 
     &[aria-invalid] {
-        @include bankai-form-input-error;
+        @include form-elements-mixins.bankai-form-input-error;
     }
 
     &::placeholder {
-        color: var(--bankai-form-input-placeholder-text-color, bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
+        color: var(--bankai-form-input-placeholder-text-color, theme-utils.bankai-get-light-theme-map-value('form-input-placeholder-text-color'));
     }
 }
