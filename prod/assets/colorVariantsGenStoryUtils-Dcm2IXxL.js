@@ -1,0 +1,1 @@
+import{k as s,m as i}from"./localeUtils--UUmbdnw.js";const c=a=>{const{hex:t,lch:e,isDark:n,tokenId:r}=a??{},{l:o}=e??{};return{color:t,id:`${Math.round(o)}`,isDark:n,lightness:o,mainContent:r?.replace("."," "),metaList:[t]}},d=(a,t=5)=>{const e=s(a);return i({hex:e,step:t,tokenId:"Variant"}).map(n=>c(n))};export{d as a,c as g};
