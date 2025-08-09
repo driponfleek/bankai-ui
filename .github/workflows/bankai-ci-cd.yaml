@@ -31,8 +31,8 @@ jobs:
       id: vars
       shell: bash
       run: |
-        echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+        echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
+        echo "sha_short=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
     - name: Build Project
       uses: actions/setup-node@v4
       with:
@@ -79,8 +79,8 @@ jobs:
       id: get-version
       shell: bash
       run: |-
-        export VERSION=$(awk -F'"' '/"version": ".+"/{ print $4; exit; }' ./package.json)
-        echo "::set-output name=version::$VERSION"
+        VERSION=$(node -p "require('./package.json').version")
+        echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
     - name: Show Version
       if: steps.vars.outputs.branch == 'main' && (github.event.inputs.type == '' || github.event.inputs.type == 'snapshot')
