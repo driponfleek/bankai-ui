@@ -2,16 +2,12 @@ import PropTypes from 'prop-types';
 import CalloutStatusIcon from './CalloutStatusIcon';
 
 const CalloutIcon = (props) => {
-    const { baseCls, variant, renderIcon: Icon } = props;
+    const { baseCls, variant, renderIcon: Icon = CalloutStatusIcon } = props;
     const iconCls = `${baseCls}__icon`;
 
     return (
         <div className={`${baseCls}__icon-container`}>
-            {Icon ? (
-                <Icon contextCls={iconCls} />
-            ) : (
-                <CalloutStatusIcon variant={variant} contextCls={iconCls} />
-            )}
+            <Icon variant={variant} contextCls={iconCls} />
         </div>
     );
 };

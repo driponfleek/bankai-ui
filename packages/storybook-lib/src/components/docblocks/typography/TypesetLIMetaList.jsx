@@ -10,17 +10,13 @@ import { TYPESET_BASE_CLS } from './const/typesetBaseClsConst';
 import './styles/typeset-li-meta-list.scss';
 
 const TypesetLIMetaList = (props) => {
-    const { contextCls, metaList } = props;
+    const { contextCls, metaList = [] } = props;
     const baseCls = `${TYPESET_BASE_CLS}__li-meta-list`;
     const childItems = Children.toArray(
         metaList.map((item) => <TypesetLIMetaLI item={item} />),
     );
 
     return <ul className={cx(baseCls, contextCls)}>{childItems}</ul>;
-};
-
-TypesetLIMetaList.defaultProps = {
-    metaList: [],
 };
 
 TypesetLIMetaList.propTypes = {

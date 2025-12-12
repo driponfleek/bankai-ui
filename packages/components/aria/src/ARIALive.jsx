@@ -10,7 +10,7 @@ const ARIALive = (props) => {
         ariaRelevant,
         baseCls,
         contextCls,
-        htmlTag: Wrapper,
+        htmlTag: Wrapper = 'span',
         isPolite,
         children,
         ...rest
@@ -26,10 +26,6 @@ const ARIALive = (props) => {
             {children}
         </Wrapper>
     );
-};
-
-ARIALive.defaultProps = {
-    htmlTag: 'span',
 };
 
 ARIALive.propTypes = {

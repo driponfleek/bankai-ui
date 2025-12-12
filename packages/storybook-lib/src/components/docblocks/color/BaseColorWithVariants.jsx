@@ -12,7 +12,13 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 import './styles/base-color-with-variants.scss';
 
 const BaseColorWithVariants = (props) => {
-    const { contextCls, isCard, shouldScrollList, base, variants } = props;
+    const {
+        contextCls,
+        isCard = false,
+        shouldScrollList = true,
+        base,
+        variants = [],
+    } = props;
     const baseCls = genSBBaseCls('base-color-with-variants');
     const modCls = {
         [`${baseCls}--fancy`]: isCard,
@@ -34,12 +40,6 @@ const BaseColorWithVariants = (props) => {
             </div>
         </div>
     );
-};
-
-BaseColorWithVariants.defaultProps = {
-    isCard: false,
-    shouldScrollList: true,
-    variants: [],
 };
 
 BaseColorWithVariants.propTypes = {

@@ -16,12 +16,69 @@ const Tooltip = (props) => {
         ariaLabel,
         contextCls,
         ttContextCls,
+        position = POSITIONS.TOP,
+        trigger = `${TRIGGERS.MOUSE_ENTER} ${TRIGGERS.FOCUS}`,
+        delay = 0,
+        duration = [300, 250],
+        offset = [0, 10],
         content,
-        isDisabled,
+        isDisabled = false,
+        isInteractive = false,
+        shouldEnableInertia = false,
+        shouldEnableInlinePositioning = false,
+        shouldHideOnClick = false,
+        shouldShowOnCreate = false,
+        sticky = false,
+        touch = true,
+        onAfterUpdate = Tooltip.onAfterUpdate,
+        onBeforeUpdate = Tooltip.onBeforeUpdate,
+        onClickOutside = Tooltip.onClickOutside,
+        onCreate = Tooltip.onCreate,
+        onDestroy = Tooltip.onDestroy,
+        onHide = Tooltip.onHide,
+        onHidden = Tooltip.onHidden,
+        onMount = Tooltip.onMount,
+        onShow = Tooltip.onShow,
+        onShown = Tooltip.onShown,
+        onTrigger = Tooltip.onTrigger,
+        onUntrigger = Tooltip.onUntrigger,
         children,
+        ...rest
     } = props;
     const baseCls = 'bankai-tooltip';
-    const ttProps = getSanatizedProps(props);
+    const ttProps = getSanatizedProps({
+        ...rest,
+        ariaLabel,
+        contextCls,
+        ttContextCls,
+        position,
+        trigger,
+        delay,
+        duration,
+        offset,
+        content,
+        isDisabled,
+        isInteractive,
+        shouldEnableInertia,
+        shouldEnableInlinePositioning,
+        shouldHideOnClick,
+        shouldShowOnCreate,
+        sticky,
+        touch,
+        onAfterUpdate,
+        onBeforeUpdate,
+        onClickOutside,
+        onCreate,
+        onDestroy,
+        onHide,
+        onHidden,
+        onMount,
+        onShow,
+        onShown,
+        onTrigger,
+        onUntrigger,
+        children,
+    });
     const renderTooltipContent = () => {
         return (
             <div className={cx(`${baseCls}__content-container`, ttContextCls)}>
@@ -49,33 +106,18 @@ const Tooltip = (props) => {
     );
 };
 
-Tooltip.defaultProps = {
-    position: POSITIONS.TOP,
-    trigger: `${TRIGGERS.MOUSE_ENTER} ${TRIGGERS.FOCUS}`,
-    delay: 0,
-    duration: [300, 250],
-    offset: [0, 10],
-    isDisabled: false,
-    isInteractive: false,
-    sticky: false,
-    touch: true,
-    shouldEnableInertia: false,
-    shouldEnableInlinePositioning: false,
-    shouldHideOnClick: false,
-    shouldShowOnCreate: false,
-    onAfterUpdate: () => Promise.resolve,
-    onBeforeUpdate: () => Promise.resolve,
-    onClickOutside: () => Promise.resolve,
-    onCreate: () => Promise.resolve,
-    onDestroy: () => Promise.resolve,
-    onHide: () => Promise.resolve,
-    onHidden: () => Promise.resolve,
-    onMount: () => Promise.resolve,
-    onShow: () => Promise.resolve,
-    onShown: () => Promise.resolve,
-    onTrigger: () => Promise.resolve,
-    onUntrigger: () => Promise.resolve,
-};
+Tooltip.onAfterUpdate = () => Promise.resolve();
+Tooltip.onBeforeUpdate = () => Promise.resolve();
+Tooltip.onClickOutside = () => Promise.resolve();
+Tooltip.onCreate = () => Promise.resolve();
+Tooltip.onDestroy = () => Promise.resolve();
+Tooltip.onHide = () => Promise.resolve();
+Tooltip.onHidden = () => Promise.resolve();
+Tooltip.onMount = () => Promise.resolve();
+Tooltip.onShow = () => Promise.resolve();
+Tooltip.onShown = () => Promise.resolve();
+Tooltip.onTrigger = () => Promise.resolve();
+Tooltip.onUntrigger = () => Promise.resolve();
 
 Tooltip.propTypes = {
     ariaLabel: PropTypes.string,

@@ -14,7 +14,7 @@ import './styles/loading-dots.scss';
 const { BOUNCE } = LOADING_DOTS_VARIANTS;
 
 const LoadingDots = (props) => {
-    const { contextCls, variant } = props;
+    const { contextCls, variant = BOUNCE } = props;
     const baseCls = 'bankai-loading-dots';
     const modCls = getModCls(variant, baseCls);
     const arrayOfNums = getArrayOfNumbers(variant);
@@ -26,10 +26,6 @@ const LoadingDots = (props) => {
             )}
         </span>
     );
-};
-
-LoadingDots.defaultProps = {
-    variant: BOUNCE,
 };
 
 LoadingDots.propTypes = {

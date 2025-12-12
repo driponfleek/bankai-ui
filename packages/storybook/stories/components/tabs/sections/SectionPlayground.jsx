@@ -26,7 +26,7 @@ const tab3Id = 'f01b4d64-1518-4cf1-af01-4d1558b687ee';
 const tab4Id = '14a064f8-a539-4176-852a-22dffcf80c56';
 
 const SectionPlayground = (props) => {
-    const { baseCls, onChange, ...rest } = props;
+    const { baseCls, onChange = SectionPlayground.onChange, ...rest } = props;
     const [activeTabId, setActiveTabId] = useState(tab1Id);
     const imgCls = `${baseCls}__panel-content-img`;
     const handleTabChange = (tabId) => {
@@ -100,9 +100,7 @@ const SectionPlayground = (props) => {
     );
 };
 
-SectionPlayground.defaultProps = {
-    onChange: () => Promise.resolve(),
-};
+SectionPlayground.onChange = () => Promise.resolve();
 
 SectionPlayground.propTypes = {
     baseCls: PropTypes.string,

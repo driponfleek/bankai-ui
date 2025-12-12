@@ -11,11 +11,11 @@ const CompImportAndUsage = (props) => {
     const {
         contextCls,
         importCodeStr,
-        importDesc,
+        importDesc = 'To get started first you will need to import the following:',
         usageCodeStr,
-        usageDesc,
-        shouldShowImportCopy,
-        shouldShowUsageCopy,
+        usageDesc = 'Then to use:',
+        shouldShowImportCopy = true,
+        shouldShowUsageCopy = true,
     } = props;
     const baseCls = genSBBaseCls('comp-import-and-usage');
 
@@ -37,13 +37,6 @@ const CompImportAndUsage = (props) => {
             </div>
         </div>
     );
-};
-
-CompImportAndUsage.defaultProps = {
-    importDesc: 'To get started first you will need to import the following:',
-    usageDesc: 'Then to use:',
-    shouldShowImportCopy: true,
-    shouldShowUsageCopy: true,
 };
 
 CompImportAndUsage.propTypes = {

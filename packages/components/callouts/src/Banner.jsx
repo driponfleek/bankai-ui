@@ -7,7 +7,14 @@ import MainContent from './components/MainContent';
 import './styles/banner.scss';
 
 const Banner = (props) => {
-    const { contextCls, headingLvl, title, msg, renderIcon, children } = props;
+    const {
+        contextCls,
+        headingLvl = 3,
+        title,
+        msg,
+        renderIcon,
+        children,
+    } = props;
     const baseCls = 'bankai-banner';
 
     return (
@@ -35,10 +42,6 @@ const Banner = (props) => {
             </div>
         </div>
     );
-};
-
-Banner.defaultProps = {
-    headingLvl: 3,
 };
 
 Banner.propTypes = {

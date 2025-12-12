@@ -11,7 +11,7 @@ const { ALTERNATING_PULSE, RIPPLES, RIPPLES_OUTLINE } =
     LOADING_SPHERES_VARIANTS;
 
 const LoadingSpheres = (props) => {
-    const { contextCls, variant } = props;
+    const { contextCls, variant = RIPPLES } = props;
     const baseCls = 'bankai-loading-spheres';
     const modCls = {
         [`${baseCls}--alternating-pulse`]: variant === ALTERNATING_PULSE,
@@ -20,10 +20,6 @@ const LoadingSpheres = (props) => {
     };
 
     return <span className={cx(baseCls, modCls, contextCls)} />;
-};
-
-LoadingSpheres.defaultProps = {
-    variant: RIPPLES,
 };
 
 LoadingSpheres.propTypes = {

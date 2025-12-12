@@ -7,7 +7,7 @@ import {
 const CPIField = IFLFormFieldComposer(ColorPickerInput);
 
 const ColorPickerField = (props) => {
-    const { onChange, fieldId, ...rest } = props;
+    const { onChange = ColorPickerField.onChange, fieldId, ...rest } = props;
     const handleChange = (colorVal) => {
         const formattedVal = (colorVal ?? '').toLowerCase();
 
@@ -17,9 +17,7 @@ const ColorPickerField = (props) => {
     return <CPIField {...rest} onChange={handleChange} />;
 };
 
-ColorPickerField.defaultProps = {
-    onChange: () => Promise.resolve(),
-};
+ColorPickerField.onChange = () => Promise.resolve();
 
 ColorPickerField.propTypes = {
     fieldId: PropTypes.string,

@@ -7,21 +7,22 @@ export const getARIAModalExtantProps = (props, baseCls) => {
         ariaLabel,
         dialogContextCls,
         dialogId,
-        role,
+        role = 'dialog',
         titleId,
         overlayContextCls,
-        closeTimeoutMS,
-        isOpen,
-        shouldCloseOnEsc,
-        shouldCloseOnOverlayClick,
-        shouldDisableScroll,
-        shouldFocusAfterRender,
-        renderTo,
-        onAfterClose,
-        onAfterOpen,
+        closeTimeoutMS = 0,
+        isOpen = false,
+        shouldCloseOnEsc = true,
+        shouldCloseOnOverlayClick = true,
+        shouldDisableScroll = true,
+        shouldFocusAfterRender = true,
+        appElement = document.getElementById('root'),
+        renderTo = () => document.body,
+        onAfterClose = () => Promise.resolve(),
+        onAfterOpen = () => Promise.resolve(),
         renderModalActions,
         renderModalHeading,
-        onExit,
+        onExit = () => Promise.resolve(),
         ...rest
     } = props;
     const modCls = {
@@ -30,6 +31,7 @@ export const getARIAModalExtantProps = (props, baseCls) => {
 
     return {
         ...rest,
+        appElement,
         className: {
             afterOpen: `${baseCls}__dialog--after-open`,
             beforeClose: `${baseCls}__dialog--before-close`,

@@ -10,7 +10,7 @@ import baseCls from '../const/cssBaseClassConst';
 const { DEFAULT } = VARIANTS;
 
 const ToasterIcon = (props) => {
-    const { variant, renderIcon } = props;
+    const { variant = DEFAULT, renderIcon } = props;
     const renderDefaultIcon = ({ contextCls }) => {
         const Icon = getIcon(variant);
 
@@ -26,10 +26,6 @@ const ToasterIcon = (props) => {
             </div>
         </div>
     );
-};
-
-ToasterIcon.defaultProps = {
-    variant: DEFAULT,
 };
 
 ToasterIcon.propTypes = {

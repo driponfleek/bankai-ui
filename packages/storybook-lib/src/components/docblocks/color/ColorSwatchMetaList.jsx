@@ -10,17 +10,13 @@ import { COLOR_BASE_CLS } from './const/colorBaseClsConst';
 import './styles/color-swatch-meta-list.scss';
 
 const ColorSwatchMetaList = (props) => {
-    const { contextCls, metaList } = props;
+    const { contextCls, metaList = [] } = props;
     const baseCls = `${COLOR_BASE_CLS}__meta-list`;
     const childItems = Children.toArray(
         metaList.map((item) => <ColorSwatchMetaLI item={item} />),
     );
 
     return <ul className={cx(baseCls, contextCls)}>{childItems}</ul>;
-};
-
-ColorSwatchMetaList.defaultProps = {
-    metaList: [],
 };
 
 ColorSwatchMetaList.propTypes = {

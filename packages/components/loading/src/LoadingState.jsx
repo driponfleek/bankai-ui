@@ -7,14 +7,16 @@ import LoadingSpinners from './LoadingSpinners';
 import './styles/loading-state.scss';
 
 const LoadingState = (props) => {
-    const { contextCls, ...rest } = props;
+    const { contextCls, renderIcon = LoadingSpinners, ...rest } = props;
     const baseCls = 'bankai-loading-state';
 
-    return <Callout {...rest} contextCls={cx(baseCls, contextCls)} />;
-};
-
-LoadingState.defaultProps = {
-    renderIcon: LoadingSpinners,
+    return (
+        <Callout
+            {...rest}
+            renderIcon={renderIcon}
+            contextCls={cx(baseCls, contextCls)}
+        />
+    );
 };
 
 LoadingState.propTypes = {

@@ -10,8 +10,8 @@ const BaseAccordionItemTriggerButton = (props) => {
     const {
         baseCls,
         contextCls,
-        buttonProps,
-        isExpanded,
+        buttonProps = {},
+        isExpanded = false,
         renderTriggerIcon,
         children,
     } = props;
@@ -36,11 +36,6 @@ const BaseAccordionItemTriggerButton = (props) => {
             />
         </AccordionItemButton>
     );
-};
-
-BaseAccordionItemTriggerButton.defaultProps = {
-    buttonProps: {},
-    isExpanded: false,
 };
 
 BaseAccordionItemTriggerButton.propTypes = {

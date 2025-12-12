@@ -13,13 +13,13 @@ import { genSBBaseCls } from '../../utils/storiesConfigUtils';
 import './styles/do-and-do-not-do-list.scss';
 
 const DoAndDoNotDoList = (props) => {
-    const { contextCls, isAffirmative, title, list } = props;
+    const { contextCls, isAffirmative, title, list = [] } = props;
     const baseCls = genSBBaseCls('do-and-do-not-do__list');
-    // const Icon = isAffirmative ? BankaiCircleCheck : BankaiCircleX;
     const Banner = isAffirmative ? BannerAffirmative : BannerDanger;
     const hasListItems = list.length > 0;
     // TODO: This is so bad, functional components suck. Need to find a way to do this without
     // violating every best practice in programming.
+    // TODO: Need to memoize this properly
     const bannerProps = {
         ...(title && { title }),
         ...(hasListItems && {
@@ -35,10 +35,6 @@ const DoAndDoNotDoList = (props) => {
     };
 
     return <Banner contextCls={cx(baseCls, contextCls)} {...bannerProps} />;
-};
-
-DoAndDoNotDoList.defaultProps = {
-    list: [],
 };
 
 DoAndDoNotDoList.propTypes = {

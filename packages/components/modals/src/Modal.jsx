@@ -20,20 +20,58 @@ const Modal = (props) => {
     const {
         closeBtnARIALabel,
         dialogContextCls,
+        role = 'dialog',
+        closeTimeoutMS = 150,
         headingProps,
-        hasCloseButton,
+        hasCloseButton = true,
+        isOpen = false,
+        shouldCloseOnEsc = true,
+        shouldCloseOnOverlayClick = true,
+        shouldFocusAfterRender = true,
         titleId: id,
-        modalActions,
-        onActionClick,
-        onExit,
-        renderCloseButtonIcon,
+        modalActions = [],
+        onActionClick = Modal.onActionClick,
+        onAfterClose = Modal.onAfterClose,
+        onAfterOpen = Modal.onAfterOpen,
+        onExit = Modal.onExit,
+        renderCloseButtonIcon = BankaiX,
         renderModalActions,
         renderModalHeading,
+        renderTo = Modal.renderTo,
+        appElement = document.getElementById('root'),
         children,
+        ...rest
     } = props;
     const baseCls = 'bankai-modal';
     const titleId = id ?? `${baseCls}-dialog-${uuidv4()}`;
-    const modalProps = getModalExtantProps({ ...props, titleId }, baseCls);
+    const modalProps = getModalExtantProps(
+        {
+            ...rest,
+            closeBtnARIALabel,
+            dialogContextCls,
+            role,
+            closeTimeoutMS,
+            headingProps,
+            hasCloseButton,
+            isOpen,
+            shouldCloseOnEsc,
+            shouldCloseOnOverlayClick,
+            shouldFocusAfterRender,
+            titleId,
+            modalActions,
+            onActionClick,
+            onAfterClose,
+            onAfterOpen,
+            onExit,
+            renderCloseButtonIcon,
+            renderModalActions,
+            renderModalHeading,
+            renderTo,
+            appElement,
+            children,
+        },
+        baseCls,
+    );
     const { shouldRenderHeading, shouldRenderActions } =
         getShouldRenderModalUIs(props);
     const modCls = {
@@ -76,23 +114,11 @@ const Modal = (props) => {
     );
 };
 
-Modal.defaultProps = {
-    role: 'dialog',
-    closeTimeoutMS: 150,
-    hasCloseButton: true,
-    isOpen: false,
-    shouldCloseOnEsc: true,
-    shouldCloseOnOverlayClick: true,
-    shouldFocusAfterRender: true,
-    modalActions: [],
-    appElement: document.getElementById('root'),
-    onAfterClose: () => Promise.resolve(),
-    onAfterOpen: () => Promise.resolve(),
-    onExit: () => Promise.resolve(),
-    onActionClick: () => Promise.resolve(),
-    renderCloseButtonIcon: BankaiX,
-    renderTo: () => document.body,
-};
+Modal.onActionClick = () => Promise.resolve();
+Modal.onAfterClose = () => Promise.resolve();
+Modal.onAfterOpen = () => Promise.resolve();
+Modal.onExit = () => Promise.resolve();
+Modal.renderTo = () => document.body;
 
 Modal.propTypes = {
     ariaDescribedby: PropTypes.string,

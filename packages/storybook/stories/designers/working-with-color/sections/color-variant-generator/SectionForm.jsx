@@ -12,9 +12,9 @@ const SectionForm = (props) => {
     const {
         baseCls,
         sourceColor,
-        shouldShowMaxVariants,
-        onColorChange,
-        onToggleChange,
+        shouldShowMaxVariants = true,
+        onColorChange = SectionForm.onColorChange,
+        onToggleChange = SectionForm.onToggleChange,
     } = props;
 
     return (
@@ -43,11 +43,8 @@ const SectionForm = (props) => {
     );
 };
 
-SectionForm.defaultProps = {
-    shouldShowMaxVariants: true,
-    onColorChange: () => Promise.resolve(),
-    onToggleChange: () => Promise.resolve(),
-};
+SectionForm.onColorChange = () => Promise.resolve();
+SectionForm.onToggleChange = () => Promise.resolve();
 
 SectionForm.propTypes = {
     baseCls: PropTypes.string,

@@ -28,7 +28,6 @@ const BankaiAndroid = (props) => {
 BankaiAndroid.propTypes = {
     contextCls: PropTypes.string,
     className: PropTypes.string,
-    stroke: 1,
 };
 
 export default BankaiAndroid;

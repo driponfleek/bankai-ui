@@ -19,7 +19,7 @@
     color: inherit;
     background-color: var(--bankai-semantic-color-canvas-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas-alt'));
     box-sizing: border-box;
-    border-radius: bankai-to-px(radii-vars.$bankai-core-radius-04-x);
+    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-04-x);
     padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
 
     @media (hover: hover) {

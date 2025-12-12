@@ -5,23 +5,17 @@ import CompImportAndUsage from '../../../../sb-components/docblocks/CompImportAn
 // Utils
 import { getLocale } from '../../../../utils/localeUtils';
 
-const getIcon = (variant) => {
-    switch (variant) {
-        case 'Affirmative':
-            return 'BankaiCircleCheck';
-        case 'Cautionary':
-        case 'Danger':
-            return 'BankaiTriangleAlert';
-        case 'Info':
-            return 'BankaiCircleInfo';
-        default:
-            return 'BankaiCloud';
-    }
+const ICONS = {
+    Affirmative: 'BankaiCircleCheck',
+    Cautionary: 'BankaiTriangleAlert',
+    Danger: 'BankaiTriangleAlert',
+    Info: 'BankaiCircleInfo',
+    Default: 'BankaiCloud',
 };
 
 const SectionImplementation = (props) => {
-    const { variant, isCallout } = props;
-    const icon = getIcon(variant);
+    const { variant = '', isCallout = false } = props;
+    const icon = ICONS[variant] || ICONS.Default;
     const compName = isCallout ? 'Callout' : 'Banner';
     const importCodeStr = `import { ${compName}${variant} } from '@driponfleek/bankai-ui-callouts';\nimport { ${icon} } from '@driponfleek/bankai-ui-icons';`;
     const usageCodeStr = `<${compName}${variant}\n    title="${compName} Title"\n    msg="Lorem ipsum dolor sit amet, consectetur adipiscing elit."\n    renderIcon={${icon}}\n/>`;
@@ -37,11 +31,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.defaultProps = {
-    variant: '',
-    isCallout: false,
 };
 
 SectionImplementation.propTypes = {

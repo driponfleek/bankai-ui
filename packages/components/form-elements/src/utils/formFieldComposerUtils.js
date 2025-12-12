@@ -4,7 +4,11 @@ import VARIANTS from '../const/formFieldComposerVariantsConst';
 const { INLINE_LEFT, INLINE_RIGHT, STACKED, STACKED_HINT_TOP } = VARIANTS;
 
 export const getFormFieldComposerModCls = (props, baseCls) => {
-    const { variant, isDisabled, isReadOnly } = props ?? {};
+    const {
+        variant = STACKED,
+        isDisabled = false,
+        isReadOnly = false,
+    } = props ?? {};
 
     return {
         [`${baseCls}--disabled`]: isDisabled,
@@ -17,8 +21,13 @@ export const getFormFieldComposerModCls = (props, baseCls) => {
 };
 
 export const getFLFFCModCls = (props, baseCls) => {
-    const { isDisabled, isReadOnly, hasError, hasValue, hasLabel } =
-        props ?? {};
+    const {
+        isDisabled = false,
+        isReadOnly = false,
+        hasError = false,
+        hasValue,
+        hasLabel,
+    } = props ?? {};
 
     return {
         [`${baseCls}--disabled`]: isDisabled,
@@ -30,7 +39,7 @@ export const getFLFFCModCls = (props, baseCls) => {
 };
 
 export const getFFCLabelExtantProps = (props) => {
-    const { id, labelProps, rwSuffix } = props ?? {};
+    const { id, labelProps, rwSuffix = '_input' } = props ?? {};
 
     return {
         ...labelProps,
@@ -46,7 +55,7 @@ export const getHasLabel = (props) => {
 };
 
 export const getShouldRenderHints = (props) => {
-    const { shouldIncludeError, shouldIncludeHint } = props;
+    const { shouldIncludeError = false, shouldIncludeHint = false } = props;
 
     return shouldIncludeError || shouldIncludeHint;
 };
@@ -59,15 +68,19 @@ export const getFFCHasHint = (props) => {
 };
 
 export const getHasError = (props) => {
-    const { hasError, errorProps } = props ?? {};
+    const { hasError = false, errorProps } = props ?? {};
     const { children, renderError } = errorProps ?? {};
 
     return hasError || !!children || !!renderError;
 };
 
 export const getCompARIADescByIds = (props) => {
-    const { shouldIncludeError, shouldIncludeHint, errorId, hintId } =
-        props ?? {};
+    const {
+        shouldIncludeError = false,
+        shouldIncludeHint = false,
+        errorId,
+        hintId,
+    } = props ?? {};
     const hasLabel = getHasLabel(props);
 
     return [
@@ -79,7 +92,7 @@ export const getCompARIADescByIds = (props) => {
 const getCompExtantProps = (props) => {
     const {
         contextCls,
-        rwSuffix,
+        rwSuffix = '_input',
         shouldIncludeError,
         shouldIncludeHint,
         errorProps,
@@ -130,8 +143,8 @@ export const getFLFFCSanatizedProps = (props) => {
         'aria-label': ariaLabel,
         placeholder,
         rwSuffix,
-        shouldIncludeError,
-        shouldIncludeHint,
+        shouldIncludeError = false,
+        shouldIncludeHint = false,
         errorId,
         hintId,
         errorProps,

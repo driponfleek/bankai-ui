@@ -12,7 +12,7 @@ const Callout = (props) => {
         renderIcon,
         variant,
         title,
-        headingLvl,
+        headingLvl = 2,
         msg,
         children,
     } = props;
@@ -45,10 +45,6 @@ const Callout = (props) => {
             </div>
         </div>
     );
-};
-
-Callout.defaultProps = {
-    headingLvl: 2,
 };
 
 Callout.propTypes = {

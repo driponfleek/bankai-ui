@@ -7,7 +7,7 @@ const TabsWrapper = (props) => {
         contextCls,
         activeTabId,
         shouldAllowLetterNavigation,
-        onChange,
+        onChange = TabsWrapper.onChange,
         children,
         ...rest
     } = props;
@@ -26,9 +26,7 @@ const TabsWrapper = (props) => {
     );
 };
 
-TabsWrapper.defaultProps = {
-    onChange: () => Promise.resolve(),
-};
+TabsWrapper.onChange = () => Promise.resolve();
 
 TabsWrapper.propTypes = {
     contextCls: PropTypes.string,

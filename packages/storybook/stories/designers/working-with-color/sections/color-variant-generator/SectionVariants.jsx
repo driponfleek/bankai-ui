@@ -5,7 +5,7 @@ import {
 } from '@driponfleek/bankai-lib-storybook';
 
 const SectionVariants = (props) => {
-    const { contextCls, variants } = props;
+    const { contextCls, variants = [] } = props;
 
     return (
         <StorySection>
@@ -16,10 +16,6 @@ const SectionVariants = (props) => {
             />
         </StorySection>
     );
-};
-
-SectionVariants.defaultProps = {
-    variants: [],
 };
 
 SectionVariants.propTypes = {

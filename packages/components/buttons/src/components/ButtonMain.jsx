@@ -13,8 +13,8 @@ const ButtonMain = (props) => {
         text,
         renderBusyIcon,
         renderIcon,
-        isBusy,
-        isDynamicText,
+        isBusy = false,
+        isDynamicText = false,
         children,
     } = props;
     const shouldRenderBtnIcon = getShouldRenderBtnIcon(props);
@@ -44,11 +44,6 @@ const ButtonMain = (props) => {
             {children}
         </span>
     );
-};
-
-ButtonMain.defaultProps = {
-    isBusy: false,
-    isDynamicText: false,
 };
 
 ButtonMain.propTypes = {

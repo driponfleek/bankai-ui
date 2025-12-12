@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const BannerIcon = (props) => {
-    const { baseCls, renderIcon } = props;
+    const { baseCls, renderIcon = BannerIcon.renderIcon } = props;
     const iconCls = `${baseCls}__icon`;
 
     return (
@@ -10,6 +10,8 @@ const BannerIcon = (props) => {
         </div>
     );
 };
+
+BannerIcon.renderIcon = () => '';
 
 BannerIcon.propTypes = {
     baseCls: PropTypes.string,

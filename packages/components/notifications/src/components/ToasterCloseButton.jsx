@@ -6,7 +6,10 @@ import { BankaiX } from '@driponfleek/bankai-ui-icons';
 // Constants
 import baseCls from '../const/cssBaseClassConst';
 
-const ToasterCloseButton = ({ closeToast, closeBtnARIALabel }) => {
+const ToasterCloseButton = ({
+    closeToast = ToasterCloseButton.closeToast,
+    closeBtnARIALabel,
+}) => {
     const renderCloseButtonIcon = () => {
         return <BankaiX contextCls={`${baseCls}__close-btn-icon`} />;
     };
@@ -21,9 +24,7 @@ const ToasterCloseButton = ({ closeToast, closeBtnARIALabel }) => {
     );
 };
 
-ToasterCloseButton.defaultProps = {
-    closeToast: () => Promise.resolve(),
-};
+ToasterCloseButton.closeToast = () => Promise.resolve();
 
 ToasterCloseButton.propTypes = {
     closeToast: PropTypes.func,

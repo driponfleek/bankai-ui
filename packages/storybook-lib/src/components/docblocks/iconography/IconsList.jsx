@@ -11,7 +11,7 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 import './styles/icons-list.scss';
 
 const IconsList = (props) => {
-    const { contextCls, icons, locale } = props;
+    const { contextCls, icons = [], locale = {} } = props;
     const [copiedIconName, setCopiedIconName] = useState(undefined);
     const baseCls = genSBBaseCls('icons-list');
     const handleClickTimeout = useRef(undefined);
@@ -20,6 +20,7 @@ const IconsList = (props) => {
     };
     // TODO: This is so bad, functional components suck. Need to find a way to do this without
     // violating every best practice in programming.
+    // TODO: Need to memoize this properly
     const childItems = Children.toArray(
         icons.map((item) => (
             <IconListItem
@@ -48,11 +49,6 @@ const IconsList = (props) => {
     }, [copiedIconName]);
 
     return <div className={cx(baseCls, contextCls)}>{childItems}</div>;
-};
-
-IconsList.defaultProps = {
-    icons: [],
-    locale: {},
 };
 
 IconsList.propTypes = {

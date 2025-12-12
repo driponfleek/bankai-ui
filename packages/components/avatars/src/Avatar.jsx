@@ -5,7 +5,7 @@ import cx from 'classnames';
 import './styles/avatar.scss';
 
 const Avatar = (props) => {
-    const { contextCls, imgURL, hasBorder, children } = props;
+    const { contextCls, imgURL, hasBorder = true, children } = props;
     const shouldRenderImg = !!imgURL;
     const style = {
         ...(shouldRenderImg && { backgroundImage: `url('${imgURL}')` }),
@@ -23,10 +23,6 @@ const Avatar = (props) => {
             )}
         </span>
     );
-};
-
-Avatar.defaultProps = {
-    hasBorder: true,
 };
 
 Avatar.propTypes = {

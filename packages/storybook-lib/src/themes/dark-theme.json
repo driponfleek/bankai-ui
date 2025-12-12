@@ -289,7 +289,7 @@
     "tabs.panel.bg.color": "#1a1d25",
     "tile.border.radius": 16,
     "tile.heading.font.style": "normal",
-    "tile.heading.font.weight": "normal",
+    "tile.heading.font.weight": "bold",
     "toaster.affirmative.bg.color": "#4c7d6a",
     "toaster.affirmative.progress.bar.color": "rgba(0, 0, 0, 0.5)",
     "toaster.affirmative.text.color": "#ffffff",

@@ -1,3 +1,5 @@
+import { defaultFormats as dFormats } from '../nls/RWDateLocalizer';
+
 const getSanatizedId = (id) => id.replace(/_input/, '');
 
 export const getComboboxExtantProps = (props) => {
@@ -47,13 +49,15 @@ export const getDatePickerExtantProps = (props) => {
         contextCls,
         id,
         hasError,
-        isDefaultOpen,
-        isDisabled,
-        isReadOnly,
+        isDefaultOpen = false,
+        isDisabled = false,
+        isReadOnly = false,
         isOpen,
-        shouldAutoFocus,
-        shouldDropUp,
+        shouldAutoFocus = false,
+        shouldDropUp = false,
         shouldHideDropdownBtn,
+        formats = dFormats,
+        valueDisplayFormat = dFormats.date,
         onBlur,
         onchange,
         onCurrentDateChange,
@@ -69,6 +73,8 @@ export const getDatePickerExtantProps = (props) => {
     return {
         ...rest,
         ...(id && { id: getSanatizedId(id) }),
+        formats,
+        valueDisplayFormat,
         autoFocus: shouldAutoFocus,
         defaultOpen: isDefaultOpen,
         disabled: isDisabled,

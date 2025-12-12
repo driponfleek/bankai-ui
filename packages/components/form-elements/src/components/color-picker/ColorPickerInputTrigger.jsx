@@ -4,7 +4,11 @@ import ColorPickerInputTriggerContent from './ColorPickerInputTriggerContent';
 import { getColorPickerInputTriggerExtantProps } from '../../utils/colorPickerUtils';
 
 const ColorPickerInputTrigger = (props) => {
-    const { baseCls, isReadOnly, renderTriggerContent } = props;
+    const {
+        baseCls,
+        isReadOnly = false,
+        renderTriggerContent = ColorPickerInputTriggerContent,
+    } = props;
     const triggerProps = getColorPickerInputTriggerExtantProps(props);
     const Trigger = isReadOnly ? 'span' : 'button';
 
@@ -13,13 +17,6 @@ const ColorPickerInputTrigger = (props) => {
             {renderTriggerContent(props)}
         </Trigger>
     );
-};
-
-ColorPickerInputTrigger.defaultProps = {
-    isDisabled: false,
-    isReadOnly: false,
-    onClick: () => Promise.resolve(),
-    renderTriggerContent: ColorPickerInputTriggerContent,
 };
 
 ColorPickerInputTrigger.propTypes = {

@@ -7,27 +7,36 @@ import { getTextInputExtantProps } from './utils/inputUtils';
 import './styles/textarea.scss';
 
 const Textarea = (props) => {
+    const {
+        autoComplete = 'on',
+        hasError = false,
+        isDisabled = false,
+        isReadOnly = false,
+        shouldAutoFocus = false,
+        shouldSpellCheck = false,
+        onChange = Textarea.onChange,
+        ...rest
+    } = props;
     const baseCls = 'bankai-textarea';
 
     return (
         <UniversalTextInput
-            {...props}
+            {...rest}
             baseCls={baseCls}
+            hasError={hasError}
+            isDisabled={isDisabled}
+            isReadOnly={isReadOnly}
+            autoComplete={autoComplete}
+            shouldAutoFocus={shouldAutoFocus}
+            shouldSpellCheck={shouldSpellCheck}
+            onChange={onChange}
             getExtantProps={getTextInputExtantProps}
             isTextarea
         />
     );
 };
 
-Textarea.defaultProps = {
-    hasError: false,
-    isDisabled: false,
-    isReadOnly: false,
-    autoComplete: 'on',
-    shouldAutoFocus: false,
-    shouldSpellCheck: false,
-    onChange: () => Promise.resolve(),
-};
+Textarea.onChange = () => Promise.resolve();
 
 Textarea.propTypes = {
     autoComplete: PropTypes.string,

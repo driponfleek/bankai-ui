@@ -44,6 +44,8 @@ module.exports = {
     ],
     moduleNameMapper: {
         '\\.(less|css|scss)$': '<rootDir>/__mocks__/styleMock.js',
+        '^@driponfleek/(bankai-(?:ui|lib)-[^/]+)$':
+            '<rootDir>/node_modules/@driponfleek/$1/index.js',
         'dnd-core': 'dnd-core/dist/cjs',
         '^react-dnd$': 'react-dnd/dist/cjs',
         'react-dnd-html5-backend': 'react-dnd-html5-backend/dist/cjs',

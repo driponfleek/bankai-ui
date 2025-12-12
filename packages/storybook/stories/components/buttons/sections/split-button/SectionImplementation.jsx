@@ -18,7 +18,7 @@ const menuOptionsCodeStr = `const menuOptions = [
 ];`;
 
 const SectionImplementation = (props) => {
-    const { variant } = props;
+    const { variant = '' } = props;
     const importCodeStr = `import { SplitButton${variant} } from '@driponfleek/bankai-ui-buttons';`;
     const usageCodeStr = `${menuOptionsCodeStr}\n\n<SplitButton${variant}\n    mainButtonProps={{ text: 'Main Action' }}\n    menuButtonProps={{ 'aria-label': 'More options' }}\n    menuOptions={menuOptions}\n/>`;
 
@@ -34,10 +34,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.defaultProps = {
-    variant: '',
 };
 
 SectionImplementation.propTypes = {

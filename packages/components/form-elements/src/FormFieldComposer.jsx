@@ -13,13 +13,8 @@ import {
 } from './utils/formFieldComposerUtils';
 import { getFFCRenderer } from './utils/formFieldComposerRendererUtil';
 
-// Constants
-import VARIANTS from './const/formFieldComposerVariantsConst';
-
 // Styles
 import './styles/form-field-composer.scss';
-
-const { STACKED } = VARIANTS;
 
 // TODO: Need to remove need for variants
 const withFormField = (Comp) => {
@@ -65,16 +60,6 @@ const withFormField = (Comp) => {
                 </div>
             </div>
         );
-    };
-
-    Wrapper.defaultProps = {
-        rwSuffix: '_input',
-        variant: STACKED,
-        hasError: false,
-        isDisabled: false,
-        isReadOnly: false,
-        shouldIncludeError: true,
-        shouldIncludeHint: true,
     };
 
     Wrapper.propTypes = {

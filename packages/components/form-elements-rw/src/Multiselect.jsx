@@ -12,7 +12,39 @@ import './styles/multiselect.scss';
 const Multiselect = (props) => {
     const {
         contextCls,
+        hasError = false,
+        isBusy = false,
+        isDefaultOpen = false,
+        isDisabled = false,
+        isReadOnly = false,
+        shouldAutoFocus = false,
+        shouldDropUp = false,
+        shouldFocustFirstItem = false,
+        shouldShowPlaceholderWithValues = true,
+        data = [],
+        onChange = Multiselect.onChange,
+        onCreate = Multiselect.onCreate,
+        onSearch = Multiselect.onSearch,
+        onSelect = Multiselect.onSelect,
+        renderBusySpinner = BusySpinner,
+        renderClearTagIcon = ClearTagIcon,
+        renderSelectIcon = SelectIcon,
+        ...rest
+    } = props;
+    const baseCls = 'bankai-multiselect';
+    const multiselectProps = getMultiselectExtantProps({
+        ...rest,
+        contextCls,
         hasError,
+        isBusy,
+        isDefaultOpen,
+        isDisabled,
+        isReadOnly,
+        shouldAutoFocus,
+        shouldDropUp,
+        shouldFocustFirstItem,
+        shouldShowPlaceholderWithValues,
+        data,
         onChange,
         onCreate,
         onSearch,
@@ -20,9 +52,7 @@ const Multiselect = (props) => {
         renderBusySpinner,
         renderClearTagIcon,
         renderSelectIcon,
-    } = props;
-    const baseCls = 'bankai-multiselect';
-    const multiselectProps = getMultiselectExtantProps(props);
+    });
     const modCls = {
         [`${baseCls}--error`]: hasError,
     };
@@ -45,25 +75,10 @@ const Multiselect = (props) => {
     );
 };
 
-Multiselect.defaultProps = {
-    hasError: false,
-    isBusy: false,
-    isDefaultOpen: false,
-    isDisabled: false,
-    isReadOnly: false,
-    shouldAutoFocus: false,
-    shouldDropUp: false,
-    shouldFocustFirstItem: false,
-    shouldShowPlaceholderWithValues: true,
-    data: [],
-    onChange: () => Promise.resolve(),
-    onCreate: () => Promise.resolve(),
-    onSearch: () => Promise.resolve(),
-    onSelect: () => Promise.resolve(),
-    renderBusySpinner: BusySpinner,
-    renderClearTagIcon: ClearTagIcon,
-    renderSelectIcon: SelectIcon,
-};
+Multiselect.onChange = () => Promise.resolve();
+Multiselect.onCreate = () => Promise.resolve();
+Multiselect.onSearch = () => Promise.resolve();
+Multiselect.onSelect = () => Promise.resolve();
 
 Multiselect.propTypes = {
     contextCls: PropTypes.string,

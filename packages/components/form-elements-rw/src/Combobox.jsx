@@ -12,15 +12,43 @@ import './styles/combobox.scss';
 const Combobox = (props) => {
     const {
         contextCls,
+        hasError = false,
+        shouldAutoFocus = false,
+        shouldAutoSelectMatches = false,
+        isBusy = false,
+        isDefaultOpen = false,
+        isDisabled = false,
+        isReadOnly = false,
+        shouldDropUp = false,
+        shouldFocustFirstItem = false,
+        data = [],
+        onChange = Combobox.onChange,
+        onSelect = Combobox.onSelect,
+        onToggle = Combobox.onToggle,
+        renderBusySpinner = BusySpinner,
+        renderSelectIcon = SelectIcon,
+        ...rest
+    } = props;
+    const baseCls = 'bankai-combobox';
+    const comboboxProps = getComboboxExtantProps({
+        ...rest,
+        contextCls,
         hasError,
+        shouldAutoFocus,
+        shouldAutoSelectMatches,
+        isBusy,
+        isDefaultOpen,
+        isDisabled,
+        isReadOnly,
+        shouldDropUp,
+        shouldFocustFirstItem,
+        data,
         onChange,
         onSelect,
         onToggle,
         renderBusySpinner,
         renderSelectIcon,
-    } = props;
-    const baseCls = 'bankai-combobox';
-    const comboboxProps = getComboboxExtantProps(props);
+    });
     const modCls = {
         [`${baseCls}--error`]: hasError,
     };
@@ -40,23 +68,9 @@ const Combobox = (props) => {
     );
 };
 
-Combobox.defaultProps = {
-    shouldAutoFocus: false,
-    shouldAutoSelectMatches: false,
-    hasError: false,
-    isBusy: false,
-    isDefaultOpen: false,
-    isDisabled: false,
-    isReadOnly: false,
-    shouldDropUp: false,
-    shouldFocustFirstItem: false,
-    data: [],
-    onChange: () => Promise.resolve(),
-    onSelect: () => Promise.resolve(),
-    onToggle: () => Promise.resolve(),
-    renderBusySpinner: BusySpinner,
-    renderSelectIcon: SelectIcon,
-};
+Combobox.onChange = () => Promise.resolve();
+Combobox.onSelect = () => Promise.resolve();
+Combobox.onToggle = () => Promise.resolve();
 
 Combobox.propTypes = {
     contextCls: PropTypes.string,

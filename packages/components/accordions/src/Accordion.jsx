@@ -13,7 +13,7 @@ const Accordion = (props) => {
     const {
         contextCls,
         renderTrigger,
-        headingLvl,
+        headingLvl = 3,
         renderTriggerIcon,
         ...rest
     } = props;
@@ -47,10 +47,6 @@ const Accordion = (props) => {
             renderTriggerIcon={renderTriggerIcon}
         />
     );
-};
-
-Accordion.defaultProps = {
-    headingLvl: 3,
 };
 
 Accordion.propTypes = {
