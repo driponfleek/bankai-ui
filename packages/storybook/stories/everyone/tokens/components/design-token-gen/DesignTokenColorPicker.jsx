@@ -3,7 +3,7 @@ import ColorPickerField from '../../../../../sb-components/form-elements/ColorPi
 import { FIELD_IDS_TO_LABEL_MAP } from '../../const/designTokenGenConst';
 
 const DesignTokenColorPicker = (props) => {
-    const { fieldId, fieldValues, ...rest } = props;
+    const { fieldId, fieldValues = {}, ...rest } = props;
 
     return (
         <ColorPickerField
@@ -16,10 +16,6 @@ const DesignTokenColorPicker = (props) => {
             fieldId={fieldId}
         />
     );
-};
-
-DesignTokenColorPicker.defaultProps = {
-    fieldValues: {},
 };
 
 DesignTokenColorPicker.propTypes = {

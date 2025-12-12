@@ -57,11 +57,11 @@ export const getToggleInputExtantProps = (props) => {
 export const getToggleSwitchExtantProps = (props) => {
     const {
         contextCls,
-        isBusy,
+        isBusy = false,
         isChecked,
         isDefaultChecked,
-        isDisabled,
-        icons,
+        isDisabled = false,
+        icons = false,
         onChange,
         renderBusyIcon,
         ...rest

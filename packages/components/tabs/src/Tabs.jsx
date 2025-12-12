@@ -19,19 +19,32 @@ const { OVERLINE_SEGMENTED } = VARIANTS;
 const Tabs = (props) => {
     const {
         contextCls,
-        hasMicrointeractions,
-        isVerticalTabs,
-        shouldAllowLetterNavigation,
-        onChange,
+        hasMicrointeractions = true,
+        isVerticalTabs = false,
+        shouldAllowLetterNavigation = false,
+        onChange = Tabs.onChange,
         renderTab,
-        variant,
+        variant = OVERLINE_SEGMENTED,
         children,
         ...rest
     } = props;
     const baseCls = 'bankai-tabs';
     const panels = Children.toArray(children);
     const tabs = getTabs(panels);
-    const modCls = getModCls(props, baseCls);
+    const modCls = getModCls(
+        {
+            ...rest,
+            contextCls,
+            hasMicrointeractions,
+            isVerticalTabs,
+            shouldAllowLetterNavigation,
+            onChange,
+            renderTab,
+            variant,
+            children,
+        },
+        baseCls,
+    );
     const renderPanel = (panel) => {
         const { props: itemProps } = panel || {};
         const { tabProps, panelProps } = itemProps || {};
@@ -63,13 +76,7 @@ const Tabs = (props) => {
     );
 };
 
-Tabs.defaultProps = {
-    variant: OVERLINE_SEGMENTED,
-    hasMicrointeractions: true,
-    isVerticalTabs: false,
-    shouldAllowLetterNavigation: false,
-    onChange: () => Promise.resolve(),
-};
+Tabs.onChange = () => Promise.resolve();
 
 Tabs.propTypes = {
     activeTabId: PropTypes.string,

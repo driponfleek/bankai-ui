@@ -11,11 +11,11 @@ const UniversalToggleInput = (props) => {
     const {
         contextCls,
         value,
-        isChecked,
-        isDisabled,
+        isChecked = false,
+        isDisabled = false,
         data,
-        onChange,
-        renderCheckedIcon,
+        onChange = UniversalToggleInput.onChange,
+        renderCheckedIcon = UniversalToggleInput.renderCheckedIcon,
     } = props;
     const inputProps = getToggleInputExtantProps(props);
     const baseCls = 'bankai-universal-toggle-input';
@@ -41,12 +41,8 @@ const UniversalToggleInput = (props) => {
     );
 };
 
-UniversalToggleInput.defaultProps = {
-    isDisabled: false,
-    isChecked: false,
-    onChange: () => Promise.resolve(),
-    renderCheckedIcon: () => <span />,
-};
+UniversalToggleInput.onChange = () => Promise.resolve();
+UniversalToggleInput.renderCheckedIcon = () => <span />;
 
 UniversalToggleInput.propTypes = {
     contextCls: PropTypes.string,

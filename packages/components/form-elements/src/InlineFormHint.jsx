@@ -22,8 +22,6 @@ const InlineFormHint = (props) => {
     );
 };
 
-InlineFormHint.defaultProps = {};
-
 InlineFormHint.propTypes = {
     contextCls: PropTypes.string,
     ariaLiveProps: PropTypes.shape({

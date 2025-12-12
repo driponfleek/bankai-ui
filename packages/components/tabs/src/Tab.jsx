@@ -10,8 +10,8 @@ const Tab = (props) => {
         contextCls,
         id,
         letterNavigationText,
-        isActive,
-        isVertical,
+        isActive = false,
+        isVertical = false,
         children,
         renderIcon,
         text,
@@ -56,11 +56,6 @@ const Tab = (props) => {
             {children}
         </ARIATab>
     );
-};
-
-Tab.defaultProps = {
-    isActive: false,
-    isVertical: false,
 };
 
 Tab.propTypes = {

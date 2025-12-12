@@ -4,7 +4,7 @@ import { Menu } from 'react-aria-menubutton';
 import MenuButtonOption from './MenuButtonOption';
 
 const MenuButtonMenu = (props) => {
-    const { baseCls, menuOptions, menuProps, renderMenuOption } = props;
+    const { baseCls, menuOptions = [], menuProps, renderMenuOption } = props;
     const MenuOp = renderMenuOption ?? MenuButtonOption;
 
     return (
@@ -20,10 +20,6 @@ const MenuButtonMenu = (props) => {
             </ul>
         </Menu>
     );
-};
-
-MenuButtonMenu.defaultProps = {
-    menuOptions: [],
 };
 
 MenuButtonMenu.propTypes = {

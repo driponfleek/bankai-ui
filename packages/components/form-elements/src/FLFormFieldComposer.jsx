@@ -23,11 +23,11 @@ const withFLFormField = (Comp) => {
         const {
             contextCls,
             id,
-            isDisabled,
+            isDisabled = false,
             renderBefore,
             renderAfter,
-            onChange,
-            isReadOnly,
+            onChange = Wrapper.onChange,
+            isReadOnly = false,
         } = props;
         const baseCls = 'bankai-fl-form-field-composer';
         const [hasValue, setHasValue] = useState(getFLFFCHasVal(props));
@@ -123,15 +123,7 @@ const withFLFormField = (Comp) => {
         );
     };
 
-    Wrapper.defaultProps = {
-        rwSuffix: '_input',
-        hasError: false,
-        isDisabled: false,
-        isReadOnly: false,
-        shouldIncludeError: true,
-        shouldIncludeHint: true,
-        onChange: () => Promise.resolve(),
-    };
+    Wrapper.onChange = () => Promise.resolve();
 
     Wrapper.propTypes = {
         contextCls: PropTypes.string,

@@ -1,22 +1,33 @@
 import { render } from '@driponfleek/bankai-lib-react-unit-test-utils';
 import Button from '../Button';
 
+const originalClick = Button.onClick;
+const originalBlur = Button.onBlur;
+const originalFocus = Button.onFocus;
+
 describe('<Button />', () => {
+    afterEach(() => {
+        Button.onClick = originalClick;
+        Button.onBlur = originalBlur;
+        Button.onFocus = originalFocus;
+    });
+
     it('should render without crashing', () => {
         render(<Button />);
     });
 
-    it('should call props.onClick when clicked', async () => {
-        const clickSpy = jest.fn(Button.defaultProps.onClick);
+    it('should call Button.onClick when clicked and no handler is passed to props.onClick', async () => {
+        const eventSpy = jest.fn(originalClick);
         const props = {
             text: 'Click Me!',
-            onClick: clickSpy,
         };
+        Button.onClick = eventSpy;
         const { user, getByRole } = render(<Button {...props} />);
         const button = getByRole('button');
         await user.click(button);
 
-        expect(clickSpy).toHaveBeenCalledWith(
+        expect(eventSpy).toHaveBeenCalledTimes(1);
+        expect(eventSpy).toHaveBeenCalledWith(
             expect.objectContaining({
                 e: expect.anything(),
             }),
@@ -24,134 +35,140 @@ describe('<Button />', () => {
     });
 
     it('should call props.onClick and return both event and data passed to props.data when clicked', async () => {
-        const clickSpy = jest.fn(Button.defaultProps.onClick);
+        const eventSpy = jest.fn();
+        const defaultEventSpy = jest.fn(originalClick);
+        Button.onClick = defaultEventSpy;
         const data = { test: 'yup' };
         const props = {
             text: 'Click Me!',
             data,
-            onClick: clickSpy,
+            onClick: eventSpy,
         };
         const { user, getByRole } = render(<Button {...props} />);
         const button = getByRole('button');
         await user.click(button);
 
-        expect(clickSpy).toHaveBeenCalledWith(
+        expect(eventSpy).toHaveBeenCalledTimes(1);
+        expect(eventSpy).toHaveBeenCalledWith(
             expect.objectContaining({
                 e: expect.anything(),
                 data,
             }),
         );
+        expect(defaultEventSpy).not.toHaveBeenCalled();
     });
 
-    it('should call props.onBlur when the button has focus and loses focus', async () => {
-        const blurSpy = jest.fn(Button.defaultProps.onBlur);
+    it('should call Button.onBlur when the button has focus and loses focus and no handler is passed to props.onBlur', async () => {
+        const eventSpy = jest.fn(originalBlur);
         const props = {
             text: 'Click Me!',
-            onBlur: blurSpy,
+        };
+        Button.onBlur = eventSpy;
+        const { user, getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
+        await user.click(button);
+        await user.tab(button);
+
+        expect(eventSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call Button.onFocus when the button has focus and no handler is passed to props.onFocus', async () => {
+        const eventSpy = jest.fn(originalFocus);
+        const props = {
+            text: 'Click Me!',
+        };
+        Button.onFocus = eventSpy;
+        const { user, getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
+        await user.click(button);
+
+        expect(eventSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not call onClick when props.isDisabled is true', async () => {
+        const eventSpy = jest.fn();
+        const props = {
+            text: 'Click Me!',
+            isDisabled: true,
+            onClick: eventSpy,
+        };
+        const { user, getByRole } = render(<Button {...props} />);
+        const button = getByRole('button');
+        await user.click(button);
+
+        expect(eventSpy).not.toHaveBeenCalled();
+    });
+
+    it('should not call onBlur when props.isDisabled is true', async () => {
+        const eventSpy = jest.fn();
+        const props = {
+            text: 'Click Me!',
+            isDisabled: true,
+            onBlur: eventSpy,
         };
         const { user, getByRole } = render(<Button {...props} />);
         const button = getByRole('button');
         await user.click(button);
         await user.tab(button);
 
-        expect(blurSpy).toHaveBeenCalled();
+        expect(eventSpy).not.toHaveBeenCalled();
     });
 
-    it('should call props.onFocus when the button has focus', async () => {
-        const focusSpy = jest.fn(Button.defaultProps.onFocus);
-        const props = {
-            text: 'Click Me!',
-            onFocus: focusSpy,
-        };
-        const { user, getByRole } = render(<Button {...props} />);
-        const button = getByRole('button');
-        await user.click(button);
-
-        expect(focusSpy).toHaveBeenCalled();
-    });
-
-    it('should not call props.onClick when props.isDisabled is true', async () => {
-        const clickSpy = jest.fn(Button.defaultProps.onClick);
+    it('should not call onFocus when props.isDisabled is true', async () => {
+        const eventSpy = jest.fn();
         const props = {
             text: 'Click Me!',
             isDisabled: true,
-            onClick: clickSpy,
+            onFocus: eventSpy,
         };
         const { user, getByRole } = render(<Button {...props} />);
         const button = getByRole('button');
         await user.click(button);
 
-        expect(clickSpy).not.toHaveBeenCalled();
+        expect(eventSpy).not.toHaveBeenCalled();
     });
 
-    it('should not call props.onBlur when props.isDisabled is true', async () => {
-        const blurSpy = jest.fn(Button.defaultProps.onBlur);
-        const props = {
-            text: 'Click Me!',
-            isDisabled: true,
-            onBlur: blurSpy,
-        };
-        const { user, getByRole } = render(<Button {...props} />);
-        const button = getByRole('button');
-        await user.click(button);
-
-        expect(blurSpy).not.toHaveBeenCalled();
-    });
-
-    it('should not call props.onFocus when props.isDisabled is true', async () => {
-        const focusSpy = jest.fn(Button.defaultProps.onFocus);
-        const props = {
-            text: 'Click Me!',
-            isDisabled: true,
-            onFocus: focusSpy,
-        };
-        const { user, getByRole } = render(<Button {...props} />);
-        const button = getByRole('button');
-        await user.click(button);
-
-        expect(focusSpy).not.toHaveBeenCalled();
-    });
-
-    it('should not call props.onClick when props.isBusy is true', async () => {
-        const clickSpy = jest.fn(Button.defaultProps.onClick);
+    it('should not call onClick when props.isBusy is true', async () => {
+        const eventSpy = jest.fn();
         const props = {
             text: 'Click Me!',
             isBusy: true,
-            onClick: clickSpy,
+            onClick: eventSpy,
         };
         const { user, getByRole } = render(<Button {...props} />);
         const button = getByRole('button');
         await user.click(button);
 
-        expect(clickSpy).not.toHaveBeenCalled();
+        expect(eventSpy).not.toHaveBeenCalled();
     });
 
-    it('should not call props.onBlur when props.isBusy is true', async () => {
-        const blurSpy = jest.fn(Button.defaultProps.onBlur);
+    it('should not call onBlur when props.isBusy is true', async () => {
+        const eventSpy = jest.fn();
         const props = {
             text: 'Click Me!',
             isBusy: true,
-            onBlur: blurSpy,
+            onBlur: eventSpy,
         };
         const { user, getByRole } = render(<Button {...props} />);
         const button = getByRole('button');
         await user.click(button);
+        await user.tab(button);
 
-        expect(blurSpy).not.toHaveBeenCalled();
+        expect(eventSpy).not.toHaveBeenCalled();
     });
 
-    it('should not call props.onFocus when props.isBusy is true', async () => {
-        const focusSpy = jest.fn(Button.defaultProps.onFocus);
+    it('should not call onFocus when props.isBusy is true', async () => {
+        const eventSpy = jest.fn();
         const props = {
             text: 'Click Me!',
             isBusy: true,
-            onFocus: focusSpy,
+            onFocus: eventSpy,
         };
         const { user, getByRole } = render(<Button {...props} />);
         const button = getByRole('button');
         await user.click(button);
 
-        expect(focusSpy).not.toHaveBeenCalled();
+        expect(eventSpy).not.toHaveBeenCalled();
     });
 
     // it('should ', () => {});

@@ -17,44 +17,46 @@ const StatusModal = (props) => {
         dialogContextCls,
         overlayContextCls,
         statusText,
-        isOpen,
-        renderIcon,
+        closeTimeoutMS = 2000,
+        isOpen = false,
+        renderIcon = LoadingBars,
+        role = 'dialog',
+        appElement = document.getElementById('root'),
+        onAfterClose = StatusModal.onAfterClose,
+        onAfterOpen = StatusModal.onAfterOpen,
+        renderTo = StatusModal.renderTo,
         ...rest
     } = props;
     const baseCls = 'bankai-status-modal';
-    const iconRenderer = ({ contextCls }) => (
-        <LoadingBars contextCls={contextCls} variant={FREQUENCY} />
-    );
 
     return (
         <ARIAModal
             {...rest}
+            appElement={appElement}
+            role={role}
+            closeTimeoutMS={closeTimeoutMS}
             ariaLabel={statusText}
             dialogContextCls={cx(`${baseCls}__dialog`, dialogContextCls)}
             overlayContextCls={cx(`${baseCls}__overlay`, overlayContextCls)}
             isOpen={isOpen}
             shouldCloseOnEsc={false}
             shouldCloseOnOverlayClick={false}
+            onAfterClose={onAfterClose}
+            onAfterOpen={onAfterOpen}
+            renderTo={renderTo}
         >
             <LoadingState
                 contextCls={baseCls}
                 title={statusText}
-                renderIcon={iconRenderer}
+                renderIcon={renderIcon}
             />
         </ARIAModal>
     );
 };
 
-StatusModal.defaultProps = {
-    isOpen: false,
-    role: 'dialog',
-    closeTimeoutMS: 2000,
-    appElement: document.getElementById('root'),
-    onAfterClose: () => Promise.resolve(),
-    onAfterOpen: () => Promise.resolve(),
-    renderIcon: LoadingBars,
-    renderTo: () => document.body,
-};
+StatusModal.onAfterClose = () => Promise.resolve();
+StatusModal.onAfterOpen = () => Promise.resolve();
+StatusModal.renderTo = () => document.body;
 
 StatusModal.propTypes = {
     dialogContextCls: PropTypes.string,

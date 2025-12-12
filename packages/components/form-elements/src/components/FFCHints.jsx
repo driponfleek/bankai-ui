@@ -9,8 +9,8 @@ const FFCHints = (props) => {
     const {
         baseCls,
         errorId,
-        shouldIncludeError,
-        shouldIncludeHint,
+        shouldIncludeError = false,
+        shouldIncludeHint = false,
         errorProps,
         hintProps,
     } = props;
@@ -36,11 +36,6 @@ const FFCHints = (props) => {
             {shouldIncludeHint && <InlineFormHint {...inlineHintProps} />}
         </div>
     );
-};
-
-FFCHints.defaultProps = {
-    shouldIncludeError: false,
-    shouldIncludeHint: false,
 };
 
 FFCHints.propTypes = {

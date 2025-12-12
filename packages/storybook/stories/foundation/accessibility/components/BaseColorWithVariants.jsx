@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { BaseColorWithVariants as SBBaseColorWithVariants } from '@driponfleek/bankai-lib-storybook';
 
 const BaseColorWithVariants = (props) => {
-    const { colorData, isCard } = props;
+    const { colorData, isCard = true } = props;
     const { preferred, variants } = colorData ?? {};
 
     return (
@@ -13,10 +13,6 @@ const BaseColorWithVariants = (props) => {
             shouldScrollList={false}
         />
     );
-};
-
-BaseColorWithVariants.defaultProps = {
-    isCard: true,
 };
 
 BaseColorWithVariants.propTypes = {

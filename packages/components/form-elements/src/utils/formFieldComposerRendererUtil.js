@@ -10,7 +10,7 @@ import VARIANTS from '../const/formFieldComposerVariantsConst';
 const { INLINE_LEFT, INLINE_RIGHT, STACKED, STACKED_HINT_TOP } = VARIANTS;
 
 export const getFFCRenderer = (props) => {
-    const { variant } = props ?? {};
+    const { variant = STACKED } = props ?? {};
 
     switch (variant) {
         case INLINE_LEFT:

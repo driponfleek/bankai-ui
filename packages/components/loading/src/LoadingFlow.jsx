@@ -14,17 +14,24 @@ import {
 const LoadingFlow = (props) => {
     const {
         contextCls,
-        errorStateProps,
-        loadingStateProps,
-        renderErrorState,
-        renderLoadingState,
+        hasError = false,
+        isLoading = true,
+        errorStateProps = {},
+        loadingStateProps = {},
+        renderErrorState = LoadingErrorState,
+        renderLoadingState = LoadingState,
         children,
         ...rest
     } = props;
     const baseCls = 'bankai-loading-flow';
-    const shouldRenderLoadingState = getShouldRenderLoading(rest);
-    const shouldRenderErrorState = getShouldRenderError(rest);
-    const shouldRenderContent = getShouldRenderContent(rest);
+    const funcProps = {
+        ...rest,
+        isLoading,
+        hasError,
+    };
+    const shouldRenderLoadingState = getShouldRenderLoading(funcProps);
+    const shouldRenderErrorState = getShouldRenderError(funcProps);
+    const shouldRenderContent = getShouldRenderContent(funcProps);
 
     return (
         <Fragment>
@@ -49,15 +56,6 @@ const LoadingFlow = (props) => {
             {shouldRenderContent && children}
         </Fragment>
     );
-};
-
-LoadingFlow.defaultProps = {
-    hasError: false,
-    isLoading: true,
-    errorStateProps: {},
-    loadingStateProps: {},
-    renderErrorState: LoadingErrorState,
-    renderLoadingState: LoadingState,
 };
 
 LoadingFlow.propTypes = {

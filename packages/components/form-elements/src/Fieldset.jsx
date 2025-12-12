@@ -9,8 +9,8 @@ const Fieldset = (props) => {
         contextCls,
         formId: form,
         name,
-        isDisabled: disabled,
-        shouldIndentContent,
+        isDisabled: disabled = false,
+        shouldIndentContent = false,
         legendProps,
         legend,
         children,
@@ -38,11 +38,6 @@ const Fieldset = (props) => {
             <div className={`${baseCls}__content-container`}>{children}</div>
         </fieldset>
     );
-};
-
-Fieldset.defaultProps = {
-    isDisabled: false,
-    shouldIndentContent: false,
 };
 
 Fieldset.propTypes = {

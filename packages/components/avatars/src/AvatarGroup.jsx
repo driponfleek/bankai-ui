@@ -7,7 +7,7 @@ import Avatar from './Avatar';
 import './styles/avatar-group.scss';
 
 const AvatarGroup = (props) => {
-    const { contextCls, shouldOverlap, avatars, children } = props;
+    const { contextCls, shouldOverlap = true, avatars = [], children } = props;
     const baseCls = 'bankai-avatar-group';
     const modCls = {
         [`${baseCls}--overlap`]: shouldOverlap,
@@ -21,11 +21,6 @@ const AvatarGroup = (props) => {
                 )}
         </span>
     );
-};
-
-AvatarGroup.defaultProps = {
-    shouldOverlap: true,
-    avatars: [],
 };
 
 AvatarGroup.propTypes = {

@@ -14,13 +14,13 @@ import './styles/split-button.scss';
 const SplitButton = (props) => {
     const {
         contextCls,
-        isDisabled,
-        onMainClick,
-        onMenuSelection,
-        renderMainButton,
-        renderMenuButton,
-        renderMenuButtonIcon,
-        menuOptions,
+        isDisabled = false,
+        menuOptions = [],
+        onMainClick = SplitButton.onMainClick,
+        onMenuSelection = SplitButton.onMenuSelection,
+        renderMainButton = Button,
+        renderMenuButton = MenuButton,
+        renderMenuButtonIcon = BankaiCaretDown,
     } = props;
     const baseCls = BUTTON_SPLIT_BASE_CLS;
     const modCls = {
@@ -53,17 +53,8 @@ const SplitButton = (props) => {
     );
 };
 
-SplitButton.defaultProps = {
-    isDisabled: false,
-    menuOptions: [],
-    mainButtonProps: {},
-    menuButtonProps: {},
-    onMainClick: () => Promise.resolve(),
-    onMenuSelection: () => Promise.resolve(),
-    renderMainButton: (props) => <Button {...props} />,
-    renderMenuButton: (props) => <MenuButton {...props} />,
-    renderMenuButtonIcon: BankaiCaretDown,
-};
+SplitButton.onMainClick = () => Promise.resolve();
+SplitButton.onMenuSelection = () => Promise.resolve();
 
 SplitButton.propTypes = {
     contextCls: PropTypes.string,

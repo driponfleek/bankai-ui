@@ -15,10 +15,10 @@ const ToggleSwitch = (props) => {
         id,
         name,
         value,
-        isBusy,
-        isDisabled,
+        isBusy = false,
+        isDisabled = false,
         onChange,
-        renderBusyIcon,
+        renderBusyIcon = ToggleSwitchBusyIcon,
     } = props;
     const baseCls = 'bankai-toggle-switch';
     const handleChange = () => {
@@ -42,13 +42,7 @@ const ToggleSwitch = (props) => {
     );
 };
 
-ToggleSwitch.defaultProps = {
-    isBusy: false,
-    isDisabled: false,
-    icons: false,
-    renderBusyIcon: ToggleSwitchBusyIcon,
-    onChange: () => Promise.resolve(),
-};
+ToggleSwitch.onChange = () => Promise.resolve();
 
 ToggleSwitch.propTypes = {
     contextCls: PropTypes.string,

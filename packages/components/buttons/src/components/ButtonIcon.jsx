@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { BUTTON_BASE_CLS } from '../const/baseClsConst';
 
 const ButtonIcon = (props) => {
-    const { renderIcon, baseCls } = props;
+    const { renderIcon = () => '', baseCls = BUTTON_BASE_CLS } = props;
     const baseIconCls = `${baseCls}__icon-container`;
 
     return (
@@ -14,11 +14,6 @@ const ButtonIcon = (props) => {
             </span>
         </span>
     );
-};
-
-ButtonIcon.defaultProps = {
-    baseCls: BUTTON_BASE_CLS,
-    renderIcon: () => '',
 };
 
 ButtonIcon.propTypes = {

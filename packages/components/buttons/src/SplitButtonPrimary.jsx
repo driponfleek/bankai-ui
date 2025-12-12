@@ -11,7 +11,12 @@ import { BUTTON_SPLIT_BASE_CLS } from './const/baseClsConst';
 import './styles/split-button.scss';
 
 const SplitButtonPrimary = (props) => {
-    const { contextCls, renderMainButton, renderMenuButton, ...rest } = props;
+    const {
+        contextCls,
+        renderMainButton = ButtonPrimary,
+        renderMenuButton = MenuButtonPrimary,
+        ...rest
+    } = props;
     const baseCls = `${BUTTON_SPLIT_BASE_CLS}--primary`;
 
     return (
@@ -22,11 +27,6 @@ const SplitButtonPrimary = (props) => {
             renderMenuButton={renderMenuButton}
         />
     );
-};
-
-SplitButtonPrimary.defaultProps = {
-    renderMainButton: (props) => <ButtonPrimary {...props} />,
-    renderMenuButton: (props) => <MenuButtonPrimary {...props} />,
 };
 
 SplitButtonPrimary.propTypes = {

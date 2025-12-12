@@ -9,7 +9,14 @@ import { getLinkBtnExtantProps } from './utils/buttonUtils';
 import './styles/link-button.scss';
 
 const LinkButton = (props) => {
-    const { contextCls, text, data, onClick, renderIcon, children } = props;
+    const {
+        contextCls,
+        text,
+        data,
+        onClick = LinkButton.onClick,
+        renderIcon,
+        children,
+    } = props;
     const baseCls = 'bankai-link-button';
     const sanitizedProps = getLinkBtnExtantProps(props);
     const handleClick = (e) => {
@@ -30,9 +37,7 @@ const LinkButton = (props) => {
     );
 };
 
-LinkButton.defaultProps = {
-    onClick: () => Promise.resolve(),
-};
+LinkButton.onClick = () => Promise.resolve();
 
 LinkButton.propTypes = {
     contextCls: PropTypes.string,

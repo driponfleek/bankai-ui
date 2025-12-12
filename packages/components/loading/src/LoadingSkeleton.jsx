@@ -6,7 +6,7 @@ import './styles/loading-skeleton.scss';
 
 const LoadingSkeleton = (props) => {
     const baseCls = 'bankai-loading-skeleton';
-    const { contextCls, isSpan } = props;
+    const { contextCls, isSpan = false } = props;
     const Tag = isSpan ? 'span' : 'div';
     const modCls = {
         [`${baseCls}--is-span`]: isSpan,
@@ -17,10 +17,6 @@ const LoadingSkeleton = (props) => {
             <Tag className={`${baseCls}__animation`} />
         </Tag>
     );
-};
-
-LoadingSkeleton.defaultProps = {
-    isSpan: false,
 };
 
 LoadingSkeleton.propTypes = {

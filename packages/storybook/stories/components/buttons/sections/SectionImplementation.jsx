@@ -9,7 +9,7 @@ import CompImportAndUsage from '../../../../sb-components/docblocks/CompImportAn
 import { getLocale } from '../../../../utils/localeUtils';
 
 const SectionImplementation = (props) => {
-    const { variant } = props;
+    const { variant = '' } = props;
 
     return (
         <StorySection>
@@ -35,10 +35,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.defaultProps = {
-    variant: '',
 };
 
 SectionImplementation.propTypes = {

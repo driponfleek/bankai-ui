@@ -6,8 +6,13 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 import './styles/component-preview.scss';
 
 const ComponentPreview = (props) => {
-    const { contextCls, children, shouldCheckA11Y, hasLightBg, ...rest } =
-        props;
+    const {
+        contextCls,
+        children,
+        shouldCheckA11Y = false,
+        hasLightBg = false,
+        ...rest
+    } = props;
     const baseCls = genSBBaseCls('component-preview');
     const modCls = {
         [`${baseCls}--check-a11y`]: shouldCheckA11Y,
@@ -19,11 +24,6 @@ const ComponentPreview = (props) => {
             {children}
         </div>
     );
-};
-
-ComponentPreview.defaultProps = {
-    shouldCheckA11Y: false,
-    hasLightBg: false,
 };
 
 ComponentPreview.propTypes = {

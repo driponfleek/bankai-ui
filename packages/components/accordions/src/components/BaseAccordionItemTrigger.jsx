@@ -11,9 +11,9 @@ const BaseAccordionItemTrigger = (props) => {
     const {
         baseCls,
         contextCls,
-        headingLvl,
-        buttonProps,
-        headingProps,
+        headingLvl = 3,
+        buttonProps = {},
+        headingProps = {},
         renderTriggerIcon,
         children,
     } = props;
@@ -44,12 +44,6 @@ const BaseAccordionItemTrigger = (props) => {
             <AccordionItemState>{renderBtn}</AccordionItemState>
         </AccordionItemHeading>
     );
-};
-
-BaseAccordionItemTrigger.defaultProps = {
-    headingLvl: 3,
-    buttonProps: {},
-    headingProps: {},
 };
 
 BaseAccordionItemTrigger.propTypes = {

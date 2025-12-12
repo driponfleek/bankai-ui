@@ -4,8 +4,13 @@ import AccordionItemPanel from '../AccordionItemPanel';
 import BaseAccordionItemTrigger from './BaseAccordionItemTrigger';
 
 const BaseAccordionItem = (props) => {
-    const { baseCls, content, headingLvl, renderTrigger, renderTriggerIcon } =
-        props;
+    const {
+        baseCls,
+        content,
+        headingLvl = 3,
+        renderTrigger,
+        renderTriggerIcon,
+    } = props;
     const { props: contentProps } = content;
     const { accItemProps = {}, accTriggerProps = {} } = contentProps;
     const Trigger = renderTrigger ?? BaseAccordionItemTrigger;
@@ -21,10 +26,6 @@ const BaseAccordionItem = (props) => {
             <AccordionItemPanel>{content}</AccordionItemPanel>
         </AccordionItem>
     );
-};
-
-BaseAccordionItem.defaultProps = {
-    headingLvl: 3,
 };
 
 BaseAccordionItem.propTypes = {

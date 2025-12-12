@@ -8,23 +8,17 @@ import {
 // Constants
 import VARIANTS from '../const/variantsConst';
 
+const { AFFIRMATIVE, INFO, CAUTIONARY, DANGER } = VARIANTS;
+const ICONS = {
+    [AFFIRMATIVE]: BankaiCircleCheck,
+    [INFO]: BankaiCircleInfo,
+    [CAUTIONARY]: BankaiTriangleAlert,
+    [DANGER]: BankaiTriangleAlert,
+};
+
 const CalloutStatusIcon = (props) => {
     const { contextCls, variant } = props;
-    let Icon;
-
-    switch (variant) {
-        case VARIANTS.AFFIRMATIVE:
-            Icon = BankaiCircleCheck;
-            break;
-        case VARIANTS.INFO:
-            Icon = BankaiCircleInfo;
-            break;
-        case VARIANTS.CAUTIONARY:
-        case VARIANTS.DANGER:
-        default:
-            Icon = BankaiTriangleAlert;
-            break;
-    }
+    const Icon = ICONS[variant] || BankaiTriangleAlert;
 
     return <Icon contextCls={contextCls} />;
 };

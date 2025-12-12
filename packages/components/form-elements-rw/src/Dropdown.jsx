@@ -11,20 +11,46 @@ import './styles/dropdown.scss';
 const Dropdown = (props) => {
     const {
         contextCls,
-        hasError,
-        filter,
-        onChange,
-        onSelect,
-        onToggle,
-        renderBusySpinner,
-        renderSelectIcon,
+        filter = false,
+        hasError = false,
+        isBusy = false,
+        isDefaultOpen = false,
+        isDisabled = false,
+        isReadOnly = false,
+        shouldAutoFocus = false,
+        shouldDropUp = false,
+        data = [],
+        onChange = Dropdown.onChange,
+        onSelect = Dropdown.onSelect,
+        onToggle = Dropdown.onToggle,
+        renderBusySpinner = BusySpinner,
+        renderSelectIcon = SelectIcon,
+        ...rest
     } = props;
     const baseCls = 'bankai-dropdown';
     const modCls = {
         [`${baseCls}--error`]: hasError,
         [`${baseCls}--no-filter`]: !filter,
     };
-    const dropdownProps = getDropdownExtantProps(props);
+    const dropdownProps = getDropdownExtantProps({
+        ...rest,
+        contextCls,
+        hasError,
+        isBusy,
+        isDefaultOpen,
+        isDisabled,
+        isReadOnly,
+        shouldAutoFocus,
+        shouldDropUp,
+        data,
+        filter,
+        onChange,
+        onSelect,
+        onToggle,
+        renderBusySpinner,
+        renderSelectIcon,
+    });
+
     const busySpinner = renderBusySpinner({ baseCls });
     const selectIcon = renderSelectIcon({ baseCls });
 
@@ -41,22 +67,9 @@ const Dropdown = (props) => {
     );
 };
 
-Dropdown.defaultProps = {
-    filter: false,
-    hasError: false,
-    isBusy: false,
-    isDefaultOpen: false,
-    isDisabled: false,
-    isReadOnly: false,
-    shouldAutoFocus: false,
-    shouldDropUp: false,
-    data: [],
-    onChange: () => Promise.resolve(),
-    onSelect: () => Promise.resolve(),
-    onToggle: () => Promise.resolve(),
-    renderBusySpinner: BusySpinner,
-    renderSelectIcon: SelectIcon,
-};
+Dropdown.onChange = () => Promise.resolve();
+Dropdown.onSelect = () => Promise.resolve();
+Dropdown.onToggle = () => Promise.resolve();
 
 Dropdown.propTypes = {
     contextCls: PropTypes.string,

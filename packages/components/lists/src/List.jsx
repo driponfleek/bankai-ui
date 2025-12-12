@@ -1,8 +1,7 @@
-import { Children, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import ListItem from './ListItem';
 import ListEmptyState from './ListEmptyState';
+import ListChildren from './ListChildren';
 
 // Styles
 import './styles/list.scss';
@@ -10,10 +9,10 @@ import './styles/list.scss';
 const List = (props) => {
     const {
         contextCls,
-        data,
+        shouldAlternateColors = false,
+        data = [],
         emptyStateProps,
-        shouldAlternateColors,
-        renderEmptyState,
+        renderEmptyState = ListEmptyState,
         renderListItem,
     } = props;
     const baseCls = 'bankai-list';
@@ -21,15 +20,6 @@ const List = (props) => {
         [`${baseCls}--alternate-item-bg-colors`]: shouldAlternateColors,
     };
     const isEmpty = data.length === 0;
-    const childItems = useMemo(
-        () =>
-            Children.toArray(
-                data.map((item) => (
-                    <li className={`${baseCls}__li`}>{renderListItem(item)}</li>
-                )),
-            ),
-        [data, renderListItem],
-    );
 
     return (
         <>
@@ -40,18 +30,15 @@ const List = (props) => {
                 })}
             {!isEmpty && (
                 <ul className={cx(baseCls, modCls, contextCls)}>
-                    {childItems}
+                    <ListChildren
+                        liCls={`${baseCls}__li`}
+                        data={data}
+                        renderListItem={renderListItem}
+                    />
                 </ul>
             )}
         </>
     );
-};
-
-List.defaultProps = {
-    shouldAlternateColors: false,
-    data: [],
-    renderEmptyState: ListEmptyState,
-    renderListItem: ListItem,
 };
 
 List.propTypes = {

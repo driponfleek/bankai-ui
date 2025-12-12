@@ -15,21 +15,6 @@ const ARIAModal = (props) => {
     return <Modal {...modalProps}>{children}</Modal>;
 };
 
-ARIAModal.defaultProps = {
-    role: 'dialog',
-    closeTimeoutMS: 0,
-    isOpen: false,
-    shouldCloseOnEsc: true,
-    shouldCloseOnOverlayClick: true,
-    shouldDisableScroll: true,
-    shouldFocusAfterRender: true,
-    appElement: document.getElementById('root'),
-    onAfterClose: () => Promise.resolve(),
-    onAfterOpen: () => Promise.resolve(),
-    onExit: () => Promise.resolve(),
-    renderTo: () => document.body,
-};
-
 ARIAModal.propTypes = {
     ariaDescribedby: PropTypes.string,
     ariaLabel: PropTypes.string,

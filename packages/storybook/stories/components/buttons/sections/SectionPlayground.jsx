@@ -5,7 +5,11 @@ import {
 } from '@driponfleek/bankai-lib-storybook';
 
 const SectionPlayground = (props) => {
-    const { variant, getPlaygroundComp, ...rest } = props;
+    const {
+        variant,
+        getPlaygroundComp = SectionPlayground.getPlaygroundComp,
+        ...rest
+    } = props;
     const Button = getPlaygroundComp(variant);
 
     return (
@@ -17,9 +21,7 @@ const SectionPlayground = (props) => {
     );
 };
 
-SectionPlayground.defaultProps = {
-    getPlaygroundComp: () => Promise.resolve(),
-};
+SectionPlayground.getPlaygroundComp = () => Promise.resolve();
 
 SectionPlayground.propTypes = {
     variant: PropTypes.string,

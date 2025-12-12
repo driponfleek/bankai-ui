@@ -6,7 +6,7 @@ import { AccordionItemPanel as AccItemPanel } from 'react-accessible-accordion';
 import { ACCORDION_BASE_CLS } from './const/baseClsConst';
 
 const AccordionItemPanel = (props) => {
-    const { contextCls, shouldHaveRegionRole, ...rest } = props;
+    const { contextCls, shouldHaveRegionRole = true, ...rest } = props;
     const baseCls = `${ACCORDION_BASE_CLS}__item-panel`;
 
     return (
@@ -16,10 +16,6 @@ const AccordionItemPanel = (props) => {
             region={shouldHaveRegionRole}
         />
     );
-};
-
-AccordionItemPanel.propTypes = {
-    shouldHaveRegionRole: true,
 };
 
 AccordionItemPanel.propTypes = {

@@ -18,11 +18,11 @@ const CodeBlock = (props) => {
         contextCls,
         copiedText,
         copyText,
-        language,
+        language = 'jsx',
         codeString,
-        shouldShowCopy,
-        shouldShowLineNumbers,
-        shouldWrapLines,
+        shouldShowCopy = true,
+        shouldShowLineNumbers = false,
+        shouldWrapLines = true,
     } = props;
     const [copiedCode, setCopiedCode] = useState(undefined);
     const baseCls = genSBBaseCls('code-block');
@@ -70,13 +70,6 @@ const CodeBlock = (props) => {
             )}
         </div>
     );
-};
-
-CodeBlock.defaultProps = {
-    language: 'jsx',
-    shouldShowCopy: true,
-    shouldShowLineNumbers: false,
-    shouldWrapLines: true,
 };
 
 CodeBlock.propTypes = {

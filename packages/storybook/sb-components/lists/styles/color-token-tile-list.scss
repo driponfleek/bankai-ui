@@ -9,7 +9,7 @@
 
 .bankai-sb-color-token-palette-list {
     @include layout.bankai-flex-row;
-    gap: bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
+    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     flex-wrap: wrap;
 
     > .bankai-list__li {

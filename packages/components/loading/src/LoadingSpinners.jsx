@@ -13,7 +13,7 @@ import './styles/loading-spinners.scss';
 const { CUBE } = LOADING_SPINNERS_VARIANTS;
 
 const LoadingSpinners = (props) => {
-    const { contextCls, variant } = props;
+    const { contextCls, variant = CUBE } = props;
     const baseCls = 'bankai-loading-spinners';
     const modCls = getModCls(variant, baseCls);
     const shouldRenderInner = getShouldRenderInner(variant);
@@ -23,10 +23,6 @@ const LoadingSpinners = (props) => {
             {shouldRenderInner && <span className={`${baseCls}__inner`} />}
         </span>
     );
-};
-
-LoadingSpinners.defaultProps = {
-    variant: CUBE,
 };
 
 LoadingSpinners.propTypes = {

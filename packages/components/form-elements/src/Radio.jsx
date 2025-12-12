@@ -7,24 +7,30 @@ import ToggleInputRadioIcon from './ToggleInputRadioIcon';
 import './styles/radio.scss';
 
 const Radio = (props) => {
-    const { contextCls } = props;
+    const {
+        contextCls,
+        isDisabled = false,
+        isChecked = false,
+        renderCheckedIcon = ToggleInputRadioIcon,
+        onChange = Radio.onChange,
+        ...rest
+    } = props;
     const baseCls = 'bankai-radio';
 
     return (
         <UniversalToggleInput
-            {...props}
+            {...rest}
+            isChecked={isChecked}
+            isDisabled={isDisabled}
+            renderCheckedIcon={renderCheckedIcon}
             contextCls={cx(baseCls, contextCls)}
+            onChange={onChange}
             type="radio"
         />
     );
 };
 
-Radio.defaultProps = {
-    isDisabled: false,
-    isChecked: false,
-    onChange: () => Promise.resolve(),
-    renderCheckedIcon: ToggleInputRadioIcon,
-};
+Radio.onChange = () => Promise.resolve();
 
 Radio.propTypes = {
     baseCls: PropTypes.string,

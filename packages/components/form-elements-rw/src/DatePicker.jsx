@@ -5,26 +5,23 @@ import CalendarSelectIcon from './components/date-picker/CalendarSelectIcon';
 
 import { getDatePickerExtantProps } from './utils/extantPropsUtils';
 
-// Localizer
-import { defaultFormats as dFormats } from './nls/RWDateLocalizer';
-
 // Styles
 import './styles/date-picker.scss';
 
 const DatePicker = (props) => {
     const {
         contextCls,
-        hasError,
-        shouldHideDropdownBtn,
-        onBlur,
-        onChange,
-        onCurrentDateChange,
-        onFocus,
-        onKeyDown,
-        onKeyPress,
-        onSelect,
-        onToggle,
-        renderSelectIcon,
+        hasError = false,
+        shouldHideDropdownBtn = false,
+        onBlur = DatePicker.onBlur,
+        onChange = DatePicker.on,
+        onCurrentDateChange = DatePicker.onCurrentDateChange,
+        onFocus = DatePicker.onFocus,
+        onKeyDown = DatePicker.onKeyDown,
+        onKeyPress = DatePicker.onKeyPress,
+        onSelect = DatePicker.onSelect,
+        onToggle = DatePicker.onToggle,
+        renderSelectIcon = CalendarSelectIcon,
     } = props;
     const baseCls = 'bankai-date-picker';
     const datePickerProps = getDatePickerExtantProps(props);
@@ -51,26 +48,14 @@ const DatePicker = (props) => {
     );
 };
 
-DatePicker.defaultProps = {
-    valueDisplayFormat: dFormats.date,
-    shouldAutoFocus: false,
-    isDefaultOpen: false,
-    isDisabled: false,
-    hasError: false,
-    shouldDropUp: false,
-    shouldHideDropdownBtn: false,
-    isReadOnly: false,
-    formats: dFormats,
-    onBlur: () => Promise.resolve(),
-    onChange: () => Promise.resolve(),
-    onCurrentDateChange: () => Promise.resolve(),
-    onFocus: () => Promise.resolve(),
-    onKeyDown: () => Promise.resolve(),
-    onKeyPress: () => Promise.resolve(),
-    onSelect: () => Promise.resolve(),
-    onToggle: () => Promise.resolve(),
-    renderSelectIcon: CalendarSelectIcon,
-};
+DatePicker.onBlur = () => Promise.resolve();
+DatePicker.onChange = () => Promise.resolve();
+DatePicker.onCurrentDateChange = () => Promise.resolve();
+DatePicker.onFocus = () => Promise.resolve();
+DatePicker.onKeyDown = () => Promise.resolve();
+DatePicker.onKeyPress = () => Promise.resolve();
+DatePicker.onSelect = () => Promise.resolve();
+DatePicker.onToggle = () => Promise.resolve();
 
 DatePicker.propTypes = {
     contextCls: PropTypes.string,

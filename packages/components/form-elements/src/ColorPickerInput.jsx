@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
@@ -22,167 +22,136 @@ import {
 // Styles
 import './styles/color-picker-input.scss';
 
-// TODO: Rewrite as functional component
-class ColorPickerInput extends Component {
-    static defaultProps = {
-        changeCompleteThreshold: 200,
-        hasAlpha: false,
-        hasError: false,
-        isDisabled: false,
-        isReadOnly: false,
-        shouldAlignPickerToRightEdge: false,
-        shouldOpenUp: false,
-        triggerProps: {},
-        onChange: () => Promise.resolve(),
-        onChangeComplete: () => Promise.resolve(),
-        renderColorPicker: ColorPicker,
-    };
+const ColorPickerInput = (props) => {
+    const {
+        contextCls,
+        color,
+        changeCompleteThreshold = 200,
+        hasAlpha = false,
+        // hasError = false,
+        isDisabled = false,
+        // isReadOnly = false,
+        // shouldAlignPickerToRightEdge = false,
+        // shouldOpenUp = false,
+        // triggerProps = {},
+        onChange = ColorPickerInput.onChange,
+        onChangeComplete = ColorPickerInput.onChangeComplete,
+        renderColorPicker = ColorPicker,
+        renderTriggerContent,
+    } = props;
+    const [shouldShowPicker, setShouldShowPicker] = useState(false);
+    const baseCls = 'bankai-color-picker-input';
+    const modCls = getColorPickerInputModCls(props);
+    const textInputProps = getColorPickerInputExtantProps(props);
+    const containerRef = useRef();
 
-    static propTypes = {
-        color: PropTypes.string,
-        contextCls: PropTypes.string,
-        changeCompleteThreshold: PropTypes.number,
-        hasAlpha: PropTypes.bool,
-        hasError: PropTypes.bool,
-        isDisabled: PropTypes.bool,
-        isReadOnly: PropTypes.bool,
-        shouldAlignPickerToRightEdge: PropTypes.bool,
-        shouldOpenUp: PropTypes.bool,
-        triggerProps: PropTypes.shape({
-            'aria-label': PropTypes.string,
-        }),
-        onChange: PropTypes.func,
-        onChangeComplete: PropTypes.func,
-        renderColorPicker: PropTypes.func,
-        renderTriggerContent: PropTypes.func,
+    const handleColorPickerClose = () => {
+        setShouldShowPicker(false);
     };
+    const handleKeyDown = useCallback(
+        (evt) => {
+            if (
+                shouldShowPicker &&
+                (evt.key === 'Escape' ||
+                    evt.key === 'Esc' ||
+                    evt.keyCode === 27)
+            ) {
+                handleColorPickerClose();
+            }
+        },
+        [shouldShowPicker],
+    );
+    const handleMouseUp = useCallback(
+        (evt) => {
+            const el = evt.srcElement || evt.target;
 
-    state = {
-        shouldShowPicker: false,
-    };
+            if (
+                shouldShowPicker &&
+                !(containerRef.current && containerRef.current.contains(el))
+            ) {
+                handleColorPickerClose();
+            }
+        },
+        [shouldShowPicker],
+    );
 
-    render() {
-        const {
-            contextCls,
-            color,
-            isDisabled,
-            renderColorPicker,
-            renderTriggerContent,
-        } = this.props;
-        const { shouldShowPicker } = this.state;
-        const modCls = getColorPickerInputModCls(this.props);
-        const textInputProps = getColorPickerInputExtantProps(this.props);
-        const colorPickerProps = {
-            ...getColorPickerExtantProps(this.props),
-            onChangeComplete: this.handlePickerChange,
+    useEffect(() => {
+        addColorPickerInputEvtListeners(handleKeyDown, handleMouseUp);
+
+        return () => {
+            removeColorPickerInputEvtListeners(handleKeyDown, handleMouseUp);
         };
+    }, [handleKeyDown, handleMouseUp]);
 
-        return (
-            <div
-                ref={this.handleSetRef}
-                className={cx(this.baseCls, modCls, contextCls)}
-            >
-                <div className={`${this.baseCls}__input-container`}>
-                    <TextInput
-                        {...textInputProps}
-                        value={color}
-                        contextCls={`${this.baseCls}__input`}
-                        onChange={this.handleInputChange}
-                    />
-                </div>
-                <div className={`${this.baseCls}__trigger-container`}>
-                    <ColorPickerInputTrigger
-                        {...this.props}
-                        baseCls={this.baseCls}
-                        renderTriggerContent={renderTriggerContent}
-                        onClick={this.handleTriggerClick}
-                    />
-                </div>
-                <div className={`${this.baseCls}__picker-container`}>
-                    {shouldShowPicker &&
-                        !isDisabled &&
-                        renderColorPicker(colorPickerProps)}
-                </div>
-            </div>
-        );
-    }
-
-    componentDidMount() {
-        addColorPickerInputEvtListeners(this.handleKeyDown, this.handleMouseUp);
-    }
-
-    componentWillUnmount() {
-        removeColorPickerInputEvtListeners(
-            this.handleKeyDown,
-            this.handleMouseUp,
-        );
-    }
-
-    handleSetRef = (el) => {
-        if (el) {
-            this.containerRef = el;
-        }
-    };
-
-    handleTriggerClick = () => {
-        const { shouldShowPicker } = this.state;
-
-        this.setState({
-            shouldShowPicker: !shouldShowPicker,
-        });
-    };
-
-    handlePickerChange = (color) => {
-        const { hasAlpha } = this.props;
-
-        this.handleChange(hasAlpha ? convertColorToHex(color) : color);
-    };
-
-    handleInputChange = (evt) => {
-        this.handleChange(evt?.target?.value);
-    };
-
-    handleChange = (color) => {
-        const { onChange } = this.props;
-        const checkedColor = fixHexMissingHash(color);
-        onChange(checkedColor);
-        this.handleChangeComplete(checkedColor);
-    };
-
-    handleChangeComplete = debounce((newColor) => {
-        const { onChangeComplete } = this.props;
-
+    const handleChangeComplete = debounce((newColor) => {
         onChangeComplete(newColor);
-    }, this.props.changeCompleteThreshold);
-
-    handleKeyDown = (evt) => {
-        const { shouldShowPicker } = this.state;
-
-        if (
-            shouldShowPicker &&
-            (evt.key === 'Escape' || evt.key === 'Esc' || evt.keyCode === 27)
-        ) {
-            this.closeColorPicker();
-        }
+    }, changeCompleteThreshold);
+    const handleChange = (newColor) => {
+        const fixedColor = fixHexMissingHash(newColor);
+        onChange(fixedColor);
+        handleChangeComplete(fixedColor);
+    };
+    const handlePickerChange = (newColor) => {
+        handleChange(hasAlpha ? convertColorToHex(newColor) : newColor);
+    };
+    const handleInputChange = (evt) => {
+        handleChange(evt?.target?.value);
+    };
+    const colorPickerProps = {
+        ...getColorPickerExtantProps(props),
+        onChangeComplete: handlePickerChange,
+    };
+    const handleTriggerClick = () => {
+        setShouldShowPicker((prev) => !prev);
     };
 
-    handleMouseUp = (evt) => {
-        const { shouldShowPicker } = this.state;
-        const el = evt.srcElement || evt.target;
+    return (
+        <div ref={containerRef} className={cx(baseCls, modCls, contextCls)}>
+            <div className={`${baseCls}__input-container`}>
+                <TextInput
+                    {...textInputProps}
+                    contextCls={`${baseCls}__input`}
+                    value={color}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className={`${baseCls}__trigger-container`}>
+                <ColorPickerInputTrigger
+                    {...props}
+                    baseCls={baseCls}
+                    renderTriggerContent={renderTriggerContent}
+                    onClick={handleTriggerClick}
+                />
+            </div>
+            <div className={`${baseCls}__picker-container`}>
+                {shouldShowPicker &&
+                    !isDisabled &&
+                    renderColorPicker(colorPickerProps)}
+            </div>
+        </div>
+    );
+};
 
-        if (
-            shouldShowPicker &&
-            !(this.containerRef && this.containerRef.contains(el))
-        ) {
-            this.closeColorPicker();
-        }
-    };
+ColorPickerInput.propTypes = {
+    color: PropTypes.string,
+    contextCls: PropTypes.string,
+    changeCompleteThreshold: PropTypes.number,
+    hasAlpha: PropTypes.bool,
+    hasError: PropTypes.bool,
+    isDisabled: PropTypes.bool,
+    isReadOnly: PropTypes.bool,
+    shouldAlignPickerToRightEdge: PropTypes.bool,
+    shouldOpenUp: PropTypes.bool,
+    triggerProps: PropTypes.shape({
+        'aria-label': PropTypes.string,
+    }),
+    onChange: PropTypes.func,
+    onChangeComplete: PropTypes.func,
+    renderColorPicker: PropTypes.func,
+    renderTriggerContent: PropTypes.func,
+};
 
-    closeColorPicker = () => {
-        this.setState({ shouldShowPicker: false });
-    };
-
-    baseCls = 'bankai-color-picker-input';
-}
+ColorPickerInput.onChange = () => Promise.resolve();
+ColorPickerInput.onChangeComplete = () => Promise.resolve();
 
 export default ColorPickerInput;

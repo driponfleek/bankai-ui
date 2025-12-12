@@ -12,17 +12,41 @@ import './styles/number-picker.scss';
 const NumberPicker = (props) => {
     const {
         contextCls,
+        hasError = false,
+        isDisabled = false,
+        isReadOnly = false,
+        shouldAutoFocus = false,
+        inputProps = {},
+        onBlur = NumberPicker.onBlur,
+        onChangeComplete = NumberPicker.onChangeComplete,
+        onChange = NumberPicker.onChange,
+        onFocus = NumberPicker.onFocus,
+        onKeyDown = NumberPicker.onKeyDown,
+        onKeyPress = NumberPicker.onKeyPress,
+        onKeyUp = NumberPicker.onKeyUp,
+        renderDecrementIcon = DecrementIcon,
+        renderIncrementIcon = IncrementIcon,
+        ...rest
+    } = props;
+    const baseCls = 'bankai-number-picker';
+    const npProps = getNumberPickerExtantProps({
+        ...rest,
+        contextCls,
         hasError,
+        isDisabled,
+        isReadOnly,
+        shouldAutoFocus,
+        inputProps,
         onBlur,
+        onChangeComplete,
+        onChange,
         onFocus,
         onKeyDown,
         onKeyPress,
         onKeyUp,
         renderDecrementIcon,
         renderIncrementIcon,
-    } = props;
-    const baseCls = 'bankai-number-picker';
-    const npProps = getNumberPickerExtantProps(props);
+    });
     const modCls = {
         [`${baseCls}--error`]: hasError,
     };
@@ -33,12 +57,10 @@ const NumberPicker = (props) => {
         baseCls,
     });
     const handleChangeComplete = debounce((params) => {
-        const { onChangeComplete } = props;
-
         onChangeComplete(params);
     }, 300);
     const handleChange = (newValue) => {
-        const { onChange, name, value } = props;
+        const { name, value } = props;
 
         if (newValue !== value) {
             const params = {
@@ -67,22 +89,13 @@ const NumberPicker = (props) => {
     );
 };
 
-NumberPicker.defaultProps = {
-    hasError: false,
-    isDisabled: false,
-    isReadOnly: false,
-    shouldAutoFocus: false,
-    inputProps: {},
-    onBlur: () => Promise.resolve(),
-    onChange: () => Promise.resolve(),
-    onChangeComplete: () => Promise.resolve(),
-    onFocus: () => Promise.resolve(),
-    onKeyDown: () => Promise.resolve(),
-    onKeyPress: () => Promise.resolve(),
-    onKeyUp: () => Promise.resolve(),
-    renderIncrementIcon: IncrementIcon,
-    renderDecrementIcon: DecrementIcon,
-};
+NumberPicker.onBlur = () => Promise.resolve();
+NumberPicker.onChange = () => Promise.resolve();
+NumberPicker.onChangeComplete = () => Promise.resolve();
+NumberPicker.onFocus = () => Promise.resolve();
+NumberPicker.onKeyDown = () => Promise.resolve();
+NumberPicker.onKeyPress = () => Promise.resolve();
+NumberPicker.onKeyUp = () => Promise.resolve();
 
 NumberPicker.propTypes = {
     contextCls: PropTypes.string,

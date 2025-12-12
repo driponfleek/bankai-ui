@@ -8,26 +8,35 @@ import { getProtectedInputExtantProps } from './utils/inputUtils';
 import './styles/protected-input.scss';
 
 const ProtectedInput = (props) => {
+    const {
+        autoComplete = 'off',
+        hasError = false,
+        isDisabled = false,
+        isProtected = true,
+        isReadOnly = false,
+        shouldAutoFocus = false,
+        onChange = ProtectedInput.onChange,
+        ...rest
+    } = props;
     const baseCls = 'bankai-protected-input';
 
     return (
         <UniversalTextInput
-            {...props}
+            {...rest}
+            autoComplete={autoComplete}
+            hasError={hasError}
+            isDisabled={isDisabled}
+            isProtected={isProtected}
+            isReadOnly={isReadOnly}
+            shouldAutoFocus={shouldAutoFocus}
+            onChange={onChange}
             baseCls={baseCls}
             getExtantProps={getProtectedInputExtantProps}
         />
     );
 };
 
-ProtectedInput.defaultProps = {
-    autoComplete: 'off',
-    hasError: false,
-    isDisabled: false,
-    isProtected: true,
-    isReadOnly: false,
-    shouldAutoFocus: false,
-    onChange: () => Promise.resolve(),
-};
+ProtectedInput.onChange = () => Promise.resolve();
 
 ProtectedInput.propTypes = {
     autoComplete: PropTypes.string,

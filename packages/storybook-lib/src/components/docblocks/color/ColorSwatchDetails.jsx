@@ -10,7 +10,7 @@ import { COLOR_BASE_CLS } from './const/colorBaseClsConst';
 import './styles/color-swatch-details.scss';
 
 const ColorSwatchDetails = (props) => {
-    const { contextCls, mainContent, metaList } = props;
+    const { contextCls, mainContent, metaList = [] } = props;
     const baseCls = `${COLOR_BASE_CLS}__details`;
     const hasMeta = metaList.length > 0;
 
@@ -24,10 +24,6 @@ const ColorSwatchDetails = (props) => {
             {hasMeta && <ColorSwatchMetaList metaList={metaList} />}
         </div>
     );
-};
-
-ColorSwatchDetails.defaultProps = {
-    metaList: [],
 };
 
 ColorSwatchDetails.propTypes = {

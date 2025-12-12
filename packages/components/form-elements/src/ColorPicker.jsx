@@ -16,11 +16,11 @@ import './styles/color-picker.scss';
 const ColorPicker = (props) => {
     const {
         contextCls,
-        changeCompleteThreshold,
+        changeCompleteThreshold = 200,
         color,
-        hasAlpha,
-        onChange,
-        onChangeComplete,
+        hasAlpha = false,
+        onChange = ColorPicker.onChange,
+        onChangeComplete = ColorPicker.onChangeComplete,
     } = props;
     const baseCls = 'bankai-color-picker';
     const Picker = hasAlpha ? RgbaColorPicker : RgbColorPicker;
@@ -49,12 +49,8 @@ const ColorPicker = (props) => {
     );
 };
 
-ColorPicker.defaultProps = {
-    changeCompleteThreshold: 200,
-    hasAlpha: false,
-    onChange: () => Promise.resolve(),
-    onChangeComplete: () => Promise.resolve(),
-};
+ColorPicker.onChange = () => Promise.resolve();
+ColorPicker.onChangeComplete = () => Promise.resolve();
 
 ColorPicker.propTypes = {
     color: PropTypes.string,

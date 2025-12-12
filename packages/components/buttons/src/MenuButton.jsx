@@ -6,7 +6,6 @@ import MainContent from './components/MainContent';
 
 // Utils
 import {
-    // getBtnVariantModCls,
     getMenuBtnExtantProps,
     getBtnDisabledModCls,
 } from './utils/buttonUtils';
@@ -22,15 +21,14 @@ const MenuButton = (props) => {
         btnContextCls,
         contextCls,
         text,
-        // variant,
-        isDisabled,
-        shouldCloseOnBlur,
-        shouldCloseOnSelection,
+        isDisabled = false,
+        shouldCloseOnBlur = true,
+        shouldCloseOnSelection = true,
         menuProps,
         wrapperProps,
-        menuOptions,
-        onSelection,
-        onMenuToggle,
+        menuOptions = [],
+        onSelection = MenuButton.onSelection,
+        onMenuToggle = MenuButton.onMenuToggle,
         renderIcon,
         renderMenuOption,
         children,
@@ -84,20 +82,13 @@ const MenuButton = (props) => {
     );
 };
 
-MenuButton.defaultProps = {
-    isDisabled: false,
-    shouldCloseOnBlur: true,
-    shouldCloseOnSelection: true,
-    menuOptions: [],
-    onSelection: () => Promise.resolve(),
-    onMenuToggle: () => Promise.resolve(),
-};
+MenuButton.onSelection = () => Promise.resolve();
+MenuButton.onMenuToggle = () => Promise.resolve();
 
 MenuButton.propTypes = {
     btnContextCls: PropTypes.string,
     contextCls: PropTypes.string,
     text: PropTypes.string,
-    // variant: PropTypes.string,
     isDisabled: PropTypes.bool,
     shouldCloseOnBlur: PropTypes.bool,
     shouldCloseOnSelection: PropTypes.bool,

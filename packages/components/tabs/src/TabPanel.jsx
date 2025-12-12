@@ -6,7 +6,7 @@ import { TabPanel as ARIATabPanel } from 'react-aria-tabpanel';
 import './styles/tab-panel.scss';
 
 const TabPanel = (props) => {
-    const { contextCls, tabId, isActive, children, ...rest } = props;
+    const { contextCls, tabId, isActive = false, children, ...rest } = props;
     const baseCls = 'bankai-tab-panel';
 
     return (
@@ -19,10 +19,6 @@ const TabPanel = (props) => {
             {children}
         </ARIATabPanel>
     );
-};
-
-TabPanel.defaultProps = {
-    isActive: false,
 };
 
 TabPanel.propTypes = {

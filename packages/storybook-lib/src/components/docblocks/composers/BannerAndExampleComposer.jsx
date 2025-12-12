@@ -11,10 +11,10 @@ const withBannerAndExample = (Comp) => {
     const Wrapper = (props) => {
         const {
             contextCls,
-            shouldRenderIcon,
+            shouldRenderIcon = true,
             bannerProps,
-            renderBanner,
-            renderBannerIcon,
+            renderBanner = Banner,
+            renderBannerIcon = BankaiCircleInfo,
             children,
             ...rest
         } = props;
@@ -30,12 +30,6 @@ const withBannerAndExample = (Comp) => {
                 <Comp {...rest}>{children}</Comp>
             </div>
         );
-    };
-
-    Wrapper.defaultProps = {
-        shouldRenderIcon: true,
-        renderBanner: Banner,
-        renderBannerIcon: BankaiCircleInfo,
     };
 
     Wrapper.propTypes = {

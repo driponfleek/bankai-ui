@@ -14,8 +14,6 @@ const TabPanelContent = (props) => {
     );
 };
 
-TabPanelContent.defaultProps = {};
-
 TabPanelContent.propTypes = {
     contextCls: PropTypes.string,
 };

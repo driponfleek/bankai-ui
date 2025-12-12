@@ -3,14 +3,29 @@ import cx from 'classnames';
 
 const UniversalTextInput = (props) => {
     const {
+        autoComplete = 'on',
         baseCls,
+        hasError = false,
+        isDisabled = false,
+        isReadOnly = false,
+        isTextarea = false,
+        shouldAutoFocus = false,
+        shouldSpellCheck = false,
         contextCls,
-        isTextarea,
-        getExtantProps,
-        onChange,
+        getExtantProps = UniversalTextInput.getExtantProps,
+        onChange = UniversalTextInput.onChange,
         ...rest
     } = props;
-    const inputProps = getExtantProps({ ...rest, isTextarea });
+    const inputProps = getExtantProps({
+        ...rest,
+        autoComplete,
+        hasError,
+        isDisabled,
+        isReadOnly,
+        isTextarea,
+        shouldAutoFocus,
+        shouldSpellCheck,
+    });
     const Tag = isTextarea ? 'textarea' : 'input';
 
     return (
@@ -22,17 +37,8 @@ const UniversalTextInput = (props) => {
     );
 };
 
-UniversalTextInput.defaultProps = {
-    autoComplete: 'on',
-    hasError: false,
-    isDisabled: false,
-    isReadOnly: false,
-    isTextarea: false,
-    shouldAutoFocus: false,
-    shouldSpellCheck: false,
-    getExtantProps: () => ({}),
-    onChange: () => Promise.resolve(),
-};
+UniversalTextInput.onChange = () => Promise.resolve();
+UniversalTextInput.getExtantProps = () => Promise.resolve();
 
 UniversalTextInput.propTypes = {
     autoComplete: PropTypes.string,
