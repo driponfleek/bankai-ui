@@ -81,7 +81,11 @@ export const getMenuBtnExtantProps = (props) => {
 };
 
 export const getSplitBtnSanatizedProps = (props, baseCls) => {
-    const { isDisabled, mainButtonProps, menuButtonProps } = props;
+    const {
+        isDisabled = false,
+        mainButtonProps = {},
+        menuButtonProps = {},
+    } = props;
     const { isDisabled: isMainBtnDisabled, ...mainBtnRest } = mainButtonProps;
     const { isDisabled: isMenuBtnDisabled, ...menuBtnRest } = menuButtonProps;
 

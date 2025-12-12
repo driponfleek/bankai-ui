@@ -4,9 +4,6 @@ import { BankaiTextBulletList } from '@driponfleek/bankai-ui-icons';
 
 const ListEmptyState = (props) => {
     const { contextCls, msg, title, headingLvl } = props;
-    // const renderIcon = ({ iconCls }) => {
-    //     return <BankaiTextBulletList contextCls={iconCls} />;
-    // };
 
     return (
         <Callout

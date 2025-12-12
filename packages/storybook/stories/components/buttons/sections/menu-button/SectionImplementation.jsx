@@ -18,7 +18,7 @@ const menuOptionsCodeStr = `const menuOptions = [
 ];`;
 
 const SectionImplementation = (props) => {
-    const { variant } = props;
+    const { variant = '' } = props;
     const importCodeStr = `import { MenuButton${variant} } from '@driponfleek/bankai-ui-buttons';`;
     const usageCodeStr = `${menuOptionsCodeStr}\n\n<MenuButton${variant} menuOptions={menuOptions} />`;
 
@@ -34,10 +34,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.defaultProps = {
-    variant: '',
 };
 
 SectionImplementation.propTypes = {

@@ -6,7 +6,7 @@ import {
 } from '@driponfleek/bankai-lib-storybook';
 
 const SectionPlayground = (props) => {
-    const { isRadio, ...rest } = props;
+    const { isRadio = false, ...rest } = props;
     const Comp = isRadio ? Radio : Checkbox;
 
     return (
@@ -16,10 +16,6 @@ const SectionPlayground = (props) => {
             </ComponentPreview>
         </StorySection>
     );
-};
-
-SectionPlayground.defaultProps = {
-    isRadio: false,
 };
 
 SectionPlayground.propTypes = {

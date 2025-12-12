@@ -5,8 +5,13 @@ import cx from 'classnames';
 import './styles/hyperlink.scss';
 
 const Hyperlink = (props) => {
-    const { href, shouldOpenInNewWindow, contextCls, children, ...rest } =
-        props;
+    const {
+        href,
+        shouldOpenInNewWindow = false,
+        contextCls,
+        children,
+        ...rest
+    } = props;
     const linkProps = {
         ...rest,
         href,
@@ -21,10 +26,6 @@ const Hyperlink = (props) => {
             {children}
         </a>
     );
-};
-
-Hyperlink.defaultProps = {
-    shouldOpenInNewWindow: false,
 };
 
 Hyperlink.propTypes = {

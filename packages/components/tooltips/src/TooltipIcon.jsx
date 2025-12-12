@@ -6,14 +6,10 @@ import { BankaiCircleQuestion } from '@driponfleek/bankai-ui-icons';
 import './styles/tooltip-icon.scss';
 
 const TooltipIcon = (props) => {
-    const { contextCls, renderIcon } = props;
+    const { contextCls, renderIcon = BankaiCircleQuestion } = props;
     const baseCls = 'bankai-tooltip-icon';
 
     return renderIcon({ contextCls: cx(baseCls, contextCls) });
-};
-
-TooltipIcon.defaultProps = {
-    renderIcon: BankaiCircleQuestion,
 };
 
 TooltipIcon.propTypes = {

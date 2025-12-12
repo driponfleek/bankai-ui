@@ -16,15 +16,16 @@ const ComponentPreviewWithCodeBlock = (props) => {
         contextCls,
         copyText,
         copiedText,
-        language,
-        hasLightBg,
-        shouldCheckA11Y,
+        language = 'jsx',
+        hasLightBg = false,
+        shouldCheckA11Y = false,
         shouldShowCopy,
-        shouldShowLineNumbers,
-        shouldWrapLines,
+        shouldShowLineNumbers = false,
+        shouldWrapLines = true,
         codeStrModifier,
         children,
     } = props;
+    // TODO: Need to memoize this properly
     const codeStr = getCodeStrFromReactComponents(Children.toArray(children));
     const codeBlockProps = {
         codeString: codeStrModifier ? codeStrModifier(codeStr) : codeStr,
@@ -50,14 +51,6 @@ const ComponentPreviewWithCodeBlock = (props) => {
             </div>
         </div>
     );
-};
-
-ComponentPreviewWithCodeBlock.defaultProps = {
-    language: 'jsx',
-    hasLightBg: false,
-    shouldCheckA11Y: false,
-    shouldShowLineNumbers: false,
-    shouldWrapLines: true,
 };
 
 ComponentPreviewWithCodeBlock.propTypes = {

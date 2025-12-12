@@ -12,7 +12,13 @@ import baseCls from '../const/cssBaseClassConst';
 const { DEFAULT } = VARIANTS;
 
 const ToasterMessage = (props) => {
-    const { message, title, variant, shouldShowIcon, renderIcon } = props;
+    const {
+        message,
+        title,
+        variant = DEFAULT,
+        shouldShowIcon = true,
+        renderIcon,
+    } = props;
     const hasIcon = getShouldRenderIcon(props);
 
     return (
@@ -40,11 +46,6 @@ const ToasterMessage = (props) => {
             </div>
         </div>
     );
-};
-
-ToasterMessage.defaultProps = {
-    variant: DEFAULT,
-    shouldShowIcon: true,
 };
 
 ToasterMessage.propTypes = {

@@ -9,7 +9,7 @@ const { INLINE_RIGHT } = FORM_FIELD_COMP_VARIANTS;
 const ToggleField = FormFieldComposer(ToggleSwitch);
 
 const ToggleSwitchField = (props) => {
-    const { onChange, fieldId, ...rest } = props;
+    const { onChange = ToggleSwitchField.onChange, fieldId, ...rest } = props;
     const handleChange = (params) => {
         onChange(params, fieldId);
     };
@@ -19,9 +19,7 @@ const ToggleSwitchField = (props) => {
     );
 };
 
-ToggleSwitchField.defaultProps = {
-    onChange: () => Promise.resolve(),
-};
+ToggleSwitchField.onChange = () => Promise.resolve();
 
 ToggleSwitchField.propTypes = {
     fieldId: PropTypes.string,

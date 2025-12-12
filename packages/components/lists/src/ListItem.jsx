@@ -10,7 +10,7 @@ const ListItem = (props) => {
         contextCls,
         meta,
         text,
-        shouldSwapTextAndMeta,
+        shouldSwapTextAndMeta = false,
         renderAfter,
         renderBefore,
         children,
@@ -47,10 +47,6 @@ const ListItem = (props) => {
             )}
         </div>
     );
-};
-
-ListItem.defaultProps = {
-    shouldSwapTextAndMeta: false,
 };
 
 ListItem.propTypes = {

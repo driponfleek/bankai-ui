@@ -7,27 +7,36 @@ import { getTextInputExtantProps } from './utils/inputUtils';
 import './styles/text-input.scss';
 
 const TextInput = (props) => {
+    const {
+        autoComplete = 'on',
+        hasError = false,
+        isDisabled = false,
+        isReadOnly = false,
+        shouldAutoFocus = false,
+        shouldSpellCheck = false,
+        onChange = TextInput.onChange,
+        ...rest
+    } = props;
     const baseCls = 'bankai-text-input';
 
     return (
         <UniversalTextInput
-            {...props}
+            {...rest}
             baseCls={baseCls}
+            hasError={hasError}
+            isDisabled={isDisabled}
+            isReadOnly={isReadOnly}
+            autoComplete={autoComplete}
+            shouldAutoFocus={shouldAutoFocus}
+            shouldSpellCheck={shouldSpellCheck}
+            onChange={onChange}
             type="text"
             getExtantProps={getTextInputExtantProps}
         />
     );
 };
 
-TextInput.defaultProps = {
-    hasError: false,
-    isDisabled: false,
-    isReadOnly: false,
-    autoComplete: 'on',
-    shouldAutoFocus: false,
-    shouldSpellCheck: false,
-    onChange: () => Promise.resolve(),
-};
+TextInput.onChange = () => Promise.resolve();
 
 TextInput.propTypes = {
     autoComplete: PropTypes.string,

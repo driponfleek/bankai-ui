@@ -9,9 +9,9 @@ const Tile = (props) => {
     const {
         contextCls,
         headingContent,
-        headingLvl,
-        shouldPadContent,
-        renderHeading,
+        headingLvl = 2,
+        shouldPadContent = true,
+        renderHeading = TileHeading,
         children,
     } = props;
     const baseCls = 'bankai-tile';
@@ -32,12 +32,6 @@ const Tile = (props) => {
             )}
         </div>
     );
-};
-
-Tile.defaultProps = {
-    headingLvl: 2,
-    shouldPadContent: true,
-    renderHeading: TileHeading,
 };
 
 Tile.propTypes = {

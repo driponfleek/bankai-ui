@@ -5,7 +5,7 @@ import cx from 'classnames';
 import './styles/multiselect-item.scss';
 
 const MultiselectItem = (props) => {
-    const { item } = props;
+    const { item = {} } = props;
     const { searchTerm, description } = item;
     const baseCls = 'bankai-multiselect-option-content';
 
@@ -69,10 +69,6 @@ const MultiselectItem = (props) => {
             )}
         </span>
     );
-};
-
-MultiselectItem.defaultProps = {
-    item: {},
 };
 
 MultiselectItem.propTypes = {

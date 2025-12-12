@@ -7,7 +7,7 @@ import Tab from './Tab';
 import './styles/tabs-list.scss';
 
 const TabsList = (props) => {
-    const { contextCls, tabs, renderTab, ...rest } = props;
+    const { contextCls, tabs = [], renderTab, ...rest } = props;
     const baseCls = 'bankai-tabs-list';
     const renderDefaultTab = (tab) => <Tab {...tab} />;
     const tabRenderer = renderTab || renderDefaultTab;
@@ -17,10 +17,6 @@ const TabsList = (props) => {
             {tabs.map((tab) => tabRenderer({ ...tab, key: tab?.id }))}
         </ARIATabList>
     );
-};
-
-TabsList.defaultProps = {
-    tabs: [],
 };
 
 TabsList.propTypes = {

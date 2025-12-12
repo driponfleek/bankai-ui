@@ -15,8 +15,6 @@ const Paragraph = (props) => {
     );
 };
 
-Paragraph.defaultProps = {};
-
 Paragraph.propTypes = {
     contextCls: PropTypes.string,
 };

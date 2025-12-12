@@ -15,16 +15,16 @@ import './styles/button.scss';
 const Button = (props) => {
     const {
         contextCls,
-        type,
+        type = 'button',
         text,
-        isDisabled,
-        isBusy,
-        isDynamicText,
+        isBusy = false,
+        isDisabled = false,
+        isDynamicText = false,
         data,
-        onClick,
-        onFocus,
-        onBlur,
-        renderBusyIcon,
+        onBlur = Button.onBlur,
+        onClick = Button.onClick,
+        onFocus = Button.onFocus,
+        renderBusyIcon = BankaiSpinner,
         renderIcon,
         children,
     } = props;
@@ -68,16 +68,9 @@ const Button = (props) => {
     );
 };
 
-Button.defaultProps = {
-    type: 'button',
-    isBusy: false,
-    isDisabled: false,
-    isDynamicText: false,
-    onClick: () => Promise.resolve(),
-    onBlur: () => Promise.resolve(),
-    onFocus: () => Promise.resolve(),
-    renderBusyIcon: BankaiSpinner,
-};
+Button.onBlur = () => Promise.resolve();
+Button.onClick = () => Promise.resolve();
+Button.onFocus = () => Promise.resolve();
 
 Button.propTypes = {
     'aria-label': PropTypes.string,

@@ -8,7 +8,7 @@ import { LIST_BASE_CLS } from './const/listBaseClsConst';
 import './styles/list.scss';
 
 const OmniList = (props) => {
-    const { contextCls, isOrderedList, children } = props;
+    const { contextCls, isOrderedList = false, children } = props;
     const baseCls = LIST_BASE_CLS;
     const ListEl = isOrderedList ? 'ol' : 'ul';
     const modCls = {
@@ -19,10 +19,6 @@ const OmniList = (props) => {
     return (
         <ListEl className={cx(baseCls, modCls, contextCls)}>{children}</ListEl>
     );
-};
-
-OmniList.defaultProps = {
-    isOrderedList: false,
 };
 
 OmniList.propTypes = {

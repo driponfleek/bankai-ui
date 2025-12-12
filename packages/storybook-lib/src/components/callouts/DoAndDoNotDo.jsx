@@ -13,9 +13,9 @@ const DoAndDoNotDo = (props) => {
         contextCls,
         doNotDoTitle,
         doTitle,
-        isSideBySide,
-        doList,
-        doNotDoList,
+        isSideBySide = false,
+        doList = [],
+        doNotDoList = [],
     } = props;
     const baseCls = genSBBaseCls('do-and-do-not-do');
     const hasDoList = doList.length > 0;
@@ -47,12 +47,6 @@ const DoAndDoNotDo = (props) => {
             </div>
         </div>
     );
-};
-
-DoAndDoNotDo.defaultProps = {
-    isSideBySide: false,
-    doList: [],
-    doNotDoList: [],
 };
 
 DoAndDoNotDo.propTypes = {

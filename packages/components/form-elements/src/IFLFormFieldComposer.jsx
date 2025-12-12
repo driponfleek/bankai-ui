@@ -21,8 +21,8 @@ const withIFLFormField = (Comp) => {
         const {
             contextCls,
             id,
-            isDisabled,
-            isLeftAlignedLabel,
+            isDisabled = false,
+            isLeftAlignedLabel = false,
             renderBefore,
             renderAfter,
         } = props;
@@ -89,16 +89,6 @@ const withIFLFormField = (Comp) => {
                 )}
             </div>
         );
-    };
-
-    Wrapper.defaultProps = {
-        rwSuffix: '_input',
-        hasError: false,
-        isDisabled: false,
-        isLeftAlignedLabel: false,
-        isReadOnly: false,
-        shouldIncludeError: true,
-        shouldIncludeHint: true,
     };
 
     Wrapper.propTypes = {

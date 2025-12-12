@@ -6,7 +6,7 @@ import { AccordionItemHeading as AccItemHeading } from 'react-accessible-accordi
 import { ACCORDION_BASE_CLS } from './const/baseClsConst';
 
 const AccordionItemHeading = (props) => {
-    const { contextCls, headingLvl, ...rest } = props;
+    const { contextCls, headingLvl = 3, ...rest } = props;
     const baseCls = `${ACCORDION_BASE_CLS}__item-heading`;
 
     return (
@@ -16,10 +16,6 @@ const AccordionItemHeading = (props) => {
             aria-level={headingLvl}
         />
     );
-};
-
-AccordionItemHeading.defaultProps = {
-    headingLvl: 3,
 };
 
 AccordionItemHeading.propTypes = {

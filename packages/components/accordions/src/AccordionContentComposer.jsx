@@ -23,10 +23,6 @@ const withAccordionContent = (Comp, containerProps = {}) => {
         );
     };
 
-    Wrapped.defaultProps = {
-        accItemProps: {},
-        accTriggerProps: {},
-    };
     Wrapped.propTypes = {
         accItemProps: PropTypes.object,
         accTriggerProps: PropTypes.object,

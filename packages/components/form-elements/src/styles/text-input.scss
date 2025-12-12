@@ -13,7 +13,6 @@
 .bankai-text-input, %bankai-text-input {
     @include states.bankai-focus-state-halo;
     @include typography.bankai-form-input-font-size;
-    @include states.bankai-disabled-state;
     color: var(--bankai-form-input-text-color, theme-utils.bankai-get-light-theme-map-value('form-input-text-color'));
     background-color: var(--bankai-form-input-bg-color, theme-utils.bankai-get-light-theme-map-value('form-input-bg-color'));
     box-sizing: border-box;
@@ -22,6 +21,9 @@
     border-radius: var(--bankai-form-input-border-radius, theme-utils.bankai-get-light-theme-map-value('form-input-border-radius'));
     line-height: var(--bankai-semantic-typography-line-height, theme-utils.bankai-get-light-theme-map-value('semantic-typography-line-height'));
     padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
+    // Moved includes here to remove warnings about this breaking change:
+    // https://sass-lang.com/documentation/breaking-changes/mixed-decls/
+    @include states.bankai-disabled-state;
 
     &:disabled {
         @include form-elements-mixins.bankai-form-input-disabled;

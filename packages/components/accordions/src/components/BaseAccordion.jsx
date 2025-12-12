@@ -1,8 +1,7 @@
-import { Children } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import AccordionWrapper from '../AccordionWrapper';
-import BaseAccordionItem from './BaseAccordionItem';
+import BaseAccordionChildren from './BaseAccordionChildren';
 
 // Constants
 import { ACCORDION_BASE_BASE_CLS } from '../const/baseClsConst';
@@ -13,25 +12,15 @@ import './styles/base-accordion.scss';
 const BaseAccordion = (props) => {
     const {
         contextCls,
-        headingLvl,
-        shouldAllowMultipleExpanded,
-        shouldAllowZeroExpanded,
+        headingLvl = 3,
+        shouldAllowMultipleExpanded = false,
+        shouldAllowZeroExpanded = true,
         preExpanded,
         renderTrigger,
         renderTriggerIcon,
-        onChange,
+        onChange = BaseAccordion.onChange,
         children,
     } = props;
-    const childItems = Children.toArray(children).map((content) => (
-        <BaseAccordionItem
-            baseCls={ACCORDION_BASE_BASE_CLS}
-            key={content.key}
-            content={content}
-            headingLvl={headingLvl}
-            renderTrigger={renderTrigger}
-            renderTriggerIcon={renderTriggerIcon}
-        />
-    ));
     const handleChange = (expandedIds) => {
         onChange(expandedIds);
     };
@@ -44,17 +33,18 @@ const BaseAccordion = (props) => {
             preExpanded={preExpanded}
             onChange={handleChange}
         >
-            {childItems}
+            <BaseAccordionChildren
+                headingLvl={headingLvl}
+                renderTrigger={renderTrigger}
+                renderTriggerIcon={renderTriggerIcon}
+            >
+                {children}
+            </BaseAccordionChildren>
         </AccordionWrapper>
     );
 };
 
-BaseAccordion.defaultProps = {
-    headingLvl: 3,
-    shouldAllowMultipleExpanded: false,
-    shouldAllowZeroExpanded: true,
-    onChange: () => Promise.resolve(),
-};
+BaseAccordion.onChange = () => Promise.resolve();
 
 BaseAccordion.propTypes = {
     contextCls: PropTypes.string,

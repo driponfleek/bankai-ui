@@ -12,7 +12,12 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 import './styles/color-variants-list.scss';
 
 const ColorVariantsList = (props) => {
-    const { contextCls, emptyStateTitle, variants, shouldScrollList } = props;
+    const {
+        contextCls,
+        emptyStateTitle,
+        variants = [],
+        shouldScrollList = true,
+    } = props;
     const baseCls = genSBBaseCls('color-variants-list');
     const hasNoVariants = variants.length === 0;
     const modCls = {
@@ -36,11 +41,6 @@ const ColorVariantsList = (props) => {
             )}
         </div>
     );
-};
-
-ColorVariantsList.defaultProps = {
-    shouldScrollList: true,
-    variants: [],
 };
 
 ColorVariantsList.propTypes = {

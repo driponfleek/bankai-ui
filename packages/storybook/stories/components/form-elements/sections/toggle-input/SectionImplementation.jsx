@@ -6,7 +6,7 @@ import CompImportAndUsage from '../../../../../sb-components/docblocks/CompImpor
 import { getLocale } from '../../../../../utils/localeUtils';
 
 const SectionImplementation = (props) => {
-    const { isRadio } = props;
+    const { isRadio = false } = props;
     const compName = isRadio ? 'Radio' : 'Checkbox';
     const importCodeStr = `import { ${compName} } from '@driponfleek/bankai-ui-form-elements';`;
     const usageCodeStr = `<${compName} />`;
@@ -22,10 +22,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.defaultProps = {
-    isRadio: false,
 };
 
 SectionImplementation.propTypes = {

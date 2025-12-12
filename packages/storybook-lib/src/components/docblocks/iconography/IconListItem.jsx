@@ -9,8 +9,14 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 import './styles/icon-list-item.scss';
 
 const IconListItem = (props) => {
-    const { hasCopiedToClipboard, contextCls, locale, name, Icon, onClick } =
-        props;
+    const {
+        hasCopiedToClipboard = false,
+        contextCls,
+        locale = {},
+        name,
+        Icon,
+        onClick = IconListItem.onClick,
+    } = props;
     const { copyText, copiedText } = locale;
     const baseCls = genSBBaseCls('icons-list__item');
     const modCls = {
@@ -45,11 +51,7 @@ const IconListItem = (props) => {
     );
 };
 
-IconListItem.defaultProps = {
-    hasCopiedToClipboard: false,
-    locale: {},
-    onClick: () => Promise.resolve(),
-};
+IconListItem.onClick = () => Promise.resolve();
 
 IconListItem.propTypes = {
     contextCls: PropTypes.string,

@@ -38,8 +38,6 @@ const InlineFormError = (props) => {
     );
 };
 
-InlineFormError.defaultProps = {};
-
 InlineFormError.propTypes = {
     contextCls: PropTypes.string,
     ariaLiveProps: PropTypes.shape({

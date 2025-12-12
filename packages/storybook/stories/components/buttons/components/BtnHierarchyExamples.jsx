@@ -6,7 +6,7 @@ import { CompPreviewWithBanner } from '@driponfleek/bankai-lib-storybook';
 import './styles/btn-hierarchy-examples.scss';
 
 const BtnHierarchyExamples = (props) => {
-    const { baseCls, isDestructive } = props;
+    const { baseCls, isDestructive = false } = props;
     const inlineBtnsBannerProps = {
         msg: <strong>Inline&#58;</strong>,
     };
@@ -36,10 +36,6 @@ const BtnHierarchyExamples = (props) => {
             </CompPreviewWithBanner>
         </>
     );
-};
-
-BtnHierarchyExamples.defaultProps = {
-    isDestructive: false,
 };
 
 BtnHierarchyExamples.propTypes = {

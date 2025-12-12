@@ -14,7 +14,7 @@ import './styles/loading-squares.scss';
 const { PULSING_WAVE } = LOADING_SQUARES_VARIANTS;
 
 const LoadingSquares = (props) => {
-    const { contextCls, variant } = props;
+    const { contextCls, variant = PULSING_WAVE } = props;
     const baseCls = 'bankai-loading-squares';
     const modCls = getModCls(variant, baseCls);
     const arrayOfNums = getArrayOfNumbers(variant);
@@ -28,10 +28,6 @@ const LoadingSquares = (props) => {
             )}
         </span>
     );
-};
-
-LoadingSquares.defaultProps = {
-    variant: PULSING_WAVE,
 };
 
 LoadingSquares.propTypes = {

@@ -14,7 +14,7 @@ import './styles/loading-bars.scss';
 const { FREQUENCY } = LOADING_BARS_VARIANTS;
 
 const LoadingBars = (props) => {
-    const { contextCls, variant } = props;
+    const { contextCls, variant = FREQUENCY } = props;
     const baseCls = 'bankai-loading-bars';
     const modCls = getModCls(variant, baseCls);
     const arrayOfNums = getArrayOfNumbers(variant);
@@ -26,10 +26,6 @@ const LoadingBars = (props) => {
             )}
         </span>
     );
-};
-
-LoadingBars.defaultProps = {
-    variant: FREQUENCY,
 };
 
 LoadingBars.propTypes = {
