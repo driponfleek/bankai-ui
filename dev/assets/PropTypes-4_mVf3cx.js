@@ -1,1 +1,0 @@
-import{p as e}from"./localeUtils--UUmbdnw.js";const a=e.elementType;let n=Object.assign((...s)=>e.bool(...s),{acceptsArray:e.oneOfType([e.bool,e.array])});const p=e.oneOfType([e.string,e.func]),t=e.oneOfType([e.node,e.string,e.func]);export{p as a,n as d,a as e,t as m};
