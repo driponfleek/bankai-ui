@@ -87,23 +87,97 @@ npm run test packages/components/buttons/src/**/*.jsx -- --coverage --collectCov
 
 ## Developer Workflow
 
+### Branch Naming
+
+Use a prefix that matches the primary intent of the work followed by a short description.
+
+| Prefix | When to use |
+|--------|-------------|
+| `feature/` | New functionality |
+| `bug/` | Bug fixes |
+| `chore/` | Maintenance, upgrades, refactoring, tooling |
+| `docs/` | Documentation only |
+
+Format: `prefix/short-description`
+
+Examples:
+```
+feature/eslint-flat-config
+bug/storybook-a11y
+chore/proptypes-removal
+docs/readme-cleanup
+```
+
+### Commit Messages
+
+This repo uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) enforced via commitlint. Non-conforming commits will be rejected.
+
+Format: `type: short description`
+
+| Type | When to use |
+|------|-------------|
+| `feat` | Adding or modifying a feature |
+| `fix` | Bug fix |
+| `chore` | Maintenance, upgrades, refactoring, tooling — no production code change |
+| `docs` | Documentation only |
+| `style` | Formatting, whitespace — no logic change |
+| `test` | Adding or updating tests |
+| `ci` | CI/CD configuration changes |
+| `revert` | Reverting a previous commit |
+
+**When a commit touches multiple types**, use the type that reflects the primary intent. If the docs update is part of the same effort as the feature, commit them together as `feat`.
+
+**Breaking changes** — use `!` after the type and a `BREAKING CHANGE:` footer:
+
+```
+feat!: remove prop-types from all components
+
+BREAKING CHANGE: prop-types is no longer a peer dependency. Remove
+prop-types from your project if it was only required by bankai-ui.
+```
+
+**Linking to GitHub issues** — use `Closes` in the commit footer to auto-close issues on merge:
+
+```
+chore: eslint migration
+
+Closes #123
+Closes #124
+```
+
+### Branch Flow
+
+```
+main (production)
+  ↑
+develop (staging — auto-deploys to GitHub Pages for QA)
+  ↑
+chore/your-branch (your working branch)
+```
+
+1. Cut a new branch from `develop` for each piece of work
+2. Do your work, committing with conventional commits
+3. Open a PR from your branch → `develop`
+4. Fix any CI failures or test issues
+5. Merge into `develop` — Storybook deploys automatically for QA
+6. Once satisfied, open a PR from `develop` → `main`
+7. Merge into `main`
+
 ```mermaid
 flowchart TD
     subgraph main
     nodeStart(Get Latest Code)
     end
-    nodeStart --Create New Branch--> newBranchStart(git checkout -b feature/branch-name\ngit checkout -b bug/branch-name)
-    newBranchStart --Commit Changes with Conventional Commit--> newBranchCommit(git add .\ngit commit -m &quotfeat: Commit message&quot\ngit push --set-upstream origin feature/branch-name)
-    newBranchCommit --Sync Current Branch with Main Branch--> newBranchSyncWithMain(git rebase -i origin/main\nSquash all commits except first one\ngit push -f)
-    newBranchSyncWithMain --> createPR(Create Pull Request in Github\nAssign/Notify Reviewers\nGet at least 1 approval)
-    createPR --Merge PR in to Main Branch\nSwitch back to Main Branch--> nodeStart
+    nodeStart --Cut branch from develop--> newBranchStart("git checkout develop\ngit pull --rebase\ngit checkout -b chore/description")
+    newBranchStart --Commit with Conventional Commit--> newBranchCommit("git add .\ngit commit -m 'chore: description'\ngit push --set-upstream origin chore/description")
+    newBranchCommit --Open PR → develop--> prDevelop(Fix any CI/test failures\nMerge into develop)
+    prDevelop --QA in GitHub Pages Storybook--> qaCheck{Issues?}
+    qaCheck --Yes--> newBranchCommit
+    qaCheck --No--> prMain(Open PR → main\nMerge into main)
+    prMain --> nodeStart
     style newBranchStart text-align:left
     style newBranchCommit text-align:left
-    style newBranchSyncWithMain text-align:left
 ```
-
-> [!NOTE]
-> When committing code make sure to use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). This automates the versioning of packages and updating of CHANGELOGs.
 
 ## The Tech Stack
 - [Lerna](https://lerna.js.org/)
