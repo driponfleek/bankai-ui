@@ -1,0 +1,1 @@
+import{g as o}from"./localeUtils-D7lxN7GM.js";import{g as t}from"./storiesConfigUtils-B40M9pmf.js";const s="0.1.0",e={version:s},a=t(o("stories.components.layouts.categoryTitle")),c=e;export{c as P,a as S};
