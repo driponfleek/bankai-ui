@@ -20,6 +20,6 @@
     }
 
     .bankai-accordion__item + .bankai-accordion__item {
-        margin-top: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x)};
+        margin-top: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x)};
     }
 }

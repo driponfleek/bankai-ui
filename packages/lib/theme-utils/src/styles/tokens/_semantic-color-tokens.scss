@@ -18,7 +18,7 @@ $bankai-semantic-color-tokens: (
     /* Universal*/
     semantic-color-accessible-border: semantic-colors-vars.$bankai-semantic-color-accessible-border,
     semantic-color-decorative-border: semantic-colors-vars.$bankai-semantic-color-decorative-border,
-    semantic-color-universal-focus-halo-inner: color.change(semantic-colors-vars.$bankai-semantic-color-primary, $lightness: 30%),
+    semantic-color-focus-halo-inner: color.change(semantic-colors-vars.$bankai-semantic-color-primary, $lightness: 30%),
     semantic-color-focus-halo-outer: color.change(semantic-colors-vars.$bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
     semantic-color-hover-bg: semantic-colors-vars.$bankai-semantic-color-hover-bg,
     /* Canvas*/

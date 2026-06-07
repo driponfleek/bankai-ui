@@ -6,14 +6,16 @@ import cx from 'classnames';
 import './styles/badge.scss';
 
 const Badge = (props) => {
-    const { contextCls, children } = props;
+    const { contextCls, isPill = true, children } = props;
     const baseCls = 'bankai-badge';
+    const modCls = { [`${baseCls}--pill`]: isPill };
 
-    return <span className={cx(baseCls, contextCls)}>{children}</span>;
+    return <span className={cx(baseCls, modCls, contextCls)}>{children}</span>;
 };
 
 Badge.propTypes = {
     contextCls: PropTypes.string,
+    isPill: PropTypes.bool,
 };
 
 export default Badge;

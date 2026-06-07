@@ -7,16 +7,16 @@
 
 .bankai-sb-component-preview-with-code-block {
     border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x);
+    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x);
 
     .bankai-sb-component-preview {
         border: none;
-        border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x - 1px) unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x - 1px) 0 0;
+        border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x - 1px) unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x - 1px) 0 0;
     }
 
     .bankai-sb-code-block__syntax-highlighter {
         box-shadow: none;
-        border-radius: 0 0 unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x - 1px) unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x - 1px);
+        border-radius: 0 0 unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x - 1px) unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x - 1px);
     }
 
     .bankai-sb-component-preview,

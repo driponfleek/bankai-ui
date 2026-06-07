@@ -41,7 +41,7 @@
 
     &__icon-container,
     &__text-container {
-        padding: 0 unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+        padding: 0 unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
         vertical-align: middle;
         margin: auto 0;
         display: inline-block;

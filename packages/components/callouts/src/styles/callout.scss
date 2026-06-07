@@ -40,7 +40,7 @@
     }
 
     &__title-container + &__msg-container {
-        margin-top: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x)};
+        margin-top: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x)};
     }
 
     &__icon-container + &__text-container {

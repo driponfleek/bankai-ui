@@ -7,10 +7,14 @@ import Badge from './Badge';
 import './styles/badge-cautionary.scss';
 
 const BadgeCautionary = (props) => {
-    const { contextCls, children } = props;
+    const { contextCls, children, ...rest } = props;
     const baseCls = 'bankai-badge--cautionary';
 
-    return <Badge contextCls={cx(baseCls, contextCls)}>{children}</Badge>;
+    return (
+        <Badge {...rest} contextCls={cx(baseCls, contextCls)}>
+            {children}
+        </Badge>
+    );
 };
 
 BadgeCautionary.propTypes = {

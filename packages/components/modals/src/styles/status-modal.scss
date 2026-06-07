@@ -8,7 +8,7 @@
 
 .bankai-status-modal, %bankai-status-modal {
     color: core-colors-vars.$bankai-core-color-neutral-100;
-    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
 
     &__dialog {
         background-color: transparent;

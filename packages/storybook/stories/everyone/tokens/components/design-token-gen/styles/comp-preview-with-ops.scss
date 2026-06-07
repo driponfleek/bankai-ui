@@ -10,7 +10,7 @@
 .bankai-sb-comp-preview-with-ops {
     @include layout.bankai-flex-row;
     border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-01-x);
+    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-01x);
 
     &__preview-container {
         @include layout.bankai-flex-row;
@@ -25,7 +25,7 @@
 
     &__ops-container {
         box-sizing: border-box;
-        padding: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-04-x);
+        padding: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-04x);
         flex: 0 0 auto;
     }
 

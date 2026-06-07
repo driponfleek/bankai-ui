@@ -16,6 +16,6 @@
     }
 
     &--pad-content {
-        padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x)};
+        padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x)};
     }
 }

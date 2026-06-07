@@ -8,5 +8,5 @@
 .bankai-sb-icons-list {
     @include layout.bankai-flex-row;
     flex-wrap: wrap;
-    gap: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-03-x);
+    gap: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-03x);
 }

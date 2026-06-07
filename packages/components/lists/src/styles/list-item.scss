@@ -19,7 +19,7 @@
     &__content {
         min-width: 1px;
         box-sizing: border-box;
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
         flex: 1 1 auto;
     }
 
@@ -34,6 +34,6 @@
     }
 
     &__text + &__meta {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-half-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-halfx);
     }
 }

@@ -87,8 +87,8 @@
     }
 
     .rw-multiselect-taglist {
-        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
+        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     }
 
     .rw-multiselect-tag {

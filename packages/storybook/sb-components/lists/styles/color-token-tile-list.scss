@@ -17,12 +17,12 @@
 
         > .bankai-list-item {
             border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-            border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x);
+            border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x);
             overflow: hidden;
 
             .bankai-sb-color-design-token-list-item__copy-btn {
                 height: 100%;
-                border-radius: 0 unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x) unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02-x) 0;
+                border-radius: 0 unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x) unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-02x) 0;
             }
         }
     }

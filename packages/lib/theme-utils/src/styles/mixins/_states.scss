@@ -5,12 +5,12 @@
 @use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
 @use '../vars/core-state-vars.scss' as state-vars;
 
-@mixin bankai-focus-state-inner-outer-box-shadow($inner-color: var(--bankai-semantic-color-universal-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
+@mixin bankai-focus-state-inner-outer-box-shadow($inner-color: var(--bankai-semantic-color-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
     box-shadow: 0 0 0 1px $inner-color, 0 0 3px 6px $outer-color;
     border-color: $inner-color;
 }
 
-@mixin bankai-focus-state-halo($inner-color: var(--bankai-semantic-color-universal-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
+@mixin bankai-focus-state-halo($inner-color: var(--bankai-semantic-color-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
     transition: box-shadow 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
     &:focus {

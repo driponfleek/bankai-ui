@@ -45,7 +45,7 @@
 
         > .tippy-content {
             @include typography.bankai-sub-text;
-            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
         }
 
         > .tippy-arrow {

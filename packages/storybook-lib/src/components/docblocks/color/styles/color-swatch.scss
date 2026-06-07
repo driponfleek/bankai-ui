@@ -13,17 +13,17 @@
 
     &__inner {
         box-sizing: border-box;
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     }
 
     &--swatch-card {
         @include effects.bankai-shadow-elevation-low;
         width: 160px;
-        border-radius: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+        border-radius: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
 
         #{$this}__swatch-color {
             @include layout.bankai-flex-row;
-            border-radius: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) 0 0;
+            border-radius: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x) 0 0;
             height: 100px;
 
             #{$this}__meta-list {
@@ -35,7 +35,7 @@
 
         #{$this}__inner {
             background-color: var(--bankai-semantic-color-canvas, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas'));
-            border-radius: 0 0 unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+            border-radius: 0 0 unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
             padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
         }
 
