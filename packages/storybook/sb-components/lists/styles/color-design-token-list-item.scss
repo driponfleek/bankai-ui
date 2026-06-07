@@ -16,7 +16,7 @@
 
         &__before-content {
             @include layout.bankai-flex-column;
-            padding: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-03-x);
+            padding: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-03x);
         }
 
         &__content {

@@ -16,7 +16,7 @@
     }
 
     &__legend + * {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
     }
 
     &__content-container {
@@ -24,6 +24,6 @@
     }
 
     &--indent &__content-container {
-        padding-left: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+        padding-left: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
     }
 }

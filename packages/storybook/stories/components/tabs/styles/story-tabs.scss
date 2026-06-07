@@ -21,7 +21,7 @@
         &--pointer,
         &--underline {
             .bankai-sb-tabs-demo-panel-content {
-                padding-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+                padding-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
             }
         }
 
@@ -34,7 +34,7 @@
         &--traditional-gapped,
         &--underline-segmented {
             .bankai-sb-tabs-demo-panel-content {
-                padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+                padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
             }
         }
 
@@ -55,7 +55,7 @@
             &.bankai-tabs--underline {
                 .bankai-sb-tabs-demo-panel-content {
                     padding-top: 0;
-                    padding-left: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+                    padding-left: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
                 }
             }
         }

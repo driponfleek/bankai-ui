@@ -9,7 +9,7 @@
     @include layout.bankai-flex-row;
     box-sizing: border-box;
     flex-wrap: wrap;
-    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05-x);
+    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05x);
 
     > .bankai-form-layout-field-container {
         flex: 1 1 auto;

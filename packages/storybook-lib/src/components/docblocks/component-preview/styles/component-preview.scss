@@ -10,7 +10,7 @@
 .bankai-sb-component-preview {
     background-color: var(--bankai-semantic-color-canvas-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas-alt'));
     border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-01-x);
+    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-01x);
     box-sizing: border-box;
-    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x) ;
+    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x) ;
 }

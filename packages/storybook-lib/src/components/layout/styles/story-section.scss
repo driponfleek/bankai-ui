@@ -7,10 +7,10 @@
 
 .bankai-sb-section {
     box-sizing: border-box;
-    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-04-x);
+    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-04x);
 
     .bankai-sb-section-title + * {
-        margin-top: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-04-x);
+        margin-top: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-04x);
     }
 
     > :first-child {

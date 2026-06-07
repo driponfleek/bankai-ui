@@ -19,8 +19,8 @@
     color: inherit;
     background-color: var(--bankai-semantic-color-canvas-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas-alt'));
     box-sizing: border-box;
-    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-04-x);
-    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+    border-radius: unit-conversion-utils.bankai-to-px(radii-vars.$bankai-core-radius-04x);
+    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
 
     @media (hover: hover) {
         &:hover {
@@ -60,7 +60,7 @@
     }
 
     &-icon-container + &-text-container {
-        margin-top: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-03-x);
+        margin-top: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-03x);
     }
 
     // MODS

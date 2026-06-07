@@ -16,7 +16,7 @@
 $bankai-component-tokens: (
     // Accordions
     accordion-border-color: semantic-colors-vars.$bankai-semantic-color-decorative-border,
-    accordion-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02-x),
+    accordion-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02x),
     accordion-border-width: 1px,
     accordion-bg-color: semantic-colors-vars.$bankai-semantic-color-canvas,
     accordion-trigger-text-color: inherit,
@@ -27,7 +27,8 @@ $bankai-component-tokens: (
     avatar-border-color: core-colors-vars.$bankai-core-color-neutral-100,
     avatar-text-color: core-colors-vars.$bankai-core-color-neutral-100,
     // Badges
-    badge-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-04-x),
+    badge-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-01x),
+    badge-pill-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-04x),
     badge-bg-color: core-colors-vars.$bankai-core-color-neutral-80,
     badge-icon-color: color.change(core-colors-vars.$bankai-core-color-neutral-80, $lightness: 56%),
     badge-text-color: core-colors-vars.$bankai-core-color-neutral-0,
@@ -48,7 +49,7 @@ $bankai-component-tokens: (
     badge-info-icon-color: color.change(semantic-colors-vars.$bankai-semantic-color-info, $lightness: 44%),
     badge-info-text-color: core-colors-vars.$bankai-core-color-neutral-0,
     // Buttons
-    button-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-06-x),
+    button-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-06x),
     button-border-width: 1px,
     button-font-weight: normal,
     // - Primary
@@ -114,7 +115,7 @@ $bankai-component-tokens: (
     // - Info
     callout-info-icon-color: color.change(semantic-colors-vars.$bankai-semantic-color-info, $lightness: 50%),
     // Banners
-    banner-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02-x),
+    banner-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02x),
     banner-bg-color: core-colors-vars.$bankai-core-color-neutral-80,
     banner-icon-color: color.change(core-colors-vars.$bankai-core-color-neutral-80, $lightness: 56%),
     banner-text-color: core-colors-vars.$bankai-core-color-neutral-0,
@@ -140,7 +141,7 @@ $bankai-component-tokens: (
     form-checked-accent-compliment-color: semantic-colors-vars.$bankai-semantic-color-canvas,
     form-checked-focus-halo-inner-color: color.change(semantic-colors-vars.$bankai-semantic-color-primary, $lightness: 30%),
     form-checked-focus-halo-outer-color: color.change(semantic-colors-vars.$bankai-semantic-color-primary, $lightness: 70%, $alpha: 0.8),
-    form-checkbox-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-01-x),
+    form-checkbox-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-01x),
     // - Date Picker
     form-date-picker-off-range-text-color: core-colors-vars.$bankai-core-color-neutral-60,
     // // - Drag and Drop File Uploader
@@ -151,7 +152,7 @@ $bankai-component-tokens: (
     // form-dnd-file-uploader-rejected-border-color: color.change(semantic-colors-vars.$bankai-semantic-color-error, $lightness: 30%),
     // form-dnd-file-uploader-rejected-text-color: semantic-colors-vars.$bankai-semantic-color-canvas,
     // Inputs
-    form-input-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02-x),
+    form-input-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02x),
     form-input-bg-color: semantic-colors-vars.$bankai-semantic-color-canvas,
     form-input-disabled-bg-color: core-colors-vars.$bankai-core-color-neutral-80,
     form-input-disabled-placeholder-text-color: core-colors-vars.$bankai-core-color-neutral-30,
@@ -165,7 +166,7 @@ $bankai-component-tokens: (
     form-input-placeholder-text-color: semantic-colors-vars.$bankai-semantic-color-text-alt,
     form-input-text-color: 'inherit',
     // - Menus
-    form-menu-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02-x),
+    form-menu-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02x),
     form-menu-selected-bg-color: semantic-colors-vars.$bankai-semantic-color-primary,
     form-menu-selected-focus-bg-color: color.change(semantic-colors-vars.$bankai-semantic-color-primary, $lightness: 20%),
     form-menu-selected-focus-text-color: core-colors-vars.$bankai-core-color-neutral-100,
@@ -188,7 +189,7 @@ $bankai-component-tokens: (
     form-toggle-switch-on-focus-halo-inner-color: color.change(semantic-colors-vars.$bankai-semantic-color-affirmative, $lightness: 30%),
     form-toggle-switch-on-focus-halo-outer-color: color.change(semantic-colors-vars.$bankai-semantic-color-affirmative, $lightness: 70%, $alpha: 0.8),
     // Layouts
-    tile-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-04-x),
+    tile-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-04x),
     tile-heading-border-width: 1px,
     tile-heading-font-weight: bold,
     tile-heading-font-style: normal,
@@ -203,7 +204,7 @@ $bankai-component-tokens: (
     loading-skeleton-bg-color: core-colors-vars.$bankai-core-color-neutral-80,
     loading-skeleton-animation-color: (255, 255, 255),
     // Modals
-    modal-dialog-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-04-x),
+    modal-dialog-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-04x),
     modal-overlay-bg-color: color.change(core-colors-vars.$bankai-core-color-neutral-0, $alpha: 0.7),
     // Tabs
     tabs-active-accent-color: semantic-colors-vars.$bankai-semantic-color-primary,
@@ -218,7 +219,7 @@ $bankai-component-tokens: (
     tabs-inactive-hover-text-color: core-colors-vars.$bankai-core-color-neutral-10,
     tabs-panel-bg-color: semantic-colors-vars.$bankai-semantic-color-canvas,
     // Toasters
-    toaster-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02-x),
+    toaster-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02x),
     toaster-bg-color: semantic-colors-vars.$bankai-semantic-color-canvas,
     toaster-text-color: semantic-colors-vars.$bankai-semantic-color-text,
     toaster-progress-bar-color: color.change(core-colors-vars.$bankai-core-color-neutral-0, $alpha: 0.5),
@@ -239,6 +240,6 @@ $bankai-component-tokens: (
     toaster-info-text-color: core-colors-vars.$bankai-core-color-neutral-100,
     toaster-info-progress-bar-color: color.change(core-colors-vars.$bankai-core-color-neutral-0, $alpha: 0.5),
     // Tooltips
-    tooltip-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02-x),
+    tooltip-border-radius: unit-conversion-utils.bankai-to-px(core-radii-vars.$bankai-core-radius-02x),
     tooltip-icon-color: semantic-colors-vars.$bankai-semantic-color-info,
 );

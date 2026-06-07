@@ -16,25 +16,25 @@
     &--stacked {
         #{$this}__label-container + #{$this}__control-container,
         #{$this}__control-container + #{$this}__hints-container--displaying-hint {
-            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-half-x);
+            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-halfx);
         }
 
         * + #{$this}__hints-container {
-            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
         }
     }
 
     &--stacked-hint-top {
         #{$this}__label-container + #{$this}__control-container,
         #{$this}__hints-container + #{$this}__control-container {
-            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-half-x);
+            margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-halfx);
         }
     }
 
     &--inline-left {
         #{$this}__inner {
             @include layout.bankai-flex-row;
-            gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+            gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
         }
 
         #{$this}__label-container {
@@ -54,7 +54,7 @@
     &--inline-right {
         #{$this}__inner {
             @include layout.bankai-flex-row;
-            gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+            gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
         }
 
         #{$this}__label-container {

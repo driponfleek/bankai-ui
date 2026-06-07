@@ -17,8 +17,8 @@
     &__inner {
         @include layout.bankai-flex-row;
         box-sizing: border-box;
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
-        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
+        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
     }
 
     &__icon-container {
@@ -59,7 +59,7 @@
     }
 
     &__title-container + &__msg-container {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
     }
 
     #{$this}__title {

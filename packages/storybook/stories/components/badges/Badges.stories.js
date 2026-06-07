@@ -4,11 +4,12 @@ import StoryBadgeCautionary from './StoryBadgeCautionary';
 import StoryBadge from './StoryBadge';
 import StoryBadgeDanger from './StoryBadgeDanger';
 import StoryBadgeInfo from './StoryBadgeInfo';
-import { argTypes } from './args/badgeArgs';
+import { args, argTypes } from './args/badgeArgs';
 
 export default {
     title: 'Components/Badges',
     component: BankaiBadge,
+    args,
     argTypes,
 };
 

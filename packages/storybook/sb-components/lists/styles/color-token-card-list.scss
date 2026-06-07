@@ -7,7 +7,7 @@
 
 .bankai-sb-color-token-card-list {
     @include layout.bankai-flex-row;
-    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
     flex-wrap: wrap;
 
     .bankai-sb-color-swatch {
