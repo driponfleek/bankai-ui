@@ -29,7 +29,7 @@ body,
     height: 100%;
     background-color: var(--bankai-semantic-color-canvas-alt, theme-utils.bankai-get-light-theme-map-value('semantic-color-canvas-alt'));
     box-sizing: border-box;
-    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08-x);
+    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08x);
     $this: &;
 
     &__inner {
@@ -46,7 +46,7 @@ body,
         border-radius: var(--bankai-tile-border-radius, theme-utils.bankai-get-light-theme-map-value('tile-border-radius')) var(--bankai-tile-border-radius, theme-utils.bankai-get-light-theme-map-value('tile-border-radius')) 0 0;
         border-bottom: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
         box-sizing: border-box;
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08x);
 
         &-title {
             color: var(--bankai-semantic-color-text, theme-utils.bankai-get-light-theme-map-value('semantic-color-text'));
@@ -62,18 +62,18 @@ body,
 
     &__content {
         box-sizing: border-box;
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08x);
     }
 
     .bankai-sb-section + .bankai-sb-section {
-        margin-top: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-11-x);
+        margin-top: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-11x);
     }
 
     * + .bankai-sb-code-block,
     .bankai-sb-code-block + *,
     * + .bankai-sb-banner,
     .bankai-sb-banner + * {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07x);
     }
 
     * + &__package-badges {
@@ -82,12 +82,12 @@ body,
 
     * + .bankai-sb-collapsible-dt-section,
     .bankai-sb-collapsible-dt-section + * {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07x);
     }
 
     * + .bankai-sb-base-color-with-variants,
     .bankai-sb-base-color-with-variants + * {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-09-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-09x);
     }
 
     .bankai-list__item > * + .bankai-list {
@@ -95,15 +95,15 @@ body,
     }
 
     @include layout.bankai-breakpoint-max-only(breakpoints.$bankai-s-min) {
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
 
         &__header {
-            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-07x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
         }
 
         &__content {
             box-sizing: border-box;
-            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-06-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-06-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
         }
     }
 }

@@ -55,7 +55,7 @@
     }
 
     &__inner + &__hints-container--is-displaying-hint {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
     }
 
     &:not(&--disabled):has(&__control-container:focus-within) &__inner {
@@ -154,7 +154,7 @@
     }
 
     .bankai-dropdown .rw-dropdown-list-input {
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x) 0;
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x) 0;
         background-color: transparent;
     }
 
@@ -233,7 +233,7 @@
         .bankai-combobox .rw-widget-input,
         .bankai-date-picker .rw-widget-input,
         .bankai-dropdown .rw-dropdown-list-input {
-            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
         }
 
         .bankai-multiselect {

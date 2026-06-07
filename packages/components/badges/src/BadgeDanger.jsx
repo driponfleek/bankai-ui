@@ -7,10 +7,14 @@ import Badge from './Badge';
 import './styles/badge-danger.scss';
 
 const BadgeDanger = (props) => {
-    const { contextCls, children } = props;
+    const { contextCls, children, ...rest } = props;
     const baseCls = 'bankai-badge--danger';
 
-    return <Badge contextCls={cx(baseCls, contextCls)}>{children}</Badge>;
+    return (
+        <Badge {...rest} contextCls={cx(baseCls, contextCls)}>
+            {children}
+        </Badge>
+    );
 };
 
 BadgeDanger.propTypes = {

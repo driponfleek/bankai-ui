@@ -8,7 +8,7 @@
     box-sizing: border-box;
 
     &-row + &-row {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-05x);
     }
 
     &-section + &-section {
@@ -16,6 +16,6 @@
     }
 
     * + .bankai-form-layout-actions-container {
-        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08-x);
+        margin-top: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08x);
     }
 }

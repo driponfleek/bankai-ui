@@ -30,7 +30,7 @@
         &__text-container,
         &__icon-container {
             box-sizing: border-box;
-            padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x)};
+            padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x)};
         }
 
         &__item-button {

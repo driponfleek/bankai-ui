@@ -8,7 +8,7 @@
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 @use './rw-styles.scss';
 
-@mixin bankai-rw-focus-state-halo($inner-color: var(--bankai-semantic-color-universal-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
+@mixin bankai-rw-focus-state-halo($inner-color: var(--bankai-semantic-color-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
     @include states.bankai-focus-state-inner-outer-box-shadow($inner-color, $outer-color);
     border-color: $inner-color;
     transition: box-shadow 0.15s ease-in-out;

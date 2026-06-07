@@ -59,9 +59,14 @@ export const genBadgeTokens = (presets = {}) => {
     const {
         [constTokenMap.BADGE_BORDER_RADIUS]:
             borderRadii = BADGE_TOKEN_DEFAULTS.BADGE_BORDER_RADIUS,
+        [constTokenMap.BADGE_PILL_BORDER_RADIUS]:
+            pillBorderRadii = BADGE_TOKEN_DEFAULTS.BADGE_PILL_BORDER_RADIUS,
     } = presets;
 
-    return { [constTokenMap.BADGE_BORDER_RADIUS]: borderRadii };
+    return {
+        [constTokenMap.BADGE_BORDER_RADIUS]: borderRadii,
+        [constTokenMap.BADGE_PILL_BORDER_RADIUS]: pillBorderRadii,
+    };
 };
 
 export const genBadgeColorTokens = ({ sourceColors, variant }) => {

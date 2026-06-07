@@ -32,7 +32,7 @@
         border-radius: 0 var(--bankai-toaster-border-radius, theme-utils.bankai-get-light-theme-map-value('toaster-border-radius')) 0 0;
 
         .bankai-button__content-container {
-            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x);
+            padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x);
         }
 
         .bankai-button__icon {

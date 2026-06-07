@@ -10,6 +10,6 @@
     }
 
     .bankai-form-layout-row:has(.bankai-universal-toggle-input) {
-        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08-x);
+        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-08x);
     }
 }

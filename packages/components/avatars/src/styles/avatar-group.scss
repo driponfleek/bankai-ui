@@ -9,7 +9,7 @@
 .bankai-avatar-group, %bankai-avatar-group {
     @include layout.bankai-flex-row;
     box-sizing: border-box;
-    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x);
+    gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x);
 
     > * {
         flex: 0 0 auto;

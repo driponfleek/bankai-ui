@@ -38,6 +38,6 @@
 
     &__heading-container,
     &--pad-content &__content-container-inner {
-        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04-x);
+        padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-03x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-04x);
     }
 }

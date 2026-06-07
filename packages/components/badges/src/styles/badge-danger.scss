@@ -6,7 +6,7 @@
 .bankai-badge.bankai-badge--danger {
     color: var(--bankai-badge-danger-text-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-text-color'));
     background-color: var(--bankai-badge-danger-bg-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-bg-color'));
-    border: 1px solid var(--bankai-badge-danger-icon-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-icon-color'));
+    // border: 1px solid var(--bankai-badge-danger-icon-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-icon-color'));
 
     .bankai-badge__icon {
         color: var(--bankai-badge-danger-icon-color, theme-utils.bankai-get-light-theme-map-value('badge-danger-icon-color'));

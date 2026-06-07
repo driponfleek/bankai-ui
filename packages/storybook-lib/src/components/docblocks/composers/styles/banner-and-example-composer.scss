@@ -8,10 +8,10 @@
 
 .bankai-sb-banner-and-example-composer {
     border: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-    border-radius: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01-x);
+    border-radius: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01x);
 
     .bankai-banner {
-        border-radius: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01-x - 1) unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01-x - 1) 0 0;
+        border-radius: unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01x - 1) unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01x - 1) 0 0;
     }
 
     .bankai-banner__icon {
@@ -21,7 +21,7 @@
     .bankai-sb-component-preview {
         border: none;
         border-top: 1px solid var(--bankai-semantic-color-decorative-border, theme-utils.bankai-get-light-theme-map-value('semantic-color-decorative-border'));
-        border-radius: 0 0 unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01-x - 1) unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01-x - 1);
+        border-radius: 0 0 unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01x - 1) unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-01x - 1);
     }
 
     + * {

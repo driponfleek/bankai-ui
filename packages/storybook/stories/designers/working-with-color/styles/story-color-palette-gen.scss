@@ -10,7 +10,7 @@
     
     .bankai-sb-layout__content {
         @include layout.bankai-flex-row;
-        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-11-x);
+        gap: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-11x);
         flex-wrap: wrap;
     }
 

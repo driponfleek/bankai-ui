@@ -11,7 +11,7 @@
 
 @mixin bankai-button-base-content-container {
     box-sizing: border-box;
-    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
+    padding: unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x) unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-02-x);
     display: block;
 }
 
@@ -20,7 +20,7 @@
     vertical-align: middle;
     user-select: none;
     display: inline-block;
-    padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01-x)};
+    padding: #{unit-conversion-utils.bankai-to-rem(spacing-vars.$bankai-core-spacing-01x)};
 }
 
 @mixin bankai-button-box-sizing-display-block {

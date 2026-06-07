@@ -11,7 +11,7 @@
 
     &__inner {
         @include layout.bankai-flex-column;
-        gap: #{unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-04-x)};
+        gap: #{unit-conversion-utils.bankai-to-px(spacing-vars.$bankai-core-spacing-04x)};
     }
 
     &__list-container {
