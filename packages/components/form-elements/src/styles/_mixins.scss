@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-state-vars.scss' as state-vars;
 
 @mixin bankai-form-input-disabled($has-placeholder: true) {

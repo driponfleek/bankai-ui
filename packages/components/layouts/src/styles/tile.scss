@@ -1,10 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
 .bankai-tile, %bankai-tile {

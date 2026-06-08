@@ -1,8 +1,9 @@
 {
     "author": "dyearwood@envisionedprototype.com",
     "dependencies": {
-        "stylelint": "15.10.1",
-        "stylelint-config-standard-scss": "10.0.0"
+        "@stylistic/stylelint-plugin": "5.2.0",
+        "stylelint": "17.13.0",
+        "stylelint-config-standard-scss": "17.0.0"
     },
     "description": "Bankai UI stylelint configs",
     "keywords": [
@@ -19,5 +20,6 @@
         "type": "git",
         "url": "ssh://git@github.com:driponfleek/bankai-ui.git"
     },
+    "type": "module",
     "version": "0.1.0"
 }

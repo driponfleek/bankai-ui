@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 
 .bankai-loading-spheres, %bankai-loading-spheres {
     color: var(--bankai-loading-icon-primary-color, theme-utils.bankai-get-light-theme-map-value('loading-icon-primary-color'));

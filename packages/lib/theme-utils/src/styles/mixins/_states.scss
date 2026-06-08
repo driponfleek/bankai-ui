@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils';
 @use '../vars/core-state-vars.scss' as state-vars;
 
 @mixin bankai-focus-state-inner-outer-box-shadow($inner-color: var(--bankai-semantic-color-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {

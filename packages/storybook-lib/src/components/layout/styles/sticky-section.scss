@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 
 .bankai-sb-sticky-section {
     $this: &;

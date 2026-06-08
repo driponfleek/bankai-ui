@@ -1,9 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@use './animations.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
+@use './animations';
 @use './mixins.scss' as loading-mixins;
 
 .bankai-loading-squares, %bankai-loading-squares {

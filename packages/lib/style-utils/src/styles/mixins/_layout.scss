@@ -24,20 +24,17 @@
 }
 
 @mixin bankai-scroll-x() {
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow: auto hidden;
     -webkit-overflow-scrolling: touch;
 }
 
 @mixin bankai-scroll-y() {
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden auto;
     -webkit-overflow-scrolling: touch;
 }
 
 @mixin bankai-scroll-all() {
-    overflow-y: auto;
-    overflow-x: auto;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
 

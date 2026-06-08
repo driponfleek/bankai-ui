@@ -6,6 +6,7 @@
     },
     "exports": {
         ".": "./index.scss",
+        "./src/styles/*": "./src/styles/*.scss",
         "./src/styles/*.scss": "./src/styles/*.scss"
     },
     "license": "MIT",

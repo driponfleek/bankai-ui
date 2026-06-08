@@ -2,7 +2,7 @@
 // Dependencies
 // ========================================================
 @use 'sass:math';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils';
 @use '../tokens/semantic-typography-tokens.scss' as typography-tokens;
 
 @mixin bankai-line-height($isHeading: false) {

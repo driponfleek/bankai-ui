@@ -25,11 +25,16 @@
     "lint-staged": {
         "packages/**/*.js": [
             "prettier --write",
-            "eslint --fix --ignore-pattern /**/rollup.config.js --ignore-pattern **/storybook-static/** --ignore-pattern **/node_modules/** --ignore-pattern **/public/** --ignore-pattern **/build/** --ignore-pattern **/dist/**",
+            "eslint --fix",
+            "npm run test:related packages/ -- --passWithNoTests"
+        ],
+        "packages/**/*.jsx": [
+            "prettier --write",
+            "eslint --fix",
             "npm run test:related packages/ -- --passWithNoTests"
         ],
         "packages/**/*.scss": [
-            "stylelint --fix --ignore-pattern '**/public/**' --ignore-pattern '**/build/**'"
+            "stylelint --fix"
         ]
     },
     "name": "@driponfleek/bankai-ui",

@@ -1,10 +1,10 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-scales-vars.scss' as scales-vars;
 
 .bankai-radio, %bankai-radio {
