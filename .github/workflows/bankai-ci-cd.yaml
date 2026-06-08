@@ -44,7 +44,6 @@ jobs:
       run: |
         npm config set save-exact true
         npm config set legacy-peer-deps true
-        npm config set optional true
         npm ci
         npm run lint:js
         npm run lint:scss
