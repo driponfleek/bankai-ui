@@ -38,9 +38,13 @@ jobs:
       with:
         node-version-file: '.nvmrc'
         cache: 'npm'
+    - name: Debug Nx
+      run: |
+        ls node_modules/@nx/ | grep linux
+        node -e "require('@nx/nx-linux-x64-gnu')"
     - name: Install, Validate & Build
       env:
-        NX_NON_NATIVE_HASHER: true
+        NX_NATIVE_MODULE_REQUIRE_FALLBACK: true
       run: |
         npm config set save-exact true
         npm config set legacy-peer-deps true
