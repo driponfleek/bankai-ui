@@ -3,6 +3,7 @@ import {
     genColorAndVariantsWithMetadata,
     genEvaluatedColorMetadata,
 } from '@driponfleek/bankai-lib-color-utils';
+import { genFocusTokens } from './focusTokenUtils';
 import {
     getPrioritizedAppTextColor,
     getDecorativeComplimentaryColor,
@@ -17,7 +18,6 @@ import {
     genCoreNeutralColors,
 } from '../dataGenUtils';
 import { massageConstToDotNotation } from '../dataMassageUtils';
-import { genFocusTokens } from './focusTokenUtils';
 import {
     FORM_TOKEN_DEFAULTS,
     FORM_TOKEN_NAMES,

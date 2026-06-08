@@ -1,7 +1,7 @@
 /** @type { import('@storybook/react-vite').Preview } */
 import { genSBBaseCls } from '@driponfleek/bankai-lib-storybook';
 import { themes } from 'storybook/theming';
-import { getLocale } from '../utils/localeUtils';
+// import { getLocale } from '../utils/localeUtils';
 
 const brandTitle = 'Bankai UI';
 const preview = {

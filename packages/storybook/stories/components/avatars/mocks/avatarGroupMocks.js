@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 import AvatarIcon from '../components/AvatarIcon';
 import avatar01 from '../../../../media/images/avatars/avatar01.jpg';
 import avatar05 from '../../../../media/images/avatars/avatar05.jpg';

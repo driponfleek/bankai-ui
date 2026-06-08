@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable react/jsx-filename-extension */
 import { SB_BASE_CLS_PREFIX } from '../const/baseClsConst';
 // import { BankaiHistory, BankaiReadme } from '@driponfleek/bankai-ui-icons';
 // import { Description } from '@storybook/addon-docs';

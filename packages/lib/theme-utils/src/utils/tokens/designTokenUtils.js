@@ -5,7 +5,6 @@ import {
     genSemanticFocusColorTokens,
 } from './semanticColorTokenUtils';
 // Semantic Colors
-import { genSemanticColorsMetadata } from '../semanticColorDataGenUtils';
 // Data Vis
 import {
     genDataVisTokens,
@@ -70,6 +69,7 @@ import { genToasterPresetTokens, genToasterTokens } from './toasterTokenUtils';
 import { genTooltipPresetTokens, genTooltipTokens } from './tooltipTokenUtils';
 // Typography
 import { genTypographyTokens } from './typographyTokensUtils';
+import { genSemanticColorsMetadata } from '../semanticColorDataGenUtils';
 import { genCSSVars, genConstToDotNotationMap } from '../dataGenUtils';
 import {
     massageConstToDotNotation,

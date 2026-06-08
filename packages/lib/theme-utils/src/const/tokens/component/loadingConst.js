@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 export const LOADING_TOKEN_NAMES = {
     LOADING_ICON_ACCENT_COLOR: 'LOADING_ICON_ACCENT_COLOR',
     LOADING_ICON_PRIMARY_COLOR: 'LOADING_ICON_PRIMARY_COLOR',

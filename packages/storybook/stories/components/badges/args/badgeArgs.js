@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { boolArg } from '@driponfleek/bankai-lib-storybook';
 import { contextClsArg, contextClsArgType } from '../../../../args/sharedArgs';
 
