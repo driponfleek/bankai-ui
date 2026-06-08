@@ -1,1 +1,0 @@
-import{g as o}from"./localeUtils-D7lxN7GM.js";import{g as s}from"./storiesConfigUtils-B40M9pmf.js";import{c as t,a}from"./sharedArgs-BISqGE2t.js";const e="0.1.0",r={version:e},p=s(o("stories.components.typography.categoryTitle")),m=r,i={...t},T={...a};export{m as P,p as S,i as a,T as b};
