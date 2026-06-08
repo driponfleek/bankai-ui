@@ -1,6 +1,6 @@
-/* eslint-disable import/prefer-default-export */
-import { genConstToDotNotationMap } from '../dataGenUtils';
+/* eslint-disable import-x/prefer-default-export */
 import { genFocusTokens } from './focusTokenUtils';
+import { genConstToDotNotationMap } from '../dataGenUtils';
 import { massageConstToDotNotation } from '../dataMassageUtils';
 import { TABS_TOKEN_NAMES } from '../../const/tokens/component/tabsConst';
 import { SEMANTIC_COLOR_TOKEN_NAMES } from '../../const/tokens/semantic/semanticColorsConst';

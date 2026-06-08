@@ -6,7 +6,6 @@ const originalConsoleError = console.error.bind(console.error);
 const baseCls = 'bankai-menu-button-option';
 jest.mock('react-aria-menubutton', () => ({
     MenuItem: (props) => {
-        // eslint-disable-next-line react/prop-types
         const { children, contextCls } = props;
         const mockCls = contextCls ? `${baseCls} ${contextCls}` : baseCls;
 

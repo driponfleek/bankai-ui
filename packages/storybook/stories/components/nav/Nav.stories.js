@@ -5,7 +5,6 @@ export default {
     title: 'Components/Navigation',
     component: BankaiHyperlink,
     args: {
-        // eslint-disable-next-line no-script-url
         href: 'javascript: void(0)',
         shouldOpenInNewWindow: false,
     },

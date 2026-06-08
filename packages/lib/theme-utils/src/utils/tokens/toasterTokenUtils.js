@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { convertColorToRGBA } from '@driponfleek/bankai-lib-color-utils';
 import { genConstToDotNotationMap } from '../dataGenUtils';
 import {

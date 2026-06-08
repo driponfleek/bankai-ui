@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 import { Toaster } from '@driponfleek/bankai-ui-notifications';
 
 export const toasterInit = (toasterProps, toastId, handleCloseToaster) => {
