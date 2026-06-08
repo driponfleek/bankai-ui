@@ -1,8 +1,8 @@
 // ================================================================
 // Dependencies
 // ================================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography';
 
 .bankai-sb-color-swatch__meta-list {
     @include resets.bankai-list-reset;

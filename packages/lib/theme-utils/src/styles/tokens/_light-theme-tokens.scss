@@ -1,9 +1,9 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@use './component-tokens.scss';
-@use './semantic-color-tokens.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils';
+@use './component-tokens';
+@use './semantic-color-tokens';
 @use './semantic-typography-tokens.scss' as typography-tokens;
 
 // ========================================================

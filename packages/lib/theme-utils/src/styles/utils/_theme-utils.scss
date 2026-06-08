@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@use '../tokens/light-theme-tokens.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils';
+@use '../tokens/light-theme-tokens';
 
 @function bankai-get-light-theme-map-value($key) {
     @return map-utils.bankai-get-map-value(light-theme-tokens.$bankai-get-light-theme-map-value-tokens, $key);

@@ -1,7 +1,7 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout';
 
 .bankai-sb-color-variant-generator {
     $this: &;

@@ -2,11 +2,11 @@
 // Dependencies
 // ========================================================
 @use 'sass:color';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
-@use './rw-styles.scss';
+@use './rw-styles';
 
 @mixin bankai-rw-focus-state-halo($inner-color: var(--bankai-semantic-color-focus-halo-inner, rgba(0, 0, 0, 0.8)), $outer-color: var(--bankai-semantic-color-focus-halo-outer, rgba(0, 0, 0, 0.6))) {
     @include states.bankai-focus-state-inner-outer-box-shadow($inner-color, $outer-color);

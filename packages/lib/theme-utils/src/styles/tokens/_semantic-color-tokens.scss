@@ -3,8 +3,8 @@
 // ================================================================
 @use 'sass:map';
 @use 'sass:color';
-@use '../vars/core-colors-vars.scss';
-@use '../vars/semantic-colors-vars.scss';
+@use '../vars/core-colors-vars';
+@use '../vars/semantic-colors-vars';
 
 // Semantic Light Theme Color Tokens
 $bankai-semantic-color-tokens: (

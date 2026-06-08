@@ -1,11 +1,11 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
-@use './animations.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars';
+@use './animations';
 // @use './mixins.scss' as loading-mixins;
 
 .bankai-loading-spinners, %bankai-loading-spinners {

@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 
 .bankai-list, %bankai-list {
     @include resets.bankai-list-reset;
