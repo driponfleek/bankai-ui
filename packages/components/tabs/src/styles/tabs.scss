@@ -2,13 +2,13 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/resets';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/states';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-colors-vars';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-radii-vars.scss' as radii-vars;
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 

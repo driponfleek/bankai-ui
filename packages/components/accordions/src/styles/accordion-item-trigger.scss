@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography';
 
 .bankai-accordion__item-trigger, %bankai-accordion__item-trigger {
     .bankai-base-accordion__text {

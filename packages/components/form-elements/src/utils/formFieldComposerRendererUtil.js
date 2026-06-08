@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 import FFCInlineLeft from '../components/form-field-composer/FFCInlineLeft';
 import FFCInlineRight from '../components/form-field-composer/FFCInlineRight';
 import FFCStacked from '../components/form-field-composer/FFCStacked';

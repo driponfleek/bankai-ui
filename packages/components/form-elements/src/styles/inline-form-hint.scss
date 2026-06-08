@@ -1,8 +1,8 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 
 .bankai-form-control-hint, %bankai-form-control-hint {
     @include typography.bankai-max-line-width;

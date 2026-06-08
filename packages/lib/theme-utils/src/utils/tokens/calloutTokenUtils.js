@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import-x/prefer-default-export */
 import { genConstToDotNotationMap } from '../dataGenUtils';
 import {
     CALLOUT_AFFIRMATIVE_COLOR_TOKEN_NAMES,

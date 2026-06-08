@@ -2,7 +2,7 @@
 // Dependencies
 // ========================================================
 @use 'sass:color';
-@use '../utils/theme-utils.scss';
+@use '../utils/theme-utils';
 
 // TODO: Clean up commented code
 @mixin bankai-shadow-elevation-low($color: theme-utils.bankai-get-light-theme-map-value('semantic-color-box-shadow')) {
@@ -116,8 +116,8 @@
             // Shadow TOP
             radial-gradient(
                 farthest-side at 50% 0,
-                rgba(0, 0, 0, 20%),
-                rgba(0, 0, 0, 0%)
+                rgb(0, 0, 0, 20%),
+                rgb(0, 0, 0, 0%)
             ) center top;
     }
 
@@ -126,8 +126,8 @@
             // Shadow BOTTOM
             radial-gradient(
                 farthest-side at 50% 100%,
-                rgba(0, 0, 0, 20%),
-                rgba(0, 0, 0, 0%)
+                rgb(0, 0, 0, 20%),
+                rgb(0, 0, 0, 0%)
             ) center bottom;
         margin-top: -10px;
     }

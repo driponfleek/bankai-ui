@@ -4,13 +4,13 @@
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:color';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@use '../vars/core-colors-vars.scss';
-@use '../vars/core-radii-vars.scss';
-@use '../vars/core-scales-vars.scss';
-@use '../vars/semantic-typography-vars.scss';
-@use '../vars/semantic-colors-vars.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/map-utils';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils';
+@use '../vars/core-colors-vars';
+@use '../vars/core-radii-vars';
+@use '../vars/core-scales-vars';
+@use '../vars/semantic-typography-vars';
+@use '../vars/semantic-colors-vars';
 
 // Component Design Tokens
 $bankai-component-tokens: (

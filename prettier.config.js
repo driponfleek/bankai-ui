@@ -1,1 +1,2 @@
-module.exports = require('@driponfleek/prettier-config');
+import prettierConfig from '@driponfleek/prettier-config';
+export default prettierConfig;

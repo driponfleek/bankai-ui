@@ -20,16 +20,21 @@
         "vite-plugin-lib-inject-css": "2.2.2"
     },
     "engines": {
-      "node": ">=20 <25"
+        "node": ">=20 <25"
     },
     "lint-staged": {
         "packages/**/*.js": [
             "prettier --write",
-            "eslint --fix --ignore-pattern /**/rollup.config.js --ignore-pattern **/storybook-static/** --ignore-pattern **/node_modules/** --ignore-pattern **/public/** --ignore-pattern **/build/** --ignore-pattern **/dist/**",
+            "eslint --fix",
+            "npm run test:related packages/ -- --passWithNoTests"
+        ],
+        "packages/**/*.jsx": [
+            "prettier --write",
+            "eslint --fix",
             "npm run test:related packages/ -- --passWithNoTests"
         ],
         "packages/**/*.scss": [
-            "stylelint --fix --ignore-pattern '**/public/**' --ignore-pattern '**/build/**'"
+            "stylelint --fix"
         ]
     },
     "name": "@driponfleek/bankai-ui",
@@ -39,7 +44,7 @@
         "build:clean": "lerna run pre:build --parallel",
         "fresh-start": "lerna clean && rm -rf node_modules && npm i",
         "lerna-version": "cross-env HUSKY_SKIP_HOOKS=1 npm run lerna version --conventional-commits --yes",
-        "lint:js": "eslint --fix --ignore-pattern /**/rollup.config.js --ignore-pattern **/storybook-static/** --ignore-pattern **/node_modules/** --ignore-pattern **/public/** --ignore-pattern **/build/** --ignore-pattern **/dist/** ./",
+        "lint:js": "eslint --fix",
         "lint:scss": "stylelint \"**/*.scss\" --fix",
         "pre-commit": "lint-staged",
         "prepare": "husky install || exit 0",
@@ -50,7 +55,11 @@
         "test": "cross-env NODE_ENV=test jest",
         "test:related": "cross-env NODE_ENV=test jest --findRelatedTests"
     },
+    "type": "module",
     "workspaces": [
         "packages/**"
-    ]
+    ],
+    "dependencies": {
+        "eslint": "^9.0.0"
+    }
 }

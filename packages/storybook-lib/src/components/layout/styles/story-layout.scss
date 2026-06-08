@@ -1,16 +1,16 @@
 // ========================================================
 // Dependencies
 // ========================================================
-@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils.scss';
-@use '@driponfleek/bankai-lib-style-utils/src/styles/vars/breakpoints.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/index.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography.scss';
-@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils.scss';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/mixins/layout';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/utils/unit-conversion-utils';
+@use '@driponfleek/bankai-lib-style-utils/src/styles/vars/breakpoints';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/index';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/effects';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography';
+@use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
 
-// stylelint-disable-next-line selector-max-id
+// stylelint-disable selector-max-id
 html,
 body,
 #root,
@@ -19,6 +19,7 @@ body,
     padding: 0;
     box-sizing: border-box;
 }
+/* stylelint-enable selector-max-id */
 
 .sb-show-main.sb-main-padded {
     padding: 0;
