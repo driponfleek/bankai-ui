@@ -42,7 +42,7 @@ jobs:
       run: |
         npm config set save-exact true
         npm config set legacy-peer-deps true
-        npm ci
+        npm ci --include=optional
         npm run lint:js
         npm run lint:scss
         npm run test
@@ -79,7 +79,11 @@ jobs:
       id: get-version
       shell: bash
       run: |-
-        VERSION=$(node -p "require('./package.json').version")
+        VERSION=$(node --input-type=module <<'EOF'
+        import { readFileSync } from 'fs';
+        console.log(JSON.parse(readFileSync('./package.json', 'utf8')).version);
+        EOF
+        )
         echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
     - name: Show Version
