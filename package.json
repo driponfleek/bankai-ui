@@ -55,7 +55,6 @@
         "test": "cross-env NODE_ENV=test jest",
         "test:related": "cross-env NODE_ENV=test jest --findRelatedTests"
     },
-    "type": "module",
     "workspaces": [
         "packages/**"
     ],
