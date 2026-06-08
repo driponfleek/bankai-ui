@@ -11,6 +11,7 @@ export default [
             '**/coverage/**',
             '**/.storybook/**',
             'prettier.config.js',
+            'stylelint.config.js',
         ],
     },
     ...reactLintConfig,
