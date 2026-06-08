@@ -39,10 +39,12 @@ jobs:
         node-version-file: '.nvmrc'
         cache: 'npm'
     - name: Install, Validate & Build
+      env:
+        NX_NON_NATIVE_HASHER: true
       run: |
         npm config set save-exact true
         npm config set legacy-peer-deps true
-        npm ci --include=optional
+        npm ci
         npm run lint:js
         npm run lint:scss
         npm run test
