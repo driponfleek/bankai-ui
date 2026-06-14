@@ -9,6 +9,7 @@ import { getSanatizedProps } from './utils/tootlipUtils';
 import { POSITIONS, TRIGGERS } from './const/tooltipConst';
 
 // Styles
+import 'tippy.js/dist/tippy.css';
 import './styles/tooltip.scss';
 
 const Tooltip = (props) => {

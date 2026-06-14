@@ -7,7 +7,6 @@
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/mixins/typography';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/utils/theme-utils';
 @use '@driponfleek/bankai-lib-theme-utils/src/styles/vars/core-spacing-vars.scss' as spacing-vars;
-@import 'react-toastify/dist/ReactToastify.css';
 
 .bankai-toaster, %bankai-toaster {
     @include effects.bankai-shadow-elevation-high;
