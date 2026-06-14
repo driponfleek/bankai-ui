@@ -14,6 +14,7 @@ import {
 } from './utils/toasterUtils';
 
 // Styles
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/toaster.scss';
 
 // Reference:
