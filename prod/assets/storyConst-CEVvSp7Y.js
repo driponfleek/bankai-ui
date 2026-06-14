@@ -1,0 +1,1 @@
+import{g as o}from"./localeUtils-BFzn0tvo.js";import{g as s}from"./storiesConfigUtils-DPAob6nZ.js";const t="0.1.0",n={version:t},e="0.1.0",T={version:e},E=s(o("stories.components.formElements.categoryTitle")),a=n,i=T,m={PROTECTED:"PROTECTED",TEXTAREA:"TEXTAREA"};export{m as I,a as P,E as S,i as a};

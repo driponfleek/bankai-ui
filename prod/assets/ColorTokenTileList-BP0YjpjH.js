@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-C9BSKODj.js";import{L as e}from"./List-Cbjt3Kl0.js";import{g as r}from"./iframe-CuGg3w5S.js";const i=o=>{const s=r("color-token-palette-list");return t.jsx(e,{...o,contextCls:s})};i.__docgenInfo={description:"",methods:[],displayName:"ColorTokenTileList"};export{i as C};
