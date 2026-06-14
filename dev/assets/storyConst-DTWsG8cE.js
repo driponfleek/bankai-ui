@@ -1,1 +1,0 @@
-import{g as e}from"./localeUtils-DJ68uNpT.js";import{c as o}from"./storiesConfigUtils-BQfW49QM.js";import{g as t}from"./iframe-DCMODNXT.js";const a=o(e("stories.everyone.designTokens.categoryTitle")),i=t("design-token-naming-convention-and-strat");export{i as B,a as S};
