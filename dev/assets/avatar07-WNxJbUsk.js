@@ -1,0 +1,1 @@
+import{g as t}from"./localeUtils-D2w-4qCV.js";import{g as o}from"./storiesConfigUtils-wXaRFw-7.js";const a="0.1.0",s={version:a},n=o(t("stories.components.avatars.categoryTitle")),c=s,m=""+new URL("avatar07-BVXuzJkK.jpg",import.meta.url).href;export{c as P,n as S,m as a};

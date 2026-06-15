@@ -1,0 +1,3 @@
+import{j as s}from"./jsx-runtime-Co4revrD.js";import{c as a}from"./localeUtils-D2w-4qCV.js";import{B as o}from"./BannerInfo-0m67LMbY.js";const p=t=>{const{contextCls:n,...e}=t;return s.jsx(o,{...e,contextCls:a("bankai-banner--affirmative",n)})};p.__docgenInfo={description:`@param {Object} props
+@param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element`,methods:[],displayName:"BannerAffirmative"};const i=t=>{const{contextCls:n,...e}=t;return s.jsx(o,{...e,contextCls:a("bankai-banner--danger",n)})};i.__docgenInfo={description:`@param {Object} props
+@param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element`,methods:[],displayName:"BannerDanger"};export{i as B,p as a};

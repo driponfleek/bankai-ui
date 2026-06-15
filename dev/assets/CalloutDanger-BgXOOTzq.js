@@ -1,0 +1,2 @@
+import{j as a}from"./jsx-runtime-Co4revrD.js";import{c as e}from"./localeUtils-D2w-4qCV.js";import{C as r}from"./Callout-sPrWmWzV.js";const n=t=>{const{contextCls:o,...s}=t;return a.jsx(r,{...s,contextCls:e("bankai-callout--danger",o)})};n.__docgenInfo={description:`@param {Object} props
+@param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element`,methods:[],displayName:"CalloutDanger"};export{n as C};

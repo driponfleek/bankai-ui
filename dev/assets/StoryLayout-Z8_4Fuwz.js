@@ -1,0 +1,2 @@
+import{j as e}from"./jsx-runtime-Co4revrD.js";import{g as a,a as s}from"./localeUtils-D2w-4qCV.js";const p=t=>{const{pkgVer:o}=t,r=o!==void 0?`${a("shared.version")} ${o}`:void 0;return e.jsx(s,{...t,pkgVerAltText:r})};p.__docgenInfo={description:`@param {Object} props
+@param {string} [props.pkgVer] - Package version string; used to auto-generate pkgVerAltText`,methods:[],displayName:"StoryLayout"};export{p as S};
