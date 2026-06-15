@@ -1,8 +1,13 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 const style = 'style=flat';
 
+/**
+ * @param {Object} props
+ * @param {string} props.altText - Alt text for the version badge image
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.version] - Package version string used to generate the badge
+ */
 const PackageBadges = (props) => {
     const { altText, contextCls, version } = props;
     const baseCls = 'bankai-sb-package-badges';
@@ -17,12 +22,6 @@ const PackageBadges = (props) => {
             )}
         </div>
     );
-};
-
-PackageBadges.propTypes = {
-    altText: PropTypes.string.isRequired,
-    contextCls: PropTypes.string,
-    version: PropTypes.string,
 };
 
 export default PackageBadges;

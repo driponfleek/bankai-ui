@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { debounce } from '@driponfleek/bankai-lib-helper-utils';
 import RWNumberPicker from 'react-widgets/NumberPicker';
@@ -9,6 +8,34 @@ import { getNumberPickerExtantProps } from './utils/extantPropsUtils';
 // Styles
 import './styles/number-picker.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.format] - Number format string
+ * @param {string} [props.id] - ID attribute for the number picker input
+ * @param {string} [props.name] - Name attribute for the number picker input
+ * @param {string} [props.placeholder] - Placeholder text
+ * @param {number} [props.max] - Maximum allowed value
+ * @param {number} [props.min] - Minimum allowed value
+ * @param {number|string} [props.precision] - Decimal precision
+ * @param {number} [props.step] - Increment/decrement step amount
+ * @param {number} [props.value] - Current value (controlled)
+ * @param {boolean} [props.hasError] - Whether the number picker is in an error state
+ * @param {boolean} [props.isDisabled] - Whether the number picker is disabled
+ * @param {boolean} [props.isReadOnly] - Whether the number picker is read-only
+ * @param {boolean} [props.shouldAutoFocus] - Whether to auto-focus on mount
+ * @param {Object} [props.inputProps] - Additional props for the input element
+ * @param {Object} [props.messages] - Localization message overrides
+ * @param {Function} [props.onBlur] - Callback fired on blur
+ * @param {Function} [props.onChange] - Callback fired when the value changes
+ * @param {Function} [props.onChangeComplete] - Debounced callback fired after the value stabilizes
+ * @param {Function} [props.onFocus] - Callback fired on focus
+ * @param {Function} [props.onKeyDown] - Callback fired on key down
+ * @param {Function} [props.onKeyPress] - Callback fired on key press
+ * @param {Function} [props.onKeyUp] - Callback fired on key up
+ * @param {Function} [props.renderDecrementIcon] - Custom render function for the decrement button icon
+ * @param {Function} [props.renderIncrementIcon] - Custom render function for the increment button icon
+ */
 const NumberPicker = (props) => {
     const {
         contextCls,
@@ -96,33 +123,5 @@ NumberPicker.onFocus = () => Promise.resolve();
 NumberPicker.onKeyDown = () => Promise.resolve();
 NumberPicker.onKeyPress = () => Promise.resolve();
 NumberPicker.onKeyUp = () => Promise.resolve();
-
-NumberPicker.propTypes = {
-    contextCls: PropTypes.string,
-    format: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    placeholder: PropTypes.string,
-    max: PropTypes.number,
-    min: PropTypes.number,
-    precision: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    step: PropTypes.number,
-    value: PropTypes.number,
-    hasError: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    isReadOnly: PropTypes.bool,
-    shouldAutoFocus: PropTypes.bool,
-    inputProps: PropTypes.object,
-    messages: PropTypes.object,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onChangeComplete: PropTypes.func,
-    onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    onKeyPress: PropTypes.func,
-    onKeyUp: PropTypes.func,
-    renderDecrementIcon: PropTypes.func,
-    renderIncrementIcon: PropTypes.func,
-};
 
 export default NumberPicker;

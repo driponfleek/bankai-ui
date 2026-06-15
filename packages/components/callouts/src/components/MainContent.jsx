@@ -1,6 +1,12 @@
-import PropTypes from 'prop-types';
 import { Heading } from '@driponfleek/bankai-ui-typography';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name passed from the parent component
+ * @param {string|React.ReactElement} [props.msg] - Body content
+ * @param {string|React.ReactElement} [props.title] - Heading content
+ * @param {number} [props.headingLvl] - Heading level for the title
+ */
 const MainContent = (props) => {
     const { baseCls, title, msg, headingLvl } = props;
 
@@ -23,13 +29,6 @@ const MainContent = (props) => {
             )}
         </div>
     );
-};
-
-MainContent.propTypes = {
-    baseCls: PropTypes.string,
-    msg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    headingLvl: PropTypes.number,
 };
 
 export default MainContent;

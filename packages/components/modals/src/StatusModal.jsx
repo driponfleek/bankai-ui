@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
     LoadingState,
@@ -12,6 +11,20 @@ import './styles/status-modal.scss';
 
 const { FREQUENCY } = LOADING_BARS_VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.dialogContextCls] - Additional CSS class name(s) to apply to the dialog element
+ * @param {string} [props.overlayContextCls] - Additional CSS class name(s) to apply to the overlay element
+ * @param {string} [props.role] - ARIA role for the modal
+ * @param {string} props.statusText - Accessible label and visible status message displayed in the modal
+ * @param {number} [props.closeTimeoutMS] - Duration in milliseconds for the close transition
+ * @param {boolean} [props.isOpen] - Whether the modal is currently open
+ * @param {string|Element} [props.appElement] - The app root element used by react-modal for accessibility
+ * @param {Function} [props.onAfterClose] - Callback fired after the modal finishes closing
+ * @param {Function} [props.onAfterOpen] - Callback fired after the modal finishes opening
+ * @param {Function} [props.renderIcon] - Custom render function for the loading icon
+ * @param {Function} [props.renderTo] - Function that returns the DOM node to portal the modal into
+ */
 const StatusModal = (props) => {
     const {
         dialogContextCls,
@@ -57,22 +70,5 @@ const StatusModal = (props) => {
 StatusModal.onAfterClose = () => Promise.resolve();
 StatusModal.onAfterOpen = () => Promise.resolve();
 StatusModal.renderTo = () => document.body;
-
-StatusModal.propTypes = {
-    dialogContextCls: PropTypes.string,
-    overlayContextCls: PropTypes.string,
-    role: PropTypes.string,
-    statusText: PropTypes.string.isRequired,
-    closeTimeoutMS: PropTypes.number,
-    isOpen: PropTypes.bool,
-    appElement: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.instanceOf(Element),
-    ]),
-    onAfterClose: PropTypes.func,
-    onAfterOpen: PropTypes.func,
-    renderIcon: PropTypes.func,
-    renderTo: PropTypes.func,
-};
 
 export default StatusModal;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { BankaiSpinner } from '@driponfleek/bankai-ui-icons';
 import ButtonMain from './components/ButtonMain';
@@ -12,6 +11,23 @@ import { BUTTON_BASE_CLS } from './const/baseClsConst';
 // Styles
 import './styles/button.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props['aria-label']] - Accessible label for the button when visible text is absent
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string|React.ReactElement} [props.text] - Text label for the button
+ * @param {'button'|'submit'} [props.type] - HTML button type attribute
+ * @param {string} [props.variant] - Visual variant identifier
+ * @param {boolean} [props.isDynamicText] - Whether to announce text changes to screen readers via aria-live
+ * @param {boolean} [props.isBusy] - Whether the button is in a busy/loading state
+ * @param {boolean} [props.isDisabled] - Whether the button is disabled
+ * @param {Object} [props.data] - Arbitrary data passed to event handler callbacks
+ * @param {Function} [props.onClick] - Callback fired on button click
+ * @param {Function} [props.onBlur] - Callback fired on button blur
+ * @param {Function} [props.onFocus] - Callback fired on button focus
+ * @param {Function} [props.renderBusyIcon] - Render function for the busy/loading icon
+ * @param {Function} [props.renderIcon] - Render function for the button icon
+ */
 const Button = (props) => {
     const {
         contextCls,
@@ -71,22 +87,5 @@ const Button = (props) => {
 Button.onBlur = () => Promise.resolve();
 Button.onClick = () => Promise.resolve();
 Button.onFocus = () => Promise.resolve();
-
-Button.propTypes = {
-    'aria-label': PropTypes.string,
-    contextCls: PropTypes.string,
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    type: PropTypes.oneOf(['button', 'submit']),
-    variant: PropTypes.string,
-    isDynamicText: PropTypes.bool,
-    isBusy: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    data: PropTypes.object,
-    onClick: PropTypes.func,
-    onBlur: PropTypes.func,
-    onFocus: PropTypes.func,
-    renderBusyIcon: PropTypes.func,
-    renderIcon: PropTypes.func,
-};
 
 export default Button;

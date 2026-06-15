@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import CalloutIcon from './components/CalloutIcon';
 import MainContent from './components/MainContent';
@@ -6,6 +5,15 @@ import MainContent from './components/MainContent';
 // Styles
 import './styles/callout.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string|React.ReactElement} [props.msg] - Body content of the callout
+ * @param {string|React.ReactElement} [props.title] - Heading content of the callout
+ * @param {string} [props.variant] - Visual variant that determines the status icon (affirmative, cautionary, danger, info)
+ * @param {number} [props.headingLvl] - Heading level for the title
+ * @param {Function} [props.renderIcon] - Custom render function for the callout icon
+ */
 const Callout = (props) => {
     const {
         contextCls,
@@ -45,15 +53,6 @@ const Callout = (props) => {
             </div>
         </div>
     );
-};
-
-Callout.propTypes = {
-    contextCls: PropTypes.string,
-    msg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    variant: PropTypes.string,
-    headingLvl: PropTypes.number,
-    renderIcon: PropTypes.func,
 };
 
 export default Callout;

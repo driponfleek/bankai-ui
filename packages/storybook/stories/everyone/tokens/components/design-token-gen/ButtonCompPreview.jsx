@@ -18,6 +18,14 @@ const getButtonPreviewComp = (type) => {
     }
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class used to scope the button preview container
+ * @param {string} [props.variant] - Button variant name; determines the button component and token key
+ * @param {Function} [props.dispatch] - Reducer dispatch used to update source token and style on change
+ * @param {Object} [props.opsProps] - Props forwarded to the ButtonOps controls
+ * @param {boolean} [props.isDestructive] - When true, renders the button in destructive mode and adjusts the token key
+ */
 const ButtonCompPreview = (props) => {
     const {
         baseCls,

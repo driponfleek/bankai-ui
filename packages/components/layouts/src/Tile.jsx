@@ -1,10 +1,17 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import TileHeading from './components/tile/TileHeading';
 
 // Styles
 import './styles/tile.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string|React.ReactElement} [props.headingContent] - Content rendered as the tile heading
+ * @param {number} [props.headingLvl] - Heading level for the tile heading
+ * @param {boolean} [props.shouldPadContent] - Whether to apply padding to the content area
+ * @param {Function} [props.renderHeading] - Custom render function for the tile heading
+ */
 const Tile = (props) => {
     const {
         contextCls,
@@ -32,14 +39,6 @@ const Tile = (props) => {
             )}
         </div>
     );
-};
-
-Tile.propTypes = {
-    contextCls: PropTypes.string,
-    headingContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    headingLvl: PropTypes.number,
-    shouldPadContent: PropTypes.bool,
-    renderHeading: PropTypes.func,
 };
 
 export default Tile;

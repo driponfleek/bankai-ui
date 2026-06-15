@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/loading-skeleton.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.isSpan] - Whether to render as a span instead of a div (for use inside inline elements)
+ */
 const LoadingSkeleton = (props) => {
     const baseCls = 'bankai-loading-skeleton';
     const { contextCls, isSpan = false } = props;
@@ -17,11 +21,6 @@ const LoadingSkeleton = (props) => {
             <Tag className={`${baseCls}__animation`} />
         </Tag>
     );
-};
-
-LoadingSkeleton.propTypes = {
-    contextCls: PropTypes.string,
-    isSpan: PropTypes.bool,
 };
 
 export default LoadingSkeleton;

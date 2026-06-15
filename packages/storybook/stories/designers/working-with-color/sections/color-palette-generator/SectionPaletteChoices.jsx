@@ -40,6 +40,11 @@ const {
     SEMANTIC_COLOR_SECONDARY,
 } = SEMANTIC_COLOR_TOKEN_NAMES;
 
+/**
+ * @param {Object} props
+ * @param {Array<Object>} [props.colors] - Available harmony color options for the swatch dropdowns
+ * @param {Object} [props.statusColors] - Status color options keyed by status name (affirmative, cautionary, error, info)
+ */
 const SectionPaletteChoices = (props) => {
     const { colors = [], statusColors = [] } = props;
     const baseCls = genSBBaseCls('color-palette-gen-choices');

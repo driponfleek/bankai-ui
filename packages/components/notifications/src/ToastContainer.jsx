@@ -1,6 +1,11 @@
 import { ToastContainer as ToasterListener } from 'react-toastify';
 import ReactDOM from 'react-dom/client';
 
+/**
+ * @param {Object} props
+ * @param {Element} [props.appElement] - DOM element to append the toast container to; defaults to `document.querySelector('body')`
+ * @param {string} [props.containerId] - ID used for the toast listener container element
+ */
 const ToastContainer = (props) => {
     const {
         appElement = document.querySelector('body'),

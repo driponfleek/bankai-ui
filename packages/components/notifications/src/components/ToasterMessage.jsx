@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Heading } from '@driponfleek/bankai-ui-typography';
 import Icon from './ToasterIcon';
 
@@ -11,6 +10,14 @@ import baseCls from '../const/cssBaseClassConst';
 
 const { DEFAULT } = VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string|React.ReactElement} [props.message] - Body content of the toast
+ * @param {string|React.ReactElement} [props.title] - Heading content of the toast
+ * @param {string} [props.variant] - Toast variant that determines the icon displayed
+ * @param {boolean} [props.shouldShowIcon] - Whether to show the variant icon
+ * @param {Function} [props.renderIcon] - Custom render function for the icon
+ */
 const ToasterMessage = (props) => {
     const {
         message,
@@ -46,14 +53,6 @@ const ToasterMessage = (props) => {
             </div>
         </div>
     );
-};
-
-ToasterMessage.propTypes = {
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    variant: PropTypes.string,
-    shouldShowIcon: PropTypes.bool,
-    renderIcon: PropTypes.func,
 };
 
 export default ToasterMessage;

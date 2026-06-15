@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Hyperlink } from '@driponfleek/bankai-ui-navigation';
 import {
@@ -19,6 +18,14 @@ import { TEXT_COLOR_NAME } from '../../const/guideConst';
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to layout containers within the section
+ * @param {Object} [props.bgColor] - Background color data object used in contrast calculations
+ * @param {Object} [props.colorData] - Color data used to display the variant selection logic
+ * @param {Object} [props.colorData.preferred] - The preferred text color object
+ * @param {Array} [props.colorData.variants] - Array of sanitized color variants
+ */
 const SectionAccessibleColorsHowToS3 = (props) => {
     const { baseCls, colorData, bgColor } = props;
     const { preferred } = colorData ?? {};
@@ -189,15 +196,6 @@ const SectionAccessibleColorsHowToS3 = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionAccessibleColorsHowToS3.propTypes = {
-    baseCls: PropTypes.string,
-    bgColor: PropTypes.object,
-    colorData: PropTypes.shape({
-        preferred: PropTypes.object,
-        variants: PropTypes.array,
-    }),
 };
 
 export default SectionAccessibleColorsHowToS3;

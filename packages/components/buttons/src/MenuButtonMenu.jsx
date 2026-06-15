@@ -1,8 +1,14 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import { Menu } from 'react-aria-menubutton';
 import MenuButtonOption from './MenuButtonOption';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name used to construct BEM modifier and element classes
+ * @param {Object} [props.menuProps] - Props forwarded to the menu element
+ * @param {Array} [props.menuOptions] - Array of option data objects rendered in the menu
+ * @param {Function} [props.renderMenuOption] - Custom render function for individual menu options
+ */
 const MenuButtonMenu = (props) => {
     const { baseCls, menuOptions = [], menuProps, renderMenuOption } = props;
     const MenuOp = renderMenuOption ?? MenuButtonOption;
@@ -20,13 +26,6 @@ const MenuButtonMenu = (props) => {
             </ul>
         </Menu>
     );
-};
-
-MenuButtonMenu.propTypes = {
-    baseCls: PropTypes.string,
-    menuProps: PropTypes.object,
-    menuOptions: PropTypes.array,
-    renderMenuOption: PropTypes.func,
 };
 
 export default MenuButtonMenu;

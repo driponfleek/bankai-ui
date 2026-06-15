@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     StorySection,
     ComponentPreview,
@@ -7,6 +6,10 @@ import {
 // Utils
 import { getBadgeStoryPlaygroundComp } from '../utils/badgeStoryUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - Badge variant name used to resolve the playground component
+ */
 const SectionPlayground = (props) => {
     const { variant, ...rest } = props;
     const Badge = getBadgeStoryPlaygroundComp(variant);
@@ -18,10 +21,6 @@ const SectionPlayground = (props) => {
             </ComponentPreview>
         </StorySection>
     );
-};
-
-SectionPlayground.propTypes = {
-    variant: PropTypes.string,
 };
 
 export default SectionPlayground;

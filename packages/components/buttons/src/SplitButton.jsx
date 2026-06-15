@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { BankaiCaretDown } from '@driponfleek/bankai-ui-icons';
 import Button from './Button';
@@ -11,6 +10,19 @@ import { BUTTON_SPLIT_BASE_CLS } from './const/baseClsConst';
 // Styles
 import './styles/split-button.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.isDisabled] - Whether the split button is disabled
+ * @param {Array} [props.menuOptions] - Array of option data objects rendered in the menu
+ * @param {Object} [props.mainButtonProps] - Props forwarded to the main button
+ * @param {Object} [props.menuButtonProps] - Props forwarded to the menu button; must include a required `aria-label` string
+ * @param {Function} [props.onMainClick] - Callback fired when the main button is clicked
+ * @param {Function} [props.onMenuSelection] - Callback fired when a menu option is selected
+ * @param {Function} [props.renderMainButton] - Custom render function for the main button
+ * @param {Function} [props.renderMenuButton] - Custom render function for the menu button
+ * @param {Function} [props.renderMenuButtonIcon] - Custom render function for the menu button's dropdown icon
+ */
 const SplitButton = (props) => {
     const {
         contextCls,
@@ -55,24 +67,5 @@ const SplitButton = (props) => {
 
 SplitButton.onMainClick = () => Promise.resolve();
 SplitButton.onMenuSelection = () => Promise.resolve();
-
-SplitButton.propTypes = {
-    contextCls: PropTypes.string,
-    isDisabled: PropTypes.bool,
-    menuOptions: PropTypes.array,
-    mainButtonProps: PropTypes.shape({
-        isDisabled: PropTypes.bool,
-        onClick: PropTypes.func,
-    }),
-    menuButtonProps: PropTypes.shape({
-        'aria-label': PropTypes.string.isRequired,
-        isDisabled: PropTypes.bool,
-    }),
-    onMainClick: PropTypes.func,
-    onMenuSelection: PropTypes.func,
-    renderMainButton: PropTypes.func,
-    renderMenuButton: PropTypes.func,
-    renderMenuButtonIcon: PropTypes.func,
-};
 
 export default SplitButton;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import DateField from 'react-widgets/DatePicker';
 import CalendarSelectIcon from './components/date-picker/CalendarSelectIcon';
@@ -8,6 +7,41 @@ import { getDatePickerExtantProps } from './utils/extantPropsUtils';
 // Styles
 import './styles/date-picker.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.id] - ID attribute for the date picker input
+ * @param {string} [props.name] - Name attribute for the date picker input
+ * @param {string} [props.placeholder] - Placeholder text
+ * @param {Date} [props.currentDate] - The currently navigated-to date in the calendar
+ * @param {Date} [props.defaultValue] - Initial value (uncontrolled)
+ * @param {Date} [props.max] - Maximum selectable date
+ * @param {Date} [props.min] - Minimum selectable date
+ * @param {Date} [props.value] - Current value (controlled)
+ * @param {boolean} [props.hasError] - Whether the date picker is in an error state
+ * @param {boolean} [props.isDefaultOpen] - Whether the calendar is open by default (uncontrolled)
+ * @param {boolean} [props.isDisabled] - Whether the date picker is disabled
+ * @param {boolean} [props.isReadOnly] - Whether the date picker is read-only
+ * @param {boolean} [props.isOpen] - Whether the calendar is open (controlled)
+ * @param {boolean} [props.shouldAutoFocus] - Whether to auto-focus on mount
+ * @param {boolean} [props.shouldDropUp] - Whether the calendar should open upward
+ * @param {boolean} [props.shouldHideDropdownBtn] - Whether to hide the calendar toggle button
+ * @param {Object} [props.formats] - Date format configuration
+ * @param {Object} [props.inputProps] - Additional props for the input element
+ * @param {Object} [props.messages] - Localization message overrides
+ * @param {string|Object} [props.valueDisplayFormat] - Format for displaying the selected value
+ * @param {string|Object} [props.valueEditFormat] - Format when the input is being edited
+ * @param {string|Object} [props.valueFormat] - Format for the value
+ * @param {Function} [props.onBlur] - Callback fired on blur
+ * @param {Function} [props.onChange] - Callback fired when the value changes
+ * @param {Function} [props.onCurrentDateChange] - Callback fired when the calendar navigation date changes
+ * @param {Function} [props.onFocus] - Callback fired on focus
+ * @param {Function} [props.onKeyDown] - Callback fired on key down
+ * @param {Function} [props.onKeyPress] - Callback fired on key press
+ * @param {Function} [props.onSelect] - Callback fired when a date is selected
+ * @param {Function} [props.onToggle] - Callback fired when the calendar opens/closes
+ * @param {Function} [props.renderSelectIcon] - Custom render function for the calendar toggle icon
+ */
 const DatePicker = (props) => {
     const {
         contextCls,
@@ -56,43 +90,5 @@ DatePicker.onKeyDown = () => Promise.resolve();
 DatePicker.onKeyPress = () => Promise.resolve();
 DatePicker.onSelect = () => Promise.resolve();
 DatePicker.onToggle = () => Promise.resolve();
-
-DatePicker.propTypes = {
-    contextCls: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    placeholder: PropTypes.string,
-    currentDate: PropTypes.instanceOf(Date),
-    defaultValue: PropTypes.instanceOf(Date),
-    max: PropTypes.instanceOf(Date),
-    min: PropTypes.instanceOf(Date),
-    value: PropTypes.instanceOf(Date),
-    hasError: PropTypes.bool,
-    isDefaultOpen: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    isReadOnly: PropTypes.bool,
-    isOpen: PropTypes.bool,
-    shouldAutoFocus: PropTypes.bool,
-    shouldDropUp: PropTypes.bool,
-    shouldHideDropdownBtn: PropTypes.bool,
-    formats: PropTypes.object,
-    inputProps: PropTypes.object,
-    messages: PropTypes.object,
-    valueDisplayFormat: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-    ]),
-    valueEditFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    valueFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onCurrentDateChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    onKeyPress: PropTypes.func,
-    onSelect: PropTypes.func,
-    onToggle: PropTypes.func,
-    renderSelectIcon: PropTypes.func,
-};
 
 export default DatePicker;

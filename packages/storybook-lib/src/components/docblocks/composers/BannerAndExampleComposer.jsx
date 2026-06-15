@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Banner } from '@driponfleek/bankai-ui-callouts';
 import { BankaiCircleInfo } from '@driponfleek/bankai-ui-icons';
@@ -8,6 +7,14 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 import './styles/banner-and-example-composer.scss';
 
 const withBannerAndExample = (Comp) => {
+    /**
+     * @param {Object} props
+     * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+     * @param {boolean} [props.shouldRenderIcon] - Passes a renderIcon prop to the banner
+     * @param {Object} [props.bannerProps] - Props passed to the banner component
+     * @param {Function} [props.renderBanner] - Banner component render function
+     * @param {Function} [props.renderBannerIcon] - Icon component passed to the banner when shouldRenderIcon is true
+     */
     const Wrapper = (props) => {
         const {
             contextCls,
@@ -30,14 +37,6 @@ const withBannerAndExample = (Comp) => {
                 <Comp {...rest}>{children}</Comp>
             </div>
         );
-    };
-
-    Wrapper.propTypes = {
-        contextCls: PropTypes.string,
-        shouldRenderIcon: PropTypes.bool,
-        bannerProps: PropTypes.object,
-        renderBanner: PropTypes.func,
-        renderBannerIcon: PropTypes.func,
     };
 
     return Wrapper;

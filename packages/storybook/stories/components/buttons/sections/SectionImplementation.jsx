@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { LinkButton } from '@driponfleek/bankai-ui-buttons';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
@@ -8,6 +7,10 @@ import CompImportAndUsage from '../../../../sb-components/docblocks/CompImportAn
 // Utils
 import { getLocale } from '../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - Button variant name appended to the component import/usage code strings
+ */
 const SectionImplementation = (props) => {
     const { variant = '' } = props;
 
@@ -35,10 +38,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.propTypes = {
-    variant: PropTypes.string,
 };
 
 export default SectionImplementation;

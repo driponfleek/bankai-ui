@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Constants
@@ -10,6 +9,11 @@ import './styles/loading-spheres.scss';
 const { ALTERNATING_PULSE, RIPPLES, RIPPLES_OUTLINE } =
     LOADING_SPHERES_VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.variant] - Visual variant of the loading spheres animation
+ */
 const LoadingSpheres = (props) => {
     const { contextCls, variant = RIPPLES } = props;
     const baseCls = 'bankai-loading-spheres';
@@ -20,11 +24,6 @@ const LoadingSpheres = (props) => {
     };
 
     return <span className={cx(baseCls, modCls, contextCls)} />;
-};
-
-LoadingSpheres.propTypes = {
-    contextCls: PropTypes.string,
-    variant: PropTypes.string,
 };
 
 export default LoadingSpheres;

@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ComponentPreview from './ComponentPreview';
 import CodeBlock from '../code/CodeBlock';
@@ -11,6 +10,20 @@ import { getCodeStrFromReactComponents } from '../../../utils/dataMassageUtils';
 // Styles
 import './styles/component-preview-with-code-block.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.copiedText] - Button label shown after code has been copied
+ * @param {string} [props.copyText] - Button label for the copy action
+ * @param {string} [props.language] - Syntax highlighting language for the code block
+ * @param {boolean} [props.hasLightBg] - Applies a light background modifier class to the component preview
+ * @param {boolean} [props.shouldCheckA11Y] - Applies a modifier class for a11y checking
+ * @param {boolean} [props.shouldShowCopy] - Shows the copy button in the code block
+ * @param {boolean} [props.shouldShowLineNumbers] - Shows line numbers in the code block
+ * @param {boolean} [props.shouldWrapLines] - Wraps long lines in the code block
+ * @param {Function} [props.codeStrModifier] - Function to transform the auto-generated code string before display
+ * @param {React.ReactNode} [props.children] - Components to render in the preview; also serialized to generate the displayed code string
+ */
 const ComponentPreviewWithCodeBlock = (props) => {
     const {
         contextCls,
@@ -51,19 +64,6 @@ const ComponentPreviewWithCodeBlock = (props) => {
             </div>
         </div>
     );
-};
-
-ComponentPreviewWithCodeBlock.propTypes = {
-    contextCls: PropTypes.string,
-    copiedText: PropTypes.string,
-    copyText: PropTypes.string,
-    language: PropTypes.string,
-    hasLightBg: PropTypes.bool,
-    shouldCheckA11Y: PropTypes.bool,
-    shouldShowCopy: PropTypes.bool,
-    shouldShowLineNumbers: PropTypes.bool,
-    shouldWrapLines: PropTypes.bool,
-    codeStrModifier: PropTypes.func,
 };
 
 export default ComponentPreviewWithCodeBlock;

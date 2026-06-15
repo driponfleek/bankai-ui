@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { ButtonSecondary } from '@driponfleek/bankai-ui-buttons';
 import { BankaiCirclePlus } from '@driponfleek/bankai-ui-icons';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
@@ -9,6 +8,10 @@ import ComponentPreviewWithCodeBlock from '../../../../../sb-components/docblock
 // Utils
 import { getDynamicTextCodeStrModifier } from '../../utils/storyUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.btnText] - Default button label text shown when the button is not in a busy state
+ */
 const SectionAccessibilityDynamicText = (props) => {
     const { btnText } = props;
     const [isDynamicTextBtnBusy, setIsDynamicTextBtnBusy] = useState(false);
@@ -53,10 +56,6 @@ const SectionAccessibilityDynamicText = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionAccessibilityDynamicText.propTypes = {
-    btnText: PropTypes.string,
 };
 
 export default SectionAccessibilityDynamicText;

@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Callout } from '@driponfleek/bankai-ui-callouts';
 import { BankaiColorPalette } from '@driponfleek/bankai-ui-icons';
@@ -11,6 +10,13 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 // Styles
 import './styles/color-variants-list.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.emptyStateTitle] - Title shown in the empty state callout
+ * @param {boolean} [props.shouldScrollList] - Enables scrolling on the variants list
+ * @param {Array<Object>} [props.variants] - List of color variant configurations passed to ColorSwatch
+ */
 const ColorVariantsList = (props) => {
     const {
         contextCls,
@@ -41,23 +47,6 @@ const ColorVariantsList = (props) => {
             )}
         </div>
     );
-};
-
-ColorVariantsList.propTypes = {
-    contextCls: PropTypes.string,
-    emptyStateTitle: PropTypes.string,
-    shouldScrollList: PropTypes.bool,
-    variants: PropTypes.arrayOf(
-        PropTypes.shape({
-            mainContent: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.element,
-            ]),
-            metaList: PropTypes.arrayOf(
-                PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-            ),
-        }),
-    ),
 };
 
 export default ColorVariantsList;

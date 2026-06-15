@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import SectionIconPlacement from './SectionIconPlacement';
 import SectionIconConsiderations from './SectionIconConsiderations';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class forwarded to icon sub-sections
+ */
 const SectionIconsInButtons = (props) => {
     const { baseCls } = props;
 
@@ -20,10 +23,6 @@ const SectionIconsInButtons = (props) => {
             <SectionIconConsiderations />
         </StorySection>
     );
-};
-
-SectionIconsInButtons.propTypes = {
-    baseCls: PropTypes.string,
 };
 
 export default SectionIconsInButtons;

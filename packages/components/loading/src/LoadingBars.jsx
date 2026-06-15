@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Utils
@@ -13,6 +12,11 @@ import './styles/loading-bars.scss';
 
 const { FREQUENCY } = LOADING_BARS_VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.variant] - Visual variant of the loading bars animation
+ */
 const LoadingBars = (props) => {
     const { contextCls, variant = FREQUENCY } = props;
     const baseCls = 'bankai-loading-bars';
@@ -26,11 +30,6 @@ const LoadingBars = (props) => {
             )}
         </span>
     );
-};
-
-LoadingBars.propTypes = {
-    contextCls: PropTypes.string,
-    variant: PropTypes.string,
 };
 
 export default LoadingBars;

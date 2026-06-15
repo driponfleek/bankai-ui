@@ -25,28 +25,12 @@ const {
 } = FIELD_IDS;
 
 /**
- * Props for SectionForm.
- * @typedef {Object} SectionFormProps
- * @property {string} baseCls - The base CSS class.
- * @property {Object} fieldValues - Object containing various field values.
- * @property {string} fieldValues.CORE_COLOR_NEUTRAL_SEED - Seed color for neutral core color generation.
- * @property {string} fieldValues.SEMANTIC_COLOR_ACCENT_PRIMARY - Desired accent color.
- * @property {string} fieldValues.SEMANTIC_COLOR_AFFIRMATIVE - Desired .
- * @property {string} fieldValues.SEMANTIC_COLOR_CAUTIONARY - Desired .
- * @property {string} fieldValues.SEMANTIC_COLOR_ERROR - Desired .
- * @property {string} fieldValues.SEMANTIC_COLOR_INFO - Desired .
- * @property {string} fieldValues.SEMANTIC_COLOR_PRIMARY - Desired .
- * @property {string} fieldValues.SEMANTIC_COLOR_SECONDARY - Desired .
- * @property {boolean} fieldValues.isDarkMode - Indicates if tokens should be generated for dark mode.
- * @property {boolean} fieldValues.shouldAutoCorrectForA11y - Indicates if tokens colors should be auto-corrected to be a11y compliant.
- * @property {function} onChange - Callback function triggered when color inputs change.
- * @property {function} onDarkModeChange - Callback function triggered when dark mode toggle switch changes.
- * @property {function} onAutoCorrectForA11yChange - Callback function triggered when auto-correct for a11y toggle switch changes.
- */
-
-/**
- * SectionForm component
- * @param {SectionFormProps} props
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class used to scope the form container
+ * @param {Object} [props.fieldValues] - Current values for all color and toggle fields
+ * @param {Function} [props.onChange] - Called when a color picker field changes
+ * @param {Function} [props.onAutoCorrectForA11yChange] - Called when the auto-correct for accessibility toggle changes
+ * @param {Function} [props.onDarkModeChange] - Called when the dark mode toggle changes
  */
 const SectionForm = (props) => {
     const {

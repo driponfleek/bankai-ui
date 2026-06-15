@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 // Utils
 import { getIcon } from '../utils/toasterUtils';
 
@@ -9,6 +7,11 @@ import baseCls from '../const/cssBaseClassConst';
 
 const { DEFAULT } = VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - Toast variant used to select the default icon
+ * @param {Function} [props.renderIcon] - Custom render function for the icon
+ */
 const ToasterIcon = (props) => {
     const { variant = DEFAULT, renderIcon } = props;
     const renderDefaultIcon = ({ contextCls }) => {
@@ -26,11 +29,6 @@ const ToasterIcon = (props) => {
             </div>
         </div>
     );
-};
-
-ToasterIcon.propTypes = {
-    variant: PropTypes.string,
-    renderIcon: PropTypes.func,
 };
 
 export default ToasterIcon;

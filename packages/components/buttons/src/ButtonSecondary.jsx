@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Button from './Button';
 
@@ -8,6 +7,11 @@ import { BUTTON_BASE_CLS } from './const/baseClsConst';
 // Styles
 import './styles/button-secondary.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.isDestructive] - Whether to render the destructive variant of the button
+ */
 const ButtonSecondary = (props) => {
     const { contextCls, isDestructive, ...rest } = props;
     const baseCls = {
@@ -16,11 +20,6 @@ const ButtonSecondary = (props) => {
     };
 
     return <Button {...rest} contextCls={cx(baseCls, contextCls)} />;
-};
-
-ButtonSecondary.propTypes = {
-    contextCls: PropTypes.string,
-    isDestructive: PropTypes.bool,
 };
 
 export default ButtonSecondary;

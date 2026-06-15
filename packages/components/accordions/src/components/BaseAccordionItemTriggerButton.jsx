@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import AccordionItemButton from '../AccordionItemButton';
 import BaseAccordionItemTriggerIcon from './BaseAccordionItemTriggerIcon';
@@ -6,6 +5,14 @@ import BaseAccordionItemTriggerIcon from './BaseAccordionItemTriggerIcon';
 // Utils
 import { getAccordionBtnStateModCls } from '../utils/accordionUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name used to construct BEM modifier and element classes
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.isExpanded] - Whether the accordion item is currently expanded
+ * @param {Object} [props.buttonProps] - Props forwarded to the accordion item button; supports `contextCls` for additional CSS class names
+ * @param {Function} [props.renderTriggerIcon] - Custom render function for the accordion trigger icon
+ */
 const BaseAccordionItemTriggerButton = (props) => {
     const {
         baseCls,
@@ -36,16 +43,6 @@ const BaseAccordionItemTriggerButton = (props) => {
             />
         </AccordionItemButton>
     );
-};
-
-BaseAccordionItemTriggerButton.propTypes = {
-    baseCls: PropTypes.string,
-    contextCls: PropTypes.string,
-    isExpanded: PropTypes.bool,
-    buttonProps: PropTypes.shape({
-        contextCls: PropTypes.string,
-    }),
-    renderTriggerIcon: PropTypes.func,
 };
 
 export default BaseAccordionItemTriggerButton;

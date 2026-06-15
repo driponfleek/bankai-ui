@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Button } from '@driponfleek/bankai-ui-buttons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -12,6 +11,17 @@ import { copyTextToClipboard } from '../../../utils/clipboardUtils';
 // Styles
 import './styles/code-block.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.codeString] - Code to display; use template literal syntax to preserve formatting
+ * @param {string} [props.copiedText] - Button label shown after the code has been copied
+ * @param {string} [props.copyText] - Button label for the copy action
+ * @param {string} [props.language] - Syntax highlighting language; see react-syntax-highlighter AVAILABLE_LANGUAGES_PRISM for supported values
+ * @param {boolean} [props.shouldShowCopy] - Shows the copy button
+ * @param {boolean} [props.shouldShowLineNumbers] - Shows line numbers in the code block
+ * @param {boolean} [props.shouldWrapLines] - Wraps long lines instead of scrolling horizontally
+ */
 // TODO: Need to handle dark mode
 const CodeBlock = (props) => {
     const {
@@ -70,19 +80,6 @@ const CodeBlock = (props) => {
             )}
         </div>
     );
-};
-
-CodeBlock.propTypes = {
-    contextCls: PropTypes.string,
-    /** CodeString has to use template literal syntax to preserve formatting */
-    codeString: PropTypes.string,
-    copiedText: PropTypes.string,
-    copyText: PropTypes.string,
-    /** Reference https://github.com/conorhastings/react-syntax-highlighter/blob/HEAD/AVAILABLE_LANGUAGES_PRISM.MD for list of languages supported */
-    language: PropTypes.string,
-    shouldShowCopy: PropTypes.bool,
-    shouldShowLineNumbers: PropTypes.bool,
-    shouldWrapLines: PropTypes.bool,
 };
 
 export default CodeBlock;

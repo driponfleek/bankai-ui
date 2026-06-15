@@ -1,15 +1,13 @@
-import PropTypes from 'prop-types';
-
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name used to derive the container class
+ */
 const FFCControlHintContainer = (props) => {
     const { baseCls, children } = props;
 
     return (
         <div className={`${baseCls}__control-hint-container`}>{children}</div>
     );
-};
-
-FFCControlHintContainer.propTypes = {
-    baseCls: PropTypes.string,
 };
 
 export default FFCControlHintContainer;

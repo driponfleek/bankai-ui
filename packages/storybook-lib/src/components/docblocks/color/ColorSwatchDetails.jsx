@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import ColorSwatchMetaList from './ColorSwatchMetaList';
@@ -9,6 +8,12 @@ import { COLOR_BASE_CLS } from './const/colorBaseClsConst';
 // Styles
 import './styles/color-swatch-details.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string|React.ReactElement} [props.mainContent] - Primary content to display
+ * @param {Array<string|React.ReactElement>} [props.metaList] - Meta items displayed beneath the main content
+ */
 const ColorSwatchDetails = (props) => {
     const { contextCls, mainContent, metaList = [] } = props;
     const baseCls = `${COLOR_BASE_CLS}__details`;
@@ -24,14 +29,6 @@ const ColorSwatchDetails = (props) => {
             {hasMeta && <ColorSwatchMetaList metaList={metaList} />}
         </div>
     );
-};
-
-ColorSwatchDetails.propTypes = {
-    contextCls: PropTypes.string,
-    mainContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    metaList: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    ),
 };
 
 export default ColorSwatchDetails;

@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types';
 import ARIALive from './ARIALive';
 
 const withARIALive = (Comp) => {
+    /**
+     * @param {Object} props
+     * @param {Object} [props.ariaLiveProps] - Props forwarded to the ARIALive wrapper ({ ariaRelevant, baseCls, contextCls, htmlTag, id, isAtomic, isPolite })
+     */
     const Wrapper = (props) => {
         const { ariaLiveProps, ...rest } = props;
 
@@ -10,18 +13,6 @@ const withARIALive = (Comp) => {
                 <Comp {...rest} />
             </ARIALive>
         );
-    };
-
-    Wrapper.propTypes = {
-        ariaLiveProps: PropTypes.shape({
-            ariaRelevant: PropTypes.string,
-            baseCls: PropTypes.string,
-            contextCls: PropTypes.string,
-            htmlTag: PropTypes.string,
-            id: PropTypes.string,
-            isAtomic: PropTypes.bool,
-            isPolite: PropTypes.bool,
-        }),
     };
 
     return Wrapper;

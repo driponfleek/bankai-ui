@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Wrapper, Button } from 'react-aria-menubutton';
 import MenuButtonMenu from './MenuButtonMenu';
@@ -16,6 +15,22 @@ import { BUTTON_BASE_CLS } from './const/baseClsConst';
 // Styles
 import './styles/menu-button.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.btnContextCls] - Additional CSS class name(s) applied to the inner button element
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.text] - Text label for the button
+ * @param {boolean} [props.isDisabled] - Whether the button is disabled
+ * @param {boolean} [props.shouldCloseOnBlur] - Whether the menu should close when focus leaves it
+ * @param {boolean} [props.shouldCloseOnSelection] - Whether the menu should close after an option is selected
+ * @param {Object} [props.menuProps] - Props forwarded to the menu element
+ * @param {Object} [props.wrapperProps] - Props forwarded to the menu button wrapper element
+ * @param {Array} [props.menuOptions] - Array of option data objects rendered in the menu
+ * @param {Function} [props.onSelection] - Callback fired when a menu option is selected
+ * @param {Function} [props.onMenuToggle] - Callback fired when the menu opens or closes
+ * @param {Function} [props.renderIcon] - Render function for the button icon
+ * @param {Function} [props.renderMenuOption] - Custom render function for individual menu options
+ */
 const MenuButton = (props) => {
     const {
         btnContextCls,
@@ -84,21 +99,5 @@ const MenuButton = (props) => {
 
 MenuButton.onSelection = () => Promise.resolve();
 MenuButton.onMenuToggle = () => Promise.resolve();
-
-MenuButton.propTypes = {
-    btnContextCls: PropTypes.string,
-    contextCls: PropTypes.string,
-    text: PropTypes.string,
-    isDisabled: PropTypes.bool,
-    shouldCloseOnBlur: PropTypes.bool,
-    shouldCloseOnSelection: PropTypes.bool,
-    menuProps: PropTypes.object,
-    wrapperProps: PropTypes.object,
-    menuOptions: PropTypes.array,
-    onSelection: PropTypes.func,
-    onMenuToggle: PropTypes.func,
-    renderIcon: PropTypes.func,
-    renderMenuOption: PropTypes.func,
-};
 
 export default MenuButton;

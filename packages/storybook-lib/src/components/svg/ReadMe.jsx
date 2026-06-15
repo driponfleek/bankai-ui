@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { IconSVGWrapper } from '@driponfleek/bankai-ui-icons';
 
 const baseCls = 'bankai-icon';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ */
 const ReadMe = (props) => {
     const { contextCls } = props;
 
@@ -21,10 +24,6 @@ const ReadMe = (props) => {
             />
         </IconSVGWrapper>
     );
-};
-
-ReadMe.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default ReadMe;

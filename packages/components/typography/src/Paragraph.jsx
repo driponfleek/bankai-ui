@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/paragraph.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ */
 const Paragraph = (props) => {
     const { contextCls, children, ...rest } = props;
     const baseCls = 'bankai-paragraph';
@@ -13,10 +16,6 @@ const Paragraph = (props) => {
             {children}
         </p>
     );
-};
-
-Paragraph.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default Paragraph;

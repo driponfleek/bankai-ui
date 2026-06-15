@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
     convertColorToHex,
@@ -22,6 +21,23 @@ import {
 // Styles
 import './styles/color-picker-input.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.color] - Current color value (hex string)
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {number} [props.changeCompleteThreshold] - Debounce delay in ms for the `onChangeComplete` callback
+ * @param {boolean} [props.hasAlpha] - Whether to support alpha channel in the color picker
+ * @param {boolean} [props.hasError] - Whether the input is in an error state
+ * @param {boolean} [props.isDisabled] - Whether the input is disabled
+ * @param {boolean} [props.isReadOnly] - Whether the input is read-only
+ * @param {boolean} [props.shouldAlignPickerToRightEdge] - Whether to align the picker flyout to the right edge
+ * @param {boolean} [props.shouldOpenUp] - Whether to open the picker flyout above the trigger
+ * @param {Object} [props.triggerProps] - Additional props for the trigger button (supports `aria-label`)
+ * @param {Function} [props.onChange] - Callback fired on every color change
+ * @param {Function} [props.onChangeComplete] - Debounced callback fired after color change settles
+ * @param {Function} [props.renderColorPicker] - Custom render function for the color picker flyout
+ * @param {Function} [props.renderTriggerContent] - Custom render function for the trigger button content
+ */
 const ColorPickerInput = (props) => {
     const {
         contextCls,
@@ -130,25 +146,6 @@ const ColorPickerInput = (props) => {
             </div>
         </div>
     );
-};
-
-ColorPickerInput.propTypes = {
-    color: PropTypes.string,
-    contextCls: PropTypes.string,
-    changeCompleteThreshold: PropTypes.number,
-    hasAlpha: PropTypes.bool,
-    hasError: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    isReadOnly: PropTypes.bool,
-    shouldAlignPickerToRightEdge: PropTypes.bool,
-    shouldOpenUp: PropTypes.bool,
-    triggerProps: PropTypes.shape({
-        'aria-label': PropTypes.string,
-    }),
-    onChange: PropTypes.func,
-    onChangeComplete: PropTypes.func,
-    renderColorPicker: PropTypes.func,
-    renderTriggerContent: PropTypes.func,
 };
 
 ColorPickerInput.onChange = () => Promise.resolve();

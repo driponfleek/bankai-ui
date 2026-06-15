@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { TbGripHorizontal as Grid3X2Gap } from 'react-icons/tb';
 
 // Utils
@@ -10,6 +9,11 @@ import baseCls from './const/baseClsConst';
 // Styles
 import './styles/shared.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.className] - Additional CSS class name(s) to apply to the icon element
+ */
 const BankaiGrid3X2Gap = (props) => {
     const { contextCls, className, ...rest } = props;
 
@@ -23,11 +27,6 @@ const BankaiGrid3X2Gap = (props) => {
             )}
         />
     );
-};
-
-BankaiGrid3X2Gap.propTypes = {
-    contextCls: PropTypes.string,
-    className: PropTypes.string,
 };
 
 export default BankaiGrid3X2Gap;

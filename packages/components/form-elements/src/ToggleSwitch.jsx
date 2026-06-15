@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Toggle from 'react-toggle';
 import ToggleSwitchBusyIcon from './ToggleSwitchBusyIcon';
@@ -9,6 +8,20 @@ import { getToggleSwitchExtantProps } from './utils/inputUtils';
 // Styles
 import './styles/toggle-switch.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.id] - ID for the toggle input
+ * @param {string} [props.name] - Name attribute for the toggle input
+ * @param {string} [props.value] - Value passed back in the onChange callback
+ * @param {boolean} [props.isBusy] - Whether to display the busy/loading state
+ * @param {boolean} [props.isChecked] - Whether the toggle is on
+ * @param {boolean} [props.isDefaultChecked] - Initial checked state (uncontrolled)
+ * @param {boolean} [props.isDisabled] - Whether the toggle is disabled
+ * @param {boolean|Object} [props.icons] - Custom icons for the on/off states, or false to disable icons
+ * @param {Function} [props.onChange] - Callback fired when the toggle state changes
+ * @param {Function} [props.renderBusyIcon] - Custom render function for the busy state icon
+ */
 const ToggleSwitch = (props) => {
     const {
         contextCls,
@@ -43,19 +56,5 @@ const ToggleSwitch = (props) => {
 };
 
 ToggleSwitch.onChange = () => Promise.resolve();
-
-ToggleSwitch.propTypes = {
-    contextCls: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    value: PropTypes.string,
-    isBusy: PropTypes.bool,
-    isChecked: PropTypes.bool,
-    isDefaultChecked: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    icons: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-    onChange: PropTypes.func,
-    renderBusyIcon: PropTypes.func,
-};
 
 export default ToggleSwitch;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Button } from '@driponfleek/bankai-ui-buttons';
 import { BankaiX } from '@driponfleek/bankai-ui-icons';
@@ -16,6 +15,35 @@ import {
 // Styles
 import './styles/modal.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.ariaDescribedby] - ID of the element that describes the modal dialog
+ * @param {string} [props.ariaLabel] - Accessible label for the modal dialog
+ * @param {string} [props.closeBtnARIALabel] - Accessible label for the close button
+ * @param {string} [props.dialogContextCls] - Additional CSS class name(s) to apply to the dialog element
+ * @param {string} [props.dialogId] - ID attribute for the dialog element
+ * @param {string} [props.role] - ARIA role for the modal (e.g. "dialog", "alertdialog")
+ * @param {string} [props.titleId] - ID of the element used as the modal's accessible title
+ * @param {string} [props.overlayContextCls] - Additional CSS class name(s) to apply to the overlay element
+ * @param {number} [props.closeTimeoutMS] - Duration in milliseconds for the close transition
+ * @param {boolean} [props.hasCloseButton] - Whether to render the close button
+ * @param {boolean} [props.isOpen] - Whether the modal is currently open
+ * @param {boolean} [props.shouldCloseOnEsc] - Whether pressing Escape closes the modal
+ * @param {boolean} [props.shouldCloseOnOverlayClick] - Whether clicking the overlay closes the modal
+ * @param {boolean} [props.shouldFocusAfterRender] - Whether to move focus into the modal after it opens
+ * @param {Object} [props.headingProps] - Props for the modal heading (supports `subTitle`, `title`, `headingLvl`)
+ * @param {Object} [props.focusTrapOptions] - Options passed to the focus trap
+ * @param {Array} [props.modalActions] - Array of action button configuration objects
+ * @param {string|Element} [props.appElement] - The app root element used by react-modal for accessibility
+ * @param {Function} [props.onAfterClose] - Callback fired after the modal finishes closing
+ * @param {Function} [props.onAfterOpen] - Callback fired after the modal finishes opening
+ * @param {Function} [props.onExit] - Callback fired when the modal requests to be closed
+ * @param {Function} [props.onActionClick] - Callback fired when a modal action button is clicked
+ * @param {Function} [props.renderCloseButtonIcon] - Custom render function for the close button icon
+ * @param {Function} [props.renderModalActions] - Custom render function for the actions area
+ * @param {Function} [props.renderModalHeading] - Custom render function for the heading area
+ * @param {Function} [props.renderTo] - Function that returns the DOM node to portal the modal into
+ */
 const Modal = (props) => {
     const {
         closeBtnARIALabel,
@@ -119,41 +147,5 @@ Modal.onAfterClose = () => Promise.resolve();
 Modal.onAfterOpen = () => Promise.resolve();
 Modal.onExit = () => Promise.resolve();
 Modal.renderTo = () => document.body;
-
-Modal.propTypes = {
-    ariaDescribedby: PropTypes.string,
-    ariaLabel: PropTypes.string,
-    closeBtnARIALabel: PropTypes.string,
-    dialogContextCls: PropTypes.string,
-    dialogId: PropTypes.string,
-    role: PropTypes.string,
-    titleId: PropTypes.string,
-    overlayContextCls: PropTypes.string,
-    closeTimeoutMS: PropTypes.number,
-    hasCloseButton: PropTypes.bool,
-    isOpen: PropTypes.bool,
-    shouldCloseOnEsc: PropTypes.bool,
-    shouldCloseOnOverlayClick: PropTypes.bool,
-    shouldFocusAfterRender: PropTypes.bool,
-    headingProps: PropTypes.shape({
-        subTitle: PropTypes.string,
-        title: PropTypes.string,
-        headingLvl: PropTypes.number,
-    }),
-    focusTrapOptions: PropTypes.object,
-    modalActions: PropTypes.array,
-    appElement: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.instanceOf(Element),
-    ]),
-    onAfterClose: PropTypes.func,
-    onAfterOpen: PropTypes.func,
-    onExit: PropTypes.func,
-    onActionClick: PropTypes.func,
-    renderCloseButtonIcon: PropTypes.func,
-    renderModalActions: PropTypes.func,
-    renderModalHeading: PropTypes.func,
-    renderTo: PropTypes.func,
-};
 
 export default Modal;

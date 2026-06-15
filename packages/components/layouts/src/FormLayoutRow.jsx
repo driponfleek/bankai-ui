@@ -1,18 +1,17 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/form-layout-row.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ */
 const FormLayoutRow = (props) => {
     const { contextCls, children } = props;
     const baseCls = 'bankai-form-layout-row';
 
     return <div className={cx(baseCls, contextCls)}>{children}</div>;
-};
-
-FormLayoutRow.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default FormLayoutRow;

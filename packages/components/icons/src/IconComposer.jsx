@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 // Utils
 import classNameUtil from './utils/classNameUtil';
 
@@ -10,6 +8,12 @@ import baseCls from './const/baseClsConst';
 import './styles/shared.scss';
 
 const withIconContainer = (Icon) => {
+    /**
+     * @param {Object} props
+     * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+     * @param {string} [props.className] - Additional CSS class name(s) to apply to the icon element
+     * @param {string} [props.iconClsSuffix] - Suffix appended to the base icon class name
+     */
     const Wrapped = (props) => {
         const { contextCls, className, iconClsSuffix, ...rest } = props;
         const iconCls = {
@@ -22,11 +26,6 @@ const withIconContainer = (Icon) => {
                 className={classNameUtil(iconCls, className, contextCls)}
             />
         );
-    };
-    Wrapped.propTypes = {
-        className: PropTypes.string,
-        contextCls: PropTypes.string,
-        iconClsSuffix: PropTypes.string,
     };
 
     return Wrapped;

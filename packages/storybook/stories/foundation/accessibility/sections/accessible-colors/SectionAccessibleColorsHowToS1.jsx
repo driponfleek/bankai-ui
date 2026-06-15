@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     Paragraph,
     OmniList,
@@ -10,6 +9,12 @@ import BaseColorWithVariants from '../../components/BaseColorWithVariants';
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {Object} [props.preferredColorAndVariants] - Color data with the preferred base color and generated variants
+ * @param {Object} [props.preferredColorAndVariants.preferred] - The preferred base color object
+ * @param {Array} [props.preferredColorAndVariants.variants] - Array of color variant objects
+ */
 const SectionAccessibleColorsHowToS1 = (props) => {
     const { preferredColorAndVariants } = props;
 
@@ -44,13 +49,6 @@ const SectionAccessibleColorsHowToS1 = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionAccessibleColorsHowToS1.propTypes = {
-    preferredColorAndVariants: PropTypes.shape({
-        preferred: PropTypes.object,
-        variants: PropTypes.array,
-    }),
 };
 
 export default SectionAccessibleColorsHowToS1;

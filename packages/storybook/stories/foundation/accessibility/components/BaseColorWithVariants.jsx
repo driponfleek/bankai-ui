@@ -1,6 +1,12 @@
-import PropTypes from 'prop-types';
 import { BaseColorWithVariants as SBBaseColorWithVariants } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {boolean} [props.isCard] - Whether to render swatches in card style
+ * @param {Object} [props.colorData] - Color data object containing preferred color and variants
+ * @param {Object} [props.colorData.preferred] - The preferred base color object
+ * @param {Array} [props.colorData.variants] - Array of color variant objects
+ */
 const BaseColorWithVariants = (props) => {
     const { colorData, isCard = true } = props;
     const { preferred, variants } = colorData ?? {};
@@ -13,14 +19,6 @@ const BaseColorWithVariants = (props) => {
             shouldScrollList={false}
         />
     );
-};
-
-BaseColorWithVariants.propTypes = {
-    isCard: PropTypes.bool,
-    colorData: PropTypes.shape({
-        preferred: PropTypes.object,
-        variants: PropTypes.array,
-    }),
 };
 
 export default BaseColorWithVariants;

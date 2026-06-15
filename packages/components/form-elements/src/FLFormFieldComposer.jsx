@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import FFCLabel from './components/form-field-composer/FFCLabel';
@@ -19,6 +18,26 @@ import {
 import './styles/fl-form-field-composer.scss';
 
 const withFLFormField = (Comp) => {
+    /**
+     * @param {Object} props
+     * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+     * @param {string} [props.id] - ID for the form control; auto-generated if not provided
+     * @param {string} [props.'aria-label'] - Accessible label for the form control
+     * @param {string} [props.placeholder] - Placeholder text for the form control
+     * @param {string} [props.value] - Current value of the form control
+     * @param {string} [props.rwSuffix] - Suffix used for react-widgets component IDs
+     * @param {boolean} [props.hasError] - Whether the form field is in an error state
+     * @param {boolean} [props.isDisabled] - Whether the form field is disabled
+     * @param {boolean} [props.isReadOnly] - Whether the form field is read-only
+     * @param {boolean} [props.shouldIncludeError] - Whether to render an inline error message
+     * @param {boolean} [props.shouldIncludeHint] - Whether to render an inline hint message
+     * @param {Object} [props.errorProps] - Props passed to the InlineFormError component
+     * @param {Object} [props.hintProps] - Props passed to the InlineFormHint component
+     * @param {Object} [props.labelProps] - Props for the label (supports `labelText`)
+     * @param {Function} [props.renderBefore] - Render function for content prepended before the control
+     * @param {Function} [props.renderAfter] - Render function for content appended after the control
+     * @param {Function} [props.onChange] - Callback fired when the form control value changes
+     */
     const Wrapper = (props) => {
         const {
             contextCls,
@@ -124,31 +143,6 @@ const withFLFormField = (Comp) => {
     };
 
     Wrapper.onChange = () => Promise.resolve();
-
-    Wrapper.propTypes = {
-        contextCls: PropTypes.string,
-        id: PropTypes.string,
-        'aria-label': PropTypes.string,
-        placeholder: PropTypes.string,
-        value: PropTypes.string,
-        rwSuffix: PropTypes.string,
-        hasError: PropTypes.bool,
-        isDisabled: PropTypes.bool,
-        isReadOnly: PropTypes.bool,
-        shouldIncludeError: PropTypes.bool,
-        shouldIncludeHint: PropTypes.bool,
-        errorProps: PropTypes.object,
-        hintProps: PropTypes.object,
-        labelProps: PropTypes.shape({
-            labelText: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.element,
-            ]),
-        }),
-        renderBefore: PropTypes.func,
-        renderAfter: PropTypes.func,
-        onChange: PropTypes.func,
-    };
 
     return Wrapper;
 };

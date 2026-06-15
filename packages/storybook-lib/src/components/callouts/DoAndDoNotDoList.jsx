@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { OmniList, OmniListItem } from '@driponfleek/bankai-ui-typography';
 import { BankaiCircleX } from '@driponfleek/bankai-ui-icons';
@@ -12,6 +11,13 @@ import { genSBBaseCls } from '../../utils/storiesConfigUtils';
 // Styles
 import './styles/do-and-do-not-do-list.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.title] - Title rendered in the banner header
+ * @param {boolean} [props.isAffirmative] - Renders an affirmative (green) banner; defaults to a danger (red) banner
+ * @param {Array<string|React.ReactElement>} [props.list] - List items to display
+ */
 const DoAndDoNotDoList = (props) => {
     const { contextCls, isAffirmative, title, list = [] } = props;
     const baseCls = genSBBaseCls('do-and-do-not-do__list');
@@ -35,15 +41,6 @@ const DoAndDoNotDoList = (props) => {
     };
 
     return <Banner contextCls={cx(baseCls, contextCls)} {...bannerProps} />;
-};
-
-DoAndDoNotDoList.propTypes = {
-    contextCls: PropTypes.string,
-    title: PropTypes.string,
-    isAffirmative: PropTypes.bool,
-    list: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    ),
 };
 
 export default DoAndDoNotDoList;

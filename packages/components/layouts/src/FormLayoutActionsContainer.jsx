@@ -1,15 +1,14 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ */
 const FormLayoutActionsContainer = (props) => {
     const { contextCls, children } = props;
     const baseCls = 'bankai-form-layout-actions-container';
 
     return <div className={cx(baseCls, contextCls)}>{children}</div>;
-};
-
-FormLayoutActionsContainer.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default FormLayoutActionsContainer;

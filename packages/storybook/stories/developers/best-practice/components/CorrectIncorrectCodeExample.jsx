@@ -1,6 +1,12 @@
-import PropTypes from 'prop-types';
 import { CodeBlock } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.correctLabel] - Label prepended as a comment above the correct code example
+ * @param {string} [props.correctExample] - Code string for the correct example
+ * @param {string} [props.incorrectLabel] - Label prepended as a comment above the incorrect code example
+ * @param {string} [props.incorrectExample] - Code string for the incorrect example
+ */
 const CorrectIncorrectCodeExample = (props) => {
     const {
         correctLabel = 'Correct',
@@ -11,13 +17,6 @@ const CorrectIncorrectCodeExample = (props) => {
     const codeStr = `// ${correctLabel}\n${correctExample}\n\n// ${incorrectLabel}\n${incorrectExample}`;
 
     return <CodeBlock codeString={codeStr} />;
-};
-
-CorrectIncorrectCodeExample.propTypes = {
-    correctLabel: PropTypes.string,
-    correctExample: PropTypes.string,
-    incorrectExample: PropTypes.string,
-    incorrectLabel: PropTypes.string,
 };
 
 export default CorrectIncorrectCodeExample;
