@@ -1,5 +1,4 @@
 // https://uxmovement.com/forms/infield-top-aligned-labels-floating-labels/
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import FFCLabel from './components/form-field-composer/FFCLabel';
@@ -17,6 +16,25 @@ import {
 import './styles/ifl-form-field-composer.scss';
 
 const withIFLFormField = (Comp) => {
+    /**
+     * @param {Object} props
+     * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+     * @param {string} [props.id] - ID for the form control; auto-generated if not provided
+     * @param {string} [props.rwSuffix] - Suffix used for react-widgets component IDs
+     * @param {string} [props.variant] - Layout variant for the form field composer
+     * @param {boolean} [props.hasError] - Whether the form field is in an error state
+     * @param {boolean} [props.isDisabled] - Whether the form field is disabled
+     * @param {boolean} [props.isLeftAlignedLabel] - Whether to position the label to the left of the control
+     * @param {boolean} [props.isReadOnly] - Whether the form field is read-only
+     * @param {boolean} [props.shouldIncludeError] - Whether to render an inline error message
+     * @param {boolean} [props.shouldIncludeHint] - Whether to render an inline hint message
+     * @param {Object} [props.errorProps] - Props passed to the InlineFormError component
+     * @param {Object} [props.hintProps] - Props passed to the InlineFormHint component
+     * @param {Object} [props.labelProps] - Props for the label
+     * @param {Object} [props.labelSubtextProps] - Props for the label subtext
+     * @param {Function} [props.renderBefore] - Render function for content prepended before the control
+     * @param {Function} [props.renderAfter] - Render function for content appended after the control
+     */
     const Wrapper = (props) => {
         const {
             contextCls,
@@ -89,25 +107,6 @@ const withIFLFormField = (Comp) => {
                 )}
             </div>
         );
-    };
-
-    Wrapper.propTypes = {
-        contextCls: PropTypes.string,
-        id: PropTypes.string,
-        rwSuffix: PropTypes.string,
-        variant: PropTypes.string,
-        hasError: PropTypes.bool,
-        isDisabled: PropTypes.bool,
-        isLeftAlignedLabel: PropTypes.bool,
-        isReadOnly: PropTypes.bool,
-        shouldIncludeError: PropTypes.bool,
-        shouldIncludeHint: PropTypes.bool,
-        errorProps: PropTypes.object,
-        hintProps: PropTypes.object,
-        labelProps: PropTypes.object,
-        labelSubtextProps: PropTypes.object,
-        renderBefore: PropTypes.func,
-        renderAfter: PropTypes.func,
     };
 
     return Wrapper;

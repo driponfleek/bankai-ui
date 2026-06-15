@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     FormLayout,
     FormLayoutSection,
@@ -8,6 +7,14 @@ import { StorySection } from '@driponfleek/bankai-lib-storybook';
 import ColorPickerField from '../../../../../sb-components/form-elements/ColorPickerField';
 import ToggleSwitchField from '../../../../../sb-components/form-elements/ToggleSwitchField';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to the settings form row container
+ * @param {string} [props.sourceColor] - Current source color value for the color picker
+ * @param {boolean} [props.shouldShowMaxVariants] - Whether the "Show Max Variants?" toggle is checked
+ * @param {Function} [props.onColorChange] - Called when the color picker value changes
+ * @param {Function} [props.onToggleChange] - Called when the toggle switch value changes
+ */
 const SectionForm = (props) => {
     const {
         baseCls,
@@ -45,13 +52,5 @@ const SectionForm = (props) => {
 
 SectionForm.onColorChange = () => Promise.resolve();
 SectionForm.onToggleChange = () => Promise.resolve();
-
-SectionForm.propTypes = {
-    baseCls: PropTypes.string,
-    sourceColor: PropTypes.string,
-    shouldShowMaxVariants: PropTypes.bool,
-    onColorChange: PropTypes.func,
-    onToggleChange: PropTypes.func,
-};
 
 export default SectionForm;

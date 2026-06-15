@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/multiselect-item.scss';
 
+/**
+ * @param {Object} [props.item] - Item data object containing `description` (display text) and `searchTerm` (for highlight matching)
+ */
 const MultiselectItem = (props) => {
     const { item = {} } = props;
     const { searchTerm, description } = item;
@@ -69,10 +71,6 @@ const MultiselectItem = (props) => {
             )}
         </span>
     );
-};
-
-MultiselectItem.propTypes = {
-    item: PropTypes.object,
 };
 
 export default MultiselectItem;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     StorySection,
     SectionTitle,
@@ -8,6 +7,12 @@ import {
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to the colors container
+ * @param {Object} [props.bgColor] - Background color swatch data object
+ * @param {Object} [props.recommendedColor] - Recommended accessible text color swatch data object
+ */
 const SectionFinalResult = (props) => {
     const { baseCls, bgColor, recommendedColor } = props;
 
@@ -36,12 +41,6 @@ const SectionFinalResult = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionFinalResult.propTypes = {
-    baseCls: PropTypes.string,
-    bgColor: PropTypes.object,
-    recommendedColor: PropTypes.object,
 };
 
 export default SectionFinalResult;

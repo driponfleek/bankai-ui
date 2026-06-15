@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import { StoryLayout as Layout } from '@driponfleek/bankai-lib-storybook';
 
 // Utils
 import { getLocale } from '../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.pkgVer] - Package version string; used to auto-generate pkgVerAltText
+ */
 const StoryLayout = (props) => {
     const { pkgVer } = props;
     const pkgVerAlt =
@@ -12,10 +15,6 @@ const StoryLayout = (props) => {
             : undefined;
 
     return <Layout {...props} pkgVerAltText={pkgVerAlt} />;
-};
-
-StoryLayout.propTypes = {
-    pkgVer: PropTypes.string,
 };
 
 export default StoryLayout;

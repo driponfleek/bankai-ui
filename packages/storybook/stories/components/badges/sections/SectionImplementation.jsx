@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import CompImportAndUsage from '../../../../sb-components/docblocks/CompImportAndUsage';
 
 // Utils
 import { getLocale } from '../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - Badge variant name appended to the component import/usage code strings
+ */
 const SectionImplementation = (props) => {
     const { variant = '' } = props;
 
@@ -19,10 +22,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.propTypes = {
-    variant: PropTypes.string,
 };
 
 export default SectionImplementation;

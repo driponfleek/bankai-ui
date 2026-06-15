@@ -1,10 +1,17 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Accordion } from 'react-accessible-accordion';
 
 // Constants
 import { ACCORDION_BASE_CLS } from './const/baseClsConst';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.shouldAllowMultipleExpanded] - Whether multiple accordion items can be expanded simultaneously
+ * @param {boolean} [props.shouldAllowZeroExpanded] - Whether all accordion items can be collapsed simultaneously
+ * @param {Array} [props.preExpanded] - Array of item IDs that should be expanded on initial render
+ * @param {Function} [props.onChange] - Callback fired when the expanded items change
+ */
 const AccordionWrapper = (props) => {
     const {
         contextCls,
@@ -22,14 +29,6 @@ const AccordionWrapper = (props) => {
             allowZeroExpanded={shouldAllowZeroExpanded}
         />
     );
-};
-
-AccordionWrapper.propTypes = {
-    contextCls: PropTypes.string,
-    shouldAllowMultipleExpanded: PropTypes.bool,
-    shouldAllowZeroExpanded: PropTypes.bool,
-    preExpanded: PropTypes.array,
-    onChange: PropTypes.func,
 };
 
 export default AccordionWrapper;

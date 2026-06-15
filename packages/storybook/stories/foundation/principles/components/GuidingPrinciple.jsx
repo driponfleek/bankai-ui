@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import {
     Paragraph,
     OmniList,
@@ -7,6 +6,12 @@ import {
 } from '@driponfleek/bankai-ui-typography';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {string} props.title - Heading text for the guiding principle
+ * @param {string|React.ReactElement} [props.summaryContent] - Optional introductory paragraph
+ * @param {Array<string|React.ReactElement>} [props.listItems] - Optional list of bullet points
+ */
 const GuidingPrinciple = (props) => {
     const { title, summaryContent, listItems = [] } = props;
     const hasListItems = listItems.length > 0;
@@ -28,14 +33,6 @@ const GuidingPrinciple = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-GuidingPrinciple.propTypes = {
-    title: PropTypes.string.isRequired,
-    summaryContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    listItems: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    ),
 };
 
 export default GuidingPrinciple;

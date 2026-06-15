@@ -1,6 +1,10 @@
-import PropTypes from 'prop-types';
 import { isValidHexColor } from '@driponfleek/bankai-lib-color-utils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name passed from the parent trigger component
+ * @param {string} [props.color] - Hex color string used as the swatch background
+ */
 const ColorPickerInputTriggerContent = (props) => {
     const { color, baseCls } = props;
     const isValid = isValidHexColor(color);
@@ -9,11 +13,6 @@ const ColorPickerInputTriggerContent = (props) => {
     };
 
     return <span className={`${baseCls}__trigger-swatch`} style={style} />;
-};
-
-ColorPickerInputTriggerContent.propTypes = {
-    baseCls: PropTypes.string,
-    color: PropTypes.string,
 };
 
 export default ColorPickerInputTriggerContent;

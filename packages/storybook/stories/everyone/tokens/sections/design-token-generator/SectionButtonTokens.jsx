@@ -2,7 +2,12 @@ import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import SectionTokens from './SectionTokens';
 import { getBtnTokensByState } from '../../utils/designTokenGenStoryUtils';
 
-// TODO: Add Prop Types documentation with JSDocs
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class used to scope the button token section containers
+ * @param {string} [props.sectionTitle] - Title rendered above the token sub-sections
+ * @param {Array<Object>} [props.tokensData] - Token data split by interaction state and rendered in sub-sections
+ */
 const SectionButtonTokens = (props) => {
     const { baseCls, sectionTitle, tokensData = [], children } = props;
     const {

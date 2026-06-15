@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import {
     StorySection,
     ColorVariantsList,
 } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) forwarded to ColorVariantsList
+ * @param {Array<Object>} [props.variants] - Array of color variant objects forwarded to ColorVariantsList
+ */
 const SectionVariants = (props) => {
     const { contextCls, variants = [] } = props;
 
@@ -16,22 +20,6 @@ const SectionVariants = (props) => {
             />
         </StorySection>
     );
-};
-
-SectionVariants.propTypes = {
-    contextCls: PropTypes.string,
-    variants: PropTypes.arrayOf(
-        PropTypes.shape({
-            mainContent: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.element,
-            ]),
-            metaList: PropTypes.arrayOf(
-                PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-            ),
-            hasAlpha: PropTypes.bool,
-        }),
-    ),
 };
 
 export default SectionVariants;

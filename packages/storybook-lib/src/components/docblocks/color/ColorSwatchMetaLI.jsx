@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ContrastRatioMeta from './ContrastRatioMeta';
 
@@ -11,6 +10,10 @@ import { COLOR_BASE_CLS } from './const/colorBaseClsConst';
 // Styles
 // import './styles/color-swatch-meta-li.scss';
 
+/**
+ * @param {Object} props
+ * @param {string|React.ReactElement} [props.item] - Meta item to render; contrast ratio metadata is rendered with ContrastRatioMeta
+ */
 const ColorSwatchMetaLI = (props) => {
     const baseCls = `${COLOR_BASE_CLS}__meta-list-item`;
     const { item } = props;
@@ -24,10 +27,6 @@ const ColorSwatchMetaLI = (props) => {
             <ContrastRatioMeta item={item} />
         </li>
     );
-};
-
-ColorSwatchMetaLI.propTypes = {
-    item: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 export default ColorSwatchMetaLI;

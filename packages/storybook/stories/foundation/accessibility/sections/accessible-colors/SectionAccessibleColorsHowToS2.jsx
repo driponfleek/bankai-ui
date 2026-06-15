@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import BaseColorWithVariants from '../../components/BaseColorWithVariants';
@@ -9,6 +8,13 @@ import { TEXT_CONTRAST_RATIO } from '../../const/guideConst';
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {Object} [props.colorData] - Color data used to display the full variant contrast evaluation
+ * @param {Object} [props.colorData.preferred] - The preferred base color object
+ * @param {Array} [props.colorData.variants] - Array of color variant objects with contrast data
+ * @param {Array} [props.variantsSanitized] - Filtered variants that meet the minimum contrast ratio requirement
+ */
 const SectionAccessibleColorsHowToS2 = (props) => {
     const { colorData, variantsSanitized } = props;
     const { preferred } = colorData;
@@ -43,14 +49,6 @@ const SectionAccessibleColorsHowToS2 = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionAccessibleColorsHowToS2.propTypes = {
-    colorData: PropTypes.shape({
-        preferred: PropTypes.object,
-        variants: PropTypes.array,
-    }),
-    variantsSanitized: PropTypes.array,
 };
 
 export default SectionAccessibleColorsHowToS2;

@@ -1,19 +1,18 @@
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/heading.scss';
 
 // TODO: Write this as functional component
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {number} [props.headingLvl] - Heading level (1–6); defaults to 2
+ */
 class Heading extends PureComponent {
     static defaultProps = {
         headingLvl: 2,
-    };
-
-    static propTypes = {
-        contextCls: PropTypes.string,
-        headingLvl: PropTypes.number,
     };
 
     render() {

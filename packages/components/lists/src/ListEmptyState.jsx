@@ -1,7 +1,13 @@
-import PropTypes from 'prop-types';
 import { Callout } from '@driponfleek/bankai-ui-callouts';
 import { BankaiTextBulletList } from '@driponfleek/bankai-ui-icons';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.msg] - Body text for the empty state
+ * @param {string} [props.title] - Heading text for the empty state
+ * @param {number} [props.headingLvl] - Heading level for the empty state title
+ */
 const ListEmptyState = (props) => {
     const { contextCls, msg, title, headingLvl } = props;
 
@@ -14,13 +20,6 @@ const ListEmptyState = (props) => {
             renderIcon={BankaiTextBulletList}
         />
     );
-};
-
-ListEmptyState.propTypes = {
-    contextCls: PropTypes.string,
-    msg: PropTypes.string,
-    title: PropTypes.string,
-    headingLvl: PropTypes.number,
 };
 
 export default ListEmptyState;

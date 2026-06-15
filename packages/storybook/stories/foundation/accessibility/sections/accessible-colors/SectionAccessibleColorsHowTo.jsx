@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import {
     StorySection,
@@ -21,6 +20,12 @@ import {
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to layout containers within the section
+ * @param {string} [props.bgColor] - Background color CSS value used in the accessible color demonstration
+ * @param {string} [props.textColor] - Text color CSS value used in the accessible color demonstration
+ */
 const SectionAccessibleColorsHowTo = (props) => {
     const { baseCls, bgColor, textColor } = props;
     const {
@@ -102,12 +107,6 @@ const SectionAccessibleColorsHowTo = (props) => {
             />
         </StorySection>
     );
-};
-
-SectionAccessibleColorsHowTo.propTypes = {
-    baseCls: PropTypes.string,
-    bgColor: PropTypes.string,
-    textColor: PropTypes.string,
 };
 
 export default SectionAccessibleColorsHowTo;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ColorSwatch from './ColorSwatch';
 import ColorVariantsList from './ColorVariantsList';
@@ -11,6 +10,14 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 // Styles
 import './styles/base-color-with-variants.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.isCard] - Renders in card style instead of block style
+ * @param {boolean} [props.shouldScrollList] - Enables scrolling on the variants list
+ * @param {Object} props.base - Base color swatch configuration passed to ColorSwatch
+ * @param {Array<Object>} [props.variants] - List of variant color swatch configurations
+ */
 const BaseColorWithVariants = (props) => {
     const {
         contextCls,
@@ -40,32 +47,6 @@ const BaseColorWithVariants = (props) => {
             </div>
         </div>
     );
-};
-
-BaseColorWithVariants.propTypes = {
-    contextCls: PropTypes.string,
-    isCard: PropTypes.bool,
-    shouldScrollList: PropTypes.bool,
-    base: PropTypes.shape({
-        color: PropTypes.string,
-        mainContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-        metaList: PropTypes.arrayOf(
-            PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-        ),
-        hasAlpha: PropTypes.bool,
-    }).isRequired,
-    variants: PropTypes.arrayOf(
-        PropTypes.shape({
-            mainContent: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.element,
-            ]),
-            metaList: PropTypes.arrayOf(
-                PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-            ),
-            hasAlpha: PropTypes.bool,
-        }),
-    ),
 };
 
 export default BaseColorWithVariants;

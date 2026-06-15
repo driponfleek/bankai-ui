@@ -20,6 +20,16 @@ import { COLOR_BASE_CLS } from './const/colorBaseClsConst';
 // Styles
 import './styles/color-swatch.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.color] - Hex color value for the swatch
+ * @param {boolean} [props.hasAlpha] - Indicates the color includes an alpha channel
+ * @param {boolean} [props.isCard] - Renders in card style instead of block style
+ * @param {string|React.ReactElement} [props.mainContent] - Primary content displayed in the swatch details section
+ * @param {Array<string|React.ReactElement>} [props.metaList] - Meta items displayed beneath the main content
+ * @param {React.ReactNode} [props.children] - When provided, replaces the default ColorSwatchDetails content in the inner section
+ */
 const ColorSwatch = (props) => {
     const {
         contextCls,

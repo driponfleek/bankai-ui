@@ -1,7 +1,16 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Heading } from '@driponfleek/bankai-ui-typography';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name passed from the parent Modal component
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the heading container
+ * @param {string} [props.subTitle] - Secondary heading text rendered below the title
+ * @param {string} [props.title] - Primary heading text
+ * @param {string} [props.titleId] - ID attribute applied to the title element for ARIA linking
+ * @param {number} [props.headingLvl] - Heading level for the title element
+ * @param {Function} [props.renderModalHeading] - Custom render function that replaces the default heading layout
+ */
 const ModalHeading = (props) => {
     const {
         baseCls,
@@ -35,16 +44,6 @@ const ModalHeading = (props) => {
             )}
         </div>
     );
-};
-
-ModalHeading.propTypes = {
-    baseCls: PropTypes.string,
-    contextCls: PropTypes.string,
-    subTitle: PropTypes.string,
-    title: PropTypes.string,
-    titleId: PropTypes.string,
-    headingLvl: PropTypes.number,
-    renderModalHeading: PropTypes.func,
 };
 
 export default ModalHeading;

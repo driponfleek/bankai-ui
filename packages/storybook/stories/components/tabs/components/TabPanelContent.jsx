@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { genSBBaseCls } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the panel content wrapper
+ */
 const TabPanelContent = (props) => {
     const { children, contextCls } = props;
 
@@ -12,10 +15,6 @@ const TabPanelContent = (props) => {
             {children}
         </div>
     );
-};
-
-TabPanelContent.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default TabPanelContent;

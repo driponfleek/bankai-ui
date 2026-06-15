@@ -72,11 +72,6 @@ const reactLintConfig = [
                         },
                         {
                             group: 'external',
-                            pattern: 'prop-types',
-                            position: 'before',
-                        },
-                        {
-                            group: 'external',
                             pattern: 'classnames',
                             position: 'before',
                         },
@@ -155,7 +150,6 @@ const reactLintConfig = [
                 },
             ],
             'react/button-has-type': 1,
-            'react/default-props-match-prop-types': 0,
             'react/destructuring-assignment': [
                 2,
                 'always',
@@ -163,8 +157,6 @@ const reactLintConfig = [
             ],
             'react/display-name': 0,
             'react/forbid-elements': [2, { forbid: ['i', 'b'] }],
-            'react/forbid-foreign-prop-types': 2,
-            'react/forbid-prop-types': [2, { forbid: ['any'] }],
             'react/function-component-definition': [
                 2,
                 {
@@ -203,13 +195,12 @@ const reactLintConfig = [
             'react/no-typos': 2,
             'react/no-unsafe': 2,
             'react/no-unused-class-component-methods': 2,
-            'react/no-unused-prop-types': 2,
             'react/no-unused-state': 2,
+            'react/prop-types': 0,
             'no-unused-vars': [2, { ignoreRestSiblings: true }],
             'react/no-will-update-set-state': 2,
             'react/prefer-es6-class': [2, 'always'],
             'react/prefer-stateless-function': 2,
-            'react/prop-types': [0, { ignore: ['children'] }],
             'react/react-in-jsx-scope': 0,
             'react/require-default-props': 0,
             'react/self-closing-comp': 2,
@@ -218,7 +209,6 @@ const reactLintConfig = [
                 {
                     order: [
                         'defaultProps',
-                        'propTypes',
                         'static-methods',
                         'static-variables',
                         'constructor',

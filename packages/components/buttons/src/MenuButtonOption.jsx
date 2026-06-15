@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { MenuItem } from 'react-aria-menubutton';
 import MainContent from './components/MainContent';
@@ -6,6 +5,15 @@ import MainContent from './components/MainContent';
 // Styles
 import './styles/menu-button-option.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.text] - Text label for the option
+ * @param {boolean} [props.isDestructive] - Whether to render the option with destructive styling
+ * @param {boolean} [props.isDisabled] - Whether the option is disabled
+ * @param {Function} [props.renderIcon] - Render function for the option icon
+ * @param {*} [props.value] - Value passed to the selection callback when this option is chosen
+ */
 const MenuButtonOption = (props) => {
     const {
         contextCls,
@@ -37,16 +45,6 @@ const MenuButtonOption = (props) => {
             {children}
         </MenuItem>
     );
-};
-
-MenuButtonOption.propTypes = {
-    contextCls: PropTypes.string,
-    text: PropTypes.string,
-    isDestructive: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    renderIcon: PropTypes.func,
-    // eslint-disable-next-line react/forbid-prop-types
-    value: PropTypes.any,
 };
 
 export default MenuButtonOption;

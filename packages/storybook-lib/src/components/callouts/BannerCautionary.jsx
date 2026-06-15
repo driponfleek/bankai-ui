@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Banner as BankaiBannerCaution } from '@driponfleek/bankai-ui-callouts';
 import { BankaiTriangleAlert } from '@driponfleek/bankai-ui-icons';
@@ -9,6 +8,10 @@ import { genSBBaseCls } from '../../utils/storiesConfigUtils';
 // Styles
 import './styles/banner.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ */
 const BannerCautionary = (props) => {
     const { contextCls, ...rest } = props;
     const baseCls = `${genSBBaseCls('banner')} ${genSBBaseCls(
@@ -22,10 +25,6 @@ const BannerCautionary = (props) => {
             renderIcon={BankaiTriangleAlert}
         />
     );
-};
-
-BannerCautionary.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default BannerCautionary;

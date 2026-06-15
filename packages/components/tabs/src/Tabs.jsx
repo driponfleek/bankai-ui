@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import TabPanel from './TabPanel';
 import TabsList from './TabsList';
@@ -16,6 +15,17 @@ import './styles/tabs.scss';
 
 const { OVERLINE_SEGMENTED } = VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.activeTabId] - ID of the currently active tab
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.variant] - Visual variant of the tabs
+ * @param {boolean} [props.hasMicrointeractions] - Whether to enable microinteraction animations
+ * @param {boolean} [props.isVerticalTabs] - Whether to render tabs in a vertical layout
+ * @param {boolean} [props.shouldAllowLetterNavigation] - Whether to enable keyboard letter navigation between tabs
+ * @param {Function} [props.onChange] - Callback fired when the active tab changes
+ * @param {Function} [props.renderTab] - Custom render function for individual tabs
+ */
 const Tabs = (props) => {
     const {
         contextCls,
@@ -77,16 +87,5 @@ const Tabs = (props) => {
 };
 
 Tabs.onChange = () => Promise.resolve();
-
-Tabs.propTypes = {
-    activeTabId: PropTypes.string,
-    contextCls: PropTypes.string,
-    variant: PropTypes.string,
-    hasMicrointeractions: PropTypes.bool,
-    isVerticalTabs: PropTypes.bool,
-    shouldAllowLetterNavigation: PropTypes.bool,
-    onChange: PropTypes.func,
-    renderTab: PropTypes.func,
-};
 
 export default Tabs;

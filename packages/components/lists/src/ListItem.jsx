@@ -1,10 +1,18 @@
 import { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/list-item.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string|React.ReactElement} [props.meta] - Secondary metadata content displayed below or above the text
+ * @param {string|React.ReactElement} [props.text] - Primary text content
+ * @param {boolean} [props.shouldSwapTextAndMeta] - Whether to render meta above text instead of below
+ * @param {Function} [props.renderAfter] - Render function for content appended after the main content
+ * @param {Function} [props.renderBefore] - Render function for content prepended before the main content
+ */
 const ListItem = (props) => {
     const {
         contextCls,
@@ -47,15 +55,6 @@ const ListItem = (props) => {
             )}
         </div>
     );
-};
-
-ListItem.propTypes = {
-    contextCls: PropTypes.string,
-    meta: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    shouldSwapTextAndMeta: PropTypes.bool,
-    renderAfter: PropTypes.func,
-    renderBefore: PropTypes.func,
 };
 
 export default ListItem;

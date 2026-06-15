@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { ButtonPrimary } from '@driponfleek/bankai-ui-buttons';
 import { Modal } from '@driponfleek/bankai-ui-modals';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
@@ -7,6 +6,10 @@ import {
     ComponentPreview,
 } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {Function} [props.onModalBtnClick] - Called when the "Click to Open the Modal" button is clicked
+ */
 const SectionPlayground = (props) => {
     const { onModalBtnClick, ...rest } = props;
 
@@ -39,10 +42,6 @@ const SectionPlayground = (props) => {
             </ComponentPreview>
         </StorySection>
     );
-};
-
-SectionPlayground.propTypes = {
-    onModalBtnClick: PropTypes.func,
 };
 
 export default SectionPlayground;

@@ -11,7 +11,6 @@ Check the `peerDependencies` section of the `package.json` and ensure that they 
     "@driponfleek/bankai-lib-style-utils": "^0.1.0",
     "@driponfleek/bankai-lib-theme-utils": "^0.1.0",
     "classnames": "^2.3.1",
-    "prop-types": "^15.7.2",
     "react": "18",
     "react-dom": "18",
     ...

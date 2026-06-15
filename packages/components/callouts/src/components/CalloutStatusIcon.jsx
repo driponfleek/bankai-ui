@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     BankaiCircleCheck,
     BankaiCircleInfo,
@@ -16,16 +15,16 @@ const ICONS = {
     [DANGER]: BankaiTriangleAlert,
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the icon
+ * @param {string} [props.variant] - Variant key that determines which status icon to render
+ */
 const CalloutStatusIcon = (props) => {
     const { contextCls, variant } = props;
     const Icon = ICONS[variant] || BankaiTriangleAlert;
 
     return <Icon contextCls={contextCls} />;
-};
-
-CalloutStatusIcon.propTypes = {
-    contextCls: PropTypes.string,
-    variant: PropTypes.string,
 };
 
 export default CalloutStatusIcon;

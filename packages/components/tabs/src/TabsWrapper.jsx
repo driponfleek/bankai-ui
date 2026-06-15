@@ -1,7 +1,13 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Wrapper as ARIATabWrapper } from 'react-aria-tabpanel';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.activeTabId] - ID of the currently active tab
+ * @param {boolean} [props.shouldAllowLetterNavigation] - Whether to enable keyboard letter navigation between tabs
+ * @param {Function} [props.onChange] - Callback fired when the active tab changes
+ */
 const TabsWrapper = (props) => {
     const {
         contextCls,
@@ -27,12 +33,5 @@ const TabsWrapper = (props) => {
 };
 
 TabsWrapper.onChange = () => Promise.resolve();
-
-TabsWrapper.propTypes = {
-    contextCls: PropTypes.string,
-    activeTabId: PropTypes.string,
-    shouldAllowLetterNavigation: PropTypes.bool,
-    onChange: PropTypes.func,
-};
 
 export default TabsWrapper;

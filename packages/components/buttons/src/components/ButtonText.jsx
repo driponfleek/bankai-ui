@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
-
 // Constants
 import { BUTTON_BASE_CLS } from '../const/baseClsConst';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name used to construct BEM modifier and element classes
+ */
 const ButtonText = (props) => {
     const { baseCls = BUTTON_BASE_CLS, children } = props;
 
@@ -11,10 +13,6 @@ const ButtonText = (props) => {
             <span className={`${baseCls}__text`}>{children}</span>
         </span>
     );
-};
-
-ButtonText.propTypes = {
-    baseCls: PropTypes.string,
 };
 
 export default ButtonText;

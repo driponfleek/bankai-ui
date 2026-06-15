@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Tippy from '@tippyjs/react';
 
@@ -12,6 +11,42 @@ import { POSITIONS, TRIGGERS } from './const/tooltipConst';
 import 'tippy.js/dist/tippy.css';
 import './styles/tooltip.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.ariaLabel] - Accessible label for the tooltip trigger button
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the Tippy root element
+ * @param {string} [props.position] - Preferred placement of the tooltip (e.g. "top", "bottom-start")
+ * @param {string} [props.trigger] - Event(s) that show the tooltip (e.g. "mouseenter focus")
+ * @param {string} [props.ttContextCls] - Additional CSS class name(s) to apply to the tooltip content container
+ * @param {number|Array} [props.delay] - Show/hide delay in ms; array form sets [showDelay, hideDelay]
+ * @param {number|Array} [props.duration] - Show/hide animation duration in ms; array form sets [showDuration, hideDuration]
+ * @param {Array} [props.offset] - [skidding, distance] offset of the tooltip from the trigger
+ * @param {boolean} [props.isDisabled] - Whether the tooltip is disabled
+ * @param {boolean} [props.isInteractive] - Whether the tooltip content can be interacted with (hovered/clicked)
+ * @param {boolean} [props.isOpen] - Controlled open state of the tooltip
+ * @param {boolean} [props.shouldEnableInertia] - Whether to enable inertia easing on the transition
+ * @param {boolean} [props.shouldEnableInlinePositioning] - Whether to enable inline positioning for text selections
+ * @param {boolean} [props.shouldHideOnClick] - Whether clicking the trigger hides the tooltip
+ * @param {boolean} [props.shouldShowOnCreate] - Whether to show the tooltip immediately on creation
+ * @param {Object} [props.popperOptions] - Options passed directly to Popper.js
+ * @param {Object} [props.aria] - ARIA configuration object (supports `content` and `expanded`)
+ * @param {string|Element|Function} [props.appendTo] - Element or selector to append the tooltip to
+ * @param {string|React.ReactElement} [props.content] - Content rendered inside the tooltip
+ * @param {boolean|string} [props.sticky] - Whether to keep the tooltip in view as the reference moves
+ * @param {boolean|string|Array} [props.touch] - Touch behavior configuration
+ * @param {Function} [props.onAfterUpdate] - Callback fired after the tooltip instance is updated
+ * @param {Function} [props.onBeforeUpdate] - Callback fired before the tooltip instance is updated
+ * @param {Function} [props.onClickOutside] - Callback fired when clicking outside the tooltip
+ * @param {Function} [props.onCreate] - Callback fired when the tooltip instance is created
+ * @param {Function} [props.onDestroy] - Callback fired when the tooltip instance is destroyed
+ * @param {Function} [props.onHide] - Callback fired when the tooltip begins to hide
+ * @param {Function} [props.onHidden] - Callback fired after the tooltip finishes hiding
+ * @param {Function} [props.onMount] - Callback fired when the tooltip is mounted to the DOM
+ * @param {Function} [props.onShow] - Callback fired when the tooltip begins to show
+ * @param {Function} [props.onShown] - Callback fired after the tooltip finishes showing
+ * @param {Function} [props.onTrigger] - Callback fired when the trigger event fires
+ * @param {Function} [props.onUntrigger] - Callback fired when the untrigger event fires
+ */
 const Tooltip = (props) => {
     const {
         ariaLabel,
@@ -119,52 +154,5 @@ Tooltip.onShow = () => Promise.resolve();
 Tooltip.onShown = () => Promise.resolve();
 Tooltip.onTrigger = () => Promise.resolve();
 Tooltip.onUntrigger = () => Promise.resolve();
-
-Tooltip.propTypes = {
-    ariaLabel: PropTypes.string,
-    contextCls: PropTypes.string,
-    position: PropTypes.string,
-    trigger: PropTypes.string,
-    ttContextCls: PropTypes.string,
-    delay: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-    duration: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-    offset: PropTypes.array,
-    isDisabled: PropTypes.bool,
-    isInteractive: PropTypes.bool,
-    isOpen: PropTypes.bool,
-    shouldEnableInertia: PropTypes.bool,
-    shouldEnableInlinePositioning: PropTypes.bool,
-    shouldHideOnClick: PropTypes.bool,
-    shouldShowOnCreate: PropTypes.bool,
-    popperOptions: PropTypes.object,
-    aria: PropTypes.shape({
-        content: PropTypes.string,
-        expanded: PropTypes.string,
-    }),
-    appendTo: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-        PropTypes.func,
-    ]),
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    sticky: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    touch: PropTypes.oneOfType([
-        PropTypes.bool,
-        PropTypes.string,
-        PropTypes.array,
-    ]),
-    onAfterUpdate: PropTypes.func,
-    onBeforeUpdate: PropTypes.func,
-    onClickOutside: PropTypes.func,
-    onCreate: PropTypes.func,
-    onDestroy: PropTypes.func,
-    onHide: PropTypes.func,
-    onHidden: PropTypes.func,
-    onMount: PropTypes.func,
-    onShow: PropTypes.func,
-    onShown: PropTypes.func,
-    onTrigger: PropTypes.func,
-    onUntrigger: PropTypes.func,
-};
 
 export default Tooltip;

@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import CompImportAndUsage from '../../../../../sb-components/docblocks/CompImportAndUsage';
 
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {boolean} [props.isRadio] - When true, generates Radio import/usage code; otherwise generates Checkbox code
+ */
 const SectionImplementation = (props) => {
     const { isRadio = false } = props;
     const compName = isRadio ? 'Radio' : 'Checkbox';
@@ -22,10 +25,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.propTypes = {
-    isRadio: PropTypes.bool,
 };
 
 export default SectionImplementation;

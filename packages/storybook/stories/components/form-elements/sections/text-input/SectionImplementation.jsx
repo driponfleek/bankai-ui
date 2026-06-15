@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import CompImportAndUsage from '../../../../../sb-components/docblocks/CompImportAndUsage';
 
@@ -8,6 +7,10 @@ import { getLocale } from '../../../../../utils/localeUtils';
 // Const
 import { INPUTS } from '../../const/storyConst';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.compName] - Component name key used to select the appropriate import/usage code string
+ */
 const SectionImplementation = (props) => {
     const { compName } = props;
     let comp;
@@ -35,10 +38,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.propTypes = {
-    compName: PropTypes.string,
 };
 
 export default SectionImplementation;

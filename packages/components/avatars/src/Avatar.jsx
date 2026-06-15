@@ -1,9 +1,15 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/avatar.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.imgURL] - URL of the avatar image; when provided renders as a background image
+ * @param {boolean} [props.hasBorder] - Whether to render a border around the avatar (defaults to true)
+ * @param {ReactNode} [props.children] - Child content rendered inside the avatar when no image URL is provided
+ */
 const Avatar = (props) => {
     const { contextCls, imgURL, hasBorder = true, children } = props;
     const shouldRenderImg = !!imgURL;
@@ -23,12 +29,6 @@ const Avatar = (props) => {
             )}
         </span>
     );
-};
-
-Avatar.propTypes = {
-    contextCls: PropTypes.string,
-    imgURL: PropTypes.string,
-    hasBorder: PropTypes.bool,
 };
 
 export default Avatar;

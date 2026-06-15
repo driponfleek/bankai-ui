@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ColorSwatchMetaLI from './ColorSwatchMetaLI';
 
@@ -9,6 +8,11 @@ import { COLOR_BASE_CLS } from './const/colorBaseClsConst';
 // Styles
 import './styles/color-swatch-meta-list.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {Array<string|React.ReactElement>} [props.metaList] - Meta items to render as list items
+ */
 const ColorSwatchMetaList = (props) => {
     const { contextCls, metaList = [] } = props;
     const baseCls = `${COLOR_BASE_CLS}__meta-list`;
@@ -17,13 +21,6 @@ const ColorSwatchMetaList = (props) => {
     );
 
     return <ul className={cx(baseCls, contextCls)}>{childItems}</ul>;
-};
-
-ColorSwatchMetaList.propTypes = {
-    contextCls: PropTypes.string,
-    metaList: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    ),
 };
 
 export default ColorSwatchMetaList;

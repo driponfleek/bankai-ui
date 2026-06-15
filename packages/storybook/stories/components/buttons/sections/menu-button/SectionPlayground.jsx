@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     StorySection,
     ComponentPreview,
@@ -7,6 +6,10 @@ import {
 // Utils
 import { getMenuBtnStoryPlaygroundComp } from '../../utils/storyUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - MenuButton variant name used to resolve the playground component
+ */
 const SectionPlayground = (props) => {
     const { variant, ...rest } = props;
     const Button = getMenuBtnStoryPlaygroundComp(variant);
@@ -18,10 +21,6 @@ const SectionPlayground = (props) => {
             </ComponentPreview>
         </StorySection>
     );
-};
-
-SectionPlayground.propTypes = {
-    variant: PropTypes.string,
 };
 
 export default SectionPlayground;

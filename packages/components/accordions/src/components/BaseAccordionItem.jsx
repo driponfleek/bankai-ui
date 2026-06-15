@@ -1,8 +1,15 @@
-import PropTypes from 'prop-types';
 import AccordionItem from '../AccordionItem';
 import AccordionItemPanel from '../AccordionItemPanel';
 import BaseAccordionItemTrigger from './BaseAccordionItemTrigger';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name used to construct BEM modifier and element classes
+ * @param {number} [props.headingLvl] - Heading level for the accordion item heading
+ * @param {React.ReactNode} [props.content] - React node rendered as the accordion item content
+ * @param {Function} [props.renderTrigger] - Custom render function for the accordion trigger
+ * @param {Function} [props.renderTriggerIcon] - Custom render function for the accordion trigger icon
+ */
 const BaseAccordionItem = (props) => {
     const {
         baseCls,
@@ -26,14 +33,6 @@ const BaseAccordionItem = (props) => {
             <AccordionItemPanel>{content}</AccordionItemPanel>
         </AccordionItem>
     );
-};
-
-BaseAccordionItem.propTypes = {
-    baseCls: PropTypes.string,
-    headingLvl: PropTypes.number,
-    content: PropTypes.node,
-    renderTrigger: PropTypes.func,
-    renderTriggerIcon: PropTypes.func,
 };
 
 export default BaseAccordionItem;

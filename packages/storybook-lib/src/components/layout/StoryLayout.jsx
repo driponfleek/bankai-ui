@@ -1,5 +1,4 @@
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
     genCSSVars,
@@ -38,23 +37,19 @@ const themeData = {
 // subtitle = Components | Form Elements
 // For other pages, the subtitle is optional. Use as needed.
 // ==================================================================
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.title] - Page title rendered as an h1 heading
+ * @param {string} [props.pkgVer] - Package version string passed to PackageBadges
+ * @param {string} [props.pkgVerAltText] - Alt text for the package version badge
+ * @param {string|Function|React.ReactElement} [props.subTitle] - Subtitle displayed beneath the page title
+ * @param {Function} [props.onColorSchemeChange] - Callback invoked with the isDarkMode boolean when the color scheme changes
+ */
 // TODO: Write this as functional component
 class StoryLayout extends PureComponent {
     static defaultProps = {
         onColorSchemeChange: () => Promise.resolve(),
-    };
-
-    static propTypes = {
-        contextCls: PropTypes.string,
-        title: PropTypes.string,
-        pkgVer: PropTypes.string,
-        pkgVerAltText: PropTypes.string,
-        subTitle: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.func,
-            PropTypes.element,
-        ]),
-        onColorSchemeChange: PropTypes.func,
     };
 
     constructor(...args) {

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import CompImportAndUsage from '../../../../../sb-components/docblocks/CompImportAndUsage';
 
@@ -17,6 +16,10 @@ const menuOptionsCodeStr = `const menuOptions = [
     },
 ];`;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - MenuButton variant name appended to the component import/usage code strings
+ */
 const SectionImplementation = (props) => {
     const { variant = '' } = props;
     const importCodeStr = `import { MenuButton${variant} } from '@driponfleek/bankai-ui-buttons';`;
@@ -34,10 +37,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.propTypes = {
-    variant: PropTypes.string,
 };
 
 export default SectionImplementation;

@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/story-section.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ */
 const StorySection = (props) => {
     const { children, contextCls } = props;
     const sectionBaseCls = 'bankai-sb-section';
@@ -11,10 +14,6 @@ const StorySection = (props) => {
     return (
         <section className={cx(sectionBaseCls, contextCls)}>{children}</section>
     );
-};
-
-StorySection.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default StorySection;

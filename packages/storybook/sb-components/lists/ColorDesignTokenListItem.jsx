@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { chromajs, getSanitizedHex } from '@driponfleek/bankai-lib-color-utils';
 import {
     ColorSwatchSimple,
@@ -10,6 +9,12 @@ import CopyTokenValueBtn from '../buttons/CopyTokenValueBtn';
 // Styles
 import './styles/color-design-token-list-item.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.token] - Design token name displayed as the list item label
+ * @param {string} [props.color] - CSS color value used to render the swatch
+ * @param {boolean} [props.shouldShowMeta] - Whether to show the hex/opacity metadata
+ */
 const ColorDesignTokenListItem = (props) => {
     const { token, color, shouldShowMeta = true } = props;
     const baseCls = genSBBaseCls('color-design-token-list-item');
@@ -54,12 +59,6 @@ const ColorDesignTokenListItem = (props) => {
             renderBefore={renderBefore}
         />
     );
-};
-
-ColorDesignTokenListItem.propTypes = {
-    token: PropTypes.string,
-    color: PropTypes.string,
-    shouldShowMeta: PropTypes.bool,
 };
 
 export default ColorDesignTokenListItem;

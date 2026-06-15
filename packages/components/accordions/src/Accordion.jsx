@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import AccordionItemTrigger from './AccordionItemTrigger';
 import BaseAccordion from './components/BaseAccordion';
@@ -9,6 +8,13 @@ import { ACCORDION_BASE_CLS } from './const/baseClsConst';
 // styles
 import './styles/accordion.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {number} [props.headingLvl] - Heading level for the accordion item heading
+ * @param {Function} [props.renderTrigger] - Custom render function for the accordion trigger
+ * @param {Function} [props.renderTriggerIcon] - Custom render function for the accordion trigger icon
+ */
 const Accordion = (props) => {
     const {
         contextCls,
@@ -47,13 +53,6 @@ const Accordion = (props) => {
             renderTriggerIcon={renderTriggerIcon}
         />
     );
-};
-
-Accordion.propTypes = {
-    contextCls: PropTypes.string,
-    headingLvl: PropTypes.number,
-    renderTrigger: PropTypes.func,
-    renderTriggerIcon: PropTypes.func,
 };
 
 export default Accordion;

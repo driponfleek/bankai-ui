@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     BankaiChevronDown,
     BankaiSettings,
@@ -17,6 +16,10 @@ import {
 // Styles
 import './styles/section-icon-placement.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to the icon placement section container
+ */
 const SectionIconPlacement = (props) => {
     const { baseCls } = props;
     const leftOfTextBannerProps = {
@@ -64,10 +67,6 @@ const SectionIconPlacement = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionIconPlacement.propTypes = {
-    baseCls: PropTypes.string,
 };
 
 export default SectionIconPlacement;

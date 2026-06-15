@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import CompImportAndUsage from '../../../../sb-components/docblocks/CompImportAndUsage';
 
@@ -13,6 +12,11 @@ const ICONS = {
     Default: 'BankaiCloud',
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - Component variant name (e.g. "Affirmative") appended to the import/usage code strings
+ * @param {boolean} [props.isCallout] - When true, generates code for a Callout component; otherwise generates Banner code
+ */
 const SectionImplementation = (props) => {
     const { variant = '', isCallout = false } = props;
     const icon = ICONS[variant] || ICONS.Default;
@@ -31,11 +35,6 @@ const SectionImplementation = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionImplementation.propTypes = {
-    variant: PropTypes.string,
-    isCallout: PropTypes.bool,
 };
 
 export default SectionImplementation;

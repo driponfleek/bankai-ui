@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { TbH1 as TextH1 } from 'react-icons/tb';
 
 // Utils
@@ -10,6 +9,11 @@ import baseCls from './const/baseClsConst';
 // Styles
 import './styles/shared.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.className] - Additional CSS class name(s) to apply to the icon element
+ */
 const BankaiTextH1 = (props) => {
     const { contextCls, className, ...rest } = props;
 
@@ -23,11 +27,6 @@ const BankaiTextH1 = (props) => {
             )}
         />
     );
-};
-
-BankaiTextH1.propTypes = {
-    contextCls: PropTypes.string,
-    className: PropTypes.string,
 };
 
 export default BankaiTextH1;

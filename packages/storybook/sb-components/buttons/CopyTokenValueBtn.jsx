@@ -9,6 +9,13 @@ import {
 
 // TODO: This needs to be in Storybook Lib so the swatch there can use it.
 // I Should evaluate other components to see if they should be in the lib too.
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the button
+ * @param {string} [props.token] - Design token name used in the button's aria-label
+ * @param {string} [props.color] - Color value to copy to the clipboard
+ * @param {boolean} [props.isTransparent] - When true, copies "transparent" instead of the color value
+ */
 const CopyTokenValueBtn = (props) => {
     const { contextCls, token, color, isTransparent = false } = props;
     const [copiedValue, setCopiedValue] = useState(undefined);

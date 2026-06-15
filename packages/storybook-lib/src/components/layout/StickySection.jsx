@@ -1,19 +1,18 @@
 import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/sticky-section.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.scrollingContainerCSSClass] - CSS class of the scrolling container used to attach scroll listeners
+ */
 // TODO: Write this as functional component
 class StickySection extends PureComponent {
     static defaultProps = {
         scrollingContainerCSSClass: 'bankai-sb-layout',
-    };
-
-    static propTypes = {
-        contextCls: PropTypes.string,
-        scrollingContainerCSSClass: PropTypes.string,
     };
 
     render() {

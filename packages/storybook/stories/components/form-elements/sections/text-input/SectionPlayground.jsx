@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     StorySection,
     ComponentPreview,
@@ -6,6 +5,10 @@ import {
 
 import { getInputGuidePlaygroundComp } from '../../utils/inputGuideUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.compName] - Component name key used to resolve the playground component
+ */
 const SectionPlayground = (props) => {
     const { compName, ...rest } = props;
     const Comp = getInputGuidePlaygroundComp(compName);
@@ -17,10 +20,6 @@ const SectionPlayground = (props) => {
             </ComponentPreview>
         </StorySection>
     );
-};
-
-SectionPlayground.propTypes = {
-    compName: PropTypes.string,
 };
 
 export default SectionPlayground;

@@ -1,5 +1,4 @@
 import { Children, useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import IconListItem from './IconListItem';
 import { copyTextToClipboard } from '../../../utils/clipboardUtils';
@@ -10,6 +9,12 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 // Styles
 import './styles/icons-list.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {Array} [props.icons] - Array of icon data objects passed to IconListItem
+ * @param {Object} [props.locale] - Localization strings passed to each IconListItem
+ */
 const IconsList = (props) => {
     const { contextCls, icons = [], locale = {} } = props;
     const [copiedIconName, setCopiedIconName] = useState(undefined);
@@ -49,15 +54,6 @@ const IconsList = (props) => {
     }, [copiedIconName]);
 
     return <div className={cx(baseCls, contextCls)}>{childItems}</div>;
-};
-
-IconsList.propTypes = {
-    contextCls: PropTypes.string,
-    icons: PropTypes.array,
-    locale: PropTypes.shape({
-        copyText: PropTypes.string,
-        copiedText: PropTypes.string,
-    }),
 };
 
 export default IconsList;

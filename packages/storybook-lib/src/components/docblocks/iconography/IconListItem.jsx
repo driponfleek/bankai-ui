@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { BankaiCheck } from '@driponfleek/bankai-ui-icons';
 
@@ -8,6 +7,15 @@ import { genSBBaseCls } from '../../../utils/storiesConfigUtils';
 // Styles
 import './styles/icon-list-item.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.name] - Icon name displayed as the button label
+ * @param {boolean} [props.hasCopiedToClipboard] - Shows a checkmark icon and the copiedText label when true
+ * @param {Function} [props.Icon] - Icon component to render
+ * @param {Object} [props.locale] - Localization strings
+ * @param {Function} [props.onClick] - Callback invoked with the icon name when the button is clicked
+ */
 const IconListItem = (props) => {
     const {
         hasCopiedToClipboard = false,
@@ -52,17 +60,5 @@ const IconListItem = (props) => {
 };
 
 IconListItem.onClick = () => Promise.resolve();
-
-IconListItem.propTypes = {
-    contextCls: PropTypes.string,
-    name: PropTypes.string,
-    hasCopiedToClipboard: PropTypes.bool,
-    Icon: PropTypes.func,
-    locale: PropTypes.shape({
-        copyText: PropTypes.string,
-        copiedText: PropTypes.string,
-    }),
-    onClick: PropTypes.func,
-};
 
 export default IconListItem;

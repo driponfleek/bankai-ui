@@ -1,10 +1,19 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import InlineFormHint from '../../InlineFormHint';
 import InlineFormError from '../../InlineFormError';
 
 import { getHasError, getFFCHasHint } from '../../utils/formFieldComposerUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name used to derive hint container classes
+ * @param {string} [props.errorId] - ID passed to the InlineFormError component
+ * @param {boolean} [props.hasError] - Whether an error state is active
+ * @param {boolean} [props.shouldIncludeError] - Whether to render the error component
+ * @param {boolean} [props.shouldIncludeHint] - Whether to render the hint component
+ * @param {Object} [props.errorProps] - Props forwarded to InlineFormError
+ * @param {Object} [props.hintProps] - Props forwarded to InlineFormHint
+ */
 const FFCHints = (props) => {
     const {
         baseCls,
@@ -36,16 +45,6 @@ const FFCHints = (props) => {
             {shouldIncludeHint && <InlineFormHint {...inlineHintProps} />}
         </div>
     );
-};
-
-FFCHints.propTypes = {
-    baseCls: PropTypes.string,
-    errorId: PropTypes.string,
-    hasError: PropTypes.bool,
-    shouldIncludeError: PropTypes.bool,
-    shouldIncludeHint: PropTypes.bool,
-    errorProps: PropTypes.object,
-    hintProps: PropTypes.object,
 };
 
 export default FFCHints;

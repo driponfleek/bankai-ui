@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 // import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import SectionWhenToUse from './SectionWhenToUse';
@@ -11,6 +10,11 @@ import SectionBtnHierarchy from './SectionBtnHierarchy';
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class forwarded to layout sub-sections
+ * @param {string} [props.btnText] - Button label text forwarded to icon and accessibility demo sub-sections
+ */
 // TODO: Add documentation about Icon placement best practice
 const SectionUsage = (props) => {
     const { baseCls, btnText } = props;
@@ -36,11 +40,6 @@ const SectionUsage = (props) => {
             <SectionBtnHierarchy baseCls={baseCls} />
         </StorySection>
     );
-};
-
-SectionUsage.propTypes = {
-    baseCls: PropTypes.string,
-    btnText: PropTypes.string,
 };
 
 export default SectionUsage;

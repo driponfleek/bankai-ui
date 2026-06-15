@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import LoadingErrorState from './LoadingErrorState';
 import LoadingState from './LoadingState';
@@ -11,6 +10,16 @@ import {
     getShouldRenderContent,
 } from './utils/loadingFlowUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.hasError] - Whether to render the error state
+ * @param {boolean} [props.isLoading] - Whether to render the loading state
+ * @param {Object} [props.errorStateProps] - Props passed to the error state component (supports `msg` and `title`)
+ * @param {Object} [props.loadingStateProps] - Props passed to the loading state component (supports `msg` and `title`)
+ * @param {Function} [props.renderLoadingState] - Custom render function for the loading state
+ * @param {Function} [props.renderErrorState] - Custom render function for the error state
+ */
 const LoadingFlow = (props) => {
     const {
         contextCls,
@@ -56,22 +65,6 @@ const LoadingFlow = (props) => {
             {shouldRenderContent && children}
         </Fragment>
     );
-};
-
-LoadingFlow.propTypes = {
-    contextCls: PropTypes.string,
-    hasError: PropTypes.bool,
-    isLoading: PropTypes.bool,
-    errorStateProps: PropTypes.shape({
-        msg: PropTypes.string,
-        title: PropTypes.string,
-    }),
-    loadingStateProps: PropTypes.shape({
-        msg: PropTypes.string,
-        title: PropTypes.string,
-    }),
-    renderLoadingState: PropTypes.func,
-    renderErrorState: PropTypes.func,
 };
 
 export default LoadingFlow;

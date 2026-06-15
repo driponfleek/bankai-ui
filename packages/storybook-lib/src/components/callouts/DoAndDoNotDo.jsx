@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import DoAndDoNotDoList from './DoAndDoNotDoList';
 
@@ -8,6 +7,15 @@ import { genSBBaseCls } from '../../utils/storiesConfigUtils';
 // Styles
 import './styles/do-and-do-not-do.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.doTitle] - Title for the "do" list
+ * @param {string} [props.doNotDoTitle] - Title for the "do not do" list
+ * @param {boolean} [props.isSideBySide] - Renders the do/do-not-do lists side by side
+ * @param {Array<string|React.ReactElement>} [props.doList] - Items for the "do" list
+ * @param {Array<string|React.ReactElement>} [props.doNotDoList] - Items for the "do not do" list
+ */
 const DoAndDoNotDo = (props) => {
     const {
         contextCls,
@@ -47,19 +55,6 @@ const DoAndDoNotDo = (props) => {
             </div>
         </div>
     );
-};
-
-DoAndDoNotDo.propTypes = {
-    contextCls: PropTypes.string,
-    doNotDoTitle: PropTypes.string,
-    doTitle: PropTypes.string,
-    isSideBySide: PropTypes.bool,
-    doList: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    ),
-    doNotDoList: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    ),
 };
 
 export default DoAndDoNotDo;

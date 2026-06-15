@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types';
 import { ARIALive } from '@driponfleek/bankai-ui-aria';
 
 // Styles
 import './styles/inline-form-error.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {Object} [props.ariaLiveProps] - Props for the ARIALive wrapper (supports `ariaRelevant`, `id` (required), `isAtomic`, `isPolite`)
+ * @param {Function} [props.renderErrorIcon] - Custom render function for the error icon (only rendered when children are present)
+ */
 const InlineFormError = (props) => {
     const { contextCls, ariaLiveProps = {}, renderErrorIcon, children } = props;
     const {
@@ -36,17 +41,6 @@ const InlineFormError = (props) => {
             )}
         </ARIALive>
     );
-};
-
-InlineFormError.propTypes = {
-    contextCls: PropTypes.string,
-    ariaLiveProps: PropTypes.shape({
-        ariaRelevant: PropTypes.string,
-        id: PropTypes.string.isRequired,
-        isAtomic: PropTypes.bool,
-        isPolite: PropTypes.bool,
-    }),
-    renderErrorIcon: PropTypes.func,
 };
 
 export default InlineFormError;
