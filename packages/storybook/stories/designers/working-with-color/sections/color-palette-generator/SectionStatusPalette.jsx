@@ -9,6 +9,10 @@ import ColorTokenTileList from '../../../../../sb-components/lists/ColorTokenTil
 // Styles
 import './styles/section-palette.scss';
 
+/**
+ * @param {Object} props
+ * @param {Array<Object>} [props.data] - Array of status color data objects to render as swatches
+ */
 const SectionStatusPalette = (props) => {
     const { data = [] } = props;
     const baseCls = genSBBaseCls('section-color-palette');

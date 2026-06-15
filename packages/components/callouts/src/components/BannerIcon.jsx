@@ -1,5 +1,8 @@
-import PropTypes from 'prop-types';
-
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name passed from the parent Banner component
+ * @param {Function} [props.renderIcon] - Custom render function for the icon
+ */
 const BannerIcon = (props) => {
     const { baseCls, renderIcon = BannerIcon.renderIcon } = props;
     const iconCls = `${baseCls}__icon`;
@@ -12,10 +15,5 @@ const BannerIcon = (props) => {
 };
 
 BannerIcon.renderIcon = () => '';
-
-BannerIcon.propTypes = {
-    baseCls: PropTypes.string,
-    renderIcon: PropTypes.func,
-};
 
 export default BannerIcon;

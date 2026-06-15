@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Utils
@@ -13,6 +12,11 @@ import './styles/loading-dots.scss';
 
 const { BOUNCE } = LOADING_DOTS_VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.variant] - Visual variant of the loading dots animation
+ */
 const LoadingDots = (props) => {
     const { contextCls, variant = BOUNCE } = props;
     const baseCls = 'bankai-loading-dots';
@@ -26,11 +30,6 @@ const LoadingDots = (props) => {
             )}
         </span>
     );
-};
-
-LoadingDots.propTypes = {
-    contextCls: PropTypes.string,
-    variant: PropTypes.string,
 };
 
 export default LoadingDots;

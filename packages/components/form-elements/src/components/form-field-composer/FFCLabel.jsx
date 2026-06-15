@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import FormLabel from '../../FormLabel';
 
 // Utils
 import { getFFCLabelExtantProps } from '../../utils/formFieldComposerUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name used to derive label container classes
+ */
 const FFCLabel = (props) => {
     const { baseCls, ...rest } = props;
     const labelProps = getFFCLabelExtantProps(rest);
@@ -15,10 +18,6 @@ const FFCLabel = (props) => {
             </div>
         </div>
     );
-};
-
-FFCLabel.propTypes = {
-    baseCls: PropTypes.string,
 };
 
 export default FFCLabel;

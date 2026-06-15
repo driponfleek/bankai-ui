@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import { Hyperlink } from '@driponfleek/bankai-ui-navigation';
 import {
@@ -10,6 +9,10 @@ import SectionAccessibilityForDesigners from './SectionAccessibilityForDesigners
 import SectionAccessibilityForDevs from './SectionAccessibilityForDevs';
 import SectionAccessibilityDynamicText from './SectionAccessibilityDynamicText';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.btnText] - Button label text forwarded to accessibility demo sub-sections
+ */
 const SectionAccessibility = (props) => {
     const { btnText } = props;
     const disabledText = (
@@ -57,10 +60,6 @@ const SectionAccessibility = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionAccessibility.propTypes = {
-    btnText: PropTypes.string,
 };
 
 export default SectionAccessibility;

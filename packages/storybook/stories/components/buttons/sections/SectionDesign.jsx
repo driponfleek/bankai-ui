@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 // import { Button } from '@driponfleek/bankai-ui-buttons';
 // import { BankaiCirclePlus } from '@driponfleek/bankai-ui-icons';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';

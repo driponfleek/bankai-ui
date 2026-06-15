@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     FormFieldComposer,
     ToggleSwitch,
@@ -8,6 +7,11 @@ import {
 const { INLINE_RIGHT } = FORM_FIELD_COMP_VARIANTS;
 const ToggleField = FormFieldComposer(ToggleSwitch);
 
+/**
+ * @param {Object} props
+ * @param {string} [props.fieldId] - Field identifier passed as the second argument to onChange
+ * @param {Function} [props.onChange] - Called with toggle params and fieldId on change
+ */
 const ToggleSwitchField = (props) => {
     const { onChange = ToggleSwitchField.onChange, fieldId, ...rest } = props;
     const handleChange = (params) => {
@@ -20,10 +24,5 @@ const ToggleSwitchField = (props) => {
 };
 
 ToggleSwitchField.onChange = () => Promise.resolve();
-
-ToggleSwitchField.propTypes = {
-    fieldId: PropTypes.string,
-    onChange: PropTypes.func,
-};
 
 export default ToggleSwitchField;

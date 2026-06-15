@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import { ARIALive } from '@driponfleek/bankai-ui-aria';
 
 // Styles
 import './styles/inline-form-hint.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {Object} [props.ariaLiveProps] - Props for the ARIALive wrapper (supports `ariaRelevant`, `id` (required), `isAtomic`, `isPolite`)
+ */
 const InlineFormHint = (props) => {
     const { contextCls, ariaLiveProps = {}, children } = props;
     const baseCls = 'bankai-form-control-hint';
@@ -20,16 +24,6 @@ const InlineFormHint = (props) => {
             )}
         </ARIALive>
     );
-};
-
-InlineFormHint.propTypes = {
-    contextCls: PropTypes.string,
-    ariaLiveProps: PropTypes.shape({
-        ariaRelevant: PropTypes.string,
-        id: PropTypes.string.isRequired,
-        isAtomic: PropTypes.bool,
-        isPolite: PropTypes.bool,
-    }),
 };
 
 export default InlineFormHint;

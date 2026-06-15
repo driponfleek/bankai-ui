@@ -1,10 +1,14 @@
-import PropTypes from 'prop-types';
 import { ButtonSecondary, ButtonPrimary } from '@driponfleek/bankai-ui-buttons';
 import { CompPreviewWithBanner } from '@driponfleek/bankai-lib-storybook';
 
 // Styles
 import './styles/btn-hierarchy-examples.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to the container elements
+ * @param {boolean} [props.isDestructive] - When true, renders the destructive primary button hierarchy example
+ */
 const BtnHierarchyExamples = (props) => {
     const { baseCls, isDestructive = false } = props;
     const inlineBtnsBannerProps = {
@@ -36,11 +40,6 @@ const BtnHierarchyExamples = (props) => {
             </CompPreviewWithBanner>
         </>
     );
-};
-
-BtnHierarchyExamples.propTypes = {
-    baseCls: PropTypes.string,
-    isDestructive: PropTypes.bool,
 };
 
 export default BtnHierarchyExamples;

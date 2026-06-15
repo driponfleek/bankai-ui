@@ -3,6 +3,12 @@ import { Avatar } from '@driponfleek/bankai-ui-avatars';
 import CompPreviewWithOps from './CompPreviewWithOps';
 import SourceTokenOps from './SourceTokenOps';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class used to scope the avatar preview container
+ * @param {Object} [props.opsProps] - Props forwarded to the SourceTokenOps controls
+ * @param {Function} [props.dispatch] - Reducer dispatch used to update the avatarSourceColorToken on change
+ */
 const AvatarCompPreview = (props) => {
     const { baseCls, opsProps, dispatch, ...rest } = props;
     const handleChange = (value = {}) => {

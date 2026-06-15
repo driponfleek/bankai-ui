@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Constants
@@ -7,6 +6,11 @@ import { LIST_BASE_CLS } from './const/listBaseClsConst';
 // Styles
 import './styles/list.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {boolean} [props.isOrderedList] - Whether to render as an ordered list (`<ol>`) instead of unordered (`<ul>`)
+ */
 const OmniList = (props) => {
     const { contextCls, isOrderedList = false, children } = props;
     const baseCls = LIST_BASE_CLS;
@@ -19,11 +23,6 @@ const OmniList = (props) => {
     return (
         <ListEl className={cx(baseCls, modCls, contextCls)}>{children}</ListEl>
     );
-};
-
-OmniList.propTypes = {
-    contextCls: PropTypes.string,
-    isOrderedList: PropTypes.bool,
 };
 
 export default OmniList;

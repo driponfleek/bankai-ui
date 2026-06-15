@@ -1,11 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Badge from './Badge';
 
 // Styles
 import './styles/badge-cautionary.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ */
 const BadgeCautionary = (props) => {
     const { contextCls, children, ...rest } = props;
     const baseCls = 'bankai-badge--cautionary';
@@ -15,10 +18,6 @@ const BadgeCautionary = (props) => {
             {children}
         </Badge>
     );
-};
-
-BadgeCautionary.propTypes = {
-    contextCls: PropTypes.string,
 };
 
 export default BadgeCautionary;

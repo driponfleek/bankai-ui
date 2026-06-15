@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
     getIsContrastRatioMeta,
@@ -11,6 +10,11 @@ import { COLOR_BASE_CLS } from './const/colorBaseClsConst';
 // Styles
 import './styles/contrast-ratio-meta.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string|React.ReactElement} [props.item] - Meta item; renders contrast ratio details if it matches the contrast meta shape, otherwise renders the item directly
+ */
 const ContrastRatioMeta = (props) => {
     const { contextCls, item } = props;
     const baseCls = `${COLOR_BASE_CLS}__contrast-ratio-meta`;
@@ -31,11 +35,6 @@ const ContrastRatioMeta = (props) => {
             />
         </span>
     );
-};
-
-ContrastRatioMeta.propTypes = {
-    contextCls: PropTypes.string,
-    item: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 export default ContrastRatioMeta;

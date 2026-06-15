@@ -10,6 +10,14 @@ import { getCompTheme } from '../../utils/designTokenGenStoryUtils';
 // Styles
 import './styles/comp-preview-with-ops.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) applied to the root container
+ * @param {Array<Object>} [props.tokensData] - Token overrides used to generate a scoped CSS custom property theme
+ * @param {Array<Object>} [props.semanticTokens] - Semantic token overrides merged with tokensData for theming
+ * @param {Function} [props.renderOps] - Component rendered as the operations/controls panel
+ * @param {Object} [props.opsProps] - Props forwarded to the renderOps component
+ */
 const CompPreviewWithOps = (props) => {
     const {
         contextCls,

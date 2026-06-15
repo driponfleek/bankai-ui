@@ -44,6 +44,13 @@ const getIcon = (type) => {
     }
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class used to scope the banner preview container
+ * @param {string} [props.variant] - Banner variant name; determines the banner component and source token key
+ * @param {Function} [props.dispatch] - Reducer dispatch used to update the source color token on change
+ * @param {Object} [props.opsProps] - Props forwarded to the SourceTokenOps controls
+ */
 const BannerCompPreview = (props) => {
     const { baseCls, variant, dispatch, opsProps, ...rest } = props;
     const variantLowercase = variant?.toLowerCase();

@@ -1,10 +1,19 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Tab as ARIATab } from 'react-aria-tabpanel';
 
 // Styles
 import './styles/tab.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} props.id - Unique identifier for the tab, used to associate it with its panel
+ * @param {string} [props.letterNavigationText] - Text used for keyboard letter navigation
+ * @param {string} [props.text] - Display text for the tab
+ * @param {boolean} [props.isActive] - Whether this tab is currently active
+ * @param {boolean} [props.isVertical] - Whether the tab is rendered in a vertical tabs layout
+ * @param {Function} [props.renderIcon] - Custom render function for the tab icon
+ */
 const Tab = (props) => {
     const {
         contextCls,
@@ -56,16 +65,6 @@ const Tab = (props) => {
             {children}
         </ARIATab>
     );
-};
-
-Tab.propTypes = {
-    contextCls: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    letterNavigationText: PropTypes.string,
-    text: PropTypes.string,
-    isActive: PropTypes.bool,
-    isVertical: PropTypes.bool,
-    renderIcon: PropTypes.func,
 };
 
 export default Tab;

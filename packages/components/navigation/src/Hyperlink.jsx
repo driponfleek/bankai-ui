@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/hyperlink.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} props.href - The URL the hyperlink points to
+ * @param {boolean} [props.shouldOpenInNewWindow] - Whether to open the link in a new browser tab
+ */
 const Hyperlink = (props) => {
     const {
         href,
@@ -26,12 +31,6 @@ const Hyperlink = (props) => {
             {children}
         </a>
     );
-};
-
-Hyperlink.propTypes = {
-    contextCls: PropTypes.string,
-    href: PropTypes.string.isRequired,
-    shouldOpenInNewWindow: PropTypes.bool,
 };
 
 export default Hyperlink;

@@ -1,9 +1,15 @@
-import PropTypes from 'prop-types';
 import { ButtonPrimary, ButtonSecondary } from '@driponfleek/bankai-ui-buttons';
 
 // Utils
 import { getModalActionsByPriority } from '../utils/modalUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name passed from the parent Modal component
+ * @param {Array} [props.modalActions] - Array of action button configuration objects
+ * @param {Function} [props.onActionClick] - Callback fired when an action button is clicked
+ * @param {Function} [props.renderModalActions] - Custom render function that replaces the default actions layout
+ */
 const ModalActions = (props) => {
     const { baseCls, modalActions, onActionClick, renderModalActions } = props;
     const { primaryAction, secondaryAction } =
@@ -39,13 +45,6 @@ const ModalActions = (props) => {
             </div>
         </div>
     );
-};
-
-ModalActions.propTypes = {
-    baseCls: PropTypes.string,
-    modalActions: PropTypes.array,
-    onActionClick: PropTypes.func,
-    renderModalActions: PropTypes.func,
 };
 
 export default ModalActions;

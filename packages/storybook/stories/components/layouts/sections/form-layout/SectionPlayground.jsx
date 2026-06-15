@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { ButtonPrimary } from '@driponfleek/bankai-ui-buttons';
 import {
     Fieldset,
@@ -24,6 +23,10 @@ const DatePickerField = IFLFormFieldComposer(DatePicker);
 const FormSectionWithPassthrough = RetainLayoutComposer(DynamicFormSection);
 const FieldsetWithPassthrough = RetainLayoutComposer(Fieldset);
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to the form row container
+ */
 const SectionPlayground = (props) => {
     const { baseCls, ...rest } = props;
     const renderFormActions = () => {
@@ -67,10 +70,6 @@ const SectionPlayground = (props) => {
             </ComponentPreview>
         </StorySection>
     );
-};
-
-SectionPlayground.propTypes = {
-    baseCls: PropTypes.string,
 };
 
 export default SectionPlayground;

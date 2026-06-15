@@ -1,10 +1,15 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { AccordionItem as AccItem } from 'react-accessible-accordion';
 
 // Constants
 import { ACCORDION_BASE_CLS } from './const/baseClsConst';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.id] - Unique identifier for the accordion item, used as the accordion panel's UUID
+ * @param {boolean} [props.shouldDangerouslySetExpanded] - Forces the expanded state of the accordion item
+ */
 const AccordionItem = (props) => {
     const { contextCls, id, shouldDangerouslySetExpanded, ...rest } = props;
     const baseCls = `${ACCORDION_BASE_CLS}__item`;
@@ -17,12 +22,6 @@ const AccordionItem = (props) => {
             dangerouslySetExpanded={shouldDangerouslySetExpanded}
         />
     );
-};
-
-AccordionItem.propTypes = {
-    contextCls: PropTypes.string,
-    id: PropTypes.string,
-    shouldDangerouslySetExpanded: PropTypes.bool,
 };
 
 export default AccordionItem;

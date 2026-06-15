@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types';
 import { Checkbox, Radio } from '@driponfleek/bankai-ui-form-elements';
 import {
     StorySection,
     ComponentPreview,
 } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {boolean} [props.isRadio] - When true, renders a Radio component in the preview; otherwise renders Checkbox
+ */
 const SectionPlayground = (props) => {
     const { isRadio = false, ...rest } = props;
     const Comp = isRadio ? Radio : Checkbox;
@@ -16,10 +19,6 @@ const SectionPlayground = (props) => {
             </ComponentPreview>
         </StorySection>
     );
-};
-
-SectionPlayground.propTypes = {
-    isRadio: PropTypes.bool,
 };
 
 export default SectionPlayground;

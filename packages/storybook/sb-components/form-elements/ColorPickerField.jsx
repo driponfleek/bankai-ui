@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
     ColorPickerInput,
     IFLFormFieldComposer,
@@ -6,6 +5,11 @@ import {
 
 const CPIField = IFLFormFieldComposer(ColorPickerInput);
 
+/**
+ * @param {Object} props
+ * @param {string} [props.fieldId] - Field identifier passed as the second argument to onChange
+ * @param {Function} [props.onChange] - Called with the formatted color value and fieldId on change
+ */
 const ColorPickerField = (props) => {
     const { onChange = ColorPickerField.onChange, fieldId, ...rest } = props;
     const handleChange = (colorVal) => {
@@ -18,10 +22,5 @@ const ColorPickerField = (props) => {
 };
 
 ColorPickerField.onChange = () => Promise.resolve();
-
-ColorPickerField.propTypes = {
-    fieldId: PropTypes.string,
-    onChange: PropTypes.func,
-};
 
 export default ColorPickerField;

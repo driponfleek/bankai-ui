@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import MainContent from './components/MainContent';
 
@@ -8,6 +7,14 @@ import { getLinkBtnExtantProps } from './utils/buttonUtils';
 // Styles
 import './styles/link-button.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.text] - Text label for the button
+ * @param {Object} [props.data] - Arbitrary data passed to event handler callbacks
+ * @param {Function} [props.onClick] - Callback fired on button click
+ * @param {Function} [props.renderIcon] - Render function for the button icon
+ */
 const LinkButton = (props) => {
     const {
         contextCls,
@@ -38,13 +45,5 @@ const LinkButton = (props) => {
 };
 
 LinkButton.onClick = () => Promise.resolve();
-
-LinkButton.propTypes = {
-    contextCls: PropTypes.string,
-    text: PropTypes.string,
-    data: PropTypes.object,
-    onClick: PropTypes.func,
-    renderIcon: PropTypes.func,
-};
 
 export default LinkButton;

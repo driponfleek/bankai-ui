@@ -24,6 +24,13 @@ const getBadgePreviewComp = (type) => {
     }
 };
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class used to scope the badge preview container
+ * @param {string} [props.variant] - Badge variant name; determines the badge component and source token key
+ * @param {Function} [props.dispatch] - Reducer dispatch used to update the source color token on change
+ * @param {Object} [props.opsProps] - Props forwarded to the SourceTokenOps controls
+ */
 const BadgeCompPreview = (props) => {
     const { baseCls, variant, dispatch, opsProps, ...rest } = props;
     const variantLowercase = variant?.toLowerCase();

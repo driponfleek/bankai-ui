@@ -1,5 +1,4 @@
 import { Children } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Utils
@@ -13,6 +12,11 @@ import './styles/loading-squares.scss';
 
 const { PULSING_WAVE } = LOADING_SQUARES_VARIANTS;
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.variant] - Visual variant of the loading squares animation
+ */
 const LoadingSquares = (props) => {
     const { contextCls, variant = PULSING_WAVE } = props;
     const baseCls = 'bankai-loading-squares';
@@ -28,11 +32,6 @@ const LoadingSquares = (props) => {
             )}
         </span>
     );
-};
-
-LoadingSquares.propTypes = {
-    contextCls: PropTypes.string,
-    variant: PropTypes.string,
 };
 
 export default LoadingSquares;

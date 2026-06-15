@@ -8,6 +8,17 @@ import {
 
 const DropdownField = IFLFormFieldComposer(Dropdown);
 
+/**
+ * @param {Object} props
+ * @param {string} [props.sourceTokenLabel] - Label for the source color token dropdown
+ * @param {Object} [props.sourceTokenValue] - Currently selected source token option
+ * @param {Array<Object>} [props.sourceTokenOps] - Available source token options for the dropdown
+ * @param {string} [props.styleLabel] - Label for the button style dropdown
+ * @param {Object} [props.styleValue] - Currently selected style option
+ * @param {Array<Object>} [props.styleOps] - Available style options for the dropdown
+ * @param {Function} [props.onSourceTokenChange] - Called when the source token selection changes
+ * @param {Function} [props.onStyleChange] - Called when the style selection changes
+ */
 const ButtonOps = (props) => {
     const {
         sourceTokenLabel,

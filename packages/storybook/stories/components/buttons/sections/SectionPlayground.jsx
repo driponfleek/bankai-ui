@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import {
     StorySection,
     ComponentPreview,
 } from '@driponfleek/bankai-lib-storybook';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.variant] - Button variant name used to resolve the playground component
+ * @param {Function} [props.getPlaygroundComp] - Function that receives a variant name and returns a button component
+ */
 const SectionPlayground = (props) => {
     const {
         variant,
@@ -22,10 +26,5 @@ const SectionPlayground = (props) => {
 };
 
 SectionPlayground.getPlaygroundComp = () => Promise.resolve();
-
-SectionPlayground.propTypes = {
-    variant: PropTypes.string,
-    getPlaygroundComp: PropTypes.func,
-};
 
 export default SectionPlayground;

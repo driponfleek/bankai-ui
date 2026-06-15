@@ -3,6 +3,12 @@ import { Hyperlink } from '@driponfleek/bankai-ui-navigation';
 import CompPreviewWithOps from './CompPreviewWithOps';
 import SourceTokenOps from './SourceTokenOps';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class used to scope the link preview container
+ * @param {Object} [props.opsProps] - Props forwarded to the SourceTokenOps controls
+ * @param {Function} [props.dispatch] - Reducer dispatch used to update the linkSourceColorToken on change
+ */
 const LinkCompPreview = (props) => {
     const { baseCls, opsProps, dispatch, ...rest } = props;
     const handleChange = (value = {}) => {

@@ -1,7 +1,12 @@
 import { Children, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 
+/**
+ * @param {Object} props
+ * @param {string} props.liCls - CSS class name to apply to each list item `<li>` element
+ * @param {Array} [props.data] - Array of data objects to render as list items
+ * @param {Function} [props.renderListItem] - Custom render function for each list item
+ */
 const ListChildren = (props) => {
     const { liCls, data = [], renderListItem = ListItem } = props;
 
@@ -12,12 +17,6 @@ const ListChildren = (props) => {
             )),
         );
     }, [data, renderListItem, liCls]);
-};
-
-ListChildren.propTypes = {
-    liCls: PropTypes.string.isRequired,
-    data: PropTypes.array,
-    renderListItem: PropTypes.func,
 };
 
 export default ListChildren;

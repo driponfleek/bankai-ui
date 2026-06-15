@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Constants
 import { TYPESET_BASE_CLS } from './const/typesetBaseClsConst';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.category] - Font category label displayed in the component
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.fontFamily] - Font family name; used as display text and to generate a modifier class
+ */
 const TypesetFontDetials = (props) => {
     const { category, contextCls, fontFamily } = props;
     const baseCls = `${TYPESET_BASE_CLS}__font-details`;
@@ -21,12 +26,6 @@ const TypesetFontDetials = (props) => {
             </span>
         </div>
     );
-};
-
-TypesetFontDetials.propTypes = {
-    category: PropTypes.string,
-    contextCls: PropTypes.string,
-    fontFamily: PropTypes.string,
 };
 
 export default TypesetFontDetials;

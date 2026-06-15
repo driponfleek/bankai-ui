@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Tabs, TabPanelContentComposer } from '@driponfleek/bankai-ui-tabs';
 import {
     BankaiCalendar,
@@ -25,6 +24,11 @@ const tab2Id = '2c3762b4-d70e-4884-a6ab-26d94c2f915c';
 const tab3Id = 'f01b4d64-1518-4cf1-af01-4d1558b687ee';
 const tab4Id = '14a064f8-a539-4176-852a-22dffcf80c56';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to tab panel image elements
+ * @param {Function} [props.onChange] - Called with the active tab ID when the selected tab changes
+ */
 const SectionPlayground = (props) => {
     const { baseCls, onChange = SectionPlayground.onChange, ...rest } = props;
     const [activeTabId, setActiveTabId] = useState(tab1Id);
@@ -101,10 +105,5 @@ const SectionPlayground = (props) => {
 };
 
 SectionPlayground.onChange = () => Promise.resolve();
-
-SectionPlayground.propTypes = {
-    baseCls: PropTypes.string,
-    onChange: PropTypes.func,
-};
 
 export default SectionPlayground;

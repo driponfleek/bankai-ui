@@ -1,6 +1,11 @@
-import PropTypes from 'prop-types';
 import { Heading } from '@driponfleek/bankai-ui-typography';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base CSS class name passed from the parent Tile component
+ * @param {string|React.ReactElement} [props.headingContent] - Content rendered inside the heading element
+ * @param {number} [props.headingLvl] - Heading level for the heading element
+ */
 const TileHeading = (props) => {
     const { baseCls, headingLvl, headingContent } = props;
 
@@ -11,12 +16,6 @@ const TileHeading = (props) => {
             </Heading>
         </div>
     );
-};
-
-TileHeading.propTypes = {
-    baseCls: PropTypes.string,
-    headingContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    headingLvl: PropTypes.number,
 };
 
 export default TileHeading;

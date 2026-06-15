@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { ButtonSecondary } from '@driponfleek/bankai-ui-buttons';
 import { BankaiCirclePlus } from '@driponfleek/bankai-ui-icons';
 import {
@@ -8,6 +7,10 @@ import {
 } from '@driponfleek/bankai-lib-storybook';
 import { getRenderIconCodeStrModifier } from '../../utils/storyUtils';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.btnText] - Button label text used in the rendering-an-icon example
+ */
 const SectionRenderingIcons = (props) => {
     const { btnText } = props;
 
@@ -27,10 +30,6 @@ const SectionRenderingIcons = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionRenderingIcons.propTypes = {
-    btnText: PropTypes.string,
 };
 
 export default SectionRenderingIcons;

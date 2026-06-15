@@ -1,5 +1,3 @@
-// import PropTypes from 'prop-types';
-// import cx from 'classnames';
 import { toast } from 'react-toastify';
 import ToastContainer from './ToastContainer';
 import Message from './components/ToasterMessage';
@@ -20,6 +18,13 @@ import './styles/toaster.scss';
 // Reference:
 // https://fkhadra.github.io/react-toastify/api/toast-container
 // https://fkhadra.github.io/react-toastify/api/toast
+/**
+ * @param {Object} props
+ * @param {string} [props.closeBtnARIALabel] - Accessible label for the close button
+ * @param {string} [props.variant] - Toast variant (e.g. "success", "error", "warning", "info")
+ * @param {Function} [props.renderCloseButton] - Custom render function for the close button
+ * @param {string} [props.toastId] - If provided, updates an existing toast with this ID instead of creating a new one
+ */
 const Toaster = (props) => {
     const {
         closeBtnARIALabel,

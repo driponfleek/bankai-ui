@@ -1,9 +1,18 @@
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Styles
 import './styles/fieldset.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.formId] - Associates the fieldset with a form by ID
+ * @param {string} [props.name] - Name attribute for the fieldset
+ * @param {boolean} [props.isDisabled] - Whether the fieldset and all its controls are disabled
+ * @param {boolean} [props.shouldIndentContent] - Whether to indent the fieldset content
+ * @param {Object} [props.legendProps] - Additional props to spread onto the legend element
+ * @param {string|React.ReactElement} props.legend - Content rendered inside the legend element
+ */
 const Fieldset = (props) => {
     const {
         contextCls,
@@ -38,17 +47,6 @@ const Fieldset = (props) => {
             <div className={`${baseCls}__content-container`}>{children}</div>
         </fieldset>
     );
-};
-
-Fieldset.propTypes = {
-    contextCls: PropTypes.string,
-    formId: PropTypes.string,
-    name: PropTypes.string,
-    isDisabled: PropTypes.bool,
-    shouldIndentContent: PropTypes.bool,
-    legendProps: PropTypes.object,
-    legend: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-        .isRequired,
 };
 
 export default Fieldset;

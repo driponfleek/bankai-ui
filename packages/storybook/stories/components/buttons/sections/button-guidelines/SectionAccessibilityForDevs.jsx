@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { OmniList, OmniListItem } from '@driponfleek/bankai-ui-typography';
 import {
     CodeTag,
@@ -9,6 +8,10 @@ import {
 // Utils
 import { getLocale } from '../../../../../utils/localeUtils';
 
+/**
+ * @param {Object} props
+ * @param {React.ReactElement} [props.disabledBullet] - Content rendered inside the "consider alternatives to disabling" list item
+ */
 const SectionAccessibilityForDevs = (props) => {
     const { disabledBullet } = props;
 
@@ -85,10 +88,6 @@ const SectionAccessibilityForDevs = (props) => {
             </StorySection>
         </StorySection>
     );
-};
-
-SectionAccessibilityForDevs.propTypes = {
-    disabledBullet: PropTypes.element,
 };
 
 export default SectionAccessibilityForDevs;

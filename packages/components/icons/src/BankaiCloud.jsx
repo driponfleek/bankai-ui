@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { TbCloud as Cloud } from 'react-icons/tb';
 
 // Utils
@@ -10,6 +9,11 @@ import baseCls from './const/baseClsConst';
 // Styles
 import './styles/shared.scss';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element
+ * @param {string} [props.className] - Additional CSS class name(s) to apply to the icon element
+ */
 const BankaiCloud = (props) => {
     const { contextCls, className, ...rest } = props;
 
@@ -19,11 +23,6 @@ const BankaiCloud = (props) => {
             className={classNameUtil(`${baseCls}-cloud`, className, contextCls)}
         />
     );
-};
-
-BankaiCloud.propTypes = {
-    contextCls: PropTypes.string,
-    className: PropTypes.string,
 };
 
 export default BankaiCloud;

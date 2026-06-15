@@ -9,6 +9,14 @@ import './styles/color-palette-gen-swatch.scss';
 
 const DropdownInput = IFLFormFieldComposer(Dropdown);
 
+/**
+ * @param {Object} props
+ * @param {string} [props.color] - Current color value shown in the swatch and selected in the dropdown
+ * @param {string} [props.token] - Semantic color token name used to derive the dropdown label
+ * @param {boolean} [props.isDisabled] - When true, disables the color picker dropdown
+ * @param {Array<Object>} [props.options] - Available color options for the dropdown
+ * @param {Function} [props.onChange] - Called with { token, value } when the selected color changes
+ */
 const ColorPaletteGenSwatch = (props) => {
     const {
         color,

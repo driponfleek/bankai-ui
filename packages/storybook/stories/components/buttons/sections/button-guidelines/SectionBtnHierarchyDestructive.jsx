@@ -1,8 +1,11 @@
-import PropTypes from 'prop-types';
 import { Paragraph } from '@driponfleek/bankai-ui-typography';
 import { StorySection, SectionTitle } from '@driponfleek/bankai-lib-storybook';
 import SectionBtnHierarchyExamples from '../../components/BtnHierarchyExamples';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.baseCls] - Base BEM class applied to the section container
+ */
 const SectionBtnHierarchyDestructive = (props) => {
     const { baseCls } = props;
 
@@ -26,10 +29,6 @@ const SectionBtnHierarchyDestructive = (props) => {
             <SectionBtnHierarchyExamples baseCls={baseCls} isDestructive />
         </StorySection>
     );
-};
-
-SectionBtnHierarchyDestructive.propTypes = {
-    baseCls: PropTypes.string,
 };
 
 export default SectionBtnHierarchyDestructive;
