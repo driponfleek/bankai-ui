@@ -1,0 +1,3 @@
+import{j as i}from"./jsx-runtime-Co4revrD.js";import{h as d}from"./FFCHints-DFsukNlH.js";import{F as l}from"./FormFieldComposer-a0s2fzzV.js";import{T as g}from"./ToggleSwitch-CWRCvoEv.js";const{INLINE_RIGHT:m}=d,p=l(g),e=o=>{const{onChange:n=e.onChange,fieldId:a,...r}=o,s=t=>{n(t,a)};return i.jsx(p,{...r,onChange:s,variant:m})};e.onChange=()=>Promise.resolve();e.__docgenInfo={description:`@param {Object} props
+@param {string} [props.fieldId] - Field identifier passed as the second argument to onChange
+@param {Function} [props.onChange] - Called with toggle params and fieldId on change`,methods:[{name:"onChange",docblock:null,modifiers:["static"],params:[],returns:null}],displayName:"ToggleSwitchField"};export{e as T};

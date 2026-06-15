@@ -1,0 +1,2 @@
+import{j as e}from"./jsx-runtime-Co4revrD.js";import{c as a}from"./localeUtils-D2w-4qCV.js";import{g as n}from"./iframe-BWkWyXRs.js";import{a as m}from"./BannerInfo-0m67LMbY.js";import{B as p}from"./BankaiCircleInfo-BlhFe6mE.js";const i=o=>{const{contextCls:r,...s}=o,t=`${n("banner")} ${n("banner-info")}`;return e.jsx(m,{...s,contextCls:a(t,r),renderIcon:p})};i.__docgenInfo={description:`@param {Object} props
+@param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element`,methods:[],displayName:"BannerInfo"};export{i as B};

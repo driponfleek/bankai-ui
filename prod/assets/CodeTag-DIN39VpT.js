@@ -1,0 +1,2 @@
+import{j as o}from"./jsx-runtime-Co4revrD.js";import{c as n}from"./localeUtils-D2w-4qCV.js";import{g as r}from"./iframe-BWkWyXRs.js";const c=e=>{const{contextCls:t,children:a}=e,s=r("code-tag");return o.jsx("code",{className:n(s,t),children:o.jsx("span",{className:`${s}__content`,children:a})})};c.__docgenInfo={description:`@param {Object} props
+@param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element`,methods:[],displayName:"CodeTag"};export{c as C};

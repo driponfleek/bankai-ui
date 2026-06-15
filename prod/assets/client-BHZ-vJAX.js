@@ -1,0 +1,1 @@
+import{c as o}from"./iframe-BWkWyXRs.js";import{r as a}from"./index--di1HZ0R.js";var r={},e;function i(){if(e)return r;e=1;var t=a();return r.createRoot=t.createRoot,r.hydrateRoot=t.hydrateRoot,r}var c=i();const R=o(c);export{R,c};

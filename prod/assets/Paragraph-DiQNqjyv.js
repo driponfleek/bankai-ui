@@ -1,0 +1,2 @@
+import{j as o}from"./jsx-runtime-Co4revrD.js";import{c as e}from"./localeUtils-D2w-4qCV.js";const p=a=>{const{contextCls:s,children:t,...r}=a;return o.jsx("p",{...r,className:e("bankai-paragraph",s),children:t})};p.__docgenInfo={description:`@param {Object} props
+@param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element`,methods:[],displayName:"Paragraph"};export{p as P};

@@ -1,0 +1,2 @@
+import{j as n}from"./jsx-runtime-Co4revrD.js";import{H as r,c as a}from"./localeUtils-D2w-4qCV.js";import{S as i}from"./iframe-BWkWyXRs.js";const c=t=>{const{contextCls:o,...s}=t,e=`${i}section-title`;return n.jsx(r,{contextCls:a(e,o),...s})};c.__docgenInfo={description:`@param {Object} props
+@param {string} [props.contextCls] - Additional CSS class name(s) to apply to the root element`,methods:[],displayName:"SectionTitle"};export{c as S};
